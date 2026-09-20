@@ -1,0 +1,15 @@
+{
+  "task": "stack small_red_block on blue_block",
+  "target_object": "small_red_block",
+  "base_object": "blue_block",
+  "debug_seeds": [51, 52, 53, 54, 55],
+  "heldout_seeds": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+  "success": {
+    "maximum_horizontal_error_m": 0.018,
+    "maximum_vertical_error_m": 0.012,
+    "report_upright_z_alignment": 0.92,
+    "require_target_upright": false,
+    "maximum_linear_or_angular_speed": 0.15,
+    "require_target_base_contact": true
+  }
+}

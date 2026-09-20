@@ -1,0 +1,565 @@
+import math
+import os
+from collections.abc import Callable
+from pathlib import Path
+
+if not os.environ.get("DISPLAY"):
+    os.environ.setdefault("MUJOCO_GL", "egl")
+
+import mujoco
+from mjviser import Viewer
+
+from mjlab.entity import EntityCfg
+from mjlab.scene import Scene, SceneCfg
+from mjlab.terrains import TerrainEntityCfg
+
+
+PROJECT_ROOT = Path(__file__).resolve().parent
+SO100_XML = PROJECT_ROOT / "assets" / "trs_so_arm100" / "so_arm100.xml"
+
+TABLE_HEIGHT = 0.40
+
+
+def get_so100_spec() -> mujoco.MjSpec:
+    spec = mujoco.MjSpec.from_file(str(SO100_XML))
+    # Look forward past the wrist toward the jaws and grasped object.
+    spec.body("Fixed_Jaw").add_camera(
+        name="wrist_camera",
+        pos=(0.0, -0.015, 0.045),
+        xyaxes=(-1.0, 0.0, 0.0, 0.0, -0.541, 0.841),
+        fovy=75.0,
+    )
+    # Cartesian primitives and trace overlays use this grasp-center site.
+    spec.body("Fixed_Jaw").add_site(
+        name="ee_site",
+        # Offset toward the moving jaw so the site is centered in an open grip.
+        pos=(-0.020, -0.085, 0.0),
+        size=(0.004,),
+        rgba=(0.1, 0.9, 0.2, 0.7),
+    )
+    return spec
+
+
+def get_table_spec() -> mujoco.MjSpec:
+    spec = mujoco.MjSpec()
+
+    body = spec.worldbody.add_body(name="table")
+    # Raised mast on the right edge, looking diagonally toward the workspace.
+    horizontal = math.hypot(.48, .30)
+    length = math.hypot(horizontal, .65)
+    body.add_camera(
+        name="overhead_camera",
+        pos=(0.48, -0.30, 0.725),
+        xyaxes=(.30 / horizontal, .48 / horizontal, 0.0,
+                -.65 * .48 / (length * horizontal),
+                .65 * .30 / (length * horizontal), horizontal / length),
+        fovy=60.0,
+    )
+    body.add_geom(name="camera_mast", type=mujoco.mjtGeom.mjGEOM_CYLINDER,
+                  pos=(.51,-.30,.35), size=(.012,.375), rgba=(.15,.17,.19,1),
+                  contype=0, conaffinity=0, mass=0)
+    body.add_geom(name="camera_mount", type=mujoco.mjtGeom.mjGEOM_BOX,
+                  pos=(.51,-.30,.725), size=(.025,.035,.022), rgba=(.12,.12,.12,1),
+                  contype=0, conaffinity=0, mass=0)
+    body.add_geom(
+        name="table_top",
+        type=mujoco.mjtGeom.mjGEOM_BOX,
+        # MuJoCo uses half-sizes: width, depth, thickness.
+        size=(0.40, 0.35, 0.025),
+        rgba=(0.55, 0.38, 0.22, 1.0),
+        friction=(1.0, 0.005, 0.0001),
+    )
+
+    return spec
+
+
+def get_block_spec(
+    name: str,
+    half_size: tuple[float, float, float],
+    color: tuple[float, float, float, float],
+) -> mujoco.MjSpec:
+    spec = mujoco.MjSpec()
+
+    body = spec.worldbody.add_body(name=name)
+    body.add_freejoint(name=f"{name}_joint")
+    body.add_geom(
+        name=f"{name}_geom",
+        type=mujoco.mjtGeom.mjGEOM_BOX,
+        size=half_size,
+        mass=0.03,
+        rgba=color,
+        friction=(1.0, 0.005, 0.0001),
+    )
+
+    return spec
+
+
+def get_cylinder_spec(
+    name: str,
+    radius: float,
+    half_height: float,
+    color: tuple[float, float, float, float],
+) -> mujoco.MjSpec:
+    """Create a graspable cylinder whose axis points upward."""
+    spec = mujoco.MjSpec()
+
+    body = spec.worldbody.add_body(name=name)
+    body.add_freejoint(name=f"{name}_joint")
+    body.add_geom(
+        name=f"{name}_geom",
+        type=mujoco.mjtGeom.mjGEOM_CYLINDER,
+        # Cylinder sizes are radius and half-height.
+        size=(radius, half_height),
+        mass=0.03,
+        rgba=color,
+        friction=(1.0, 0.005, 0.0001),
+    )
+
+    return spec
+
+
+def get_tetrahedron_spec(
+    name: str,
+    half_width: float,
+    half_depth: float,
+    height: float,
+    color: tuple[float, float, float, float],
+) -> mujoco.MjSpec:
+    """Create a tetrahedron with a triangular base and four triangular faces."""
+    spec = mujoco.MjSpec()
+
+    vertices = (
+        -half_width, -half_depth, -height / 2,
+        half_width, -half_depth, -height / 2,
+        0.0, half_depth, -height / 2,
+        0.0, 0.0, height / 2,
+    )
+    faces = (
+        0, 2, 1,  # base
+        0, 1, 3,
+        1, 2, 3,
+        2, 0, 3,
+    )
+    mesh_name = f"{name}_mesh"
+    spec.add_mesh(name=mesh_name, uservert=vertices, userface=faces)
+
+    body = spec.worldbody.add_body(name=name)
+    body.add_freejoint(name=f"{name}_joint")
+    body.add_geom(
+        name=f"{name}_geom",
+        type=mujoco.mjtGeom.mjGEOM_MESH,
+        meshname=mesh_name,
+        mass=0.03,
+        rgba=color,
+        friction=(1.0, 0.005, 0.0001),
+    )
+
+    return spec
+
+
+def get_arch_bridge_spec(
+    name: str,
+    half_depth: float,
+    color: tuple[float, float, float, float],
+) -> mujoco.MjSpec:
+    """Create a low, smooth arch bridge with stable compound collisions."""
+    spec = mujoco.MjSpec()
+
+    outer_half_width = 0.050
+    bottom = -0.030
+    top = 0.030
+    inner_radius = 0.024
+    spring_height = -0.010
+    outer_radius = top - spring_height
+    num_segments = 24
+
+    # Build one concave visual mesh. It contains the two legs and the material
+    # above the semicircular doorway, so the opening is genuinely visible.
+    vertices: list[float] = []
+    faces: list[int] = []
+    vertex_indices: dict[tuple[float, float, float], int] = {}
+
+    def vertex(point: tuple[float, float, float]) -> int:
+        if point not in vertex_indices:
+            vertex_indices[point] = len(vertices) // 3
+            vertices.extend(point)
+        return vertex_indices[point]
+
+    def quad(
+        a: tuple[float, float, float],
+        b: tuple[float, float, float],
+        c: tuple[float, float, float],
+        d: tuple[float, float, float],
+    ) -> None:
+        ia, ib, ic, id_ = (vertex(point) for point in (a, b, c, d))
+        faces.extend((ia, ib, ic, ia, ic, id_))
+
+    arch_points = []
+    for index in range(num_segments + 1):
+        angle = math.pi - math.pi * index / num_segments
+        arch_points.append(
+            (
+                inner_radius * math.cos(angle),
+                spring_height + inner_radius * math.sin(angle),
+            )
+        )
+
+    # Front and back faces: two legs plus narrow strips over the curved opening.
+    for y, front in ((-half_depth, True), (half_depth, False)):
+        surface_quads = [
+            (
+                (-outer_half_width, y, bottom),
+                (-inner_radius, y, bottom),
+                (-inner_radius, y, top),
+                (-outer_half_width, y, top),
+            ),
+            (
+                (inner_radius, y, bottom),
+                (outer_half_width, y, bottom),
+                (outer_half_width, y, top),
+                (inner_radius, y, top),
+            ),
+        ]
+        for (x0, z0), (x1, z1) in zip(arch_points, arch_points[1:]):
+            surface_quads.append(
+                ((x0, y, z0), (x1, y, z1), (x1, y, top), (x0, y, top))
+            )
+        for corners in surface_quads:
+            if front:
+                quad(*corners)
+            else:
+                quad(corners[0], corners[3], corners[2], corners[1])
+
+    # Outer perimeter, the bottoms of both legs, and the inside of the arch.
+    quad(
+        (-outer_half_width, -half_depth, bottom),
+        (-outer_half_width, -half_depth, top),
+        (-outer_half_width, half_depth, top),
+        (-outer_half_width, half_depth, bottom),
+    )
+    quad(
+        (outer_half_width, -half_depth, bottom),
+        (outer_half_width, half_depth, bottom),
+        (outer_half_width, half_depth, top),
+        (outer_half_width, -half_depth, top),
+    )
+    quad(
+        (-outer_half_width, -half_depth, top),
+        (outer_half_width, -half_depth, top),
+        (outer_half_width, half_depth, top),
+        (-outer_half_width, half_depth, top),
+    )
+    for x0, x1 in ((-outer_half_width, -inner_radius), (inner_radius, outer_half_width)):
+        quad(
+            (x0, -half_depth, bottom),
+            (x0, half_depth, bottom),
+            (x1, half_depth, bottom),
+            (x1, -half_depth, bottom),
+        )
+    quad(
+        (-inner_radius, -half_depth, bottom),
+        (-inner_radius, half_depth, bottom),
+        (-inner_radius, half_depth, spring_height),
+        (-inner_radius, -half_depth, spring_height),
+    )
+    quad(
+        (inner_radius, -half_depth, bottom),
+        (inner_radius, -half_depth, spring_height),
+        (inner_radius, half_depth, spring_height),
+        (inner_radius, half_depth, bottom),
+    )
+    for (x0, z0), (x1, z1) in zip(arch_points, arch_points[1:]):
+        quad(
+            (x0, -half_depth, z0),
+            (x0, half_depth, z0),
+            (x1, half_depth, z1),
+            (x1, -half_depth, z1),
+        )
+
+    mesh_name = f"{name}_mesh"
+    spec.add_mesh(name=mesh_name, uservert=vertices, userface=faces)
+
+    body = spec.worldbody.add_body(name=name)
+    body.add_freejoint(name=f"{name}_joint")
+    body.add_geom(
+        name=f"{name}_visual",
+        type=mujoco.mjtGeom.mjGEOM_MESH,
+        meshname=mesh_name,
+        contype=0,
+        conaffinity=0,
+        mass=0.0,
+        rgba=color,
+    )
+
+    middle_radius = (inner_radius + outer_radius) / 2
+    ring_half_thickness = (outer_radius - inner_radius) / 2
+    pillar_half_height = (spring_height - bottom) / 2
+    pillar_half_width = (outer_half_width - inner_radius) / 2
+    geom_mass = 0.04 / 11
+    collision_color = (0.0, 0.0, 0.0, 0.0)
+
+    # Invisible compound geoms keep collision handling stable while preserving
+    # the doorway instead of replacing the concave mesh with its convex hull.
+    pillar_center = (outer_half_width + inner_radius) / 2
+    for side, x in (("left", -pillar_center), ("right", pillar_center)):
+        body.add_geom(
+            name=f"{name}_{side}_pillar",
+            type=mujoco.mjtGeom.mjGEOM_BOX,
+            pos=(x, 0.0, (bottom + spring_height) / 2),
+            size=(pillar_half_width, half_depth, pillar_half_height),
+            mass=geom_mass,
+            rgba=collision_color,
+            friction=(1.0, 0.005, 0.0001),
+        )
+
+    segment_half_length = middle_radius * math.pi / num_segments * 0.58
+    for index in range(num_segments):
+        angle = math.pi * (index + 0.5) / num_segments
+        x = middle_radius * math.cos(angle)
+        z = spring_height + middle_radius * math.sin(angle)
+        body.add_geom(
+            name=f"{name}_arch_{index}",
+            type=mujoco.mjtGeom.mjGEOM_BOX,
+            pos=(x, 0.0, z),
+            axisangle=(0.0, 1.0, 0.0, math.pi / 2 - angle),
+            size=(segment_half_length, half_depth, ring_half_thickness),
+            mass=geom_mass,
+            rgba=collision_color,
+            friction=(1.0, 0.005, 0.0001),
+        )
+
+    return spec
+
+
+def get_hemisphere_spec(
+    name: str,
+    radius: float,
+    color: tuple[float, float, float, float],
+) -> mujoco.MjSpec:
+    """Create a closed, flat-bottomed hemisphere mesh."""
+    spec = mujoco.MjSpec()
+
+    num_rings = 5
+    num_segments = 20
+    vertices = [0.0, 0.0, radius / 2]  # dome apex
+    for ring in range(1, num_rings + 1):
+        polar_angle = math.pi * ring / (2 * num_rings)
+        ring_radius = radius * math.sin(polar_angle)
+        z = radius * math.cos(polar_angle) - radius / 2
+        for segment in range(num_segments):
+            angle = 2 * math.pi * segment / num_segments
+            vertices.extend(
+                (ring_radius * math.cos(angle), ring_radius * math.sin(angle), z)
+            )
+
+    base_center_index = 1 + num_rings * num_segments
+    vertices.extend((0.0, 0.0, -radius / 2))
+
+    faces: list[int] = []
+    for segment in range(num_segments):
+        next_segment = (segment + 1) % num_segments
+        faces.extend((0, 1 + segment, 1 + next_segment))
+
+    for ring in range(num_rings - 1):
+        current = 1 + ring * num_segments
+        below = current + num_segments
+        for segment in range(num_segments):
+            next_segment = (segment + 1) % num_segments
+            faces.extend((current + segment, below + segment, below + next_segment))
+            faces.extend((current + segment, below + next_segment, current + next_segment))
+
+    base_ring = 1 + (num_rings - 1) * num_segments
+    for segment in range(num_segments):
+        next_segment = (segment + 1) % num_segments
+        faces.extend((base_center_index, base_ring + next_segment, base_ring + segment))
+
+    mesh_name = f"{name}_mesh"
+    spec.add_mesh(name=mesh_name, uservert=vertices, userface=faces)
+
+    body = spec.worldbody.add_body(name=name)
+    body.add_freejoint(name=f"{name}_joint")
+    body.add_geom(
+        name=f"{name}_geom",
+        type=mujoco.mjtGeom.mjGEOM_MESH,
+        meshname=mesh_name,
+        mass=0.025,
+        rgba=color,
+        friction=(1.0, 0.005, 0.0001),
+    )
+
+    return spec
+
+
+def make_block_cfg(
+    name: str,
+    position: tuple[float, float, float],
+    half_size: tuple[float, float, float],
+    color: tuple[float, float, float, float],
+) -> EntityCfg:
+    return EntityCfg(
+        spec_fn=lambda: get_block_spec(name, half_size, color),
+        init_state=EntityCfg.InitialStateCfg(
+            pos=position,
+            joint_pos={},
+        ),
+    )
+
+
+def make_shape_cfg(
+    spec_fn: Callable[[], mujoco.MjSpec],
+    position: tuple[float, float, float],
+) -> EntityCfg:
+    """Wrap any free-joint object spec as an mjlab scene entity."""
+    return EntityCfg(
+        spec_fn=spec_fn,
+        init_state=EntityCfg.InitialStateCfg(
+            pos=position,
+            joint_pos={},
+        ),
+    )
+
+
+robot_cfg = EntityCfg(
+    spec_fn=get_so100_spec,
+    init_state=EntityCfg.InitialStateCfg(
+        pos=(0.0, 0.0, TABLE_HEIGHT),
+        joint_pos=None,  # Use the SO-100 home keyframe.
+    ),
+)
+
+table_cfg = EntityCfg(
+    spec_fn=get_table_spec,
+    init_state=EntityCfg.InitialStateCfg(
+        # Tabletop center. Its upper surface is at TABLE_HEIGHT.
+        pos=(0.0, -0.30, TABLE_HEIGHT - 0.025),
+        joint_pos={},
+    ),
+)
+
+entities = {
+    "robot": robot_cfg,
+    "table": table_cfg,
+    "red_block": make_block_cfg(
+        name="red_block",
+        position=(-0.20, -0.50, TABLE_HEIGHT + 0.025),
+        half_size=(0.04, 0.02, 0.025),
+        color=(0.9, 0.1, 0.1, 1.0),
+    ),
+    "blue_block": make_block_cfg(
+        name="blue_block",
+        position=(0.10, -0.23, TABLE_HEIGHT + 0.025),
+        half_size=(0.04, 0.02, 0.025),
+        color=(0.1, 0.3, 0.9, 1.0),
+    ),
+    "green_block": make_block_cfg(
+        name="green_block",
+        position=(-0.02, -0.35, TABLE_HEIGHT + 0.025),
+        half_size=(0.04, 0.02, 0.025),
+        color=(0.1, 0.7, 0.2, 1.0),
+    ),
+    "yellow_block": make_block_cfg(
+        name="yellow_block",
+        position=(0.16, -0.38, TABLE_HEIGHT + 0.025),
+        half_size=(0.04, 0.02, 0.025),
+        color=(0.95, 0.75, 0.05, 1.0),
+    ),
+    "small_red_block": make_block_cfg(
+        name="small_red_block",
+        position=(-0.18, -0.40, TABLE_HEIGHT + 0.02),
+        half_size=(0.025, 0.02, 0.02),
+        color=(0.9, 0.1, 0.1, 1.0),
+    ),
+    "blue_cylinder": make_shape_cfg(
+        spec_fn=lambda: get_cylinder_spec(
+            name="blue_cylinder",
+            radius=0.025,
+            half_height=0.045,
+            color=(0.08, 0.45, 0.95, 1.0),
+        ),
+        position=(-0.18, -0.29, TABLE_HEIGHT + 0.045),
+    ),
+    "yellow_tetrahedron": make_shape_cfg(
+        spec_fn=lambda: get_tetrahedron_spec(
+            name="yellow_tetrahedron",
+            half_width=0.045,
+            half_depth=0.040,
+            height=0.065,
+            color=(1.0, 0.82, 0.05, 1.0),
+        ),
+        position=(0.00, -0.17, TABLE_HEIGHT + 0.065 / 2),
+    ),
+    "red_arch_bridge": make_shape_cfg(
+        spec_fn=lambda: get_arch_bridge_spec(
+            name="red_arch_bridge",
+            half_depth=0.022,
+            color=(0.92, 0.12, 0.10, 1.0),
+        ),
+        # The shorter bridge extends 0.030 m below its body origin.
+        position=(0.12, -0.48, TABLE_HEIGHT + 0.030),
+    ),
+    "green_hemisphere": make_shape_cfg(
+        spec_fn=lambda: get_hemisphere_spec(
+            name="green_hemisphere",
+            radius=0.032,
+            color=(0.1, 0.72, 0.3, 1.0),
+        ),
+        position=(-0.07, -0.48, TABLE_HEIGHT + 0.032 / 2),
+    ),
+}
+
+scene_cfg = SceneCfg(
+    num_envs=1,
+    env_spacing=1.0,
+    terrain=TerrainEntityCfg(terrain_type="plane"),
+    entities=entities,
+)
+
+def build_scene(tower: bool = False) -> tuple[Scene, mujoco.MjModel, mujoco.MjData]:
+    """Compile and reset the shared SO-100 tabletop scene."""
+    cfg = scene_cfg
+    if tower:
+        from copy import deepcopy
+        cfg = deepcopy(scene_cfg)
+        # Dedicated construction workspace; the original shape scene is retained.
+        cfg.entities = {name: cfg.entities[name] for name in ("robot", "table", "blue_block", "small_red_block")}
+        cfg.entities["green_block"] = make_block_cfg(
+            "green_block", (-0.10, -0.32, TABLE_HEIGHT + 0.02),
+            (0.02, 0.02, 0.02), (0.1, 0.7, 0.2, 1.0),
+        )
+    scene = Scene(cfg, device="cpu")
+    model = scene.compile()
+    data = mujoco.MjData(model)
+    mujoco.mj_resetDataKeyframe(model, data, 0)
+    return scene, model, data
+
+
+def main() -> None:
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Watch the SO-100 stacking task.")
+    parser.add_argument("--scene-only", action="store_true", help="Open the passive scene without a policy.")
+    parser.add_argument("--seed", type=int, default=51, help="Stacking scene seed (default: 51).")
+    parser.add_argument("--task", choices=("single", "tower"), default="single")
+    parser.add_argument("--candidate", type=Path, help="Generated policy to replay (required for tower).")
+    args = parser.parse_args()
+    if not args.scene_only:
+        from aspire_so100.playback import watch_stacking
+
+        if args.task == "tower" and args.candidate is None:
+            parser.error("--task tower requires --candidate pointing to an LLM-generated policy")
+        watch_stacking(args.seed, task=args.task, candidate_path=args.candidate)
+        return
+    _, model, data = build_scene()
+    print(
+        f"Scene compiled: "
+        f"{model.nbody} bodies, "
+        f"{model.ngeom} geometries, "
+        f"{model.nu} actuators"
+    )
+    from aspire_so100.camera_view import run_camera_viewer
+
+    run_camera_viewer(model, data)
+
+
+if __name__ == "__main__":
+    main()
