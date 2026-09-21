@@ -12,7 +12,7 @@ import shutil
 import subprocess
 import sys
 
-if not os.environ.get("DISPLAY"):
+if sys.platform == "linux" and not os.environ.get("DISPLAY"):
     os.environ.setdefault("MUJOCO_GL", "egl")
 
 from aspire_so100.context import build_prompt, read_usage

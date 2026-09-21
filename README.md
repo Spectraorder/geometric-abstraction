@@ -1,5 +1,7 @@
 # ASPIRE SO-100 stacking
 
+新增 Mac RGB-D + 本体感知三层塔学习：空任务技能库，两轮达到 3/3，冻结后验证 2/2。见 [运行指南](docs/VISION_FROM_SCRATCH.zh-CN.md)、[可视化与后台部署](docs/VISION_DEPLOYMENT.zh-CN.md) 和 [历史输入审计](docs/OBSERVATION_AUDIT.zh-CN.md)。录像和公开证据随仓库保存在 `web/vision/`。[固定公网 Demo](https://aspire-so100-vision.vercel.app/) 已部署；Mac 后台服务和临时隧道启动方法见部署指南。
+
 This project adapts the three useful pieces of the ASPIRE workflow to the local
 `mjlab` SO-100 scene:
 

@@ -1,9 +1,10 @@
 import math
 import os
+import sys
 from collections.abc import Callable
 from pathlib import Path
 
-if not os.environ.get("DISPLAY"):
+if sys.platform == "linux" and not os.environ.get("DISPLAY"):
     os.environ.setdefault("MUJOCO_GL", "egl")
 
 import mujoco

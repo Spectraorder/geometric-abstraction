@@ -1,0 +1,220 @@
+{
+  "experiment": "vision_from_scratch_01",
+  "sensors": "RGB-D + calibration + proprioception",
+  "prior_task_skills": false,
+  "prior_task_policy": false,
+  "supplied_robot_sdk": true,
+  "policy_object_ground_truth": false,
+  "online_stability_oracle": false,
+  "trials": [
+    {
+      "label": "第 1 轮学习",
+      "seed": 81,
+      "success": false,
+      "policy_error": null,
+      "policy_sim_seconds": 26.999999999995552,
+      "candidate_sha256": "6ad2ae98e665e72e9a5215df3dc395f61da477c7ec6819cd59c7c2a0de3e948f",
+      "camera_calls": 9,
+      "metrics": {
+        "success": false,
+        "score": 0.5,
+        "placed_blocks": 1,
+        "required_placements": 2,
+        "structure_stable": false,
+        "failure": null
+      },
+      "observation_contract": "RGB-D + calibration + robot proprioception ONLY; evaluator results never returned to policy",
+      "video": {
+        "frames": 339,
+        "fps": 20,
+        "speed": 2,
+        "duration_seconds": 16.95,
+        "source": "saved actual physics states",
+        "success": false
+      },
+      "clip": "media/round_001_trial_81.mp4",
+      "poster": "media/round_001_trial_81.png",
+      "video_sha256": "a46ff18af22ec9d0aca9f2d472ba910c4cce61507dae19e58f4cd400a182e3ba"
+    },
+    {
+      "label": "第 2 轮学习",
+      "seed": 81,
+      "success": true,
+      "policy_error": null,
+      "policy_sim_seconds": 68.38000000002052,
+      "candidate_sha256": "61957c53bb3578f731607ce3aa60580d071c9245a357931c1136edb9dda17cdf",
+      "camera_calls": 29,
+      "sensor_blackout": false,
+      "metrics": {
+        "success": true,
+        "score": 1.0,
+        "placed_blocks": 2,
+        "required_placements": 2,
+        "structure_stable": true,
+        "failure": null
+      },
+      "observation_contract": "RGB-D + calibration + robot proprioception ONLY; evaluator results never returned to policy",
+      "video": {
+        "frames": 752,
+        "fps": 20,
+        "speed": 2,
+        "duration_seconds": 37.6,
+        "source": "saved actual physics states",
+        "success": true
+      },
+      "clip": "media/round_002_trial_81.mp4",
+      "poster": "media/round_002_trial_81.png",
+      "video_sha256": "ab6192953be792f7a010cb4bc64aa5189dbdbbd1c4e272bfa11bcf696e58c52f"
+    },
+    {
+      "label": "第 2 轮确认",
+      "seed": 82,
+      "success": true,
+      "policy_error": null,
+      "policy_sim_seconds": 67.1000000000235,
+      "candidate_sha256": "61957c53bb3578f731607ce3aa60580d071c9245a357931c1136edb9dda17cdf",
+      "camera_calls": 28,
+      "sensor_blackout": false,
+      "metrics": {
+        "success": true,
+        "score": 1.0,
+        "placed_blocks": 2,
+        "required_placements": 2,
+        "structure_stable": true,
+        "failure": null
+      },
+      "observation_contract": "RGB-D + calibration + robot proprioception ONLY; evaluator results never returned to policy",
+      "video": {
+        "frames": 740,
+        "fps": 20,
+        "speed": 2,
+        "duration_seconds": 37.0,
+        "source": "saved actual physics states",
+        "success": true
+      },
+      "clip": "media/round_002_trial_82.mp4",
+      "poster": "media/round_002_trial_82.png",
+      "video_sha256": "078ee3867e972d08773e7207196faed5cb7a692217cee82aecea19a62022deab"
+    },
+    {
+      "label": "第 2 轮确认",
+      "seed": 83,
+      "success": true,
+      "policy_error": null,
+      "policy_sim_seconds": 68.38000000002052,
+      "candidate_sha256": "61957c53bb3578f731607ce3aa60580d071c9245a357931c1136edb9dda17cdf",
+      "camera_calls": 29,
+      "sensor_blackout": false,
+      "metrics": {
+        "success": true,
+        "score": 1.0,
+        "placed_blocks": 2,
+        "required_placements": 2,
+        "structure_stable": true,
+        "failure": null
+      },
+      "observation_contract": "RGB-D + calibration + robot proprioception ONLY; evaluator results never returned to policy",
+      "video": {
+        "frames": 752,
+        "fps": 20,
+        "speed": 2,
+        "duration_seconds": 37.6,
+        "source": "saved actual physics states",
+        "success": true
+      },
+      "clip": "media/round_002_trial_83.mp4",
+      "poster": "media/round_002_trial_83.png",
+      "video_sha256": "0599bd17c5ba4cc9dfab4add715cb377ff0c270a87bf69fd9c1b31e44cf0de00"
+    },
+    {
+      "label": "冻结后验证",
+      "seed": 91,
+      "success": true,
+      "policy_error": null,
+      "policy_sim_seconds": 66.00000000002606,
+      "candidate_sha256": "61957c53bb3578f731607ce3aa60580d071c9245a357931c1136edb9dda17cdf",
+      "camera_calls": 28,
+      "sensor_blackout": false,
+      "metrics": {
+        "success": true,
+        "score": 1.0,
+        "placed_blocks": 2,
+        "required_placements": 2,
+        "structure_stable": true,
+        "failure": null
+      },
+      "observation_contract": "RGB-D + calibration + robot proprioception ONLY; evaluator results never returned to policy",
+      "video": {
+        "frames": 729,
+        "fps": 20,
+        "speed": 2,
+        "duration_seconds": 36.45,
+        "source": "saved actual physics states",
+        "success": true
+      },
+      "clip": "media/heldout_trial_91.mp4",
+      "poster": "media/heldout_trial_91.png",
+      "video_sha256": "8a820956d288a32a94f4ff6af05de90edd07dda850f4969b92561c8a61c2dd5e"
+    },
+    {
+      "label": "冻结后验证",
+      "seed": 92,
+      "success": true,
+      "policy_error": null,
+      "policy_sim_seconds": 65.82000000002648,
+      "candidate_sha256": "61957c53bb3578f731607ce3aa60580d071c9245a357931c1136edb9dda17cdf",
+      "camera_calls": 27,
+      "sensor_blackout": false,
+      "metrics": {
+        "success": true,
+        "score": 1.0,
+        "placed_blocks": 2,
+        "required_placements": 2,
+        "structure_stable": true,
+        "failure": null
+      },
+      "observation_contract": "RGB-D + calibration + robot proprioception ONLY; evaluator results never returned to policy",
+      "video": {
+        "frames": 727,
+        "fps": 20,
+        "speed": 2,
+        "duration_seconds": 36.35,
+        "source": "saved actual physics states",
+        "success": true
+      },
+      "clip": "media/heldout_trial_92.mp4",
+      "poster": "media/heldout_trial_92.png",
+      "video_sha256": "f0888d782c889379ba90514ec8251dcd220dd517dba316ca11b54b6eaf9b3a29"
+    },
+    {
+      "label": "视觉关闭对照",
+      "seed": 81,
+      "success": false,
+      "policy_error": null,
+      "policy_sim_seconds": 0.0,
+      "candidate_sha256": "61957c53bb3578f731607ce3aa60580d071c9245a357931c1136edb9dda17cdf",
+      "camera_calls": 1,
+      "sensor_blackout": true,
+      "metrics": {
+        "success": false,
+        "score": 0.0,
+        "placed_blocks": 0,
+        "required_placements": 2,
+        "structure_stable": false,
+        "failure": null
+      },
+      "observation_contract": "RGB-D + calibration + robot proprioception ONLY; evaluator results never returned to policy",
+      "video": {
+        "frames": 69,
+        "fps": 20,
+        "speed": 2,
+        "duration_seconds": 3.45,
+        "source": "saved actual physics states",
+        "success": false
+      },
+      "clip": "media/audit_blackout.mp4",
+      "poster": "media/audit_blackout.png",
+      "video_sha256": "76c01451705c46169105ef7dc4862e0a3ce791b51e2042019b6996fc0cf89641"
+    }
+  ]
+}

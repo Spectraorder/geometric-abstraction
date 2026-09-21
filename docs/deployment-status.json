@@ -1,0 +1,24 @@
+{
+  "verified_at": "2026-09-21",
+  "public_url": "https://aspire-so100-vision.vercel.app",
+  "mirror_hosting": "Vercel static production deployment",
+  "mac_public_url": "https://fgsjk-185-220-238-74.run.pinggy-free.link",
+  "mac_hosting": "macOS launchd + Pinggy SSH/443",
+  "mac_url_lifetime_minutes": 60,
+  "local_port": 8091,
+  "mac_http_index": 200,
+  "mac_video_range": 206,
+  "mirror_http_index": 200,
+  "mirror_video_range": 206,
+  "both_public_video_sha256_match_source": true,
+  "tests_passed": 15,
+  "fresh_checkout_seed91_success": true,
+  "browser_playback": {
+    "url": "https://aspire-so100-vision.vercel.app",
+    "duration_seconds": 37.6,
+    "observed_playing_time_seconds": 18.238945,
+    "paused": false
+  },
+  "network_note": "Cloudflare Quick Tunnel repeatedly stalled on this network. The active Mac service uses Pinggy; share the fixed mirror URL for durable access.",
+  "git_auto_deploy_connected": false
+}
