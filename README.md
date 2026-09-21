@@ -279,3 +279,84 @@ and reuses the best and latest candidates; it does not yet run a parallel
 population or implement human turn-taking. The original `aspire-so100`
 command still evaluates manually supplied single-object policies and does
 not call an LLM; use `aspire_so100.agent_loop` for autonomous discovery.
+
+## Skill layer, kinematics and tower plans (added 2026-09-21)
+
+A verified pick-and-stack skill layer that reaches 100% on both benchmark
+tasks and generalises to arbitrary tower plans on randomized layouts. It
+uses only the `TowerAPI` surface (`get_observation`, `move_to_joint_positions`
+/ `move_end_effector`, `set_gripper`, `wait`), so the same code runs on
+`StackingEnv`, under the tower trial runner, and in the plan harness.
+
+| Module | What it does |
+|---|---|
+| `src/aspire_so100/skills.py` | `Skills.grasp` (yaw-aligned, centred between the open pads, **lift postcondition** rejects misses and slips), `Skills.place` (live re-perception of the support, descent closed on the held block's **lowest point**, fixed-pad back-off before retreat, geometry-aware placement check), level inspection (`level_ok`, `first_bad_level`), parking on free spots |
+| `src/aspire_so100/so100_kinematics.py` | Exact FK from the MJCF (0.000 mm vs MuJoCo) and a **task-priority IK**: site position (hard) → gripper pointing down in the position nullspace (exact where feasible, minimum tilt otherwise) → closing-axis yaw via the wrist roll |
+| `src/aspire_so100/tower_plan.py` | `TowerPlan` schema (block *selectors*, support DAG, offsets, relative yaw), `compile_plan` (selector binding, ordering and static COM/reach checks), `execute_plan` with **level-aware repair**: on an unstable check, find the lowest broken level, park the blocks above it, rebuild |
+| `src/aspire_so100/eval_skills.py` | In-process evaluator mirroring the official protocols; `--task stack|tower|plan`, `--randomize`, `--contact-fix` |
+| `policies/stack_skills.py`, `policies/tower_skills.py` | Benchmark policies on top of the skill layer |
+| `policies/tower_standalone.py` | The tower policy folded into one lint-compliant file (math/numpy only) for `agent_loop`'s bwrap runner |
+
+```bash
+uv run python -m aspire_so100.eval_skills --task stack --candidate policies/stack_skills.py --seeds 51-55
+uv run python -m aspire_so100.eval_skills --task tower --candidate policies/tower_skills.py --seeds 100-119 --randomize 0.03
+uv run python -m aspire_so100.eval_skills --task plan --seeds 1-10          # eight plans on the 5-box scene
+```
+
+### Results (frozen policies; held-out seeds evaluated after development on 51-55 / 100-119)
+
+| Task | Split | Success | Notes |
+|---|---|---|---|
+| Stack small red on blue | held-out 1–10 (official CLI) | **10/10** | centring 2.8 mm mean / 5.7 mm max, height 0.2 mm, all upright (baseline: 4/5 debug, ~15 mm, tipped) |
+| 3-block tower | held-out 1–10 + validation 61–62 | **12/12** | |
+| 3-block tower, ±3 cm / ±25° layout jitter | seeds 1–10 | **10/10** | 19/20 under `--contact-fix` physics |
+| Tower plans, randomized 5-box layouts | 2-block plans (selectors, base relocation), held-out 1–10 | 18/20 | 20/20 on dev 100–109 |
+| | 3-block plans (straight, selectors, staircase offsets, crossed), held-out 1–10 | 32/40 | 34/40 on dev; staircase offsets are the weakest (5/10) |
+| | 4- and 5-block towers, held-out 1–10 | 1/20 | kinematic limit, see below |
+
+### What limited the original policies
+
+* `wrist_roll=0` ignored the base rotation; the jaw closing-axis yaw is
+  `pi/2 + base_rotation + wrist_roll`, so jaws were ~40° off the block —
+  hence tipped placements and silent misses that no postcondition caught.
+* Position-only IK leaves gripper pitch free; at transit poses it reached
+  25°, and long blocks rotated out of the narrow pads.
+* mjlab's `Scene` overrides the robot MJCF's `cone="elliptic" impratio="10"`
+  with `pyramidal` / `1` (it warns at compile time). `--contact-fix`
+  restores them; results above hold under both.
+
+### Known limits
+
+* **Height.** With the wrist pitch at its 1.66 rad limit the gripper cannot
+  stay vertical above ~10 cm site height; minimum tilt is ~12–17° at 14 cm
+  and 25–30° at 18 cm. Top-down stacking degrades from the 4th 5 cm layer
+  on. Taller towers need a different grasp (side grasp) or a taller arm.
+* Rendering (`--render`, `get_overhead_rgbd`, the official worker's
+  before/after images) currently runs on software EGL on this host — the
+  NVIDIA kernel/userspace versions are mismatched until a reboot — so it
+  works but slowly. `python -m aspire_so100.agent_loop --worker --candidate
+  policies/tower_standalone.py --output <dir> --seed 51` completes with
+  `success: true`.
+
+### Environment note
+
+`../github/mjlab` must be `mujocolab/mjlab` at commit `88a7ff8` (the lock
+records `rsl-rl-lib==5.5.0` and `wandb<0.29`, which only that commit has),
+with its `requires-python` cap relaxed from `<3.14` to `<3.15` — the lock is
+resolved for Python 3.14. `uv lock --check` then passes.
+
+### Watching rollouts
+
+* **Interactive (browser):** `uv run python view_scene.py --task tower --candidate policies/tower_skills.py --seed 51`
+  simulates the policy, then loops the recorded physical rollout in viser
+  (pause / speed / reset) with the wrist camera and overhead RGB-D panels.
+  `--scene-only` opens the passive scene.
+* **Video (MP4):** `MUJOCO_GL=egl uv run python -m aspire_so100.record_video --task tower --candidate policies/tower_skills.py --seed 107 --randomize 0.03`
+  writes `outputs/videos/<task>_<policy>_seed<N>.mp4` — free camera with the
+  wrist and overhead cameras alongside, captioned with sim time and the
+  running primitive. `--task stack|tower|plan`, `--plan p3_crossed`,
+  `--speed` (sim seconds per video second), `--views free,wrist,overhead`.
+* **Keyframes:** `uv run aspire-so100 --split debug --seeds 51 --render`
+  saves a PNG before/after every primitive under the trial directory; the
+  official worker writes `initial.png` / `outcome.png` (side RGB, depth,
+  wrist RGB) per trial.
