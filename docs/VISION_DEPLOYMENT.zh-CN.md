@@ -1,5 +1,7 @@
 # 本机 IP、公开 HTTPS 和 macOS 后台运行
 
+本次 [公网 Demo](https://jelsoft-boulder-hierarchy-weights.trycloudflare.com/) 已验证首页 200、视频 Range 206、完整 MP4 传输与源文件 SHA-256 一致。此临时网址依赖实验 Mac 在线，重启隧道可能改变。见 [部署验证记录](deployment-status.json)。
+
 可视化随分支保存在 `web/vision/`，包括七段实际物理录像、结果清单、两轮候选策略与提示词。克隆本分支后，不需要重新训练即可展示。公开服务仅提供这些选定静态文件，不启动机械臂控制接口，不提供目录列表，也不发布原始模型会话、认证信息或整个实验目录。
 
 ## 立即本地运行
@@ -49,3 +51,5 @@ python3 scripts/serve_vision_demo.py --root outputs/vision_public_export --port 
 ```
 
 每个公开结果记录策略 SHA-256、录像 SHA-256、传感器调用次数和实际策略时间。视频均为 2 倍速，在界面和视频中明确标注。已成功策略可用 `policies/stack_three_blocks_vision.py` 复跑，见 [视觉实验指南](VISION_FROM_SCRATCH.zh-CN.md)。
+
+首次临时隧道在传输检查中出现超时，重连后完整约 2 MB 视频在 4.92 秒内传输成功。Codex 内置浏览器首次呈现画廊，但点击播放时页崩溃，因此该次 UI 播放检查未记为通过；页面保留单独下载入口。

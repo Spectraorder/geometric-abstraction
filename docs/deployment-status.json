@@ -1,0 +1,14 @@
+{
+  "verified_at": "2026-09-21",
+  "public_url": "https://jelsoft-boulder-hierarchy-weights.trycloudflare.com",
+  "hosting": "Mac launchd + Cloudflare Quick Tunnel",
+  "persistent_url": false,
+  "http_index": 200,
+  "video_range": 206,
+  "public_video_sha256_matches": true,
+  "full_video_transfer_seconds": 4.92,
+  "tests_passed": 15,
+  "fresh_checkout_seed91_success": true,
+  "initial_tunnel_note": "First quick tunnel became unresponsive during verification; reconnected and verified a complete MP4 transfer. No uptime guarantee.",
+  "browser_note": "First public gallery rendered in Codex in-app browser, but its tab crashed when clicking playback; HTTP and MP4 verification are separate."
+}
