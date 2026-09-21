@@ -11,6 +11,9 @@ ROOT = Path(__file__).resolve().parents[1] / 'web/vision'
 
 
 class DemoHandler(BaseHTTPRequestHandler):
+    protocol_version = "HTTP/1.1"
+    timeout = 30
+
     def __init__(self, *args, root=ROOT, **kwargs):
         self.root = Path(root).resolve()
         super().__init__(*args, **kwargs)
@@ -23,6 +26,8 @@ class DemoHandler(BaseHTTPRequestHandler):
 
     def send_asset(self, head=False):
         relative = unquote(urlsplit(self.path).path).lstrip('/') or 'index.html'
+        if any(part.startswith('.') for part in Path(relative).parts):
+            return self.send_error(404)
         try:
             path = (self.root / relative).resolve()
             if not path.is_relative_to(self.root) or not path.is_file():

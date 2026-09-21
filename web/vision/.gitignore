@@ -1,0 +1,3 @@
+# Local deployment metadata and credentials
+.vercel/
+.env*

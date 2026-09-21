@@ -21,6 +21,8 @@ class DemoServerTests(unittest.TestCase):
         (self.root/'index.html').write_text('demo')
         (self.root/'sample.mp4').write_bytes(b'0123456789')
         (self.base/'private.json').write_text('private')
+        (self.root/'.private').mkdir()
+        (self.root/'.private/state.json').write_text('hidden')
         (self.root/'escape.json').symlink_to(self.base/'private.json')
         self.server=ThreadingHTTPServer(('127.0.0.1',0),partial(module.DemoHandler,root=self.root))
         self.thread=threading.Thread(target=self.server.serve_forever,daemon=True);self.thread.start()
@@ -41,7 +43,7 @@ class DemoServerTests(unittest.TestCase):
         self.assertEqual(error.exception.code,416)
 
     def test_public_root_does_not_expose_parent_or_symlink(self):
-        for path in ['/../private.json','/%2e%2e/private.json','/escape.json','/.git/config','/directory/']:
+        for path in ['/../private.json','/%2e%2e/private.json','/escape.json','/.git/config','/directory/','/.private/state.json']:
             with self.subTest(path=path),self.assertRaises(HTTPError) as error:urlopen(self.url+path)
             self.assertEqual(error.exception.code,404)
         with urlopen(self.url+'/') as response:self.assertEqual(response.read(),b'demo')
