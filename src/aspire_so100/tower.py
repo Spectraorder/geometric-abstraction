@@ -28,19 +28,25 @@ class TowerEnv(StackingEnv):
         self.checks = []
         self.failure = None
 
-    def reset(self, seed):
+    def reset(self, seed, layout="nominal"):
+        if layout not in ("nominal", "random_xy"):
+            raise ValueError(f"Unknown layout: {layout}")
         super().reset(seed)
         self.built = [ORDER[0]]
         self.checks = []
         self.failure = None
         rng = np.random.default_rng(seed)
+        if layout == "random_xy":
+            from aspire_so100.layouts import random_block_positions
+            random_positions = random_block_positions(seed)
         for name, xy, half_height in (
             ("blue_block", (0.09, -0.25), .025),
             ("small_red_block", (-.12, -.21), .02),
             ("green_block", (-.10, -.32), .02),
         ):
-            jitter = rng.uniform(-.004, .004, 2)
-            self._set_freejoint_pose(name, (* (np.array(xy) + jitter), TABLE_HEIGHT + half_height), 0.)
+            position = (random_positions[name] if layout == "random_xy"
+                        else np.array(xy) + rng.uniform(-.004, .004, 2))
+            self._set_freejoint_pose(name, (*position, TABLE_HEIGHT + half_height), 0.)
         mujoco.mj_forward(self.model, self.data)
         self._step_for(.4)
         return self.observation()

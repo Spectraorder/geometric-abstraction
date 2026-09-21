@@ -14,6 +14,9 @@ import sys
 import tempfile
 import time
 
+if sys.platform == 'linux' and not os.environ.get('DISPLAY'):
+    os.environ.setdefault('MUJOCO_GL', 'egl')
+
 import mujoco
 import numpy as np
 from scipy.optimize import least_squares
@@ -87,6 +90,26 @@ def sandbox_profile(directory):
             '(deny file-write* (require-not (subpath '+json.dumps(directory)+')))\n')
 
 
+def policy_worker_command(directory, candidate):
+    """Run the policy with no network and only its scratch directory writable."""
+    worker = str(directory / 'worker.py')
+    candidate = str(candidate)
+    if sys.platform == 'darwin':
+        profile = directory / 'policy.sb'
+        profile.write_text(sandbox_profile(str(directory)))
+        return ['/usr/bin/sandbox-exec', '-f', str(profile), sys.executable,
+                '-I', worker, candidate]
+    if sys.platform == 'linux':
+        if not shutil.which('bwrap'):
+            raise RuntimeError('bwrap is required to run a vision policy on Linux')
+        return ['bwrap', '--die-with-parent', '--unshare-net', '--new-session',
+                '--ro-bind', '/', '/', '--tmpfs', str(Path.home()),
+                '--proc', '/proc', '--dev', '/dev',
+                '--bind', str(directory), str(directory), '--chdir', str(directory),
+                sys.executable, '-I', worker, candidate]
+    raise RuntimeError(f'No vision policy sandbox for {sys.platform}')
+
+
 def validate_source(source):
     tree=ast.parse(source)
     forbidden={'open','exec','eval','compile','getattr','setattr','delattr','globals','locals','vars',
@@ -105,20 +128,25 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--candidate',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
     p.add_argument('--seed',type=int,default=81);p.add_argument('--timeout',type=float,default=120)
+    p.add_argument('--layout', choices=('nominal','random_xy'), default='nominal')
     p.add_argument('--sensor-blackout',action='store_true',help='Diagnostic: remove all policy RGB-D pixels; evaluation remains unchanged')
     a=p.parse_args();a.output.mkdir(parents=True,exist_ok=False)
     validate_source(a.candidate.read_text())
     env=VisionTrialEnv(a.output);calls=[];error=None;images=[]
     try:
-        env.reset(a.seed);env.frames.clear();env.capture()
+        env.reset(a.seed, layout=a.layout);env.frames.clear();env.capture()
         start=float(env.data.time)
         initial=env.get_overhead_rgbd();Image.fromarray(initial['rgb']).save(a.output/'initial.png')
         with tempfile.TemporaryDirectory(prefix='vision-policy-') as tmp:
-            tmp=str(Path(tmp).resolve());shutil.copy(a.candidate,Path(tmp)/'candidate.py')
-            shutil.copy(Path(__file__).with_name('vision_policy_worker.py'),Path(tmp)/'worker.py')
-            profile=Path(tmp)/'policy.sb';profile.write_text(sandbox_profile(tmp))
-            (a.output/'sandbox.sb').write_text(profile.read_text())
-            cmd=['/usr/bin/sandbox-exec','-f',str(profile),sys.executable,'-I',str(Path(tmp)/'worker.py'),str(Path(tmp)/'candidate.py')]
+            directory=Path(tmp).resolve()
+            shutil.copy(a.candidate,directory/'candidate.py')
+            shutil.copy(Path(__file__).with_name('vision_policy_worker.py'),directory/'worker.py')
+            cmd=policy_worker_command(directory,directory/'candidate.py')
+            if sys.platform == 'darwin':
+                (a.output/'sandbox.sb').write_text((directory/'policy.sb').read_text())
+            else:
+                (a.output/'sandbox.json').write_text(json.dumps({'isolation':'bwrap',
+                    'network':'disabled','writable_paths':[str(directory)]},indent=2)+'\n')
             clean={'PATH':'/usr/bin:/bin','HOME':tmp,'TMPDIR':tmp,'OPENBLAS_NUM_THREADS':'1','OMP_NUM_THREADS':'1','PYTHONDONTWRITEBYTECODE':'1'}
             with (a.output/'worker.stderr').open('w') as stderr:
                 proc=subprocess.Popen(cmd,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=stderr,text=True,cwd=tmp,env=clean,bufsize=1)
@@ -169,6 +197,9 @@ def main():
                         except Exception as exc:
                             proc.stdin.write(json.dumps({'error':type(exc).__name__+': '+str(exc)})+'\n');proc.stdin.flush()
                 except Exception as exc:
+                    if isinstance(exc, RuntimeError) and str(exc).startswith('Policy process exited without completion'):
+                        detail=(a.output/'worker.stderr').read_text()[-3000:]
+                        raise RuntimeError(f'Vision worker failed before completion: {detail}') from exc
                     error=type(exc).__name__+': '+str(exc);env.failure=error
                 finally:
                     proc.terminate()
@@ -183,7 +214,7 @@ def main():
         env.wait(1.)
         np.savez_compressed(a.output/'rollout.npz',states=env.frames,timestep=env.model.opt.timestep,state_type=int(env.state_type))
         (a.output/'api_calls.json').write_text(json.dumps(calls,indent=2)+'\n')
-        result={'seed':a.seed,'success':metrics.success,'policy_error':error,'policy_sim_seconds':policy_seconds,
+        result={'seed':a.seed,'layout':a.layout,'success':metrics.success,'policy_error':error,'policy_sim_seconds':policy_seconds,
                 'candidate_sha256':hashlib.sha256(a.candidate.read_bytes()).hexdigest(),'camera_calls':len(images),
                 'sensor_blackout':a.sensor_blackout,
                 'metrics':asdict(metrics),'observation_contract':'RGB-D + calibration + robot proprioception ONLY; evaluator results never returned to policy'}

@@ -26,6 +26,24 @@ The **Arm camera** panel shows the wrist-mounted camera image; an orange
 camera outline follows the arm in the 3D scene. The image updates at up to
 10 FPS. On headless hosts the viewer selects EGL automatically; you can also
 set `MUJOCO_GL=egl` explicitly.
+
+The newer sensor-only RGB-D policy has a separate Viser playback mode. It runs
+the frozen policy once with its `camera()`/`proprioception()` API, saves the
+actual MuJoCo rollout, then opens interactive Viser playback with the side
+RGB-D and wrist-camera panels:
+
+```bash
+uv run python view_scene.py --vision-policy policies/stack_three_blocks_vision.py \
+  --seed 81 --vision-output outputs/vision_viser_81
+```
+
+The output directory must not exist yet. To replay this same trial without
+running the policy again, use `uv run python view_scene.py --vision-trial
+outputs/vision_viser_81`. On Linux, the policy subprocess requires `bwrap`;
+on macOS, it uses `sandbox-exec`. The older `--task tower --candidate` mode
+uses a different API and cannot execute the RGB-D policy.
+Viser's **1x** setting paces the saved states at their original simulated-time
+duration (subject to render performance); the separate MP4 demo is labeled 2x.
 The printed success result describes the selected rollout; playback does not
 guarantee that every seed succeeds.
 
@@ -67,6 +85,46 @@ held-out traces to tune a policy. Record repairs that generalize across debug
 seeds in `skills/stacking.md`.
 
 ## Automatic LLM propose / execute / repair loop
+
+### Learning across randomized RGB-D layouts
+
+`scripts/learn_randomized_vision.py` evaluates the existing vision policy, then
+asks the LLM to improve it using sensor images and post-trial feedback. All
+three block colors share XY bounds `[-0.14, 0.14] × [-0.32, -0.21]` metres,
+with 25 mm edge clearance. Yaw is unchanged. Training uses seeds 101–105;
+only after 5/5 pass is the frozen candidate tested on held-out seeds 201–205.
+Held-out feedback is never sent to the learner. This is continuation from the
+existing policy, not learning from an empty policy library.
+
+The current 5/5 training policy is saved in
+`policies/stack_three_blocks_random_xy.py` (SHA-256
+`0c8f31b2949a83b20acae430497a775590aae113439de7c89cb11f37df908349`).
+Two reserved layouts, 201 and 202, were run and both passed. The other three
+reserved layouts were not run; this is not a 5/5 held-out result.
+
+```bash
+uv run python -u scripts/learn_randomized_vision.py \
+  --root outputs/random_xy_01 --model gpt-6-astra --rounds 0 --jobs 2
+```
+
+The same command resumes completed rounds. It retains the best scored policy
+as `best_policy.py` and a successful replay directory in `best_trial.txt`.
+Each attempt saves `rollout.npz`, cameras, notes, results and logs; MP4 rendering
+is optional. `--baseline-only` runs no LLM calls. `--rounds 0` keeps trying until
+all five training layouts pass or interruption. There is no cumulative token cap;
+each proposal has bounded feedback, up to four images, and a 300-second timeout.
+
+To execute any selected policy on a random layout and then view it at 1x:
+
+```bash
+uv run python view_scene.py --vision-policy policies/stack_three_blocks_random_xy.py \
+  --vision-layout random_xy --seed 301 --vision-output outputs/random_view_301
+```
+
+To replay an existing attempt without executing it again, pass its directory
+to `view_scene.py --vision-trial`.
+
+### Original campaign runner
 
 The autonomous runner invokes the installed **Codex CLI** using its existing
 login and configured model (or an explicit `--model`). It sends the task API,

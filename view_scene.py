@@ -539,16 +539,39 @@ def main() -> None:
 
     parser = argparse.ArgumentParser(description="Watch the SO-100 stacking task.")
     parser.add_argument("--scene-only", action="store_true", help="Open the passive scene without a policy.")
-    parser.add_argument("--seed", type=int, default=51, help="Stacking scene seed (default: 51).")
+    parser.add_argument("--seed", type=int, help="Scene seed (default: 51, or 81 for --vision-policy).")
     parser.add_argument("--task", choices=("single", "tower"), default="single")
     parser.add_argument("--candidate", type=Path, help="Generated policy to replay (required for tower).")
+    vision = parser.add_mutually_exclusive_group()
+    vision.add_argument("--vision-policy", type=Path,
+                        help="Run a sensor-only RGB-D policy, then replay it in Viser.")
+    vision.add_argument("--vision-trial", type=Path,
+                        help="Replay an existing vision trial containing rollout.npz in Viser.")
+    parser.add_argument("--vision-output", type=Path,
+                        help="Keep the new vision trial in this non-existing directory.")
+    parser.add_argument("--vision-layout", choices=("nominal", "random_xy"), default="nominal",
+                        help="Initial block positions when executing --vision-policy.")
     args = parser.parse_args()
+    if args.vision_output is not None and args.vision_policy is None:
+        parser.error("--vision-output requires --vision-policy")
+    if (args.vision_policy or args.vision_trial) and (args.scene_only or args.candidate or args.task != "single"):
+        parser.error("Vision modes cannot be combined with --scene-only, --candidate, or --task")
+    if args.vision_policy:
+        from aspire_so100.playback import watch_vision_policy
+        watch_vision_policy(args.vision_policy, seed=args.seed if args.seed is not None else 81,
+                            output=args.vision_output, layout=args.vision_layout)
+        return
+    if args.vision_trial:
+        from aspire_so100.playback import watch_vision_rollout
+        watch_vision_rollout(args.vision_trial)
+        return
     if not args.scene_only:
         from aspire_so100.playback import watch_stacking
 
         if args.task == "tower" and args.candidate is None:
             parser.error("--task tower requires --candidate pointing to an LLM-generated policy")
-        watch_stacking(args.seed, task=args.task, candidate_path=args.candidate)
+        watch_stacking(args.seed if args.seed is not None else 51,
+                       task=args.task, candidate_path=args.candidate)
         return
     _, model, data = build_scene()
     print(
