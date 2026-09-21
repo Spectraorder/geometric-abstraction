@@ -132,7 +132,7 @@ class ContextTests(unittest.TestCase):
             self.assertFalse((output / 'round_002').exists())
             self.assertEqual((output / 'best_policy.py').read_text(),
                              (output / 'round_001/candidate.py').read_text())
-            self.assertEqual(state['best_policy'], str(output / 'best_policy.py'))
+            self.assertEqual(Path(state['best_policy']).resolve(), (output / 'best_policy.py').resolve())
             self.assertEqual(calls, [('hypothesis', 'code'),
                                      ('failure_signature', 'when_to_apply', 'repair', 'limitations')])
             self.assertEqual(state['status'], 'completed')

@@ -1,0 +1,30 @@
+{
+  "label": "冻结后验证",
+  "seed": 91,
+  "success": true,
+  "policy_error": null,
+  "policy_sim_seconds": 66.00000000002606,
+  "candidate_sha256": "61957c53bb3578f731607ce3aa60580d071c9245a357931c1136edb9dda17cdf",
+  "camera_calls": 28,
+  "sensor_blackout": false,
+  "metrics": {
+    "success": true,
+    "score": 1.0,
+    "placed_blocks": 2,
+    "required_placements": 2,
+    "structure_stable": true,
+    "failure": null
+  },
+  "observation_contract": "RGB-D + calibration + robot proprioception ONLY; evaluator results never returned to policy",
+  "video": {
+    "frames": 729,
+    "fps": 20,
+    "speed": 2,
+    "duration_seconds": 36.45,
+    "source": "saved actual physics states",
+    "success": true
+  },
+  "clip": "media/heldout_trial_91.mp4",
+  "poster": "media/heldout_trial_91.png",
+  "video_sha256": "8a820956d288a32a94f4ff6af05de90edd07dda850f4969b92561c8a61c2dd5e"
+}

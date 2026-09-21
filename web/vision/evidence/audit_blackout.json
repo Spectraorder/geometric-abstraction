@@ -1,0 +1,30 @@
+{
+  "label": "视觉关闭对照",
+  "seed": 81,
+  "success": false,
+  "policy_error": null,
+  "policy_sim_seconds": 0.0,
+  "candidate_sha256": "61957c53bb3578f731607ce3aa60580d071c9245a357931c1136edb9dda17cdf",
+  "camera_calls": 1,
+  "sensor_blackout": true,
+  "metrics": {
+    "success": false,
+    "score": 0.0,
+    "placed_blocks": 0,
+    "required_placements": 2,
+    "structure_stable": false,
+    "failure": null
+  },
+  "observation_contract": "RGB-D + calibration + robot proprioception ONLY; evaluator results never returned to policy",
+  "video": {
+    "frames": 69,
+    "fps": 20,
+    "speed": 2,
+    "duration_seconds": 3.45,
+    "source": "saved actual physics states",
+    "success": false
+  },
+  "clip": "media/audit_blackout.mp4",
+  "poster": "media/audit_blackout.png",
+  "video_sha256": "76c01451705c46169105ef7dc4862e0a3ce791b51e2042019b6996fc0cf89641"
+}

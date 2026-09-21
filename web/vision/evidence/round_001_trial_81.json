@@ -1,0 +1,29 @@
+{
+  "label": "第 1 轮学习",
+  "seed": 81,
+  "success": false,
+  "policy_error": null,
+  "policy_sim_seconds": 26.999999999995552,
+  "candidate_sha256": "6ad2ae98e665e72e9a5215df3dc395f61da477c7ec6819cd59c7c2a0de3e948f",
+  "camera_calls": 9,
+  "metrics": {
+    "success": false,
+    "score": 0.5,
+    "placed_blocks": 1,
+    "required_placements": 2,
+    "structure_stable": false,
+    "failure": null
+  },
+  "observation_contract": "RGB-D + calibration + robot proprioception ONLY; evaluator results never returned to policy",
+  "video": {
+    "frames": 339,
+    "fps": 20,
+    "speed": 2,
+    "duration_seconds": 16.95,
+    "source": "saved actual physics states",
+    "success": false
+  },
+  "clip": "media/round_001_trial_81.mp4",
+  "poster": "media/round_001_trial_81.png",
+  "video_sha256": "a46ff18af22ec9d0aca9f2d472ba910c4cce61507dae19e58f4cd400a182e3ba"
+}
