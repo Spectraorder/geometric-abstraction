@@ -2,10 +2,11 @@
 import numpy as np
 
 RANDOM_XY_BOUNDS = ((-.14, .14), (-.32, -.21))
+CUBE_SIDE_M = 0.03
+CUBE_HALF_SIZE = (CUBE_SIDE_M / 2,) * 3
 BLOCK_HALF_SIZES = {
-    'blue_block': (.04, .02, .025),
-    'small_red_block': (.025, .02, .02),
-    'green_block': (.02, .02, .02),
+    name: CUBE_HALF_SIZE
+    for name in ('blue_block', 'small_red_block', 'green_block')
 }
 
 

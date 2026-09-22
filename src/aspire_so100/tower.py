@@ -7,6 +7,7 @@ import mujoco
 import numpy as np
 
 from aspire_so100.stacking_env import StackingEnv, TABLE_HEIGHT, _jsonable
+from aspire_so100.layouts import BLOCK_HALF_SIZES
 
 ORDER = ("blue_block", "small_red_block", "green_block")
 
@@ -39,14 +40,14 @@ class TowerEnv(StackingEnv):
         if layout == "random_xy":
             from aspire_so100.layouts import random_block_positions
             random_positions = random_block_positions(seed)
-        for name, xy, half_height in (
-            ("blue_block", (0.09, -0.25), .025),
-            ("small_red_block", (-.12, -.21), .02),
-            ("green_block", (-.10, -.32), .02),
+        for name, xy in (
+            ("blue_block", (0.09, -0.25)),
+            ("small_red_block", (-.12, -.21)),
+            ("green_block", (-.10, -.32)),
         ):
             position = (random_positions[name] if layout == "random_xy"
                         else np.array(xy) + rng.uniform(-.004, .004, 2))
-            self._set_freejoint_pose(name, (*position, TABLE_HEIGHT + half_height), 0.)
+            self._set_freejoint_pose(name, (*position, TABLE_HEIGHT + BLOCK_HALF_SIZES[name][2]), 0.)
         mujoco.mj_forward(self.model, self.data)
         self._step_for(.4)
         return self.observation()
