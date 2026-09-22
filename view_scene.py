@@ -13,6 +13,7 @@ from mjviser import Viewer
 from mjlab.entity import EntityCfg
 from mjlab.scene import Scene, SceneCfg
 from mjlab.terrains import TerrainEntityCfg
+from aspire_so100.layouts import CUBE_HALF_SIZE
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent
@@ -442,32 +443,32 @@ entities = {
     "table": table_cfg,
     "red_block": make_block_cfg(
         name="red_block",
-        position=(-0.20, -0.50, TABLE_HEIGHT + 0.025),
-        half_size=(0.04, 0.02, 0.025),
+        position=(-0.20, -0.50, TABLE_HEIGHT + CUBE_HALF_SIZE[2]),
+        half_size=CUBE_HALF_SIZE,
         color=(0.9, 0.1, 0.1, 1.0),
     ),
     "blue_block": make_block_cfg(
         name="blue_block",
-        position=(0.10, -0.23, TABLE_HEIGHT + 0.025),
-        half_size=(0.04, 0.02, 0.025),
+        position=(0.10, -0.23, TABLE_HEIGHT + CUBE_HALF_SIZE[2]),
+        half_size=CUBE_HALF_SIZE,
         color=(0.1, 0.3, 0.9, 1.0),
     ),
     "green_block": make_block_cfg(
         name="green_block",
-        position=(-0.02, -0.35, TABLE_HEIGHT + 0.025),
-        half_size=(0.04, 0.02, 0.025),
+        position=(-0.02, -0.35, TABLE_HEIGHT + CUBE_HALF_SIZE[2]),
+        half_size=CUBE_HALF_SIZE,
         color=(0.1, 0.7, 0.2, 1.0),
     ),
     "yellow_block": make_block_cfg(
         name="yellow_block",
-        position=(0.16, -0.38, TABLE_HEIGHT + 0.025),
-        half_size=(0.04, 0.02, 0.025),
+        position=(0.16, -0.38, TABLE_HEIGHT + CUBE_HALF_SIZE[2]),
+        half_size=CUBE_HALF_SIZE,
         color=(0.95, 0.75, 0.05, 1.0),
     ),
     "small_red_block": make_block_cfg(
         name="small_red_block",
-        position=(-0.18, -0.40, TABLE_HEIGHT + 0.02),
-        half_size=(0.025, 0.02, 0.02),
+        position=(-0.18, -0.40, TABLE_HEIGHT + CUBE_HALF_SIZE[2]),
+        half_size=CUBE_HALF_SIZE,
         color=(0.9, 0.1, 0.1, 1.0),
     ),
     "blue_cylinder": make_shape_cfg(
@@ -524,8 +525,8 @@ def build_scene(tower: bool = False) -> tuple[Scene, mujoco.MjModel, mujoco.MjDa
         # Dedicated construction workspace; the original shape scene is retained.
         cfg.entities = {name: cfg.entities[name] for name in ("robot", "table", "blue_block", "small_red_block")}
         cfg.entities["green_block"] = make_block_cfg(
-            "green_block", (-0.10, -0.32, TABLE_HEIGHT + 0.02),
-            (0.02, 0.02, 0.02), (0.1, 0.7, 0.2, 1.0),
+            "green_block", (-0.10, -0.32, TABLE_HEIGHT + CUBE_HALF_SIZE[2]),
+            CUBE_HALF_SIZE, (0.1, 0.7, 0.2, 1.0),
         )
     scene = Scene(cfg, device="cpu")
     model = scene.compile()

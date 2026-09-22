@@ -9,6 +9,7 @@ from pathlib import Path
 import shutil
 import subprocess
 import sys
+import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
 TRAIN = [101, 102, 103, 104, 105]
@@ -28,6 +29,15 @@ def evaluate(candidate, directory, seeds, jobs):
     def trial(seed):
         out = directory / f'seed_{seed}'
         if not (out / 'result.json').exists():
+            if out.exists():
+                # A killed/timed-out trial leaves partial artifacts. Keep them
+                # for diagnosis, but give the runner a fresh output path.
+                archive = Path(tempfile.mkdtemp(prefix=f'seed_{seed}.interrupted-',
+                                                dir=directory))
+                out.rename(archive / 'trial')
+                previous_log = directory / f'seed_{seed}.log'
+                if previous_log.exists():
+                    previous_log.rename(archive / previous_log.name)
             worker_env = dict(os.environ, OPENBLAS_NUM_THREADS='1', OMP_NUM_THREADS='1')
             if sys.platform == 'linux' and not os.environ.get('DISPLAY'):
                 worker_env.setdefault('MUJOCO_GL', 'egl')

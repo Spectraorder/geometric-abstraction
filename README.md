@@ -11,10 +11,72 @@ This project adapts the three useful pieces of the ASPIRE workflow to the local
    seeds.
 3. A small skill library stores validated repair patterns for later candidates.
 
-The initial task is **stack `small_red_block` on `blue_block`**. The larger red
-block and the other shapes remain in the scene as distractors. A trial succeeds
+All box-shaped blocks are currently **3 × 3 × 3 cm cubes**. The initial task is
+**stack `small_red_block` on `blue_block`**; the object names are retained for
+policy compatibility. The other red cube and other shapes remain in the scene
+as distractors. A trial succeeds
 when the red block is centered on, touching, and stable on the blue block at the
 correct surface-relative height. Orientation is reported but is not required.
+
+Historical recordings and campaign success rates below describe their recorded
+scene geometry; the 4 cm results are not results for the current 3 cm scene.
+
+## Visual cube and gripper geometry
+
+`policies/stack_three_blocks_visual_geometry.py` passed **445/450 development**,
+**198/200 fresh reserved randomized layouts (99%)**, and **10/10 nominal** layouts
+in simulation. It uses side RGB-D and wrist RGB to measure visible gripper reach
+and cube geometry, then moves the blue base to a clear area selected using
+robot-only reachability previews. It predicts how a tilted cube will settle and
+permits a bounded retry. A deliberately missed grasp recovered with **9.75
+additional simulated seconds**. See the [results, gripper overlay, and recovery
+replay](docs/VISUAL_RETRY_POLICY.md).
+
+```bash
+uv run python view_scene.py --vision-policy policies/stack_three_blocks_visual_geometry.py \
+  --vision-layout random_xy --seed 4001 --vision-output outputs/visual_geometry_view_4001
+```
+
+## Earlier improved 3 cm cube policy
+
+`policies/stack_three_blocks_cubes_3cm.py` passed **8/10 training** layouts and
+**9/10 new reserved** layouts (2001–2010), compared with **4/10** for the original
+geometry policy on both sets. The fitter and evaluator are unchanged; the repair
+raises the grasp, reduces release compensation, and increases final contact
+clearance. See [the 3 cm evolution report](docs/CUBE_3CM_EVOLUTION.md).
+
+The unchanged geometry policy and earlier evolved policy each passed **4/10**
+randomized layouts in the initial transfer test. RGB-D estimated the side length at about
+29.9 mm, but placement/support failures remain. See
+[the 3 cm evaluation](docs/CUBE_3CM_EVALUATION.md) for per-seed results and evidence.
+
+```bash
+uv run python view_scene.py --vision-policy policies/stack_three_blocks_cubes_3cm.py \
+  --vision-layout random_xy --seed 2002 --vision-output outputs/cube_3cm_view_2002
+```
+
+Saved state replays require the matching scene size: older 4 cm `rollout.npz`
+files should not be replayed with the current 3 cm scene. Their existing MP4s
+retain the original geometry.
+
+## Evolved policy for 4 cm cubes
+
+The historical `policies/stack_three_blocks_geometry.py` additionally fits cube
+centroids, orientation, and eight inferred vertices from RGB-D. It passed 5/5
+training seeds and 5/5 new validation seeds (1001–1005), compared with 3/5 for
+the earlier evolved policy on those same new seeds. See
+[visual cube geometry](docs/VISUAL_CUBE_GEOMETRY.md) for the method, uncertainty,
+overlays, and run commands.
+
+`policies/stack_three_blocks_cubes_4cm.py` reached **5/5 training** layouts
+(101–105), then **4/5 reserved** layouts (201–205) after freezing. The same
+frozen policy passed **2/3 nominal** layouts (81–83). It uses RGB-D measurements
+for grasp height and release-drift compensation. See
+[the evolution report](docs/CUBE_4CM_EVOLUTION.md) for changes and remaining failures.
+
+These results require the original 4 cm scene. Use the saved MP4 recordings
+to review them; running these policies in the current scene is a new 3 cm
+transfer experiment.
 
 ## Run the baseline
 
@@ -109,6 +171,8 @@ uv run python -u scripts/learn_randomized_vision.py \
 
 The same command resumes completed rounds. It retains the best scored policy
 as `best_policy.py` and a successful replay directory in `best_trial.txt`.
+When retrying an interrupted trial without `result.json`, it preserves the partial
+files and previous log under `seed_<seed>.interrupted-*` before rerunning that seed.
 Each attempt saves `rollout.npz`, cameras, notes, results and logs; MP4 rendering
 is optional. `--baseline-only` runs no LLM calls. `--rounds 0` keeps trying until
 all five training layouts pass or interruption. There is no cumulative token cap;

@@ -11,6 +11,7 @@ from typing import Any, Callable, TypeVar
 
 import mujoco
 import numpy as np
+from aspire_so100.layouts import BLOCK_HALF_SIZES
 
 
 _PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -28,8 +29,8 @@ build_scene = _SCENE_MODULE.build_scene
 
 TARGET_OBJECT = "small_red_block"
 BASE_OBJECT = "blue_block"
-TARGET_HALF_HEIGHT = 0.020
-BASE_HALF_HEIGHT = 0.025
+TARGET_HALF_HEIGHT = BLOCK_HALF_SIZES[TARGET_OBJECT][2]
+BASE_HALF_HEIGHT = BLOCK_HALF_SIZES[BASE_OBJECT][2]
 
 _T = TypeVar("_T")
 
@@ -103,6 +104,12 @@ class StackingEnv:
             from aspire_so100.rgbd import OverheadRGBD
             self._overhead_rgbd = OverheadRGBD(self.model)
         return self._overhead_rgbd.capture(self.data)
+
+    def get_wrist_rgb(self):
+        if self._overhead_rgbd is None:
+            from aspire_so100.rgbd import OverheadRGBD
+            self._overhead_rgbd = OverheadRGBD(self.model)
+        return self._overhead_rgbd.capture_wrist(self.data)
 
     def _set_freejoint_pose(
         self, object_name: str, position: tuple[float, float, float], yaw: float
