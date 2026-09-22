@@ -26,12 +26,20 @@ class API:
         if 'error' in result:
             raise RuntimeError(result['error'])
         return unpack(result['result'])
-    def camera(self):
-        return self.call('camera')
+    def camera(self, view='side'):
+        return self.call('camera', view=view)
     def proprioception(self):
         return self.call('proprioception')
-    def move_tool(self, position, seconds=1.5):
-        return self.call('move_tool',position=np.asarray(position).tolist(),seconds=float(seconds))
+    def move_tool(self, position, seconds=1.5, orientation=None):
+        params = {'position': np.asarray(position).tolist(), 'seconds': float(seconds)}
+        if orientation is not None:
+            params['orientation'] = np.asarray(orientation).tolist()
+        return self.call('move_tool', **params)
+    def plan_tool(self, position, orientation=None):
+        params = {'position': np.asarray(position).tolist()}
+        if orientation is not None:
+            params['orientation'] = np.asarray(orientation).tolist()
+        return self.call('plan_tool', **params)
     def move_joints(self, angles, seconds=1.5):
         return self.call('move_joints',angles=np.asarray(angles).tolist(),seconds=float(seconds))
     def gripper(self, angle, seconds=.6):

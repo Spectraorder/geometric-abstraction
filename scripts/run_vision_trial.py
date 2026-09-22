@@ -63,24 +63,39 @@ class VisionTrialEnv(RecordedTowerEnv):
                 self.checks.append({'stable':True,'reasons':[],'blocks':list(ORDER[:2]),'duration_s':self.intermediate_stable_seconds,'time':now,'source':'private continuous monitor'})
 
 
-def move_tool(env,position,seconds):
-    """Robot SDK: robot-model-only numerical IK, no object state inputs."""
+def plan_tool(env,position,orientation=None):
+    """Robot-only IK preview. No object poses, contacts or task results."""
     target=np.asarray(position,float)
     if target.shape!=(3,) or not np.isfinite(target).all() or np.linalg.norm(target)>2:
         raise ValueError('position must be a finite world XYZ in meters')
     scratch=mujoco.MjData(env.model)
     q=env.data.qpos[env.arm_qpos_addresses].copy()
     limits=env.model.jnt_range[[j.id for j in env.arm_joints]]
-    orientation=np.array([[0,0,1],[1,0,0],[0,1,0.]])
+    if orientation is None:
+        orientation=np.array([[0,0,1],[1,0,0],[0,1,0.]])
+    else:
+        orientation=np.asarray(orientation,float)
+        if (orientation.shape!=(3,3) or not np.isfinite(orientation).all()
+                or not np.allclose(orientation.T @ orientation,np.eye(3),atol=1e-5)
+                or np.linalg.det(orientation)<.999):
+            raise ValueError('orientation must be a finite proper 3x3 rotation matrix')
     def residual(angles):
         scratch.qpos[env.arm_qpos_addresses]=angles
         mujoco.mj_kinematics(env.model,scratch)
         R=scratch.site_xmat[env.site_id].reshape(3,3)
         return np.r_[scratch.site_xpos[env.site_id]-target,(.025*(R-orientation)).ravel()]
     result=least_squares(residual,np.clip(q,limits[:,0]+1e-8,limits[:,1]-1e-8),bounds=(limits[:,0],limits[:,1]),max_nfev=150,xtol=1e-10,ftol=1e-10,gtol=1e-10)
-    if np.linalg.norm(residual(result.x)[:3])>.005:
+    error=float(np.linalg.norm(residual(result.x)[:3]))
+    return {'joint_angles':result.x.copy(),'tool_position':scratch.site_xpos[env.site_id].copy(),
+            'tool_rotation':scratch.site_xmat[env.site_id].reshape(3,3).copy(),'position_error':error}
+
+
+def move_tool(env,position,seconds,orientation=None):
+    """Robot SDK: robot-model-only numerical IK, no object state inputs."""
+    plan=plan_tool(env,position,orientation)
+    if plan['position_error']>.005:
         raise RuntimeError('Requested tool position is unreachable within 5 mm')
-    env.move_to_joint_positions(result.x,seconds)
+    env.move_to_joint_positions(plan['joint_angles'],seconds)
 
 
 def sandbox_profile(directory):
@@ -102,9 +117,18 @@ def policy_worker_command(directory, candidate):
     if sys.platform == 'linux':
         if not shutil.which('bwrap'):
             raise RuntimeError('bwrap is required to run a vision policy on Linux')
-        return ['bwrap', '--die-with-parent', '--unshare-net', '--new-session',
-                '--ro-bind', '/', '/', '--tmpfs', str(Path.home()),
-                '--proc', '/proc', '--dev', '/dev',
+        home = Path.home()
+        command = ['bwrap', '--die-with-parent', '--unshare-net', '--new-session',
+                   '--ro-bind', '/', '/', '--tmpfs', str(home)]
+        # uv commonly installs both the venv and its base interpreter under
+        # HOME. Restore only their runtime directories after masking HOME;
+        # the surrounding checkout and other home files stay hidden.
+        runtime_paths = {Path(prefix) for prefix in (sys.prefix, sys.base_prefix)}
+        runtime_paths.update(path.resolve() for path in tuple(runtime_paths))
+        for path in sorted(runtime_paths, key=lambda p: (len(p.parts), str(p))):
+            if path.is_relative_to(home):
+                command += ['--ro-bind', str(path), str(path)]
+        return command + ['--proc', '/proc', '--dev', '/dev',
                 '--bind', str(directory), str(directory), '--chdir', str(directory),
                 sys.executable, '-I', worker, candidate]
     raise RuntimeError(f'No vision policy sandbox for {sys.platform}')
@@ -168,18 +192,24 @@ def main():
                             seconds=float(params.get('seconds',1.5))
                             if not np.isfinite(seconds) or not 0<=seconds<=10:raise ValueError('seconds must be 0..10')
                             if method=='camera':
-                                response=env.get_overhead_rgbd()
+                                view=params.get('view', 'side')
+                                if view not in ('side', 'wrist'):
+                                    raise ValueError('camera view must be side or wrist')
+                                response=env.get_overhead_rgbd() if view=='side' else env.get_wrist_rgb()
                                 if a.sensor_blackout:
                                     response['rgb'][:]=0
-                                    response['depth_m'][:]=np.nan
-                                    response['valid_depth'][:]=False
+                                    if view=='side':
+                                        response['depth_m'][:]=np.nan
+                                        response['valid_depth'][:]=False
                                 i=len(images);filename=f'camera_{i:03d}.npz'
                                 np.savez_compressed(a.output/filename,**response)
                                 Image.fromarray(response['rgb']).save(a.output/f'camera_{i:03d}.png')
                                 images.append(filename)
                             elif method=='proprioception':
-                                response={'joint_angles':env.data.qpos[env.arm_qpos_addresses].copy(),'tool_position':env.data.site_xpos[env.site_id].copy(),'time':float(env.data.time)}
-                            elif method=='move_tool':move_tool(env,params['position'],max(.1,seconds))
+                                response={'joint_angles':env.data.qpos[env.arm_qpos_addresses].copy(),'tool_position':env.data.site_xpos[env.site_id].copy(),'tool_rotation':env.data.site_xmat[env.site_id].reshape(3,3).copy(),'time':float(env.data.time)}
+                                calls[-1]['observation']={key: value.tolist() if isinstance(value,np.ndarray) else value for key,value in response.items()}
+                            elif method=='move_tool':move_tool(env,params['position'],max(.1,seconds),params.get('orientation'))
+                            elif method=='plan_tool':response=plan_tool(env,params['position'],params.get('orientation'))
                             elif method=='move_joints':
                                 q=np.asarray(params['angles'],float)
                                 if q.shape!=(5,) or not np.isfinite(q).all():raise ValueError('five finite joint angles required')
@@ -217,7 +247,7 @@ def main():
         result={'seed':a.seed,'layout':a.layout,'success':metrics.success,'policy_error':error,'policy_sim_seconds':policy_seconds,
                 'candidate_sha256':hashlib.sha256(a.candidate.read_bytes()).hexdigest(),'camera_calls':len(images),
                 'sensor_blackout':a.sensor_blackout,
-                'metrics':asdict(metrics),'observation_contract':'RGB-D + calibration + robot proprioception ONLY; evaluator results never returned to policy'}
+                'metrics':asdict(metrics),'observation_contract':'Side RGB-D, wrist RGB, calibration + robot proprioception ONLY; evaluator results never returned to policy'}
         (a.output/'result.json').write_text(json.dumps(result,indent=2)+'\n')
         # Only this reduced result and rendered sensor frames go back to the actor.
         (a.output/'actor_feedback.json').write_text(json.dumps({'success':metrics.success,'policy_error':error,'policy_sim_seconds':policy_seconds,'notes':[c['params']['text'] for c in calls if c['method']=='note']},indent=2)+'\n')

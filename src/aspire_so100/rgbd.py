@@ -36,6 +36,21 @@ class OverheadRGBD:
     def close(self):
         self.renderer.close()
 
+    def capture_wrist(self, data):
+        """RGB and robot-camera calibration only; the wrist has no depth sensor."""
+        camera_id = self.model.camera("robot/wrist_camera").id
+        mujoco.mj_forward(self.model, data)
+        self.renderer.disable_depth_rendering()
+        self.renderer.update_scene(data, camera=camera_id)
+        focal = .5 * self.height / np.tan(np.deg2rad(self.model.cam_fovy[camera_id]) / 2)
+        pose = np.eye(4)
+        pose[:3, :3] = data.cam_xmat[camera_id].reshape(3, 3) @ np.diag([1., -1., -1.])
+        pose[:3, 3] = data.cam_xpos[camera_id]
+        return {"rgb": self.renderer.render().copy(),
+                "intrinsics": np.array([[focal, 0., (self.width - 1) / 2],
+                                        [0., focal, (self.height - 1) / 2], [0., 0., 1.]]),
+                "camera_to_world": pose, "time": float(data.time)}
+
 
 def depth_preview(depth, near=.25, far=1.0):
     """Fixed display scale only: near white, far black. Raw depth stays metric."""
