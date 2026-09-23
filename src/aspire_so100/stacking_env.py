@@ -77,7 +77,7 @@ class StackingEnv:
         self.output_dir = output_dir
         self.output_dir.mkdir(parents=True, exist_ok=True)
         self.render_enabled = render
-        self.scene, self.model, self.data = build_scene(tower=tower, prism=prism)
+        self.scene, self.model, self.data = build_scene(tower=tower, prism=prism, legacy=not (tower or prism))
         self.site_id = self.model.site("robot/ee_site").id
         self.arm_joints = [self.model.joint(f"robot/{name}") for name in self.ARM_JOINTS]
         self.arm_qpos_addresses = np.array(

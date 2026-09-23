@@ -11,30 +11,62 @@ This project adapts the three useful pieces of the ASPIRE workflow to the local
    seeds.
 3. A small skill library stores validated repair patterns for later candidates.
 
-The original box-shaped blocks are **3 × 3 × 3 cm cubes**. The initial task is
-**stack `small_red_block` on `blue_block`**; the object names are retained for
-policy compatibility. The other red cube and other shapes remain in the scene
-as distractors. A trial succeeds
-when the red block is centered on, touching, and stable on the blue block at the
-correct surface-relative height. Orientation is reported but is not required.
+## Current object library and sampled scenes
 
-The general tabletop scene also includes these upright objects, with the 6 cm
-dimension along Z:
+The library contains **20 objects: five shapes × red, yellow, blue, and green**.
+Each shape has one object of each color; there are no additional shape types
+or colors in the new scenes. Names follow `<color>_<shape>`.
 
-| Object | Shape | Dimensions |
+[All 20 objects](docs/media/block_catalog.png) ·
+[A six-object task-conditioned sample](docs/media/block_subset_upright.png)
+
+| Shape ID | Shape | Dimensions |
 | --- | --- | --- |
-| `orange_prism` | Rectangular prism | 3 × 3 × 6 cm |
-| `purple_thin_prism` | Rectangular prism | 1.5 × 3 × 6 cm |
-| `cyan_cylinder` | Cylinder | Radius 1.5 cm, height 6 cm |
+| `cube` | Cube | 3 × 3 × 3 cm |
+| `thin_prism` | Slender rectangular prism | 1.5 × 3 × 6 cm |
+| `prism` | Rectangular prism | 3 × 3 × 6 cm |
+| `cylinder` | Cylinder | Radius 1.5 cm, height 6 cm |
+| `triangular_prism` | Half-cube triangular prism | 3 cm cube cut diagonally in XZ, extruded 3 cm along Y |
 
-View all shapes with `uv run python view_scene.py --scene-only`. The dedicated
-tower task still uses the three original cubes; its cube geometry policy has
-not been evaluated on these additional shapes.
+The triangular prism has six vertices, two right-isosceles triangular ends,
+and three rectangular faces, including a flat bottom. Its visible and collision
+surfaces use the same convex mesh. Its volume and mass are half of the cube's.
 
-### Slender-prism training scene
+The default passive scene samples **6 unique objects** from the library.
+`--object-count` controls the count (1–20); `--seed` reproduces both object
+selection and positions. Jittered slots keep at least 2 cm edge clearance
+between initial object bounding boxes. All objects start upright with zero yaw.
+The library and generator are in `src/aspire_so100/block_catalog.py`.
+
+```bash
+# Default: sample six objects.
+uv run python view_scene.py --scene-only --seed 51
+
+# Choose a smaller subset.
+uv run python view_scene.py --scene-only --object-count 4 --seed 17
+
+# Task-specific generation: required target/base plus sampled distractors.
+uv run python view_scene.py --scene-only --scene-task upright_thin_prism \
+  --object-count 6 --seed 17
+
+# Inspect all five shapes in all four colors.
+uv run python view_scene.py --scene-only --scene-task catalog
+```
+
+`upright_thin_prism` reserves the **red slender prism** as target and the
+**blue cube** as base, places both in central slots, and fills the remaining
+count with randomly sampled distractors. It requires at least two objects.
+This is a scene-generation rule, not a newly trained policy or success claim;
+the existing color-specific policies have not been adapted to this library.
+
+Historical `single`, `tower`, and `prism` tasks retain their original scenes,
+object names, and evaluators for replay and reproducible evaluation. The
+historical single task stacks `small_red_block` on `blue_block`.
+
+### Historical six-object slender-prism training scene
 
 The separate `prism` scene contains exactly six movable objects: blue, red,
-and green 3 cm cubes, both new rectangular prisms, and the new cylinder.
+and green 3 cm cubes, orange and purple rectangular prisms, and a cyan cylinder.
 The task is to place the **purple 1.5 × 3 × 6 cm prism upright on the blue cube**.
 All objects initially stand upright; `random_xy` randomizes separated XY
 positions with zero initial yaw. The final check requires table/base contact,

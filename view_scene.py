@@ -14,6 +14,7 @@ from mjlab.entity import EntityCfg
 from mjlab.scene import Scene, SceneCfg
 from mjlab.terrains import TerrainEntityCfg
 from aspire_so100.layouts import CUBE_HALF_SIZE
+from aspire_so100.block_catalog import BLOCK_COLORS, SHAPE_DIMENSIONS, CATALOG_POSITIONS, generate_block_layout
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent
@@ -117,6 +118,36 @@ def get_cylinder_spec(
         friction=(1.0, 0.005, 0.0001),
     )
 
+    return spec
+
+
+def get_triangular_prism_spec(
+    name: str,
+    side: float,
+    color: tuple[float, float, float, float],
+) -> mujoco.MjSpec:
+    """Half a cube cut along an XZ diagonal, with a flat rectangular bottom.
+
+    Six vertices form two right-isosceles triangles extruded along Y.
+    The convex mesh is both the visible surface and the collision geometry.
+    """
+    if not math.isfinite(side) or side <= 0:
+        raise ValueError('The source cube side must be positive and finite')
+    h = side / 2
+    spec = mujoco.MjSpec()
+    vertices = (-h, -h, -h, h, -h, -h, -h, -h, h,
+                -h, h, -h, h, h, -h, -h, h, h)
+    faces = (0, 1, 2, 3, 5, 4,              # triangular ends
+             0, 3, 4, 0, 4, 1,              # rectangular bottom
+             0, 2, 5, 0, 5, 3,              # vertical rectangle
+             1, 4, 5, 1, 5, 2)              # sloping rectangle
+    mesh_name = f'{name}_mesh'
+    spec.add_mesh(name=mesh_name, uservert=vertices, userface=faces)
+    body = spec.worldbody.add_body(name=name)
+    body.add_freejoint(name=f'{name}_joint')
+    body.add_geom(name=f'{name}_geom', type=mujoco.mjtGeom.mjGEOM_MESH,
+                  meshname=mesh_name, mass=.015, rgba=color,
+                  friction=(1., .005, .0001))
     return spec
 
 
@@ -438,7 +469,8 @@ table_cfg = EntityCfg(
     ),
 )
 
-entities = {
+# Keep the original object names/configuration for historical task rollouts.
+legacy_entities = {
     "robot": robot_cfg,
     "table": table_cfg,
     "red_block": make_block_cfg(
@@ -531,6 +563,25 @@ entities = {
     ),
 }
 
+def make_catalog_entities() -> dict[str, EntityCfg]:
+    """One of each shape in each of the four colors; no extra movable objects."""
+    result = {'robot': robot_cfg, 'table': table_cfg}
+    for color_name, color in BLOCK_COLORS.items():
+        for shape, dimensions in SHAPE_DIMENSIONS.items():
+            name = f'{color_name}_{shape}'
+            position = CATALOG_POSITIONS[name]
+            if shape == 'cylinder':
+                factory = lambda n=name, c=color, d=dimensions: get_cylinder_spec(n, d[0]/2, d[2]/2, c)
+                result[name] = make_shape_cfg(factory, position)
+            elif shape == 'triangular_prism':
+                factory = lambda n=name, c=color, d=dimensions: get_triangular_prism_spec(n, d[0], c)
+                result[name] = make_shape_cfg(factory, position)
+            else:
+                result[name] = make_block_cfg(name, position, tuple(d/2 for d in dimensions), color)
+    return result
+
+
+entities = make_catalog_entities()
 scene_cfg = SceneCfg(
     num_envs=1,
     env_spacing=1.0,
@@ -538,22 +589,27 @@ scene_cfg = SceneCfg(
     entities=entities,
 )
 
-def build_scene(tower: bool = False, prism: bool = False) -> tuple[Scene, mujoco.MjModel, mujoco.MjData]:
+def build_scene(tower: bool = False, prism: bool = False, *, legacy: bool = False,
+                scene_task: str = 'random', object_count: int = 6, seed: int = 51) -> tuple[Scene, mujoco.MjModel, mujoco.MjData]:
     """Compile and reset the shared SO-100 tabletop scene."""
-    if tower and prism:
-        raise ValueError('Choose either the tower or prism scene')
-    cfg = scene_cfg
+    if sum((tower, prism, legacy)) > 1:
+        raise ValueError('Choose only one historical task scene')
+    from copy import deepcopy
+    cfg = deepcopy(scene_cfg)
+    if tower or prism or legacy:
+        cfg.entities = deepcopy(legacy_entities)
+    else:
+        layout = generate_block_layout(seed, object_count, scene_task)
+        cfg.entities = {name: cfg.entities[name] for name in ('robot', 'table', *layout.positions)}
+        for name, position in layout.positions.items():
+            cfg.entities[name].init_state.pos = position
     if prism:
-        from copy import deepcopy
         from aspire_so100.prism_layouts import PRISM_OBJECTS, PRISM_NOMINAL
-        cfg = deepcopy(scene_cfg)
         cfg.entities = {name: cfg.entities[name] for name in ('robot', 'table', *PRISM_OBJECTS)}
         for name, position in PRISM_NOMINAL.items():
             cfg.entities[name].init_state.pos = position
     if tower:
-        from copy import deepcopy
-        cfg = deepcopy(scene_cfg)
-        # Dedicated construction workspace; the original shape scene is retained.
+        # Historical three-cube construction workspace.
         cfg.entities = {name: cfg.entities[name] for name in ("robot", "table", "blue_block", "small_red_block")}
         cfg.entities["green_block"] = make_block_cfg(
             "green_block", (-0.10, -0.32, TABLE_HEIGHT + CUBE_HALF_SIZE[2]),
@@ -571,8 +627,11 @@ def main() -> None:
 
     parser = argparse.ArgumentParser(description="Watch the SO-100 stacking task.")
     parser.add_argument("--scene-only", action="store_true", help="Open the passive scene without a policy.")
-    parser.add_argument("--vision-task", choices=("tower", "prism"), default="tower",
-                        help="Sensor-only task, or scene selection with --scene-only")
+    parser.add_argument("--vision-task", choices=("tower", "prism"),
+                        help="Sensor-only task (default: tower); with --scene-only select a historical task scene")
+    parser.add_argument('--scene-task', choices=('random', 'upright_thin_prism', 'catalog'),
+                        help='New inventory scene: random subset, task-conditioned subset, or all 20 objects')
+    parser.add_argument('--object-count', type=int, help='Subset size, 1..20 (default: 6); requires --scene-only')
     parser.add_argument("--seed", type=int, help="Scene seed (default: 51, or 81 for --vision-policy).")
     parser.add_argument("--task", choices=("single", "tower"), default="single")
     parser.add_argument("--candidate", type=Path, help="Generated policy to replay (required for tower).")
@@ -586,6 +645,18 @@ def main() -> None:
     parser.add_argument("--vision-layout", choices=("nominal", "random_xy"), default="nominal",
                         help="Initial block positions when executing --vision-policy.")
     args = parser.parse_args()
+    if args.scene_task is not None or args.object_count is not None:
+        if not args.scene_only or args.vision_task is not None:
+            parser.error('--scene-task and --object-count require --scene-only without --vision-task')
+        if args.scene_task == 'catalog' and args.object_count is not None:
+            parser.error('The catalog always contains all 20 objects; omit --object-count')
+    if args.scene_only and args.vision_task is None:
+        try:
+            generate_block_layout(args.seed if args.seed is not None else 51,
+                                  args.object_count if args.object_count is not None else 6,
+                                  args.scene_task or 'random')
+        except ValueError as error:
+            parser.error(str(error))
     if args.vision_output is not None and args.vision_policy is None:
         parser.error("--vision-output requires --vision-policy")
     if (args.vision_policy or args.vision_trial) and (args.scene_only or args.candidate or args.task != "single"):
@@ -593,7 +664,7 @@ def main() -> None:
     if args.vision_policy:
         from aspire_so100.playback import watch_vision_policy
         watch_vision_policy(args.vision_policy, seed=args.seed if args.seed is not None else 81,
-                            output=args.vision_output, layout=args.vision_layout, task=args.vision_task)
+                            output=args.vision_output, layout=args.vision_layout, task=args.vision_task or 'tower')
         return
     if args.vision_trial:
         from aspire_so100.playback import watch_vision_rollout
@@ -607,7 +678,10 @@ def main() -> None:
         watch_stacking(args.seed if args.seed is not None else 51,
                        task=args.task, candidate_path=args.candidate)
         return
-    _, model, data = build_scene(prism=args.vision_task == 'prism')
+    _, model, data = build_scene(tower=args.vision_task == 'tower', prism=args.vision_task == 'prism',
+                               scene_task=args.scene_task or 'random',
+                               object_count=args.object_count if args.object_count is not None else 6,
+                               seed=args.seed if args.seed is not None else 51)
     print(
         f"Scene compiled: "
         f"{model.nbody} bodies, "
