@@ -16,6 +16,24 @@ SPEC.loader.exec_module(LEARNER)
 
 
 class RandomizedVisionResumeTests(unittest.TestCase):
+    def test_inventory_cache_cannot_reuse_a_different_object_count(self):
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            candidate = root/'candidate.py'
+            candidate.write_text('def run(api): pass\n')
+            trial = root/'trials/seed_601'
+            trial.mkdir(parents=True)
+            result = {'candidate_sha256': hashlib.sha256(candidate.read_bytes()).hexdigest(),
+                      'task': 'inventory_prism', 'layout': 'sampled', 'seed': 601,
+                      'scene': {'object_count': 6}, 'success': False,
+                      'metrics': {'score': 0.}, 'policy_error': None}
+            (trial/'result.json').write_text(json.dumps(result))
+            with patch.object(LEARNER.subprocess, 'run') as run:
+                LEARNER.evaluate(candidate, trial.parent, [601], 1, task='inventory_prism', layout='sampled', object_count=6)
+                with self.assertRaisesRegex(RuntimeError, 'does not match'):
+                    LEARNER.evaluate(candidate, trial.parent, [601], 1, task='inventory_prism', layout='sampled', object_count=2)
+                run.assert_not_called()
+
     def test_resume_archives_partial_trial_and_reuses_completed_results(self):
         with TemporaryDirectory() as tmp:
             root = Path(tmp)

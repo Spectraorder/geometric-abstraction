@@ -1,0 +1,38 @@
+{
+  "seed": 601,
+  "layout": "sampled",
+  "task": "inventory_prism",
+  "success": true,
+  "policy_error": null,
+  "policy_sim_seconds": 73.65000000000823,
+  "candidate_sha256": "34a2f9ad33678c0e2c1b01c64d50b64e5b660bd37b0cb43ec10071d3c6529040",
+  "camera_calls": 67,
+  "sensor_blackout": false,
+  "metrics": {
+    "success": true,
+    "score": 1.0,
+    "placed_blocks": 1,
+    "required_placements": 1,
+    "structure_stable": true,
+    "failure": null
+  },
+  "observation_contract": "Side RGB-D, wrist RGB, calibration + robot proprioception ONLY; evaluator results never returned to policy",
+  "scene": {
+    "generator": "block_catalog_v1",
+    "scene_task": "upright_thin_prism",
+    "seed": 601,
+    "object_count": 6,
+    "objects": [
+      "red_thin_prism",
+      "blue_cube",
+      "green_cube",
+      "yellow_cube",
+      "red_cube",
+      "green_cylinder"
+    ],
+    "roles": {
+      "target": "red_thin_prism",
+      "base": "blue_cube"
+    }
+  }
+}

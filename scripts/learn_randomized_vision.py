@@ -22,7 +22,9 @@ def write(path, value):
     temporary.replace(path)
 
 
-def evaluate(candidate, directory, seeds, jobs, *, task='tower', layout='random_xy'):
+def evaluate(candidate, directory, seeds, jobs, *, task='tower', layout='random_xy', object_count=None):
+    if object_count is not None and (task != 'inventory_prism' or not 2 <= object_count <= 20):
+        raise ValueError('object_count requires inventory_prism and must be 2..20')
     candidate = candidate.resolve()
     digest = hashlib.sha256(candidate.read_bytes()).hexdigest()
     directory.mkdir(exist_ok=True, parents=True)
@@ -44,12 +46,14 @@ def evaluate(candidate, directory, seeds, jobs, *, task='tower', layout='random_
             with (directory / f'seed_{seed}.log').open('w') as log:
                 subprocess.run([sys.executable, str(ROOT / 'scripts/run_vision_trial.py'),
                     '--candidate', str(candidate), '--seed', str(seed), '--layout', layout, '--task', task,
-                    '--output', str(out)], stdout=log, stderr=subprocess.STDOUT, check=True,
+                    '--output', str(out)] + ([] if object_count is None else ['--object-count', str(object_count)]),
+                    stdout=log, stderr=subprocess.STDOUT, check=True,
                     env=worker_env,
                     timeout=240)
         result = json.loads((out / 'result.json').read_text())
         if (result['candidate_sha256'] != digest or result.get('layout') != layout
-                or result.get('task', 'tower') != task):
+                or result.get('task', 'tower') != task
+                or (task == 'inventory_prism' and result.get('scene', {}).get('object_count') != (object_count or 6))):
             raise RuntimeError(f'Existing result does not match this experiment: {out}')
         print(f'{directory.name}, seed {seed}: success={result["success"]}, '
               f'score={result["metrics"]["score"]}, error={result["policy_error"]}', flush=True)

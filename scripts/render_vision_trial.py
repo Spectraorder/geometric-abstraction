@@ -7,8 +7,7 @@ import imageio.v2 as imageio
 import mujoco
 import numpy as np
 from PIL import Image,ImageDraw,ImageFont
-from aspire_so100.tower import TowerEnv
-from aspire_so100.prism import PrismEnv
+from aspire_so100.playback import recorded_env_for_result
 from aspire_so100.rgbd import depth_preview
 
 
@@ -18,7 +17,7 @@ def main():
  calls=json.loads((a.trial/'api_calls.json').read_text())
  wrist_used=any(c['method']=='camera' and c['params'].get('view')=='wrist' for c in calls)
  with tempfile.TemporaryDirectory() as temp:
-  env=(PrismEnv if result.get('task')=='prism' else TowerEnv)(Path(temp));env.model.vis.global_.offwidth=720;env.model.vis.global_.offheight=540
+  env=recorded_env_for_result(result,Path(temp));env.model.vis.global_.offwidth=720;env.model.vis.global_.offheight=540
   camera=mujoco.MjvCamera();camera.lookat[:]=[0,-.26,.44];camera.distance=1.15;camera.azimuth=115;camera.elevation=-32
   renderer=mujoco.Renderer(env.model,height=540,width=720)
   try:

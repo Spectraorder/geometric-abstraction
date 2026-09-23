@@ -15,11 +15,12 @@ from aspire_so100.stacking_env import StackingEnv
 from aspire_so100.camera_view import run_camera_viewer
 from aspire_so100.tower import TowerEnv, TowerAPI
 from aspire_so100.prism import PrismEnv
+from aspire_so100.inventory_prism import InventoryPrismEnv
 
 
 class RecordingMixin:
-    def __init__(self, output_dir: Path):
-        super().__init__(output_dir)
+    def __init__(self, output_dir: Path, **kwargs):
+        super().__init__(output_dir, **kwargs)
         self.frames: list[np.ndarray] = []
         self.state_type = mujoco.mjtState.mjSTATE_INTEGRATION
 
@@ -43,6 +44,23 @@ class RecordedTowerEnv(RecordingMixin, TowerEnv):
 
 class RecordedPrismEnv(RecordingMixin, PrismEnv):
     pass
+
+
+class RecordedInventoryPrismEnv(RecordingMixin, InventoryPrismEnv):
+    pass
+
+
+def recorded_env_for_result(result, output_dir):
+    """Reconstruct the exact sampled object identities before restoring states."""
+    if result.get('task') == 'inventory_prism':
+        metadata = result['scene']
+        env = RecordedInventoryPrismEnv(output_dir, scene_seed=result['seed'],
+                                        object_count=metadata['object_count'])
+        if env.scene_metadata != metadata:
+            env.close()
+            raise ValueError('Recorded inventory scene does not match this generator')
+        return env
+    return (RecordedPrismEnv if result.get('task') == 'prism' else RecordedTowerEnv)(output_dir)
 
 
 class RolloutPlayback:
@@ -128,8 +146,8 @@ def watch_vision_rollout(trial: Path) -> None:
         raise FileNotFoundError(f"No rollout.npz in {trial}")
     with TemporaryDirectory(prefix="aspire-vision-viewer-") as directory:
         result_path = trial / 'result.json'
-        task = json.loads(result_path.read_text()).get('task', 'tower') if result_path.is_file() else 'tower'
-        env = (RecordedPrismEnv if task == 'prism' else RecordedTowerEnv)(Path(directory))
+        result = json.loads(result_path.read_text()) if result_path.is_file() else {}
+        env = recorded_env_for_result(result, Path(directory))
         try:
             frames, state_type, seconds, playback_timestep = load_vision_rollout(trial, env.model)
             env.frames = frames
@@ -154,23 +172,23 @@ def watch_vision_rollout(trial: Path) -> None:
 
 
 def watch_vision_policy(candidate: Path, seed: int = 81, output: Path | None = None,
-                        layout: str = "nominal", task: str = "tower") -> None:
+                        layout: str = "nominal", task: str = "tower", object_count: int | None = None) -> None:
     """Execute the sensor-only policy once, then replay its actual trajectory."""
     candidate = Path(candidate).resolve()
     runner = Path(__file__).resolve().parents[2] / "scripts" / "run_vision_trial.py"
     if output is None:
         with TemporaryDirectory(prefix="aspire-vision-trial-") as directory:
-            _run_and_watch_vision(candidate, seed, Path(directory) / "trial", runner, layout, task)
+            _run_and_watch_vision(candidate, seed, Path(directory) / "trial", runner, layout, task, object_count)
     else:
-        _run_and_watch_vision(candidate, seed, Path(output).resolve(), runner, layout, task)
+        _run_and_watch_vision(candidate, seed, Path(output).resolve(), runner, layout, task, object_count)
 
 
 def _run_and_watch_vision(candidate: Path, seed: int, output: Path, runner: Path,
-                         layout: str = "nominal", task: str = "tower") -> None:
+                         layout: str = "nominal", task: str = "tower", object_count: int | None = None) -> None:
     if output.exists():
         raise FileExistsError(f"Vision trial output already exists: {output}")
     print(f"Executing RGB-D policy on seed {seed}; Viser opens after the rollout completes...", flush=True)
     subprocess.run([sys.executable, str(runner), "--candidate", str(candidate),
                     "--seed", str(seed), "--layout", layout, "--task", task,
-                    "--output", str(output)], check=True)
+                    "--output", str(output)] + ([] if object_count is None else ['--object-count', str(object_count)]), check=True)
     watch_vision_rollout(output)

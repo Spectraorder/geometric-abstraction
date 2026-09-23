@@ -627,11 +627,11 @@ def main() -> None:
 
     parser = argparse.ArgumentParser(description="Watch the SO-100 stacking task.")
     parser.add_argument("--scene-only", action="store_true", help="Open the passive scene without a policy.")
-    parser.add_argument("--vision-task", choices=("tower", "prism"),
-                        help="Sensor-only task (default: tower); with --scene-only select a historical task scene")
+    parser.add_argument("--vision-task", choices=("tower", "prism", "inventory_prism"),
+                        help="Sensor-only task (default: tower); inventory_prism runs the sampled red-prism task")
     parser.add_argument('--scene-task', choices=('random', 'upright_thin_prism', 'catalog'),
                         help='New inventory scene: random subset, task-conditioned subset, or all 20 objects')
-    parser.add_argument('--object-count', type=int, help='Subset size, 1..20 (default: 6); requires --scene-only')
+    parser.add_argument('--object-count', type=int, help='Subset size (default: 6); passive scenes or inventory_prism policies')
     parser.add_argument("--seed", type=int, help="Scene seed (default: 51, or 81 for --vision-policy).")
     parser.add_argument("--task", choices=("single", "tower"), default="single")
     parser.add_argument("--candidate", type=Path, help="Generated policy to replay (required for tower).")
@@ -642,14 +642,22 @@ def main() -> None:
                         help="Replay an existing vision trial containing rollout.npz in Viser.")
     parser.add_argument("--vision-output", type=Path,
                         help="Keep the new vision trial in this non-existing directory.")
-    parser.add_argument("--vision-layout", choices=("nominal", "random_xy"), default="nominal",
+    parser.add_argument("--vision-layout", choices=("nominal", "random_xy", "sampled"),
                         help="Initial block positions when executing --vision-policy.")
     args = parser.parse_args()
-    if args.scene_task is not None or args.object_count is not None:
+    if args.scene_task is not None:
         if not args.scene_only or args.vision_task is not None:
-            parser.error('--scene-task and --object-count require --scene-only without --vision-task')
+            parser.error('--scene-task requires --scene-only without --vision-task')
         if args.scene_task == 'catalog' and args.object_count is not None:
             parser.error('The catalog always contains all 20 objects; omit --object-count')
+    inventory_policy = args.vision_policy is not None and args.vision_task == 'inventory_prism'
+    if args.vision_task == 'inventory_prism' and not inventory_policy:
+        parser.error('Use --vision-policy with inventory_prism; passive scenes use --scene-task upright_thin_prism')
+    if args.object_count is not None:
+        if not ((args.scene_only and args.vision_task is None) or inventory_policy):
+            parser.error('--object-count requires a sampled passive scene or inventory_prism policy')
+        if inventory_policy and not 2 <= args.object_count <= 20:
+            parser.error('inventory_prism requires 2..20 objects')
     if args.scene_only and args.vision_task is None:
         try:
             generate_block_layout(args.seed if args.seed is not None else 51,
@@ -662,9 +670,13 @@ def main() -> None:
     if (args.vision_policy or args.vision_trial) and (args.scene_only or args.candidate or args.task != "single"):
         parser.error("Vision modes cannot be combined with --scene-only, --candidate, or --task")
     if args.vision_policy:
+        layout = args.vision_layout or ('sampled' if inventory_policy else 'nominal')
+        if inventory_policy != (layout == 'sampled'):
+            parser.error('Only inventory_prism uses --vision-layout sampled')
         from aspire_so100.playback import watch_vision_policy
         watch_vision_policy(args.vision_policy, seed=args.seed if args.seed is not None else 81,
-                            output=args.vision_output, layout=args.vision_layout, task=args.vision_task or 'tower')
+                            output=args.vision_output, layout=layout, task=args.vision_task or 'tower',
+                            object_count=args.object_count)
         return
     if args.vision_trial:
         from aspire_so100.playback import watch_vision_rollout

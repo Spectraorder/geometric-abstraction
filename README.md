@@ -56,8 +56,13 @@ uv run python view_scene.py --scene-only --scene-task catalog
 `upright_thin_prism` reserves the **red slender prism** as target and the
 **blue cube** as base, places both in central slots, and fills the remaining
 count with randomly sampled distractors. It requires at least two objects.
-This is a scene-generation rule, not a newly trained policy or success claim;
-the existing color-specific policies have not been adapted to this library.
+This is a scene-generation rule, not a newly trained policy. Transfer testing
+found **0/5** for the unchanged policy and **6/20** after only updating color
+bindings in six-object samples; the latter passed **10/10** with only target
+and base. Same-color shapes are often confused. See the
+[new-setting evaluation and wrong-object replay](docs/INVENTORY_TRANSFER.md).
+Sensor-only trials now support `--task inventory_prism --layout sampled
+--object-count 6`; the viewer uses `--vision-task inventory_prism`.
 
 Historical `single`, `tower`, and `prism` tasks retain their original scenes,
 object names, and evaluators for replay and reproducible evaluation. The
