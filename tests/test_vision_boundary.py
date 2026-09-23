@@ -6,6 +6,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import time
 import unittest
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -31,6 +32,8 @@ class VisionBoundaryTests(unittest.TestCase):
             # Probe OS access directly, independently of the source validator.
             probe = (
                 'from pathlib import Path\n'
+                'assert not Path("/dev/nvidia0").exists()\n'
+                'assert not Path("/dev/dri").exists()\n'
                 f'checkout = Path({str(ROOT / "README.md")!r})\n'
                 'try:\n checkout.read_text()\n'
                 'except OSError:\n pass\n'
@@ -46,6 +49,29 @@ class VisionBoundaryTests(unittest.TestCase):
                                     capture_output=True, text=True, timeout=30)
             self.assertEqual(result.returncode, 0, result.stderr)
             self.assertEqual((directory / 'scratch.txt').read_text(), 'ok')
+
+    def test_cpu_profile_excludes_simulator_rpc_wait(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            candidate = Path(tmp) / 'candidate.py'
+            candidate.write_text('def run(api):\n api.note("wait for simulated host")\n')
+            proc = subprocess.Popen([sys.executable, str(ROOT / 'scripts/vision_policy_worker.py'), str(candidate)],
+                                    stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+            try:
+                self.assertEqual(json.loads(proc.stdout.readline())['method'], 'note')
+                time.sleep(.2)
+                proc.stdin.write('{"result": null}\n')
+                proc.stdin.flush()
+                done = json.loads(proc.stdout.readline())
+                self.assertEqual(done['method'], 'done')
+                profile = done['params']['cpu_profile']
+                self.assertLess(profile['policy_compute_cpu_seconds'], .1)
+                self.assertLess(profile['rpc_cpu_seconds'], .1)
+                self.assertGreaterEqual(profile['policy_compute_cpu_seconds'], 0)
+                proc.communicate(timeout=10)
+            finally:
+                if proc.poll() is None:
+                    proc.kill()
+                    proc.communicate()
 
     def test_policy_cannot_import_simulator_or_open_files(self):
         for source in ['import mujoco\ndef run(api): pass', 'def run(api): open("secret")',

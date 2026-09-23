@@ -3,6 +3,7 @@ import base64
 import json
 import sys
 import traceback
+import time
 import numpy as np
 
 
@@ -17,7 +18,21 @@ def unpack(value):
 
 
 class API:
+    def __init__(self):
+        self.rpc_cpu_seconds = 0.0
+        self.compute_intervals = []
+        self.last_return_cpu = time.process_time()
+
     def call(self, method, **params):
+        started = time.process_time()
+        self.compute_intervals.append(started - self.last_return_cpu)
+        try:
+            return self.exchange(method, **params)
+        finally:
+            self.last_return_cpu = time.process_time()
+            self.rpc_cpu_seconds += self.last_return_cpu - started
+
+    def exchange(self, method, **params):
         print(json.dumps({'method':method,'params':params}),flush=True)
         line=sys.stdin.readline()
         if not line:
@@ -51,11 +66,25 @@ class API:
 
 
 namespace={}
+api = API()
+started_cpu = time.process_time()
+
+
+def profile():
+    intervals = api.compute_intervals + [time.process_time() - api.last_return_cpu]
+    return {'policy_compute_cpu_seconds': time.process_time() - started_cpu - api.rpc_cpu_seconds,
+            'rpc_cpu_seconds': api.rpc_cpu_seconds,
+            'compute_interval_count': len(intervals),
+            'compute_interval_cpu_p50_ms': float(np.percentile(intervals, 50)*1000),
+            'compute_interval_cpu_p95_ms': float(np.percentile(intervals, 95)*1000),
+            'scope': 'worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK'}
+
+
 try:
     exec(compile(open(sys.argv[1]).read(),sys.argv[1],'exec'),namespace)
-    namespace['run'](API())
-    print(json.dumps({'method':'done','params':{}}),flush=True)
+    namespace['run'](api)
+    print(json.dumps({'method':'done','params':{'cpu_profile': profile()}}),flush=True)
 except BaseException as exc:
-    print(json.dumps({'method':'failed','params':{'error':type(exc).__name__+': '+str(exc)}}),flush=True)
+    print(json.dumps({'method':'failed','params':{'error':type(exc).__name__+': '+str(exc), 'cpu_profile': profile()}}),flush=True)
     traceback.print_exc(file=sys.stderr)
     sys.exit(1)

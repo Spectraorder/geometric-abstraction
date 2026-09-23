@@ -56,13 +56,24 @@ uv run python view_scene.py --scene-only --scene-task catalog
 `upright_thin_prism` reserves the **red slender prism** as target and the
 **blue cube** as base, places both in central slots, and fills the remaining
 count with randomly sampled distractors. It requires at least two objects.
-This is a scene-generation rule, not a newly trained policy. Transfer testing
-found **0/5** for the unchanged policy and **6/20** after only updating color
-bindings in six-object samples; the latter passed **10/10** with only target
-and base. Same-color shapes are often confused. See the
-[new-setting evaluation and wrong-object replay](docs/INVENTORY_TRANSFER.md).
+The new **CPU instance policy**, `policies/stack_inventory_cpu.py`, resolves
+color + shape + persistent object ID before grasping or clearing a blocker.
+It passed **50/50 fresh reserved six-object scenes** after source freeze.
+Perception, tracking, geometric planning and robot IK use CPU; simulation and
+rendering retain EGL/GPU. See the [results, CPU timings and real experiment
+visualizations](docs/INVENTORY_CPU_POLICY.zh-CN.md).
+
+The earlier color-only transfer diagnostic passed **6/20** six-object scenes
+and often selected the wrong same-color shape. Its
+[evaluation and wrong-object replay](docs/INVENTORY_TRANSFER.md) remain available.
 Sensor-only trials now support `--task inventory_prism --layout sampled
 --object-count 6`; the viewer uses `--vision-task inventory_prism`.
+
+```bash
+uv run python view_scene.py --vision-task inventory_prism --object-count 6 \
+  --seed 604 --vision-policy policies/stack_inventory_cpu.py \
+  --vision-output outputs/inventory_cpu_view_604
+```
 
 Historical `single`, `tower`, and `prism` tasks retain their original scenes,
 object names, and evaluators for replay and reproducible evaluation. The

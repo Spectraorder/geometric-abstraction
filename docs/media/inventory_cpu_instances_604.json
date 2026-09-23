@@ -1,0 +1,185 @@
+{
+  "frame": "outputs/cpu_instances_01/dev_v4_six/seed_604/camera_001.npz",
+  "instances": [
+    {
+      "id": "red_0",
+      "color": "red",
+      "shape": "triangular_prism",
+      "measured_dimensions_m": [
+        0.02588910357158325,
+        0.028981866730375505,
+        0.028251766671903322
+      ],
+      "inferred_center_m": [
+        -0.2002539510616618,
+        -0.1978049175070163,
+        0.41536826414036787
+      ],
+      "features": {
+        "height_ratio": 0.9748083839711065,
+        "width_ratio": 0.8932862680114814,
+        "sloped_fraction": 0.92,
+        "side_planarity": 1.0,
+        "side_samples": 2,
+        "normal_samples": 25
+      },
+      "scores": {
+        "cube": 1.4398912284208567,
+        "prism": 2.4398912284208567,
+        "thin_prism": 2.9157923912449677,
+        "cylinder": 3.4998912284208568,
+        "triangular_prism": 0.025191616028893526
+      }
+    },
+    {
+      "id": "red_1",
+      "color": "red",
+      "shape": "cube",
+      "measured_dimensions_m": [
+        0.031767659927622295,
+        0.027333690127523125,
+        0.029873329046541497
+      ],
+      "inferred_center_m": [
+        -0.005550193967354955,
+        -0.28631552286192097,
+        0.41601347463505906
+      ],
+      "features": {
+        "height_ratio": 0.9403692029757075,
+        "width_ratio": 0.8604250420017941,
+        "sloped_fraction": 0.1282051282051282,
+        "side_planarity": 0.7692307692307693,
+        "side_samples": 13,
+        "normal_samples": 39
+      },
+      "scores": {
+        "cube": 0.15733326762303662,
+        "prism": 1.1573332676230368,
+        "thin_prism": 1.5642258558268045,
+        "cylinder": 2.0342563445461135,
+        "triangular_prism": 1.2032205406140362
+      }
+    },
+    {
+      "id": "red_2",
+      "color": "red",
+      "shape": "thin_prism",
+      "measured_dimensions_m": [
+        0.014838699030227012,
+        0.029589510513309714,
+        0.059847501020524774
+      ],
+      "inferred_center_m": [
+        0.1043323129865856,
+        -0.20213753364471598,
+        0.43096266570534814
+      ],
+      "features": {
+        "height_ratio": 2.022591789533141,
+        "width_ratio": 0.5014851132313388,
+        "sloped_fraction": 0.07142857142857142,
+        "side_planarity": 0.7857142857142857,
+        "side_samples": 42,
+        "normal_samples": 56
+      },
+      "scores": {
+        "cube": 1.3715522102712037,
+        "prism": 0.3715522102712037,
+        "thin_prism": 0.02467094805701524,
+        "cylinder": 1.3144093531283463,
+        "triangular_prism": 2.279734646675998
+      }
+    },
+    {
+      "id": "red_3",
+      "color": "red",
+      "shape": "cylinder",
+      "measured_dimensions_m": [
+        0.02567386450876563,
+        0.025793220738864253,
+        0.05987042414139321
+      ],
+      "inferred_center_m": [
+        0.2018123716149214,
+        -0.2777207925911168,
+        0.4308782834279431
+      ],
+      "features": {
+        "height_ratio": 2.32116899039222,
+        "width_ratio": 0.995372573618975,
+        "sloped_fraction": 0.028985507246376812,
+        "side_planarity": 0.45,
+        "side_samples": 40,
+        "normal_samples": 69
+      },
+      "scores": {
+        "cube": 1.3244081888589374,
+        "prism": 1.1244081888589375,
+        "thin_prism": 1.0146905934587849,
+        "cylinder": 0.3244081888589374,
+        "triangular_prism": 2.6631979758994664
+      }
+    },
+    {
+      "id": "yellow_4",
+      "color": "yellow",
+      "shape": "prism",
+      "measured_dimensions_m": [
+        0.028637405181952152,
+        0.02889705720620711,
+        0.059850937589179976
+      ],
+      "inferred_center_m": [
+        0.2055303603155043,
+        -0.43738302807017915,
+        0.43079995863825216
+      ],
+      "features": {
+        "height_ratio": 2.0711775999226645,
+        "width_ratio": 0.9910145859350971,
+        "sloped_fraction": 0.06521739130434782,
+        "side_planarity": 0.9722222222222222,
+        "side_samples": 36,
+        "normal_samples": 92
+      },
+      "scores": {
+        "cube": 1.0774673897680966,
+        "prism": 0.07746738976809654,
+        "thin_prism": 0.7585980202318003,
+        "cylinder": 1.7663562786569853,
+        "triangular_prism": 2.340742817313969
+      }
+    },
+    {
+      "id": "blue_5",
+      "color": "blue",
+      "shape": "cube",
+      "measured_dimensions_m": [
+        0.02642918784999705,
+        0.027078702841436098,
+        0.029878895681084483
+      ],
+      "inferred_center_m": [
+        -0.09839813051172433,
+        -0.19582563990953827,
+        0.41611520796211826
+      ],
+      "features": {
+        "height_ratio": 1.1034094157332937,
+        "width_ratio": 0.9760138070408176,
+        "sloped_fraction": 0.12,
+        "side_planarity": 1.0,
+        "side_samples": 9,
+        "normal_samples": 25
+      },
+      "scores": {
+        "cube": 0.12019975080472131,
+        "prism": 0.913380919338134,
+        "thin_prism": 1.563009914123851,
+        "cylinder": 2.713380919338134,
+        "triangular_prism": 1.2634094157332936
+      }
+    }
+  ]
+}

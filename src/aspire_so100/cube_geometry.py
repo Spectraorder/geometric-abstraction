@@ -25,7 +25,9 @@ def color_mask(rgb, color):
         return (g > 65) & (g > 1.45 * r) & (g > 1.3 * b)
     if color == 'blue':
         return (b > 65) & (b > 1.55 * r) & (b > 1.2 * g)
-    raise ValueError('Expected red, green, or blue')
+    if color == 'yellow':
+        return (r > 100) & (g > 90) & (r < 1.5 * g) & (g > 2 * b)
+    raise ValueError('Expected red, yellow, green, or blue')
 
 
 def support_margin(point, top_vertices, normal):

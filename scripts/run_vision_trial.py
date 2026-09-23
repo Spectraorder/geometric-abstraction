@@ -65,6 +65,7 @@ class VisionTrialEnv(RecordedTowerEnv):
 
 def plan_tool(env,position,orientation=None):
     """Robot-only IK preview. No object poses, contacts or task results."""
+    cpu_started = time.process_time()
     target=np.asarray(position,float)
     if target.shape!=(3,) or not np.isfinite(target).all() or np.linalg.norm(target)>2:
         raise ValueError('position must be a finite world XYZ in meters')
@@ -86,6 +87,7 @@ def plan_tool(env,position,orientation=None):
         return np.r_[scratch.site_xpos[env.site_id]-target,(.025*(R-orientation)).ravel()]
     result=least_squares(residual,np.clip(q,limits[:,0]+1e-8,limits[:,1]-1e-8),bounds=(limits[:,0],limits[:,1]),max_nfev=150,xtol=1e-10,ftol=1e-10,gtol=1e-10)
     error=float(np.linalg.norm(residual(result.x)[:3]))
+    env.robot_ik_cpu_seconds = getattr(env, 'robot_ik_cpu_seconds', 0.) + time.process_time() - cpu_started
     return {'joint_angles':result.x.copy(),'tool_position':scratch.site_xpos[env.site_id].copy(),
             'tool_rotation':scratch.site_xmat[env.site_id].reshape(3,3).copy(),'position_error':error}
 
@@ -165,7 +167,7 @@ def main():
     validate_source(a.candidate.read_text())
     env=(RecordedInventoryPrismEnv(a.output, scene_seed=a.seed, object_count=a.object_count or 6)
          if a.task=='inventory_prism' else (RecordedPrismEnv if a.task=='prism' else VisionTrialEnv)(a.output))
-    calls=[];error=None;images=[]
+    calls=[];error=None;images=[];cpu_profile=None
     try:
         env.reset(a.seed, layout=a.layout);env.frames.clear();env.capture()
         start=float(env.data.time)
@@ -193,6 +195,8 @@ def main():
                         if not line:raise RuntimeError('Policy process exited without completion; see worker.stderr')
                         request=json.loads(line);method=request['method'];params=request['params']
                         calls.append({'time':float(env.data.time),'method':method,'params':params})
+                        if method in ('done', 'failed'):
+                            cpu_profile = params.get('cpu_profile')
                         if method=='done':break
                         if method=='failed':raise RuntimeError(params['error'])
                         if len(calls)>600:raise RuntimeError('API call limit exceeded')
@@ -256,6 +260,7 @@ def main():
         result={'seed':a.seed,'layout':a.layout,'task':a.task,'success':metrics.success,'policy_error':error,'policy_sim_seconds':policy_seconds,
                 'candidate_sha256':hashlib.sha256(a.candidate.read_bytes()).hexdigest(),'camera_calls':len(images),
                 'sensor_blackout':a.sensor_blackout,
+                'cpu_profile':cpu_profile,'robot_ik_cpu_seconds':getattr(env, 'robot_ik_cpu_seconds', 0.),
                 'metrics':asdict(metrics),'observation_contract':'Side RGB-D, wrist RGB, calibration + robot proprioception ONLY; evaluator results never returned to policy'}
         if a.task == 'inventory_prism':
             result['scene'] = env.scene_metadata
