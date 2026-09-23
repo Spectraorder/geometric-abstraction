@@ -21,7 +21,8 @@ import mujoco
 import numpy as np
 from scipy.optimize import least_squares
 from PIL import Image
-from aspire_so100.playback import RecordedTowerEnv
+from aspire_so100.playback import RecordedTowerEnv, RecordedPrismEnv
+from aspire_so100.prism_layouts import PRISM_ORDER
 from aspire_so100.tower import ORDER
 from aspire_so100.rgbd import depth_preview
 
@@ -153,10 +154,11 @@ def main():
     p.add_argument('--candidate',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
     p.add_argument('--seed',type=int,default=81);p.add_argument('--timeout',type=float,default=120)
     p.add_argument('--layout', choices=('nominal','random_xy'), default='nominal')
+    p.add_argument('--task', choices=('tower','prism'), default='tower')
     p.add_argument('--sensor-blackout',action='store_true',help='Diagnostic: remove all policy RGB-D pixels; evaluation remains unchanged')
     a=p.parse_args();a.output.mkdir(parents=True,exist_ok=False)
     validate_source(a.candidate.read_text())
-    env=VisionTrialEnv(a.output);calls=[];error=None;images=[]
+    env=(RecordedPrismEnv if a.task=='prism' else VisionTrialEnv)(a.output);calls=[];error=None;images=[]
     try:
         env.reset(a.seed, layout=a.layout);env.frames.clear();env.capture()
         start=float(env.data.time)
@@ -237,14 +239,14 @@ def main():
                     except subprocess.TimeoutExpired:proc.kill();proc.wait()
                     selector.close()
         policy_seconds=float(env.data.time)-start
-        env.check_structure(list(ORDER),duration=5.)
+        env.check_structure(list(PRISM_ORDER if a.task=='prism' else ORDER),duration=5.)
         metrics=env.evaluate()
         env.write_trace(metrics,error)
         frame=env.get_overhead_rgbd();Image.fromarray(frame['rgb']).save(a.output/'outcome.png')
         env.wait(1.)
         np.savez_compressed(a.output/'rollout.npz',states=env.frames,timestep=env.model.opt.timestep,state_type=int(env.state_type))
         (a.output/'api_calls.json').write_text(json.dumps(calls,indent=2)+'\n')
-        result={'seed':a.seed,'layout':a.layout,'success':metrics.success,'policy_error':error,'policy_sim_seconds':policy_seconds,
+        result={'seed':a.seed,'layout':a.layout,'task':a.task,'success':metrics.success,'policy_error':error,'policy_sim_seconds':policy_seconds,
                 'candidate_sha256':hashlib.sha256(a.candidate.read_bytes()).hexdigest(),'camera_calls':len(images),
                 'sensor_blackout':a.sensor_blackout,
                 'metrics':asdict(metrics),'observation_contract':'Side RGB-D, wrist RGB, calibration + robot proprioception ONLY; evaluator results never returned to policy'}

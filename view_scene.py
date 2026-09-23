@@ -480,6 +480,28 @@ entities = {
         ),
         position=(-0.18, -0.29, TABLE_HEIGHT + 0.045),
     ),
+    # New shapes stand upright: the 6 cm dimension is along world Z.
+    "orange_prism": make_block_cfg(
+        name="orange_prism",
+        position=(0.26, -0.22, TABLE_HEIGHT + 0.03),
+        half_size=(0.015, 0.015, 0.03),  # Full size: 3 x 3 x 6 cm.
+        color=(0.95, 0.40, 0.05, 1.0),
+    ),
+    "purple_thin_prism": make_block_cfg(
+        name="purple_thin_prism",
+        position=(0.26, -0.34, TABLE_HEIGHT + 0.03),
+        half_size=(0.0075, 0.015, 0.03),  # Full size: 1.5 x 3 x 6 cm.
+        color=(0.65, 0.15, 0.80, 1.0),
+    ),
+    "cyan_cylinder": make_shape_cfg(
+        spec_fn=lambda: get_cylinder_spec(
+            name="cyan_cylinder",
+            radius=0.015,
+            half_height=0.03,
+            color=(0.05, 0.75, 0.85, 1.0),
+        ),
+        position=(0.26, -0.48, TABLE_HEIGHT + 0.03),
+    ),
     "yellow_tetrahedron": make_shape_cfg(
         spec_fn=lambda: get_tetrahedron_spec(
             name="yellow_tetrahedron",
@@ -516,9 +538,18 @@ scene_cfg = SceneCfg(
     entities=entities,
 )
 
-def build_scene(tower: bool = False) -> tuple[Scene, mujoco.MjModel, mujoco.MjData]:
+def build_scene(tower: bool = False, prism: bool = False) -> tuple[Scene, mujoco.MjModel, mujoco.MjData]:
     """Compile and reset the shared SO-100 tabletop scene."""
+    if tower and prism:
+        raise ValueError('Choose either the tower or prism scene')
     cfg = scene_cfg
+    if prism:
+        from copy import deepcopy
+        from aspire_so100.prism_layouts import PRISM_OBJECTS, PRISM_NOMINAL
+        cfg = deepcopy(scene_cfg)
+        cfg.entities = {name: cfg.entities[name] for name in ('robot', 'table', *PRISM_OBJECTS)}
+        for name, position in PRISM_NOMINAL.items():
+            cfg.entities[name].init_state.pos = position
     if tower:
         from copy import deepcopy
         cfg = deepcopy(scene_cfg)
@@ -540,6 +571,8 @@ def main() -> None:
 
     parser = argparse.ArgumentParser(description="Watch the SO-100 stacking task.")
     parser.add_argument("--scene-only", action="store_true", help="Open the passive scene without a policy.")
+    parser.add_argument("--vision-task", choices=("tower", "prism"), default="tower",
+                        help="Sensor-only task, or scene selection with --scene-only")
     parser.add_argument("--seed", type=int, help="Scene seed (default: 51, or 81 for --vision-policy).")
     parser.add_argument("--task", choices=("single", "tower"), default="single")
     parser.add_argument("--candidate", type=Path, help="Generated policy to replay (required for tower).")
@@ -560,7 +593,7 @@ def main() -> None:
     if args.vision_policy:
         from aspire_so100.playback import watch_vision_policy
         watch_vision_policy(args.vision_policy, seed=args.seed if args.seed is not None else 81,
-                            output=args.vision_output, layout=args.vision_layout)
+                            output=args.vision_output, layout=args.vision_layout, task=args.vision_task)
         return
     if args.vision_trial:
         from aspire_so100.playback import watch_vision_rollout
@@ -574,7 +607,7 @@ def main() -> None:
         watch_stacking(args.seed if args.seed is not None else 51,
                        task=args.task, candidate_path=args.candidate)
         return
-    _, model, data = build_scene()
+    _, model, data = build_scene(prism=args.vision_task == 'prism')
     print(
         f"Scene compiled: "
         f"{model.nbody} bodies, "

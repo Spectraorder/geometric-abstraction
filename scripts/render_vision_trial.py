@@ -8,6 +8,7 @@ import mujoco
 import numpy as np
 from PIL import Image,ImageDraw,ImageFont
 from aspire_so100.tower import TowerEnv
+from aspire_so100.prism import PrismEnv
 from aspire_so100.rgbd import depth_preview
 
 
@@ -17,7 +18,7 @@ def main():
  calls=json.loads((a.trial/'api_calls.json').read_text())
  wrist_used=any(c['method']=='camera' and c['params'].get('view')=='wrist' for c in calls)
  with tempfile.TemporaryDirectory() as temp:
-  env=TowerEnv(Path(temp));env.model.vis.global_.offwidth=720;env.model.vis.global_.offheight=540
+  env=(PrismEnv if result.get('task')=='prism' else TowerEnv)(Path(temp));env.model.vis.global_.offwidth=720;env.model.vis.global_.offheight=540
   camera=mujoco.MjvCamera();camera.lookat[:]=[0,-.26,.44];camera.distance=1.15;camera.azimuth=115;camera.elevation=-32
   renderer=mujoco.Renderer(env.model,height=540,width=720)
   try:
@@ -32,7 +33,7 @@ def main():
      rgbd=sensor.capture(env.data);sensor.renderer.update_scene(env.data,camera='robot/wrist_camera');wrist=sensor.renderer.render().copy()
      for y,label,pixels in [(60,'RGB-D: SIDE RGB',rgbd['rgb']),(240,'RGB-D: DEPTH',depth_preview(rgbd['depth_m'])),(420,'WRIST: POLICY RGB' if wrist_used else 'WRIST (DISPLAY ONLY)',wrist)]:
       frame.paste(Image.fromarray(pixels).resize((240,180)),(720,y));draw.rectangle((720,y,960,y+20),fill='#172633');draw.text((724,y+2),label,font=small,fill='white')
-     draw.text((12,8),f'RGB-D TOWER POLICY | {a.trial.parent.name} | seed {result["seed"]}',font=font,fill='white')
+     draw.text((12,8),f'RGB-D {result.get("task", "tower").upper()} POLICY | {a.trial.parent.name} | seed {result["seed"]}',font=font,fill='white')
      end=env.data.time>=states[-1][0]-1.
      status=('PASS' if result['success'] else 'FAIL') if end else 'RUNNING'
      draw.text((12,34),f'RGB-D + proprioception | {a.speed:g}x | t={env.data.time:.2f}s | {status}',font=font,fill='#6fe6b0')

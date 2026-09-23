@@ -11,12 +11,44 @@ This project adapts the three useful pieces of the ASPIRE workflow to the local
    seeds.
 3. A small skill library stores validated repair patterns for later candidates.
 
-All box-shaped blocks are currently **3 × 3 × 3 cm cubes**. The initial task is
+The original box-shaped blocks are **3 × 3 × 3 cm cubes**. The initial task is
 **stack `small_red_block` on `blue_block`**; the object names are retained for
 policy compatibility. The other red cube and other shapes remain in the scene
 as distractors. A trial succeeds
 when the red block is centered on, touching, and stable on the blue block at the
 correct surface-relative height. Orientation is reported but is not required.
+
+The general tabletop scene also includes these upright objects, with the 6 cm
+dimension along Z:
+
+| Object | Shape | Dimensions |
+| --- | --- | --- |
+| `orange_prism` | Rectangular prism | 3 × 3 × 6 cm |
+| `purple_thin_prism` | Rectangular prism | 1.5 × 3 × 6 cm |
+| `cyan_cylinder` | Cylinder | Radius 1.5 cm, height 6 cm |
+
+View all shapes with `uv run python view_scene.py --scene-only`. The dedicated
+tower task still uses the three original cubes; its cube geometry policy has
+not been evaluated on these additional shapes.
+
+### Slender-prism training scene
+
+The separate `prism` scene contains exactly six movable objects: blue, red,
+and green 3 cm cubes, both new rectangular prisms, and the new cylinder.
+The task is to place the **purple 1.5 × 3 × 6 cm prism upright on the blue cube**.
+All objects initially stand upright; `random_xy` randomizes separated XY
+positions with zero initial yaw. The final check requires table/base contact,
+prism/base contact, robot withdrawal, an upright long axis within 8 degrees,
+support margin, low velocity, and five seconds of stability.
+
+```bash
+uv run python view_scene.py --scene-only --vision-task prism
+```
+
+Sensor-only trial execution supports `scripts/run_vision_trial.py --task prism`;
+the policy still receives only side RGB-D, wrist RGB, calibration, and robot
+proprioception. New trial metadata selects the correct six-object scene for
+`--vision-trial` playback and `scripts/render_vision_trial.py`.
 
 Historical recordings and campaign success rates below describe their recorded
 scene geometry; the 4 cm results are not results for the current 3 cm scene.

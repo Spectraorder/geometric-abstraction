@@ -14,6 +14,7 @@ from aspire_so100.pipeline import DEFAULT_CANDIDATE, _load_candidate
 from aspire_so100.stacking_env import StackingEnv
 from aspire_so100.camera_view import run_camera_viewer
 from aspire_so100.tower import TowerEnv, TowerAPI
+from aspire_so100.prism import PrismEnv
 
 
 class RecordingMixin:
@@ -37,6 +38,10 @@ class RecordedStackingEnv(RecordingMixin, StackingEnv):
 
 
 class RecordedTowerEnv(RecordingMixin, TowerEnv):
+    pass
+
+
+class RecordedPrismEnv(RecordingMixin, PrismEnv):
     pass
 
 
@@ -122,7 +127,9 @@ def watch_vision_rollout(trial: Path) -> None:
     if not (trial / "rollout.npz").is_file():
         raise FileNotFoundError(f"No rollout.npz in {trial}")
     with TemporaryDirectory(prefix="aspire-vision-viewer-") as directory:
-        env = RecordedTowerEnv(Path(directory))
+        result_path = trial / 'result.json'
+        task = json.loads(result_path.read_text()).get('task', 'tower') if result_path.is_file() else 'tower'
+        env = (RecordedPrismEnv if task == 'prism' else RecordedTowerEnv)(Path(directory))
         try:
             frames, state_type, seconds, playback_timestep = load_vision_rollout(trial, env.model)
             env.frames = frames
@@ -147,22 +154,23 @@ def watch_vision_rollout(trial: Path) -> None:
 
 
 def watch_vision_policy(candidate: Path, seed: int = 81, output: Path | None = None,
-                        layout: str = "nominal") -> None:
+                        layout: str = "nominal", task: str = "tower") -> None:
     """Execute the sensor-only policy once, then replay its actual trajectory."""
     candidate = Path(candidate).resolve()
     runner = Path(__file__).resolve().parents[2] / "scripts" / "run_vision_trial.py"
     if output is None:
         with TemporaryDirectory(prefix="aspire-vision-trial-") as directory:
-            _run_and_watch_vision(candidate, seed, Path(directory) / "trial", runner, layout)
+            _run_and_watch_vision(candidate, seed, Path(directory) / "trial", runner, layout, task)
     else:
-        _run_and_watch_vision(candidate, seed, Path(output).resolve(), runner, layout)
+        _run_and_watch_vision(candidate, seed, Path(output).resolve(), runner, layout, task)
 
 
 def _run_and_watch_vision(candidate: Path, seed: int, output: Path, runner: Path,
-                         layout: str = "nominal") -> None:
+                         layout: str = "nominal", task: str = "tower") -> None:
     if output.exists():
         raise FileExistsError(f"Vision trial output already exists: {output}")
     print(f"Executing RGB-D policy on seed {seed}; Viser opens after the rollout completes...", flush=True)
     subprocess.run([sys.executable, str(runner), "--candidate", str(candidate),
-                    "--seed", str(seed), "--layout", layout, "--output", str(output)], check=True)
+                    "--seed", str(seed), "--layout", layout, "--task", task,
+                    "--output", str(output)], check=True)
     watch_vision_rollout(output)

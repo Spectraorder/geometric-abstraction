@@ -73,11 +73,11 @@ class StackingEnv:
 
     ARM_JOINTS = ("Rotation", "Pitch", "Elbow", "Wrist_Pitch", "Wrist_Roll")
 
-    def __init__(self, output_dir: Path, render: bool = False, *, tower: bool = False):
+    def __init__(self, output_dir: Path, render: bool = False, *, tower: bool = False, prism: bool = False):
         self.output_dir = output_dir
         self.output_dir.mkdir(parents=True, exist_ok=True)
         self.render_enabled = render
-        self.scene, self.model, self.data = build_scene(tower=tower)
+        self.scene, self.model, self.data = build_scene(tower=tower, prism=prism)
         self.site_id = self.model.site("robot/ee_site").id
         self.arm_joints = [self.model.joint(f"robot/{name}") for name in self.ARM_JOINTS]
         self.arm_qpos_addresses = np.array(
