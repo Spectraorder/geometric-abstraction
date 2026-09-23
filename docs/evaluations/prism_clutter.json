@@ -1,0 +1,1389 @@
+{
+  "audited_at": "2026-09-23T04:28:06.161129+00:00",
+  "policy": "policies/stack_prism_upright_visual.py",
+  "sha256": "b0b426b7f3c777f663297e4599a221f329819b7c54073d4f38a9b0f0c828b2df",
+  "frozen_at": "2026-09-23T04:23:17.301922+00:00",
+  "published_source_identical": true,
+  "runtime_hashes_match": true,
+  "task": "prism",
+  "initial_orientation": "upright, zero yaw",
+  "training_method": "code-as-policy refinement from development trials",
+  "scene_commit": "2f3d7b5",
+  "sets": {
+    "development": {
+      "trials": 70,
+      "successes": 66,
+      "failures": [
+        110,
+        113,
+        219,
+        226
+      ],
+      "policy_runtime_errors": 0,
+      "trials_with_confirmed_relocation": 42,
+      "successes_with_confirmed_relocation": 40,
+      "sim_seconds": {
+        "mean": 85.42071428569263,
+        "median": 89.24999999997188,
+        "min": 33.149999999995345,
+        "max": 138.0999999999344
+      },
+      "results": [
+        {
+          "seed": 101,
+          "success": true,
+          "cleared": [
+            "red"
+          ],
+          "policy_error": null,
+          "sim_seconds": 95.39999999995754,
+          "api_calls": 427,
+          "last_note": "Prism released; final visual normal=[-0.0005, 0.0006, 1.0]"
+        },
+        {
+          "seed": 102,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 71.25000000001383,
+          "api_calls": 287,
+          "last_note": "Prism released; final visual normal=[0.0384, -0.0095, 0.9992]"
+        },
+        {
+          "seed": 103,
+          "success": true,
+          "cleared": [
+            "orange"
+          ],
+          "policy_error": null,
+          "sim_seconds": 95.29999999995778,
+          "api_calls": 406,
+          "last_note": "Prism released; final visual normal=[-0.0, -0.0007, 1.0]"
+        },
+        {
+          "seed": 104,
+          "success": true,
+          "cleared": [
+            "orange"
+          ],
+          "policy_error": null,
+          "sim_seconds": 89.99999999997013,
+          "api_calls": 388,
+          "last_note": "Prism released; final visual normal=[-0.0018, -0.0035, 1.0]"
+        },
+        {
+          "seed": 105,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 72.20000000001161,
+          "api_calls": 305,
+          "last_note": "Prism released; final visual normal=[-0.0006, 0.0009, 1.0]"
+        },
+        {
+          "seed": 106,
+          "success": true,
+          "cleared": [
+            "red"
+          ],
+          "policy_error": null,
+          "sim_seconds": 97.79999999995195,
+          "api_calls": 445,
+          "last_note": "Prism released; final visual normal=[0.0031, -0.0002, 1.0]"
+        },
+        {
+          "seed": 107,
+          "success": true,
+          "cleared": [
+            "green"
+          ],
+          "policy_error": null,
+          "sim_seconds": 90.74999999996838,
+          "api_calls": 412,
+          "last_note": "Prism released; final visual normal=[0.0403, 0.019, 0.999]"
+        },
+        {
+          "seed": 108,
+          "success": true,
+          "cleared": [
+            "green"
+          ],
+          "policy_error": null,
+          "sim_seconds": 94.89999999995871,
+          "api_calls": 409,
+          "last_note": "Prism released; final visual normal=[0.0294, -0.0159, 0.9994]"
+        },
+        {
+          "seed": 109,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 86.1499999999791,
+          "api_calls": 386,
+          "last_note": "Prism released; final visual normal=[-0.0003, 0.0, 1.0]"
+        },
+        {
+          "seed": 110,
+          "success": false,
+          "cleared": [
+            "green",
+            "cyan"
+          ],
+          "policy_error": null,
+          "sim_seconds": 114.14999999991385,
+          "api_calls": 531,
+          "last_note": "Final visual height inconsistent with an upright prism on the base."
+        },
+        {
+          "seed": 111,
+          "success": true,
+          "cleared": [
+            "red",
+            "orange"
+          ],
+          "policy_error": null,
+          "sim_seconds": 120.09999999989998,
+          "api_calls": 543,
+          "last_note": "Prism released; final visual normal=[-0.0012, -0.0012, 1.0]"
+        },
+        {
+          "seed": 112,
+          "success": true,
+          "cleared": [
+            "cyan"
+          ],
+          "policy_error": null,
+          "sim_seconds": 90.94999999996791,
+          "api_calls": 385,
+          "last_note": "Prism released; final visual normal=[-0.0014, -0.0039, 1.0]"
+        },
+        {
+          "seed": 113,
+          "success": false,
+          "cleared": [
+            "red",
+            "green"
+          ],
+          "policy_error": null,
+          "sim_seconds": 128.89999999989047,
+          "api_calls": 585,
+          "last_note": "Final visual height inconsistent with an upright prism on the base."
+        },
+        {
+          "seed": 114,
+          "success": true,
+          "cleared": [
+            "red"
+          ],
+          "policy_error": null,
+          "sim_seconds": 108.04999999992806,
+          "api_calls": 507,
+          "last_note": "Prism released; final visual normal=[0.0765, -0.0192, 0.9969]"
+        },
+        {
+          "seed": 115,
+          "success": true,
+          "cleared": [
+            "purple"
+          ],
+          "policy_error": null,
+          "sim_seconds": 91.44999999996675,
+          "api_calls": 390,
+          "last_note": "Prism released; final visual normal=[0.0362, 0.0222, 0.9991]"
+        },
+        {
+          "seed": 116,
+          "success": true,
+          "cleared": [
+            "orange"
+          ],
+          "policy_error": null,
+          "sim_seconds": 93.84999999996116,
+          "api_calls": 403,
+          "last_note": "Prism released; final visual normal=[0.0018, -0.0022, 1.0]"
+        },
+        {
+          "seed": 117,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 70.60000000001534,
+          "api_calls": 292,
+          "last_note": "Prism released; final visual normal=[-0.001, -0.0005, 1.0]"
+        },
+        {
+          "seed": 118,
+          "success": true,
+          "cleared": [
+            "purple"
+          ],
+          "policy_error": null,
+          "sim_seconds": 93.74999999996139,
+          "api_calls": 402,
+          "last_note": "Prism released; final visual normal=[0.0332, -0.0225, 0.9992]"
+        },
+        {
+          "seed": 119,
+          "success": true,
+          "cleared": [
+            "orange"
+          ],
+          "policy_error": null,
+          "sim_seconds": 104.39999999993657,
+          "api_calls": 466,
+          "last_note": "Prism released; final visual normal=[-0.0012, -0.0027, 1.0]"
+        },
+        {
+          "seed": 120,
+          "success": true,
+          "cleared": [
+            "red"
+          ],
+          "policy_error": null,
+          "sim_seconds": 87.69999999997549,
+          "api_calls": 378,
+          "last_note": "Prism released; final visual normal=[-0.0005, -0.0022, 1.0]"
+        },
+        {
+          "seed": 201,
+          "success": true,
+          "cleared": [
+            "red"
+          ],
+          "policy_error": null,
+          "sim_seconds": 103.74999999993808,
+          "api_calls": 470,
+          "last_note": "Prism released; final visual normal=[0.0003, 0.0006, 1.0]"
+        },
+        {
+          "seed": 202,
+          "success": true,
+          "cleared": [
+            "orange"
+          ],
+          "policy_error": null,
+          "sim_seconds": 95.34999999995766,
+          "api_calls": 429,
+          "last_note": "Prism released; final visual normal=[0.0, 0.0, 1.0]"
+        },
+        {
+          "seed": 203,
+          "success": true,
+          "cleared": [
+            "orange"
+          ],
+          "policy_error": null,
+          "sim_seconds": 87.74999999997537,
+          "api_calls": 379,
+          "last_note": "Prism released; final visual normal=[0.0258, -0.011, 0.9996]"
+        },
+        {
+          "seed": 204,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 64.35000000002991,
+          "api_calls": 247,
+          "last_note": "Prism released; final visual normal=[-0.0006, -0.0009, 1.0]"
+        },
+        {
+          "seed": 205,
+          "success": true,
+          "cleared": [
+            "green"
+          ],
+          "policy_error": null,
+          "sim_seconds": 94.59999999995941,
+          "api_calls": 425,
+          "last_note": "Prism released; final visual normal=[0.0427, 0.0222, 0.9988]"
+        },
+        {
+          "seed": 206,
+          "success": true,
+          "cleared": [
+            "purple",
+            "cyan"
+          ],
+          "policy_error": null,
+          "sim_seconds": 117.54999999990592,
+          "api_calls": 527,
+          "last_note": "Prism released; final visual normal=[0.0003, -0.0022, 1.0]"
+        },
+        {
+          "seed": 207,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 68.05000000002129,
+          "api_calls": 265,
+          "last_note": "Prism released; final visual normal=[0.0007, -0.0026, 1.0]"
+        },
+        {
+          "seed": 208,
+          "success": true,
+          "cleared": [
+            "orange"
+          ],
+          "policy_error": null,
+          "sim_seconds": 105.84999999993319,
+          "api_calls": 488,
+          "last_note": "Prism released; final visual normal=[0.0844, -0.0271, 0.9961]"
+        },
+        {
+          "seed": 209,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 68.85000000001942,
+          "api_calls": 274,
+          "last_note": "Prism released; final visual normal=[-0.0, 0.0005, 1.0]"
+        },
+        {
+          "seed": 210,
+          "success": true,
+          "cleared": [
+            "red"
+          ],
+          "policy_error": null,
+          "sim_seconds": 102.29999999994146,
+          "api_calls": 466,
+          "last_note": "Prism released; final visual normal=[0.078, -0.0305, 0.9965]"
+        },
+        {
+          "seed": 211,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 73.00000000000975,
+          "api_calls": 306,
+          "last_note": "Prism released; final visual normal=[-0.0002, 0.0008, 1.0]"
+        },
+        {
+          "seed": 212,
+          "success": true,
+          "cleared": [
+            "red"
+          ],
+          "policy_error": null,
+          "sim_seconds": 94.74999999995906,
+          "api_calls": 434,
+          "last_note": "Prism released; final visual normal=[-0.0016, -0.0005, 1.0]"
+        },
+        {
+          "seed": 213,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 61.80000000003036,
+          "api_calls": 226,
+          "last_note": "Prism released; final visual normal=[-0.0012, -0.0013, 1.0]"
+        },
+        {
+          "seed": 214,
+          "success": true,
+          "cleared": [
+            "green"
+          ],
+          "policy_error": null,
+          "sim_seconds": 87.54999999997584,
+          "api_calls": 368,
+          "last_note": "Prism released; final visual normal=[-0.0015, 0.0001, 1.0]"
+        },
+        {
+          "seed": 215,
+          "success": true,
+          "cleared": [
+            "orange"
+          ],
+          "policy_error": null,
+          "sim_seconds": 103.3999999999389,
+          "api_calls": 457,
+          "last_note": "Prism released; final visual normal=[0.0031, -0.0021, 1.0]"
+        },
+        {
+          "seed": 216,
+          "success": true,
+          "cleared": [
+            "red",
+            "orange"
+          ],
+          "policy_error": null,
+          "sim_seconds": 114.5999999999128,
+          "api_calls": 536,
+          "last_note": "Prism released; final visual normal=[0.0023, -0.0013, 1.0]"
+        },
+        {
+          "seed": 217,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 61.150000000029564,
+          "api_calls": 224,
+          "last_note": "Prism released; final visual normal=[0.0027, -0.001, 1.0]"
+        },
+        {
+          "seed": 218,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 60.35000000002859,
+          "api_calls": 218,
+          "last_note": "Prism released; final visual normal=[-0.0015, -0.0027, 1.0]"
+        },
+        {
+          "seed": 219,
+          "success": false,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 35.19999999999785,
+          "api_calls": 213,
+          "last_note": "Blocker move not visually confirmed; stopping."
+        },
+        {
+          "seed": 220,
+          "success": true,
+          "cleared": [
+            "orange"
+          ],
+          "policy_error": null,
+          "sim_seconds": 133.74999999991363,
+          "api_calls": 577,
+          "last_note": "Prism released; final visual normal=[0.0276, -0.0161, 0.9995]"
+        },
+        {
+          "seed": 221,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 59.70000000002779,
+          "api_calls": 217,
+          "last_note": "Prism released; final visual normal=[-0.0016, -0.002, 1.0]"
+        },
+        {
+          "seed": 222,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 62.600000000031336,
+          "api_calls": 231,
+          "last_note": "Prism released; final visual normal=[0.0001, -0.0, 1.0]"
+        },
+        {
+          "seed": 223,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 60.35000000002859,
+          "api_calls": 218,
+          "last_note": "Prism released; final visual normal=[-0.0011, 0.0002, 1.0]"
+        },
+        {
+          "seed": 224,
+          "success": true,
+          "cleared": [
+            "cyan"
+          ],
+          "policy_error": null,
+          "sim_seconds": 90.29999999996943,
+          "api_calls": 395,
+          "last_note": "Prism released; final visual normal=[-0.0002, -0.0007, 1.0]"
+        },
+        {
+          "seed": 225,
+          "success": true,
+          "cleared": [
+            "orange"
+          ],
+          "policy_error": null,
+          "sim_seconds": 91.74999999996605,
+          "api_calls": 404,
+          "last_note": "Prism released; final visual normal=[-0.0011, -0.0018, 1.0]"
+        },
+        {
+          "seed": 226,
+          "success": false,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 33.149999999995345,
+          "api_calls": 191,
+          "last_note": "Top face occluded for orange"
+        },
+        {
+          "seed": 227,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 61.30000000002975,
+          "api_calls": 226,
+          "last_note": "Prism released; final visual normal=[0.0629, 0.0078, 0.998]"
+        },
+        {
+          "seed": 228,
+          "success": true,
+          "cleared": [
+            "red"
+          ],
+          "policy_error": null,
+          "sim_seconds": 89.14999999997211,
+          "api_calls": 390,
+          "last_note": "Prism released; final visual normal=[0.0011, -0.0012, 1.0]"
+        },
+        {
+          "seed": 229,
+          "success": true,
+          "cleared": [
+            "orange"
+          ],
+          "policy_error": null,
+          "sim_seconds": 89.34999999997164,
+          "api_calls": 374,
+          "last_note": "Prism released; final visual normal=[-0.0004, -0.0004, 1.0]"
+        },
+        {
+          "seed": 230,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 64.85000000002874,
+          "api_calls": 243,
+          "last_note": "Prism released; final visual normal=[0.0648, -0.0049, 0.9979]"
+        },
+        {
+          "seed": 231,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 61.150000000029564,
+          "api_calls": 225,
+          "last_note": "Prism released; final visual normal=[-0.0005, -0.0009, 1.0]"
+        },
+        {
+          "seed": 232,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 61.95000000003054,
+          "api_calls": 231,
+          "last_note": "Prism released; final visual normal=[-0.0005, -0.0002, 1.0]"
+        },
+        {
+          "seed": 233,
+          "success": true,
+          "cleared": [
+            "green"
+          ],
+          "policy_error": null,
+          "sim_seconds": 86.89999999997735,
+          "api_calls": 370,
+          "last_note": "Prism released; final visual normal=[-0.0009, -0.0016, 1.0]"
+        },
+        {
+          "seed": 234,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 66.00000000002606,
+          "api_calls": 260,
+          "last_note": "Prism released; final visual normal=[0.0003, -0.0018, 1.0]"
+        },
+        {
+          "seed": 235,
+          "success": true,
+          "cleared": [
+            "orange"
+          ],
+          "policy_error": null,
+          "sim_seconds": 91.74999999996605,
+          "api_calls": 394,
+          "last_note": "Prism released; final visual normal=[-0.0013, -0.0005, 1.0]"
+        },
+        {
+          "seed": 236,
+          "success": true,
+          "cleared": [
+            "cyan"
+          ],
+          "policy_error": null,
+          "sim_seconds": 87.74999999997537,
+          "api_calls": 373,
+          "last_note": "Prism released; final visual normal=[0.0603, 0.0099, 0.9981]"
+        },
+        {
+          "seed": 237,
+          "success": true,
+          "cleared": [
+            "cyan"
+          ],
+          "policy_error": null,
+          "sim_seconds": 100.39999999994589,
+          "api_calls": 454,
+          "last_note": "Prism released; final visual normal=[-0.0003, 0.0009, 1.0]"
+        },
+        {
+          "seed": 238,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 59.55000000002761,
+          "api_calls": 212,
+          "last_note": "Prism released; final visual normal=[-0.0006, -0.0019, 1.0]"
+        },
+        {
+          "seed": 239,
+          "success": true,
+          "cleared": [
+            "cyan"
+          ],
+          "policy_error": null,
+          "sim_seconds": 94.34999999995999,
+          "api_calls": 401,
+          "last_note": "Prism released; final visual normal=[0.0314, 0.0046, 0.9995]"
+        },
+        {
+          "seed": 240,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 74.75000000000567,
+          "api_calls": 321,
+          "last_note": "Prism released; final visual normal=[-0.0004, -0.0002, 1.0]"
+        },
+        {
+          "seed": 241,
+          "success": true,
+          "cleared": [
+            "cyan"
+          ],
+          "policy_error": null,
+          "sim_seconds": 99.1499999999488,
+          "api_calls": 442,
+          "last_note": "Prism released; final visual normal=[-0.0001, -0.0005, 1.0]"
+        },
+        {
+          "seed": 242,
+          "success": true,
+          "cleared": [
+            "orange"
+          ],
+          "policy_error": null,
+          "sim_seconds": 89.34999999997164,
+          "api_calls": 386,
+          "last_note": "Prism released; final visual normal=[0.0474, -0.0323, 0.9984]"
+        },
+        {
+          "seed": 243,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 75.90000000000299,
+          "api_calls": 312,
+          "last_note": "Prism released; final visual normal=[0.0338, 0.0035, 0.9994]"
+        },
+        {
+          "seed": 244,
+          "success": true,
+          "cleared": [
+            "red"
+          ],
+          "policy_error": null,
+          "sim_seconds": 84.49999999998295,
+          "api_calls": 358,
+          "last_note": "Prism released; final visual normal=[-0.0004, -0.0015, 1.0]"
+        },
+        {
+          "seed": 245,
+          "success": true,
+          "cleared": [
+            "orange"
+          ],
+          "policy_error": null,
+          "sim_seconds": 138.0999999999344,
+          "api_calls": 590,
+          "last_note": "Prism released; final visual normal=[-0.0001, -0.0016, 1.0]"
+        },
+        {
+          "seed": 246,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 73.00000000000975,
+          "api_calls": 311,
+          "last_note": "Prism released; final visual normal=[0.0775, -0.0224, 0.9967]"
+        },
+        {
+          "seed": 247,
+          "success": true,
+          "cleared": [
+            "green",
+            "cyan"
+          ],
+          "policy_error": null,
+          "sim_seconds": 113.49999999991536,
+          "api_calls": 514,
+          "last_note": "Prism released; final visual normal=[0.0922, -0.0196, 0.9955]"
+        },
+        {
+          "seed": 248,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 63.55000000003178,
+          "api_calls": 243,
+          "last_note": "Prism released; final visual normal=[-0.0009, -0.0021, 1.0]"
+        },
+        {
+          "seed": 249,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 59.55000000002761,
+          "api_calls": 212,
+          "last_note": "Prism released; final visual normal=[0.0444, -0.0091, 0.999]"
+        },
+        {
+          "seed": 250,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 64.20000000003026,
+          "api_calls": 244,
+          "last_note": "Prism released; final visual normal=[0.0003, -0.0009, 1.0]"
+        }
+      ]
+    },
+    "reserved": {
+      "trials": 50,
+      "successes": 47,
+      "failures": [
+        412,
+        439,
+        444
+      ],
+      "policy_runtime_errors": 0,
+      "trials_with_confirmed_relocation": 24,
+      "successes_with_confirmed_relocation": 21,
+      "sim_seconds": {
+        "mean": 79.55199999999242,
+        "median": 73.72500000000807,
+        "min": 49.850000000015754,
+        "max": 128.1499999998869
+      },
+      "results": [
+        {
+          "seed": 401,
+          "success": true,
+          "cleared": [
+            "orange"
+          ],
+          "policy_error": null,
+          "sim_seconds": 85.49999999998062,
+          "api_calls": 351,
+          "last_note": "Prism released; final visual normal=[-0.0004, 0.0013, 1.0]"
+        },
+        {
+          "seed": 402,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 64.35000000002991,
+          "api_calls": 245,
+          "last_note": "Prism released; final visual normal=[-0.0, -0.0022, 1.0]"
+        },
+        {
+          "seed": 403,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 62.100000000030725,
+          "api_calls": 236,
+          "last_note": "Prism released; final visual normal=[-0.0009, -0.0011, 1.0]"
+        },
+        {
+          "seed": 404,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 76.05000000000264,
+          "api_calls": 327,
+          "last_note": "Prism released; final visual normal=[0.091, -0.0288, 0.9954]"
+        },
+        {
+          "seed": 405,
+          "success": true,
+          "cleared": [
+            "green",
+            "cyan"
+          ],
+          "policy_error": null,
+          "sim_seconds": 119.09999999990231,
+          "api_calls": 564,
+          "last_note": "Prism released; final visual normal=[0.0898, -0.0132, 0.9959]"
+        },
+        {
+          "seed": 406,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 64.35000000002991,
+          "api_calls": 244,
+          "last_note": "Prism released; final visual normal=[0.0369, -0.0186, 0.9991]"
+        },
+        {
+          "seed": 407,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 75.10000000000485,
+          "api_calls": 319,
+          "last_note": "Prism released; final visual normal=[-0.0001, -0.002, 1.0]"
+        },
+        {
+          "seed": 408,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 71.55000000001313,
+          "api_calls": 298,
+          "last_note": "Prism released; final visual normal=[-0.0012, 0.0009, 1.0]"
+        },
+        {
+          "seed": 409,
+          "success": true,
+          "cleared": [
+            "green",
+            "cyan"
+          ],
+          "policy_error": null,
+          "sim_seconds": 116.49999999990837,
+          "api_calls": 546,
+          "last_note": "Prism released; final visual normal=[-0.0007, -0.0021, 1.0]"
+        },
+        {
+          "seed": 410,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 75.5500000000038,
+          "api_calls": 322,
+          "last_note": "Prism released; final visual normal=[-0.0002, -0.0007, 1.0]"
+        },
+        {
+          "seed": 411,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 66.45000000002501,
+          "api_calls": 257,
+          "last_note": "Prism released; final visual normal=[-0.0007, -0.0004, 1.0]"
+        },
+        {
+          "seed": 412,
+          "success": false,
+          "cleared": [
+            "green"
+          ],
+          "policy_error": null,
+          "sim_seconds": 49.850000000015754,
+          "api_calls": 278,
+          "last_note": "No visible cyan block."
+        },
+        {
+          "seed": 413,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 70.90000000001464,
+          "api_calls": 298,
+          "last_note": "Prism released; final visual normal=[0.0586, 0.0196, 0.9981]"
+        },
+        {
+          "seed": 414,
+          "success": true,
+          "cleared": [
+            "red"
+          ],
+          "policy_error": null,
+          "sim_seconds": 86.89999999997735,
+          "api_calls": 375,
+          "last_note": "Prism released; final visual normal=[0.0, 0.0, 1.0]"
+        },
+        {
+          "seed": 415,
+          "success": true,
+          "cleared": [
+            "orange"
+          ],
+          "policy_error": null,
+          "sim_seconds": 93.9999999999608,
+          "api_calls": 406,
+          "last_note": "Prism released; final visual normal=[0.0989, -0.0327, 0.9946]"
+        },
+        {
+          "seed": 416,
+          "success": true,
+          "cleared": [
+            "green"
+          ],
+          "policy_error": null,
+          "sim_seconds": 88.34999999997397,
+          "api_calls": 385,
+          "last_note": "Prism released; final visual normal=[0.0001, -0.0038, 1.0]"
+        },
+        {
+          "seed": 417,
+          "success": true,
+          "cleared": [
+            "orange"
+          ],
+          "policy_error": null,
+          "sim_seconds": 96.09999999995591,
+          "api_calls": 418,
+          "last_note": "Prism released; final visual normal=[-0.0006, 0.0008, 1.0]"
+        },
+        {
+          "seed": 418,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 62.75000000003152,
+          "api_calls": 234,
+          "last_note": "Prism released; final visual normal=[0.0016, -0.0006, 1.0]"
+        },
+        {
+          "seed": 419,
+          "success": true,
+          "cleared": [
+            "orange"
+          ],
+          "policy_error": null,
+          "sim_seconds": 95.89999999995638,
+          "api_calls": 424,
+          "last_note": "Prism released; final visual normal=[-0.0003, 0.0001, 1.0]"
+        },
+        {
+          "seed": 420,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 64.35000000002991,
+          "api_calls": 249,
+          "last_note": "Prism released; final visual normal=[-0.0014, 0.0003, 1.0]"
+        },
+        {
+          "seed": 421,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 71.55000000001313,
+          "api_calls": 295,
+          "last_note": "Prism released; final visual normal=[-0.0008, -0.0024, 1.0]"
+        },
+        {
+          "seed": 422,
+          "success": true,
+          "cleared": [
+            "cyan"
+          ],
+          "policy_error": null,
+          "sim_seconds": 96.09999999995591,
+          "api_calls": 432,
+          "last_note": "Prism released; final visual normal=[0.0009, -0.001, 1.0]"
+        },
+        {
+          "seed": 423,
+          "success": true,
+          "cleared": [
+            "green",
+            "cyan"
+          ],
+          "policy_error": null,
+          "sim_seconds": 114.14999999991385,
+          "api_calls": 548,
+          "last_note": "Prism released; final visual normal=[-0.0009, 0.0005, 1.0]"
+        },
+        {
+          "seed": 424,
+          "success": true,
+          "cleared": [
+            "red"
+          ],
+          "policy_error": null,
+          "sim_seconds": 90.89999999996803,
+          "api_calls": 404,
+          "last_note": "Prism released; final visual normal=[0.0313, -0.0081, 0.9995]"
+        },
+        {
+          "seed": 425,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 65.80000000002653,
+          "api_calls": 254,
+          "last_note": "Prism released; final visual normal=[0.0, 0.0, 1.0]"
+        },
+        {
+          "seed": 426,
+          "success": true,
+          "cleared": [
+            "orange"
+          ],
+          "policy_error": null,
+          "sim_seconds": 90.79999999996826,
+          "api_calls": 387,
+          "last_note": "Prism released; final visual normal=[0.0293, -0.0205, 0.9994]"
+        },
+        {
+          "seed": 427,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 61.80000000003036,
+          "api_calls": 226,
+          "last_note": "Prism released; final visual normal=[-0.0011, -0.0004, 1.0]"
+        },
+        {
+          "seed": 428,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 64.20000000003026,
+          "api_calls": 244,
+          "last_note": "Prism released; final visual normal=[-0.0004, -0.0007, 1.0]"
+        },
+        {
+          "seed": 429,
+          "success": true,
+          "cleared": [
+            "orange"
+          ],
+          "policy_error": null,
+          "sim_seconds": 89.99999999997013,
+          "api_calls": 382,
+          "last_note": "Prism released; final visual normal=[0.0358, 0.0156, 0.9992]"
+        },
+        {
+          "seed": 430,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 69.5000000000179,
+          "api_calls": 272,
+          "last_note": "Prism released; final visual normal=[0.0772, -0.0237, 0.9967]"
+        },
+        {
+          "seed": 431,
+          "success": true,
+          "cleared": [
+            "orange"
+          ],
+          "policy_error": null,
+          "sim_seconds": 108.19999999992771,
+          "api_calls": 509,
+          "last_note": "Prism released; final visual normal=[-0.0007, 0.0011, 1.0]"
+        },
+        {
+          "seed": 432,
+          "success": true,
+          "cleared": [
+            "orange"
+          ],
+          "policy_error": null,
+          "sim_seconds": 91.5999999999664,
+          "api_calls": 393,
+          "last_note": "Prism released; final visual normal=[-0.0007, 0.0011, 1.0]"
+        },
+        {
+          "seed": 433,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 66.60000000002466,
+          "api_calls": 262,
+          "last_note": "Prism released; final visual normal=[0.0366, 0.0153, 0.9992]"
+        },
+        {
+          "seed": 434,
+          "success": true,
+          "cleared": [
+            "orange"
+          ],
+          "policy_error": null,
+          "sim_seconds": 128.1499999998869,
+          "api_calls": 534,
+          "last_note": "Prism released; final visual normal=[-0.0004, -0.0018, 1.0]"
+        },
+        {
+          "seed": 435,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 58.900000000026814,
+          "api_calls": 210,
+          "last_note": "Prism released; final visual normal=[0.0605, -0.0041, 0.9982]"
+        },
+        {
+          "seed": 436,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 62.600000000031336,
+          "api_calls": 232,
+          "last_note": "Prism released; final visual normal=[0.0815, -0.0242, 0.9964]"
+        },
+        {
+          "seed": 437,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 62.75000000003152,
+          "api_calls": 238,
+          "last_note": "Prism released; final visual normal=[0.026, -0.0086, 0.9996]"
+        },
+        {
+          "seed": 438,
+          "success": true,
+          "cleared": [
+            "red"
+          ],
+          "policy_error": null,
+          "sim_seconds": 93.14999999996279,
+          "api_calls": 397,
+          "last_note": "Prism released; final visual normal=[-0.0003, -0.0046, 1.0]"
+        },
+        {
+          "seed": 439,
+          "success": false,
+          "cleared": [
+            "red"
+          ],
+          "policy_error": null,
+          "sim_seconds": 66.35000000002525,
+          "api_calls": 292,
+          "last_note": "RuntimeError: Requested tool position is unreachable within 5 mm"
+        },
+        {
+          "seed": 440,
+          "success": true,
+          "cleared": [
+            "red"
+          ],
+          "policy_error": null,
+          "sim_seconds": 97.79999999995195,
+          "api_calls": 468,
+          "last_note": "Prism released; final visual normal=[0.0323, -0.0215, 0.9992]"
+        },
+        {
+          "seed": 441,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 65.80000000002653,
+          "api_calls": 255,
+          "last_note": "Prism released; final visual normal=[0.0395, 0.0098, 0.9992]"
+        },
+        {
+          "seed": 442,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 72.35000000001126,
+          "api_calls": 309,
+          "last_note": "Prism released; final visual normal=[-0.0007, 0.0004, 1.0]"
+        },
+        {
+          "seed": 443,
+          "success": true,
+          "cleared": [
+            "red"
+          ],
+          "policy_error": null,
+          "sim_seconds": 89.7999999999706,
+          "api_calls": 394,
+          "last_note": "Prism released; final visual normal=[-0.0009, -0.0006, 1.0]"
+        },
+        {
+          "seed": 444,
+          "success": false,
+          "cleared": [
+            "green"
+          ],
+          "policy_error": null,
+          "sim_seconds": 55.300000000022415,
+          "api_calls": 312,
+          "last_note": "Blocker move not visually confirmed; stopping."
+        },
+        {
+          "seed": 445,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 70.10000000001651,
+          "api_calls": 284,
+          "last_note": "Prism released; final visual normal=[0.0343, 0.0246, 0.9991]"
+        },
+        {
+          "seed": 446,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 64.35000000002991,
+          "api_calls": 247,
+          "last_note": "Prism released; final visual normal=[0.0407, -0.0254, 0.9988]"
+        },
+        {
+          "seed": 447,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 64.35000000002991,
+          "api_calls": 245,
+          "last_note": "Prism released; final visual normal=[-0.0014, -0.0021, 1.0]"
+        },
+        {
+          "seed": 448,
+          "success": true,
+          "cleared": [
+            "purple"
+          ],
+          "policy_error": null,
+          "sim_seconds": 89.24999999997188,
+          "api_calls": 373,
+          "last_note": "Prism released; final visual normal=[0.0787, -0.0325, 0.9964]"
+        },
+        {
+          "seed": 449,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 84.54999999998283,
+          "api_calls": 375,
+          "last_note": "Prism released; final visual normal=[0.0004, -0.0022, 1.0]"
+        },
+        {
+          "seed": 450,
+          "success": true,
+          "cleared": [
+            "green"
+          ],
+          "policy_error": null,
+          "sim_seconds": 85.14999999998143,
+          "api_calls": 345,
+          "last_note": "Prism released; final visual normal=[0.0558, -0.0072, 0.9984]"
+        }
+      ]
+    },
+    "nominal": {
+      "trials": 5,
+      "successes": 5,
+      "failures": [],
+      "policy_runtime_errors": 0,
+      "trials_with_confirmed_relocation": 0,
+      "successes_with_confirmed_relocation": 0,
+      "sim_seconds": {
+        "mean": 76.91999999999916,
+        "median": 69.8000000000172,
+        "min": 61.30000000002975,
+        "max": 105.24999999993459
+      },
+      "results": [
+        {
+          "seed": 501,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 69.8000000000172,
+          "api_calls": 286,
+          "last_note": "Prism released; final visual normal=[-0.0003, 0.0001, 1.0]"
+        },
+        {
+          "seed": 502,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 81.64999999998959,
+          "api_calls": 359,
+          "last_note": "Prism released; final visual normal=[-0.0004, -0.0018, 1.0]"
+        },
+        {
+          "seed": 503,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 66.60000000002466,
+          "api_calls": 260,
+          "last_note": "Prism released; final visual normal=[0.0004, -0.003, 1.0]"
+        },
+        {
+          "seed": 504,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 61.30000000002975,
+          "api_calls": 230,
+          "last_note": "Prism released; final visual normal=[0.0007, -0.0017, 1.0]"
+        },
+        {
+          "seed": 505,
+          "success": true,
+          "cleared": [],
+          "policy_error": null,
+          "sim_seconds": 105.24999999993459,
+          "api_calls": 428,
+          "last_note": "Prism released; final visual normal=[-0.0005, 0.0005, 1.0]"
+        }
+      ]
+    }
+  },
+  "cleared_object_counts": {
+    "red": 18,
+    "orange": 25,
+    "green": 15,
+    "cyan": 13,
+    "purple": 4
+  },
+  "side_rgbd_frames_audited": 8950,
+  "wrist_rgb_only_frames_audited": 323,
+  "blackout_zero_motion": true,
+  "forced_miss": {
+    "seed": 101,
+    "success": true,
+    "candidate_sha256": "39bb2f0715050a0ad5214d99747eb61dea904048c562acd5a4cd4493dfb86bf4",
+    "additional_sim_seconds": 20.699999999951757
+  },
+  "same_reserved_baseline": {
+    "policy": "outputs/prism_training_01/frozen_policy.py",
+    "sha256": "077b7a00369e68c0de426e9081e9f22438fed26ad5f50aaefd71a62990bd951b",
+    "successes": 42,
+    "trials": 50,
+    "failures": [
+      405,
+      409,
+      415,
+      426,
+      438,
+      439,
+      440,
+      448
+    ],
+    "new_only_success": [
+      405,
+      409,
+      415,
+      426,
+      438,
+      440,
+      448
+    ],
+    "baseline_only_success": [
+      412,
+      444
+    ]
+  },
+  "tests": {
+    "run": 40,
+    "passed": 39,
+    "skipped": 1,
+    "log": "outputs/prism_training_02/tests.log"
+  },
+  "artifacts": "outputs/prism_training_02"
+}

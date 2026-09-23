@@ -1,0 +1,20 @@
+{
+  "seed": 405,
+  "layout": "random_xy",
+  "task": "prism",
+  "success": true,
+  "policy_error": null,
+  "policy_sim_seconds": 119.09999999990231,
+  "candidate_sha256": "b0b426b7f3c777f663297e4599a221f329819b7c54073d4f38a9b0f0c828b2df",
+  "camera_calls": 101,
+  "sensor_blackout": false,
+  "metrics": {
+    "success": true,
+    "score": 1.0,
+    "placed_blocks": 1,
+    "required_placements": 1,
+    "structure_stable": true,
+    "failure": null
+  },
+  "observation_contract": "Side RGB-D, wrist RGB, calibration + robot proprioception ONLY; evaluator results never returned to policy"
+}

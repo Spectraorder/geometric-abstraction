@@ -47,6 +47,9 @@ class RandomizedVisionResumeTests(unittest.TestCase):
             with patch.object(LEARNER.subprocess, 'run') as run:
                 self.assertEqual(LEARNER.evaluate(candidate, trials, [101], 1), summary)
                 run.assert_not_called()
+                with self.assertRaisesRegex(RuntimeError, 'does not match'):
+                    LEARNER.evaluate(candidate, trials, [101], 1, task='prism')
+                run.assert_not_called()
                 candidate.write_text('def run(api): api.wait(1)\n')
                 with self.assertRaisesRegex(RuntimeError, 'does not match'):
                     LEARNER.evaluate(candidate, trials, [101], 1)

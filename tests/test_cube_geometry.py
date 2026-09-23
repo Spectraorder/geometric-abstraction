@@ -8,8 +8,9 @@ from scipy.spatial.transform import Rotation
 from aspire_so100.cube_geometry import estimate_cube_geometry, support_margin
 
 
-def cube_frame(rotation, hide_top=False):
+def cube_frame(rotation, hide_top=False, half_size=None):
     """Ray-cast a rotated box over a table, returning calibrated optical depth."""
+    half_size = np.array([.02, .02, .02] if half_size is None else half_size)
     width, height = 240, 180
     center = np.array([.01, -.02, .08])
     camera = np.array([.24, -.28, .38])
@@ -27,8 +28,8 @@ def cube_frame(rotation, hide_top=False):
     direction = rays @ rotation
     origin = (camera - center) @ rotation
     with np.errstate(divide='ignore', invalid='ignore'):
-        first = (-.02 - origin) / direction
-        second = (.02 - origin) / direction
+        first = (-half_size - origin) / direction
+        second = (half_size - origin) / direction
         entry = np.max(np.minimum(first, second), axis=2)
         leave = np.min(np.maximum(first, second), axis=2)
         table_depth = -camera[2] / rays[..., 2]
@@ -38,7 +39,7 @@ def cube_frame(rotation, hide_top=False):
     rgb[hit] = [210, 30, 30]
     if hide_top:
         local = origin + entry[..., None] * direction
-        rgb[hit & (abs(local[..., 2] - .02) < 1e-7)] = 0
+        rgb[hit & (abs(local[..., 2] - half_size[2]) < 1e-7)] = 0
     return {'rgb': rgb, 'depth_m': depth, 'valid_depth': np.isfinite(depth) & (depth > 0),
             'intrinsics': k, 'camera_to_world': pose}, center
 

@@ -50,6 +50,19 @@ the policy still receives only side RGB-D, wrist RGB, calibration, and robot
 proprioception. New trial metadata selects the correct six-object scene for
 `--vision-trial` playback and `scripts/render_vision_trial.py`.
 
+`policies/stack_prism_upright_visual.py` actively relocates blockers before
+positioning the base and stacking the purple prism. It passed **66/70 development**,
+**47/50 fresh reserved randomized layouts (94%)**, and **5/5 nominal layouts**.
+The earlier prism policy passed 42/50 on the same reserved set. See the
+[clutter policy report and recorded experiment](docs/PRISM_CLUTTER_POLICY.md)
+for the observation boundary, failures, and actual clearing replay.
+
+```bash
+uv run python view_scene.py --vision-task prism \
+  --vision-policy policies/stack_prism_upright_visual.py \
+  --vision-layout random_xy --seed 405 --vision-output outputs/prism_view_405
+```
+
 Historical recordings and campaign success rates below describe their recorded
 scene geometry; the 4 cm results are not results for the current 3 cm scene.
 

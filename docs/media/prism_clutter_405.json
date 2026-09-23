@@ -1,0 +1,53 @@
+{
+  "trial": "outputs/prism_training_02/reserved/seed_405",
+  "seed": 405,
+  "success": true,
+  "candidate_sha256": "b0b426b7f3c777f663297e4599a221f329819b7c54073d4f38a9b0f0c828b2df",
+  "source_frames": [
+    "camera_005.npz",
+    "camera_024.npz",
+    "camera_043.npz",
+    "camera_100.npz"
+  ],
+  "visual_footprint_centers": {
+    "blue": [
+      0.1255510597618532,
+      -0.3283198489681143
+    ],
+    "red": [
+      0.06284452008430047,
+      -0.22027991805354427
+    ],
+    "green": [
+      0.03383053785156846,
+      -0.28222470839321007
+    ],
+    "orange": [
+      -0.10076300933425841,
+      -0.2721171704671129
+    ],
+    "purple": [
+      -0.12844538979178163,
+      -0.3582237155354826
+    ],
+    "cyan": [
+      -0.08149181675376567,
+      -0.2037616135376326
+    ]
+  },
+  "planned_worksite": [
+    -0.02,
+    -0.238
+  ],
+  "planned_destinations": {
+    "green": [
+      0.14,
+      -0.238
+    ],
+    "cyan": [
+      -0.14,
+      -0.198
+    ]
+  },
+  "source": "recorded RGB-D and policy API notes, no simulator object states"
+}

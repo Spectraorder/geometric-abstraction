@@ -22,7 +22,7 @@ def write(path, value):
     temporary.replace(path)
 
 
-def evaluate(candidate, directory, seeds, jobs):
+def evaluate(candidate, directory, seeds, jobs, *, task='tower', layout='random_xy'):
     candidate = candidate.resolve()
     digest = hashlib.sha256(candidate.read_bytes()).hexdigest()
     directory.mkdir(exist_ok=True, parents=True)
@@ -43,12 +43,13 @@ def evaluate(candidate, directory, seeds, jobs):
                 worker_env.setdefault('MUJOCO_GL', 'egl')
             with (directory / f'seed_{seed}.log').open('w') as log:
                 subprocess.run([sys.executable, str(ROOT / 'scripts/run_vision_trial.py'),
-                    '--candidate', str(candidate), '--seed', str(seed), '--layout', 'random_xy',
+                    '--candidate', str(candidate), '--seed', str(seed), '--layout', layout, '--task', task,
                     '--output', str(out)], stdout=log, stderr=subprocess.STDOUT, check=True,
                     env=worker_env,
                     timeout=240)
         result = json.loads((out / 'result.json').read_text())
-        if result['candidate_sha256'] != digest or result.get('layout') != 'random_xy':
+        if (result['candidate_sha256'] != digest or result.get('layout') != layout
+                or result.get('task', 'tower') != task):
             raise RuntimeError(f'Existing result does not match this experiment: {out}')
         print(f'{directory.name}, seed {seed}: success={result["success"]}, '
               f'score={result["metrics"]["score"]}, error={result["policy_error"]}', flush=True)
