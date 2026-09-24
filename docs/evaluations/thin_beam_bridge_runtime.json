@@ -1,0 +1,1121 @@
+{
+  "candidate_sha256": "80bfb487e1b35ec08ceb83e06c298dc40354eca3df17fbf1ce2ff1aad50e9504",
+  "imports": [
+    "numpy",
+    "scipy",
+    "scipy.optimize",
+    "scipy.sparse",
+    "scipy.sparse.csgraph",
+    "scipy.spatial"
+  ],
+  "policy_compute_cpu_seconds": {
+    "median": 5.001823218999996,
+    "p95": 7.262282249149994,
+    "maximum": 7.321730021999995,
+    "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+  },
+  "blackout": {
+    "success": false,
+    "candidate_sha256": "80bfb487e1b35ec08ceb83e06c298dc40354eca3df17fbf1ce2ff1aad50e9504",
+    "camera_calls": 1,
+    "methods": [
+      "task",
+      "camera",
+      "note",
+      "done"
+    ],
+    "motion_calls": 0,
+    "robot_ik_calls": 0
+  },
+  "regressions": {
+    "split": "development",
+    "candidate_sha256": "80bfb487e1b35ec08ceb83e06c298dc40354eca3df17fbf1ce2ff1aad50e9504",
+    "trials": 3,
+    "successes": 3,
+    "results": [
+      {
+        "seed": 1401,
+        "layout": "sampled",
+        "task": "inventory_structure",
+        "success": true,
+        "policy_error": null,
+        "policy_sim_seconds": 98.8499999999495,
+        "candidate_sha256": "80bfb487e1b35ec08ceb83e06c298dc40354eca3df17fbf1ce2ff1aad50e9504",
+        "camera_calls": 86,
+        "sensor_blackout": false,
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 3.953852808000002,
+          "rpc_cpu_seconds": 0.22604155799999812,
+          "compute_interval_count": 395,
+          "compute_interval_cpu_p50_ms": 0.011629999999929197,
+          "compute_interval_cpu_p95_ms": 51.85497099999992,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.16016768999999886,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 3,
+          "required_placements": 3,
+          "structure_stable": true,
+          "failure": null
+        },
+        "observation_contract": "Side RGB-D, wrist RGB, calibration + robot proprioception ONLY; evaluator results never returned to policy; public symbolic construction goal via task()",
+        "scene": {
+          "generator": "block_catalog_v1",
+          "scene_task": "support_graph",
+          "seed": 1401,
+          "object_count": 3,
+          "objects": [
+            "blue_cube",
+            "red_cube",
+            "green_cube"
+          ],
+          "roles": {
+            "level_0": "blue_cube",
+            "level_1": "red_cube",
+            "level_2": "green_cube"
+          },
+          "recipe": "cube_bridge",
+          "order": [
+            "blue_cube",
+            "red_cube",
+            "green_cube"
+          ],
+          "color_map": null,
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "left"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "left",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  -0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "right",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "span",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "left",
+                  "right"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          }
+        },
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "left"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "left",
+              "color": "blue",
+              "shape": "cube",
+              "grid": [
+                -0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "right",
+              "color": "red",
+              "shape": "cube",
+              "grid": [
+                0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "span",
+              "color": "green",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "left",
+                "right"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        },
+        "api_call_limit": 900,
+        "declared_trial": {
+          "case": "cube_bridge_d0",
+          "seed": 1401,
+          "recipe": "cube_bridge",
+          "distractors": 0,
+          "object_count": 3,
+          "color_map": null,
+          "order": [
+            "blue_cube",
+            "red_cube",
+            "green_cube"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "left"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "left",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  -0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "right",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "span",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "left",
+                  "right"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "final_notes": [
+          "green_2 wrist grasp corroboration=True",
+          "green_2 payload tilt=[-0.0064, 0.0058, 1.0]",
+          "green_2 alignment to aim=0.0033 gap=0.028",
+          "green_2 alignment to aim=0.0001 gap=0.0234",
+          "green_2 alignment to aim=0.0001 gap=0.0115",
+          "green_2 release offset=[0.0003, 0.0003] gap=0.0036",
+          "green_2 after opening displacement=[0.0001, 0.0001, -0.0039]",
+          "green_2 after withdrawal center=[-0.0198, -0.2379, 0.4448]",
+          "NODE confirmed span 3/3",
+          "Structure released; all nodes visually placed according to the support graph"
+        ],
+        "checks": [
+          {
+            "stable": true,
+            "reasons": [],
+            "blocks": [
+              "blue_cube",
+              "red_cube",
+              "green_cube"
+            ],
+            "duration_s": 5.0,
+            "time": 105.29999999993599
+          }
+        ],
+        "api_calls": 395,
+        "archive": "outputs/beam_bridge_01/upright_regression_final/cube_bridge_d0/seed_1401"
+      },
+      {
+        "seed": 1401,
+        "layout": "sampled",
+        "task": "inventory_structure",
+        "success": true,
+        "policy_error": null,
+        "policy_sim_seconds": 131.84999999990455,
+        "candidate_sha256": "80bfb487e1b35ec08ceb83e06c298dc40354eca3df17fbf1ce2ff1aad50e9504",
+        "camera_calls": 122,
+        "sensor_blackout": false,
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 5.863584750999998,
+          "rpc_cpu_seconds": 0.313561275000002,
+          "compute_interval_count": 546,
+          "compute_interval_cpu_p50_ms": 0.011594500000100538,
+          "compute_interval_cpu_p95_ms": 55.59141274999995,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.2211842469999974,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 4,
+          "required_placements": 4,
+          "structure_stable": true,
+          "failure": null
+        },
+        "observation_contract": "Side RGB-D, wrist RGB, calibration + robot proprioception ONLY; evaluator results never returned to policy; public symbolic construction goal via task()",
+        "scene": {
+          "generator": "block_catalog_v1",
+          "scene_task": "support_graph",
+          "seed": 1401,
+          "object_count": 4,
+          "objects": [
+            "blue_cube",
+            "yellow_cube",
+            "green_cube",
+            "red_cylinder"
+          ],
+          "roles": {
+            "level_0": "blue_cube",
+            "level_1": "yellow_cube",
+            "level_2": "green_cube",
+            "level_3": "red_cylinder"
+          },
+          "recipe": "capped_bridge",
+          "order": [
+            "blue_cube",
+            "yellow_cube",
+            "green_cube",
+            "red_cylinder"
+          ],
+          "color_map": null,
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "left"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "left",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  -0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "right",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "span",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "left",
+                  "right"
+                ],
+                "orientation": "upright"
+              },
+              {
+                "key": "cap",
+                "color": "red",
+                "shape": "cylinder",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "span"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          }
+        },
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "left"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "left",
+              "color": "blue",
+              "shape": "cube",
+              "grid": [
+                -0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "right",
+              "color": "yellow",
+              "shape": "cube",
+              "grid": [
+                0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "span",
+              "color": "green",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "left",
+                "right"
+              ],
+              "orientation": "upright"
+            },
+            {
+              "key": "cap",
+              "color": "red",
+              "shape": "cylinder",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "span"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        },
+        "api_call_limit": 1200,
+        "declared_trial": {
+          "case": "capped_bridge_d0",
+          "seed": 1401,
+          "recipe": "capped_bridge",
+          "distractors": 0,
+          "object_count": 4,
+          "color_map": null,
+          "order": [
+            "blue_cube",
+            "yellow_cube",
+            "green_cube",
+            "red_cylinder"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "left"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "left",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  -0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "right",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "span",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "left",
+                  "right"
+                ],
+                "orientation": "upright"
+              },
+              {
+                "key": "cap",
+                "color": "red",
+                "shape": "cylinder",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "span"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "final_notes": [
+          "red_0 payload tilt=[0.0022, 0.1729, 0.9849]",
+          "red_0 alignment to aim=0.0072 gap=0.0236",
+          "red_0 alignment to aim=0.0002 gap=0.023",
+          "red_0 alignment to aim=0.002 gap=0.0108",
+          "red_0 alignment to aim=0.0004 gap=0.0109",
+          "red_0 release offset=[0.0, 0.0004] gap=0.0031",
+          "red_0 after opening displacement=[-0.0002, -0.0027, -0.0054]",
+          "red_0 after withdrawal center=[-0.0198, -0.2369, 0.4894]",
+          "NODE confirmed cap 4/4",
+          "Structure released; all nodes visually placed according to the support graph"
+        ],
+        "checks": [
+          {
+            "stable": true,
+            "reasons": [],
+            "blocks": [
+              "blue_cube",
+              "yellow_cube",
+              "green_cube",
+              "red_cylinder"
+            ],
+            "duration_s": 5.0,
+            "time": 138.29999999993225
+          }
+        ],
+        "api_calls": 546,
+        "archive": "outputs/beam_bridge_01/upright_regression_final/capped_bridge_d0/seed_1401"
+      },
+      {
+        "seed": 1401,
+        "layout": "sampled",
+        "task": "inventory_structure",
+        "success": true,
+        "policy_error": null,
+        "policy_sim_seconds": 160.8000000000428,
+        "candidate_sha256": "80bfb487e1b35ec08ceb83e06c298dc40354eca3df17fbf1ce2ff1aad50e9504",
+        "camera_calls": 138,
+        "sensor_blackout": false,
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 7.394816314999991,
+          "rpc_cpu_seconds": 0.32572431600000884,
+          "compute_interval_count": 645,
+          "compute_interval_cpu_p50_ms": 0.010982000000048231,
+          "compute_interval_cpu_p95_ms": 60.78940720000005,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.2774989639999994,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 5,
+          "required_placements": 5,
+          "structure_stable": true,
+          "failure": null
+        },
+        "observation_contract": "Side RGB-D, wrist RGB, calibration + robot proprioception ONLY; evaluator results never returned to policy; public symbolic construction goal via task()",
+        "scene": {
+          "generator": "block_catalog_v1",
+          "scene_task": "support_graph",
+          "seed": 1401,
+          "object_count": 5,
+          "objects": [
+            "blue_cube",
+            "red_cube",
+            "green_prism",
+            "yellow_cube",
+            "green_cube"
+          ],
+          "roles": {
+            "level_0": "blue_cube",
+            "level_1": "red_cube",
+            "level_2": "green_prism",
+            "level_3": "yellow_cube",
+            "level_4": "green_cube"
+          },
+          "recipe": "staircase",
+          "order": [
+            "blue_cube",
+            "red_cube",
+            "green_prism",
+            "yellow_cube",
+            "green_cube"
+          ],
+          "color_map": null,
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "low"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "low",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  -1.8,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "middle_base",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "high_base",
+                "color": "green",
+                "shape": "prism",
+                "grid": [
+                  1.8,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "middle_top",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "middle_base"
+                ],
+                "orientation": "upright"
+              },
+              {
+                "key": "high_top",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  1.8,
+                  0.0
+                ],
+                "supports": [
+                  "high_base"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          }
+        },
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "low"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "low",
+              "color": "blue",
+              "shape": "cube",
+              "grid": [
+                -1.8,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "middle_base",
+              "color": "red",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "high_base",
+              "color": "green",
+              "shape": "prism",
+              "grid": [
+                1.8,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "middle_top",
+              "color": "yellow",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "middle_base"
+              ],
+              "orientation": "upright"
+            },
+            {
+              "key": "high_top",
+              "color": "green",
+              "shape": "cube",
+              "grid": [
+                1.8,
+                0.0
+              ],
+              "supports": [
+                "high_base"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        },
+        "api_call_limit": 1500,
+        "declared_trial": {
+          "case": "staircase_d0",
+          "seed": 1401,
+          "recipe": "staircase",
+          "distractors": 0,
+          "object_count": 5,
+          "color_map": null,
+          "order": [
+            "blue_cube",
+            "red_cube",
+            "green_prism",
+            "yellow_cube",
+            "green_cube"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "low"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "low",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  -1.8,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "middle_base",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "high_base",
+                "color": "green",
+                "shape": "prism",
+                "grid": [
+                  1.8,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "middle_top",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "middle_base"
+                ],
+                "orientation": "upright"
+              },
+              {
+                "key": "high_top",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  1.8,
+                  0.0
+                ],
+                "supports": [
+                  "high_base"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "final_notes": [
+          "green_4 payload tilt=[-0.0328, 0.2862, 0.9576]",
+          "green_4 alignment to aim=0.0081 gap=0.0302",
+          "green_4 alignment to aim=0.0004 gap=0.0235",
+          "green_4 alignment to aim=0.002 gap=0.0109",
+          "green_4 alignment to aim=0.0009 gap=0.011",
+          "green_4 release offset=[-0.0002, -0.0] gap=0.0033",
+          "green_4 after opening displacement=[-0.0009, 0.0003, -0.0049]",
+          "green_4 after withdrawal center=[0.0042, -0.238, 0.4746]",
+          "NODE confirmed high_top 5/5",
+          "Structure released; all nodes visually placed according to the support graph"
+        ],
+        "checks": [
+          {
+            "stable": true,
+            "reasons": [],
+            "blocks": [
+              "blue_cube",
+              "red_cube",
+              "green_prism",
+              "yellow_cube",
+              "green_cube"
+            ],
+            "duration_s": 5.0,
+            "time": 167.2500000000705
+          }
+        ],
+        "api_calls": 645,
+        "archive": "outputs/beam_bridge_01/upright_regression_final/staircase_d0/seed_1401"
+      }
+    ],
+    "worker_errors": [],
+    "manifest": {
+      "schema_version": 2,
+      "split": "development",
+      "candidate_sha256": "80bfb487e1b35ec08ceb83e06c298dc40354eca3df17fbf1ce2ff1aad50e9504",
+      "runtime_sources_sha256": {
+        "scripts/run_vision_trial.py": "9dbd9eff5d68b066230bbeb02062e7a89746a113656000229a45fb1dcdc7db82",
+        "view_scene.py": "baafbdce362e5245e80a837dd5b264e4fb4f469f53a19c85ab7804bb479aa954",
+        "src/aspire_so100/structure_tasks.py": "5e7638f24be7b2c31259bf15d1402851eebf69fa0b536353b5a7087eeb7dcb02",
+        "src/aspire_so100/inventory_structure.py": "140c875e6f4d64a80144b34c70a38c7569ab65ced4ff9d8b15a6d7494725072c",
+        "src/aspire_so100/structure_geometry.py": "85f84217ffd1d135fe508139a4be1a3a3c9594366ace38dfd9f37702e0132058",
+        "src/aspire_so100/block_catalog.py": "2dad0d946f6afabc73b8747a57ab182dc433517ce29a9ff3c2143a2a66c120f9",
+        "src/aspire_so100/rgbd.py": "20ffe8493885de4fc1595c70dd944337de8c6ee8d06184271f87dcd4632a17fe",
+        "src/aspire_so100/stacking_env.py": "2c55432b0e8a73367fbec3b228892ca3bbe5b817e25464f99a31ceecc4858f0d"
+      },
+      "task": "inventory_structure",
+      "trials": [
+        {
+          "case": "cube_bridge_d0",
+          "seed": 1401,
+          "recipe": "cube_bridge",
+          "distractors": 0,
+          "object_count": 3,
+          "color_map": null,
+          "order": [
+            "blue_cube",
+            "red_cube",
+            "green_cube"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "left"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "left",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  -0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "right",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "span",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "left",
+                  "right"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        {
+          "case": "capped_bridge_d0",
+          "seed": 1401,
+          "recipe": "capped_bridge",
+          "distractors": 0,
+          "object_count": 4,
+          "color_map": null,
+          "order": [
+            "blue_cube",
+            "yellow_cube",
+            "green_cube",
+            "red_cylinder"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "left"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "left",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  -0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "right",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "span",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "left",
+                  "right"
+                ],
+                "orientation": "upright"
+              },
+              {
+                "key": "cap",
+                "color": "red",
+                "shape": "cylinder",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "span"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        {
+          "case": "staircase_d0",
+          "seed": 1401,
+          "recipe": "staircase",
+          "distractors": 0,
+          "object_count": 5,
+          "color_map": null,
+          "order": [
+            "blue_cube",
+            "red_cube",
+            "green_prism",
+            "yellow_cube",
+            "green_cube"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "low"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "low",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  -1.8,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "middle_base",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "high_base",
+                "color": "green",
+                "shape": "prism",
+                "grid": [
+                  1.8,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "middle_top",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "middle_base"
+                ],
+                "orientation": "upright"
+              },
+              {
+                "key": "high_top",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  1.8,
+                  0.0
+                ],
+                "supports": [
+                  "high_base"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        }
+      ],
+      "trial_count": 3
+    }
+  },
+  "tests": {
+    "run": 141,
+    "passed": 140,
+    "skipped": 1,
+    "log": "outputs/beam_bridge_01/tests_final.log"
+  },
+  "boundary": "Policy receives camera pixels/calibration, robot proprioception, robot-only IK and a symbolic goal. Source dimensions/poses, contacts and success checks are private. Simulator state is used only for offline evaluation, replay and durability diagnostics."
+}

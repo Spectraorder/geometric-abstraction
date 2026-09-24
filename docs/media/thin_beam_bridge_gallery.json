@@ -1,0 +1,136 @@
+{
+  "source": "Final archived MuJoCo integration states, external display camera; no policy rerun.",
+  "selection": "Selected illustrative trials, not a substitute for the full declared evaluation.",
+  "records": [
+    {
+      "recipe": "thin_beam_bridge",
+      "seed": 1601,
+      "goal": {
+        "kind": "support_graph",
+        "length_unit": {
+          "observed_cube": "left"
+        },
+        "axes": "world_xy",
+        "nodes": [
+          {
+            "key": "left",
+            "color": "blue",
+            "shape": "cube",
+            "grid": [
+              -1.0,
+              0.0
+            ],
+            "supports": [],
+            "orientation": "upright"
+          },
+          {
+            "key": "right",
+            "color": "red",
+            "shape": "cube",
+            "grid": [
+              1.0,
+              0.0
+            ],
+            "supports": [],
+            "orientation": "upright"
+          },
+          {
+            "key": "beam",
+            "color": "green",
+            "shape": "thin_prism",
+            "grid": [
+              0.0,
+              0.0
+            ],
+            "supports": [
+              "left",
+              "right"
+            ],
+            "orientation": "flat_x"
+          },
+          {
+            "key": "cap",
+            "color": "yellow",
+            "shape": "cylinder",
+            "grid": [
+              0.0,
+              0.0
+            ],
+            "supports": [
+              "beam"
+            ],
+            "orientation": "upright"
+          }
+        ]
+      },
+      "success": true,
+      "distractors": 0,
+      "candidate_sha256": "80bfb487e1b35ec08ceb83e06c298dc40354eca3df17fbf1ce2ff1aad50e9504"
+    },
+    {
+      "recipe": "thin_beam_bridge",
+      "seed": 1601,
+      "goal": {
+        "kind": "support_graph",
+        "length_unit": {
+          "observed_cube": "left"
+        },
+        "axes": "world_xy",
+        "nodes": [
+          {
+            "key": "left",
+            "color": "blue",
+            "shape": "cube",
+            "grid": [
+              -1.0,
+              0.0
+            ],
+            "supports": [],
+            "orientation": "upright"
+          },
+          {
+            "key": "right",
+            "color": "red",
+            "shape": "cube",
+            "grid": [
+              1.0,
+              0.0
+            ],
+            "supports": [],
+            "orientation": "upright"
+          },
+          {
+            "key": "beam",
+            "color": "green",
+            "shape": "thin_prism",
+            "grid": [
+              0.0,
+              0.0
+            ],
+            "supports": [
+              "left",
+              "right"
+            ],
+            "orientation": "flat_x"
+          },
+          {
+            "key": "cap",
+            "color": "yellow",
+            "shape": "cylinder",
+            "grid": [
+              0.0,
+              0.0
+            ],
+            "supports": [
+              "beam"
+            ],
+            "orientation": "upright"
+          }
+        ]
+      },
+      "success": true,
+      "distractors": 2,
+      "candidate_sha256": "80bfb487e1b35ec08ceb83e06c298dc40354eca3df17fbf1ce2ff1aad50e9504"
+    }
+  ]
+}

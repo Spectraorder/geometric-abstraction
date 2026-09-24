@@ -1,5 +1,9 @@
 # Low-rise structures with multiple supports
 
+This report describes the frozen upright-structure controller. The subsequent
+[thin-beam bridge task](THIN_BEAM_BRIDGE.md) has separate evidence and starts its
+beam flat on the tabletop. Its results are not included in the 29/30 below.
+
 The new `inventory_structure` task assembles low, spatially extended structures
 from a symbolic support graph. It shifts the challenge from increasing column
 height to placing several foundations, sharing loads across supports, arranging
@@ -18,8 +22,8 @@ recipes below, including color permutations and zero/two distractors.
 
 The bridge is a **cube spanning two supports**, with a nominal 3 mm gap between
 the foundations. It is not a horizontally reoriented 6 cm beam. All initial
-objects and placed objects remain upright in this first set; long-beam bridges
-need a separate validated turning/regrasp skill. Triangular targets are not
+objects and placed objects remain upright in this first set; turning an initially upright long beam
+needs a separate validated turning/regrasp skill. Triangular targets are not
 supported, although all five catalog shapes can occur as distractors.
 
 A capped bridge has a genuine multiple-parent support relation:
@@ -88,7 +92,7 @@ stability or robustness to external disturbances.
 
 ## Frozen evaluation
 
-Candidate: `policies/assemble_structure_cpu.py`, implementation commit
+Historical candidate, now preserved as `policies/assemble_structure_v1_cpu.py`, implementation commit
 `60c5a0a80ef531ede27e83c394a493188d02473d`.
 
 ```text
@@ -202,13 +206,13 @@ shapes as targets. Generalization claims must remain within that scope.
 # Execute a cube bridge, then open its actual recorded playback.
 uv run python view_scene.py --vision-task inventory_structure \
   --structure-recipe cube_bridge --object-count 3 --seed 1301 \
-  --vision-policy policies/assemble_structure_cpu.py \
+  --vision-policy policies/assemble_structure_v1_cpu.py \
   --vision-output outputs/bridge_demo_1301
 
 # A five-object stepped structure plus two distractors.
 uv run python view_scene.py --vision-task inventory_structure \
   --structure-recipe staircase --object-count 7 --seed 1302 \
-  --vision-policy policies/assemble_structure_cpu.py \
+  --vision-policy policies/assemble_structure_v1_cpu.py \
   --vision-output outputs/staircase_demo_1302
 
 # Inspect the task-conditioned initial scene without executing the policy.
@@ -218,14 +222,17 @@ uv run python view_scene.py --scene-only --scene-task support_graph \
 # Replay an existing trial without rerunning the policy.
 uv run python view_scene.py --vision-trial outputs/bridge_demo_1301
 
-# Rebuild the new policy; historical bundles remain unchanged.
+# Rebuild the CURRENT policy (which now also supports flat-source beams).
+# Rebuilding the historical bundle requires the implementation commit above.
 uv run python scripts/build_inventory_policy.py --controller structure_policy \
   --output policies/assemble_structure_cpu.py
 
-# Reproduce the complete frozen 30-trial matrix in a new output directory.
+# Run the historical candidate on the same 30-trial matrix.
+# For exact original runtime hashes, use implementation commit 60c5a0a
+# and its original candidate filename instead.
 MUJOCO_GL=egl OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
   uv run python scripts/evaluate_structures.py \
-  --candidate policies/assemble_structure_cpu.py --output outputs/structures_reproduction \
+  --candidate policies/assemble_structure_v1_cpu.py --output outputs/structures_reproduction \
   --recipes cube_bridge capped_bridge staircase --seeds 1201 1202 1203 1204 1205 \
   --distractors 0 2 --permute-colors --jobs 3 --split heldout \
   --frozen-sha256 3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1

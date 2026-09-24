@@ -1,0 +1,20 @@
+{
+  "trial": "outputs/beam_bridge_01/heldout_v2/thin_beam_bridge_d0_colors/seed_1601",
+  "candidate_sha256": "80bfb487e1b35ec08ceb83e06c298dc40354eca3df17fbf1ce2ff1aad50e9504",
+  "video": "docs/media/thin_beam_bridge_1601.mp4",
+  "video_sha256": "62040524e9ce972b6132cc11b7a27c31a2247c5f2deb2794946c3e219616c182",
+  "render": {
+    "frames": 277,
+    "fps": 12,
+    "speed": 6.0,
+    "duration_seconds": 23.083333333333332,
+    "source": "saved actual physics states",
+    "success": true
+  },
+  "selection": "First successful zero-distractor trial in the final frozen matrix. Saved actual integration states; no policy rerun.",
+  "gallery_trials": [
+    "thin_beam_bridge_d0_colors/seed_1601",
+    "thin_beam_bridge_d2_colors/seed_1601"
+  ],
+  "gallery_note": "Both passed the original five-second task check. In the separate 60-second continuation, the second exceeded the 3 mm cylinder drift bound."
+}

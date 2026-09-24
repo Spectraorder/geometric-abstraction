@@ -1172,6 +1172,108 @@ def support_equilibrium(models, parents, *, margin=0.002, minimum_load=0.001):
         inequalities[row, start:end] = -1.0
     result = linprog(np.zeros(len(columns)), A_ub=inequalities, b_ub=np.repeat(-minimum_load, len(patches)), A_eq=np.asarray(columns).T, b_eq=rhs, bounds=(0.0, None), method='highs')
     return {'feasible': bool(result.success), 'reason': None if result.success else 'No balanced nonnegative support reactions', 'loads': [[p, c, float(result.x[a:b].sum())] for p, c, a, b in patches] if result.success else []}
+'Visual identification and orientation checks for tabletop beam sources.\n\nDimensions are learned from RGB-D. Ratios describe shape hypotheses, not\nmetric catalog dimensions. Flat sources use measured world X/Y/Z extents.\n'
+import numpy as np
+from scipy.spatial import ConvexHull, QhullError
+
+def flat_beam_aligned(model, tolerance_degrees=8.0):
+    """Check the measured thin and long physical axes, allowing face symmetry."""
+    if 'rotation' not in model or 'axis_dimensions' not in model:
+        return False
+    dimensions = np.asarray(model['axis_dimensions'])
+    rotation = np.asarray(model['rotation'])
+    shortest, longest = (int(np.argmin(dimensions)), int(np.argmax(dimensions)))
+    threshold = np.cos(np.deg2rad(tolerance_degrees))
+    return bool(abs(rotation[2, shortest]) >= threshold and abs(rotation[0, longest]) >= threshold)
+
+def select_structure_nodes(tracker, nodes, frame):
+    """Resolve flat thin prisms from measured shape evidence before association."""
+    for node in nodes:
+        if node['orientation'] != 'flat_x':
+            continue
+        if node['shape'] != 'thin_prism':
+            raise ValueError('Flat sources currently require a thin prism')
+        matches = []
+        for key, track in tracker.tracks.items():
+            if not track['visible'] or track['color'] != node['color']:
+                continue
+            dimensions = np.asarray(track['dimensions'])
+            ratios = dimensions / max(float(dimensions[0]), 1e-09)
+            features = track.get('features', {})
+            if not 0.36 < ratios[1] < 0.68 or not 0.18 < ratios[2] < 0.34 or features.get('sloped_fraction', 1.0) > 0.2 or (features.get('normal_samples', 0) < 10):
+                continue
+            try:
+                fit = estimate_flat_beam_geometry(tracker.isolated_frame(frame, key), node['color'], tracker.plane)
+            except ValueError:
+                continue
+            if flat_beam_aligned(fit) and fit.get('observed_face_count', 0) >= 1:
+                matches.append(key)
+        if len(matches) != 1:
+            raise ValueError('No unique visually supported flat ' + node['color'] + ' thin prism')
+        tracker.tracks[matches[0]]['shape'] = 'thin_prism'
+    return select_column_levels(tracker, nodes, frame)
+
+def estimate_flat_beam_geometry(frame, color, table_plane, model=None):
+    """Initialize or refresh a flat slab from its complete visible top boundary.
+
+    The thin vertical sides can be less than one pixel high. A rectangular top
+    boundary supplies finite XY constraints without inventing side-plane normals.
+    This initialization assumes small yaw, verified by corner coverage; later
+    supported poses retain learned thickness. Held poses use the ordinary rigid
+    model and measured surfaces.
+    """
+    points, valid = inventory_points(frame)
+    selected = valid & inventory_color_mask(frame['rgb'], color)
+    cloud = points[selected]
+    if len(cloud) < 30:
+        raise ValueError('Too little flat beam surface evidence')
+    heights = cloud[:, 2] - cloud[:, :2] @ table_plane[:2] - table_plane[2]
+    top_height = float(np.percentile(heights, 95))
+    top = cloud[abs(heights - top_height) < 0.0005]
+    if len(top) < 25 or not 0.009 < top_height < 0.15:
+        raise ValueError('No broad planar tabletop beam face')
+    mean = np.mean(top, axis=0)
+    _, _, axes = np.linalg.svd(top - mean, full_matrices=False)
+    normal = axes[-1]
+    if normal[2] < 0:
+        normal = -normal
+    if normal[2] < np.cos(np.deg2rad(3)):
+        raise ValueError('Beam source is not visibly flat')
+    ex = np.array([1.0, 0.0, 0.0]) - normal * normal[0]
+    ex /= np.linalg.norm(ex)
+    ey = np.cross(normal, ex)
+    rotation = np.column_stack((ex, ey, normal))
+    uv = top @ rotation[:, :2]
+    low, high = (np.min(uv, axis=0), np.max(uv, axis=0))
+    dims = high - low
+    physical_height = top_height if model is None else model['height']
+    if not 0.36 < dims[1] / dims[0] < 0.68 or not 0.18 < physical_height / dims[0] < 0.34:
+        raise ValueError('Top silhouette is not a flat thin prism')
+    try:
+        hull = ConvexHull(uv)
+    except QhullError as error:
+        raise ValueError('Beam top boundary is degenerate') from error
+    if hull.volume / np.prod(dims) < 0.9:
+        raise ValueError('Beam top boundary is clipped or rotated')
+    corners = np.array([[x, y] for x in (low[0], high[0]) for y in (low[1], high[1])])
+    pixel = float(np.max(dims) / np.sqrt(len(top)))
+    if np.max(np.min(np.linalg.norm(corners[:, None] - uv[None], axis=2), axis=1)) > 1.5 * pixel:
+        raise ValueError('Beam top corners are not all observed')
+    top_center = rotation[:, :2] @ ((low + high) / 2) + normal * float(np.median(top @ normal))
+    if model is None:
+        height = float(top_center[2] - top_center[:2] @ table_plane[:2] - table_plane[2])
+        model = {'height': height, 'dims': dims}
+        model.update(column_size_uncertainty(frame, color, model, table_plane))
+    else:
+        height = float(model['height'])
+        if np.max(abs(dims - np.asarray(model['dims']))) > 2 * pixel:
+            raise ValueError('Top boundary contradicts the learned beam dimensions')
+        dims = np.asarray(model['dims'])
+    center = top_center - normal * height / 2
+    sizes = np.r_[dims, height]
+    signs = np.array([[x, y, z] for x in (-1.0, 1.0) for y in (-1.0, 1.0) for z in (-1.0, 1.0)])
+    vertices = center + signs * sizes / 2 @ rotation.T
+    return {'shape': 'thin_prism', 'center': center, 'normal': normal, 'height': height, 'dims': dims, 'model': model, 'rotation': rotation, 'axis_dimensions': sizes, 'axis_dimension_indices': np.arange(3), 'vertices': vertices, 'top_vertices': vertices[signs[:, 2] > 0], 'top': float(top_center[2]), 'bottom': float(vertices[:, 2].min()), 'extent_z': float(np.ptp(vertices[:, 2]) / 2), 'observed_face_count': 1, 'constrained_axes': np.array([False, False, True]), 'geometry_reliable': False, 'inferred_orientation': True, 'surface_rms_m': float(np.sqrt(np.mean(((top - mean) @ normal) ** 2)))}
 'CPU visual assembly of low-rise support graphs.\n\nThe manipulation core is derived from the frozen column controller. Geometry\nhelpers are shared; the historical column source and bundle remain unchanged.\n'
 import numpy as np
 from scipy import ndimage
@@ -1279,8 +1381,8 @@ def run(api):
         if len(set(node_keys)) != len(node_keys):
             raise RuntimeError('Duplicate structure node')
         for index, node in enumerate(levels):
-            if node.get('orientation') != 'upright' or node['shape'] == 'triangular_prism':
-                raise RuntimeError('This structure policy requires upright cuboids or cylinders')
+            if node.get('orientation') not in ('upright', 'flat_x') or node['shape'] == 'triangular_prism':
+                raise RuntimeError('Unsupported structure shape or desired orientation')
             if not set(node['supports']) <= set(node_keys[:index]):
                 raise RuntimeError('Support graph must be in construction order')
         rgb, xyz, valid = capture()
@@ -1392,10 +1494,17 @@ def run(api):
                     model = dict(model, dims=np.repeat(model['height'], 2))
                 try:
                     selected = tracker.isolated_frame(last_frame[0], name)
+                    if node_for_id.get(name, {}).get('orientation') == 'flat_x' and name not in held_models and (name not in warm_grasps):
+                        try:
+                            return estimate_flat_beam_geometry(selected, tracker.tracks[name]['color'], plane, model)
+                        except ValueError:
+                            if model is None:
+                                raise
                     if name in held_models:
                         previous, robot_before = held_models[name]
                         return update_partial_column_geometry(selected, tracker.tracks[name]['color'], shape, model, previous, robot_before, last_robot[0], plane)
-                    prior = None
+                    flat_target = node_for_id.get(name, {}).get('orientation') == 'flat_x'
+                    prior = visual_models.get(name) if flat_target else None
                     if near is not None and name in warm_grasps:
                         previous, before = warm_grasps[name]
                         robot = last_robot[0]
@@ -1409,7 +1518,7 @@ def run(api):
                             if field in previous:
                                 prior[field] = np.asarray(robot['tool_position']) + (previous[field] - np.asarray(before['tool_position'])) @ rotation.T
                     try:
-                        return estimate_column_geometry(selected, tracker.tracks[name]['color'], shape, model=model, table_plane=plane)
+                        return estimate_column_geometry(selected, tracker.tracks[name]['color'], shape, model=model, table_plane=plane, prior=prior if flat_target else None)
                     except ValueError:
                         if prior is None:
                             raise
@@ -1446,7 +1555,7 @@ def run(api):
         move(scan, 1.0)
         capture()
         try:
-            level_ids = select_column_levels(tracker, levels, last_frame[0])
+            level_ids = select_structure_nodes(tracker, levels, last_frame[0])
             if len(set(level_ids)) != len(level_ids):
                 raise ValueError('Each tower level must resolve to a distinct instance')
             base_id = level_ids[0]
@@ -1465,6 +1574,7 @@ def run(api):
         if blocks[unit_id]['shape'] != 'cube' or parents[unit_id]:
             raise RuntimeError('Length reference must be an observed foundation cube')
         unit = float(blocks[unit_id]['height'])
+        has_flat_beam = any((node['orientation'] == 'flat_x' for node in levels))
         relative_xy = {name: unit * np.asarray(node['grid'], float) for name, node in node_for_id.items()}
         tops = {}
         for name in level_ids:
@@ -1572,7 +1682,10 @@ def run(api):
             try:
                 capture()
                 selected = tracker.isolated_frame(last_frame[0], name)
-                fresh = estimate_column_geometry(selected, tracker.tracks[name]['color'], tracker.tracks[name]['shape'], blocks[name]['model'], plane, prior)
+                if node_for_id.get(name, {}).get('orientation') == 'flat_x':
+                    fresh = estimate_flat_beam_geometry(selected, tracker.tracks[name]['color'], plane, blocks[name]['model'])
+                else:
+                    fresh = estimate_column_geometry(selected, tracker.tracks[name]['color'], tracker.tracks[name]['shape'], blocks[name]['model'], plane, prior)
             except ColumnGeometryConflict:
                 raise
             except ValueError:
@@ -1634,6 +1747,9 @@ def run(api):
 
         def stack_once(name, support, placement_bias=None):
             source = perceive(name)
+            flat_beam = node_for_id.get(name, {}).get('orientation') == 'flat_x'
+            if flat_beam and (not flat_beam_aligned(source)):
+                raise RuntimeError('Flat beam must be visibly lying along X before pickup')
             aim_xy = support['center'][:2].copy()
             if placement_bias is not None:
                 aim_xy += placement_bias
@@ -1645,7 +1761,7 @@ def run(api):
             above[2] = source['top'] + 0.075
             api.gripper(0.8, seconds=0.5)
             move(above, 1.8)
-            if source['height'] > 0.045:
+            if source['height'] > 0.045 or flat_beam:
                 inspection = source['center'].copy()
                 inspection[2] += 0.5 * source['height'] + 0.03
                 move(inspection, 1.0)
@@ -1657,6 +1773,8 @@ def run(api):
                     offset = max(offset, 0.4 * source['height'])
                 if tracker.tracks[name]['shape'] == 'cylinder':
                     offset = max(offset, 0.5 * source['height'])
+                if flat_beam:
+                    offset = drop + 0.5 * source['height']
                 grasp[2] = source['center'][2] + offset
                 api.note(name + ' visible finger reach=' + str(round(drop, 4)) + '; geometry grasp offset=' + str(round(float(offset), 4)))
             except ValueError:
@@ -1795,6 +1913,8 @@ def run(api):
                     if field in measured:
                         landed[field] = landing + (measured[field] - measured['center']) @ settled_rotation.T
                 unsafe_overlap = unsafe_overlap or not graph_balance(name, landed)
+            if flat_beam and (not flat_beam_aligned(measured, tolerance_degrees=8.0)):
+                unsafe_overlap = True
             if np.linalg.norm(aim_error) > release_tolerance or not contact_gap_min <= gap <= 0.005 or unsafe_overlap:
                 offset = measured['center'] - tool()
                 high = tool()
@@ -1869,7 +1989,7 @@ def run(api):
             for dx in (-0.2, -0.16, -0.12, -0.08, -0.04, 0.0, 0.04, 0.08, 0.12, 0.16, 0.2):
                 for dy in (-0.16, -0.12, -0.08, -0.04, 0.0, 0.04, 0.08, 0.12):
                     xy = park[:2] + np.array([dx, dy])
-                    if min((np.linalg.norm(xy - worksite - relative_xy[n]) for n in level_ids)) < 0.1 or blocked(xy, objects, ignore=(name,), pad=0.055):
+                    if min((np.linalg.norm(xy - worksite - relative_xy[n]) for n in level_ids)) < 0.1 or blocked(xy, objects, ignore=(name,), pad=0.07 if has_flat_beam else 0.055):
                         continue
                     local = (np.r_[xy, table_z(xy)] - pose[:3, 3]) @ pose[:3, :3]
                     if local[2] <= 0:
@@ -1895,8 +2015,8 @@ def run(api):
             return min(options, key=lambda item: item[0])[1] if options else None
         objects = objects_from_depth()
         options = []
-        for dx in (-0.06, -0.03, 0.0, 0.03, 0.06):
-            for dy in (-0.02, 0.0, 0.02):
+        for dx in (-0.09, -0.06, -0.03, 0.0, 0.03, 0.06, 0.09) if has_flat_beam else (-0.06, -0.03, 0.0, 0.03, 0.06):
+            for dy in (-0.04, -0.02, 0.0, 0.02, 0.04, 0.06, 0.08) if has_flat_beam else (-0.02, 0.0, 0.02):
                 origin = park[:2] + np.array([dx, dy])
                 tilts = []
                 blockers = set()
@@ -1919,14 +2039,36 @@ def run(api):
         if not options:
             api.note('No reachable structure footprint with at most three movable blockers')
             return
-        _, worksite, names = min(options, key=lambda item: item[0])
+        if has_flat_beam:
+            chosen = None
+            for option in sorted(options, key=lambda item: item[0])[:10]:
+                reserved = [dict(item) for item in objects]
+                destinations = {}
+                for blocker in option[2]:
+                    if blocker not in blocks:
+                        blocks[blocker] = locate(blocker)
+                    destination = parking(blocker, option[1], reserved)
+                    if destination is None:
+                        break
+                    destinations[blocker] = destination
+                    for item in reserved:
+                        if item['id'] == blocker:
+                            item['center'] = destination
+                else:
+                    chosen = option
+                    break
+            if chosen is None:
+                raise RuntimeError('No reachable workspace with feasible blocker staging')
+            _, worksite, names = chosen
+        else:
+            _, worksite, names = min(options, key=lambda item: item[0])
         structure_origin[0] = worksite.copy()
         api.note('STRUCTURE PLAN origin=' + str(np.round(worksite, 4).tolist()) + ' unit=' + str(round(unit, 5)) + ' blockers=' + str(names))
         for name in names:
             if name not in blocks:
                 blocks[name] = locate(name)
             objects = objects_from_depth()
-            destination = parking(name, worksite, objects)
+            destination = destinations[name] if has_flat_beam else parking(name, worksite, objects)
             if destination is None:
                 api.note('No observed reachable parking cell for ' + name)
                 return
@@ -1971,6 +2113,8 @@ def run(api):
             measured = perceive(name)
             if np.linalg.norm(measured['center'] - first['center']) > 0.003:
                 raise RuntimeError('Placed node is still drifting')
+            if node_for_id[name]['orientation'] == 'flat_x' and (not flat_beam_aligned(measured)):
+                raise RuntimeError('Placed beam has the wrong visible orientation')
             if abs(measured['top'] - support['top'] - blocks[name]['height']) > 0.004:
                 raise RuntimeError('Placed node has inconsistent visible support height')
             if np.linalg.norm(measured['center'][:2] - support['center'][:2]) > 0.006:

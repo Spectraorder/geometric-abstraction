@@ -30,15 +30,26 @@ Current work prioritizes spatial structure over extra height. The new
 `inventory_structure` task builds a two-foundation cube bridge (6 cm), a capped
 bridge (12 cm), and a five-object staircase (3/6/9 cm). Its CPU policy binds visual
 instances to a support graph, clears the complete working area, and reasons about
-loads shared across multiple supports. All targets remain upright; horizontal
-long-beam bridges still need a turning skill.
+loads shared across multiple supports. The original three recipes keep all targets upright. Their frozen candidate is
+`policies/assemble_structure_v1_cpu.py`.
 
-It passed **29/30 fresh frozen trials (96.7%)** across these three recipes with
+That frozen candidate passed **29/30 fresh frozen trials (96.7%)** across these three recipes with
 color permutations and zero/two distractors. See the [low-rise structure report,
 full evaluation and actual replays](docs/LOW_STRUCTURES.md).
 The frozen single-column policies and their results above remain unchanged.
 
 ![Actual low-rise structure experiments](docs/media/low_structures_gallery.png)
+
+## A thin-beam bridge with a cylinder cap
+
+`thin_beam_bridge` places two 3 cm cubes with a 3 cm clear gap, spans them with
+an actual horizontal 1.5 × 3 × 6 cm thin prism, and adds an upright cylinder.
+The beam rests on its broad face, with 1.5 cm overlap per support; total height
+is 10.5 cm. The beam starts flat on the table and is physically picked and placed.
+The policy uses visual dimensions and runs on CPU. This new task passed
+**10/20 fresh reserved trials (50%)**; thin-beam grasping and longer stability
+still need improvement. See the [task, capability
+boundary, evaluation, and replay](docs/THIN_BEAM_BRIDGE.md).
 
 ## Current object library and sampled scenes
 

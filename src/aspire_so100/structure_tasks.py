@@ -11,6 +11,7 @@ class StructureNode:
     object_name: str
     grid: tuple[float, float]
     supports: tuple[str, ...] = ()
+    orientation: str = 'upright'
 
 
 @dataclass(frozen=True)
@@ -41,6 +42,10 @@ class StructureRecipe:
                 raise ValueError('Support graph must be acyclic and in construction order')
             if node.object_name.endswith('_triangular_prism'):
                 raise ValueError('Triangular structures require a validated orientation skill')
+            if node.orientation not in ('upright', 'flat_x'):
+                raise ValueError('Unknown desired object orientation')
+            if node.orientation == 'flat_x' and not node.object_name.endswith('_thin_prism'):
+                raise ValueError('The flat X skill currently supports thin prisms only')
             seen.add(node.key)
         if len({tuple(n.grid) for n in self.nodes if not n.supports}) < 2:
             raise ValueError('A structure requires at least two distinct foundation locations')
@@ -54,10 +59,16 @@ class StructureRecipe:
                 'axes': 'world_xy', 'nodes': [
                     {'key': n.key, 'color': n.object_name.split('_', 1)[0],
                      'shape': n.object_name.split('_', 1)[1], 'grid': list(n.grid),
-                     'supports': list(n.supports), 'orientation': 'upright'} for n in self.nodes]}
+                     'supports': list(n.supports), 'orientation': n.orientation} for n in self.nodes]}
 
 
 STRUCTURE_RECIPES = {
+    'thin_beam_bridge': (
+        StructureNode('left', 'blue_cube', (-1., 0.)),
+        StructureNode('right', 'yellow_cube', (1., 0.)),
+        StructureNode('beam', 'green_thin_prism', (0., 0.), ('left', 'right'), 'flat_x'),
+        StructureNode('cap', 'red_cylinder', (0., 0.), ('beam',)),
+    ),
     'cube_bridge': (
         StructureNode('left', 'blue_cube', (-.55, 0.)),
         StructureNode('right', 'red_cube', (.55, 0.)),
@@ -88,5 +99,5 @@ def structure_recipe(name='cube_bridge', *, color_map=None):
         if not isinstance(color_map, dict) or set(color_map) != colors or set(color_map.values()) != colors:
             raise ValueError('Color mapping must be a four-color bijection')
         nodes = tuple(StructureNode(n.key, color_map[n.object_name.split('_', 1)[0]]+'_'+n.object_name.split('_', 1)[1],
-                                    n.grid, n.supports) for n in nodes)
+                                    n.grid, n.supports, n.orientation) for n in nodes)
     return StructureRecipe(name, tuple(nodes), nodes[0].key)

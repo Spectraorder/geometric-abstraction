@@ -11,7 +11,7 @@ import mujoco
 import numpy as np
 
 from aspire_so100.block_catalog import generate_block_layout
-from aspire_so100.inventory_structure import InventoryStructureEnv
+from aspire_so100.inventory_structure import InventoryStructureEnv, configure_structure_initial_state
 from aspire_so100.playback import recorded_env_for_result
 from aspire_so100.structure_geometry import clip_polygon, model_footprint, support_equilibrium
 from aspire_so100.structure_tasks import StructureNode, StructureRecipe, STRUCTURE_RECIPES, structure_recipe
@@ -40,6 +40,32 @@ class StructureTaskTests(unittest.TestCase):
         changed = structure_recipe('cube_bridge', color_map=mapping)
         self.assertEqual(changed.order, ('green_cube', 'blue_cube', 'yellow_cube'))
         self.assertEqual(changed.nodes[-1].supports, ('left', 'right'))
+
+    def test_flat_bridge_goal_and_private_faces_use_the_short_vertical_axis(self):
+        recipe = structure_recipe('thin_beam_bridge')
+        self.assertEqual(recipe.nodes[1].grid[0]-recipe.nodes[0].grid[0], 2.)
+        self.assertEqual(recipe.nodes[2].orientation, 'flat_x')
+        self.assertEqual(recipe.nodes[2].supports, ('left', 'right'))
+        mapping = dict(red='blue', blue='green', green='yellow', yellow='red')
+        self.assertEqual(structure_recipe('thin_beam_bridge', color_map=mapping).nodes[2].orientation, 'flat_x')
+        with TemporaryDirectory() as directory:
+            env = InventoryStructureEnv(Path(directory), scene_seed=1401,
+                                        recipe='thin_beam_bridge', object_count=4)
+            try:
+                env.reset(1401)
+                model = env.private_model('green_thin_prism')
+                self.assertAlmostEqual(model['height'], .015)
+                np.testing.assert_allclose(np.ptp(model['top_vertices'], axis=0), [.06, .03, 0.], atol=1e-5)
+                np.testing.assert_allclose(model['normal'], [0., 0., 1.], atol=1e-5)
+                self.assertEqual(env.scene_metadata['initial_orientations'], {'green_thin_prism': 'flat_x'})
+                self.assertFalse(env.evaluate().success)
+                self.assertAlmostEqual(env.geometry_bounds('green_thin_prism')[0][2], .4, delta=.0002)
+                before = env.data.qpos.copy()
+                configure_structure_initial_state(env.model, recipe)
+                env.reset(1401)
+                np.testing.assert_allclose(env.data.qpos, before, atol=1e-9)
+            finally:
+                env.close()
 
     def test_invalid_graphs_cannot_reach_scene_generation(self):
         recipe = structure_recipe('cube_bridge')
@@ -124,10 +150,13 @@ class StructureTaskTests(unittest.TestCase):
                     heights = {}
                     for node in recipe.nodes:
                         geom = env.model.geom(f'{node.object_name}/{node.object_name}_geom')
-                        half = float(geom.size[1] if node.object_name.endswith('_cylinder') else geom.size[2])
+                        half = float(geom.size[0] if node.orientation == 'flat_x' else geom.size[1] if node.object_name.endswith('_cylinder') else geom.size[2])
                         bottom = max([heights[k] for k in node.supports], default=.4)
                         xy = np.array([-.05, -.38])+.03*np.asarray(node.grid)
                         env._set_freejoint_pose(node.object_name, (*xy, bottom+half), 0.)
+                        if node.orientation == 'flat_x':
+                            address = int(env.model.joint(f'{node.object_name}/{node.object_name}_joint').qposadr[0])
+                            env.data.qpos[address+3:address+7] = [np.sqrt(.5), 0., np.sqrt(.5), 0.]
                         heights[node.key] = bottom+2*half
                     mujoco.mj_forward(env.model, env.data)
                     env._step_for(2.)
@@ -141,6 +170,13 @@ class StructureTaskTests(unittest.TestCase):
                         self.assertEqual(replay.scene_metadata, env.scene_metadata)
                     finally:
                         replay.close()
+                    if name == 'thin_beam_bridge':
+                        # Keep the beam center at its correct target but turn it upright.
+                        center = env._object_state('green_thin_prism')['position']
+                        env._set_freejoint_pose('green_thin_prism', tuple(center), 0.)
+                        mujoco.mj_forward(env.model, env.data)
+                        reasons = env.structure_status(list(env.order))['reasons']
+                        self.assertTrue(any('broad face is not flat' in reason for reason in reasons))
                     if name == 'cube_bridge':
                         env._set_freejoint_pose('red_cube', (.08, -.25, .415), 0.)
                         mujoco.mj_forward(env.model, env.data)
@@ -151,7 +187,8 @@ class StructureTaskTests(unittest.TestCase):
                     env.close()
 
     def test_historical_policy_bundles_stay_frozen(self):
-        expected = {'stack_column_cpu.py': '621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f',
+        expected = {'assemble_structure_v1_cpu.py': '3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1',
+                    'stack_column_cpu.py': '621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f',
                     'stack_inventory_cpu.py': '20613dbf213444f77aac9fdcbdf2b6245d249e0770ab362121e5663e4e53394b'}
         for name, digest in expected.items():
             self.assertEqual(hashlib.sha256((ROOT/'policies'/name).read_bytes()).hexdigest(), digest)

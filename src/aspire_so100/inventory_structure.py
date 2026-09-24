@@ -10,6 +10,25 @@ from aspire_so100.structure_tasks import structure_recipe
 from aspire_so100.tower import TowerMetrics
 
 
+def configure_structure_initial_state(model, recipe):
+    """Initialize flat beam sources on the table, before any policy runs.
+
+    Only the reset keyframe is changed. No assembly pose or in-episode object
+    motion is supplied. The original sampled XY locations remain unchanged.
+    """
+    for node in recipe.nodes:
+        if node.orientation != 'flat_x':
+            continue
+        name = node.object_name
+        geom = model.geom(f'{name}/{name}_geom')
+        address = int(model.joint(f'{name}/{name}_joint').qposadr[0])
+        if np.allclose(model.key_qpos[0, address+3:address+7], [math.sqrt(.5), 0., math.sqrt(.5), 0.]):
+            continue
+        model.key_qpos[0, address+2] += float(geom.size[0]-geom.size[2])
+        # Local long Z points along world X; the broad YZ face rests on the table.
+        model.key_qpos[0, address+3:address+7] = [math.sqrt(.5), 0., math.sqrt(.5), 0.]
+
+
 class InventoryStructureEnv(InventoryTowerEnv):
     task_id = 'inventory_structure'
 
@@ -28,6 +47,12 @@ class InventoryStructureEnv(InventoryTowerEnv):
                                'goal': self.recipe.public_goal()}
         StackingEnv.__init__(self, output_dir, render, scene_task=layout.task, scene_seed=scene_seed,
                              object_count=object_count, required_objects=self.order)
+        configure_structure_initial_state(self.model, self.recipe)
+        initial = {node.object_name: node.orientation for node in self.recipe.nodes
+                   if node.orientation != 'upright'}
+        if initial:
+            self.scene_metadata['initial_orientations'] = initial
+            self.scene_metadata['generator'] = 'block_catalog_flat_beam_v1'
         self.checks = []
         self.failure = None
 
@@ -38,15 +63,22 @@ class InventoryStructureEnv(InventoryTowerEnv):
         center = self.data.geom_xpos[geom.id].copy()
         shape = name.split('_', 1)[1]
         size = geom.size
-        dims = np.repeat(2*size[0], 2) if shape == 'cylinder' else 2*size[:2]
+        node = next(node for node in self.recipe.nodes if node.object_name == name)
+        vertical_axis = 0 if node.orientation == 'flat_x' else 2
+        normal = rotation[:, vertical_axis].copy()
+        if node.orientation == 'flat_x' and normal[2] < 0:
+            normal *= -1
+        horizontal_axes = [axis for axis in range(3) if axis != vertical_axis]
+        dims = np.repeat(2*size[0], 2) if shape == 'cylinder' else 2*size[horizontal_axes]
         result = {'shape': shape, 'center': self.data.xipos[body.id].copy(),
-                  'dims': dims, 'mass': float(body.mass[0]), 'normal': rotation[:, 2],
-                  'height': float(2*size[1] if shape == 'cylinder' else 2*size[2])}
+                  'dims': dims, 'mass': float(body.mass[0]), 'normal': normal,
+                  'height': float(2*size[1] if shape == 'cylinder' else 2*size[vertical_axis])}
         if shape != 'cylinder':
-            vertices = np.array([[x, y, 1.] for x, y in ((-1., -1.), (1., -1.), (1., 1.), (-1., 1.))])
-            result['top_vertices'] = center+(vertices*size) @ rotation.T
-            vertices[:, 2] = -1.
-            result['bottom_vertices'] = center+(vertices*size) @ rotation.T
+            signs = np.array([[x, y, z] for x in (-1., 1.) for y in (-1., 1.) for z in (-1., 1.)])
+            vertices = center+(signs*size) @ rotation.T
+            sign = 1. if rotation[:, vertical_axis] @ normal > 0 else -1.
+            result['top_vertices'] = vertices[signs[:, vertical_axis] == sign]
+            result['bottom_vertices'] = vertices[signs[:, vertical_axis] == -sign]
         return result
 
     def structure_status(self, names):
@@ -73,8 +105,12 @@ class InventoryStructureEnv(InventoryTowerEnv):
                 reasons.append(name+': translating')
             if np.linalg.norm(state['angular_velocity']) > .10:
                 reasons.append(name+': rotating')
-            up = self.data.xmat[self.model.body(f'{name}/{name}').id].reshape(3, 3)[:, 2]
-            if up[2] < math.cos(math.radians(8)):
+            rotation = self.data.xmat[self.model.body(f'{name}/{name}').id].reshape(3, 3)
+            threshold = math.cos(math.radians(8))
+            if node.orientation == 'flat_x':
+                if abs(rotation[2, 0]) < threshold or abs(rotation[0, 2]) < threshold:
+                    reasons.append(name+': broad face is not flat with the long axis along X')
+            elif rotation[2, 2] < threshold:
                 reasons.append(name+': local Z axis is not upright')
             if self._objects_in_contact(name, 'robot'):
                 reasons.append(name+': still touching robot')

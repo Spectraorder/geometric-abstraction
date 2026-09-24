@@ -734,6 +734,11 @@ def main() -> None:
                                object_count=args.object_count if args.object_count is not None else 6,
                                seed=args.seed if args.seed is not None else 51,
                                required_objects=None if recipe is None else recipe.order)
+    if graph_mode:
+        from aspire_so100.inventory_structure import configure_structure_initial_state
+        configure_structure_initial_state(model, recipe)
+        mujoco.mj_resetDataKeyframe(model, data, 0)
+        mujoco.mj_forward(model, data)
     print(
         f"Scene compiled: "
         f"{model.nbody} bodies, "
