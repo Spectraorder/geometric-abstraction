@@ -1,0 +1,9 @@
+{
+  "author": "current assistant / gpt-6-astra",
+  "mechanism": "code repair, no model weight updates",
+  "base_sha256": "9d4484224ddcfb8c00e8c930ca68471a3e10b3ebd067a7c9fcc587a62e765e4b",
+  "candidate_sha256": "d4939d8ac2bac5775cc1844f0398f91927faa7a39db07e1b266800f8a8e48429",
+  "hypothesis": "Two transient image occlusions at initialization should be recoverable through bounded re-observation; persistent occlusion must stop without motion.",
+  "training_from_zero": false,
+  "declared_before_trials": true
+}

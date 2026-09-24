@@ -1,0 +1,156 @@
+{
+  "seed": 4001,
+  "layout": "random_xy",
+  "task": "tower",
+  "success": false,
+  "policy_error": null,
+  "policy_sim_seconds": 0.40000000000000024,
+  "candidate_sha256": "1fd8705f649d9310584093cd36892217b88b9f91cf366389201aa58d754b3de1",
+  "camera_calls": 3,
+  "sensor_blackout": false,
+  "cpu_profile": {
+    "policy_compute_cpu_seconds": 0.15849000000000002,
+    "rpc_cpu_seconds": 0.005052999999999974,
+    "compute_interval_count": 10,
+    "compute_interval_cpu_p50_ms": 0.010500000000010501,
+    "compute_interval_cpu_p95_ms": 79.89864999999985,
+    "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+  },
+  "robot_ik_cpu_seconds": 0.0,
+  "metrics": {
+    "success": false,
+    "score": 0.0,
+    "placed_blocks": 0,
+    "required_placements": 2,
+    "structure_stable": false,
+    "failure": null
+  },
+  "observation_contract": "Side RGB-D, wrist RGB, calibration + robot proprioception ONLY; evaluator results never returned to policy",
+  "id": "repair_v2_persistent_4001",
+  "pilot": false,
+  "policy_label": "RGB-D 高度门控 · 复观 2 次",
+  "motion_calls": 0,
+  "start_sim_time": 0.6500000000000005,
+  "fault_events": [
+    {
+      "time": 0.6500000000000005,
+      "event": "sensor_rectangle",
+      "side_camera": 1,
+      "rectangle": [
+        145,
+        96,
+        162,
+        113
+      ],
+      "mechanism": "synthetic image occlusion; not a physical occluder"
+    },
+    {
+      "time": 0.8500000000000006,
+      "event": "sensor_rectangle",
+      "side_camera": 2,
+      "rectangle": [
+        145,
+        96,
+        162,
+        113
+      ],
+      "mechanism": "synthetic image occlusion; not a physical occluder"
+    },
+    {
+      "time": 1.0500000000000007,
+      "event": "sensor_rectangle",
+      "side_camera": 3,
+      "rectangle": [
+        145,
+        96,
+        162,
+        113
+      ],
+      "mechanism": "synthetic image occlusion; not a physical occluder"
+    }
+  ],
+  "adapter_sha256": "220aac0c93d4d7971238a068f2929a79c1777bc5830127eaa6d90e9191bcb227",
+  "runner_sha256": "d41a532c705986014e7a398b6d63e0a8cf0307a04b8fb5c11d12a556f0558cc9",
+  "notes": [
+    {
+      "time": 0.6500000000000005,
+      "method": "note",
+      "params": {
+        "text": "Initial geometry incomplete: hold arm, request fresh observation."
+      }
+    },
+    {
+      "time": 0.8500000000000006,
+      "method": "note",
+      "params": {
+        "text": "Initial geometry incomplete: hold arm, request fresh observation."
+      }
+    },
+    {
+      "time": 1.0500000000000007,
+      "method": "note",
+      "params": {
+        "text": "Initial geometry incomplete: hold arm, request fresh observation."
+      }
+    },
+    {
+      "time": 1.0500000000000007,
+      "method": "note",
+      "params": {
+        "text": "Observation budget exhausted; no arm motion issued."
+      }
+    }
+  ],
+  "note": "开发/演示场景；未做独立预留验证。侧面面板保留实际策略输入，腕部画面用于回放。",
+  "parameters": {
+    "task": "tower3",
+    "observation": "rgbd-proprio",
+    "guard": "rgbd-height",
+    "initial_reobserve": 2,
+    "wait_ms": 200,
+    "min_pixels": 8,
+    "guard_height_mm": [
+      4,
+      150
+    ],
+    "fault": "occlusion",
+    "roi": "tabletop",
+    "masked_side_calls": 999,
+    "seed": 4001
+  },
+  "experiment_id": "tower3__guard=rgbd-height__reobs=2__wait_ms=200__fault=occlusion__roi=tabletop__frames=999__seed=4001",
+  "configuration_sha256": "4ec8c772bffa034c8497ab83a3fc4ef0f1e73ebad4c77df55c7a48fbbafe3f38",
+  "policy_parent_sha256": "d4939d8ac2bac5775cc1844f0398f91927faa7a39db07e1b266800f8a8e48429",
+  "fault_label": "目标区域 · 前 999 次观测（持续）",
+  "events": [
+    {
+      "time": 0.6500000000000005,
+      "label": "开始观测"
+    },
+    {
+      "time": 0.6500000000000005,
+      "label": "注入图像遮挡"
+    },
+    {
+      "time": 1.0500000000000007,
+      "label": "观测预算耗尽，停止"
+    },
+    {
+      "time": 1.0500000000000007,
+      "label": "策略结束，任务未完成"
+    }
+  ],
+  "evidence": "evidence/repair_v2_persistent_4001.json",
+  "video": "media/repair_v2_persistent_4001.mp4",
+  "poster": "media/repair_v2_persistent_4001.png",
+  "input": "media/repair_v2_persistent_4001_input.png",
+  "video_metadata": {
+    "frames": 73,
+    "fps": 20,
+    "speed": 2,
+    "duration_seconds": 3.65,
+    "source": "saved actual physics states; side panels last recorded policy input; wrist reconstructed",
+    "success": false
+  },
+  "video_sha256": "c370712cad401ff5ed067f5d4d4c75b27e84f8ad8c16be7179d0850ffc97f75a"
+}

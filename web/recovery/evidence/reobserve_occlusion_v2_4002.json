@@ -1,0 +1,127 @@
+{
+  "seed": 4002,
+  "layout": "random_xy",
+  "task": "tower",
+  "success": false,
+  "policy_error": null,
+  "policy_sim_seconds": 0.0,
+  "candidate_sha256": "d4939d8ac2bac5775cc1844f0398f91927faa7a39db07e1b266800f8a8e48429",
+  "camera_calls": 2,
+  "sensor_blackout": false,
+  "cpu_profile": {
+    "policy_compute_cpu_seconds": 0.14288299999999998,
+    "rpc_cpu_seconds": 0.003592000000000012,
+    "compute_interval_count": 5,
+    "compute_interval_cpu_p50_ms": 3.652000000000016,
+    "compute_interval_cpu_p95_ms": 107.74219999999998,
+    "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+  },
+  "robot_ik_cpu_seconds": 0.0,
+  "metrics": {
+    "success": false,
+    "score": 0.0,
+    "placed_blocks": 0,
+    "required_placements": 2,
+    "structure_stable": false,
+    "failure": null
+  },
+  "observation_contract": "Side RGB-D, wrist RGB, calibration + robot proprioception ONLY; evaluator results never returned to policy",
+  "id": "reobserve_occlusion_v2_4002",
+  "pilot": false,
+  "policy_label": "RGB 色彩门控 · 复观 2 次",
+  "motion_calls": 0,
+  "start_sim_time": 0.6500000000000005,
+  "fault_events": [
+    {
+      "time": 0.6500000000000005,
+      "event": "sensor_rectangle",
+      "side_camera": 1,
+      "rectangle": [
+        167,
+        113,
+        185,
+        132
+      ],
+      "mechanism": "synthetic image occlusion; not a physical occluder"
+    },
+    {
+      "time": 0.6500000000000005,
+      "event": "sensor_rectangle",
+      "side_camera": 2,
+      "rectangle": [
+        167,
+        113,
+        185,
+        132
+      ],
+      "mechanism": "synthetic image occlusion; not a physical occluder"
+    }
+  ],
+  "adapter_sha256": "220aac0c93d4d7971238a068f2929a79c1777bc5830127eaa6d90e9191bcb227",
+  "runner_sha256": "d41a532c705986014e7a398b6d63e0a8cf0307a04b8fb5c11d12a556f0558cc9",
+  "notes": [
+    {
+      "time": 0.6500000000000005,
+      "method": "note",
+      "params": {
+        "text": "Initial task colors re-observed; continue with fresh RGB-D."
+      }
+    },
+    {
+      "time": 0.6500000000000005,
+      "method": "note",
+      "params": {
+        "text": "No visible blue block."
+      }
+    }
+  ],
+  "note": "反例：精确遮挡下，v1 色彩计数误认蓝色背景；候选停止，证据保留。",
+  "parameters": {
+    "task": "tower3",
+    "observation": "rgbd-proprio",
+    "guard": "rgb",
+    "initial_reobserve": 2,
+    "wait_ms": 200,
+    "min_pixels": 8,
+    "guard_height_mm": null,
+    "fault": "occlusion",
+    "roi": "tabletop",
+    "masked_side_calls": 2,
+    "seed": 4002
+  },
+  "experiment_id": "tower3__guard=rgb__reobs=2__wait_ms=200__fault=occlusion__roi=tabletop__frames=2__seed=4002",
+  "configuration_sha256": "3c7611d2b36086d9c5589a51c01bd8f0fa3d3be170ccd6b7ae04f9386d493020",
+  "policy_parent_sha256": "9d4484224ddcfb8c00e8c930ca68471a3e10b3ebd067a7c9fcc587a62e765e4b",
+  "fault_label": "目标区域 · 前 2 次观测",
+  "events": [
+    {
+      "time": 0.6500000000000005,
+      "label": "开始观测"
+    },
+    {
+      "time": 0.6500000000000005,
+      "label": "注入图像遮挡"
+    },
+    {
+      "time": 0.6500000000000005,
+      "label": "误判：初始观测完整"
+    },
+    {
+      "time": 0.6500000000000005,
+      "label": "策略结束，任务未完成"
+    }
+  ],
+  "evidence": "evidence/reobserve_occlusion_v2_4002.json",
+  "video": "media/reobserve_occlusion_v2_4002.mp4",
+  "poster": "media/reobserve_occlusion_v2_4002.png",
+  "input": "media/reobserve_occlusion_v2_4002_input.png",
+  "video_metadata": {
+    "frames": 69,
+    "fps": 20,
+    "speed": 2,
+    "duration_seconds": 3.45,
+    "source": "saved actual physics states; side panels last recorded policy input; wrist reconstructed",
+    "success": false
+  },
+  "video_sha256": "0c3fb36faef7b37b89ae4849d2b7c0b519a8b6df387ce9f9fe5d2c0b57dafb18"
+}

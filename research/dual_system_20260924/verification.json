@@ -1,0 +1,8 @@
+{
+  "status": "real_initial_gate_integration_tested",
+  "date": "2026-09-24",
+  "physical_attempts": 6,
+  "development_seed": 4001,
+  "generalization_evaluated": false,
+  "scope": "initial-observation gate only; see docs/evaluations/dual_system_live.json"
+}

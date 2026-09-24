@@ -1,0 +1,109 @@
+{
+  "result": {
+    "seed": 4001,
+    "layout": "random_xy",
+    "task": "tower",
+    "success": false,
+    "policy_error": "RuntimeError: RuntimeError: Model gate stopped before motion",
+    "policy_sim_seconds": 0.0,
+    "candidate_sha256": "801f095151d100d77fbfd3ed139a087bf7b17ad31adc9f77ce238d180395d1fc",
+    "camera_calls": 1,
+    "sensor_blackout": false,
+    "cpu_profile": {
+      "policy_compute_cpu_seconds": 0.119083,
+      "rpc_cpu_seconds": 0.0016820000000000168,
+      "compute_interval_count": 4,
+      "compute_interval_cpu_p50_ms": 2.5190000000000072,
+      "compute_interval_cpu_p95_ms": 97.68314999999996,
+      "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+    },
+    "robot_ik_cpu_seconds": 0.0,
+    "metrics": {
+      "success": false,
+      "score": 0.0,
+      "placed_blocks": 0,
+      "required_placements": 2,
+      "structure_stable": false,
+      "failure": "RuntimeError: RuntimeError: Model gate stopped before motion"
+    },
+    "observation_contract": "Side RGB-D, wrist RGB, calibration + robot proprioception ONLY; evaluator results never returned to policy",
+    "decision_scope": "initial_observation_gate_then_frozen_visual_skill",
+    "decision_mode": "jev_only"
+  },
+  "decision_trace": {
+    "mode": "jev_only",
+    "scope": "initial_observation_gate_then_frozen_visual_skill",
+    "simulation_paused_during_model_calls": true,
+    "records": [
+      {
+        "state_version": 0,
+        "plan_before": 0,
+        "plan_after": 0,
+        "proposed": "continue",
+        "executed": false,
+        "gated_action": "stop",
+        "trigger": "precondition_violation",
+        "slow_calls_total": 0,
+        "wall_seconds": 1.3681332080159336,
+        "decision": {
+          "action": "continue",
+          "confidence": 0.33,
+          "state_version": 0,
+          "plan_version": 0,
+          "model": "jev-1.13.0",
+          "wall_seconds": 1.3676310409791768,
+          "usage": {
+            "input_tokens": 647,
+            "output_tokens": 59
+          },
+          "estimated_usd": 2.7174000000000004e-05,
+          "cost_basis": "published input rate 2026-09-24; not invoice",
+          "probabilities": {
+            "retry_grasp": 0.0,
+            "stop": 0.01,
+            "escalate": 0.11,
+            "continue": 0.46,
+            "reobserve": 0.42
+          }
+        },
+        "plan_text_before": "Build blue-red-green tower. Verify visual evidence before existing skills; reobserve uncertainty, retry failed grasps, escalate conflicts.",
+        "plan_text_after": "Build blue-red-green tower. Verify visual evidence before existing skills; reobserve uncertainty, retry failed grasps, escalate conflicts.",
+        "state": {
+          "version": 0,
+          "time_s": 0.6500000000000005,
+          "phase": "initial_observation",
+          "visible_colors": [
+            "red",
+            "green"
+          ],
+          "table_fit_valid": true,
+          "grasp_confirmed": null,
+          "reobservations_left": 2,
+          "grasp_retries_left": 1
+        },
+        "service_seconds": 1.3681390000274405
+      }
+    ],
+    "planner_calls": [],
+    "astra_decision_calls": [],
+    "threshold": 0.8,
+    "threshold_calibrated": false
+  },
+  "harness": {
+    "protocol": "phase-conditional-plan/2",
+    "frozen_sources": {
+      "scripts/run_dual_system_trial.py": "906f1c05b1ca60e9d5e847be0b40ea64fa3c055a48c4540a9633b9861f3452aa",
+      "scripts/run_vision_trial.py": "3cde9bf63685e21eee0b339f0b12fd0049c2fe430a07f6a15434e401aab50ac5",
+      "scripts/build_dual_system_policy.py": "d8feb835947092d14a486edcea76cc5fe5e7095566f2dbb9e6038afac5f81373",
+      "src/aspire_so100/dual_system.py": "1a15096664b3fb70e8a7fc0a79265033bd85805cba8ddc5a08169fe18edc2501",
+      "src/aspire_so100/astra_decision.py": "40b5957ea5df99359137ba6f3edb44922c11dd1e76662e4d7c4eca8e94765d96",
+      "src/aspire_so100/decision_session.py": "3ade26fb5ec0c5f528b9fcec8494733f017b8afef1cb9ca2dc5c65e8629538a0"
+    },
+    "mode": "jev_only",
+    "runner_sha256": "3cde9bf63685e21eee0b339f0b12fd0049c2fe430a07f6a15434e401aab50ac5",
+    "adapter_sha256": "906f1c05b1ca60e9d5e847be0b40ea64fa3c055a48c4540a9633b9861f3452aa",
+    "model_wait_simulation": "paused",
+    "wall_timeout_s": 900,
+    "source_base_commit": "3a2a48a"
+  }
+}

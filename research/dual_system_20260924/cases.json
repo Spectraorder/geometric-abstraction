@@ -1,0 +1,195 @@
+{
+  "split": "development",
+  "robot_execution": false,
+  "cases": [
+    {
+      "id": "dev-000",
+      "state": {
+        "version": 0,
+        "time_s": 0.6500000000000005,
+        "phase": "initial_observation",
+        "visible_colors": [
+          "red",
+          "green"
+        ],
+        "table_fit_valid": true,
+        "grasp_confirmed": null,
+        "reobservations_left": 2,
+        "grasp_retries_left": 1
+      },
+      "reference_action": "reobserve",
+      "reference_type": "fixed-rule agreement, not independent correctness",
+      "source": "tests/fixtures/dual_system/dev-000.npz",
+      "sensor_sha256": "153954feee9dff7c01e7516dcd9b6b18ef9da71c1f7f96445cbbf8135c8a64ea",
+      "original_source": "outputs/recovery_lab_20260924/repair_v2_occlusion_4001/camera_000.npz"
+    },
+    {
+      "id": "dev-001",
+      "state": {
+        "version": 1,
+        "time_s": 0.8500000000000006,
+        "phase": "initial_observation",
+        "visible_colors": [
+          "red",
+          "green"
+        ],
+        "table_fit_valid": true,
+        "grasp_confirmed": null,
+        "reobservations_left": 1,
+        "grasp_retries_left": 1
+      },
+      "reference_action": "reobserve",
+      "reference_type": "fixed-rule agreement, not independent correctness",
+      "source": "tests/fixtures/dual_system/dev-001.npz",
+      "sensor_sha256": "dc7af480953879367d99e6af4a15518aefaa52ae8b7e59c5675b4b41484ea467",
+      "original_source": "outputs/recovery_lab_20260924/repair_v2_occlusion_4001/camera_001.npz"
+    },
+    {
+      "id": "dev-002",
+      "state": {
+        "version": 2,
+        "time_s": 1.0500000000000007,
+        "phase": "initial_observation",
+        "visible_colors": [
+          "blue",
+          "red",
+          "green"
+        ],
+        "table_fit_valid": true,
+        "grasp_confirmed": null,
+        "reobservations_left": 0,
+        "grasp_retries_left": 1
+      },
+      "reference_action": "continue",
+      "reference_type": "fixed-rule agreement, not independent correctness",
+      "source": "tests/fixtures/dual_system/dev-002.npz",
+      "sensor_sha256": "17898cb6184bdb4c26dcc225cfe0cc276d087b06ba098ea1dd6dedda7a6bb28c",
+      "original_source": "outputs/recovery_lab_20260924/repair_v2_occlusion_4001/camera_002.npz"
+    },
+    {
+      "id": "dev-003",
+      "state": {
+        "version": 0,
+        "time_s": 0.6500000000000005,
+        "phase": "initial_observation",
+        "visible_colors": [
+          "red",
+          "green"
+        ],
+        "table_fit_valid": true,
+        "grasp_confirmed": null,
+        "reobservations_left": 2,
+        "grasp_retries_left": 1
+      },
+      "reference_action": "reobserve",
+      "reference_type": "fixed-rule agreement, not independent correctness",
+      "source": "tests/fixtures/dual_system/dev-003.npz",
+      "sensor_sha256": "818e2c2e8d2309bfea8cf7a3eb8f91b12966fc5ba7cca13ded0fcd125ba60d30",
+      "original_source": "outputs/recovery_lab_20260924/repair_v2_occlusion_4002/camera_000.npz"
+    },
+    {
+      "id": "dev-004",
+      "state": {
+        "version": 1,
+        "time_s": 0.8500000000000006,
+        "phase": "initial_observation",
+        "visible_colors": [
+          "red",
+          "green"
+        ],
+        "table_fit_valid": true,
+        "grasp_confirmed": null,
+        "reobservations_left": 1,
+        "grasp_retries_left": 1
+      },
+      "reference_action": "reobserve",
+      "reference_type": "fixed-rule agreement, not independent correctness",
+      "source": "tests/fixtures/dual_system/dev-004.npz",
+      "sensor_sha256": "1a849d2fce0a34695e8a2ab023ca832020c56ecfffe9e62260669967af89e1d6",
+      "original_source": "outputs/recovery_lab_20260924/repair_v2_occlusion_4002/camera_001.npz"
+    },
+    {
+      "id": "dev-005",
+      "state": {
+        "version": 2,
+        "time_s": 1.0500000000000007,
+        "phase": "initial_observation",
+        "visible_colors": [
+          "blue",
+          "red",
+          "green"
+        ],
+        "table_fit_valid": true,
+        "grasp_confirmed": null,
+        "reobservations_left": 0,
+        "grasp_retries_left": 1
+      },
+      "reference_action": "continue",
+      "reference_type": "fixed-rule agreement, not independent correctness",
+      "source": "tests/fixtures/dual_system/dev-005.npz",
+      "sensor_sha256": "aa17d6b203a27d6efdbf89b2af259d9459e72db860846892debe8c20d1b437a2",
+      "original_source": "outputs/recovery_lab_20260924/repair_v2_occlusion_4002/camera_002.npz"
+    },
+    {
+      "id": "dev-006",
+      "state": {
+        "version": 2,
+        "time_s": 1.0500000000000007,
+        "phase": "initial_observation",
+        "visible_colors": [
+          "red",
+          "green"
+        ],
+        "table_fit_valid": true,
+        "grasp_confirmed": null,
+        "reobservations_left": 0,
+        "grasp_retries_left": 1
+      },
+      "reference_action": "escalate",
+      "reference_type": "fixed-rule agreement, not independent correctness",
+      "source": "tests/fixtures/dual_system/dev-006.npz",
+      "sensor_sha256": "cfe0c81ebe0a1541d0007534cd1ed9aa3c1f84448ad74fdee950ac2529662c4c",
+      "original_source": "outputs/recovery_lab_20260924/repair_v2_persistent_4001/camera_002.npz"
+    },
+    {
+      "id": "dev-007",
+      "state": {
+        "version": 0,
+        "time_s": 0.6500000000000005,
+        "phase": "initial_observation",
+        "visible_colors": [
+          "blue",
+          "red",
+          "green"
+        ],
+        "table_fit_valid": true,
+        "grasp_confirmed": null,
+        "reobservations_left": 2,
+        "grasp_retries_left": 1
+      },
+      "reference_action": "continue",
+      "reference_type": "fixed-rule agreement, not independent correctness",
+      "source": "tests/fixtures/dual_system/dev-007.npz",
+      "sensor_sha256": "938dce4e8b3af7714ce37e29bbd9aad61bd0b269c23d7def64117a104bb09406",
+      "original_source": "outputs/recovery_lab_20260924/repair_v2_nominal_4001/camera_000.npz"
+    },
+    {
+      "id": "dev-008",
+      "state": {
+        "version": 0,
+        "time_s": 0.6500000000000005,
+        "phase": "initial_observation",
+        "visible_colors": [],
+        "table_fit_valid": false,
+        "grasp_confirmed": null,
+        "reobservations_left": 2,
+        "grasp_retries_left": 1
+      },
+      "reference_action": "reobserve",
+      "reference_type": "fixed-rule agreement, not independent correctness",
+      "source": "tests/fixtures/dual_system/dev-008.npz",
+      "sensor_sha256": "0b586d6aec1b6a3162c8d8853f4cca0fb72988c5792ea86296dd422fbf77f7b6",
+      "original_source": "outputs/recovery_lab_20260924/baseline_occlusion_4001/camera_000.npz"
+    }
+  ]
+}
