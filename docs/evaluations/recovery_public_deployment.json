@@ -1,0 +1,79 @@
+{
+  "public_url": "https://aspire-so100-recovery.vercel.app/",
+  "deployment_id": "dpl_2R9htfFhuyUFwEXaS8BakV8CetGo",
+  "source_commit": "ad06fee",
+  "anonymous_http_checks": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "sha256_matches": true
+    },
+    {
+      "path": "app.js",
+      "status": 200,
+      "sha256_matches": true
+    },
+    {
+      "path": "style.css",
+      "status": 200,
+      "sha256_matches": true
+    },
+    {
+      "path": "manifest.json",
+      "status": 200,
+      "sha256_matches": true
+    },
+    {
+      "path": "task_catalog.json",
+      "status": 200,
+      "sha256_matches": true
+    },
+    {
+      "path": "policy_suite.json",
+      "status": 200,
+      "sha256_matches": true
+    },
+    {
+      "path": "live_results.json",
+      "status": 200,
+      "sha256_matches": true
+    },
+    {
+      "path": "docs/DUAL_SYSTEM.md",
+      "status": 200,
+      "sha256_matches": true
+    },
+    {
+      "path": "media/v2_hybrid_occlusion_4001.mp4",
+      "status": 200,
+      "sha256_matches": true
+    },
+    {
+      "private_path": ".env.local",
+      "status": "404"
+    },
+    {
+      "private_path": ".vercel/project.json",
+      "status": "404"
+    },
+    {
+      "private_path": "jev_api.txt",
+      "status": "404"
+    },
+    {
+      "video_range": "206"
+    }
+  ],
+  "hosting": "Vercel production static site; independent of local Mac server",
+  "git_auto_deploy_connected": false,
+  "verified_at": "2026-09-24T09:10:34.573165+00:00",
+  "browser_playback": {
+    "browser": "Codex in-app browser",
+    "page": "https://aspire-so100-recovery.vercel.app/#evolution",
+    "duration_seconds": 49.25,
+    "observed_time_seconds": 13.272396,
+    "paused": false,
+    "console_errors": [],
+    "note": "First browser tab crashed during controls interaction; a fresh tab loaded and playback was verified."
+  }
+}

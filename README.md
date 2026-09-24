@@ -6,6 +6,7 @@
 - [Policy completeness benchmark and release gates](docs/POLICY_BENCHMARK.md)
 - [Real Astra/Jev harness, limits, and reproduction](docs/DUAL_SYSTEM.md)
 - [Verification report and limitations](docs/DUAL_SYSTEM_QA.md)
+- [Public English recovery lab](https://aspire-so100-recovery.vercel.app/) · [live model comparison](https://aspire-so100-recovery.vercel.app/#benchmark)
 - English interactive lab: `uv run python scripts/serve_vision_demo.py --bind 127.0.0.1 --port 8093 --root web/recovery`
 
 The model integration currently gates initial observations only. Historical privileged-state experiments remain a separate track; see the [observation audit](docs/OBSERVATION_AUDIT.zh-CN.md).

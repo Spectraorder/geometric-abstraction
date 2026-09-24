@@ -47,4 +47,4 @@ The confidence threshold is uncalibrated. Astra dollar cost is unknown because i
 
 Benchmark release criteria are implemented, but the complete fresh heldout campaign has not been run. Attestations in normalized evaluator records are explicit audit inputs, not a cryptographic isolation proof. Real-robot validation, physical occluders, bridge execution, and selective dual-tower repair remain future work.
 
-The English site is running locally and is committed as a standalone static bundle. This branch does not update the existing public deployment. Credentials and local deployment metadata are excluded from Git.
+The English site is now published at [aspire-so100-recovery.vercel.app](https://aspire-so100-recovery.vercel.app/), independently of the local Mac server. The user requested public deployment after the initial PR. The standalone static bundle is unchanged from commit `ad06fee`; credentials and local deployment metadata remain excluded from Git. See the [deployment verification record](evaluations/recovery_public_deployment.json).
