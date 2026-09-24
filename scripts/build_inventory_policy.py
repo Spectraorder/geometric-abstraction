@@ -8,9 +8,11 @@ MODULES = ('gripper_geometry', 'cube_geometry', 'cuboid_geometry',
            'instance_geometry', 'inventory_policy')
 
 
-def build_policy():
+def build_policy(controller='inventory_policy'):
     bodies = []
-    for name in MODULES:
+    if controller not in ('inventory_policy', 'column_policy'):
+        raise ValueError('Unknown inventory controller')
+    for name in (*MODULES[:-1], controller):
         tree = ast.parse((ROOT / 'src/aspire_so100' / (name + '.py')).read_text())
         for node in tree.body:
             if isinstance(node, ast.ImportFrom) and node.module.startswith('aspire_so100'):
@@ -25,7 +27,8 @@ def build_policy():
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--controller', choices=('inventory_policy', 'column_policy'), default='inventory_policy')
     args = parser.parse_args()
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(build_policy())
+    args.output.write_text(build_policy(args.controller))
     print(args.output)

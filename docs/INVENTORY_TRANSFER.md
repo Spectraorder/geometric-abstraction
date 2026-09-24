@@ -1,6 +1,6 @@
 # Existing policy on the new four-color shape library
 
-The subsequent [CPU instance policy](INVENTORY_CPU_POLICY.zh-CN.md) addresses
+The subsequent [CPU instance policy](INVENTORY_CPU_POLICY.md) addresses
 same-color identity confusion and includes frozen-policy evaluation on new seeds.
 The transfer-only baseline and evidence below remain unchanged.
 

@@ -1,0 +1,76 @@
+{
+  "seed": 801,
+  "layout": "sampled",
+  "task": "inventory_tower",
+  "success": true,
+  "policy_error": null,
+  "policy_sim_seconds": 142.39999999995493,
+  "candidate_sha256": "cf9c9fba5fb1917f6a7eb69485ba4804e3f6dd3f8e5b1ec47185cc45a1f6f30e",
+  "camera_calls": 149,
+  "sensor_blackout": false,
+  "cpu_profile": {
+    "policy_compute_cpu_seconds": 6.483482563999989,
+    "rpc_cpu_seconds": 0.2264431540000104,
+    "compute_interval_count": 665,
+    "compute_interval_cpu_p50_ms": 0.005884999999983265,
+    "compute_interval_cpu_p95_ms": 50.02552520000041,
+    "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+  },
+  "robot_ik_cpu_seconds": 0.25201029300000144,
+  "metrics": {
+    "success": true,
+    "score": 1.0,
+    "placed_blocks": 3,
+    "required_placements": 3,
+    "structure_stable": true,
+    "failure": null
+  },
+  "observation_contract": "Side RGB-D, wrist RGB, calibration + robot proprioception ONLY; evaluator results never returned to policy; public symbolic bottom-to-top goal via task()",
+  "scene": {
+    "generator": "block_catalog_v1",
+    "scene_task": "single_column",
+    "seed": 801,
+    "object_count": 4,
+    "objects": [
+      "blue_cube",
+      "red_cube",
+      "green_cube",
+      "yellow_cube"
+    ],
+    "roles": {
+      "level_0": "blue_cube",
+      "level_1": "red_cube",
+      "level_2": "green_cube",
+      "level_3": "yellow_cube"
+    },
+    "recipe": "cube_quad",
+    "order": [
+      "blue_cube",
+      "red_cube",
+      "green_cube",
+      "yellow_cube"
+    ]
+  },
+  "goal": {
+    "kind": "single_column",
+    "levels": [
+      {
+        "color": "blue",
+        "shape": "cube"
+      },
+      {
+        "color": "red",
+        "shape": "cube"
+      },
+      {
+        "color": "green",
+        "shape": "cube"
+      },
+      {
+        "color": "yellow",
+        "shape": "cube"
+      }
+    ]
+  },
+  "api_call_limit": 1200
+}

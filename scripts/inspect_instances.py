@@ -16,11 +16,18 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--frame', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--goal', type=Path, help='Public goal JSON or trial result containing a goal')
     args = parser.parse_args()
     with np.load(args.frame, allow_pickle=False) as archive:
         frame = dict(archive)
     tracker = InstanceTracker()
     instances = tracker.update(frame)
+    goal = None
+    if args.goal:
+        document = json.loads(args.goal.read_text())
+        goal = document.get('goal', document)
+        if goal.get('kind') != 'single_column':
+            parser.error('Expected a public single-column goal')
     points, _ = inventory_points(frame)
     palette = dict(red='#e34747', yellow='#b58b00', blue='#4388eb', green='#258a56')
     fig, (image, geometry) = plt.subplots(1, 2, figsize=(13, 6), gridspec_kw={'width_ratios': [1.35, 1]})
@@ -42,7 +49,12 @@ def main():
         center, half = track['center'][:2]*100, track['half']*100
         geometry.add_patch(Rectangle(center-half, *half*2, fill=False, edgecolor=color, ls='--', lw=1))
         geometry.scatter(*center, marker='+', s=60, color=color)
-        role = ' TARGET' if track['color']=='red' and track['shape']=='thin_prism' else (' BASE' if track['color']=='blue' and track['shape']=='cube' else '')
+        if goal is None:
+            role = ' TARGET' if track['color']=='red' and track['shape']=='thin_prism' else (' BASE' if track['color']=='blue' and track['shape']=='cube' else '')
+        else:
+            matches = [i+1 for i, level in enumerate(goal['levels'])
+                       if (level['color'], level['shape']) == (track['color'], track['shape'])]
+            role = ' L'+str(matches[0]) if len(matches) == 1 else ''
         geometry.annotate(str(index+1)+role, center, xytext=(6, 5), textcoords='offset points', fontsize=8)
         records.append(dict(id=track['id'], color=track['color'], shape=track['shape'],
                             measured_dimensions_m=track['dimensions'].tolist(),
@@ -63,7 +75,7 @@ def main():
     args.output.mkdir(parents=True, exist_ok=True)
     fig.savefig(args.output/'instances.png', dpi=180)
     plt.close(fig)
-    (args.output/'instances.json').write_text(json.dumps(dict(frame=str(args.frame), instances=records), indent=2)+'\n')
+    (args.output/'instances.json').write_text(json.dumps(dict(frame=str(args.frame), goal=goal, instances=records), indent=2)+'\n')
 
 
 if __name__ == '__main__':

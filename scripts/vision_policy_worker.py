@@ -43,6 +43,8 @@ class API:
         return unpack(result['result'])
     def camera(self, view='side'):
         return self.call('camera', view=view)
+    def task(self):
+        return self.call('task')
     def proprioception(self):
         return self.call('proprioception')
     def move_tool(self, position, seconds=1.5, orientation=None):

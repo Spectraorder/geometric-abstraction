@@ -590,7 +590,8 @@ scene_cfg = SceneCfg(
 )
 
 def build_scene(tower: bool = False, prism: bool = False, *, legacy: bool = False,
-                scene_task: str = 'random', object_count: int = 6, seed: int = 51) -> tuple[Scene, mujoco.MjModel, mujoco.MjData]:
+                scene_task: str = 'random', object_count: int = 6, seed: int = 51,
+                required_objects: tuple[str, ...] | None = None) -> tuple[Scene, mujoco.MjModel, mujoco.MjData]:
     """Compile and reset the shared SO-100 tabletop scene."""
     if sum((tower, prism, legacy)) > 1:
         raise ValueError('Choose only one historical task scene')
@@ -599,7 +600,7 @@ def build_scene(tower: bool = False, prism: bool = False, *, legacy: bool = Fals
     if tower or prism or legacy:
         cfg.entities = deepcopy(legacy_entities)
     else:
-        layout = generate_block_layout(seed, object_count, scene_task)
+        layout = generate_block_layout(seed, object_count, scene_task, required_objects=required_objects)
         cfg.entities = {name: cfg.entities[name] for name in ('robot', 'table', *layout.positions)}
         for name, position in layout.positions.items():
             cfg.entities[name].init_state.pos = position
@@ -624,14 +625,18 @@ def build_scene(tower: bool = False, prism: bool = False, *, legacy: bool = Fals
 
 def main() -> None:
     import argparse
+    from aspire_so100.tower_tasks import RECIPES, TowerRecipe, tower_recipe
 
     parser = argparse.ArgumentParser(description="Watch the SO-100 stacking task.")
     parser.add_argument("--scene-only", action="store_true", help="Open the passive scene without a policy.")
-    parser.add_argument("--vision-task", choices=("tower", "prism", "inventory_prism"),
-                        help="Sensor-only task (default: tower); inventory_prism runs the sampled red-prism task")
-    parser.add_argument('--scene-task', choices=('random', 'upright_thin_prism', 'catalog'),
+    parser.add_argument("--vision-task", choices=("tower", "prism", "inventory_prism", "inventory_tower"),
+                        help="Sensor-only task (default: tower); inventory tasks use sampled scene goals")
+    parser.add_argument('--scene-task', choices=('random', 'upright_thin_prism', 'catalog', 'single_column'),
                         help='New inventory scene: random subset, task-conditioned subset, or all 20 objects')
-    parser.add_argument('--object-count', type=int, help='Subset size (default: 6); passive scenes or inventory_prism policies')
+    parser.add_argument('--object-count', type=int, help='Subset size (default: 6); sampled passive scenes or inventory policies')
+    parser.add_argument('--tower-recipe', choices=(*RECIPES, 'random'))
+    parser.add_argument('--tower-order', nargs='+', help='Explicit inventory objects, bottom to top')
+    parser.add_argument('--tower-levels', type=int, help='2..4 levels, only for the random tower recipe')
     parser.add_argument("--seed", type=int, help="Scene seed (default: 51, or 81 for --vision-policy).")
     parser.add_argument("--task", choices=("single", "tower"), default="single")
     parser.add_argument("--candidate", type=Path, help="Generated policy to replay (required for tower).")
@@ -650,19 +655,37 @@ def main() -> None:
             parser.error('--scene-task requires --scene-only without --vision-task')
         if args.scene_task == 'catalog' and args.object_count is not None:
             parser.error('The catalog always contains all 20 objects; omit --object-count')
-    inventory_policy = args.vision_policy is not None and args.vision_task == 'inventory_prism'
-    if args.vision_task == 'inventory_prism' and not inventory_policy:
-        parser.error('Use --vision-policy with inventory_prism; passive scenes use --scene-task upright_thin_prism')
+    column_mode = args.vision_task == 'inventory_tower' or args.scene_task == 'single_column'
+    if not column_mode and (args.tower_recipe is not None or args.tower_levels is not None or args.tower_order is not None):
+        parser.error('Tower options require inventory_tower or --scene-task single_column')
+    recipe = None
+    if column_mode:
+        try:
+            if args.tower_order is not None:
+                if args.tower_recipe is not None or args.tower_levels is not None:
+                    raise ValueError('tower-order cannot be combined with recipe or levels')
+                recipe = TowerRecipe('custom', tuple(args.tower_order))
+            else:
+                recipe = tower_recipe(args.tower_recipe or 'cube_triple',
+                                      seed=args.seed if args.seed is not None else (81 if args.vision_policy else 51),
+                                      levels=args.tower_levels)
+            if (args.object_count or 6) < len(recipe.order):
+                raise ValueError('object-count must include every recipe level')
+        except ValueError as error:
+            parser.error(str(error))
+    inventory_policy = args.vision_policy is not None and args.vision_task in ('inventory_prism', 'inventory_tower')
+    if args.vision_task in ('inventory_prism', 'inventory_tower') and not inventory_policy:
+        parser.error('Inventory policy tasks require --vision-policy; use --scene-task for a passive scene')
     if args.object_count is not None:
         if not ((args.scene_only and args.vision_task is None) or inventory_policy):
-            parser.error('--object-count requires a sampled passive scene or inventory_prism policy')
+            parser.error('--object-count requires a sampled passive scene or inventory policy')
         if inventory_policy and not 2 <= args.object_count <= 20:
-            parser.error('inventory_prism requires 2..20 objects')
+            parser.error('Inventory tasks require 2..20 objects')
     if args.scene_only and args.vision_task is None:
         try:
             generate_block_layout(args.seed if args.seed is not None else 51,
                                   args.object_count if args.object_count is not None else 6,
-                                  args.scene_task or 'random')
+                                  args.scene_task or 'random', required_objects=None if recipe is None else recipe.order)
         except ValueError as error:
             parser.error(str(error))
     if args.vision_output is not None and args.vision_policy is None:
@@ -672,11 +695,12 @@ def main() -> None:
     if args.vision_policy:
         layout = args.vision_layout or ('sampled' if inventory_policy else 'nominal')
         if inventory_policy != (layout == 'sampled'):
-            parser.error('Only inventory_prism uses --vision-layout sampled')
+            parser.error('Only inventory tasks use --vision-layout sampled')
         from aspire_so100.playback import watch_vision_policy
         watch_vision_policy(args.vision_policy, seed=args.seed if args.seed is not None else 81,
                             output=args.vision_output, layout=layout, task=args.vision_task or 'tower',
-                            object_count=args.object_count)
+                            object_count=args.object_count, tower_recipe=args.tower_recipe, tower_levels=args.tower_levels,
+                            tower_order=args.tower_order)
         return
     if args.vision_trial:
         from aspire_so100.playback import watch_vision_rollout
@@ -693,7 +717,8 @@ def main() -> None:
     _, model, data = build_scene(tower=args.vision_task == 'tower', prism=args.vision_task == 'prism',
                                scene_task=args.scene_task or 'random',
                                object_count=args.object_count if args.object_count is not None else 6,
-                               seed=args.seed if args.seed is not None else 51)
+                               seed=args.seed if args.seed is not None else 51,
+                               required_objects=None if recipe is None else recipe.order)
     print(
         f"Scene compiled: "
         f"{model.nbody} bodies, "

@@ -22,9 +22,12 @@ def write(path, value):
     temporary.replace(path)
 
 
-def evaluate(candidate, directory, seeds, jobs, *, task='tower', layout='random_xy', object_count=None):
-    if object_count is not None and (task != 'inventory_prism' or not 2 <= object_count <= 20):
-        raise ValueError('object_count requires inventory_prism and must be 2..20')
+def evaluate(candidate, directory, seeds, jobs, *, task='tower', layout='random_xy', object_count=None,
+             tower_recipe=None, tower_levels=None):
+    if object_count is not None and (task not in ('inventory_prism', 'inventory_tower') or not 2 <= object_count <= 20):
+        raise ValueError('object_count requires an inventory task and must be 2..20')
+    if task != 'inventory_tower' and (tower_recipe is not None or tower_levels is not None):
+        raise ValueError('Recipe options require inventory_tower')
     candidate = candidate.resolve()
     digest = hashlib.sha256(candidate.read_bytes()).hexdigest()
     directory.mkdir(exist_ok=True, parents=True)
@@ -46,15 +49,22 @@ def evaluate(candidate, directory, seeds, jobs, *, task='tower', layout='random_
             with (directory / f'seed_{seed}.log').open('w') as log:
                 subprocess.run([sys.executable, str(ROOT / 'scripts/run_vision_trial.py'),
                     '--candidate', str(candidate), '--seed', str(seed), '--layout', layout, '--task', task,
-                    '--output', str(out)] + ([] if object_count is None else ['--object-count', str(object_count)]),
+                    '--output', str(out)] + ([] if object_count is None else ['--object-count', str(object_count)])
+                    + ([] if tower_recipe is None else ['--tower-recipe', tower_recipe])
+                    + ([] if tower_levels is None else ['--tower-levels', str(tower_levels)]),
                     stdout=log, stderr=subprocess.STDOUT, check=True,
                     env=worker_env,
                     timeout=240)
         result = json.loads((out / 'result.json').read_text())
         if (result['candidate_sha256'] != digest or result.get('layout') != layout
                 or result.get('task', 'tower') != task
-                or (task == 'inventory_prism' and result.get('scene', {}).get('object_count') != (object_count or 6))):
+                or (task in ('inventory_prism', 'inventory_tower') and result.get('scene', {}).get('object_count') != (object_count or 6))):
             raise RuntimeError(f'Existing result does not match this experiment: {out}')
+        if task == 'inventory_tower':
+            from aspire_so100.tower_tasks import tower_recipe as recipe_for
+            expected = recipe_for(tower_recipe or 'cube_triple', seed=seed, levels=tower_levels)
+            if result.get('goal') != expected.public_goal() or result.get('scene', {}).get('recipe') != expected.name:
+                raise RuntimeError(f'Existing result has a different tower goal: {out}')
         print(f'{directory.name}, seed {seed}: success={result["success"]}, '
               f'score={result["metrics"]["score"]}, error={result["policy_error"]}', flush=True)
         return result | {'directory': str(out)}

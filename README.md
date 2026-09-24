@@ -1,6 +1,6 @@
 # ASPIRE SO-100 stacking
 
-新增 Mac RGB-D + 本体感知三层塔学习：空任务技能库，两轮达到 3/3，冻结后验证 2/2。见 [运行指南](docs/VISION_FROM_SCRATCH.zh-CN.md)、[可视化与后台部署](docs/VISION_DEPLOYMENT.zh-CN.md) 和 [历史输入审计](docs/OBSERVATION_AUDIT.zh-CN.md)。录像和公开证据随仓库保存在 `web/vision/`。[固定公网 Demo](https://aspire-so100-vision.vercel.app/) 已部署；Mac 后台服务和临时隧道启动方法见部署指南。
+The Mac RGB-D/proprioception campaign started with an empty task-skill library, reached 3/3 in two rounds, then passed 2/2 after freezing. See the [experiment guide](docs/VISION_FROM_SCRATCH.md), [visualization/deployment guide](docs/VISION_DEPLOYMENT.md), and [historical observation audit](docs/OBSERVATION_AUDIT.md). Recordings and public evidence are in `web/vision/`; the recorded [static demo deployment](https://aspire-so100-vision.vercel.app/) is described in the deployment guide.
 
 This project adapts the three useful pieces of the ASPIRE workflow to the local
 `mjlab` SO-100 scene:
@@ -10,6 +10,16 @@ This project adapts the three useful pieces of the ASPIRE workflow to the local
 2. Code-as-policy candidates implement `run(api)` and are ranked on fixed debug
    seeds.
 3. A small skill library stores validated repair patterns for later candidates.
+
+The project goal is varied towers from the full block inventory. The first
+curriculum is task-defined upright single columns with different colors,
+shapes and 2–4 levels; bridges and pyramids follow later. The new
+`inventory_tower` task supports named, random and explicit bottom-to-top goals,
+task-conditioned sampling, private whole-column evaluation and CPU control.
+Its baseline passed 5/5 reserved trials for two/three cubes and a cylinder-base
+three-level column, but **0/5** for four cubes, a tall cylinder cap and random
+three-level recipes. See the [single-column milestone, full results and actual
+replays](docs/SINGLE_COLUMNS.md); general tower construction remains open.
 
 ## Current object library and sampled scenes
 
@@ -61,7 +71,7 @@ color + shape + persistent object ID before grasping or clearing a blocker.
 It passed **50/50 fresh reserved six-object scenes** after source freeze.
 Perception, tracking, geometric planning and robot IK use CPU; simulation and
 rendering retain EGL/GPU. See the [results, CPU timings and real experiment
-visualizations](docs/INVENTORY_CPU_POLICY.zh-CN.md).
+visualizations](docs/INVENTORY_CPU_POLICY.md).
 
 The earlier color-only transfer diagnostic passed **6/20** six-object scenes
 and often selected the wrong same-color shape. Its

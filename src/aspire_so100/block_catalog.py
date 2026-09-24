@@ -39,20 +39,29 @@ class BlockLayout:
     roles: dict[str, str]
 
 
-def generate_block_layout(seed: int = 51, count: int = 6, task: str = 'random') -> BlockLayout:
+def generate_block_layout(seed: int = 51, count: int = 6, task: str = 'random',
+                          *, required_objects: tuple[str, ...] | None = None) -> BlockLayout:
     """Sample unique inventory objects and separated poses, with task constraints.
 
     The upright task reserves central slots for its target and base, then samples
     distractors into remaining slots. Every object starts upright with zero yaw.
     A jittered grid bounds density and avoids rejection-sampling failures at 20.
     """
-    if task not in ('random', 'catalog', *TASK_OBJECTS):
+    if task not in ('random', 'catalog', 'single_column', *TASK_OBJECTS):
         raise ValueError('Unknown scene generation task: ' + task)
     if not isinstance(count, int) or isinstance(count, bool) or not 1 <= count <= len(CATALOG_OBJECTS):
         raise ValueError('Object count must be an integer from 1 to 20')
+    if (task == 'single_column') != (required_objects is not None):
+        raise ValueError('single_column requires an explicit ordered object list')
     if task == 'catalog':
         return BlockLayout(task, dict(CATALOG_POSITIONS), {})
     roles = dict(TASK_OBJECTS.get(task, {}))
+    if required_objects is not None:
+        if not 2 <= len(required_objects) <= 4 or len(set(required_objects)) != len(required_objects):
+            raise ValueError('A column requires 2..4 distinct objects')
+        if not set(required_objects) <= set(CATALOG_OBJECTS):
+            raise ValueError('Required object is outside the inventory')
+        roles = {f'level_{i}': name for i, name in enumerate(required_objects)}
     required = list(roles.values())
     if count < len(required):
         raise ValueError(f'{task} requires at least {len(required)} objects')
