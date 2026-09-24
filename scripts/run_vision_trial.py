@@ -292,6 +292,7 @@ def main():
             result['scene'] = env.scene_metadata
         if a.task == 'inventory_tower':
             result['goal'] = env.recipe.public_goal()
+            result['sensor'] = {'depth_sampling': 'pixel_center', 'offscreen_samples': 0}
             result['api_call_limit'] = 300*len(env.order)
             result['observation_contract'] += '; public symbolic bottom-to-top goal via task()'
         (a.output/'result.json').write_text(json.dumps(result,indent=2)+'\n')

@@ -145,7 +145,7 @@ class TowerTaskTests(unittest.TestCase):
             out.mkdir(parents=True)
             result = dict(candidate_sha256=hashlib.sha256(candidate.read_bytes()).hexdigest(),
                           task='inventory_tower', layout='sampled', seed=801,
-                          scene=dict(object_count=3, recipe='cube_triple'),
+                          scene=dict(object_count=3, recipe='cube_triple', order=list(tower_recipe('cube_triple').order)),
                           goal=tower_recipe('cube_triple').public_goal(), success=False,
                           metrics=dict(score=0.), policy_error=None)
             (out/'result.json').write_text(json.dumps(result))

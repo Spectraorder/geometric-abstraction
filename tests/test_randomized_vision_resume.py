@@ -72,3 +72,38 @@ class RandomizedVisionResumeTests(unittest.TestCase):
                 with self.assertRaisesRegex(RuntimeError, 'does not match'):
                     LEARNER.evaluate(candidate, trials, [101], 1)
                 run.assert_not_called()
+
+    def test_duplicate_or_empty_seed_requests_fail_before_starting_trials(self):
+        with TemporaryDirectory() as temp:
+            root = Path(temp)
+            candidate = root/'candidate.py'
+            candidate.write_text('def run(api): pass\n')
+            with patch.object(LEARNER.subprocess, 'run') as run:
+                for seeds in ([], [101, 101]):
+                    with self.subTest(seeds=seeds), self.assertRaisesRegex(ValueError, 'unique'):
+                        LEARNER.evaluate(candidate, root/'trials', seeds, 2)
+                run.assert_not_called()
+            self.assertFalse((root/'trials').exists())
+
+    def test_named_recipe_cache_checks_scene_order_independently_of_goal(self):
+        from aspire_so100.tower_tasks import tower_recipe
+        with TemporaryDirectory() as temp:
+            root = Path(temp)
+            candidate = root/'candidate.py'
+            candidate.write_text('def run(api): pass\n')
+            out = root/'trials/seed_901'
+            out.mkdir(parents=True)
+            recipe = tower_recipe('cube_triple')
+            result = dict(candidate_sha256=hashlib.sha256(candidate.read_bytes()).hexdigest(),
+                          task='inventory_tower', layout='sampled', seed=901,
+                          scene=dict(object_count=3, recipe='cube_triple', order=list(reversed(recipe.order))),
+                          goal=recipe.public_goal(), success=False, metrics=dict(score=0.), policy_error=None)
+            path = out/'result.json'
+            path.write_text(json.dumps(result))
+            original = path.read_bytes()
+            with patch.object(LEARNER.subprocess, 'run') as run:
+                with self.assertRaisesRegex(RuntimeError, 'different tower goal'):
+                    LEARNER.evaluate(candidate, out.parent, [901], 1, task='inventory_tower',
+                                     layout='sampled', object_count=3, tower_recipe='cube_triple')
+                run.assert_not_called()
+            self.assertEqual(path.read_bytes(), original)

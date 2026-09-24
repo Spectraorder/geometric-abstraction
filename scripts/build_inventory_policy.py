@@ -12,7 +12,8 @@ def build_policy(controller='inventory_policy'):
     bodies = []
     if controller not in ('inventory_policy', 'column_policy'):
         raise ValueError('Unknown inventory controller')
-    for name in (*MODULES[:-1], controller):
+    helpers = (*MODULES[:-1], 'column_geometry', 'column_tracking') if controller == 'column_policy' else MODULES[:-1]
+    for name in (*helpers, controller):
         tree = ast.parse((ROOT / 'src/aspire_so100' / (name + '.py')).read_text())
         for node in tree.body:
             if isinstance(node, ast.ImportFrom) and node.module.startswith('aspire_so100'):

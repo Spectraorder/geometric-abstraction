@@ -4,11 +4,20 @@ import numpy as np
 
 
 class OverheadRGBD:
-    def __init__(self, model, width=320, height=240):
+    def __init__(self, model, width=320, height=240, *, pixel_aligned=False):
         self.model = model
         self.camera_id = model.camera("table/overhead_camera").id
         self.width, self.height = width, height
-        self.renderer = mujoco.Renderer(model, height=height, width=width)
+        # A multisample depth resolve can select a subpixel sample rather than
+        # the calibrated pixel-center ray. Disable multisampling for metric
+        # geometry when requested; preserve the historical sensor by default.
+        samples = model.vis.quality.offsamples
+        try:
+            if pixel_aligned:
+                model.vis.quality.offsamples = 0
+            self.renderer = mujoco.Renderer(model, height=height, width=width)
+        finally:
+            model.vis.quality.offsamples = samples
 
     def capture(self, data):
         mujoco.mj_forward(self.model, data)

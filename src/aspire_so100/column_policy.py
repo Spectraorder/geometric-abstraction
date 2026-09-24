@@ -9,6 +9,8 @@ from scipy import ndimage
 from aspire_so100.cube_geometry import estimate_cube_geometry, support_margin
 from aspire_so100.cuboid_geometry import estimate_cuboid_geometry
 from aspire_so100.gripper_geometry import estimate_gripper_geometry
+from aspire_so100.column_tracking import ColumnTracker
+from aspire_so100.column_geometry import ColumnGeometryConflict, column_size_uncertainty, estimate_column_geometry, update_partial_column_geometry, select_column_levels
 from aspire_so100.instance_geometry import InstanceTracker, inventory_color_mask as color_mask
 
 def run(api):
@@ -33,12 +35,17 @@ def run(api):
             api.move_tool(p, seconds=seconds, orientation=first['tool_rotation'])
     last_frame = [None]
     last_robot = [None]
-    tracker = InstanceTracker()
+    tracker = ColumnTracker()
+    visual_models = {}
     grasp_anchors = {}
+    warm_grasps = {}
+    held_models = {}
 
     def remember_grasp(name, robot=None):
         robot = api.proprioception() if robot is None else robot
         grasp_anchors[name] = (tracker.tracks[name]['observed_center'].copy(), robot)
+        if name not in warm_grasps and name in visual_models:
+            warm_grasps[name] = (dict(visual_models[name]), robot)
 
     def predicted_grasps(robot=None):
         if not grasp_anchors:
@@ -52,6 +59,7 @@ def run(api):
         return predictions
 
     def release_track(name):
+        warm_grasps.pop(name, None)
         if name in grasp_anchors:
             tracker.tracks[name]['observed_center'] = predicted_grasps()[name]
             grasp_anchors.pop(name)
@@ -63,6 +71,28 @@ def run(api):
         if tracker.plane is not None:
             robot = api.proprioception() if grasp_anchors else None
             last_robot[0] = robot
+            surface_models = dict(visual_models)
+            for name in grasp_anchors:
+                if name not in visual_models:
+                    continue
+                if name in held_models:
+                    previous, before = held_models[name]
+                else:
+                    # Jaw closure can shift a source before its first visual
+                    # grasp confirmation. Do not crop that evidence away.
+                    surface_models.pop(name, None)
+                    continue
+                rotation = np.asarray(robot['tool_rotation']) @ np.asarray(before['tool_rotation']).T
+                fresh = dict(previous)
+                fresh['center'] = np.asarray(robot['tool_position']) + rotation @ (previous['center'] - np.asarray(before['tool_position']))
+                fresh['normal'] = rotation @ previous['normal']
+                if 'rotation' in previous:
+                    fresh['rotation'] = rotation @ previous['rotation']
+                for field in ('vertices', 'top_vertices'):
+                    if field in previous:
+                        fresh[field] = np.asarray(robot['tool_position']) + (previous[field] - np.asarray(before['tool_position'])) @ rotation.T
+                surface_models[name] = fresh
+            tracker.surface_models = surface_models
             tracker.update(s, predicted_grasps(robot))
             for name in grasp_anchors:
                 if tracker.tracks[name]['visible']:
@@ -177,7 +207,16 @@ def run(api):
                 dims = hi - lo
                 if not 0.009 < height < 0.065 or np.min(dims) < 0.006:
                     raise RuntimeError('Unreliable dimensions for ' + name)
+                if tracker.tracks[name]['shape'] == 'cube':
+                    dims = np.repeat(height, 2)
                 model = {'height': height, 'dims': dims}
+                if tracker.tracks[name]['shape'] in ('prism', 'thin_prism'):
+                    try:
+                        model.update(column_size_uncertainty(
+                            tracker.isolated_frame(last_frame[0], name),
+                            tracker.tracks[name]['color'], model, plane))
+                    except ValueError as error:
+                        raise RuntimeError(str(error)) from error
             height = model['height']
             center = top_center - normal * height / 2
             extent = float((abs(ex[2]) * model['dims'][0] + abs(ey[2]) * model['dims'][1] + normal[2] * height) / 2)
@@ -185,6 +224,43 @@ def run(api):
         legacy_locate = locate
 
         def locate(name, model=None, near=None):
+            if tracker.tracks[name]['shape'] in ('cube', 'cylinder', 'prism', 'thin_prism'):
+                capture()
+                shape = tracker.tracks[name]['shape']
+                if model is not None and shape == 'cube':
+                    model = dict(model, dims=np.repeat(model['height'], 2))
+                try:
+                    selected = tracker.isolated_frame(last_frame[0], name)
+                    if name in held_models:
+                        previous, robot_before = held_models[name]
+                        return update_partial_column_geometry(selected, tracker.tracks[name]['color'], shape,
+                                                              model, previous, robot_before, last_robot[0], plane)
+                    prior = None
+                    if near is not None and name in warm_grasps:
+                        previous, before = warm_grasps[name]
+                        robot = last_robot[0]
+                        rotation = np.asarray(robot['tool_rotation']) @ np.asarray(before['tool_rotation']).T
+                        prior = dict(previous)
+                        prior['center'] = np.asarray(robot['tool_position']) + rotation @ (previous['center'] - np.asarray(before['tool_position']))
+                        prior['normal'] = rotation @ previous['normal']
+                        if 'rotation' in previous:
+                            prior['rotation'] = rotation @ previous['rotation']
+                        for field in ('vertices', 'top_vertices'):
+                            if field in previous:
+                                prior[field] = np.asarray(robot['tool_position']) + (previous[field] - np.asarray(before['tool_position'])) @ rotation.T
+                    try:
+                        return estimate_column_geometry(selected, tracker.tracks[name]['color'], shape,
+                                                        model=model, table_plane=plane)
+                    except ValueError:
+                        if prior is None:
+                            raise
+                        return estimate_column_geometry(selected, tracker.tracks[name]['color'], shape,
+                                                        model=model, table_plane=plane, prior=prior)
+                except ColumnGeometryConflict:
+                    raise
+                except ValueError as error:
+                    if shape == 'cylinder':
+                        raise RuntimeError(str(error)) from error
             estimate = legacy_locate(name, model, near)
             if tracker.tracks[name]['shape'] in ('thin_prism', 'prism'):
                 try:
@@ -212,7 +288,7 @@ def run(api):
         move(scan, 1.0)
         capture()
         try:
-            level_ids = [tracker.select(level['color'], level['shape']) for level in levels]
+            level_ids = select_column_levels(tracker, levels, last_frame[0])
             if len(set(level_ids)) != len(level_ids):
                 raise ValueError('Each tower level must resolve to a distinct instance')
             base_id = level_ids[0]
@@ -225,6 +301,8 @@ def run(api):
         api.note('COLUMN bottom_to_top=' + str(level_ids))
         active_support = [None]
         blocks = {name: locate(name) for name in level_ids}
+        visual_models.update(blocks)
+        tall_column = sum(b['height'] for b in blocks.values()) > .155
         safe_z = max((b['top'] for b in blocks.values())) + 0.085
         park = initial_tool.copy()
         park[2] = max(park[2], safe_z)
@@ -233,6 +311,7 @@ def run(api):
         for name in blocks:
             try:
                 blocks[name] = locate(name)
+                visual_models[name] = blocks[name]
             except RuntimeError:
                 pass
             b = blocks[name]
@@ -240,7 +319,6 @@ def run(api):
         safe_z = max((b['top'] for b in blocks.values())) + 0.085
         contact_gap_min = -0.005
         api.note('Visual release gate: bottom gap between -5 and +5 mm.')
-        held_models = {}
         release_drifts = {}
 
         def partial_held(name):
@@ -269,6 +347,8 @@ def run(api):
                 raise ValueError('Payload no longer agrees with visually confirmed grasp')
             vertices = position + (previous['vertices'] - old_position) @ rotation.T + correction
             fresh = dict(previous)
+            if 'rotation' in previous:
+                fresh['rotation'] = rotation @ previous['rotation']
             center = predicted + correction
             normal = rotation @ previous['normal']
             if 'top_vertices' in previous:
@@ -278,17 +358,31 @@ def run(api):
             api.note(name + ' partial depth update: unseen axes propagated from last visual pose and robot motion')
             return fresh
 
+        def remember_model(name, estimate):
+            # Later views may resolve the initial pixel-sized dimension interval.
+            # Persist that visual model without replacing the source location.
+            old_dimensions = np.r_[blocks[name]['dims'], blocks[name]['height']]
+            dimensions = np.r_[estimate['dims'], estimate['height']]
+            if np.max(abs(dimensions - old_dimensions)) > .0001:
+                api.note(name + ' visual dimensions refined=' + str(np.round(dimensions, 5).tolist()))
+            visual_models[name] = estimate
+            blocks[name].update(model=estimate['model'], dims=estimate['dims'],
+                                height=estimate['height'])
+
         def perceive(name, near=None):
             for attempt in range(3):
                 try:
                     estimate = locate(name, blocks[name]['model'], near)
+                    remember_model(name, estimate)
                     if name in held_models:
                         held_models[name] = (estimate, last_robot[0])
                     return estimate
                 except RuntimeError:
                     if near is not None and name in held_models and tracker.tracks[name]['shape'] in ('cube', 'thin_prism', 'prism'):
                         try:
-                            return partial_held(name)
+                            fresh = partial_held(name)
+                            remember_model(name, fresh)
+                            return fresh
                         except ValueError:
                             pass
                     if attempt == 2:
@@ -310,22 +404,21 @@ def run(api):
                     api.wait(0.15)
 
         def refresh_support(name, prior):
-            if tracker.tracks[name]['shape'] != 'cube':
-                return prior
             try:
                 capture()
-                geometry = estimate_cube_geometry(tracker.isolated_frame(last_frame[0], name), tracker.tracks[name]['color'], blocks[name]['height'], near=prior['center'], table_plane=plane)
+                selected = tracker.isolated_frame(last_frame[0], name)
+                fresh = estimate_column_geometry(selected, tracker.tracks[name]['color'],
+                                                 tracker.tracks[name]['shape'], blocks[name]['model'],
+                                                 plane, prior)
+            except ColumnGeometryConflict:
+                raise
             except ValueError:
                 return prior
-            if geometry['observed_face_count'] < 2:
-                return prior
-            axes = geometry['rotation'][:, geometry['constrained_axes']]
-            center = prior['center'] + axes @ (axes.T @ (geometry['centroid'] - prior['center']))
-            if np.linalg.norm(center - prior['center']) > 0.004:
-                return prior
-            shift = center - geometry['centroid']
-            fresh = dict(prior)
-            fresh.update(center=center, top=float(geometry['top_center'][2] + shift[2]), bottom=float(geometry['bottom_z'] + shift[2]), normal=geometry['top_normal'], top_vertices=geometry['top_vertices'] + shift, geometry_reliable=geometry['reliable'])
+            if np.linalg.norm(fresh['center'] - prior['center']) > .008:
+                raise RuntimeError('Supporting level moved outside its trusted visual pose')
+            if fresh['normal'][2] < .97 or abs(fresh['top'] - prior['top']) > .005:
+                raise RuntimeError('Supporting level is no longer visibly upright at its expected height')
+            remember_model(name, fresh)
             return fresh
 
         def landing_center(block):
@@ -343,11 +436,66 @@ def run(api):
             return center
         retry_shift = [0.0]
 
+        placed_models = {}
+        balance_history = {}
+        balance_velocity = {}
+
+        def balanced_aim(name, support, refresh=False):
+            if name not in level_ids or not placed_models:
+                return None
+            prefix = level_ids[:level_ids.index(name)]
+            if not prefix or any(tracker.tracks[n]['shape'] != 'cube' for n in prefix+[name]):
+                return None
+            if refresh:
+                for previous_name in prefix:
+                    placed_models[previous_name] = refresh_support(previous_name, placed_models[previous_name])
+                    center = placed_models[previous_name]['center'][:2].copy()
+                    timestamp = float(last_frame[0]['time'])
+                    previous = balance_history.get(previous_name)
+                    if previous is None:
+                        balance_history[previous_name] = (timestamp,center)
+                    elif timestamp-previous[0]>.5:
+                        velocity = (center-previous[1])/(timestamp-previous[0])
+                        velocity = .5*velocity+.5*balance_velocity.get(previous_name,np.zeros(2))
+                        speed = np.linalg.norm(velocity)
+                        if speed>.0005:
+                            velocity *= .0005/speed
+                        balance_velocity[previous_name] = velocity
+                        balance_history[previous_name] = (timestamp,center)
+            centers = np.array([placed_models[n]['center'][:2]+6.*balance_velocity.get(n,np.zeros(2)) for n in prefix])
+            masses = np.array([blocks[n]['height']**3 for n in prefix])
+            new_mass = blocks[name]['height']**3
+            targets = []
+            weights = []
+            for i, center in enumerate(centers):
+                above_mass = masses[i+1:]
+                moment = np.sum(above_mass[:,None]*centers[i+1:], axis=0)
+                target = ((new_mass+above_mass.sum())*center-moment)/new_mass
+                targets.append(target)
+                weights.append(float(len(centers)-i)**2)
+            target = np.average(targets,axis=0,weights=weights)
+            shift = release_drifts.get('cube',np.zeros(2))
+            compensation = -.8*shift
+            length = np.linalg.norm(compensation)
+            if length>.003:
+                compensation *= .003/length
+            target += compensation
+            offset = target-support['center'][:2]
+            length = np.linalg.norm(offset)
+            if length>.006:
+                target = support['center'][:2]+offset*.006/length
+            if refresh:
+                api.note('BALANCE centers='+str(np.round(centers,4).tolist())+' target='+str(np.round(target,4).tolist()))
+            return target
+
         def stack_once(name, support, placement_bias=None):
             source = perceive(name)
             aim_xy = support['center'][:2].copy()
             if placement_bias is not None:
                 aim_xy += placement_bias
+                balanced = balanced_aim(name, support, refresh=True)
+                if balanced is not None:
+                    aim_xy = balanced
             grasp = source['center'].copy()
             grasp[2] += (0.6 if source['height'] > 0.045 else 0.9) * source['height']
             api.note(name + ' elevated grasp offset=' + str(round((0.6 if source['height'] > 0.045 else 0.9) * source['height'], 4)))
@@ -374,7 +522,13 @@ def run(api):
                 api.note(name + ' visible finger reach=' + str(round(drop, 4)) + '; geometry grasp offset=' + str(round(float(offset), 4)))
             except ValueError:
                 api.note('Gripper occluded; using previously verified grasp height.')
+            grasp[2] -= .009 if tracker.tracks[name]['shape'] in ('cube', 'cylinder') else 0.
+            if tall_column and source['height'] > .045:
+                grasp[2] = source['center'][2] + .25*source['height']
+            if source['shape'] == 'cube':
+                grasp[2] = max(grasp[2], source['center'][2] + .6*source['height'])
             grasp[2] += retry_shift[0]
+            api.note(name + ' applied grasp offset=' + str(round(float(grasp[2]-source['center'][2]), 4)))
             pre = grasp.copy()
             pre[2] += 0.025
             move(pre, 1.1)
@@ -417,6 +571,7 @@ def run(api):
                     move(above)
                     move(park)
                     return False
+            api.note(name + ' payload tilt=' + str(np.round(held['normal'], 4).tolist()))
             held_models[name] = (held, api.proprioception())
             offset = landing_center(held) - tool()
             target = support['center'].copy()
@@ -456,6 +611,9 @@ def run(api):
                     aim_xy = support['center'][:2].copy()
                     if placement_bias is not None:
                         aim_xy += placement_bias
+                        balanced = balanced_aim(name, support, refresh=iteration==0)
+                        if balanced is not None:
+                            aim_xy = balanced
                     current = tool()
                     measured = perceive(name, current)
                     # A recovery observation may have repositioned the wrist.
@@ -497,7 +655,9 @@ def run(api):
             if np.linalg.norm(aim_error) > release_tolerance or not contact_gap_min <= gap <= 0.005 or unsafe_overlap:
                 offset = measured['center'] - tool()
                 high = tool()
-                high[2] = above[2]
+                # Clear the current column before returning toward the source.
+                # A source's approach height can be below a tall destination.
+                high[2] = max(high[2], above[2], support['top'] + measured['height'] + .035)
                 move(high)
                 back = source['center'] - offset
                 high[:2] = back[:2]
@@ -518,8 +678,10 @@ def run(api):
             try:
                 opened = perceive(name)
                 api.note(name + ' after opening displacement=' + str(np.round(opened['center'] - measured['center'], 4).tolist()))
-            except RuntimeError:
-                api.note(name + ' obscured after opening.')
+            except (RuntimeError, ColumnGeometryConflict):
+                # The payload is already released. Reject the obscured view,
+                # then withdraw the empty gripper before observing again.
+                api.note(name + ' geometry unconfirmed after opening.')
             retreat = tool()
             retreat[2] += 0.025
             move(retreat, 2.0)
@@ -534,8 +696,8 @@ def run(api):
                 drift = withdrawn['center'][:2] - landing_center(measured)[:2]
                 if np.linalg.norm(drift) < .012:
                     release_drifts[tracker.tracks[name]['shape']] = drift
-            except RuntimeError:
-                api.note(name + ' obscured after withdrawal.')
+            except (RuntimeError, ColumnGeometryConflict):
+                api.note(name + ' geometry unconfirmed after withdrawal.')
             return True
 
         def stack(name, support, placement_bias=None):
@@ -587,29 +749,38 @@ def run(api):
             return min(options, key=lambda item: item[0])[1] if options else None
         objects = objects_from_depth()
         options = []
-        for dx in (-0.06, -0.03, 0.0, 0.03, 0.06):
-            for dy in (-0.02, 0.0, 0.02):
-                xy = park[:2] + np.array([dx, dy])
-                # Preview every placement height, not only the final level.
-                cumulative = 0.
-                tilts = []
-                for level_id in level_ids:
-                    height = blocks[level_id]['height']
-                    tool_height = cumulative + (0.9 if height > .045 else 1.4)*height
-                    preview = api.plan_tool(np.r_[xy, table_z(xy) + tool_height])
-                    if preview['position_error'] > .003:
-                        break
-                    tilts.append(float(np.arccos(np.clip(np.asarray(preview['tool_rotation'])[2, 1], -1., 1.))))
-                    cumulative += height
-                if len(tilts) != len(level_ids) or max(tilts) > .28:
-                    continue
-                tilt = max(tilts)
-                blockers = blocked(xy, objects, ignore=(base_id,))
-                names = list(dict.fromkeys((o['id'] for o in blockers)))
-                if len(names) > 2 or any(tracker.tracks[n]['shape'] not in ('cube', 'prism', 'thin_prism', 'cylinder') for n in names):
-                    continue
-                cost = 0.1 * len(names) + 0.12 * any(n in level_ids[1:] for n in names) + tilt + 0.5 * np.linalg.norm(xy - park[:2])
-                options.append((cost, xy, names))
+        # Prefer the established extra approach clearance. If every worksite
+        # fails, retry at the observed nominal cube grasp height: half a cube
+        # above its support plus the controller's 0.6-height tool offset.
+        cube_heights = (1.4, 1.1) if any(blocks[n]['shape'] == 'cube' for n in level_ids) else (1.4,)
+        for cube_tool_height in cube_heights:
+            for dx in (-0.06, -0.03, 0.0, 0.03, 0.06):
+                for dy in (-0.02, 0.0, 0.02):
+                    xy = park[:2] + np.array([dx, dy])
+                    # Preview every placement height, not only the final level.
+                    cumulative = 0.
+                    tilts = []
+                    for level_id in level_ids:
+                        height = blocks[level_id]['height']
+                        tool_height = cumulative + ((.75 if tall_column else .9) if height > .045 else cube_tool_height)*height
+                        preview = api.plan_tool(np.r_[xy, table_z(xy) + tool_height])
+                        if tall_column and preview['position_error'] > .003:
+                            preview = api.plan_tool(np.r_[xy, table_z(xy) + tool_height], orientation=preview['tool_rotation'])
+                        if preview['position_error'] > .003:
+                            break
+                        tilts.append(float(np.arccos(np.clip(np.asarray(preview['tool_rotation'])[2, 1], -1., 1.))))
+                        cumulative += height
+                    if len(tilts) != len(level_ids) or max(tilts) > (.85 if tall_column else .28):
+                        continue
+                    tilt = max(tilts)
+                    blockers = blocked(xy, objects, ignore=(base_id,))
+                    names = list(dict.fromkeys((o['id'] for o in blockers)))
+                    if len(names) > 2 or any(tracker.tracks[n]['shape'] not in ('cube', 'prism', 'thin_prism', 'cylinder') for n in names):
+                        continue
+                    cost = 0.1 * len(names) + 0.12 * any(n in level_ids[1:] for n in names) + tilt + 0.5 * np.linalg.norm(xy - park[:2])
+                    options.append((cost, xy, names))
+            if options:
+                break
         if not options:
             api.note('No worksite with at most two movable blockers; stopping before stacking.')
             return
@@ -644,6 +815,7 @@ def run(api):
             return
         support = perceive(base_id)
         column_axis = support['center'][:2].copy()
+        placed_models[base_id] = support
         for index, name in enumerate(level_ids[1:], start=1):
             active_support[0] = level_ids[index-1]
             safe_z = max(safe_z, support['top'] + blocks[name]['height'] + .035)
@@ -651,8 +823,8 @@ def run(api):
             # well above the completed level rather than descending onto it.
             park[2] = max(safe_z, support['top'] + blocks[name]['height'] + .10)
             move(park)
-            # Align every level with the observed base axis. Following each
-            # newly shifted support center would accumulate release drift.
+            # The base axis is the default for mixed shapes. Cube prefixes
+            # refine this aim using predicted whole-column load balance.
             placement_bias = column_axis - support['center'][:2]
             shift = release_drifts.get(tracker.tracks[name]['shape'], np.zeros(2))
             compensation = -.8*shift
@@ -674,8 +846,9 @@ def run(api):
                 api.note('Placed level has inconsistent visible support height; stopping')
                 return
             support = measured
+            placed_models[name] = measured
             api.note('LEVEL confirmed ' + str(index+1) + '/' + str(len(level_ids)) + ' id=' + name)
         api.wait(6.5)
         api.note('Column released; all levels visually placed in task order')
-    except RuntimeError as error:
+    except (RuntimeError, ColumnGeometryConflict) as error:
         api.note(str(error))

@@ -506,6 +506,566 @@ class InstanceTracker:
         result['rgb'] = np.where(track['mask'][..., None], frame['rgb'], 0)
         result['valid_depth'] = np.asarray(frame['valid_depth']) & track['mask']
         return result
+'CPU surface models for the column curriculum, using only calibrated RGB-D.\n\nA model stores dimensions learned while an object is visible on the tabletop.\nLater fits may infer hidden surfaces from that model and a previously observed\npose propagated by robot proprioception. Such predictions are explicitly marked.\n'
+import numpy as np
+from scipy.optimize import least_squares
+
+class ColumnGeometryConflict(ValueError):
+    """Visible finite surfaces contradict a learned object model or pose."""
+    model = None
+
+def _surface_samples(frame, color):
+    points, valid = inventory_points(frame)
+    mask = valid & inventory_color_mask(frame['rgb'], color)
+    cloud = points[mask]
+    if len(cloud) < 8:
+        raise ValueError('Insufficient visible object depth: ' + color)
+    dx = points[1:-1, 2:] - points[1:-1, :-2]
+    dy = points[2:, 1:-1] - points[:-2, 1:-1]
+    normals = np.cross(dx, dy)
+    lengths = np.linalg.norm(normals, axis=2)
+    interior = mask[1:-1, 1:-1] & mask[1:-1, 2:] & mask[1:-1, :-2] & mask[2:, 1:-1] & mask[:-2, 1:-1] & (lengths > 1e-10)
+    samples = points[1:-1, 1:-1][interior]
+    normals = normals[interior] / lengths[interior, None]
+    stride = max(1, int(np.ceil(len(samples) / 500)))
+    samples, normals = (samples[::stride], normals[::stride])
+    camera = np.asarray(frame['camera_to_world'])[:3, 3]
+    normals *= np.where(np.sum(normals * (camera - samples), axis=1) >= 0, 1, -1)[:, None]
+    return (cloud, samples, normals)
+
+def _basis(normal):
+    normal = np.asarray(normal, float)
+    normal = normal / np.linalg.norm(normal)
+    ex = np.array([1.0, 0.0, 0.0]) - normal * normal[0]
+    ex /= np.linalg.norm(ex)
+    return np.column_stack((ex, np.cross(normal, ex), normal))
+
+def _circle(points, radius=None, initial=None):
+    if len(points) < (6 if radius is None else 3):
+        raise ValueError('Insufficient curved side depth')
+    origin = np.mean(points, axis=0)
+    centered = points - origin
+    radial_only_information = None
+    if radius is None:
+        fit = np.linalg.lstsq(np.column_stack((2 * centered, np.ones(len(points)))), np.sum(centered ** 2, axis=1), rcond=None)[0]
+        radius_squared = fit[2] + np.sum(fit[:2] ** 2)
+        if radius_squared <= 0:
+            raise ValueError('Invalid fitted cylinder radius')
+        start = np.r_[fit[:2], np.sqrt(radius_squared)]
+        result = least_squares(lambda x: np.linalg.norm(centered - x[:2], axis=1) - x[2], start, loss='soft_l1', f_scale=0.0003, max_nfev=25)
+        center, radius = (origin + result.x[:2], float(result.x[2]))
+    else:
+        if initial is None:
+            raise ValueError('A partial fixed-radius fit needs a prior center')
+        initial = np.asarray(initial)
+        radial = points - initial
+        radial /= np.maximum(np.linalg.norm(radial, axis=1)[:, None], 1e-09)
+        eigenvalues, eigenvectors = np.linalg.eigh(radial.T @ radial / len(points))
+        if eigenvalues[0] < 0.025:
+            radial_only_information = float(eigenvalues[0])
+            axis = eigenvectors[:, -1]
+            result = least_squares(lambda x: np.linalg.norm(points - initial - axis * x[0], axis=1) - radius, np.zeros(1), bounds=(-0.009, 0.009), loss='soft_l1', f_scale=0.0003, max_nfev=25)
+            center = initial + axis * result.x[0]
+        else:
+            result = least_squares(lambda x: np.linalg.norm(points - x, axis=1) - radius, initial, loss='soft_l1', f_scale=0.0003, max_nfev=25)
+            center = result.x
+    vectors = (points - center) / np.maximum(np.linalg.norm(points - center, axis=1)[:, None], 1e-09)
+    angular_information = np.linalg.eigvalsh(vectors.T @ vectors / len(points))[0]
+    if radial_only_information is not None:
+        angular_information = min(angular_information, radial_only_information)
+    rms = float(np.sqrt(np.mean((np.linalg.norm(points - center, axis=1) - radius) ** 2)))
+    if not 0.004 < radius < 0.06 or rms > 0.0007 or (angular_information < 0.025 and initial is None):
+        raise ValueError('Curved surface does not constrain a cylinder center')
+    return (center, float(radius), rms, float(angular_information))
+
+def _cylinder_side_axis(normals, prior_up):
+    """Observe a cylinder axis only when curved-side normals span two axes."""
+    selected = abs(normals @ prior_up) < 0.5
+    if np.count_nonzero(selected) < 12:
+        raise ValueError('Too few side normals to observe the cylinder axis')
+    for _ in range(3):
+        eigenvalues, eigenvectors = np.linalg.eigh(normals[selected].T @ normals[selected] / np.count_nonzero(selected))
+        axis = eigenvectors[:, 0]
+        axis *= np.sign(axis @ prior_up)
+        residual = abs(normals @ axis)
+        selected &= residual < max(0.015, float(np.percentile(residual[selected], 85)))
+        if np.count_nonzero(selected) < 8:
+            raise ValueError('Cylinder side-axis evidence is too sparse')
+    eigenvalues, eigenvectors = np.linalg.eigh(normals[selected].T @ normals[selected] / np.count_nonzero(selected))
+    axis = eigenvectors[:, 0]
+    axis *= np.sign(axis @ prior_up)
+    if eigenvalues[0] > 0.0006 or eigenvalues[1] < 0.035 or axis @ prior_up < np.cos(np.pi / 4):
+        raise ValueError('Visible normals do not independently constrain a cylinder axis')
+    return (axis, eigenvalues)
+
+def _cylinder_surface_residual(cloud, center, rotation, radius, height):
+    local = (cloud - center) @ rotation
+    radial = np.linalg.norm(local[:, :2], axis=1)
+    side = np.hypot(radial - radius, np.maximum(abs(local[:, 2]) - height / 2, 0.0))
+    cap = np.hypot(abs(local[:, 2]) - height / 2, np.maximum(radial - radius, 0.0))
+    return np.minimum(side, cap)
+
+def _cylinder(frame, color, model, table_plane, prior):
+    cloud, samples, normals = _surface_samples(frame, color)
+    if len(samples) < 6:
+        raise ValueError('Too few cylinder surface normals')
+    up = np.array([0.0, 0.0, 1.0]) if prior is None else np.asarray(prior['normal'])
+    top_mask = normals @ up > 0.85
+    top_samples = samples[top_mask]
+    observed_top = len(top_samples) >= 4
+    if observed_top:
+        _, singular, vh = np.linalg.svd(top_samples - np.mean(top_samples, axis=0), full_matrices=False)
+        candidate = vh[-1]
+        candidate *= np.sign(candidate[2])
+        if singular[1] > 0.0005 and candidate[2] > 0.8:
+            up = candidate
+        else:
+            observed_top = False
+    side_mask = abs(normals @ up) < 0.22
+    side_samples = samples[side_mask]
+    if not observed_top and prior is None:
+        raise ValueError('Cylinder top occluded without a prior visual pose')
+    rotation = _basis(up)
+    projected = side_samples @ rotation[:, :2]
+    initial = None if prior is None else np.asarray(prior['center']) @ rotation[:, :2]
+    if model is not None and initial is None:
+        radial = normals[side_mask] @ rotation[:, :2]
+        radial /= np.maximum(np.linalg.norm(radial, axis=1)[:, None], 1e-09)
+        initial = np.median(projected - radial * model['radius'], axis=0)
+    side_axis_observed = False
+    side_axis_eigenvalues = None
+    top_only = False
+    circle_error = None
+    try:
+        xy, radius, rms, information = _circle(projected, None if model is None else model['radius'], initial)
+    except ValueError as error:
+        circle_error = error
+    if model is not None and prior is not None and (circle_error is not None):
+        try:
+            candidate, eigenvalues = _cylinder_side_axis(normals, np.asarray(prior['normal']))
+            candidate_rotation = _basis(candidate)
+            candidate_side = abs(normals @ candidate) < 0.05
+            if np.count_nonzero(candidate_side) < 8:
+                raise ValueError('Too few side samples to validate the observed cylinder axis')
+            candidate_xy, radius, candidate_rms, candidate_information = _circle(samples[candidate_side] @ candidate_rotation[:, :2], model['radius'], np.asarray(prior['center']) @ candidate_rotation[:, :2])
+            if candidate_rms > 0.0004 or candidate_information < 0.035:
+                raise ValueError('Cylinder side-axis model does not agree with observed curvature')
+            up, rotation, xy = (candidate, candidate_rotation, candidate_xy)
+            rms, information = (candidate_rms, candidate_information)
+            side_axis_observed, side_axis_eigenvalues = (True, eigenvalues)
+            top_samples = samples[normals @ up > 0.95]
+            observed_top = len(top_samples) >= 4
+            if observed_top:
+                offsets = top_samples @ up
+                singular = np.linalg.svd(top_samples - top_samples.mean(axis=0), compute_uv=False)
+                observed_top = singular[1] > 0.0005 and np.std(offsets) < 0.0004
+            circle_error = None
+        except ValueError:
+            pass
+    if circle_error is not None:
+        if model is None or prior is None or (not observed_top):
+            raise circle_error
+        rotation = _basis(up)
+        xy = np.asarray(prior['center']) @ rotation[:, :2]
+        radius, information = (model['radius'], 0.0)
+        top_level = float(np.median(top_samples @ up))
+        candidate_center = rotation[:, :2] @ xy + up * (top_level - model['height'] / 2)
+        residual = _cylinder_surface_residual(cloud, candidate_center, rotation, radius, model['height'])
+        if np.percentile(residual, 90) > 0.0015 or np.mean(residual < 0.001) < 0.8:
+            raise ValueError('Visible cylinder cap disagrees with propagated side geometry')
+        rms = float(np.sqrt(np.mean((top_samples @ up - top_level) ** 2)))
+        if rms > 0.0004:
+            raise ValueError('Visible cylinder cap is not sufficiently planar')
+        top_only = True
+    if information < 0.025 and prior is None:
+        raise ValueError('Narrow cylinder arc requires a prior visual pose')
+    if observed_top:
+        top_level = float(np.median(top_samples @ up))
+    else:
+        top_level = float(np.asarray(prior['center']) @ up + model['height'] / 2)
+    if model is None:
+        top_center = rotation[:, :2] @ xy + up * top_level
+        ground = float(top_center[:2] @ table_plane[:2] + table_plane[2])
+        height = (top_center[2] - ground) / up[2]
+        if not 0.009 < height < 0.15:
+            raise ValueError('Unreliable visual cylinder height')
+        model = {'height': float(height), 'dims': np.array([2 * radius, 2 * radius]), 'radius': radius}
+    height = model['height']
+    center = rotation[:, :2] @ xy + up * (top_level - height / 2)
+    extent = float(abs(up[2]) * height / 2 + radius * np.sqrt(max(0.0, 1 - up[2] ** 2)))
+    angles = np.arange(32) * (2 * np.pi / 32)
+    ring = radius * np.column_stack((np.cos(angles), np.sin(angles))) @ rotation[:, :2].T
+    top_vertices = center + up * height / 2 + ring
+    vertices = np.concatenate((top_vertices, center - up * height / 2 + ring))
+    return {'shape': 'cylinder', 'center': center, 'normal': up, 'height': height, 'dims': np.asarray(model['dims']), 'model': model, 'top': float((center + up * height / 2)[2]), 'bottom': float(center[2] - extent), 'extent_z': extent, 'vertices': vertices, 'top_vertices': top_vertices, 'geometry_reliable': bool(observed_top and information >= 0.025), 'observed_top': bool(observed_top), 'surface_rms_m': rms, 'orientation_observed': bool(observed_top or side_axis_observed), 'orientation_evidence': 'side_normals' if side_axis_observed else 'top_plane' if observed_top else 'prior', 'side_axis_eigenvalues': side_axis_eigenvalues, 'top_only_update': top_only, 'angular_information': information, 'inferred_axial_position': not observed_top, 'inferred_translation': bool(not observed_top or information < 0.025), 'rotation': rotation, 'constrained_axes': np.array([information >= 0.025, information >= 0.025, observed_top])}
+
+def _cuboid_pixel_size_bounds(frame, cloud, table_plane, height, dims):
+    """Bound two silhouette endpoint gaps using calibrated top-plane pixels."""
+    pose = np.asarray(frame['camera_to_world'])
+    camera = pose[:3, 3]
+    rotation = pose[:3, :3]
+    intrinsics = np.asarray(frame['intrinsics'])
+    optical = (np.asarray(cloud) - camera) @ rotation
+    projected = optical @ intrinsics.T
+    pixels = projected[:, :2] / projected[:, 2, None]
+    corners = pixels[:, None] + np.array([[-0.5, -0.5], [-0.5, 0.5], [0.5, -0.5], [0.5, 0.5]])
+    rays = np.concatenate((corners, np.ones((*corners.shape[:2], 1))), axis=2)
+    rays = rays @ np.linalg.inv(intrinsics).T @ rotation.T
+    normal = np.r_[-np.asarray(table_plane)[:2], 1.0]
+    distance = float(table_plane[2] + height - normal @ camera)
+    denominator = rays @ normal
+    if np.any(abs(denominator) < 1e-06):
+        raise ValueError('Top-plane pixel footprint is ill-conditioned')
+    top_points = camera + rays * (distance / denominator)[..., None]
+    footprint = np.max(np.ptp(top_points, axis=1), axis=0)[:2]
+    if not np.isfinite(footprint).all() or np.any(footprint <= 0):
+        raise ValueError('Invalid calibrated pixel footprint')
+    return {'initial_dims_m': np.asarray(dims).copy(), 'dims_upper_m': np.asarray(dims) + 2 * footprint, 'dimension_pixel_footprint_m': footprint, 'dimension_refinement_count': 0}
+
+def column_size_uncertainty(frame, color, model, table_plane):
+    """Pixel-derived width bounds for an initial tabletop visual box model."""
+    cloud, _, _ = _surface_samples(frame, color)
+    return _cuboid_pixel_size_bounds(frame, cloud, np.asarray(table_plane), float(model['height']), np.asarray(model['dims']))
+
+def _cuboid_dimension_indices(sizes, dimensions, rotation):
+    """Associate physical box axes with the learned dimension registry."""
+    permutations = np.array([[0, 1, 2], [0, 2, 1], [1, 0, 2], [1, 2, 0], [2, 0, 1], [2, 1, 0]])
+    costs = np.sum((np.asarray(dimensions)[permutations] - sizes) ** 2, axis=1)
+    costs -= 1e-12 * np.sum(abs(rotation[permutations, np.arange(3)]), axis=1)
+    return permutations[int(np.argmin(costs))]
+
+def _finite_cuboid_center(cloud, rotation, sizes, center, constrained, has_prior, samples, normals, model, dimension_indices):
+    """Constrain hidden translations by the finite extent of visible surfaces.
+
+    A missing face plane leaves an axis unobserved, but a learned box must still
+    contain the measured surface. Robust point bounds limit its possible center;
+    they do not manufacture an additional observed face or change learned sizes.
+    """
+    local = np.asarray(cloud) @ rotation
+    supported = np.ones(len(local), dtype=bool)
+    face_levels, face_signs = (np.zeros(3), np.zeros(3))
+    for axis in np.flatnonzero(constrained):
+        facing = normals @ rotation[:, axis]
+        aligned = abs(facing) > np.cos(np.deg2rad(15))
+        if np.count_nonzero(aligned) < 3:
+            raise ValueError('Insufficient independent face samples for finite bounds')
+        level = float(np.median(samples[aligned] @ rotation[:, axis]))
+        sign = float(np.sign(np.median(facing[aligned])))
+        face_levels[axis], face_signs[axis] = (level, sign)
+        supported &= sign * (local[:, axis] - level) <= 0.00025
+    if np.count_nonzero(supported) < 8:
+        raise ValueError('Insufficient observed-plane surface points for finite bounds')
+    local = local[supported]
+    ordered = np.sort(local, axis=0)
+    trim = max(1, int(np.ceil(0.01 * (len(ordered) - 1))))
+    lo, hi = (ordered[trim], ordered[-trim - 1])
+    tolerance = 0.00025
+    lower, upper = (hi - sizes / 2 - tolerance, lo + sizes / 2 + tolerance)
+    projected = np.asarray(center) @ rotation
+    conflict = None
+    if np.any(lower > upper):
+        conflict = 'Visible cuboid extent contradicts learned dimensions'
+    elif np.any(constrained & ((projected < lower) | (projected > upper))):
+        conflict = 'Visible cuboid planes contradict finite surface bounds'
+    if conflict is not None:
+        required = np.maximum(0.0, hi - lo - 2 * tolerance)
+        for axis in np.flatnonzero(constrained):
+            opposite = lo[axis] if face_signs[axis] > 0 else hi[axis]
+            required[axis] = max(required[axis], face_signs[axis] * (face_levels[axis] - opposite) - tolerance)
+        error = ColumnGeometryConflict(conflict)
+        error.minimum_axis_dimensions = required
+        error.dimension_indices = np.asarray(dimension_indices)
+        error.model = model
+        raise error
+    width = upper - lower
+    finite = ~constrained & (width <= 0.0015)
+    missing = ~constrained
+    if not has_prior and np.any(missing & ~finite):
+        raise ValueError('Occluded cuboid axes without a prior visual pose or narrow finite bounds')
+    projected[missing] = np.clip(projected[missing], lower[missing], upper[missing])
+    projected[finite] = (lower[finite] + upper[finite]) / 2
+    return (rotation @ projected, {'finite_surface_point_count': int(np.count_nonzero(supported)), 'finite_surface_excluded_point_count': int(np.count_nonzero(~supported)), 'finite_center_bounds_m': np.column_stack((lower, upper)), 'finite_center_width_m': width, 'finite_constrained_axes': finite})
+
+def _estimate_column_geometry(frame, color, shape, model=None, table_plane=None, prior=None):
+    """Fit an isolated object's surfaces, returning the controller's block schema.
+
+    The caller must isolate its instance mask before calling this function. New
+    dimensions are measured only on the tabletop. With a known model, hidden
+    axes may use ``prior``; no simulator state or predefined block sizes enter.
+    """
+    if table_plane is None:
+        table_plane = inventory_table(frame)
+    table_plane = np.asarray(table_plane)
+    if shape == 'cylinder':
+        return _cylinder(frame, color, model, table_plane, prior)
+    if shape not in ('cube', 'prism', 'thin_prism'):
+        raise ValueError('Unsupported column geometry: ' + shape)
+    if model is None:
+        cloud, _, _ = _surface_samples(frame, color)
+        lo, hi = np.percentile(cloud, [0, 100], axis=0)
+        midpoint = (lo + hi) / 2
+        height = float(hi[2] - midpoint[:2] @ table_plane[:2] - table_plane[2])
+        dims = hi[:2] - lo[:2]
+        if not 0.009 < height < 0.15 or np.min(dims) < 0.006:
+            raise ValueError('Unreliable visual cuboid dimensions')
+        if shape == 'cube':
+            dims = np.repeat(height, 2)
+        elif shape == 'prism':
+            dims[:] = max(dims)
+        model = {'height': height, 'dims': dims}
+        if shape != 'cube':
+            model.update(_cuboid_pixel_size_bounds(frame, cloud, table_plane, height, dims))
+    if shape == 'cube':
+        model = dict(model, dims=np.repeat(model['height'], 2))
+    dimensions = np.r_[model['dims'], model['height']]
+    geometry = estimate_cuboid_geometry(frame, color, dimensions, table_plane=table_plane)
+    if np.count_nonzero(geometry['constrained_axes']) == 1 and prior is not None:
+        previous_rotation = np.asarray(prior.get('rotation', _basis(prior['normal'])))
+        sizes = np.asarray(prior.get('axis_dimensions', dimensions[np.argmax(abs(previous_rotation), axis=0)]))
+        dimension_indices = np.asarray(prior.get('axis_dimension_indices', _cuboid_dimension_indices(sizes, dimensions, previous_rotation)))
+        observed = geometry['rotation'][:, geometry['constrained_axes']][:, 0]
+        axis = int(np.argmax(abs(previous_rotation.T @ observed)))
+        observed *= np.sign(previous_rotation[:, axis] @ observed)
+        before = previous_rotation[:, axis]
+        cross = np.cross(before, observed)
+        skew = np.array([[0.0, -cross[2], cross[1]], [cross[2], 0.0, -cross[0]], [-cross[1], cross[0], 0.0]])
+        correction = np.eye(3) + skew + skew @ skew / max(1e-08, 1 + before @ observed)
+        rotation = correction @ previous_rotation
+        cloud, samples, normals = _surface_samples(frame, color)
+        agreement = normals @ observed
+        aligned = abs(agreement) > np.cos(np.deg2rad(15))
+        if np.count_nonzero(aligned) < 3:
+            raise ValueError('Insufficient partial cuboid plane samples')
+        sign = float(np.sign(np.median(agreement[aligned])))
+        level = float(np.median(samples[aligned] @ observed))
+        center = np.asarray(prior['center']).copy()
+        center += observed * (level - sign * sizes[axis] / 2 - center @ observed)
+        constrained = np.arange(3) == axis
+        center, finite_bounds = _finite_cuboid_center(cloud, rotation, sizes, center, constrained, True, samples, normals, model, dimension_indices)
+        signs = np.array([[x, y, z] for x in (-1.0, 1.0) for y in (-1.0, 1.0) for z in (-1.0, 1.0)])
+        vertices = center + signs * sizes / 2 @ rotation.T
+        up_axis = int(np.argmax(abs(rotation[2])))
+        up_sign = float(np.sign(rotation[2, up_axis]))
+        normal = rotation[:, up_axis] * up_sign
+        constrained = np.arange(3) == axis
+        top_vertices = vertices[signs[:, up_axis] == up_sign]
+        return {'shape': shape, 'center': center, 'normal': normal, 'top': float((center + normal * sizes[up_axis] / 2)[2]), 'bottom': float(np.min(vertices[:, 2])), 'extent_z': float(np.ptp(vertices[:, 2]) / 2), 'height': model['height'], 'dims': np.asarray(model['dims']), 'model': model, 'vertices': vertices, 'top_vertices': top_vertices, 'geometry_reliable': False, 'observed_face_count': 1, 'constrained_axes': constrained, **finite_bounds, 'rotation': rotation, 'axis_dimensions': sizes, 'axis_dimension_indices': dimension_indices, 'inferred_axial_position': True, 'inferred_orientation': True, 'surface_rms_m': float(np.sqrt(np.mean((samples[aligned] @ observed - level) ** 2)))}
+    center = geometry['centroid'].copy()
+    constrained = geometry['constrained_axes']
+    rotation = geometry['rotation']
+    dimension_indices = _cuboid_dimension_indices(geometry['dimensions_m'], dimensions, rotation)
+    cloud, samples, normals = _surface_samples(frame, color)
+    if prior is not None and 'rotation' in prior and ('axis_dimensions' in prior) and (np.ptp(prior['axis_dimensions']) > 1e-06):
+        agreement = abs(rotation.T @ np.asarray(prior['rotation']))
+        permutations = np.array([[0, 1, 2], [0, 2, 1], [1, 0, 2], [1, 2, 0], [2, 0, 1], [2, 1, 0]])
+        scores = np.sum(agreement[np.arange(3), permutations], axis=1)
+        permutation = permutations[int(np.argmax(scores))]
+        if np.min(agreement[np.arange(3), permutation]) < np.cos(np.pi / 4):
+            raise ValueError('Cuboid visual axes disagree with their learned correspondence')
+        sizes = np.asarray(prior['axis_dimensions'])[permutation]
+        prior_indices = np.asarray(prior.get('axis_dimension_indices', _cuboid_dimension_indices(np.asarray(prior['axis_dimensions']), dimensions, np.asarray(prior['rotation']))))
+        dimension_indices = prior_indices[permutation]
+        local_center = center @ rotation
+        for axis in np.flatnonzero(constrained):
+            facing = normals @ rotation[:, axis]
+            aligned = abs(facing) > np.cos(np.deg2rad(15))
+            if np.count_nonzero(aligned) < 3:
+                raise ValueError('Insufficient depth for learned cuboid axis correspondence')
+            sign = float(np.sign(np.median(facing[aligned])))
+            level = float(np.median(samples[aligned] @ rotation[:, axis]))
+            local_center[axis] = level - sign * sizes[axis] / 2
+        center = rotation @ local_center
+        signs = np.array([[x, y, z] for x in (-1.0, 1.0) for y in (-1.0, 1.0) for z in (-1.0, 1.0)])
+        vertices = center + signs * sizes / 2 @ rotation.T
+        up_axis = int(np.argmax(abs(rotation[2])))
+        up_sign = float(np.sign(rotation[2, up_axis]))
+        normal = rotation[:, up_axis] * up_sign
+        relative = (cloud - center) @ rotation
+        residual = np.min(abs(abs(relative) - sizes / 2), axis=1)
+        inside = np.all(abs(relative) <= sizes / 2 + 0.002, axis=1)
+        geometry = dict(geometry, centroid=center, dimensions_m=sizes, vertices=vertices, top_normal=normal, top_center=center + normal * sizes[up_axis] / 2, top_vertices=vertices[signs[:, up_axis] == up_sign], bottom_z=float(np.min(vertices[:, 2])), top_z=float(np.max(vertices[:, 2])), reliable=bool(np.all(constrained) and geometry['plane_rms_m'] < 0.0008 and (np.mean((residual < 0.0015) & inside) > 0.8)))
+    if not np.all(constrained) and prior is not None:
+        observed_axes = rotation[:, constrained]
+        predicted = np.asarray(prior['center'])
+        center = predicted + observed_axes @ (observed_axes.T @ (center - predicted))
+    center, finite_bounds = _finite_cuboid_center(cloud, rotation, geometry['dimensions_m'], center, constrained, prior is not None, samples, normals, model, dimension_indices)
+    shift = center - geometry['centroid']
+    return {'shape': shape, 'center': center, 'normal': geometry['top_normal'], 'top': float(geometry['top_center'][2] + shift[2]), 'bottom': float(geometry['bottom_z'] + shift[2]), 'extent_z': float((geometry['top_z'] - geometry['bottom_z']) / 2), 'height': model['height'], 'dims': np.asarray(model['dims']), 'model': model, 'vertices': geometry['vertices'] + shift, 'top_vertices': geometry['top_vertices'] + shift, 'geometry_reliable': geometry['reliable'], 'observed_face_count': geometry['observed_face_count'], 'constrained_axes': constrained, 'rotation': rotation, **finite_bounds, 'axis_dimensions': geometry['dimensions_m'], 'axis_dimension_indices': dimension_indices, 'inferred_orientation': False, 'inferred_axial_position': not np.all(constrained), 'surface_rms_m': geometry['plane_rms_m']}
+
+def estimate_column_geometry(frame, color, shape, model=None, table_plane=None, prior=None):
+    """Fit visual geometry, refining uncertain tabletop widths from new surfaces.
+
+    Pixel-derived width intervals are created only during initial visual model
+    learning. Later observations may increase horizontal sizes inside those
+    intervals; fixed supplied sizes, height and cube dimensions remain strict.
+    Neither the caller's model nor its prior is mutated.
+    """
+    try:
+        return _estimate_column_geometry(frame, color, shape, model, table_plane, prior)
+    except ColumnGeometryConflict as error:
+        learned = error.model
+        if shape not in ('prism', 'thin_prism') or learned is None or 'dims_upper_m' not in learned:
+            raise
+        dimensions = np.r_[learned['dims'], learned['height']]
+        updated = dimensions.copy()
+        for axis, index in enumerate(error.dimension_indices):
+            updated[index] = max(updated[index], error.minimum_axis_dimensions[axis])
+        if updated[2] > dimensions[2] + 1e-09 or np.any(updated[:2] > np.asarray(learned['dims_upper_m']) + 1e-09) or np.max(updated - dimensions) <= 1e-09:
+            raise
+        updated[:2] = np.minimum(updated[:2] + np.where(updated[:2] > dimensions[:2], 1e-06, 0.0), np.asarray(learned['dims_upper_m']))
+        refined = dict(learned, dims=updated[:2], dimension_refinement_count=learned.get('dimension_refinement_count', 0) + 1)
+        refined_prior = prior
+        if prior is not None and 'axis_dimensions' in prior and ('rotation' in prior):
+            indices = np.asarray(prior.get('axis_dimension_indices', _cuboid_dimension_indices(np.asarray(prior['axis_dimensions']), dimensions, np.asarray(prior['rotation']))))
+            refined_prior = dict(prior, axis_dimensions=updated[indices], axis_dimension_indices=indices)
+        return _estimate_column_geometry(frame, color, shape, refined, table_plane, refined_prior)
+
+def update_partial_column_geometry(frame, color, shape, model, previous, robot_before, robot, table_plane):
+    """Correct robot-propagated visual pose on axes still constrained by depth."""
+    rotation = np.asarray(robot['tool_rotation']) @ np.asarray(robot_before['tool_rotation']).T
+    position = np.asarray(robot['tool_position'])
+    old_position = np.asarray(robot_before['tool_position'])
+    prior = dict(previous)
+    prior['center'] = position + rotation @ (np.asarray(previous['center']) - old_position)
+    prior['normal'] = rotation @ np.asarray(previous['normal'])
+    if 'rotation' in previous:
+        prior['rotation'] = rotation @ np.asarray(previous['rotation'])
+    measured = estimate_column_geometry(frame, color, shape, model, table_plane, prior)
+    if np.linalg.norm(measured['center'] - prior['center']) > 0.008:
+        raise ValueError('Visible payload disagrees with its last confirmed grasp')
+    slip = bool(np.dot(measured['normal'], prior['normal']) < np.cos(0.2))
+    if slip and measured.get('orientation_evidence') != 'side_normals':
+        raise ValueError('Visible payload orientation disagrees with grasp prediction')
+    measured['grasp_slip_detected'] = slip
+    return measured
+
+def select_column_levels(tracker, levels, frame):
+    """Resolve public goal identities without substituting colors for shapes.
+
+    A low-confidence cylinder can be recovered when its measured curved surface
+    fits a circle with distributed radial normals. The public goal does not turn
+    absent or conflicting visual evidence into a matching object.
+    """
+    selected = []
+    for level in levels:
+        color, shape = (level['color'], level['shape'])
+        matches = []
+        for key, track in tracker.tracks.items():
+            if not track['visible'] or track['color'] != color or key in selected:
+                continue
+            if track['shape'] == shape:
+                matches.append(key)
+            elif track['shape'] == 'unknown' and shape == 'cylinder':
+                features = track.get('features', {})
+                if features.get('side_planarity', 1.0) >= 0.62 or features.get('side_samples', 0) < 10:
+                    continue
+                try:
+                    fit = estimate_column_geometry(tracker.isolated_frame(frame, key), color, shape, table_plane=tracker.plane)
+                except ValueError:
+                    continue
+                if fit['angular_information'] > 0.05 and fit['surface_rms_m'] < 0.0004:
+                    matches.append(key)
+        if len(matches) != 1:
+            raise ValueError('No unique visually supported ' + color + ' ' + shape)
+        key = matches[0]
+        tracker.tracks[key]['shape'] = shape
+        selected.append(key)
+    return selected
+'Separate touching same-color instances using previously observed surfaces.'
+import numpy as np
+
+def column_surface_distance(points, model):
+    """Unsigned distance to the learned closed primitive, without scene truth."""
+    normal = np.asarray(model['normal'], float)
+    normal = normal / np.linalg.norm(normal)
+    ex = np.array([1.0, 0.0, 0.0]) - normal * normal[0]
+    ex /= np.linalg.norm(ex)
+    rotation = np.column_stack((ex, np.cross(normal, ex), normal))
+    if model['shape'] != 'cylinder':
+        if 'rotation' in model:
+            rotation = np.asarray(model['rotation'])
+        elif 'vertices' in model:
+            vertices = np.asarray(model['vertices'])
+            edges = vertices[1:] - vertices[0]
+            lengths = np.linalg.norm(edges, axis=1)
+            axes = []
+            for index in np.argsort(lengths):
+                if lengths[index] <= 1e-09:
+                    continue
+                direction = edges[index] / lengths[index]
+                if all((abs(np.dot(direction, axis)) < 0.0001 for axis in axes)):
+                    axes.append(direction)
+                if len(axes) == 3:
+                    rotation = np.column_stack(axes)
+                    break
+    local = (points - model['center']) @ rotation
+    if model['shape'] == 'cylinder':
+        radial = np.linalg.norm(local[..., :2], axis=-1) - min(model['dims']) / 2
+        axial = abs(local[..., 2]) - model['height'] / 2
+        q = np.stack((radial, axial), axis=-1)
+    else:
+        if 'vertices' in model:
+            half = np.max(abs((np.asarray(model['vertices']) - model['center']) @ rotation), axis=0)
+        else:
+            half = np.r_[model['dims'], model['height']] / 2
+        q = abs(local) - half
+    return abs(np.linalg.norm(np.maximum(q, 0.0), axis=-1) + np.minimum(np.max(q, axis=-1), 0.0))
+
+class ColumnTracker(InstanceTracker):
+    """Keep geometric IDs when color regions merge during a tower placement.
+
+    Surface models come from earlier RGB-D fits, with held poses propagated by
+    robot motion. Only visible color/depth pixels can confirm a track; model
+    overlap and unexplained pixels remain unassigned.
+    """
+
+    def __init__(self, plane=None):
+        self.plane = plane
+        self.tracks = {}
+        self.next_id = 0
+        self.surface_models = {}
+
+    def update(self, frame, predictions=None):
+        previous = {key: dict(track) for key, track in self.tracks.items()}
+        super().update(frame, predictions)
+        points, valid = inventory_points(frame)
+        for color in ('red', 'yellow', 'blue', 'green'):
+            keys = [key for key in self.surface_models if key in previous and previous[key]['color'] == color]
+            if len(keys) < 2:
+                continue
+            mask = valid & inventory_color_mask(frame['rgb'], color)
+            cloud = points[mask]
+            if not len(cloud):
+                continue
+            distances = np.column_stack([column_surface_distance(cloud, self.surface_models[key]) for key in keys])
+            nearest = np.argmin(distances, axis=1)
+            ordered = np.sort(distances, axis=1)
+            certain = (ordered[:, 0] < 0.006) & (ordered[:, 1] - ordered[:, 0] > 0.001)
+            explained = np.zeros(mask.shape, bool)
+            explained[mask] = ordered[:, 0] < 0.006
+            for index, key in enumerate(keys):
+                pixels = np.zeros(mask.shape, bool)
+                pixels[mask] = certain & (nearest == index)
+                count = int(np.count_nonzero(pixels))
+                track = dict(previous[key], mask=pixels, visible=count >= 8, pixel_count=count)
+                if count >= 8:
+                    sample = points[pixels]
+                    track['observed_center'] = np.median(sample, axis=0)
+                    track['center'] = np.asarray(self.surface_models[key]['center']).copy()
+                self.tracks[key] = track
+            for key in list(self.tracks):
+                if key in keys or self.tracks[key]['color'] != color:
+                    continue
+                track = self.tracks[key]
+                pixels = track['mask'] & ~explained
+                count = int(np.count_nonzero(pixels))
+                if count < 8 and key not in previous:
+                    del self.tracks[key]
+                else:
+                    track.update(mask=pixels, visible=bool(track['visible'] and count >= 8), pixel_count=count)
+                    if track['visible']:
+                        track['observed_center'] = np.median(points[pixels], axis=0)
+        return [track for track in self.tracks.values() if track['visible']]
 'CPU visual construction of task-defined single columns.\n\nThis extends the frozen two-object inventory controller. The symbolic task\nspecifies identities and order; dimensions and poses still come from RGB-D.\nTriangular caps are representable goals but require a separate grasp skill.\n'
 import numpy as np
 from scipy import ndimage
@@ -529,12 +1089,17 @@ def run(api):
             api.move_tool(p, seconds=seconds, orientation=first['tool_rotation'])
     last_frame = [None]
     last_robot = [None]
-    tracker = InstanceTracker()
+    tracker = ColumnTracker()
+    visual_models = {}
     grasp_anchors = {}
+    warm_grasps = {}
+    held_models = {}
 
     def remember_grasp(name, robot=None):
         robot = api.proprioception() if robot is None else robot
         grasp_anchors[name] = (tracker.tracks[name]['observed_center'].copy(), robot)
+        if name not in warm_grasps and name in visual_models:
+            warm_grasps[name] = (dict(visual_models[name]), robot)
 
     def predicted_grasps(robot=None):
         if not grasp_anchors:
@@ -548,6 +1113,7 @@ def run(api):
         return predictions
 
     def release_track(name):
+        warm_grasps.pop(name, None)
         if name in grasp_anchors:
             tracker.tracks[name]['observed_center'] = predicted_grasps()[name]
             grasp_anchors.pop(name)
@@ -558,6 +1124,26 @@ def run(api):
         if tracker.plane is not None:
             robot = api.proprioception() if grasp_anchors else None
             last_robot[0] = robot
+            surface_models = dict(visual_models)
+            for name in grasp_anchors:
+                if name not in visual_models:
+                    continue
+                if name in held_models:
+                    previous, before = held_models[name]
+                else:
+                    surface_models.pop(name, None)
+                    continue
+                rotation = np.asarray(robot['tool_rotation']) @ np.asarray(before['tool_rotation']).T
+                fresh = dict(previous)
+                fresh['center'] = np.asarray(robot['tool_position']) + rotation @ (previous['center'] - np.asarray(before['tool_position']))
+                fresh['normal'] = rotation @ previous['normal']
+                if 'rotation' in previous:
+                    fresh['rotation'] = rotation @ previous['rotation']
+                for field in ('vertices', 'top_vertices'):
+                    if field in previous:
+                        fresh[field] = np.asarray(robot['tool_position']) + (previous[field] - np.asarray(before['tool_position'])) @ rotation.T
+                surface_models[name] = fresh
+            tracker.surface_models = surface_models
             tracker.update(s, predicted_grasps(robot))
             for name in grasp_anchors:
                 if tracker.tracks[name]['visible']:
@@ -670,7 +1256,14 @@ def run(api):
                 dims = hi - lo
                 if not 0.009 < height < 0.065 or np.min(dims) < 0.006:
                     raise RuntimeError('Unreliable dimensions for ' + name)
+                if tracker.tracks[name]['shape'] == 'cube':
+                    dims = np.repeat(height, 2)
                 model = {'height': height, 'dims': dims}
+                if tracker.tracks[name]['shape'] in ('prism', 'thin_prism'):
+                    try:
+                        model.update(column_size_uncertainty(tracker.isolated_frame(last_frame[0], name), tracker.tracks[name]['color'], model, plane))
+                    except ValueError as error:
+                        raise RuntimeError(str(error)) from error
             height = model['height']
             center = top_center - normal * height / 2
             extent = float((abs(ex[2]) * model['dims'][0] + abs(ey[2]) * model['dims'][1] + normal[2] * height) / 2)
@@ -678,6 +1271,40 @@ def run(api):
         legacy_locate = locate
 
         def locate(name, model=None, near=None):
+            if tracker.tracks[name]['shape'] in ('cube', 'cylinder', 'prism', 'thin_prism'):
+                capture()
+                shape = tracker.tracks[name]['shape']
+                if model is not None and shape == 'cube':
+                    model = dict(model, dims=np.repeat(model['height'], 2))
+                try:
+                    selected = tracker.isolated_frame(last_frame[0], name)
+                    if name in held_models:
+                        previous, robot_before = held_models[name]
+                        return update_partial_column_geometry(selected, tracker.tracks[name]['color'], shape, model, previous, robot_before, last_robot[0], plane)
+                    prior = None
+                    if near is not None and name in warm_grasps:
+                        previous, before = warm_grasps[name]
+                        robot = last_robot[0]
+                        rotation = np.asarray(robot['tool_rotation']) @ np.asarray(before['tool_rotation']).T
+                        prior = dict(previous)
+                        prior['center'] = np.asarray(robot['tool_position']) + rotation @ (previous['center'] - np.asarray(before['tool_position']))
+                        prior['normal'] = rotation @ previous['normal']
+                        if 'rotation' in previous:
+                            prior['rotation'] = rotation @ previous['rotation']
+                        for field in ('vertices', 'top_vertices'):
+                            if field in previous:
+                                prior[field] = np.asarray(robot['tool_position']) + (previous[field] - np.asarray(before['tool_position'])) @ rotation.T
+                    try:
+                        return estimate_column_geometry(selected, tracker.tracks[name]['color'], shape, model=model, table_plane=plane)
+                    except ValueError:
+                        if prior is None:
+                            raise
+                        return estimate_column_geometry(selected, tracker.tracks[name]['color'], shape, model=model, table_plane=plane, prior=prior)
+                except ColumnGeometryConflict:
+                    raise
+                except ValueError as error:
+                    if shape == 'cylinder':
+                        raise RuntimeError(str(error)) from error
             estimate = legacy_locate(name, model, near)
             if tracker.tracks[name]['shape'] in ('thin_prism', 'prism'):
                 try:
@@ -705,7 +1332,7 @@ def run(api):
         move(scan, 1.0)
         capture()
         try:
-            level_ids = [tracker.select(level['color'], level['shape']) for level in levels]
+            level_ids = select_column_levels(tracker, levels, last_frame[0])
             if len(set(level_ids)) != len(level_ids):
                 raise ValueError('Each tower level must resolve to a distinct instance')
             base_id = level_ids[0]
@@ -716,6 +1343,8 @@ def run(api):
         api.note('COLUMN bottom_to_top=' + str(level_ids))
         active_support = [None]
         blocks = {name: locate(name) for name in level_ids}
+        visual_models.update(blocks)
+        tall_column = sum((b['height'] for b in blocks.values())) > 0.155
         safe_z = max((b['top'] for b in blocks.values())) + 0.085
         park = initial_tool.copy()
         park[2] = max(park[2], safe_z)
@@ -724,6 +1353,7 @@ def run(api):
         for name in blocks:
             try:
                 blocks[name] = locate(name)
+                visual_models[name] = blocks[name]
             except RuntimeError:
                 pass
             b = blocks[name]
@@ -731,7 +1361,6 @@ def run(api):
         safe_z = max((b['top'] for b in blocks.values())) + 0.085
         contact_gap_min = -0.005
         api.note('Visual release gate: bottom gap between -5 and +5 mm.')
-        held_models = {}
         release_drifts = {}
 
         def partial_held(name):
@@ -758,6 +1387,8 @@ def run(api):
                 raise ValueError('Payload no longer agrees with visually confirmed grasp')
             vertices = position + (previous['vertices'] - old_position) @ rotation.T + correction
             fresh = dict(previous)
+            if 'rotation' in previous:
+                fresh['rotation'] = rotation @ previous['rotation']
             center = predicted + correction
             normal = rotation @ previous['normal']
             if 'top_vertices' in previous:
@@ -767,17 +1398,28 @@ def run(api):
             api.note(name + ' partial depth update: unseen axes propagated from last visual pose and robot motion')
             return fresh
 
+        def remember_model(name, estimate):
+            old_dimensions = np.r_[blocks[name]['dims'], blocks[name]['height']]
+            dimensions = np.r_[estimate['dims'], estimate['height']]
+            if np.max(abs(dimensions - old_dimensions)) > 0.0001:
+                api.note(name + ' visual dimensions refined=' + str(np.round(dimensions, 5).tolist()))
+            visual_models[name] = estimate
+            blocks[name].update(model=estimate['model'], dims=estimate['dims'], height=estimate['height'])
+
         def perceive(name, near=None):
             for attempt in range(3):
                 try:
                     estimate = locate(name, blocks[name]['model'], near)
+                    remember_model(name, estimate)
                     if name in held_models:
                         held_models[name] = (estimate, last_robot[0])
                     return estimate
                 except RuntimeError:
                     if near is not None and name in held_models and (tracker.tracks[name]['shape'] in ('cube', 'thin_prism', 'prism')):
                         try:
-                            return partial_held(name)
+                            fresh = partial_held(name)
+                            remember_model(name, fresh)
+                            return fresh
                         except ValueError:
                             pass
                     if attempt == 2:
@@ -799,22 +1441,19 @@ def run(api):
                     api.wait(0.15)
 
         def refresh_support(name, prior):
-            if tracker.tracks[name]['shape'] != 'cube':
-                return prior
             try:
                 capture()
-                geometry = estimate_cube_geometry(tracker.isolated_frame(last_frame[0], name), tracker.tracks[name]['color'], blocks[name]['height'], near=prior['center'], table_plane=plane)
+                selected = tracker.isolated_frame(last_frame[0], name)
+                fresh = estimate_column_geometry(selected, tracker.tracks[name]['color'], tracker.tracks[name]['shape'], blocks[name]['model'], plane, prior)
+            except ColumnGeometryConflict:
+                raise
             except ValueError:
                 return prior
-            if geometry['observed_face_count'] < 2:
-                return prior
-            axes = geometry['rotation'][:, geometry['constrained_axes']]
-            center = prior['center'] + axes @ (axes.T @ (geometry['centroid'] - prior['center']))
-            if np.linalg.norm(center - prior['center']) > 0.004:
-                return prior
-            shift = center - geometry['centroid']
-            fresh = dict(prior)
-            fresh.update(center=center, top=float(geometry['top_center'][2] + shift[2]), bottom=float(geometry['bottom_z'] + shift[2]), normal=geometry['top_normal'], top_vertices=geometry['top_vertices'] + shift, geometry_reliable=geometry['reliable'])
+            if np.linalg.norm(fresh['center'] - prior['center']) > 0.008:
+                raise RuntimeError('Supporting level moved outside its trusted visual pose')
+            if fresh['normal'][2] < 0.97 or abs(fresh['top'] - prior['top']) > 0.005:
+                raise RuntimeError('Supporting level is no longer visibly upright at its expected height')
+            remember_model(name, fresh)
             return fresh
 
         def landing_center(block):
@@ -831,12 +1470,66 @@ def run(api):
                 center[:2] -= normal[:2] * block['extent_z']
             return center
         retry_shift = [0.0]
+        placed_models = {}
+        balance_history = {}
+        balance_velocity = {}
+
+        def balanced_aim(name, support, refresh=False):
+            if name not in level_ids or not placed_models:
+                return None
+            prefix = level_ids[:level_ids.index(name)]
+            if not prefix or any((tracker.tracks[n]['shape'] != 'cube' for n in prefix + [name])):
+                return None
+            if refresh:
+                for previous_name in prefix:
+                    placed_models[previous_name] = refresh_support(previous_name, placed_models[previous_name])
+                    center = placed_models[previous_name]['center'][:2].copy()
+                    timestamp = float(last_frame[0]['time'])
+                    previous = balance_history.get(previous_name)
+                    if previous is None:
+                        balance_history[previous_name] = (timestamp, center)
+                    elif timestamp - previous[0] > 0.5:
+                        velocity = (center - previous[1]) / (timestamp - previous[0])
+                        velocity = 0.5 * velocity + 0.5 * balance_velocity.get(previous_name, np.zeros(2))
+                        speed = np.linalg.norm(velocity)
+                        if speed > 0.0005:
+                            velocity *= 0.0005 / speed
+                        balance_velocity[previous_name] = velocity
+                        balance_history[previous_name] = (timestamp, center)
+            centers = np.array([placed_models[n]['center'][:2] + 6.0 * balance_velocity.get(n, np.zeros(2)) for n in prefix])
+            masses = np.array([blocks[n]['height'] ** 3 for n in prefix])
+            new_mass = blocks[name]['height'] ** 3
+            targets = []
+            weights = []
+            for i, center in enumerate(centers):
+                above_mass = masses[i + 1:]
+                moment = np.sum(above_mass[:, None] * centers[i + 1:], axis=0)
+                target = ((new_mass + above_mass.sum()) * center - moment) / new_mass
+                targets.append(target)
+                weights.append(float(len(centers) - i) ** 2)
+            target = np.average(targets, axis=0, weights=weights)
+            shift = release_drifts.get('cube', np.zeros(2))
+            compensation = -0.8 * shift
+            length = np.linalg.norm(compensation)
+            if length > 0.003:
+                compensation *= 0.003 / length
+            target += compensation
+            offset = target - support['center'][:2]
+            length = np.linalg.norm(offset)
+            if length > 0.006:
+                target = support['center'][:2] + offset * 0.006 / length
+            if refresh:
+                api.note('BALANCE centers=' + str(np.round(centers, 4).tolist()) + ' target=' + str(np.round(target, 4).tolist()))
+            return target
 
         def stack_once(name, support, placement_bias=None):
             source = perceive(name)
             aim_xy = support['center'][:2].copy()
             if placement_bias is not None:
                 aim_xy += placement_bias
+                balanced = balanced_aim(name, support, refresh=True)
+                if balanced is not None:
+                    aim_xy = balanced
             grasp = source['center'].copy()
             grasp[2] += (0.6 if source['height'] > 0.045 else 0.9) * source['height']
             api.note(name + ' elevated grasp offset=' + str(round((0.6 if source['height'] > 0.045 else 0.9) * source['height'], 4)))
@@ -861,7 +1554,13 @@ def run(api):
                 api.note(name + ' visible finger reach=' + str(round(drop, 4)) + '; geometry grasp offset=' + str(round(float(offset), 4)))
             except ValueError:
                 api.note('Gripper occluded; using previously verified grasp height.')
+            grasp[2] -= 0.009 if tracker.tracks[name]['shape'] in ('cube', 'cylinder') else 0.0
+            if tall_column and source['height'] > 0.045:
+                grasp[2] = source['center'][2] + 0.25 * source['height']
+            if source['shape'] == 'cube':
+                grasp[2] = max(grasp[2], source['center'][2] + 0.6 * source['height'])
             grasp[2] += retry_shift[0]
+            api.note(name + ' applied grasp offset=' + str(round(float(grasp[2] - source['center'][2]), 4)))
             pre = grasp.copy()
             pre[2] += 0.025
             move(pre, 1.1)
@@ -904,6 +1603,7 @@ def run(api):
                     move(above)
                     move(park)
                     return False
+            api.note(name + ' payload tilt=' + str(np.round(held['normal'], 4).tolist()))
             held_models[name] = (held, api.proprioception())
             offset = landing_center(held) - tool()
             target = support['center'].copy()
@@ -941,6 +1641,9 @@ def run(api):
                     aim_xy = support['center'][:2].copy()
                     if placement_bias is not None:
                         aim_xy += placement_bias
+                        balanced = balanced_aim(name, support, refresh=iteration == 0)
+                        if balanced is not None:
+                            aim_xy = balanced
                     current = tool()
                     measured = perceive(name, current)
                     recovered = last_robot[0]
@@ -980,7 +1683,7 @@ def run(api):
             if np.linalg.norm(aim_error) > release_tolerance or not contact_gap_min <= gap <= 0.005 or unsafe_overlap:
                 offset = measured['center'] - tool()
                 high = tool()
-                high[2] = above[2]
+                high[2] = max(high[2], above[2], support['top'] + measured['height'] + 0.035)
                 move(high)
                 back = source['center'] - offset
                 high[:2] = back[:2]
@@ -1001,8 +1704,8 @@ def run(api):
             try:
                 opened = perceive(name)
                 api.note(name + ' after opening displacement=' + str(np.round(opened['center'] - measured['center'], 4).tolist()))
-            except RuntimeError:
-                api.note(name + ' obscured after opening.')
+            except (RuntimeError, ColumnGeometryConflict):
+                api.note(name + ' geometry unconfirmed after opening.')
             retreat = tool()
             retreat[2] += 0.025
             move(retreat, 2.0)
@@ -1017,8 +1720,8 @@ def run(api):
                 drift = withdrawn['center'][:2] - landing_center(measured)[:2]
                 if np.linalg.norm(drift) < 0.012:
                     release_drifts[tracker.tracks[name]['shape']] = drift
-            except RuntimeError:
-                api.note(name + ' obscured after withdrawal.')
+            except (RuntimeError, ColumnGeometryConflict):
+                api.note(name + ' geometry unconfirmed after withdrawal.')
             return True
 
         def stack(name, support, placement_bias=None):
@@ -1065,28 +1768,34 @@ def run(api):
             return min(options, key=lambda item: item[0])[1] if options else None
         objects = objects_from_depth()
         options = []
-        for dx in (-0.06, -0.03, 0.0, 0.03, 0.06):
-            for dy in (-0.02, 0.0, 0.02):
-                xy = park[:2] + np.array([dx, dy])
-                cumulative = 0.0
-                tilts = []
-                for level_id in level_ids:
-                    height = blocks[level_id]['height']
-                    tool_height = cumulative + (0.9 if height > 0.045 else 1.4) * height
-                    preview = api.plan_tool(np.r_[xy, table_z(xy) + tool_height])
-                    if preview['position_error'] > 0.003:
-                        break
-                    tilts.append(float(np.arccos(np.clip(np.asarray(preview['tool_rotation'])[2, 1], -1.0, 1.0))))
-                    cumulative += height
-                if len(tilts) != len(level_ids) or max(tilts) > 0.28:
-                    continue
-                tilt = max(tilts)
-                blockers = blocked(xy, objects, ignore=(base_id,))
-                names = list(dict.fromkeys((o['id'] for o in blockers)))
-                if len(names) > 2 or any((tracker.tracks[n]['shape'] not in ('cube', 'prism', 'thin_prism', 'cylinder') for n in names)):
-                    continue
-                cost = 0.1 * len(names) + 0.12 * any((n in level_ids[1:] for n in names)) + tilt + 0.5 * np.linalg.norm(xy - park[:2])
-                options.append((cost, xy, names))
+        cube_heights = (1.4, 1.1) if any((blocks[n]['shape'] == 'cube' for n in level_ids)) else (1.4,)
+        for cube_tool_height in cube_heights:
+            for dx in (-0.06, -0.03, 0.0, 0.03, 0.06):
+                for dy in (-0.02, 0.0, 0.02):
+                    xy = park[:2] + np.array([dx, dy])
+                    cumulative = 0.0
+                    tilts = []
+                    for level_id in level_ids:
+                        height = blocks[level_id]['height']
+                        tool_height = cumulative + ((0.75 if tall_column else 0.9) if height > 0.045 else cube_tool_height) * height
+                        preview = api.plan_tool(np.r_[xy, table_z(xy) + tool_height])
+                        if tall_column and preview['position_error'] > 0.003:
+                            preview = api.plan_tool(np.r_[xy, table_z(xy) + tool_height], orientation=preview['tool_rotation'])
+                        if preview['position_error'] > 0.003:
+                            break
+                        tilts.append(float(np.arccos(np.clip(np.asarray(preview['tool_rotation'])[2, 1], -1.0, 1.0))))
+                        cumulative += height
+                    if len(tilts) != len(level_ids) or max(tilts) > (0.85 if tall_column else 0.28):
+                        continue
+                    tilt = max(tilts)
+                    blockers = blocked(xy, objects, ignore=(base_id,))
+                    names = list(dict.fromkeys((o['id'] for o in blockers)))
+                    if len(names) > 2 or any((tracker.tracks[n]['shape'] not in ('cube', 'prism', 'thin_prism', 'cylinder') for n in names)):
+                        continue
+                    cost = 0.1 * len(names) + 0.12 * any((n in level_ids[1:] for n in names)) + tilt + 0.5 * np.linalg.norm(xy - park[:2])
+                    options.append((cost, xy, names))
+            if options:
+                break
         if not options:
             api.note('No worksite with at most two movable blockers; stopping before stacking.')
             return
@@ -1121,6 +1830,7 @@ def run(api):
             return
         support = perceive(base_id)
         column_axis = support['center'][:2].copy()
+        placed_models[base_id] = support
         for index, name in enumerate(level_ids[1:], start=1):
             active_support[0] = level_ids[index - 1]
             safe_z = max(safe_z, support['top'] + blocks[name]['height'] + 0.035)
@@ -1147,9 +1857,10 @@ def run(api):
                 api.note('Placed level has inconsistent visible support height; stopping')
                 return
             support = measured
+            placed_models[name] = measured
             api.note('LEVEL confirmed ' + str(index + 1) + '/' + str(len(level_ids)) + ' id=' + name)
         api.wait(6.5)
         api.note('Column released; all levels visually placed in task order')
-    except RuntimeError as error:
+    except (RuntimeError, ColumnGeometryConflict) as error:
         api.note(str(error))
 color_mask = inventory_color_mask

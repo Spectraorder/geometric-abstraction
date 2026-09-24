@@ -23,16 +23,34 @@ def write(path, value):
 
 
 def evaluate(candidate, directory, seeds, jobs, *, task='tower', layout='random_xy', object_count=None,
-             tower_recipe=None, tower_levels=None):
+             tower_recipe=None, tower_levels=None, tower_orders=None):
     if object_count is not None and (task not in ('inventory_prism', 'inventory_tower') or not 2 <= object_count <= 20):
         raise ValueError('object_count requires an inventory task and must be 2..20')
-    if task != 'inventory_tower' and (tower_recipe is not None or tower_levels is not None):
+    if task != 'inventory_tower' and (tower_recipe is not None or tower_levels is not None or tower_orders is not None):
         raise ValueError('Recipe options require inventory_tower')
+    seeds = list(seeds)
+    if not seeds or len(set(seeds)) != len(seeds):
+        raise ValueError('Seeds must be nonempty and unique')
+    if jobs < 1:
+        raise ValueError('jobs must be positive')
+    custom_recipes = None
+    if tower_orders is not None:
+        from aspire_so100.tower_tasks import TowerRecipe
+        if tower_recipe is not None or tower_levels is not None:
+            raise ValueError('tower_orders cannot be combined with a recipe or level count')
+        if set(tower_orders) != set(seeds):
+            raise ValueError('tower_orders must provide exactly one order for every requested seed')
+        custom_recipes = {seed: TowerRecipe('custom', tuple(tower_orders[seed])) for seed in seeds}
+        if any(len(recipe.order) > (object_count or 6) for recipe in custom_recipes.values()):
+            raise ValueError('object_count must include every custom tower level')
     candidate = candidate.resolve()
     digest = hashlib.sha256(candidate.read_bytes()).hexdigest()
     directory.mkdir(exist_ok=True, parents=True)
     def trial(seed):
         out = directory / f'seed_{seed}'
+        goal_options = (['--tower-order', *custom_recipes[seed].order] if custom_recipes is not None
+                        else ([] if tower_recipe is None else ['--tower-recipe', tower_recipe])
+                        + ([] if tower_levels is None else ['--tower-levels', str(tower_levels)]))
         if not (out / 'result.json').exists():
             if out.exists():
                 # A killed/timed-out trial leaves partial artifacts. Keep them
@@ -50,20 +68,21 @@ def evaluate(candidate, directory, seeds, jobs, *, task='tower', layout='random_
                 subprocess.run([sys.executable, str(ROOT / 'scripts/run_vision_trial.py'),
                     '--candidate', str(candidate), '--seed', str(seed), '--layout', layout, '--task', task,
                     '--output', str(out)] + ([] if object_count is None else ['--object-count', str(object_count)])
-                    + ([] if tower_recipe is None else ['--tower-recipe', tower_recipe])
-                    + ([] if tower_levels is None else ['--tower-levels', str(tower_levels)]),
+                    + goal_options,
                     stdout=log, stderr=subprocess.STDOUT, check=True,
                     env=worker_env,
                     timeout=240)
         result = json.loads((out / 'result.json').read_text())
-        if (result['candidate_sha256'] != digest or result.get('layout') != layout
+        if (result['candidate_sha256'] != digest or result.get('layout') != layout or result.get('seed') != seed
                 or result.get('task', 'tower') != task
                 or (task in ('inventory_prism', 'inventory_tower') and result.get('scene', {}).get('object_count') != (object_count or 6))):
             raise RuntimeError(f'Existing result does not match this experiment: {out}')
         if task == 'inventory_tower':
             from aspire_so100.tower_tasks import tower_recipe as recipe_for
-            expected = recipe_for(tower_recipe or 'cube_triple', seed=seed, levels=tower_levels)
-            if result.get('goal') != expected.public_goal() or result.get('scene', {}).get('recipe') != expected.name:
+            expected = (custom_recipes[seed] if custom_recipes is not None else
+                        recipe_for(tower_recipe or 'cube_triple', seed=seed, levels=tower_levels))
+            if (result.get('goal') != expected.public_goal() or result.get('scene', {}).get('recipe') != expected.name
+                    or result.get('scene', {}).get('order') != list(expected.order)):
                 raise RuntimeError(f'Existing result has a different tower goal: {out}')
         print(f'{directory.name}, seed {seed}: success={result["success"]}, '
               f'score={result["metrics"]["score"]}, error={result["policy_error"]}', flush=True)

@@ -13,6 +13,7 @@ from aspire_so100.tower_tasks import TowerRecipe, tower_recipe
 
 class InventoryTowerEnv(InventoryPrismEnv):
     task_id = 'inventory_tower'
+    pixel_aligned_rgbd = True
 
     def __init__(self, output_dir, render=False, *, scene_seed=51, object_count=6,
                  recipe='cube_triple', levels=None, recipe_order=None):
