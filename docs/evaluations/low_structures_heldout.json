@@ -1,0 +1,6013 @@
+{
+  "schema_version": 1,
+  "split": "heldout",
+  "status": "complete",
+  "evaluation_plan": {
+    "split": "heldout",
+    "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+    "recipes": [
+      "cube_bridge",
+      "capped_bridge",
+      "staircase"
+    ],
+    "seeds": [
+      1201,
+      1202,
+      1203,
+      1204,
+      1205
+    ],
+    "distractors": [
+      0,
+      2
+    ],
+    "permute_colors": true,
+    "trials": 30,
+    "development_seeds": [
+      1101,
+      1102,
+      1103
+    ],
+    "success": "Every graph node and required contact; relative geometry; uprightness; load equilibrium using 2 mm eroded contact patches; robot withdrawal; five seconds within 3 mm drift.",
+    "scope": "Upright cubes, prism and cylinder in three low-rise recipes; no horizontal long-beam reorientation, arbitrary graph or real-world claim. Sensor-only CPU policy; GPU simulation/rendering allowed.",
+    "reporting": "Preserve all failures, controlled stops and worker errors. No source tuning on held-out results."
+  },
+  "manifest": {
+    "schema_version": 2,
+    "split": "heldout",
+    "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+    "runtime_sources_sha256": {
+      "scripts/run_vision_trial.py": "9dbd9eff5d68b066230bbeb02062e7a89746a113656000229a45fb1dcdc7db82",
+      "view_scene.py": "3250b21c29a6fa913ec14e398035cc2cd016bd07510d8e3c9a717a52d2cf79b4",
+      "src/aspire_so100/structure_tasks.py": "b9f74124941bc9f2d81be6ff320654b0af99663a481c235d52c535dff8f589c5",
+      "src/aspire_so100/inventory_structure.py": "86a275deb24674dafa553e6093ce5605bd0a7f8f88e523d5f6d1aeb4b12b80d0",
+      "src/aspire_so100/structure_geometry.py": "85f84217ffd1d135fe508139a4be1a3a3c9594366ace38dfd9f37702e0132058",
+      "src/aspire_so100/block_catalog.py": "2dad0d946f6afabc73b8747a57ab182dc433517ce29a9ff3c2143a2a66c120f9",
+      "src/aspire_so100/rgbd.py": "20ffe8493885de4fc1595c70dd944337de8c6ee8d06184271f87dcd4632a17fe",
+      "src/aspire_so100/stacking_env.py": "2c55432b0e8a73367fbec3b228892ca3bbe5b817e25464f99a31ceecc4858f0d"
+    },
+    "task": "inventory_structure",
+    "trials": [
+      {
+        "case": "cube_bridge_d0_colors",
+        "seed": 1201,
+        "recipe": "cube_bridge",
+        "distractors": 0,
+        "object_count": 3,
+        "color_map": {
+          "red": "yellow",
+          "yellow": "blue",
+          "blue": "green",
+          "green": "red"
+        },
+        "order": [
+          "green_cube",
+          "yellow_cube",
+          "red_cube"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "left"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "left",
+              "color": "green",
+              "shape": "cube",
+              "grid": [
+                -0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "right",
+              "color": "yellow",
+              "shape": "cube",
+              "grid": [
+                0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "span",
+              "color": "red",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "left",
+                "right"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      },
+      {
+        "case": "cube_bridge_d0_colors",
+        "seed": 1202,
+        "recipe": "cube_bridge",
+        "distractors": 0,
+        "object_count": 3,
+        "color_map": {
+          "red": "yellow",
+          "yellow": "green",
+          "blue": "red",
+          "green": "blue"
+        },
+        "order": [
+          "red_cube",
+          "yellow_cube",
+          "blue_cube"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "left"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "left",
+              "color": "red",
+              "shape": "cube",
+              "grid": [
+                -0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "right",
+              "color": "yellow",
+              "shape": "cube",
+              "grid": [
+                0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "span",
+              "color": "blue",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "left",
+                "right"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      },
+      {
+        "case": "cube_bridge_d0_colors",
+        "seed": 1203,
+        "recipe": "cube_bridge",
+        "distractors": 0,
+        "object_count": 3,
+        "color_map": {
+          "red": "green",
+          "yellow": "yellow",
+          "blue": "red",
+          "green": "blue"
+        },
+        "order": [
+          "red_cube",
+          "green_cube",
+          "blue_cube"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "left"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "left",
+              "color": "red",
+              "shape": "cube",
+              "grid": [
+                -0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "right",
+              "color": "green",
+              "shape": "cube",
+              "grid": [
+                0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "span",
+              "color": "blue",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "left",
+                "right"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      },
+      {
+        "case": "cube_bridge_d0_colors",
+        "seed": 1204,
+        "recipe": "cube_bridge",
+        "distractors": 0,
+        "object_count": 3,
+        "color_map": {
+          "red": "blue",
+          "yellow": "red",
+          "blue": "yellow",
+          "green": "green"
+        },
+        "order": [
+          "yellow_cube",
+          "blue_cube",
+          "green_cube"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "left"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "left",
+              "color": "yellow",
+              "shape": "cube",
+              "grid": [
+                -0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "right",
+              "color": "blue",
+              "shape": "cube",
+              "grid": [
+                0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "span",
+              "color": "green",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "left",
+                "right"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      },
+      {
+        "case": "cube_bridge_d0_colors",
+        "seed": 1205,
+        "recipe": "cube_bridge",
+        "distractors": 0,
+        "object_count": 3,
+        "color_map": {
+          "red": "blue",
+          "yellow": "red",
+          "blue": "yellow",
+          "green": "green"
+        },
+        "order": [
+          "yellow_cube",
+          "blue_cube",
+          "green_cube"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "left"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "left",
+              "color": "yellow",
+              "shape": "cube",
+              "grid": [
+                -0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "right",
+              "color": "blue",
+              "shape": "cube",
+              "grid": [
+                0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "span",
+              "color": "green",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "left",
+                "right"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      },
+      {
+        "case": "cube_bridge_d2_colors",
+        "seed": 1201,
+        "recipe": "cube_bridge",
+        "distractors": 2,
+        "object_count": 5,
+        "color_map": {
+          "red": "yellow",
+          "yellow": "blue",
+          "blue": "green",
+          "green": "red"
+        },
+        "order": [
+          "green_cube",
+          "yellow_cube",
+          "red_cube"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "left"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "left",
+              "color": "green",
+              "shape": "cube",
+              "grid": [
+                -0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "right",
+              "color": "yellow",
+              "shape": "cube",
+              "grid": [
+                0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "span",
+              "color": "red",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "left",
+                "right"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      },
+      {
+        "case": "cube_bridge_d2_colors",
+        "seed": 1202,
+        "recipe": "cube_bridge",
+        "distractors": 2,
+        "object_count": 5,
+        "color_map": {
+          "red": "yellow",
+          "yellow": "green",
+          "blue": "red",
+          "green": "blue"
+        },
+        "order": [
+          "red_cube",
+          "yellow_cube",
+          "blue_cube"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "left"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "left",
+              "color": "red",
+              "shape": "cube",
+              "grid": [
+                -0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "right",
+              "color": "yellow",
+              "shape": "cube",
+              "grid": [
+                0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "span",
+              "color": "blue",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "left",
+                "right"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      },
+      {
+        "case": "cube_bridge_d2_colors",
+        "seed": 1203,
+        "recipe": "cube_bridge",
+        "distractors": 2,
+        "object_count": 5,
+        "color_map": {
+          "red": "green",
+          "yellow": "yellow",
+          "blue": "red",
+          "green": "blue"
+        },
+        "order": [
+          "red_cube",
+          "green_cube",
+          "blue_cube"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "left"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "left",
+              "color": "red",
+              "shape": "cube",
+              "grid": [
+                -0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "right",
+              "color": "green",
+              "shape": "cube",
+              "grid": [
+                0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "span",
+              "color": "blue",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "left",
+                "right"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      },
+      {
+        "case": "cube_bridge_d2_colors",
+        "seed": 1204,
+        "recipe": "cube_bridge",
+        "distractors": 2,
+        "object_count": 5,
+        "color_map": {
+          "red": "blue",
+          "yellow": "red",
+          "blue": "yellow",
+          "green": "green"
+        },
+        "order": [
+          "yellow_cube",
+          "blue_cube",
+          "green_cube"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "left"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "left",
+              "color": "yellow",
+              "shape": "cube",
+              "grid": [
+                -0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "right",
+              "color": "blue",
+              "shape": "cube",
+              "grid": [
+                0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "span",
+              "color": "green",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "left",
+                "right"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      },
+      {
+        "case": "cube_bridge_d2_colors",
+        "seed": 1205,
+        "recipe": "cube_bridge",
+        "distractors": 2,
+        "object_count": 5,
+        "color_map": {
+          "red": "blue",
+          "yellow": "red",
+          "blue": "yellow",
+          "green": "green"
+        },
+        "order": [
+          "yellow_cube",
+          "blue_cube",
+          "green_cube"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "left"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "left",
+              "color": "yellow",
+              "shape": "cube",
+              "grid": [
+                -0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "right",
+              "color": "blue",
+              "shape": "cube",
+              "grid": [
+                0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "span",
+              "color": "green",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "left",
+                "right"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      },
+      {
+        "case": "capped_bridge_d0_colors",
+        "seed": 1201,
+        "recipe": "capped_bridge",
+        "distractors": 0,
+        "object_count": 4,
+        "color_map": {
+          "red": "yellow",
+          "yellow": "blue",
+          "blue": "green",
+          "green": "red"
+        },
+        "order": [
+          "green_cube",
+          "blue_cube",
+          "red_cube",
+          "yellow_cylinder"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "left"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "left",
+              "color": "green",
+              "shape": "cube",
+              "grid": [
+                -0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "right",
+              "color": "blue",
+              "shape": "cube",
+              "grid": [
+                0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "span",
+              "color": "red",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "left",
+                "right"
+              ],
+              "orientation": "upright"
+            },
+            {
+              "key": "cap",
+              "color": "yellow",
+              "shape": "cylinder",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "span"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      },
+      {
+        "case": "capped_bridge_d0_colors",
+        "seed": 1202,
+        "recipe": "capped_bridge",
+        "distractors": 0,
+        "object_count": 4,
+        "color_map": {
+          "red": "yellow",
+          "yellow": "green",
+          "blue": "red",
+          "green": "blue"
+        },
+        "order": [
+          "red_cube",
+          "green_cube",
+          "blue_cube",
+          "yellow_cylinder"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "left"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "left",
+              "color": "red",
+              "shape": "cube",
+              "grid": [
+                -0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "right",
+              "color": "green",
+              "shape": "cube",
+              "grid": [
+                0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "span",
+              "color": "blue",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "left",
+                "right"
+              ],
+              "orientation": "upright"
+            },
+            {
+              "key": "cap",
+              "color": "yellow",
+              "shape": "cylinder",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "span"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      },
+      {
+        "case": "capped_bridge_d0_colors",
+        "seed": 1203,
+        "recipe": "capped_bridge",
+        "distractors": 0,
+        "object_count": 4,
+        "color_map": {
+          "red": "green",
+          "yellow": "yellow",
+          "blue": "red",
+          "green": "blue"
+        },
+        "order": [
+          "red_cube",
+          "yellow_cube",
+          "blue_cube",
+          "green_cylinder"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "left"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "left",
+              "color": "red",
+              "shape": "cube",
+              "grid": [
+                -0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "right",
+              "color": "yellow",
+              "shape": "cube",
+              "grid": [
+                0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "span",
+              "color": "blue",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "left",
+                "right"
+              ],
+              "orientation": "upright"
+            },
+            {
+              "key": "cap",
+              "color": "green",
+              "shape": "cylinder",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "span"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      },
+      {
+        "case": "capped_bridge_d0_colors",
+        "seed": 1204,
+        "recipe": "capped_bridge",
+        "distractors": 0,
+        "object_count": 4,
+        "color_map": {
+          "red": "blue",
+          "yellow": "red",
+          "blue": "yellow",
+          "green": "green"
+        },
+        "order": [
+          "yellow_cube",
+          "red_cube",
+          "green_cube",
+          "blue_cylinder"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "left"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "left",
+              "color": "yellow",
+              "shape": "cube",
+              "grid": [
+                -0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "right",
+              "color": "red",
+              "shape": "cube",
+              "grid": [
+                0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "span",
+              "color": "green",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "left",
+                "right"
+              ],
+              "orientation": "upright"
+            },
+            {
+              "key": "cap",
+              "color": "blue",
+              "shape": "cylinder",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "span"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      },
+      {
+        "case": "capped_bridge_d0_colors",
+        "seed": 1205,
+        "recipe": "capped_bridge",
+        "distractors": 0,
+        "object_count": 4,
+        "color_map": {
+          "red": "blue",
+          "yellow": "red",
+          "blue": "yellow",
+          "green": "green"
+        },
+        "order": [
+          "yellow_cube",
+          "red_cube",
+          "green_cube",
+          "blue_cylinder"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "left"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "left",
+              "color": "yellow",
+              "shape": "cube",
+              "grid": [
+                -0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "right",
+              "color": "red",
+              "shape": "cube",
+              "grid": [
+                0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "span",
+              "color": "green",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "left",
+                "right"
+              ],
+              "orientation": "upright"
+            },
+            {
+              "key": "cap",
+              "color": "blue",
+              "shape": "cylinder",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "span"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      },
+      {
+        "case": "capped_bridge_d2_colors",
+        "seed": 1201,
+        "recipe": "capped_bridge",
+        "distractors": 2,
+        "object_count": 6,
+        "color_map": {
+          "red": "yellow",
+          "yellow": "blue",
+          "blue": "green",
+          "green": "red"
+        },
+        "order": [
+          "green_cube",
+          "blue_cube",
+          "red_cube",
+          "yellow_cylinder"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "left"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "left",
+              "color": "green",
+              "shape": "cube",
+              "grid": [
+                -0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "right",
+              "color": "blue",
+              "shape": "cube",
+              "grid": [
+                0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "span",
+              "color": "red",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "left",
+                "right"
+              ],
+              "orientation": "upright"
+            },
+            {
+              "key": "cap",
+              "color": "yellow",
+              "shape": "cylinder",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "span"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      },
+      {
+        "case": "capped_bridge_d2_colors",
+        "seed": 1202,
+        "recipe": "capped_bridge",
+        "distractors": 2,
+        "object_count": 6,
+        "color_map": {
+          "red": "yellow",
+          "yellow": "green",
+          "blue": "red",
+          "green": "blue"
+        },
+        "order": [
+          "red_cube",
+          "green_cube",
+          "blue_cube",
+          "yellow_cylinder"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "left"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "left",
+              "color": "red",
+              "shape": "cube",
+              "grid": [
+                -0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "right",
+              "color": "green",
+              "shape": "cube",
+              "grid": [
+                0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "span",
+              "color": "blue",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "left",
+                "right"
+              ],
+              "orientation": "upright"
+            },
+            {
+              "key": "cap",
+              "color": "yellow",
+              "shape": "cylinder",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "span"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      },
+      {
+        "case": "capped_bridge_d2_colors",
+        "seed": 1203,
+        "recipe": "capped_bridge",
+        "distractors": 2,
+        "object_count": 6,
+        "color_map": {
+          "red": "green",
+          "yellow": "yellow",
+          "blue": "red",
+          "green": "blue"
+        },
+        "order": [
+          "red_cube",
+          "yellow_cube",
+          "blue_cube",
+          "green_cylinder"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "left"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "left",
+              "color": "red",
+              "shape": "cube",
+              "grid": [
+                -0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "right",
+              "color": "yellow",
+              "shape": "cube",
+              "grid": [
+                0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "span",
+              "color": "blue",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "left",
+                "right"
+              ],
+              "orientation": "upright"
+            },
+            {
+              "key": "cap",
+              "color": "green",
+              "shape": "cylinder",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "span"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      },
+      {
+        "case": "capped_bridge_d2_colors",
+        "seed": 1204,
+        "recipe": "capped_bridge",
+        "distractors": 2,
+        "object_count": 6,
+        "color_map": {
+          "red": "blue",
+          "yellow": "red",
+          "blue": "yellow",
+          "green": "green"
+        },
+        "order": [
+          "yellow_cube",
+          "red_cube",
+          "green_cube",
+          "blue_cylinder"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "left"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "left",
+              "color": "yellow",
+              "shape": "cube",
+              "grid": [
+                -0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "right",
+              "color": "red",
+              "shape": "cube",
+              "grid": [
+                0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "span",
+              "color": "green",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "left",
+                "right"
+              ],
+              "orientation": "upright"
+            },
+            {
+              "key": "cap",
+              "color": "blue",
+              "shape": "cylinder",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "span"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      },
+      {
+        "case": "capped_bridge_d2_colors",
+        "seed": 1205,
+        "recipe": "capped_bridge",
+        "distractors": 2,
+        "object_count": 6,
+        "color_map": {
+          "red": "blue",
+          "yellow": "red",
+          "blue": "yellow",
+          "green": "green"
+        },
+        "order": [
+          "yellow_cube",
+          "red_cube",
+          "green_cube",
+          "blue_cylinder"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "left"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "left",
+              "color": "yellow",
+              "shape": "cube",
+              "grid": [
+                -0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "right",
+              "color": "red",
+              "shape": "cube",
+              "grid": [
+                0.55,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "span",
+              "color": "green",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "left",
+                "right"
+              ],
+              "orientation": "upright"
+            },
+            {
+              "key": "cap",
+              "color": "blue",
+              "shape": "cylinder",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "span"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      },
+      {
+        "case": "staircase_d0_colors",
+        "seed": 1201,
+        "recipe": "staircase",
+        "distractors": 0,
+        "object_count": 5,
+        "color_map": {
+          "red": "yellow",
+          "yellow": "blue",
+          "blue": "green",
+          "green": "red"
+        },
+        "order": [
+          "green_cube",
+          "yellow_cube",
+          "red_prism",
+          "blue_cube",
+          "red_cube"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "low"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "low",
+              "color": "green",
+              "shape": "cube",
+              "grid": [
+                -1.8,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "middle_base",
+              "color": "yellow",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "high_base",
+              "color": "red",
+              "shape": "prism",
+              "grid": [
+                1.8,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "middle_top",
+              "color": "blue",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "middle_base"
+              ],
+              "orientation": "upright"
+            },
+            {
+              "key": "high_top",
+              "color": "red",
+              "shape": "cube",
+              "grid": [
+                1.8,
+                0.0
+              ],
+              "supports": [
+                "high_base"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      },
+      {
+        "case": "staircase_d0_colors",
+        "seed": 1202,
+        "recipe": "staircase",
+        "distractors": 0,
+        "object_count": 5,
+        "color_map": {
+          "red": "yellow",
+          "yellow": "green",
+          "blue": "red",
+          "green": "blue"
+        },
+        "order": [
+          "red_cube",
+          "yellow_cube",
+          "blue_prism",
+          "green_cube",
+          "blue_cube"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "low"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "low",
+              "color": "red",
+              "shape": "cube",
+              "grid": [
+                -1.8,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "middle_base",
+              "color": "yellow",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "high_base",
+              "color": "blue",
+              "shape": "prism",
+              "grid": [
+                1.8,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "middle_top",
+              "color": "green",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "middle_base"
+              ],
+              "orientation": "upright"
+            },
+            {
+              "key": "high_top",
+              "color": "blue",
+              "shape": "cube",
+              "grid": [
+                1.8,
+                0.0
+              ],
+              "supports": [
+                "high_base"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      },
+      {
+        "case": "staircase_d0_colors",
+        "seed": 1203,
+        "recipe": "staircase",
+        "distractors": 0,
+        "object_count": 5,
+        "color_map": {
+          "red": "green",
+          "yellow": "yellow",
+          "blue": "red",
+          "green": "blue"
+        },
+        "order": [
+          "red_cube",
+          "green_cube",
+          "blue_prism",
+          "yellow_cube",
+          "blue_cube"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "low"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "low",
+              "color": "red",
+              "shape": "cube",
+              "grid": [
+                -1.8,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "middle_base",
+              "color": "green",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "high_base",
+              "color": "blue",
+              "shape": "prism",
+              "grid": [
+                1.8,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "middle_top",
+              "color": "yellow",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "middle_base"
+              ],
+              "orientation": "upright"
+            },
+            {
+              "key": "high_top",
+              "color": "blue",
+              "shape": "cube",
+              "grid": [
+                1.8,
+                0.0
+              ],
+              "supports": [
+                "high_base"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      },
+      {
+        "case": "staircase_d0_colors",
+        "seed": 1204,
+        "recipe": "staircase",
+        "distractors": 0,
+        "object_count": 5,
+        "color_map": {
+          "red": "blue",
+          "yellow": "red",
+          "blue": "yellow",
+          "green": "green"
+        },
+        "order": [
+          "yellow_cube",
+          "blue_cube",
+          "green_prism",
+          "red_cube",
+          "green_cube"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "low"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "low",
+              "color": "yellow",
+              "shape": "cube",
+              "grid": [
+                -1.8,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "middle_base",
+              "color": "blue",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "high_base",
+              "color": "green",
+              "shape": "prism",
+              "grid": [
+                1.8,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "middle_top",
+              "color": "red",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "middle_base"
+              ],
+              "orientation": "upright"
+            },
+            {
+              "key": "high_top",
+              "color": "green",
+              "shape": "cube",
+              "grid": [
+                1.8,
+                0.0
+              ],
+              "supports": [
+                "high_base"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      },
+      {
+        "case": "staircase_d0_colors",
+        "seed": 1205,
+        "recipe": "staircase",
+        "distractors": 0,
+        "object_count": 5,
+        "color_map": {
+          "red": "blue",
+          "yellow": "red",
+          "blue": "yellow",
+          "green": "green"
+        },
+        "order": [
+          "yellow_cube",
+          "blue_cube",
+          "green_prism",
+          "red_cube",
+          "green_cube"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "low"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "low",
+              "color": "yellow",
+              "shape": "cube",
+              "grid": [
+                -1.8,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "middle_base",
+              "color": "blue",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "high_base",
+              "color": "green",
+              "shape": "prism",
+              "grid": [
+                1.8,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "middle_top",
+              "color": "red",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "middle_base"
+              ],
+              "orientation": "upright"
+            },
+            {
+              "key": "high_top",
+              "color": "green",
+              "shape": "cube",
+              "grid": [
+                1.8,
+                0.0
+              ],
+              "supports": [
+                "high_base"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      },
+      {
+        "case": "staircase_d2_colors",
+        "seed": 1201,
+        "recipe": "staircase",
+        "distractors": 2,
+        "object_count": 7,
+        "color_map": {
+          "red": "yellow",
+          "yellow": "blue",
+          "blue": "green",
+          "green": "red"
+        },
+        "order": [
+          "green_cube",
+          "yellow_cube",
+          "red_prism",
+          "blue_cube",
+          "red_cube"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "low"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "low",
+              "color": "green",
+              "shape": "cube",
+              "grid": [
+                -1.8,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "middle_base",
+              "color": "yellow",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "high_base",
+              "color": "red",
+              "shape": "prism",
+              "grid": [
+                1.8,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "middle_top",
+              "color": "blue",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "middle_base"
+              ],
+              "orientation": "upright"
+            },
+            {
+              "key": "high_top",
+              "color": "red",
+              "shape": "cube",
+              "grid": [
+                1.8,
+                0.0
+              ],
+              "supports": [
+                "high_base"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      },
+      {
+        "case": "staircase_d2_colors",
+        "seed": 1202,
+        "recipe": "staircase",
+        "distractors": 2,
+        "object_count": 7,
+        "color_map": {
+          "red": "yellow",
+          "yellow": "green",
+          "blue": "red",
+          "green": "blue"
+        },
+        "order": [
+          "red_cube",
+          "yellow_cube",
+          "blue_prism",
+          "green_cube",
+          "blue_cube"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "low"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "low",
+              "color": "red",
+              "shape": "cube",
+              "grid": [
+                -1.8,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "middle_base",
+              "color": "yellow",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "high_base",
+              "color": "blue",
+              "shape": "prism",
+              "grid": [
+                1.8,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "middle_top",
+              "color": "green",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "middle_base"
+              ],
+              "orientation": "upright"
+            },
+            {
+              "key": "high_top",
+              "color": "blue",
+              "shape": "cube",
+              "grid": [
+                1.8,
+                0.0
+              ],
+              "supports": [
+                "high_base"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      },
+      {
+        "case": "staircase_d2_colors",
+        "seed": 1203,
+        "recipe": "staircase",
+        "distractors": 2,
+        "object_count": 7,
+        "color_map": {
+          "red": "green",
+          "yellow": "yellow",
+          "blue": "red",
+          "green": "blue"
+        },
+        "order": [
+          "red_cube",
+          "green_cube",
+          "blue_prism",
+          "yellow_cube",
+          "blue_cube"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "low"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "low",
+              "color": "red",
+              "shape": "cube",
+              "grid": [
+                -1.8,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "middle_base",
+              "color": "green",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "high_base",
+              "color": "blue",
+              "shape": "prism",
+              "grid": [
+                1.8,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "middle_top",
+              "color": "yellow",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "middle_base"
+              ],
+              "orientation": "upright"
+            },
+            {
+              "key": "high_top",
+              "color": "blue",
+              "shape": "cube",
+              "grid": [
+                1.8,
+                0.0
+              ],
+              "supports": [
+                "high_base"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      },
+      {
+        "case": "staircase_d2_colors",
+        "seed": 1204,
+        "recipe": "staircase",
+        "distractors": 2,
+        "object_count": 7,
+        "color_map": {
+          "red": "blue",
+          "yellow": "red",
+          "blue": "yellow",
+          "green": "green"
+        },
+        "order": [
+          "yellow_cube",
+          "blue_cube",
+          "green_prism",
+          "red_cube",
+          "green_cube"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "low"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "low",
+              "color": "yellow",
+              "shape": "cube",
+              "grid": [
+                -1.8,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "middle_base",
+              "color": "blue",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "high_base",
+              "color": "green",
+              "shape": "prism",
+              "grid": [
+                1.8,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "middle_top",
+              "color": "red",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "middle_base"
+              ],
+              "orientation": "upright"
+            },
+            {
+              "key": "high_top",
+              "color": "green",
+              "shape": "cube",
+              "grid": [
+                1.8,
+                0.0
+              ],
+              "supports": [
+                "high_base"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      },
+      {
+        "case": "staircase_d2_colors",
+        "seed": 1205,
+        "recipe": "staircase",
+        "distractors": 2,
+        "object_count": 7,
+        "color_map": {
+          "red": "blue",
+          "yellow": "red",
+          "blue": "yellow",
+          "green": "green"
+        },
+        "order": [
+          "yellow_cube",
+          "blue_cube",
+          "green_prism",
+          "red_cube",
+          "green_cube"
+        ],
+        "goal": {
+          "kind": "support_graph",
+          "length_unit": {
+            "observed_cube": "low"
+          },
+          "axes": "world_xy",
+          "nodes": [
+            {
+              "key": "low",
+              "color": "yellow",
+              "shape": "cube",
+              "grid": [
+                -1.8,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "middle_base",
+              "color": "blue",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "high_base",
+              "color": "green",
+              "shape": "prism",
+              "grid": [
+                1.8,
+                0.0
+              ],
+              "supports": [],
+              "orientation": "upright"
+            },
+            {
+              "key": "middle_top",
+              "color": "red",
+              "shape": "cube",
+              "grid": [
+                0.0,
+                0.0
+              ],
+              "supports": [
+                "middle_base"
+              ],
+              "orientation": "upright"
+            },
+            {
+              "key": "high_top",
+              "color": "green",
+              "shape": "cube",
+              "grid": [
+                1.8,
+                0.0
+              ],
+              "supports": [
+                "high_base"
+              ],
+              "orientation": "upright"
+            }
+          ]
+        },
+        "sensor": {
+          "depth_sampling": "pixel_center",
+          "offscreen_samples": 0
+        }
+      }
+    ],
+    "trial_count": 30
+  },
+  "reporting": "Every declared trial, including failures. Small recipe-specific cells with repeated seeds; not arbitrary-structure generalization.",
+  "runtime_boundary": "CPU visual policy; no simulator object truth or evaluator feedback is available online.",
+  "offline_evaluation": "Private final checks below are offline labels using simulator geometry, contacts and velocities.",
+  "cpu_summary": {
+    "policy_compute_cpu_seconds": {
+      "p50": 6.9790218650000035,
+      "p95": 11.206515920750002,
+      "max": 13.252018819999996
+    },
+    "rpc_cpu_seconds": {
+      "p50": 0.34818278449999296,
+      "p95": 0.420698422799994,
+      "max": 0.44552960400000347
+    },
+    "robot_ik_cpu_seconds": {
+      "p50": 0.3862622859999978,
+      "p95": 0.6185899036499993,
+      "max": 0.6451190669999995
+    },
+    "policy_sim_seconds": {
+      "p50": 156.90000000002416,
+      "p95": 234.03000000039245,
+      "max": 236.00000000040185
+    }
+  },
+  "result": {
+    "name": "heldout",
+    "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+    "successes": 29,
+    "trials": 30,
+    "worker_errors": [],
+    "cells": [
+      {
+        "case": "cube_bridge_d0_colors",
+        "successes": 5,
+        "trials": 5
+      },
+      {
+        "case": "cube_bridge_d2_colors",
+        "successes": 5,
+        "trials": 5
+      },
+      {
+        "case": "capped_bridge_d0_colors",
+        "successes": 5,
+        "trials": 5
+      },
+      {
+        "case": "capped_bridge_d2_colors",
+        "successes": 4,
+        "trials": 5
+      },
+      {
+        "case": "staircase_d0_colors",
+        "successes": 5,
+        "trials": 5
+      },
+      {
+        "case": "staircase_d2_colors",
+        "successes": 5,
+        "trials": 5
+      }
+    ],
+    "records": [
+      {
+        "declared_trial": {
+          "case": "cube_bridge_d0_colors",
+          "seed": 1201,
+          "recipe": "cube_bridge",
+          "distractors": 0,
+          "object_count": 3,
+          "color_map": {
+            "red": "yellow",
+            "yellow": "blue",
+            "blue": "green",
+            "green": "red"
+          },
+          "order": [
+            "green_cube",
+            "yellow_cube",
+            "red_cube"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "left"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "left",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  -0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "right",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "span",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "left",
+                  "right"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 3,
+          "required_placements": 3,
+          "structure_stable": true,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Structure released; all nodes visually placed according to the support graph",
+        "offline_final_check": {
+          "stable": true,
+          "reasons": [],
+          "blocks": [
+            "green_cube",
+            "yellow_cube",
+            "red_cube"
+          ],
+          "duration_s": 5.0,
+          "time": 106.09999999993413
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 3.666934133000004,
+          "rpc_cpu_seconds": 0.2528779259999961,
+          "compute_interval_count": 402,
+          "compute_interval_cpu_p50_ms": 0.009167000000143144,
+          "compute_interval_cpu_p95_ms": 46.39858660000006,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.15201595799999934,
+        "policy_sim_seconds": 99.64999999994764
+      },
+      {
+        "declared_trial": {
+          "case": "cube_bridge_d0_colors",
+          "seed": 1202,
+          "recipe": "cube_bridge",
+          "distractors": 0,
+          "object_count": 3,
+          "color_map": {
+            "red": "yellow",
+            "yellow": "green",
+            "blue": "red",
+            "green": "blue"
+          },
+          "order": [
+            "red_cube",
+            "yellow_cube",
+            "blue_cube"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "left"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "left",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  -0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "right",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "span",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "left",
+                  "right"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 3,
+          "required_placements": 3,
+          "structure_stable": true,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Structure released; all nodes visually placed according to the support graph",
+        "offline_final_check": {
+          "stable": true,
+          "reasons": [],
+          "blocks": [
+            "red_cube",
+            "yellow_cube",
+            "blue_cube"
+          ],
+          "duration_s": 5.0,
+          "time": 129.44999999989
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 4.587834326,
+          "rpc_cpu_seconds": 0.2862165419999998,
+          "compute_interval_count": 567,
+          "compute_interval_cpu_p50_ms": 0.009536999999948392,
+          "compute_interval_cpu_p95_ms": 47.576518899999826,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.3599466579999975,
+        "policy_sim_seconds": 122.99999999989322
+      },
+      {
+        "declared_trial": {
+          "case": "cube_bridge_d0_colors",
+          "seed": 1203,
+          "recipe": "cube_bridge",
+          "distractors": 0,
+          "object_count": 3,
+          "color_map": {
+            "red": "green",
+            "yellow": "yellow",
+            "blue": "red",
+            "green": "blue"
+          },
+          "order": [
+            "red_cube",
+            "green_cube",
+            "blue_cube"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "left"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "left",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  -0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "right",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "span",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "left",
+                  "right"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 3,
+          "required_placements": 3,
+          "structure_stable": true,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Structure released; all nodes visually placed according to the support graph",
+        "offline_final_check": {
+          "stable": true,
+          "reasons": [],
+          "blocks": [
+            "red_cube",
+            "green_cube",
+            "blue_cube"
+          ],
+          "duration_s": 5.0,
+          "time": 130.24999999989382
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 4.453655925999996,
+          "rpc_cpu_seconds": 0.2839485270000043,
+          "compute_interval_count": 569,
+          "compute_interval_cpu_p50_ms": 0.010328999999753563,
+          "compute_interval_cpu_p95_ms": 46.5723038000001,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.35866677299999683,
+        "policy_sim_seconds": 123.79999999989136
+      },
+      {
+        "declared_trial": {
+          "case": "cube_bridge_d0_colors",
+          "seed": 1204,
+          "recipe": "cube_bridge",
+          "distractors": 0,
+          "object_count": 3,
+          "color_map": {
+            "red": "blue",
+            "yellow": "red",
+            "blue": "yellow",
+            "green": "green"
+          },
+          "order": [
+            "yellow_cube",
+            "blue_cube",
+            "green_cube"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "left"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "left",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  -0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "right",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "span",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "left",
+                  "right"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 3,
+          "required_placements": 3,
+          "structure_stable": true,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Structure released; all nodes visually placed according to the support graph",
+        "offline_final_check": {
+          "stable": true,
+          "reasons": [],
+          "blocks": [
+            "yellow_cube",
+            "blue_cube",
+            "green_cube"
+          ],
+          "duration_s": 5.0,
+          "time": 105.29999999993599
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 3.630902498999997,
+          "rpc_cpu_seconds": 0.25629492800000325,
+          "compute_interval_count": 396,
+          "compute_interval_cpu_p50_ms": 0.009805500000015233,
+          "compute_interval_cpu_p95_ms": 46.28547675000028,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.15886281399999902,
+        "policy_sim_seconds": 98.8499999999495
+      },
+      {
+        "declared_trial": {
+          "case": "cube_bridge_d0_colors",
+          "seed": 1205,
+          "recipe": "cube_bridge",
+          "distractors": 0,
+          "object_count": 3,
+          "color_map": {
+            "red": "blue",
+            "yellow": "red",
+            "blue": "yellow",
+            "green": "green"
+          },
+          "order": [
+            "yellow_cube",
+            "blue_cube",
+            "green_cube"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "left"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "left",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  -0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "right",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "span",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "left",
+                  "right"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 3,
+          "required_placements": 3,
+          "structure_stable": true,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Structure released; all nodes visually placed according to the support graph",
+        "offline_final_check": {
+          "stable": true,
+          "reasons": [],
+          "blocks": [
+            "yellow_cube",
+            "blue_cube",
+            "green_cube"
+          ],
+          "duration_s": 5.0,
+          "time": 130.24999999989382
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 4.491866933999996,
+          "rpc_cpu_seconds": 0.3064353450000032,
+          "compute_interval_count": 569,
+          "compute_interval_cpu_p50_ms": 0.011372999999981204,
+          "compute_interval_cpu_p95_ms": 45.97193979999999,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.34558672,
+        "policy_sim_seconds": 123.79999999989136
+      },
+      {
+        "declared_trial": {
+          "case": "cube_bridge_d2_colors",
+          "seed": 1201,
+          "recipe": "cube_bridge",
+          "distractors": 2,
+          "object_count": 5,
+          "color_map": {
+            "red": "yellow",
+            "yellow": "blue",
+            "blue": "green",
+            "green": "red"
+          },
+          "order": [
+            "green_cube",
+            "yellow_cube",
+            "red_cube"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "left"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "left",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  -0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "right",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "span",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "left",
+                  "right"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 3,
+          "required_placements": 3,
+          "structure_stable": true,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Structure released; all nodes visually placed according to the support graph",
+        "offline_final_check": {
+          "stable": true,
+          "reasons": [],
+          "blocks": [
+            "green_cube",
+            "yellow_cube",
+            "red_cube"
+          ],
+          "duration_s": 5.0,
+          "time": 155.20000000001295
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 6.019342395000004,
+          "rpc_cpu_seconds": 0.3222015999999964,
+          "compute_interval_count": 725,
+          "compute_interval_cpu_p50_ms": 0.011558000000633228,
+          "compute_interval_cpu_p95_ms": 53.18428340000003,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.528107857000002,
+        "policy_sim_seconds": 148.74999999998525
+      },
+      {
+        "declared_trial": {
+          "case": "cube_bridge_d2_colors",
+          "seed": 1202,
+          "recipe": "cube_bridge",
+          "distractors": 2,
+          "object_count": 5,
+          "color_map": {
+            "red": "yellow",
+            "yellow": "green",
+            "blue": "red",
+            "green": "blue"
+          },
+          "order": [
+            "red_cube",
+            "yellow_cube",
+            "blue_cube"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "left"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "left",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  -0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "right",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "span",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "left",
+                  "right"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 3,
+          "required_placements": 3,
+          "structure_stable": true,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Structure released; all nodes visually placed according to the support graph",
+        "offline_final_check": {
+          "stable": true,
+          "reasons": [],
+          "blocks": [
+            "red_cube",
+            "yellow_cube",
+            "blue_cube"
+          ],
+          "duration_s": 5.0,
+          "time": 105.29999999993599
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 4.466686614,
+          "rpc_cpu_seconds": 0.2608773170000006,
+          "compute_interval_count": 399,
+          "compute_interval_cpu_p50_ms": 0.013781000000046006,
+          "compute_interval_cpu_p95_ms": 58.08600899999998,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.1592719190000036,
+        "policy_sim_seconds": 98.8499999999495
+      },
+      {
+        "declared_trial": {
+          "case": "cube_bridge_d2_colors",
+          "seed": 1203,
+          "recipe": "cube_bridge",
+          "distractors": 2,
+          "object_count": 5,
+          "color_map": {
+            "red": "green",
+            "yellow": "yellow",
+            "blue": "red",
+            "green": "blue"
+          },
+          "order": [
+            "red_cube",
+            "green_cube",
+            "blue_cube"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "left"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "left",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  -0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "right",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "span",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "left",
+                  "right"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 3,
+          "required_placements": 3,
+          "structure_stable": true,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Structure released; all nodes visually placed according to the support graph",
+        "offline_final_check": {
+          "stable": true,
+          "reasons": [],
+          "blocks": [
+            "red_cube",
+            "green_cube",
+            "blue_cube"
+          ],
+          "duration_s": 5.0,
+          "time": 129.44999999989
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 5.290599558000005,
+          "rpc_cpu_seconds": 0.3026971179999948,
+          "compute_interval_count": 546,
+          "compute_interval_cpu_p50_ms": 0.012559999999828264,
+          "compute_interval_cpu_p95_ms": 57.21521725000001,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.3215459479999998,
+        "policy_sim_seconds": 122.99999999989322
+      },
+      {
+        "declared_trial": {
+          "case": "cube_bridge_d2_colors",
+          "seed": 1204,
+          "recipe": "cube_bridge",
+          "distractors": 2,
+          "object_count": 5,
+          "color_map": {
+            "red": "blue",
+            "yellow": "red",
+            "blue": "yellow",
+            "green": "green"
+          },
+          "order": [
+            "yellow_cube",
+            "blue_cube",
+            "green_cube"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "left"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "left",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  -0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "right",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "span",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "left",
+                  "right"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 3,
+          "required_placements": 3,
+          "structure_stable": true,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Structure released; all nodes visually placed according to the support graph",
+        "offline_final_check": {
+          "stable": true,
+          "reasons": [],
+          "blocks": [
+            "yellow_cube",
+            "blue_cube",
+            "green_cube"
+          ],
+          "duration_s": 5.0,
+          "time": 129.44999999989
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 5.524411645000001,
+          "rpc_cpu_seconds": 0.30682946499999997,
+          "compute_interval_count": 557,
+          "compute_interval_cpu_p50_ms": 0.011768000000245138,
+          "compute_interval_cpu_p95_ms": 59.03481660000027,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.341990955,
+        "policy_sim_seconds": 122.99999999989322
+      },
+      {
+        "declared_trial": {
+          "case": "cube_bridge_d2_colors",
+          "seed": 1205,
+          "recipe": "cube_bridge",
+          "distractors": 2,
+          "object_count": 5,
+          "color_map": {
+            "red": "blue",
+            "yellow": "red",
+            "blue": "yellow",
+            "green": "green"
+          },
+          "order": [
+            "yellow_cube",
+            "blue_cube",
+            "green_cube"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "left"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "left",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  -0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "right",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "span",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "left",
+                  "right"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 3,
+          "required_placements": 3,
+          "structure_stable": true,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Structure released; all nodes visually placed according to the support graph",
+        "offline_final_check": {
+          "stable": true,
+          "reasons": [],
+          "blocks": [
+            "yellow_cube",
+            "blue_cube",
+            "green_cube"
+          ],
+          "duration_s": 5.0,
+          "time": 129.44999999989
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 5.796603369999994,
+          "rpc_cpu_seconds": 0.254643215000005,
+          "compute_interval_count": 559,
+          "compute_interval_cpu_p50_ms": 0.015416000000101349,
+          "compute_interval_cpu_p95_ms": 62.36346860000013,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.34206964899999726,
+        "policy_sim_seconds": 122.99999999989322
+      },
+      {
+        "declared_trial": {
+          "case": "capped_bridge_d0_colors",
+          "seed": 1201,
+          "recipe": "capped_bridge",
+          "distractors": 0,
+          "object_count": 4,
+          "color_map": {
+            "red": "yellow",
+            "yellow": "blue",
+            "blue": "green",
+            "green": "red"
+          },
+          "order": [
+            "green_cube",
+            "blue_cube",
+            "red_cube",
+            "yellow_cylinder"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "left"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "left",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  -0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "right",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "span",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "left",
+                  "right"
+                ],
+                "orientation": "upright"
+              },
+              {
+                "key": "cap",
+                "color": "yellow",
+                "shape": "cylinder",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "span"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 4,
+          "required_placements": 4,
+          "structure_stable": true,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Structure released; all nodes visually placed according to the support graph",
+        "offline_final_check": {
+          "stable": true,
+          "reasons": [],
+          "blocks": [
+            "green_cube",
+            "blue_cube",
+            "red_cube",
+            "yellow_cylinder"
+          ],
+          "duration_s": 5.0,
+          "time": 163.45000000005234
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 6.965367172000002,
+          "rpc_cpu_seconds": 0.3588804029999979,
+          "compute_interval_count": 704,
+          "compute_interval_cpu_p50_ms": 0.013870000000082428,
+          "compute_interval_cpu_p95_ms": 56.969401599999856,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.40983431000000703,
+        "policy_sim_seconds": 157.00000000002464
+      },
+      {
+        "declared_trial": {
+          "case": "capped_bridge_d0_colors",
+          "seed": 1202,
+          "recipe": "capped_bridge",
+          "distractors": 0,
+          "object_count": 4,
+          "color_map": {
+            "red": "yellow",
+            "yellow": "green",
+            "blue": "red",
+            "green": "blue"
+          },
+          "order": [
+            "red_cube",
+            "green_cube",
+            "blue_cube",
+            "yellow_cylinder"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "left"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "left",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  -0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "right",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "span",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "left",
+                  "right"
+                ],
+                "orientation": "upright"
+              },
+              {
+                "key": "cap",
+                "color": "yellow",
+                "shape": "cylinder",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "span"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 4,
+          "required_placements": 4,
+          "structure_stable": true,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Structure released; all nodes visually placed according to the support graph",
+        "offline_final_check": {
+          "stable": true,
+          "reasons": [],
+          "blocks": [
+            "red_cube",
+            "green_cube",
+            "blue_cube",
+            "yellow_cylinder"
+          ],
+          "duration_s": 5.0,
+          "time": 164.0500000000552
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 6.992676558000006,
+          "rpc_cpu_seconds": 0.345903023999994,
+          "compute_interval_count": 719,
+          "compute_interval_cpu_p50_ms": 0.011128000000137916,
+          "compute_interval_cpu_p95_ms": 54.3477107999995,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.4286053429999894,
+        "policy_sim_seconds": 157.6000000000275
+      },
+      {
+        "declared_trial": {
+          "case": "capped_bridge_d0_colors",
+          "seed": 1203,
+          "recipe": "capped_bridge",
+          "distractors": 0,
+          "object_count": 4,
+          "color_map": {
+            "red": "green",
+            "yellow": "yellow",
+            "blue": "red",
+            "green": "blue"
+          },
+          "order": [
+            "red_cube",
+            "yellow_cube",
+            "blue_cube",
+            "green_cylinder"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "left"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "left",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  -0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "right",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "span",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "left",
+                  "right"
+                ],
+                "orientation": "upright"
+              },
+              {
+                "key": "cap",
+                "color": "green",
+                "shape": "cylinder",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "span"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 4,
+          "required_placements": 4,
+          "structure_stable": true,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Structure released; all nodes visually placed according to the support graph",
+        "offline_final_check": {
+          "stable": true,
+          "reasons": [],
+          "blocks": [
+            "red_cube",
+            "yellow_cube",
+            "blue_cube",
+            "green_cylinder"
+          ],
+          "duration_s": 5.0,
+          "time": 163.2500000000514
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 6.747220282999992,
+          "rpc_cpu_seconds": 0.3506389610000089,
+          "compute_interval_count": 708,
+          "compute_interval_cpu_p50_ms": 0.011054000000010333,
+          "compute_interval_cpu_p95_ms": 53.13348040000003,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.3970082730000062,
+        "policy_sim_seconds": 156.8000000000237
+      },
+      {
+        "declared_trial": {
+          "case": "capped_bridge_d0_colors",
+          "seed": 1204,
+          "recipe": "capped_bridge",
+          "distractors": 0,
+          "object_count": 4,
+          "color_map": {
+            "red": "blue",
+            "yellow": "red",
+            "blue": "yellow",
+            "green": "green"
+          },
+          "order": [
+            "yellow_cube",
+            "red_cube",
+            "green_cube",
+            "blue_cylinder"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "left"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "left",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  -0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "right",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "span",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "left",
+                  "right"
+                ],
+                "orientation": "upright"
+              },
+              {
+                "key": "cap",
+                "color": "blue",
+                "shape": "cylinder",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "span"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 4,
+          "required_placements": 4,
+          "structure_stable": true,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Structure released; all nodes visually placed according to the support graph",
+        "offline_final_check": {
+          "stable": true,
+          "reasons": [],
+          "blocks": [
+            "yellow_cube",
+            "red_cube",
+            "green_cube",
+            "blue_cylinder"
+          ],
+          "duration_s": 5.0,
+          "time": 163.45000000005234
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 6.607209061000002,
+          "rpc_cpu_seconds": 0.34636169999999894,
+          "compute_interval_count": 703,
+          "compute_interval_cpu_p50_ms": 0.010387000000111613,
+          "compute_interval_cpu_p95_ms": 53.74186659999971,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.3971974870000059,
+        "policy_sim_seconds": 157.00000000002464
+      },
+      {
+        "declared_trial": {
+          "case": "capped_bridge_d0_colors",
+          "seed": 1205,
+          "recipe": "capped_bridge",
+          "distractors": 0,
+          "object_count": 4,
+          "color_map": {
+            "red": "blue",
+            "yellow": "red",
+            "blue": "yellow",
+            "green": "green"
+          },
+          "order": [
+            "yellow_cube",
+            "red_cube",
+            "green_cube",
+            "blue_cylinder"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "left"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "left",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  -0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "right",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "span",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "left",
+                  "right"
+                ],
+                "orientation": "upright"
+              },
+              {
+                "key": "cap",
+                "color": "blue",
+                "shape": "cylinder",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "span"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 4,
+          "required_placements": 4,
+          "structure_stable": true,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Structure released; all nodes visually placed according to the support graph",
+        "offline_final_check": {
+          "stable": true,
+          "reasons": [],
+          "blocks": [
+            "yellow_cube",
+            "red_cube",
+            "green_cube",
+            "blue_cylinder"
+          ],
+          "duration_s": 5.0,
+          "time": 162.45000000004757
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 6.674801221,
+          "rpc_cpu_seconds": 0.36163224399999977,
+          "compute_interval_count": 700,
+          "compute_interval_cpu_p50_ms": 0.01173199999993102,
+          "compute_interval_cpu_p95_ms": 53.97187679999977,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.3814678680000023,
+        "policy_sim_seconds": 156.00000000001987
+      },
+      {
+        "declared_trial": {
+          "case": "capped_bridge_d2_colors",
+          "seed": 1201,
+          "recipe": "capped_bridge",
+          "distractors": 2,
+          "object_count": 6,
+          "color_map": {
+            "red": "yellow",
+            "yellow": "blue",
+            "blue": "green",
+            "green": "red"
+          },
+          "order": [
+            "green_cube",
+            "blue_cube",
+            "red_cube",
+            "yellow_cylinder"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "left"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "left",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  -0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "right",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "span",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "left",
+                  "right"
+                ],
+                "orientation": "upright"
+              },
+              {
+                "key": "cap",
+                "color": "yellow",
+                "shape": "cylinder",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "span"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 4,
+          "required_placements": 4,
+          "structure_stable": true,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Structure released; all nodes visually placed according to the support graph",
+        "offline_final_check": {
+          "stable": true,
+          "reasons": [],
+          "blocks": [
+            "green_cube",
+            "blue_cube",
+            "red_cube",
+            "yellow_cylinder"
+          ],
+          "duration_s": 5.0,
+          "time": 188.20000000017052
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 8.579755989999992,
+          "rpc_cpu_seconds": 0.37692534100000896,
+          "compute_interval_count": 856,
+          "compute_interval_cpu_p50_ms": 0.0118820000000186,
+          "compute_interval_cpu_p95_ms": 60.61002399999998,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.5336385359999998,
+        "policy_sim_seconds": 181.75000000014282
+      },
+      {
+        "declared_trial": {
+          "case": "capped_bridge_d2_colors",
+          "seed": 1202,
+          "recipe": "capped_bridge",
+          "distractors": 2,
+          "object_count": 6,
+          "color_map": {
+            "red": "yellow",
+            "yellow": "green",
+            "blue": "red",
+            "green": "blue"
+          },
+          "order": [
+            "red_cube",
+            "green_cube",
+            "blue_cube",
+            "yellow_cylinder"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "left"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "left",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  -0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "right",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "span",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "left",
+                  "right"
+                ],
+                "orientation": "upright"
+              },
+              {
+                "key": "cap",
+                "color": "yellow",
+                "shape": "cylinder",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "span"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 4,
+          "required_placements": 4,
+          "structure_stable": true,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Structure released; all nodes visually placed according to the support graph",
+        "offline_final_check": {
+          "stable": true,
+          "reasons": [],
+          "blocks": [
+            "red_cube",
+            "green_cube",
+            "blue_cube",
+            "yellow_cylinder"
+          ],
+          "duration_s": 5.0,
+          "time": 163.45000000005234
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 7.665353268000012,
+          "rpc_cpu_seconds": 0.3479164439999879,
+          "compute_interval_count": 698,
+          "compute_interval_cpu_p50_ms": 0.010443999999998343,
+          "compute_interval_cpu_p95_ms": 62.29018545000001,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.3864790720000011,
+        "policy_sim_seconds": 157.00000000002464
+      },
+      {
+        "declared_trial": {
+          "case": "capped_bridge_d2_colors",
+          "seed": 1203,
+          "recipe": "capped_bridge",
+          "distractors": 2,
+          "object_count": 6,
+          "color_map": {
+            "red": "green",
+            "yellow": "yellow",
+            "blue": "red",
+            "green": "blue"
+          },
+          "order": [
+            "red_cube",
+            "yellow_cube",
+            "blue_cube",
+            "green_cylinder"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "left"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "left",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  -0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "right",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "span",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "left",
+                  "right"
+                ],
+                "orientation": "upright"
+              },
+              {
+                "key": "cap",
+                "color": "green",
+                "shape": "cylinder",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "span"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 4,
+          "required_placements": 4,
+          "structure_stable": true,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Structure released; all nodes visually placed according to the support graph",
+        "offline_final_check": {
+          "stable": true,
+          "reasons": [],
+          "blocks": [
+            "red_cube",
+            "yellow_cube",
+            "blue_cube",
+            "green_cylinder"
+          ],
+          "duration_s": 5.0,
+          "time": 162.45000000004757
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 7.779553475999988,
+          "rpc_cpu_seconds": 0.34259840600001146,
+          "compute_interval_count": 692,
+          "compute_interval_cpu_p50_ms": 0.011207499999832393,
+          "compute_interval_cpu_p95_ms": 62.48046240000002,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.3558967400000004,
+        "policy_sim_seconds": 156.00000000001987
+      },
+      {
+        "declared_trial": {
+          "case": "capped_bridge_d2_colors",
+          "seed": 1204,
+          "recipe": "capped_bridge",
+          "distractors": 2,
+          "object_count": 6,
+          "color_map": {
+            "red": "blue",
+            "yellow": "red",
+            "blue": "yellow",
+            "green": "green"
+          },
+          "order": [
+            "yellow_cube",
+            "red_cube",
+            "green_cube",
+            "blue_cylinder"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "left"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "left",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  -0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "right",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "span",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "left",
+                  "right"
+                ],
+                "orientation": "upright"
+              },
+              {
+                "key": "cap",
+                "color": "blue",
+                "shape": "cylinder",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "span"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 4,
+          "required_placements": 4,
+          "structure_stable": true,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Structure released; all nodes visually placed according to the support graph",
+        "offline_final_check": {
+          "stable": true,
+          "reasons": [],
+          "blocks": [
+            "yellow_cube",
+            "red_cube",
+            "green_cube",
+            "blue_cylinder"
+          ],
+          "duration_s": 5.0,
+          "time": 162.45000000004757
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 7.844128493000001,
+          "rpc_cpu_seconds": 0.34844912499999803,
+          "compute_interval_count": 694,
+          "compute_interval_cpu_p50_ms": 0.009522499999969902,
+          "compute_interval_cpu_p95_ms": 61.245400499999874,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.3621218530000023,
+        "policy_sim_seconds": 156.00000000001987
+      },
+      {
+        "declared_trial": {
+          "case": "capped_bridge_d2_colors",
+          "seed": 1205,
+          "recipe": "capped_bridge",
+          "distractors": 2,
+          "object_count": 6,
+          "color_map": {
+            "red": "blue",
+            "yellow": "red",
+            "blue": "yellow",
+            "green": "green"
+          },
+          "order": [
+            "yellow_cube",
+            "red_cube",
+            "green_cube",
+            "blue_cylinder"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "left"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "left",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  -0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "right",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  0.55,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "span",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "left",
+                  "right"
+                ],
+                "orientation": "upright"
+              },
+              {
+                "key": "cap",
+                "color": "blue",
+                "shape": "cylinder",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "span"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": false,
+        "metrics": {
+          "success": false,
+          "score": 0.75,
+          "placed_blocks": 3,
+          "required_placements": 4,
+          "structure_stable": false,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Selected instance is occluded: blue_3",
+        "offline_final_check": {
+          "stable": false,
+          "reasons": [
+            "blue_cylinder: drift exceeds 3 mm",
+            "blue_cylinder: incorrect relative XY position",
+            "blue_cylinder: incorrect support height on green_cube",
+            "blue_cylinder: local Z axis is not upright",
+            "blue_cylinder: missing required support green_cube",
+            "blue_cylinder: rotating",
+            "blue_cylinder: translating",
+            "green_cube: incorrect relative XY position",
+            "red_cube: incorrect relative XY position",
+            "structure: No support patch with requested margin",
+            "yellow_cube: incorrect relative XY position"
+          ],
+          "blocks": [
+            "yellow_cube",
+            "red_cube",
+            "green_cube",
+            "blue_cylinder"
+          ],
+          "duration_s": 5.0,
+          "time": 124.74999999989066
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 5.833945266999996,
+          "rpc_cpu_seconds": 0.2993244840000041,
+          "compute_interval_count": 578,
+          "compute_interval_cpu_p50_ms": 0.01337399999989941,
+          "compute_interval_cpu_p95_ms": 57.192887650000124,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.34043032299999965,
+        "policy_sim_seconds": 118.29999999990417
+      },
+      {
+        "declared_trial": {
+          "case": "staircase_d0_colors",
+          "seed": 1201,
+          "recipe": "staircase",
+          "distractors": 0,
+          "object_count": 5,
+          "color_map": {
+            "red": "yellow",
+            "yellow": "blue",
+            "blue": "green",
+            "green": "red"
+          },
+          "order": [
+            "green_cube",
+            "yellow_cube",
+            "red_prism",
+            "blue_cube",
+            "red_cube"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "low"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "low",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  -1.8,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "middle_base",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "high_base",
+                "color": "red",
+                "shape": "prism",
+                "grid": [
+                  1.8,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "middle_top",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "middle_base"
+                ],
+                "orientation": "upright"
+              },
+              {
+                "key": "high_top",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  1.8,
+                  0.0
+                ],
+                "supports": [
+                  "high_base"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 5,
+          "required_placements": 5,
+          "structure_stable": true,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Structure released; all nodes visually placed according to the support graph",
+        "offline_final_check": {
+          "stable": true,
+          "reasons": [],
+          "blocks": [
+            "green_cube",
+            "yellow_cube",
+            "red_prism",
+            "blue_cube",
+            "red_cube"
+          ],
+          "duration_s": 5.0,
+          "time": 215.90000000030278
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 9.124091607,
+          "rpc_cpu_seconds": 0.4198890560000014,
+          "compute_interval_count": 908,
+          "compute_interval_cpu_p50_ms": 0.01027399999986578,
+          "compute_interval_cpu_p95_ms": 61.74415535,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.5208372700000048,
+        "policy_sim_seconds": 209.45000000027508
+      },
+      {
+        "declared_trial": {
+          "case": "staircase_d0_colors",
+          "seed": 1202,
+          "recipe": "staircase",
+          "distractors": 0,
+          "object_count": 5,
+          "color_map": {
+            "red": "yellow",
+            "yellow": "green",
+            "blue": "red",
+            "green": "blue"
+          },
+          "order": [
+            "red_cube",
+            "yellow_cube",
+            "blue_prism",
+            "green_cube",
+            "blue_cube"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "low"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "low",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  -1.8,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "middle_base",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "high_base",
+                "color": "blue",
+                "shape": "prism",
+                "grid": [
+                  1.8,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "middle_top",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "middle_base"
+                ],
+                "orientation": "upright"
+              },
+              {
+                "key": "high_top",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  1.8,
+                  0.0
+                ],
+                "supports": [
+                  "high_base"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 5,
+          "required_placements": 5,
+          "structure_stable": true,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Structure released; all nodes visually placed according to the support graph",
+        "offline_final_check": {
+          "stable": true,
+          "reasons": [],
+          "blocks": [
+            "red_cube",
+            "yellow_cube",
+            "blue_prism",
+            "green_cube",
+            "blue_cube"
+          ],
+          "duration_s": 5.0,
+          "time": 192.5500000001913
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 9.076049700999997,
+          "rpc_cpu_seconds": 0.382196176000002,
+          "compute_interval_count": 784,
+          "compute_interval_cpu_p50_ms": 0.010095500000195656,
+          "compute_interval_cpu_p95_ms": 65.66381390000014,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.4117074820000086,
+        "policy_sim_seconds": 186.1000000001636
+      },
+      {
+        "declared_trial": {
+          "case": "staircase_d0_colors",
+          "seed": 1203,
+          "recipe": "staircase",
+          "distractors": 0,
+          "object_count": 5,
+          "color_map": {
+            "red": "green",
+            "yellow": "yellow",
+            "blue": "red",
+            "green": "blue"
+          },
+          "order": [
+            "red_cube",
+            "green_cube",
+            "blue_prism",
+            "yellow_cube",
+            "blue_cube"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "low"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "low",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  -1.8,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "middle_base",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "high_base",
+                "color": "blue",
+                "shape": "prism",
+                "grid": [
+                  1.8,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "middle_top",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "middle_base"
+                ],
+                "orientation": "upright"
+              },
+              {
+                "key": "high_top",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  1.8,
+                  0.0
+                ],
+                "supports": [
+                  "high_base"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 5,
+          "required_placements": 5,
+          "structure_stable": true,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Structure released; all nodes visually placed according to the support graph",
+        "offline_final_check": {
+          "stable": true,
+          "reasons": [],
+          "blocks": [
+            "red_cube",
+            "green_cube",
+            "blue_prism",
+            "yellow_cube",
+            "blue_cube"
+          ],
+          "duration_s": 5.0,
+          "time": 217.50000000031042
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 9.96176072399999,
+          "rpc_cpu_seconds": 0.3950599760000089,
+          "compute_interval_count": 927,
+          "compute_interval_cpu_p50_ms": 0.01084600000034186,
+          "compute_interval_cpu_p95_ms": 64.76647349999995,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.5274914370000046,
+        "policy_sim_seconds": 211.05000000028272
+      },
+      {
+        "declared_trial": {
+          "case": "staircase_d0_colors",
+          "seed": 1204,
+          "recipe": "staircase",
+          "distractors": 0,
+          "object_count": 5,
+          "color_map": {
+            "red": "blue",
+            "yellow": "red",
+            "blue": "yellow",
+            "green": "green"
+          },
+          "order": [
+            "yellow_cube",
+            "blue_cube",
+            "green_prism",
+            "red_cube",
+            "green_cube"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "low"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "low",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  -1.8,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "middle_base",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "high_base",
+                "color": "green",
+                "shape": "prism",
+                "grid": [
+                  1.8,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "middle_top",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "middle_base"
+                ],
+                "orientation": "upright"
+              },
+              {
+                "key": "high_top",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  1.8,
+                  0.0
+                ],
+                "supports": [
+                  "high_base"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 5,
+          "required_placements": 5,
+          "structure_stable": true,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Structure released; all nodes visually placed according to the support graph",
+        "offline_final_check": {
+          "stable": true,
+          "reasons": [],
+          "blocks": [
+            "yellow_cube",
+            "blue_cube",
+            "green_prism",
+            "red_cube",
+            "green_cube"
+          ],
+          "duration_s": 5.0,
+          "time": 190.7500000001827
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 8.144734847999992,
+          "rpc_cpu_seconds": 0.3748030960000078,
+          "compute_interval_count": 773,
+          "compute_interval_cpu_p50_ms": 0.010414000000125156,
+          "compute_interval_cpu_p95_ms": 59.876431,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.3860454999999945,
+        "policy_sim_seconds": 184.300000000155
+      },
+      {
+        "declared_trial": {
+          "case": "staircase_d0_colors",
+          "seed": 1205,
+          "recipe": "staircase",
+          "distractors": 0,
+          "object_count": 5,
+          "color_map": {
+            "red": "blue",
+            "yellow": "red",
+            "blue": "yellow",
+            "green": "green"
+          },
+          "order": [
+            "yellow_cube",
+            "blue_cube",
+            "green_prism",
+            "red_cube",
+            "green_cube"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "low"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "low",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  -1.8,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "middle_base",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "high_base",
+                "color": "green",
+                "shape": "prism",
+                "grid": [
+                  1.8,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "middle_top",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "middle_base"
+                ],
+                "orientation": "upright"
+              },
+              {
+                "key": "high_top",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  1.8,
+                  0.0
+                ],
+                "supports": [
+                  "high_base"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 5,
+          "required_placements": 5,
+          "structure_stable": true,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Structure released; all nodes visually placed according to the support graph",
+        "offline_final_check": {
+          "stable": true,
+          "reasons": [],
+          "blocks": [
+            "yellow_cube",
+            "blue_cube",
+            "green_prism",
+            "red_cube",
+            "green_cube"
+          ],
+          "duration_s": 5.0,
+          "time": 190.7500000001827
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 8.408311566999995,
+          "rpc_cpu_seconds": 0.37567874400000584,
+          "compute_interval_count": 777,
+          "compute_interval_cpu_p50_ms": 0.011111000000063598,
+          "compute_interval_cpu_p95_ms": 61.03275480000008,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.40051566599999866,
+        "policy_sim_seconds": 184.300000000155
+      },
+      {
+        "declared_trial": {
+          "case": "staircase_d2_colors",
+          "seed": 1201,
+          "recipe": "staircase",
+          "distractors": 2,
+          "object_count": 7,
+          "color_map": {
+            "red": "yellow",
+            "yellow": "blue",
+            "blue": "green",
+            "green": "red"
+          },
+          "order": [
+            "green_cube",
+            "yellow_cube",
+            "red_prism",
+            "blue_cube",
+            "red_cube"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "low"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "low",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  -1.8,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "middle_base",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "high_base",
+                "color": "red",
+                "shape": "prism",
+                "grid": [
+                  1.8,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "middle_top",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "middle_base"
+                ],
+                "orientation": "upright"
+              },
+              {
+                "key": "high_top",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  1.8,
+                  0.0
+                ],
+                "supports": [
+                  "high_base"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 5,
+          "required_placements": 5,
+          "structure_stable": true,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Structure released; all nodes visually placed according to the support graph",
+        "offline_final_check": {
+          "stable": true,
+          "reasons": [],
+          "blocks": [
+            "green_cube",
+            "yellow_cube",
+            "red_prism",
+            "blue_cube",
+            "red_cube"
+          ],
+          "duration_s": 5.0,
+          "time": 239.05000000041332
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 10.85233571599999,
+          "rpc_cpu_seconds": 0.41295768000001115,
+          "compute_interval_count": 1041,
+          "compute_interval_cpu_p50_ms": 0.01055900000057619,
+          "compute_interval_cpu_p95_ms": 65.32752300000011,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.6276269220000046,
+        "policy_sim_seconds": 232.60000000038562
+      },
+      {
+        "declared_trial": {
+          "case": "staircase_d2_colors",
+          "seed": 1202,
+          "recipe": "staircase",
+          "distractors": 2,
+          "object_count": 7,
+          "color_map": {
+            "red": "yellow",
+            "yellow": "green",
+            "blue": "red",
+            "green": "blue"
+          },
+          "order": [
+            "red_cube",
+            "yellow_cube",
+            "blue_prism",
+            "green_cube",
+            "blue_cube"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "low"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "low",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  -1.8,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "middle_base",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "high_base",
+                "color": "blue",
+                "shape": "prism",
+                "grid": [
+                  1.8,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "middle_top",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "middle_base"
+                ],
+                "orientation": "upright"
+              },
+              {
+                "key": "high_top",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  1.8,
+                  0.0
+                ],
+                "supports": [
+                  "high_base"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 5,
+          "required_placements": 5,
+          "structure_stable": true,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Structure released; all nodes visually placed according to the support graph",
+        "offline_final_check": {
+          "stable": true,
+          "reasons": [],
+          "blocks": [
+            "red_cube",
+            "yellow_cube",
+            "blue_prism",
+            "green_cube",
+            "blue_cube"
+          ],
+          "duration_s": 5.0,
+          "time": 216.60000000030612
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 11.347388206999995,
+          "rpc_cpu_seconds": 0.4055640170000042,
+          "compute_interval_count": 901,
+          "compute_interval_cpu_p50_ms": 0.009477999999951692,
+          "compute_interval_cpu_p95_ms": 72.79281799999993,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.4724497839999957,
+        "policy_sim_seconds": 210.15000000027842
+      },
+      {
+        "declared_trial": {
+          "case": "staircase_d2_colors",
+          "seed": 1203,
+          "recipe": "staircase",
+          "distractors": 2,
+          "object_count": 7,
+          "color_map": {
+            "red": "green",
+            "yellow": "yellow",
+            "blue": "red",
+            "green": "blue"
+          },
+          "order": [
+            "red_cube",
+            "green_cube",
+            "blue_prism",
+            "yellow_cube",
+            "blue_cube"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "low"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "low",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  -1.8,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "middle_base",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "high_base",
+                "color": "blue",
+                "shape": "prism",
+                "grid": [
+                  1.8,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "middle_top",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "middle_base"
+                ],
+                "orientation": "upright"
+              },
+              {
+                "key": "high_top",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  1.8,
+                  0.0
+                ],
+                "supports": [
+                  "high_base"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 5,
+          "required_placements": 5,
+          "structure_stable": true,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Structure released; all nodes visually placed according to the support graph",
+        "offline_final_check": {
+          "stable": true,
+          "reasons": [],
+          "blocks": [
+            "red_cube",
+            "green_cube",
+            "blue_prism",
+            "yellow_cube",
+            "blue_cube"
+          ],
+          "duration_s": 5.0,
+          "time": 242.45000000042955
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 13.252018819999996,
+          "rpc_cpu_seconds": 0.44552960400000347,
+          "compute_interval_count": 1055,
+          "compute_interval_cpu_p50_ms": 0.01210200000034689,
+          "compute_interval_cpu_p95_ms": 76.91552030000021,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.6451190669999995,
+        "policy_sim_seconds": 236.00000000040185
+      },
+      {
+        "declared_trial": {
+          "case": "staircase_d2_colors",
+          "seed": 1204,
+          "recipe": "staircase",
+          "distractors": 2,
+          "object_count": 7,
+          "color_map": {
+            "red": "blue",
+            "yellow": "red",
+            "blue": "yellow",
+            "green": "green"
+          },
+          "order": [
+            "yellow_cube",
+            "blue_cube",
+            "green_prism",
+            "red_cube",
+            "green_cube"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "low"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "low",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  -1.8,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "middle_base",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "high_base",
+                "color": "green",
+                "shape": "prism",
+                "grid": [
+                  1.8,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "middle_top",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "middle_base"
+                ],
+                "orientation": "upright"
+              },
+              {
+                "key": "high_top",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  1.8,
+                  0.0
+                ],
+                "supports": [
+                  "high_base"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 5,
+          "required_placements": 5,
+          "structure_stable": true,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Structure released; all nodes visually placed according to the support graph",
+        "offline_final_check": {
+          "stable": true,
+          "reasons": [],
+          "blocks": [
+            "yellow_cube",
+            "blue_cube",
+            "green_prism",
+            "red_cube",
+            "green_cube"
+          ],
+          "duration_s": 5.0,
+          "time": 191.4000000001858
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 9.281088513999999,
+          "rpc_cpu_seconds": 0.3730443090000015,
+          "compute_interval_count": 766,
+          "compute_interval_cpu_p50_ms": 0.010413499999639697,
+          "compute_interval_cpu_p95_ms": 67.69794875000001,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.36553135399999714,
+        "policy_sim_seconds": 184.9500000001581
+      },
+      {
+        "declared_trial": {
+          "case": "staircase_d2_colors",
+          "seed": 1205,
+          "recipe": "staircase",
+          "distractors": 2,
+          "object_count": 7,
+          "color_map": {
+            "red": "blue",
+            "yellow": "red",
+            "blue": "yellow",
+            "green": "green"
+          },
+          "order": [
+            "yellow_cube",
+            "blue_cube",
+            "green_prism",
+            "red_cube",
+            "green_cube"
+          ],
+          "goal": {
+            "kind": "support_graph",
+            "length_unit": {
+              "observed_cube": "low"
+            },
+            "axes": "world_xy",
+            "nodes": [
+              {
+                "key": "low",
+                "color": "yellow",
+                "shape": "cube",
+                "grid": [
+                  -1.8,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "middle_base",
+                "color": "blue",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "high_base",
+                "color": "green",
+                "shape": "prism",
+                "grid": [
+                  1.8,
+                  0.0
+                ],
+                "supports": [],
+                "orientation": "upright"
+              },
+              {
+                "key": "middle_top",
+                "color": "red",
+                "shape": "cube",
+                "grid": [
+                  0.0,
+                  0.0
+                ],
+                "supports": [
+                  "middle_base"
+                ],
+                "orientation": "upright"
+              },
+              {
+                "key": "high_top",
+                "color": "green",
+                "shape": "cube",
+                "grid": [
+                  1.8,
+                  0.0
+                ],
+                "supports": [
+                  "high_base"
+                ],
+                "orientation": "upright"
+              }
+            ]
+          },
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          }
+        },
+        "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 5,
+          "required_placements": 5,
+          "structure_stable": true,
+          "failure": null
+        },
+        "policy_error": null,
+        "final_note": "Structure released; all nodes visually placed according to the support graph",
+        "offline_final_check": {
+          "stable": true,
+          "reasons": [],
+          "blocks": [
+            "yellow_cube",
+            "blue_cube",
+            "green_prism",
+            "red_cube",
+            "green_cube"
+          ],
+          "duration_s": 5.0,
+          "time": 241.65000000042573
+        },
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 11.034338682000012,
+          "rpc_cpu_seconds": 0.42136063199998786,
+          "compute_interval_count": 1042,
+          "compute_interval_cpu_p50_ms": 0.008845000000423653,
+          "compute_interval_cpu_p95_ms": 64.84084949999988,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "robot_ik_cpu_seconds": 0.6075446589999931,
+        "policy_sim_seconds": 235.20000000039803
+      }
+    ]
+  },
+  "implementation_commit": "60c5a0a80ef531ede27e83c394a493188d02473d"
+}

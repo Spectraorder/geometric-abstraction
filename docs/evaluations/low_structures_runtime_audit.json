@@ -1,0 +1,67 @@
+{
+  "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+  "blackout": {
+    "success": false,
+    "policy_error": null,
+    "metrics": {
+      "success": false,
+      "score": 0.3333333333333333,
+      "placed_blocks": 1,
+      "required_placements": 3,
+      "structure_stable": false,
+      "failure": null
+    },
+    "api_methods": [
+      "task",
+      "camera",
+      "note",
+      "done"
+    ],
+    "robot_ik_cpu_seconds": 0.0,
+    "notes": [
+      "Insufficient tabletop depth."
+    ]
+  },
+  "column_regression": {
+    "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+    "seed": 1101,
+    "goal": {
+      "kind": "single_column",
+      "levels": [
+        {
+          "color": "blue",
+          "shape": "cube"
+        },
+        {
+          "color": "red",
+          "shape": "cube"
+        },
+        {
+          "color": "green",
+          "shape": "cube"
+        }
+      ]
+    },
+    "metrics": {
+      "success": true,
+      "score": 1.0,
+      "placed_blocks": 2,
+      "required_placements": 2,
+      "structure_stable": true,
+      "failure": null
+    },
+    "success": true,
+    "policy_error": null
+  },
+  "tests": {
+    "run": 135,
+    "passed": 134,
+    "skipped": 1,
+    "scope": "Full unittest suite; macOS-only sandbox check skipped on Linux."
+  },
+  "historical_bundles": {
+    "stack_column_cpu.py": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+    "stack_inventory_cpu.py": "20613dbf213444f77aac9fdcbdf2b6245d249e0770ab362121e5663e4e53394b"
+  },
+  "boundary": "Same isolated numerical worker and allowlisted RPC. Public task() gains desired support relationships and dimensionless coordinates, never scene poses or dimensions."
+}

@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "scope": "Three selected frozen successes; passive offline durability diagnostic, not a 30-trial long-duration success rate.",
+  "method": "Restore exact final integration state and actuator controls. No policy execution. Original structure checks every 50 ms over a 60-second window after the standard 0.8-second settling interval, with a 3 mm position-drift bound relative to window start.",
+  "runtime_boundary": "Simulator state, contacts and velocities are offline diagnostics only; nothing is returned to a runtime policy.",
+  "records": [
+    {
+      "case": "cube_bridge_d2_colors",
+      "seed": 1201,
+      "goal": {
+        "kind": "support_graph",
+        "length_unit": {
+          "observed_cube": "left"
+        },
+        "axes": "world_xy",
+        "nodes": [
+          {
+            "key": "left",
+            "color": "green",
+            "shape": "cube",
+            "grid": [
+              -0.55,
+              0.0
+            ],
+            "supports": [],
+            "orientation": "upright"
+          },
+          {
+            "key": "right",
+            "color": "yellow",
+            "shape": "cube",
+            "grid": [
+              0.55,
+              0.0
+            ],
+            "supports": [],
+            "orientation": "upright"
+          },
+          {
+            "key": "span",
+            "color": "red",
+            "shape": "cube",
+            "grid": [
+              0.0,
+              0.0
+            ],
+            "supports": [
+              "left",
+              "right"
+            ],
+            "orientation": "upright"
+          }
+        ]
+      },
+      "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+      "original_success": true,
+      "checkpoint_sha256": "27b2897983eaf6e799b75f159487c5d71afa4f1df49195fdf53167649b511817",
+      "checkpoint_physics_time_s": 156.20000000001772,
+      "check": {
+        "stable": true,
+        "reasons": [],
+        "blocks": [
+          "green_cube",
+          "yellow_cube",
+          "red_cube"
+        ],
+        "duration_s": 60.0,
+        "time": 217.00000000030803
+      }
+    },
+    {
+      "case": "capped_bridge_d2_colors",
+      "seed": 1201,
+      "goal": {
+        "kind": "support_graph",
+        "length_unit": {
+          "observed_cube": "left"
+        },
+        "axes": "world_xy",
+        "nodes": [
+          {
+            "key": "left",
+            "color": "green",
+            "shape": "cube",
+            "grid": [
+              -0.55,
+              0.0
+            ],
+            "supports": [],
+            "orientation": "upright"
+          },
+          {
+            "key": "right",
+            "color": "blue",
+            "shape": "cube",
+            "grid": [
+              0.55,
+              0.0
+            ],
+            "supports": [],
+            "orientation": "upright"
+          },
+          {
+            "key": "span",
+            "color": "red",
+            "shape": "cube",
+            "grid": [
+              0.0,
+              0.0
+            ],
+            "supports": [
+              "left",
+              "right"
+            ],
+            "orientation": "upright"
+          },
+          {
+            "key": "cap",
+            "color": "yellow",
+            "shape": "cylinder",
+            "grid": [
+              0.0,
+              0.0
+            ],
+            "supports": [
+              "span"
+            ],
+            "orientation": "upright"
+          }
+        ]
+      },
+      "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+      "original_success": true,
+      "checkpoint_sha256": "909ac20a32dfc3feaee21913123263101669dbfd783279f18225d5d921158d2b",
+      "checkpoint_physics_time_s": 189.2000000001753,
+      "check": {
+        "stable": true,
+        "reasons": [],
+        "blocks": [
+          "green_cube",
+          "blue_cube",
+          "red_cube",
+          "yellow_cylinder"
+        ],
+        "duration_s": 60.0,
+        "time": 250.0000000004656
+      }
+    },
+    {
+      "case": "staircase_d2_colors",
+      "seed": 1201,
+      "goal": {
+        "kind": "support_graph",
+        "length_unit": {
+          "observed_cube": "low"
+        },
+        "axes": "world_xy",
+        "nodes": [
+          {
+            "key": "low",
+            "color": "green",
+            "shape": "cube",
+            "grid": [
+              -1.8,
+              0.0
+            ],
+            "supports": [],
+            "orientation": "upright"
+          },
+          {
+            "key": "middle_base",
+            "color": "yellow",
+            "shape": "cube",
+            "grid": [
+              0.0,
+              0.0
+            ],
+            "supports": [],
+            "orientation": "upright"
+          },
+          {
+            "key": "high_base",
+            "color": "red",
+            "shape": "prism",
+            "grid": [
+              1.8,
+              0.0
+            ],
+            "supports": [],
+            "orientation": "upright"
+          },
+          {
+            "key": "middle_top",
+            "color": "blue",
+            "shape": "cube",
+            "grid": [
+              0.0,
+              0.0
+            ],
+            "supports": [
+              "middle_base"
+            ],
+            "orientation": "upright"
+          },
+          {
+            "key": "high_top",
+            "color": "red",
+            "shape": "cube",
+            "grid": [
+              1.8,
+              0.0
+            ],
+            "supports": [
+              "high_base"
+            ],
+            "orientation": "upright"
+          }
+        ]
+      },
+      "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+      "original_success": true,
+      "checkpoint_sha256": "8a19327ec014a042a3f57b74e0b3b6de45707e09d5d00cb5a66e94cd37ccefb2",
+      "checkpoint_physics_time_s": 240.0500000004181,
+      "check": {
+        "stable": true,
+        "reasons": [],
+        "blocks": [
+          "green_cube",
+          "yellow_cube",
+          "red_prism",
+          "blue_cube",
+          "red_cube"
+        ],
+        "duration_s": 60.0,
+        "time": 300.8500000007084
+      }
+    }
+  ]
+}

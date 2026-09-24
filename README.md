@@ -11,12 +11,11 @@ This project adapts the three useful pieces of the ASPIRE workflow to the local
    seeds.
 3. A small skill library stores validated repair patterns for later candidates.
 
-The project goal is varied towers from the full block inventory. The first
-curriculum is task-defined upright single columns with different colors,
-shapes and 2–4 levels; bridges and pyramids follow later. The new
-`inventory_tower` task supports named, random and explicit bottom-to-top goals,
+The project goal is varied towers from the full block inventory. The historical
+`inventory_tower` curriculum covers upright single columns with different colors,
+shapes and 2–4 levels. That task supports named, random and explicit bottom-to-top goals,
 task-conditioned sampling, private whole-column evaluation and CPU control.
-The current CPU column policy passed **79/100 fresh frozen trials** with color
+The frozen CPU column policy passed **79/100 fresh frozen trials** with color
 permutations, random shape/identity goals and zero/two distractors. Two- and
 three-level tasks passed **73/80 (91.3%)**; four-level tasks passed **6/20**,
 so the overall 90% target remains unmet. See the [current results, CPU timings
@@ -24,6 +23,22 @@ and limits](docs/COLUMN_POLICY_V2.md), [visual geometry](docs/COLUMN_GEOMETRY.md
 and [evaluation protocol](docs/COLUMN_EVALUATION_PROTOCOL.md). The
 [first milestone and its 25/45 reserved result](docs/SINGLE_COLUMNS.md) remain
 available as historical evidence under a different matrix and sensor profile.
+
+## Low-rise structures with multiple supports
+
+Current work prioritizes spatial structure over extra height. The new
+`inventory_structure` task builds a two-foundation cube bridge (6 cm), a capped
+bridge (12 cm), and a five-object staircase (3/6/9 cm). Its CPU policy binds visual
+instances to a support graph, clears the complete working area, and reasons about
+loads shared across multiple supports. All targets remain upright; horizontal
+long-beam bridges still need a turning skill.
+
+It passed **29/30 fresh frozen trials (96.7%)** across these three recipes with
+color permutations and zero/two distractors. See the [low-rise structure report,
+full evaluation and actual replays](docs/LOW_STRUCTURES.md).
+The frozen single-column policies and their results above remain unchanged.
+
+![Actual low-rise structure experiments](docs/media/low_structures_gallery.png)
 
 ## Current object library and sampled scenes
 

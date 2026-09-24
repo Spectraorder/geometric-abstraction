@@ -1,0 +1,294 @@
+{
+  "scope": "Selected actual physics-state replays, including the sole frozen failure. External cameras are display-only. See complete 30-trial evidence separately.",
+  "records": [
+    {
+      "artifact_prefix": "structure_bridge_1201",
+      "trial": "cube_bridge_d2_colors/seed_1201",
+      "seed": 1201,
+      "goal": {
+        "kind": "support_graph",
+        "length_unit": {
+          "observed_cube": "left"
+        },
+        "axes": "world_xy",
+        "nodes": [
+          {
+            "key": "left",
+            "color": "green",
+            "shape": "cube",
+            "grid": [
+              -0.55,
+              0.0
+            ],
+            "supports": [],
+            "orientation": "upright"
+          },
+          {
+            "key": "right",
+            "color": "yellow",
+            "shape": "cube",
+            "grid": [
+              0.55,
+              0.0
+            ],
+            "supports": [],
+            "orientation": "upright"
+          },
+          {
+            "key": "span",
+            "color": "red",
+            "shape": "cube",
+            "grid": [
+              0.0,
+              0.0
+            ],
+            "supports": [
+              "left",
+              "right"
+            ],
+            "orientation": "upright"
+          }
+        ]
+      },
+      "success": true,
+      "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+      "video": {
+        "frames": 312,
+        "fps": 12,
+        "speed": 6.0,
+        "duration_seconds": 26.0,
+        "source": "saved actual physics states",
+        "success": true
+      }
+    },
+    {
+      "artifact_prefix": "structure_capped_1201",
+      "trial": "capped_bridge_d2_colors/seed_1201",
+      "seed": 1201,
+      "goal": {
+        "kind": "support_graph",
+        "length_unit": {
+          "observed_cube": "left"
+        },
+        "axes": "world_xy",
+        "nodes": [
+          {
+            "key": "left",
+            "color": "green",
+            "shape": "cube",
+            "grid": [
+              -0.55,
+              0.0
+            ],
+            "supports": [],
+            "orientation": "upright"
+          },
+          {
+            "key": "right",
+            "color": "blue",
+            "shape": "cube",
+            "grid": [
+              0.55,
+              0.0
+            ],
+            "supports": [],
+            "orientation": "upright"
+          },
+          {
+            "key": "span",
+            "color": "red",
+            "shape": "cube",
+            "grid": [
+              0.0,
+              0.0
+            ],
+            "supports": [
+              "left",
+              "right"
+            ],
+            "orientation": "upright"
+          },
+          {
+            "key": "cap",
+            "color": "yellow",
+            "shape": "cylinder",
+            "grid": [
+              0.0,
+              0.0
+            ],
+            "supports": [
+              "span"
+            ],
+            "orientation": "upright"
+          }
+        ]
+      },
+      "success": true,
+      "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+      "video": {
+        "frames": 378,
+        "fps": 12,
+        "speed": 6.0,
+        "duration_seconds": 31.5,
+        "source": "saved actual physics states",
+        "success": true
+      }
+    },
+    {
+      "artifact_prefix": "structure_staircase_1201",
+      "trial": "staircase_d2_colors/seed_1201",
+      "seed": 1201,
+      "goal": {
+        "kind": "support_graph",
+        "length_unit": {
+          "observed_cube": "low"
+        },
+        "axes": "world_xy",
+        "nodes": [
+          {
+            "key": "low",
+            "color": "green",
+            "shape": "cube",
+            "grid": [
+              -1.8,
+              0.0
+            ],
+            "supports": [],
+            "orientation": "upright"
+          },
+          {
+            "key": "middle_base",
+            "color": "yellow",
+            "shape": "cube",
+            "grid": [
+              0.0,
+              0.0
+            ],
+            "supports": [],
+            "orientation": "upright"
+          },
+          {
+            "key": "high_base",
+            "color": "red",
+            "shape": "prism",
+            "grid": [
+              1.8,
+              0.0
+            ],
+            "supports": [],
+            "orientation": "upright"
+          },
+          {
+            "key": "middle_top",
+            "color": "blue",
+            "shape": "cube",
+            "grid": [
+              0.0,
+              0.0
+            ],
+            "supports": [
+              "middle_base"
+            ],
+            "orientation": "upright"
+          },
+          {
+            "key": "high_top",
+            "color": "red",
+            "shape": "cube",
+            "grid": [
+              1.8,
+              0.0
+            ],
+            "supports": [
+              "high_base"
+            ],
+            "orientation": "upright"
+          }
+        ]
+      },
+      "success": true,
+      "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+      "video": {
+        "frames": 479,
+        "fps": 12,
+        "speed": 6.0,
+        "duration_seconds": 39.916666666666664,
+        "source": "saved actual physics states",
+        "success": true
+      }
+    },
+    {
+      "artifact_prefix": "structure_capped_failure_1205",
+      "trial": "capped_bridge_d2_colors/seed_1205",
+      "seed": 1205,
+      "goal": {
+        "kind": "support_graph",
+        "length_unit": {
+          "observed_cube": "left"
+        },
+        "axes": "world_xy",
+        "nodes": [
+          {
+            "key": "left",
+            "color": "yellow",
+            "shape": "cube",
+            "grid": [
+              -0.55,
+              0.0
+            ],
+            "supports": [],
+            "orientation": "upright"
+          },
+          {
+            "key": "right",
+            "color": "red",
+            "shape": "cube",
+            "grid": [
+              0.55,
+              0.0
+            ],
+            "supports": [],
+            "orientation": "upright"
+          },
+          {
+            "key": "span",
+            "color": "green",
+            "shape": "cube",
+            "grid": [
+              0.0,
+              0.0
+            ],
+            "supports": [
+              "left",
+              "right"
+            ],
+            "orientation": "upright"
+          },
+          {
+            "key": "cap",
+            "color": "blue",
+            "shape": "cylinder",
+            "grid": [
+              0.0,
+              0.0
+            ],
+            "supports": [
+              "span"
+            ],
+            "orientation": "upright"
+          }
+        ]
+      },
+      "success": false,
+      "candidate_sha256": "3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1",
+      "video": {
+        "frames": 251,
+        "fps": 12,
+        "speed": 6.0,
+        "duration_seconds": 20.916666666666668,
+        "source": "saved actual physics states",
+        "success": false
+      }
+    }
+  ]
+}
