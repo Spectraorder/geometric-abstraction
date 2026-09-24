@@ -3,6 +3,7 @@ import argparse
 import json
 from pathlib import Path
 import tempfile
+import textwrap
 import imageio.v2 as imageio
 import mujoco
 import numpy as np
@@ -12,9 +13,18 @@ from aspire_so100.rgbd import depth_preview
 
 
 def main():
- p=argparse.ArgumentParser();p.add_argument('--trial',type=Path,required=True);p.add_argument('--speed',type=float,default=2);p.add_argument('--fps',type=int,default=20);a=p.parse_args()
+ p=argparse.ArgumentParser();p.add_argument('--trial',type=Path,required=True);p.add_argument('--speed',type=float,default=2);p.add_argument('--fps',type=int,default=20)
+ p.add_argument('--end-hold',type=float,default=0.,help='Hold the exact final saved frame for this many video seconds')
+ p.add_argument('--failure-note',help='English offline annotation for a recorded failed trial')
+ a=p.parse_args()
+ if not np.isfinite(a.speed) or a.speed <= 0 or a.fps <= 0 or not np.isfinite(a.end_hold) or a.end_hold < 0:
+  p.error('Speed and FPS must be positive; end hold must be finite and nonnegative')
  result=json.loads((a.trial/'result.json').read_text());record=np.load(a.trial/'rollout.npz');states=record['states'];dt=float(record['timestep']);stype=int(record['state_type'])
+ if a.failure_note and result['success']:
+  p.error('A failure annotation requires a recorded failed result')
  calls=json.loads((a.trial/'api_calls.json').read_text())
+ notes=[call for call in calls if call['method']=='note']
+ final_note=notes[-1] if notes else None
  wrist_used=any(c['method']=='camera' and c['params'].get('view')=='wrist' for c in calls)
  with tempfile.TemporaryDirectory() as temp:
   env=recorded_env_for_result(result,Path(temp));env.model.vis.global_.offwidth=720;env.model.vis.global_.offheight=540
@@ -23,22 +33,31 @@ def main():
   try:
    env.get_overhead_rgbd();sensor=env._overhead_rgbd
    indices=np.clip(np.rint(np.arange(0,len(states)*dt,a.speed/a.fps)/dt).astype(int),0,len(states)-1)
+   # Include the exact final integration state even when speed sampling skips it.
+   if indices[-1] != len(states)-1:
+    indices=np.r_[indices,len(states)-1]
+   hold_frames=int(round(a.end_hold*a.fps))
    font=ImageFont.load_default(size=17);small=ImageFont.load_default(size=13)
    with imageio.get_writer(a.trial/'demo.mp4',fps=a.fps,codec='libx264',quality=7,pixelformat='yuv420p',macro_block_size=1,ffmpeg_params=['-movflags','+faststart']) as writer:
     for count,index in enumerate(indices):
      mujoco.mj_setState(env.model,env.data,states[index],stype);mujoco.mj_forward(env.model,env.data)
      renderer.update_scene(env.data,camera=camera)
-     frame=Image.new('RGB',(960,600),'#101722');frame.paste(Image.fromarray(renderer.render()),(0,60));draw=ImageDraw.Draw(frame)
+     frame=Image.new('RGB',(960,660 if a.failure_note else 600),'#101722');frame.paste(Image.fromarray(renderer.render()),(0,60));draw=ImageDraw.Draw(frame)
      rgbd=sensor.capture(env.data);sensor.renderer.update_scene(env.data,camera='robot/wrist_camera');wrist=sensor.renderer.render().copy()
      for y,label,pixels in [(60,'RGB-D: SIDE RGB',rgbd['rgb']),(240,'RGB-D: DEPTH',depth_preview(rgbd['depth_m'])),(420,'WRIST: POLICY RGB' if wrist_used else 'WRIST (DISPLAY ONLY)',wrist)]:
       frame.paste(Image.fromarray(pixels).resize((240,180)),(720,y));draw.rectangle((720,y,960,y+20),fill='#172633');draw.text((724,y+2),label,font=small,fill='white')
      draw.text((12,8),f'RGB-D {result.get("task", "tower").upper()} POLICY | {a.trial.parent.name} | seed {result["seed"]}',font=font,fill='white')
      end=env.data.time>=states[-1][0]-1.
      status=('PASS' if result['success'] else 'FAIL') if end else 'RUNNING'
-     draw.text((12,34),f'RGB-D + proprioception | {a.speed:g}x | t={env.data.time:.2f}s | {status}',font=font,fill='#6fe6b0')
+     draw.text((12,34),f'RGB-D + proprioception | {a.speed:g}x | t={env.data.time:.2f}s | {status}',font=font,fill='#ff9f8c' if status=='FAIL' else '#6fe6b0')
+     if a.failure_note:
+      draw.text((12,608),'OFFLINE FAILURE ANNOTATION',font=small,fill='#ffb199')
+      draw.multiline_text((12,629),textwrap.fill(a.failure_note,width=125),font=small,fill='white',spacing=2)
      writer.append_data(np.asarray(frame))
      if count in (0,len(indices)//2,len(indices)-1):frame.save(a.trial/f'video_frame_{count:04d}.png')
-   (a.trial/'video.json').write_text(json.dumps({'frames':len(indices),'fps':a.fps,'speed':a.speed,'duration_seconds':len(indices)/a.fps,'source':'saved actual physics states','success':result['success']},indent=2)+'\n')
+    for _ in range(hold_frames):
+     writer.append_data(np.asarray(frame))
+   (a.trial/'video.json').write_text(json.dumps({'frames':len(indices)+hold_frames,'source_frames':len(indices),'fps':a.fps,'speed':a.speed,'end_hold_seconds':hold_frames/a.fps,'duration_seconds':(len(indices)+hold_frames)/a.fps,'source':'saved actual physics states','success':result['success'],'failure_annotation':a.failure_note,'final_policy_note':final_note},indent=2)+'\n')
   finally:renderer.close();env.close()
 
 if __name__=='__main__':main()

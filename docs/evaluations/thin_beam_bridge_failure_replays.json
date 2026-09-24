@@ -1,0 +1,469 @@
+{
+  "schema_version": 1,
+  "selection": "Five deliberately selected failure types from the final frozen 20-trial matrix. Illustrative replays, not a new evaluation or a frequency estimate.",
+  "source": "Saved actual MuJoCo integration states. No policy execution, scene resampling or change to recorded outcomes.",
+  "presentation": "RGB-D and wrist views are re-rendered from the same saved states, not additional policy observations. English annotations are offline descriptions. Clips include the exact final state plus a two-second display hold.",
+  "renderer_sha256": "acb6915d85eef9c3899eae4ec6d3b0863effcff077290fc5dba4036f9742ae85",
+  "records": [
+    {
+      "case": "identification",
+      "seed": 1609,
+      "distractors": 0,
+      "trial": "outputs/beam_bridge_01/heldout_v2/thin_beam_bridge_d0_colors/seed_1609",
+      "candidate_sha256": "80bfb487e1b35ec08ceb83e06c298dc40354eca3df17fbf1ce2ff1aad50e9504",
+      "success": false,
+      "annotation": "Initial perception cannot uniquely identify the flat red beam; assembly does not begin.",
+      "video": "docs/media/thin_beam_failure_identification_1609_d0.mp4",
+      "video_sha256": "59eea3c18df9ba7bed917004662e7a41bada11498a91e57464aa0f7ac286e300",
+      "bytes": 188965,
+      "source_rollout_sha256": "f5f2a0ce71292ba7ebbe882f714df62ab984dee1cfc41b7bfa9a284f280b098d",
+      "source_result_sha256": "952680ef0f080c5c5bb6a73e81f49eeb2a409e8d7a9362546fc859f44f84d705",
+      "render": {
+        "frames": 72,
+        "source_frames": 48,
+        "fps": 12,
+        "speed": 2.0,
+        "end_hold_seconds": 2.0,
+        "duration_seconds": 6.0,
+        "source": "saved actual physics states",
+        "success": false,
+        "failure_annotation": "Initial perception cannot uniquely identify the flat red beam; assembly does not begin.",
+        "final_policy_note": {
+          "time": 1.6500000000000012,
+          "method": "note",
+          "params": {
+            "text": "No unique visually supported flat red thin prism"
+          }
+        }
+      },
+      "render_command": [
+        ".venv/bin/python",
+        "scripts/render_vision_trial.py",
+        "--trial",
+        "outputs/beam_bridge_01/heldout_v2/thin_beam_bridge_d0_colors/seed_1609",
+        "--speed",
+        "2.0",
+        "--fps",
+        "12",
+        "--end-hold",
+        "2",
+        "--failure-note",
+        "Initial perception cannot uniquely identify the flat red beam; assembly does not begin."
+      ],
+      "final_notes": [
+        {
+          "time_s": 1.6500000000000012,
+          "text": "No unique visually supported flat red thin prism"
+        }
+      ],
+      "verification": {
+        "codec": "h264",
+        "dimensions": [
+          960,
+          660
+        ],
+        "decoded_frames": 72,
+        "duration_seconds": 6.0,
+        "final_hold_mean_pixel_difference": 0.0018476430976430975,
+        "final_fail_badge_present": true
+      }
+    },
+    {
+      "case": "beam_pickup",
+      "seed": 1605,
+      "distractors": 0,
+      "trial": "outputs/beam_bridge_01/heldout_v2/thin_beam_bridge_d0_colors/seed_1605",
+      "candidate_sha256": "80bfb487e1b35ec08ceb83e06c298dc40354eca3df17fbf1ce2ff1aad50e9504",
+      "success": false,
+      "annotation": "After two foundations, the picked-up beam conflicts with the learned visual geometry; the policy stops.",
+      "video": "docs/media/thin_beam_failure_beam_pickup_1605_d0.mp4",
+      "video_sha256": "e2e8dcd797ade3ae5685f285636ad59dc3cd6186b22df5966dd19330b45cff2e",
+      "bytes": 1069420,
+      "source_rollout_sha256": "167b39203d9948a2bd02709827e17de8bb68c18754e114926651caa87d901d47",
+      "source_result_sha256": "961fbeff278026502fda1e8d6514cb59192672cb8554313051a9a72dc052a3a1",
+      "render": {
+        "frames": 264,
+        "source_frames": 240,
+        "fps": 12,
+        "speed": 4.0,
+        "end_hold_seconds": 2.0,
+        "duration_seconds": 22.0,
+        "source": "saved actual physics states",
+        "success": false,
+        "failure_annotation": "After two foundations, the picked-up beam conflicts with the learned visual geometry; the policy stops.",
+        "final_policy_note": {
+          "time": 73.40000000001034,
+          "method": "note",
+          "params": {
+            "text": "Visible cuboid extent contradicts learned dimensions"
+          }
+        }
+      },
+      "render_command": [
+        ".venv/bin/python",
+        "scripts/render_vision_trial.py",
+        "--trial",
+        "outputs/beam_bridge_01/heldout_v2/thin_beam_bridge_d0_colors/seed_1605",
+        "--speed",
+        "4.0",
+        "--fps",
+        "12",
+        "--end-hold",
+        "2",
+        "--failure-note",
+        "After two foundations, the picked-up beam conflicts with the learned visual geometry; the policy stops."
+      ],
+      "final_notes": [
+        {
+          "time_s": 50.600000000015875,
+          "text": "green_3 alignment to aim=0.0002 gap=0.0116"
+        },
+        {
+          "time_s": 52.20000000001783,
+          "text": "green_3 release offset=[-0.0001, 0.0003] gap=0.0036"
+        },
+        {
+          "time_s": 52.850000000018625,
+          "text": "green_3 after opening displacement=[-0.0, 0.0003, -0.0038]"
+        },
+        {
+          "time_s": 59.150000000026324,
+          "text": "green_3 after withdrawal center=[0.0099, -0.1978, 0.4149]"
+        },
+        {
+          "time_s": 63.250000000031335,
+          "text": "NODE confirmed right 2/4"
+        },
+        {
+          "time_s": 64.7500000000305,
+          "text": "blue_2 elevated grasp offset=0.0134"
+        },
+        {
+          "time_s": 64.7500000000305,
+          "text": "blue_2 placement bias=[0.0, 0.0]"
+        },
+        {
+          "time_s": 68.0500000000228,
+          "text": "blue_2 visible finger reach=0.0177; geometry grasp offset=0.0251"
+        },
+        {
+          "time_s": 68.0500000000228,
+          "text": "blue_2 applied grasp offset=0.0251"
+        },
+        {
+          "time_s": 73.40000000001034,
+          "text": "Visible cuboid extent contradicts learned dimensions"
+        }
+      ],
+      "verification": {
+        "codec": "h264",
+        "dimensions": [
+          960,
+          660
+        ],
+        "decoded_frames": 264,
+        "duration_seconds": 22.0,
+        "final_hold_mean_pixel_difference": 0.21249736952861953,
+        "final_fail_badge_present": true
+      }
+    },
+    {
+      "case": "missing_cylinder",
+      "seed": 1607,
+      "distractors": 0,
+      "trial": "outputs/beam_bridge_01/heldout_v2/thin_beam_bridge_d0_colors/seed_1607",
+      "candidate_sha256": "80bfb487e1b35ec08ceb83e06c298dc40354eca3df17fbf1ce2ff1aad50e9504",
+      "success": false,
+      "annotation": "The two cubes and beam are placed, but the cylinder source cannot be recovered visually.",
+      "video": "docs/media/thin_beam_failure_missing_cylinder_1607_d0.mp4",
+      "video_sha256": "d0ebfd26f9a2b4fba43ad83fac791728199b94ec98095fce864aa590c3b0c82d",
+      "bytes": 1396793,
+      "source_rollout_sha256": "bf707ae3bb0b3318ecb73cd7800e46d6deb21568d3a2ee5f43e27f0cf51720c5",
+      "source_result_sha256": "066843a12d7e4724eb9d2c0090917017402d24234a7bacc48601b3bac1e903e0",
+      "render": {
+        "frames": 336,
+        "source_frames": 312,
+        "fps": 12,
+        "speed": 4.0,
+        "end_hold_seconds": 2.0,
+        "duration_seconds": 28.0,
+        "source": "saved actual physics states",
+        "success": false,
+        "failure_annotation": "The two cubes and beam are placed, but the cylinder source cannot be recovered visually.",
+        "final_policy_note": {
+          "time": 97.19999999995487,
+          "method": "note",
+          "params": {
+            "text": "Selected instance is occluded: green_3"
+          }
+        }
+      },
+      "render_command": [
+        ".venv/bin/python",
+        "scripts/render_vision_trial.py",
+        "--trial",
+        "outputs/beam_bridge_01/heldout_v2/thin_beam_bridge_d0_colors/seed_1607",
+        "--speed",
+        "4.0",
+        "--fps",
+        "12",
+        "--end-hold",
+        "2",
+        "--failure-note",
+        "The two cubes and beam are placed, but the cylinder source cannot be recovered visually."
+      ],
+      "final_notes": [
+        {
+          "time_s": 73.40000000001034,
+          "text": "yellow_1 wrist grasp corroboration=True"
+        },
+        {
+          "time_s": 73.40000000001034,
+          "text": "yellow_1 payload tilt=[-0.0443, 0.1417, 0.9889]"
+        },
+        {
+          "time_s": 78.6499999999981,
+          "text": "yellow_1 alignment to aim=0.0102 gap=0.0327"
+        },
+        {
+          "time_s": 80.39999999999402,
+          "text": "yellow_1 alignment to aim=0.0 gap=0.0233"
+        },
+        {
+          "time_s": 81.34999999999181,
+          "text": "yellow_1 alignment to aim=0.0002 gap=0.0115"
+        },
+        {
+          "time_s": 82.94999999998808,
+          "text": "yellow_1 release offset=[0.0, -0.0004] gap=0.0035"
+        },
+        {
+          "time_s": 83.59999999998657,
+          "text": "yellow_1 after opening displacement=[-0.0, -0.0003, -0.0049]"
+        },
+        {
+          "time_s": 89.89999999997188,
+          "text": "yellow_1 after withdrawal center=[0.0108, -0.1993, 0.4373]"
+        },
+        {
+          "time_s": 93.99999999996233,
+          "text": "NODE confirmed beam 3/4"
+        },
+        {
+          "time_s": 97.19999999995487,
+          "text": "Selected instance is occluded: green_3"
+        }
+      ],
+      "verification": {
+        "codec": "h264",
+        "dimensions": [
+          960,
+          660
+        ],
+        "decoded_frames": 336,
+        "duration_seconds": 28.0,
+        "final_hold_mean_pixel_difference": 0.0019281355218855219,
+        "final_fail_badge_present": true
+      }
+    },
+    {
+      "case": "blocked_foundation",
+      "seed": 1605,
+      "distractors": 2,
+      "trial": "outputs/beam_bridge_01/heldout_v2/thin_beam_bridge_d2_colors/seed_1605",
+      "candidate_sha256": "80bfb487e1b35ec08ceb83e06c298dc40354eca3df17fbf1ce2ff1aad50e9504",
+      "success": false,
+      "annotation": "After the first cube is placed, the observed second-foundation workspace is blocked.",
+      "video": "docs/media/thin_beam_failure_blocked_foundation_1605_d2.mp4",
+      "video_sha256": "09a4e2d3674bee26c537a93f8d5414783621db27bfcceec040dc143582fcf233",
+      "bytes": 521809,
+      "source_rollout_sha256": "ddf9cd5b61668fb9ad018bf1bf1114eeaf2edc89b53256f5e157d094fd63aa8a",
+      "source_result_sha256": "d350433760c6c0c9d4efb70b0edcc53992e4e792c49806395632feaab8483cce",
+      "render": {
+        "frames": 144,
+        "source_frames": 120,
+        "fps": 12,
+        "speed": 4.0,
+        "end_hold_seconds": 2.0,
+        "duration_seconds": 12.0,
+        "source": "saved actual physics states",
+        "success": false,
+        "failure_annotation": "After the first cube is placed, the observed second-foundation workspace is blocked.",
+        "final_policy_note": {
+          "time": 33.49999999999498,
+          "method": "note",
+          "params": {
+            "text": "Foundation workspace is obstructed"
+          }
+        }
+      },
+      "render_command": [
+        ".venv/bin/python",
+        "scripts/render_vision_trial.py",
+        "--trial",
+        "outputs/beam_bridge_01/heldout_v2/thin_beam_bridge_d2_colors/seed_1605",
+        "--speed",
+        "4.0",
+        "--fps",
+        "12",
+        "--end-hold",
+        "2",
+        "--failure-note",
+        "After the first cube is placed, the observed second-foundation workspace is blocked."
+      ],
+      "final_notes": [
+        {
+          "time_s": 12.900000000000977,
+          "text": "red_0 wrist grasp corroboration=True"
+        },
+        {
+          "time_s": 12.900000000000977,
+          "text": "red_0 payload tilt=[0.002, 0.2171, 0.9761]"
+        },
+        {
+          "time_s": 18.15000000000082,
+          "text": "red_0 alignment to aim=0.0085 gap=0.0344"
+        },
+        {
+          "time_s": 19.89999999999985,
+          "text": "red_0 alignment to aim=0.0002 gap=0.0233"
+        },
+        {
+          "time_s": 20.849999999999323,
+          "text": "red_0 alignment to aim=0.0001 gap=0.0116"
+        },
+        {
+          "time_s": 22.449999999998436,
+          "text": "red_0 release offset=[0.0001, -0.0001] gap=0.0036"
+        },
+        {
+          "time_s": 23.099999999998076,
+          "text": "red_0 after opening displacement=[0.0001, -0.0001, -0.0038]"
+        },
+        {
+          "time_s": 29.399999999994584,
+          "text": "red_0 after withdrawal center=[-0.0498, -0.1984, 0.4149]"
+        },
+        {
+          "time_s": 33.49999999999498,
+          "text": "NODE confirmed left 1/4"
+        },
+        {
+          "time_s": 33.49999999999498,
+          "text": "Foundation workspace is obstructed"
+        }
+      ],
+      "verification": {
+        "codec": "h264",
+        "dimensions": [
+          960,
+          660
+        ],
+        "decoded_frames": 144,
+        "duration_seconds": 12.0,
+        "final_hold_mean_pixel_difference": 0.0014567550505050506,
+        "final_fail_badge_present": true
+      }
+    },
+    {
+      "case": "placement_rejected",
+      "seed": 1602,
+      "distractors": 2,
+      "trial": "outputs/beam_bridge_01/heldout_v2/thin_beam_bridge_d2_colors/seed_1602",
+      "candidate_sha256": "80bfb487e1b35ec08ceb83e06c298dc40354eca3df17fbf1ce2ff1aad50e9504",
+      "success": false,
+      "annotation": "Beam staging is rejected and the payload is returned to its source; retries do not complete the task.",
+      "video": "docs/media/thin_beam_failure_placement_rejected_1602_d2.mp4",
+      "video_sha256": "52e29b8397f30390788aa26c7a5fce1ee32ab70663a0a75d503683f7cf470a59",
+      "bytes": 938854,
+      "source_rollout_sha256": "28e29d9fefdb4ec0a44fac635b051d12c151d5deff7f785a845c3225a164e96e",
+      "source_result_sha256": "5e13af3288ee2ae11932433f5cad4bf09287657fe7c68c596e6a457f289ca8de",
+      "render": {
+        "frames": 232,
+        "source_frames": 208,
+        "fps": 12,
+        "speed": 4.0,
+        "end_hold_seconds": 2.0,
+        "duration_seconds": 19.333333333333332,
+        "source": "saved actual physics states",
+        "success": false,
+        "failure_annotation": "Beam staging is rejected and the payload is returned to its source; retries do not complete the task.",
+        "final_policy_note": {
+          "time": 62.60000000003054,
+          "method": "note",
+          "params": {
+            "text": "green_5 retry after visually unconfirmed grasp or placement."
+          }
+        }
+      },
+      "render_command": [
+        ".venv/bin/python",
+        "scripts/render_vision_trial.py",
+        "--trial",
+        "outputs/beam_bridge_01/heldout_v2/thin_beam_bridge_d2_colors/seed_1602",
+        "--speed",
+        "4.0",
+        "--fps",
+        "12",
+        "--end-hold",
+        "2",
+        "--failure-note",
+        "Beam staging is rejected and the payload is returned to its source; retries do not complete the task."
+      ],
+      "final_notes": [
+        {
+          "time_s": 42.55000000000604,
+          "text": "green_5 wrist grasp corroboration=True"
+        },
+        {
+          "time_s": 42.55000000000604,
+          "text": "green_5 payload tilt=[-0.0003, -0.02, 0.9998]"
+        },
+        {
+          "time_s": 47.80000000001245,
+          "text": "green_5 alignment to aim=0.0012 gap=0.0174"
+        },
+        {
+          "time_s": 50.200000000015386,
+          "text": "green_5 alignment to aim=0.0004 gap=0.0238"
+        },
+        {
+          "time_s": 50.35000000001557,
+          "text": "green_5 alignment to aim=0.0005 gap=0.0239"
+        },
+        {
+          "time_s": 51.950000000017525,
+          "text": "green_5 alignment to aim=0.0003 gap=0.0109"
+        },
+        {
+          "time_s": 52.10000000001771,
+          "text": "green_5 alignment to aim=0.0003 gap=0.0109"
+        },
+        {
+          "time_s": 53.700000000019664,
+          "text": "green_5 release offset=[0.0, 0.0002] gap=0.0034"
+        },
+        {
+          "time_s": 62.60000000003054,
+          "text": "Placement uncertain; returned payload to source."
+        },
+        {
+          "time_s": 62.60000000003054,
+          "text": "green_5 retry after visually unconfirmed grasp or placement."
+        }
+      ],
+      "verification": {
+        "codec": "h264",
+        "dimensions": [
+          960,
+          660
+        ],
+        "decoded_frames": 232,
+        "duration_seconds": 19.333333,
+        "final_hold_mean_pixel_difference": 0.0017429503367003367,
+        "final_fail_badge_present": true
+      }
+    }
+  ],
+  "verification": "All five MP4 files probed and decoded. Frame counts match manifests; exact final-state holds and red failure status verified."
+}

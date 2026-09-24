@@ -101,6 +101,29 @@ candidate, seed 1601, no distractors, played at 6×. Frames come from saved phys
 states. The external presentation camera is for display only and does not feed
 the policy. Both pictured trials passed the original five-second check.
 
+### Recorded failure videos
+
+These five clips are selected from the **same final frozen 20-trial evaluation**.
+They replay archived physics states without rerunning or modifying the policy.
+Each includes side RGB-D and wrist views, an English offline annotation, and a
+red final **FAIL** label held for two seconds. Sensor panels are re-rendered
+from saved states; they are not extra observations supplied to the actor.
+The notes describe recorded stopping conditions, not proven root causes.
+
+| Failure example | Trial | Actual replay |
+| --- | --- | --- |
+| No unique visual identification of the flat beam; assembly does not start | Seed 1609, no distractors | [Identification stop, 2×](media/thin_beam_failure_identification_1609_d0.mp4) |
+| Geometry becomes inconsistent after picking up the beam, following both foundations | Seed 1605, no distractors | [Beam pickup, 4×](media/thin_beam_failure_beam_pickup_1605_d0.mp4) |
+| Both foundations and beam are placed, but the cylinder source is no longer visually recoverable | Seed 1607, no distractors | [Cylinder unavailable, 4×](media/thin_beam_failure_missing_cylinder_1607_d0.mp4) |
+| The second foundation workspace is blocked after placing the first cube | Seed 1605, two distractors | [Blocked foundation, 4×](media/thin_beam_failure_blocked_foundation_1605_d2.mp4) |
+| Beam staging is rejected, the payload is returned, and retries do not complete the task | Seed 1602, two distractors | [Rejected placement, 4×](media/thin_beam_failure_placement_rejected_1602_d2.mp4) |
+
+The [failure replay manifest](evaluations/thin_beam_bridge_failure_replays.json)
+records candidate, source rollout, result and video hashes, exact render commands,
+playback speeds and final policy notes. Selection is illustrative; use the full
+20-trial report for success rates or failure frequencies. These are failures of
+the original five-second task, separate from the longer-duration check below.
+
 **Longer stability is not yet reliable:** in two selected 60-second passive
 continuations, the no-distractor example passed, while the two-distractor example
 exceeded the 3 mm cylinder drift limit. This is **1/2 selected examples**, not a
@@ -114,7 +137,8 @@ Portable evidence:
 - [Development history, including a rejected reset regression](evaluations/thin_beam_bridge_development.json)
 - [CPU profile, blackout, regressions and test counts](evaluations/thin_beam_bridge_runtime.json)
 - [Both 60-second continuation checks](evaluations/thin_beam_bridge_durability.json)
-- [Video selection and provenance](evaluations/thin_beam_bridge_replays.json)
+- [Success video selection and provenance](evaluations/thin_beam_bridge_replays.json)
+- [Five failure videos and their provenance](evaluations/thin_beam_bridge_failure_replays.json)
 
 Final candidate SHA-256:
 

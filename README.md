@@ -49,7 +49,9 @@ is 10.5 cm. The beam starts flat on the table and is physically picked and place
 The policy uses visual dimensions and runs on CPU. This new task passed
 **10/20 fresh reserved trials (50%)**; thin-beam grasping and longer stability
 still need improvement. See the [task, capability
-boundary, evaluation, and replay](docs/THIN_BEAM_BRIDGE.md).
+boundary, evaluation, and replay](docs/THIN_BEAM_BRIDGE.md). The report also links
+[five recorded failure cases](docs/THIN_BEAM_BRIDGE.md#recorded-failure-videos),
+covering perception, pickup, missing cylinder, obstructed placement and retries.
 
 ## Current object library and sampled scenes
 
