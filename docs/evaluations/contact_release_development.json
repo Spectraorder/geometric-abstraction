@@ -1,0 +1,1236 @@
+{
+  "schema_version": 1,
+  "split": "Adaptive development experiments; no held-out claim.",
+  "trial_count": 21,
+  "new_physical_trials": 12,
+  "existing_baseline_trials": 9,
+  "runtime_boundary": "CPU policy; RGB-D, wrist RGB, calibration, robot proprioception/IK, and public task goals only.",
+  "physics_and_evaluator": "Unchanged scenes, simulator physics, and success checks.",
+  "sensor": {
+    "depth_sampling": "pixel_center",
+    "offscreen_samples": 0
+  },
+  "limitations": "Variant matrices differ and seeds repeat. Do not pool these trials into a generalization success rate. No tighter-clearance or staged-opening variant was promoted based on this experiment.",
+  "variants": [
+    {
+      "name": "baseline_v16",
+      "change": "Existing 3 mm target clearance, [-5,+5] mm final gap gate, direct 1.4 rad opening over 0.35 s.",
+      "candidate_sha256": "ad785a09b4aaedaaf7027471ef04fb0adaba408adc6d963e113d04bcd934d584",
+      "trial_count": 9,
+      "successes": 4,
+      "trials": [
+        {
+          "case": "random_three_levels",
+          "seed": 901,
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "blue",
+                "shape": "prism"
+              },
+              {
+                "color": "blue",
+                "shape": "cylinder"
+              },
+              {
+                "color": "yellow",
+                "shape": "cylinder"
+              }
+            ]
+          },
+          "order": [
+            "blue_prism",
+            "blue_cylinder",
+            "yellow_cylinder"
+          ],
+          "candidate_sha256": "ad785a09b4aaedaaf7027471ef04fb0adaba408adc6d963e113d04bcd934d584",
+          "success": true,
+          "metrics": {
+            "success": true,
+            "score": 1.0,
+            "placed_blocks": 2,
+            "required_placements": 2,
+            "structure_stable": true,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "yellow_0 alignment to aim=0.0013 gap=0.0102",
+            "yellow_0 alignment to aim=0.0002 gap=0.0109",
+            "yellow_0 release offset=[0.0004, 0.0021] gap=0.0023",
+            "yellow_0 after opening displacement=[-0.001, -0.0119, -0.0062]",
+            "yellow_0 after withdrawal center=[-0.0225, -0.2544, 0.5493]",
+            "LEVEL confirmed 3/3 id=yellow_0",
+            "Column released; all levels visually placed in task order"
+          ],
+          "release_notes": [
+            "blue_2 release offset=[0.0001, 0.0] gap=0.0036",
+            "blue_2 after opening displacement=[0.0001, -0.0014, -0.0043]",
+            "blue_1 release offset=[0.0001, 0.0002] gap=0.003",
+            "blue_1 after opening displacement=[0.0022, -0.0031, -0.0048]",
+            "yellow_0 release offset=[0.0004, 0.0021] gap=0.0023",
+            "yellow_0 after opening displacement=[-0.001, -0.0119, -0.0062]"
+          ]
+        },
+        {
+          "case": "random_three_levels",
+          "seed": 902,
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "blue",
+                "shape": "cylinder"
+              },
+              {
+                "color": "red",
+                "shape": "cylinder"
+              },
+              {
+                "color": "green",
+                "shape": "thin_prism"
+              }
+            ]
+          },
+          "order": [
+            "blue_cylinder",
+            "red_cylinder",
+            "green_thin_prism"
+          ],
+          "candidate_sha256": "ad785a09b4aaedaaf7027471ef04fb0adaba408adc6d963e113d04bcd934d584",
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.5,
+            "placed_blocks": 1,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "green_2 alignment to aim=0.0025 gap=0.0245",
+            "green_2 alignment to aim=0.0015 gap=0.0103",
+            "green_2 alignment to aim=0.0007 gap=0.0119",
+            "green_2 release offset=[-0.0007, 0.0015] gap=0.004",
+            "green_2 obscured after opening.",
+            "green_2 obscured after withdrawal.",
+            "Selected instance is occluded: green_2"
+          ],
+          "release_notes": [
+            "blue_1 release offset=[0.0002, -0.0] gap=0.0036",
+            "blue_1 after opening displacement=[0.0028, -0.0012, -0.005]",
+            "red_0 release offset=[0.0004, 0.0001] gap=0.003",
+            "red_0 after opening displacement=[0.0007, -0.0028, -0.0045]",
+            "green_2 release offset=[-0.0007, 0.0015] gap=0.004"
+          ]
+        },
+        {
+          "case": "random_three_levels",
+          "seed": 903,
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "green",
+                "shape": "cube"
+              },
+              {
+                "color": "red",
+                "shape": "prism"
+              },
+              {
+                "color": "green",
+                "shape": "thin_prism"
+              }
+            ]
+          },
+          "order": [
+            "green_cube",
+            "red_prism",
+            "green_thin_prism"
+          ],
+          "candidate_sha256": "ad785a09b4aaedaaf7027471ef04fb0adaba408adc6d963e113d04bcd934d584",
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.0,
+            "placed_blocks": 0,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "green_1 alignment to aim=0.0018 gap=0.0119",
+            "green_1 alignment to aim=0.0006 gap=0.0107",
+            "green_1 alignment to aim=0.0029 gap=0.0093",
+            "green_1 release offset=[0.0103, 0.0155] gap=0.0063",
+            "Placement uncertain; returned payload to source.",
+            "green_1 retry after visually unconfirmed grasp or placement.",
+            "Selected instance is occluded: green_1"
+          ],
+          "release_notes": [
+            "red_0 release offset=[0.0, 0.0003] gap=0.0038",
+            "red_0 after opening displacement=[-0.0002, -0.0009, -0.0045]",
+            "green_2 release offset=[0.0002, 0.0] gap=0.0036",
+            "green_2 after opening displacement=[0.0, 0.0002, -0.0038]",
+            "red_0 release offset=[-0.0008, -0.0007] gap=0.0025",
+            "red_0 after opening displacement=[-0.0036, -0.0008, -0.0037]",
+            "green_1 release offset=[0.0103, 0.0155] gap=0.0063"
+          ]
+        },
+        {
+          "case": "random_three_levels",
+          "seed": 904,
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "green",
+                "shape": "cylinder"
+              },
+              {
+                "color": "yellow",
+                "shape": "cube"
+              },
+              {
+                "color": "yellow",
+                "shape": "thin_prism"
+              }
+            ]
+          },
+          "order": [
+            "green_cylinder",
+            "yellow_cube",
+            "yellow_thin_prism"
+          ],
+          "candidate_sha256": "ad785a09b4aaedaaf7027471ef04fb0adaba408adc6d963e113d04bcd934d584",
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.0,
+            "placed_blocks": 0,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "yellow_0 alignment to aim=0.0011 gap=0.0127",
+            "yellow_0 alignment to aim=0.0188 gap=0.0112",
+            "yellow_0 alignment to aim=0.0036 gap=0.0106",
+            "yellow_0 release offset=[0.0078, 0.0161] gap=0.0082",
+            "Placement uncertain; returned payload to source.",
+            "yellow_0 retry after visually unconfirmed grasp or placement.",
+            "Selected instance is occluded: yellow_0"
+          ],
+          "release_notes": [
+            "green_2 release offset=[0.0002, -0.0] gap=0.0036",
+            "green_2 after opening displacement=[-0.0, -0.0003, -0.0038]",
+            "yellow_1 release offset=[0.0002, 0.0009] gap=0.0045",
+            "yellow_1 after opening displacement=[-0.0002, -0.0001, -0.0049]",
+            "yellow_0 release offset=[0.0078, 0.0161] gap=0.0082"
+          ]
+        },
+        {
+          "case": "random_three_levels",
+          "seed": 905,
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "blue",
+                "shape": "cube"
+              },
+              {
+                "color": "green",
+                "shape": "cylinder"
+              },
+              {
+                "color": "blue",
+                "shape": "thin_prism"
+              }
+            ]
+          },
+          "order": [
+            "blue_cube",
+            "green_cylinder",
+            "blue_thin_prism"
+          ],
+          "candidate_sha256": "ad785a09b4aaedaaf7027471ef04fb0adaba408adc6d963e113d04bcd934d584",
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.0,
+            "placed_blocks": 0,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "blue_0 alignment to aim=0.0024 gap=0.0105",
+            "blue_0 alignment to aim=0.0035 gap=0.011",
+            "blue_0 alignment to aim=0.0009 gap=0.0112",
+            "blue_0 release offset=[-0.002, -0.0002] gap=0.0102",
+            "Placement uncertain; returned payload to source.",
+            "blue_0 retry after visually unconfirmed grasp or placement.",
+            "Selected instance is occluded: blue_0"
+          ],
+          "release_notes": [
+            "blue_1 release offset=[0.0002, 0.0003] gap=0.0036",
+            "blue_1 after opening displacement=[0.0001, -0.0, -0.0039]",
+            "green_2 release offset=[0.0001, 0.0004] gap=0.0024",
+            "green_2 after opening displacement=[-0.0008, -0.0003, -0.0035]",
+            "blue_0 release offset=[-0.002, -0.0002] gap=0.0102"
+          ]
+        },
+        {
+          "case": "random_three_levels",
+          "seed": 906,
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "blue",
+                "shape": "prism"
+              },
+              {
+                "color": "green",
+                "shape": "cylinder"
+              },
+              {
+                "color": "green",
+                "shape": "cube"
+              }
+            ]
+          },
+          "order": [
+            "blue_prism",
+            "green_cylinder",
+            "green_cube"
+          ],
+          "candidate_sha256": "ad785a09b4aaedaaf7027471ef04fb0adaba408adc6d963e113d04bcd934d584",
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.0,
+            "placed_blocks": 0,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "INSTANCE id=green_2 color=green shape=cylinder center=[0.1044, -0.367, 0.43] dimensions=[0.0269, 0.0274, 0.0599]",
+            "COLUMN bottom_to_top=['blue_0', 'green_2', 'green_1']",
+            "blue_0 measured center=[0.0958, -0.2809, 0.43] dimensions=[0.0283, 0.0293, 0.0598]",
+            "green_2 measured center=[0.1027, -0.3656, 0.43] dimensions=[0.0304, 0.0304, 0.0599]",
+            "green_1 measured center=[-0.0028, -0.2035, 0.4149] dimensions=[0.0299, 0.0299, 0.0299]",
+            "Visual release gate: bottom gap between -5 and +5 mm.",
+            "No worksite with at most two movable blockers; stopping before stacking."
+          ],
+          "release_notes": []
+        },
+        {
+          "case": "cube_quad_permuted_colors",
+          "seed": 907,
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "red",
+                "shape": "cube"
+              },
+              {
+                "color": "green",
+                "shape": "cube"
+              },
+              {
+                "color": "blue",
+                "shape": "cube"
+              },
+              {
+                "color": "yellow",
+                "shape": "cube"
+              }
+            ]
+          },
+          "order": [
+            "red_cube",
+            "green_cube",
+            "blue_cube",
+            "yellow_cube"
+          ],
+          "candidate_sha256": "ad785a09b4aaedaaf7027471ef04fb0adaba408adc6d963e113d04bcd934d584",
+          "success": true,
+          "metrics": {
+            "success": true,
+            "score": 1.0,
+            "placed_blocks": 3,
+            "required_placements": 3,
+            "structure_stable": true,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "BALANCE centers=[[-0.0201, -0.2379], [-0.0201, -0.2383], [-0.0202, -0.2382]] target=[-0.0201, -0.237]",
+            "yellow_1 alignment to aim=0.0009 gap=0.0109",
+            "yellow_1 release offset=[0.0002, 0.0016] gap=0.004",
+            "yellow_1 after opening displacement=[-0.0002, -0.0016, -0.0068]",
+            "yellow_1 after withdrawal center=[-0.0198, -0.2368, 0.5036]",
+            "LEVEL confirmed 4/4 id=yellow_1",
+            "Column released; all levels visually placed in task order"
+          ],
+          "release_notes": [
+            "blue_2 release offset=[-0.0001, -0.0] gap=0.0036",
+            "blue_2 after opening displacement=[-0.0001, -0.0001, -0.0039]",
+            "red_0 release offset=[-0.0001, 0.0001] gap=0.0036",
+            "red_0 after opening displacement=[0.0, 0.0002, -0.0038]",
+            "green_3 release offset=[0.0001, -0.0002] gap=0.0034",
+            "green_3 after opening displacement=[0.001, 0.0001, -0.0048]",
+            "blue_2 release offset=[-0.0001, 0.001] gap=0.003",
+            "blue_2 after opening displacement=[-0.0, 0.0001, -0.0038]",
+            "yellow_1 release offset=[0.0002, 0.0016] gap=0.004",
+            "yellow_1 after opening displacement=[-0.0002, -0.0016, -0.0068]"
+          ]
+        },
+        {
+          "case": "cube_quad_permuted_colors",
+          "seed": 908,
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "blue",
+                "shape": "cube"
+              },
+              {
+                "color": "green",
+                "shape": "cube"
+              },
+              {
+                "color": "red",
+                "shape": "cube"
+              },
+              {
+                "color": "yellow",
+                "shape": "cube"
+              }
+            ]
+          },
+          "order": [
+            "blue_cube",
+            "green_cube",
+            "red_cube",
+            "yellow_cube"
+          ],
+          "candidate_sha256": "ad785a09b4aaedaaf7027471ef04fb0adaba408adc6d963e113d04bcd934d584",
+          "success": true,
+          "metrics": {
+            "success": true,
+            "score": 1.0,
+            "placed_blocks": 3,
+            "required_placements": 3,
+            "structure_stable": true,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "BALANCE centers=[[-0.0204, -0.2377], [-0.02, -0.2378], [-0.0207, -0.2385]] target=[-0.0201, -0.2363]",
+            "yellow_1 alignment to aim=0.0004 gap=0.011",
+            "yellow_1 release offset=[0.0006, 0.0027] gap=0.003",
+            "yellow_1 after opening displacement=[-0.0002, -0.0018, -0.0058]",
+            "yellow_1 after withdrawal center=[-0.0199, -0.2368, 0.5036]",
+            "LEVEL confirmed 4/4 id=yellow_1",
+            "Column released; all levels visually placed in task order"
+          ],
+          "release_notes": [
+            "green_3 release offset=[-0.0012, 0.0001] gap=0.0035",
+            "green_3 after opening displacement=[0.0, 0.0002, -0.0035]",
+            "blue_2 release offset=[-0.0001, 0.0001] gap=0.0036",
+            "blue_2 after opening displacement=[0.0011, 0.0004, -0.005]",
+            "green_3 release offset=[0.0004, 0.0002] gap=0.0036",
+            "green_3 after opening displacement=[0.0001, -0.0, -0.0041]",
+            "red_0 release offset=[-0.0006, 0.0006] gap=0.0026",
+            "red_0 after opening displacement=[0.0, 0.0001, -0.0036]",
+            "yellow_1 release offset=[0.0006, 0.0027] gap=0.003",
+            "yellow_1 after opening displacement=[-0.0002, -0.0018, -0.0058]"
+          ]
+        },
+        {
+          "case": "cube_quad_permuted_colors",
+          "seed": 909,
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "yellow",
+                "shape": "cube"
+              },
+              {
+                "color": "blue",
+                "shape": "cube"
+              },
+              {
+                "color": "red",
+                "shape": "cube"
+              },
+              {
+                "color": "green",
+                "shape": "cube"
+              }
+            ]
+          },
+          "order": [
+            "yellow_cube",
+            "blue_cube",
+            "red_cube",
+            "green_cube"
+          ],
+          "candidate_sha256": "ad785a09b4aaedaaf7027471ef04fb0adaba408adc6d963e113d04bcd934d584",
+          "success": true,
+          "metrics": {
+            "success": true,
+            "score": 1.0,
+            "placed_blocks": 3,
+            "required_placements": 3,
+            "structure_stable": true,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "BALANCE centers=[[-0.0799, -0.2388], [-0.0793, -0.2406], [-0.0795, -0.2438]] target=[-0.08, -0.237]",
+            "green_3 alignment to aim=0.0001 gap=0.0109",
+            "green_3 release offset=[-0.0004, 0.0068] gap=0.0028",
+            "green_3 after opening displacement=[-0.0018, -0.0011, -0.0072]",
+            "green_3 after withdrawal center=[-0.0791, -0.2359, 0.5037]",
+            "LEVEL confirmed 4/4 id=green_3",
+            "Column released; all levels visually placed in task order"
+          ],
+          "release_notes": [
+            "yellow_1 release offset=[0.0002, -0.0] gap=0.0036",
+            "yellow_1 after opening displacement=[0.0001, 0.0003, -0.0039]",
+            "blue_2 release offset=[0.0004, 0.0001] gap=0.0031",
+            "blue_2 after opening displacement=[0.001, 0.0002, -0.0046]",
+            "red_0 release offset=[-0.0002, -0.001] gap=0.0039",
+            "red_0 after opening displacement=[0.0001, -0.0002, -0.0047]",
+            "green_3 release offset=[-0.0004, 0.0068] gap=0.0028",
+            "green_3 after opening displacement=[-0.0018, -0.0011, -0.0072]"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "contact075_staged05",
+      "change": "0.75 mm target clearance, [-1,+1.5] mm final gate, 0.5 mm final Z convergence; open to 0.5 rad over 0.35 s, wait 0.3 s, then 1.4 rad over 0.35 s.",
+      "candidate_sha256": "5ea28149703d3547f7aa960ed72e43a74e7725a86ef22850e6a0bf6f9dc52915",
+      "trial_count": 9,
+      "successes": 3,
+      "trials": [
+        {
+          "case": "random_three_levels",
+          "seed": 901,
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "blue",
+                "shape": "prism"
+              },
+              {
+                "color": "blue",
+                "shape": "cylinder"
+              },
+              {
+                "color": "yellow",
+                "shape": "cylinder"
+              }
+            ]
+          },
+          "order": [
+            "blue_prism",
+            "blue_cylinder",
+            "yellow_cylinder"
+          ],
+          "candidate_sha256": "5ea28149703d3547f7aa960ed72e43a74e7725a86ef22850e6a0bf6f9dc52915",
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.5,
+            "placed_blocks": 1,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "yellow_0 alignment to aim=0.0002 gap=0.024",
+            "yellow_0 alignment to aim=0.0012 gap=0.0102",
+            "yellow_0 alignment to aim=0.0002 gap=0.0109",
+            "yellow_0 release offset=[0.0061, 0.0017] gap=0.0002",
+            "yellow_0 obscured after opening.",
+            "yellow_0 obscured after withdrawal.",
+            "Selected instance is occluded: yellow_0"
+          ],
+          "release_notes": [
+            "blue_2 release offset=[0.0002, 0.0] gap=0.0007",
+            "blue_2 after opening displacement=[0.0001, -0.0014, -0.0014]",
+            "blue_1 release offset=[0.0002, 0.0007] gap=0.001",
+            "blue_1 after opening displacement=[0.0003, -0.0028, -0.003]",
+            "yellow_0 release offset=[0.0061, 0.0017] gap=0.0002"
+          ]
+        },
+        {
+          "case": "random_three_levels",
+          "seed": 902,
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "blue",
+                "shape": "cylinder"
+              },
+              {
+                "color": "red",
+                "shape": "cylinder"
+              },
+              {
+                "color": "green",
+                "shape": "thin_prism"
+              }
+            ]
+          },
+          "order": [
+            "blue_cylinder",
+            "red_cylinder",
+            "green_thin_prism"
+          ],
+          "candidate_sha256": "5ea28149703d3547f7aa960ed72e43a74e7725a86ef22850e6a0bf6f9dc52915",
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.5,
+            "placed_blocks": 1,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "green_2 alignment to aim=0.0015 gap=0.0252",
+            "green_2 alignment to aim=0.0012 gap=0.01",
+            "green_2 alignment to aim=0.0009 gap=0.0103",
+            "green_2 release offset=[0.0001, 0.0005] gap=0.0005",
+            "green_2 obscured after opening.",
+            "green_2 obscured after withdrawal.",
+            "Selected instance is occluded: green_2"
+          ],
+          "release_notes": [
+            "blue_1 release offset=[0.0001, -0.0] gap=0.0007",
+            "blue_1 after opening displacement=[0.0021, -0.0014, -0.0022]",
+            "red_0 release offset=[0.0012, 0.0008] gap=0.0011",
+            "red_0 after opening displacement=[-0.0009, -0.0024, -0.0025]",
+            "green_2 release offset=[0.0001, 0.0005] gap=0.0005"
+          ]
+        },
+        {
+          "case": "random_three_levels",
+          "seed": 903,
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "green",
+                "shape": "cube"
+              },
+              {
+                "color": "red",
+                "shape": "prism"
+              },
+              {
+                "color": "green",
+                "shape": "thin_prism"
+              }
+            ]
+          },
+          "order": [
+            "green_cube",
+            "red_prism",
+            "green_thin_prism"
+          ],
+          "candidate_sha256": "5ea28149703d3547f7aa960ed72e43a74e7725a86ef22850e6a0bf6f9dc52915",
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.0,
+            "placed_blocks": 0,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "green_1 alignment to aim=0.0158 gap=0.0105",
+            "green_1 alignment to aim=0.0158 gap=0.0138",
+            "green_1 alignment to aim=0.0007 gap=0.0127",
+            "green_1 release offset=[-0.0036, -0.0139] gap=0.0102",
+            "Placement uncertain; returned payload to source.",
+            "green_1 retry after visually unconfirmed grasp or placement.",
+            "Selected instance is occluded: green_1"
+          ],
+          "release_notes": [
+            "red_0 release offset=[-0.0, 0.0002] gap=0.0008",
+            "red_0 after opening displacement=[-0.0002, -0.0009, -0.0015]",
+            "green_2 release offset=[0.0001, 0.0] gap=0.0007",
+            "green_2 after opening displacement=[-0.0, 0.0003, -0.0009]",
+            "red_0 release offset=[-0.0006, 0.0002] gap=0.0006",
+            "red_0 after opening displacement=[-0.0026, -0.0018, -0.0016]",
+            "green_1 release offset=[-0.0036, -0.0139] gap=0.0102"
+          ]
+        },
+        {
+          "case": "random_three_levels",
+          "seed": 904,
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "green",
+                "shape": "cylinder"
+              },
+              {
+                "color": "yellow",
+                "shape": "cube"
+              },
+              {
+                "color": "yellow",
+                "shape": "thin_prism"
+              }
+            ]
+          },
+          "order": [
+            "green_cylinder",
+            "yellow_cube",
+            "yellow_thin_prism"
+          ],
+          "candidate_sha256": "5ea28149703d3547f7aa960ed72e43a74e7725a86ef22850e6a0bf6f9dc52915",
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.0,
+            "placed_blocks": 0,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "yellow_0 alignment to aim=0.0012 gap=0.0127",
+            "yellow_0 alignment to aim=0.0184 gap=0.0112",
+            "yellow_0 alignment to aim=0.0046 gap=0.0096",
+            "yellow_0 release offset=[-0.0054, 0.0054] gap=0.0059",
+            "Placement uncertain; returned payload to source.",
+            "yellow_0 retry after visually unconfirmed grasp or placement.",
+            "Selected instance is occluded: yellow_0"
+          ],
+          "release_notes": [
+            "green_2 release offset=[0.0002, -0.0] gap=0.0007",
+            "green_2 after opening displacement=[0.0001, -0.0002, -0.0009]",
+            "yellow_1 release offset=[-0.0, 0.0] gap=0.0014",
+            "yellow_1 after opening displacement=[-0.0001, -0.0002, -0.0018]",
+            "yellow_0 release offset=[-0.0054, 0.0054] gap=0.0059"
+          ]
+        },
+        {
+          "case": "random_three_levels",
+          "seed": 905,
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "blue",
+                "shape": "cube"
+              },
+              {
+                "color": "green",
+                "shape": "cylinder"
+              },
+              {
+                "color": "blue",
+                "shape": "thin_prism"
+              }
+            ]
+          },
+          "order": [
+            "blue_cube",
+            "green_cylinder",
+            "blue_thin_prism"
+          ],
+          "candidate_sha256": "5ea28149703d3547f7aa960ed72e43a74e7725a86ef22850e6a0bf6f9dc52915",
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.5,
+            "placed_blocks": 1,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "blue_0 alignment to aim=0.0042 gap=0.0253",
+            "blue_0 alignment to aim=0.001 gap=0.0115",
+            "blue_0 alignment to aim=0.001 gap=0.0114",
+            "blue_0 release offset=[-0.0017, 0.001] gap=-0.0002",
+            "blue_0 obscured after opening.",
+            "blue_0 obscured after withdrawal.",
+            "Selected instance is occluded: blue_0"
+          ],
+          "release_notes": [
+            "blue_1 release offset=[0.0001, 0.0] gap=0.0007",
+            "blue_1 after opening displacement=[0.0, -0.0, -0.001]",
+            "green_2 release offset=[0.0, -0.0002] gap=0.0012",
+            "green_2 after opening displacement=[-0.0006, -0.0002, -0.0024]",
+            "blue_0 release offset=[-0.0017, 0.001] gap=-0.0002"
+          ]
+        },
+        {
+          "case": "random_three_levels",
+          "seed": 906,
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "blue",
+                "shape": "prism"
+              },
+              {
+                "color": "green",
+                "shape": "cylinder"
+              },
+              {
+                "color": "green",
+                "shape": "cube"
+              }
+            ]
+          },
+          "order": [
+            "blue_prism",
+            "green_cylinder",
+            "green_cube"
+          ],
+          "candidate_sha256": "5ea28149703d3547f7aa960ed72e43a74e7725a86ef22850e6a0bf6f9dc52915",
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.0,
+            "placed_blocks": 0,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "INSTANCE id=green_2 color=green shape=cylinder center=[0.1044, -0.367, 0.43] dimensions=[0.0269, 0.0274, 0.0599]",
+            "COLUMN bottom_to_top=['blue_0', 'green_2', 'green_1']",
+            "blue_0 measured center=[0.0958, -0.2809, 0.43] dimensions=[0.0283, 0.0293, 0.0598]",
+            "green_2 measured center=[0.1027, -0.3656, 0.43] dimensions=[0.0304, 0.0304, 0.0599]",
+            "green_1 measured center=[-0.0028, -0.2035, 0.4149] dimensions=[0.0299, 0.0299, 0.0299]",
+            "Visual release gate: bottom gap between -1 and +1.5 mm.",
+            "No worksite with at most two movable blockers; stopping before stacking."
+          ],
+          "release_notes": []
+        },
+        {
+          "case": "cube_quad_permuted_colors",
+          "seed": 907,
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "red",
+                "shape": "cube"
+              },
+              {
+                "color": "green",
+                "shape": "cube"
+              },
+              {
+                "color": "blue",
+                "shape": "cube"
+              },
+              {
+                "color": "yellow",
+                "shape": "cube"
+              }
+            ]
+          },
+          "order": [
+            "red_cube",
+            "green_cube",
+            "blue_cube",
+            "yellow_cube"
+          ],
+          "candidate_sha256": "5ea28149703d3547f7aa960ed72e43a74e7725a86ef22850e6a0bf6f9dc52915",
+          "success": true,
+          "metrics": {
+            "success": true,
+            "score": 1.0,
+            "placed_blocks": 3,
+            "required_placements": 3,
+            "structure_stable": true,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "BALANCE centers=[[-0.0201, -0.2379], [-0.02, -0.2381], [-0.0202, -0.239]] target=[-0.0201, -0.2361]",
+            "yellow_1 alignment to aim=0.0005 gap=0.011",
+            "yellow_1 release offset=[0.0002, 0.0034] gap=0.0013",
+            "yellow_1 after opening displacement=[-0.0002, -0.0008, -0.0039]",
+            "yellow_1 after withdrawal center=[-0.0199, -0.237, 0.5036]",
+            "LEVEL confirmed 4/4 id=yellow_1",
+            "Column released; all levels visually placed in task order"
+          ],
+          "release_notes": [
+            "blue_2 release offset=[-0.0001, -0.0004] gap=0.0008",
+            "blue_2 after opening displacement=[-0.0001, 0.0003, -0.001]",
+            "red_0 release offset=[-0.0001, 0.0] gap=0.0007",
+            "red_0 after opening displacement=[0.0, -0.0002, -0.001]",
+            "green_3 release offset=[0.0002, -0.0] gap=0.0007",
+            "green_3 after opening displacement=[0.001, 0.0003, -0.0021]",
+            "blue_2 release offset=[-0.0002, 0.0009] gap=0.001",
+            "blue_2 after opening displacement=[0.0, -0.0009, -0.0019]",
+            "yellow_1 release offset=[0.0002, 0.0034] gap=0.0013",
+            "yellow_1 after opening displacement=[-0.0002, -0.0008, -0.0039]"
+          ]
+        },
+        {
+          "case": "cube_quad_permuted_colors",
+          "seed": 908,
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "blue",
+                "shape": "cube"
+              },
+              {
+                "color": "green",
+                "shape": "cube"
+              },
+              {
+                "color": "red",
+                "shape": "cube"
+              },
+              {
+                "color": "yellow",
+                "shape": "cube"
+              }
+            ]
+          },
+          "order": [
+            "blue_cube",
+            "green_cube",
+            "red_cube",
+            "yellow_cube"
+          ],
+          "candidate_sha256": "5ea28149703d3547f7aa960ed72e43a74e7725a86ef22850e6a0bf6f9dc52915",
+          "success": true,
+          "metrics": {
+            "success": true,
+            "score": 1.0,
+            "placed_blocks": 3,
+            "required_placements": 3,
+            "structure_stable": true,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "BALANCE centers=[[-0.0204, -0.2378], [-0.02, -0.2381], [-0.0208, -0.2389]] target=[-0.0199, -0.236]",
+            "yellow_1 alignment to aim=0.0006 gap=0.011",
+            "yellow_1 release offset=[0.001, 0.0034] gap=0.0014",
+            "yellow_1 after opening displacement=[-0.0001, -0.0009, -0.0036]",
+            "yellow_1 after withdrawal center=[-0.0196, -0.2369, 0.5036]",
+            "LEVEL confirmed 4/4 id=yellow_1",
+            "Column released; all levels visually placed in task order"
+          ],
+          "release_notes": [
+            "green_3 release offset=[-0.0, 0.0001] gap=0.0008",
+            "green_3 after opening displacement=[0.0001, 0.0003, -0.0008]",
+            "blue_2 release offset=[-0.0001, 0.0] gap=0.0008",
+            "blue_2 after opening displacement=[0.0015, -0.0, -0.0022]",
+            "green_3 release offset=[0.0003, -0.0002] gap=0.0007",
+            "green_3 after opening displacement=[0.0001, 0.0001, -0.0012]",
+            "red_0 release offset=[-0.0005, 0.0009] gap=0.001",
+            "red_0 after opening displacement=[-0.0, -0.0002, -0.0019]",
+            "yellow_1 release offset=[0.001, 0.0034] gap=0.0014",
+            "yellow_1 after opening displacement=[-0.0001, -0.0009, -0.0036]"
+          ]
+        },
+        {
+          "case": "cube_quad_permuted_colors",
+          "seed": 909,
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "yellow",
+                "shape": "cube"
+              },
+              {
+                "color": "blue",
+                "shape": "cube"
+              },
+              {
+                "color": "red",
+                "shape": "cube"
+              },
+              {
+                "color": "green",
+                "shape": "cube"
+              }
+            ]
+          },
+          "order": [
+            "yellow_cube",
+            "blue_cube",
+            "red_cube",
+            "green_cube"
+          ],
+          "candidate_sha256": "5ea28149703d3547f7aa960ed72e43a74e7725a86ef22850e6a0bf6f9dc52915",
+          "success": true,
+          "metrics": {
+            "success": true,
+            "score": 1.0,
+            "placed_blocks": 3,
+            "required_placements": 3,
+            "structure_stable": true,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "BALANCE centers=[[-0.0799, -0.2387], [-0.0799, -0.2404], [-0.0809, -0.2418]] target=[-0.0791, -0.2356]",
+            "green_3 alignment to aim=0.0 gap=0.0109",
+            "green_3 release offset=[0.0015, 0.0059] gap=0.0006",
+            "green_3 after opening displacement=[-0.0016, -0.0015, -0.0052]",
+            "green_3 after withdrawal center=[-0.0786, -0.2349, 0.5036]",
+            "LEVEL confirmed 4/4 id=green_3",
+            "Column released; all levels visually placed in task order"
+          ],
+          "release_notes": [
+            "yellow_1 release offset=[0.0001, 0.0001] gap=0.0007",
+            "yellow_1 after opening displacement=[0.0001, 0.0, -0.0011]",
+            "blue_2 release offset=[0.0002, -0.0004] gap=0.0008",
+            "blue_2 after opening displacement=[0.0011, 0.0004, -0.0022]",
+            "red_0 release offset=[-0.0006, -0.0004] gap=0.0013",
+            "red_0 after opening displacement=[0.0, 0.0002, -0.0021]",
+            "green_3 release offset=[0.0015, 0.0059] gap=0.0006",
+            "green_3 after opening displacement=[-0.0016, -0.0015, -0.0052]"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "contact075_direct14",
+      "change": "Same tighter clearance/gate as contact075_staged05; restore direct opening to 1.4 rad over 0.35 s.",
+      "candidate_sha256": "c3f1e188fa1a29c7021fff931384e634bafc547cc9c38d7d80ff3e86b2163c62",
+      "trial_count": 3,
+      "successes": 1,
+      "trials": [
+        {
+          "case": "random_three_levels",
+          "seed": 901,
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "blue",
+                "shape": "prism"
+              },
+              {
+                "color": "blue",
+                "shape": "cylinder"
+              },
+              {
+                "color": "yellow",
+                "shape": "cylinder"
+              }
+            ]
+          },
+          "order": [
+            "blue_prism",
+            "blue_cylinder",
+            "yellow_cylinder"
+          ],
+          "candidate_sha256": "c3f1e188fa1a29c7021fff931384e634bafc547cc9c38d7d80ff3e86b2163c62",
+          "success": true,
+          "metrics": {
+            "success": true,
+            "score": 1.0,
+            "placed_blocks": 2,
+            "required_placements": 2,
+            "structure_stable": true,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "yellow_0 alignment to aim=0.0012 gap=0.0102",
+            "yellow_0 alignment to aim=0.0001 gap=0.0109",
+            "yellow_0 release offset=[0.0012, 0.002] gap=0.0002",
+            "yellow_0 after opening displacement=[0.0028, -0.0119, -0.0041]",
+            "yellow_0 after withdrawal center=[-0.0175, -0.255, 0.5493]",
+            "LEVEL confirmed 3/3 id=yellow_0",
+            "Column released; all levels visually placed in task order"
+          ],
+          "release_notes": [
+            "blue_2 release offset=[0.0002, 0.0] gap=0.0007",
+            "blue_2 after opening displacement=[0.0001, -0.0015, -0.0014]",
+            "blue_1 release offset=[0.0001, 0.0007] gap=0.0011",
+            "blue_1 after opening displacement=[0.0026, -0.0032, -0.003]",
+            "yellow_0 release offset=[0.0012, 0.002] gap=0.0002",
+            "yellow_0 after opening displacement=[0.0028, -0.0119, -0.0041]"
+          ]
+        },
+        {
+          "case": "random_three_levels",
+          "seed": 902,
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "blue",
+                "shape": "cylinder"
+              },
+              {
+                "color": "red",
+                "shape": "cylinder"
+              },
+              {
+                "color": "green",
+                "shape": "thin_prism"
+              }
+            ]
+          },
+          "order": [
+            "blue_cylinder",
+            "red_cylinder",
+            "green_thin_prism"
+          ],
+          "candidate_sha256": "c3f1e188fa1a29c7021fff931384e634bafc547cc9c38d7d80ff3e86b2163c62",
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.0,
+            "placed_blocks": 0,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "green_2 alignment to aim=0.0027 gap=0.0105",
+            "green_2 alignment to aim=0.0018 gap=0.0105",
+            "green_2 alignment to aim=0.0008 gap=0.0019",
+            "green_2 release offset=[0.0026, 0.0022] gap=-0.0001",
+            "green_2 obscured after opening.",
+            "green_2 obscured after withdrawal.",
+            "Selected instance is occluded: green_2"
+          ],
+          "release_notes": [
+            "blue_1 release offset=[0.0001, -0.0] gap=0.0007",
+            "blue_1 after opening displacement=[0.003, -0.0012, -0.0022]",
+            "red_0 release offset=[0.0005, 0.0007] gap=0.0011",
+            "red_0 after opening displacement=[0.0002, -0.0024, -0.0025]",
+            "green_2 release offset=[-0.0269, -0.0191] gap=0.0067",
+            "green_2 release offset=[0.0026, 0.0022] gap=-0.0001"
+          ]
+        },
+        {
+          "case": "random_three_levels",
+          "seed": 905,
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "blue",
+                "shape": "cube"
+              },
+              {
+                "color": "green",
+                "shape": "cylinder"
+              },
+              {
+                "color": "blue",
+                "shape": "thin_prism"
+              }
+            ]
+          },
+          "order": [
+            "blue_cube",
+            "green_cylinder",
+            "blue_thin_prism"
+          ],
+          "candidate_sha256": "c3f1e188fa1a29c7021fff931384e634bafc547cc9c38d7d80ff3e86b2163c62",
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.5,
+            "placed_blocks": 1,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "blue_0 alignment to aim=0.003 gap=0.024",
+            "blue_0 alignment to aim=0.0006 gap=0.0106",
+            "blue_0 alignment to aim=0.0006 gap=0.0106",
+            "blue_0 release offset=[-0.0016, 0.001] gap=-0.0001",
+            "blue_0 obscured after opening.",
+            "blue_0 obscured after withdrawal.",
+            "Selected instance is occluded: blue_0"
+          ],
+          "release_notes": [
+            "blue_1 release offset=[0.0001, 0.0] gap=0.0007",
+            "blue_1 after opening displacement=[0.0001, -0.0001, -0.001]",
+            "green_2 release offset=[-0.0, -0.0002] gap=0.0012",
+            "green_2 after opening displacement=[-0.0008, -0.0002, -0.0024]",
+            "blue_0 release offset=[-0.0016, 0.001] gap=-0.0001"
+          ]
+        }
+      ]
+    }
+  ],
+  "offline_contact_audit": {
+    "boundary": "Saved simulator states were used only for diagnosis, never provided to runtime policy.",
+    "scope": "Final payload releases in staged variant random-three-level seeds 901, 902, and 905; sampled every 0.2 s around release.",
+    "robot_to_support_contact_observed": false,
+    "measurements": [
+      {
+        "seed": 901,
+        "release_time_s": 89.0,
+        "payload": "yellow_cylinder",
+        "payload_tilt_degrees": 24.76,
+        "finding": "Payload fell during the partial-opening dwell. Direct full opening with the same clearance restored success."
+      },
+      {
+        "seed": 902,
+        "release_time_s": 96.2,
+        "payload": "green_thin_prism",
+        "payload_tilt_degrees": 25.28,
+        "finding": "At 96.6 s the settling payload contacted moving_jaw_pad_2 with 0.121 mm penetration and then tipped off."
+      },
+      {
+        "seed": 905,
+        "release_time_s": 85.9,
+        "payload": "blue_thin_prism",
+        "payload_tilt_degrees": 14.99,
+        "finding": "Payload-support contact began about 0.2 s before release; penetration was 0.220 mm at release. At 86.3 s the settling payload contacted moving_jaw_pad_1 with 0.168 mm penetration, shifted sideways, and fell before full opening."
+      }
+    ],
+    "conclusion": "The lower tower was initially upright in these samples. Staged opening retained jaw contact while substantially tilted payloads rocked toward upright; reducing vertical drop alone did not establish stable placement."
+  }
+}

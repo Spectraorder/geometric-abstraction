@@ -1,0 +1,714 @@
+{
+  "schema_version": 1,
+  "split": "Adaptive development experiments; no held-out claim.",
+  "trial_count": 27,
+  "runtime_boundary": "CPU numerical policy; public visual observations and robot proprioception/IK only.",
+  "physics_and_evaluator": "Unchanged physical scenes and success checks.",
+  "sensor": "Pixel-aligned RGB-D for all variants.",
+  "controller_origin": "Isolated copies of the v10 column policy, with updated geometry helpers; historical instance tracker retained.",
+  "limitations": "Candidate matrices differ and seeds repeat; do not combine these trials into a generalization success rate.",
+  "variants": [
+    {
+      "name": "low_10",
+      "change": "Tall cylinder/prism tool grasp offset: 0.10 measured height above center; source pose as tentative first-lift prior.",
+      "candidate_sha256": "1d717f62aacc4ea0dc96f4dde81f0e89b0dc32d404944166e89ba7074c46f36b",
+      "successes": 0,
+      "trial_count": 3,
+      "trials": [
+        {
+          "seed": 901,
+          "order": [
+            "blue_prism",
+            "blue_cylinder",
+            "yellow_cylinder"
+          ],
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.0,
+            "placed_blocks": 0,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "blue_1 placement bias=[0.0, 0.0]",
+            "blue_1 visible finger reach=0.0206; geometry grasp offset=0.03",
+            "blue_1 low tall grasp offset=0.006",
+            "Insufficient curved side depth"
+          ]
+        },
+        {
+          "seed": 902,
+          "order": [
+            "blue_cylinder",
+            "red_cylinder",
+            "green_thin_prism"
+          ],
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.0,
+            "placed_blocks": 0,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "blue_1 placement bias=[0.0, 0.0]",
+            "blue_1 visible finger reach=0.0198; geometry grasp offset=0.03",
+            "blue_1 low tall grasp offset=0.006",
+            "Curved surface does not constrain a cylinder center"
+          ]
+        },
+        {
+          "seed": 903,
+          "order": [
+            "green_cube",
+            "red_prism",
+            "green_thin_prism"
+          ],
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.0,
+            "placed_blocks": 0,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": "RuntimeError: API call limit exceeded"
+          },
+          "policy_error": "RuntimeError: API call limit exceeded",
+          "final_policy_notes": [
+            "green_1 alignment to aim=0.0018 gap=0.0118",
+            "green_1 alignment to aim=0.0198 gap=0.0107",
+            "green_1 release offset=[0.004, 0.0055] gap=0.0037",
+            "green_1 after opening displacement=[-0.0037, -0.0239, -0.0045]"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "low_15",
+      "change": "Tall cylinder/prism tool grasp offset: 0.15 measured height above center.",
+      "candidate_sha256": "34a64988abcf7aa11f9477d8f1fe0f1a0a43738ace1d14aa3885de5470cee8f1",
+      "successes": 0,
+      "trial_count": 3,
+      "trials": [
+        {
+          "seed": 901,
+          "order": [
+            "blue_prism",
+            "blue_cylinder",
+            "yellow_cylinder"
+          ],
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.0,
+            "placed_blocks": 0,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "blue_1 placement bias=[0.0, 0.0]",
+            "blue_1 visible finger reach=0.0206; geometry grasp offset=0.03",
+            "blue_1 low tall grasp offset=0.009",
+            "Visible payload disagrees with its last confirmed grasp"
+          ]
+        },
+        {
+          "seed": 902,
+          "order": [
+            "blue_cylinder",
+            "red_cylinder",
+            "green_thin_prism"
+          ],
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.0,
+            "placed_blocks": 0,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "blue_1 placement bias=[0.0, 0.0]",
+            "blue_1 visible finger reach=0.0198; geometry grasp offset=0.03",
+            "blue_1 low tall grasp offset=0.009",
+            "Insufficient curved side depth"
+          ]
+        },
+        {
+          "seed": 903,
+          "order": [
+            "green_cube",
+            "red_prism",
+            "green_thin_prism"
+          ],
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.0,
+            "placed_blocks": 0,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "red_0 alignment to aim=0.0015 gap=0.0112",
+            "red_0 release offset=[0.0103, 0.0044] gap=0.0101",
+            "Placement uncertain; returned payload to source.",
+            "red_0 retry after visually unconfirmed grasp or placement."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "low_25_all",
+      "change": "Offset 0.25 measured height for all tall shapes; corrected partial cuboid geometry.",
+      "candidate_sha256": "994d6bae872def111da042f1e5b4605ea7e7d73b613b8534e90292b4e002e779",
+      "successes": 1,
+      "trial_count": 5,
+      "trials": [
+        {
+          "seed": 901,
+          "order": [
+            "blue_prism",
+            "blue_cylinder",
+            "yellow_cylinder"
+          ],
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.0,
+            "placed_blocks": 0,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "blue_1 placement bias=[0.0, 0.0]",
+            "blue_1 visible finger reach=0.0206; geometry grasp offset=0.03",
+            "blue_1 low tall grasp offset=0.015",
+            "Visible payload disagrees with its last confirmed grasp"
+          ]
+        },
+        {
+          "seed": 903,
+          "order": [
+            "green_cube",
+            "red_prism",
+            "green_thin_prism"
+          ],
+          "success": true,
+          "metrics": {
+            "success": true,
+            "score": 1.0,
+            "placed_blocks": 2,
+            "required_placements": 2,
+            "structure_stable": true,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "green_1 after opening displacement=[-0.0032, -0.0078, -0.0061]",
+            "green_1 after withdrawal center=[-0.0229, -0.2236, 0.5192]",
+            "LEVEL confirmed 3/3 id=green_1",
+            "Column released; all levels visually placed in task order"
+          ]
+        },
+        {
+          "seed": 904,
+          "order": [
+            "green_cylinder",
+            "yellow_cube",
+            "yellow_thin_prism"
+          ],
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.0,
+            "placed_blocks": 0,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "green_2 placement bias=[0.0, 0.0]",
+            "green_2 visible finger reach=0.0202; geometry grasp offset=0.03",
+            "green_2 low tall grasp offset=0.015",
+            "Visible payload disagrees with its last confirmed grasp"
+          ]
+        },
+        {
+          "seed": 905,
+          "order": [
+            "blue_cube",
+            "green_cylinder",
+            "blue_thin_prism"
+          ],
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.0,
+            "placed_blocks": 0,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "green_2 placement bias=[0.0, 0.0]",
+            "green_2 visible finger reach=0.0191; geometry grasp offset=0.03",
+            "green_2 low tall grasp offset=0.015",
+            "Visible payload disagrees with its last confirmed grasp"
+          ]
+        },
+        {
+          "seed": 906,
+          "order": [
+            "blue_prism",
+            "green_cylinder",
+            "green_cube"
+          ],
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.0,
+            "placed_blocks": 0,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "green_2 placement bias=[0.0, 0.0]",
+            "green_2 visible finger reach=0.0209; geometry grasp offset=0.03",
+            "green_2 low tall grasp offset=0.015",
+            "Visible payload orientation disagrees with grasp prediction"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "low_25_confirm",
+      "change": "Additionally establish the first confirmed grasp from complete post-lift visual geometry when available.",
+      "candidate_sha256": "9b0c98f0c6d2ff26b26592cc54853a9c71093d24cd3cbd374fdf9bc295500722",
+      "successes": 2,
+      "trial_count": 6,
+      "trials": [
+        {
+          "seed": 901,
+          "order": [
+            "blue_prism",
+            "blue_cylinder",
+            "yellow_cylinder"
+          ],
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.0,
+            "placed_blocks": 0,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "blue_1 alignment to aim=0.001 gap=0.0234",
+            "blue_1 alignment to aim=0.0012 gap=0.0105",
+            "blue_1 alignment to aim=0.0003 gap=0.0109",
+            "Supporting level moved outside its trusted visual pose"
+          ]
+        },
+        {
+          "seed": 902,
+          "order": [
+            "blue_cylinder",
+            "red_cylinder",
+            "green_thin_prism"
+          ],
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.0,
+            "placed_blocks": 0,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "green_2 release offset=[-0.0001, 0.0015] gap=0.0023",
+            "green_2 obscured after opening.",
+            "green_2 obscured after withdrawal.",
+            "Selected instance is occluded: green_2"
+          ]
+        },
+        {
+          "seed": 903,
+          "order": [
+            "green_cube",
+            "red_prism",
+            "green_thin_prism"
+          ],
+          "success": true,
+          "metrics": {
+            "success": true,
+            "score": 1.0,
+            "placed_blocks": 2,
+            "required_placements": 2,
+            "structure_stable": true,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "green_1 after opening displacement=[-0.0032, -0.0078, -0.0061]",
+            "green_1 after withdrawal center=[-0.0229, -0.2236, 0.5192]",
+            "LEVEL confirmed 3/3 id=green_1",
+            "Column released; all levels visually placed in task order"
+          ]
+        },
+        {
+          "seed": 904,
+          "order": [
+            "green_cylinder",
+            "yellow_cube",
+            "yellow_thin_prism"
+          ],
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.0,
+            "placed_blocks": 0,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "yellow_0 alignment to aim=0.0002 gap=0.0109",
+            "yellow_0 release offset=[0.0005, -0.0126] gap=0.0025",
+            "Placement uncertain; returned payload to source.",
+            "yellow_0 retry after visually unconfirmed grasp or placement."
+          ]
+        },
+        {
+          "seed": 905,
+          "order": [
+            "blue_cube",
+            "green_cylinder",
+            "blue_thin_prism"
+          ],
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.5,
+            "placed_blocks": 1,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "blue_0 release offset=[-0.0014, 0.0003] gap=0.003",
+            "blue_0 obscured after opening.",
+            "blue_0 obscured after withdrawal.",
+            "Selected instance is occluded: blue_0"
+          ]
+        },
+        {
+          "seed": 906,
+          "order": [
+            "blue_prism",
+            "green_cylinder",
+            "green_cube"
+          ],
+          "success": true,
+          "metrics": {
+            "success": true,
+            "score": 1.0,
+            "placed_blocks": 2,
+            "required_placements": 2,
+            "structure_stable": true,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "green_1 release offset=[-0.0002, 0.0011] gap=0.0047",
+            "green_1 obscured after opening.",
+            "green_1 obscured after withdrawal.",
+            "Selected instance is occluded: green_1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "low_25_release_orientation",
+      "change": "Additionally optimize predicted uprightness at release height instead of the higher hover pose.",
+      "candidate_sha256": "26bf3556fb8e1c638d27ee03918eb3637e2f913a9cf29eb19cb4c01ca97526b9",
+      "successes": 1,
+      "trial_count": 6,
+      "trials": [
+        {
+          "seed": 901,
+          "order": [
+            "blue_prism",
+            "blue_cylinder",
+            "yellow_cylinder"
+          ],
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.0,
+            "placed_blocks": 0,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "blue_1 alignment to aim=0.0005 gap=0.0234",
+            "blue_1 alignment to aim=0.0006 gap=0.0102",
+            "blue_1 alignment to aim=0.0006 gap=0.0102",
+            "Supporting level moved outside its trusted visual pose"
+          ]
+        },
+        {
+          "seed": 902,
+          "order": [
+            "blue_cylinder",
+            "red_cylinder",
+            "green_thin_prism"
+          ],
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.5,
+            "placed_blocks": 1,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "green_2 visible finger clearance above cube bottom=0.0334",
+            "green_2 wrist grasp corroboration=True",
+            "green_2 payload tilt=[-0.0302, 0.0685, 0.9972]",
+            "Held payload cannot reach the next level upright"
+          ]
+        },
+        {
+          "seed": 903,
+          "order": [
+            "green_cube",
+            "red_prism",
+            "green_thin_prism"
+          ],
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.5,
+            "placed_blocks": 1,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "green_1 visible finger clearance above cube bottom=0.0332",
+            "green_1 wrist grasp corroboration=True",
+            "green_1 payload tilt=[-0.0121, -0.0434, 0.999]",
+            "Held payload cannot reach the next level upright"
+          ]
+        },
+        {
+          "seed": 904,
+          "order": [
+            "green_cylinder",
+            "yellow_cube",
+            "yellow_thin_prism"
+          ],
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.0,
+            "placed_blocks": 0,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "yellow_0 visible finger clearance above cube bottom=0.0349",
+            "yellow_0 wrist grasp corroboration=True",
+            "yellow_0 payload tilt=[-0.003, -0.0245, 0.9997]",
+            "Held payload cannot reach the next level upright"
+          ]
+        },
+        {
+          "seed": 905,
+          "order": [
+            "blue_cube",
+            "green_cylinder",
+            "blue_thin_prism"
+          ],
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.5,
+            "placed_blocks": 1,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "blue_0 release offset=[-0.0008, 0.0012] gap=0.0034",
+            "blue_0 obscured after opening.",
+            "blue_0 obscured after withdrawal.",
+            "Selected instance is occluded: blue_0"
+          ]
+        },
+        {
+          "seed": 906,
+          "order": [
+            "blue_prism",
+            "green_cylinder",
+            "green_cube"
+          ],
+          "success": true,
+          "metrics": {
+            "success": true,
+            "score": 1.0,
+            "placed_blocks": 2,
+            "required_placements": 2,
+            "structure_stable": true,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "green_1 release offset=[-0.0006, -0.0013] gap=0.0047",
+            "green_1 obscured after opening.",
+            "green_1 obscured after withdrawal.",
+            "Selected instance is occluded: green_1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "low_25_settle_orientation",
+      "change": "Additionally bound allowed airborne tilt by measured geometric tipping angle.",
+      "candidate_sha256": "57ed07255b9be644f2b1ba9328323b4d6d6a3270106eaabb8970c66281cad645",
+      "successes": 0,
+      "trial_count": 4,
+      "trials": [
+        {
+          "seed": 902,
+          "order": [
+            "blue_cylinder",
+            "red_cylinder",
+            "green_thin_prism"
+          ],
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.5,
+            "placed_blocks": 1,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "green_2 visible finger clearance above cube bottom=0.0334",
+            "green_2 wrist grasp corroboration=True",
+            "green_2 payload tilt=[-0.0302, 0.0685, 0.9972]",
+            "Held payload cannot reach the next level upright"
+          ]
+        },
+        {
+          "seed": 903,
+          "order": [
+            "green_cube",
+            "red_prism",
+            "green_thin_prism"
+          ],
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.0,
+            "placed_blocks": 0,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "green_1 release offset=[-0.0021, 0.002] gap=0.003",
+            "green_1 obscured after opening.",
+            "green_1 obscured after withdrawal.",
+            "Selected instance is occluded: green_1"
+          ]
+        },
+        {
+          "seed": 904,
+          "order": [
+            "green_cylinder",
+            "yellow_cube",
+            "yellow_thin_prism"
+          ],
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.0,
+            "placed_blocks": 0,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "yellow_0 wrist grasp corroboration=True",
+            "yellow_0 payload tilt=[-0.1021, 0.0272, 0.9944]",
+            "yellow_0 actual-grasp destination tilt=0.0943",
+            "Selected instance is occluded: yellow_0"
+          ]
+        },
+        {
+          "seed": 905,
+          "order": [
+            "blue_cube",
+            "green_cylinder",
+            "blue_thin_prism"
+          ],
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.5,
+            "placed_blocks": 1,
+            "required_placements": 2,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_policy_notes": [
+            "blue_0 release offset=[-0.0008, 0.0012] gap=0.0034",
+            "blue_0 obscured after opening.",
+            "blue_0 obscured after withdrawal.",
+            "Selected instance is occluded: blue_0"
+          ]
+        }
+      ]
+    }
+  ]
+}

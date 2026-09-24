@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "scope": "Two development observations from the same physical trial; not a held-out benchmark.",
+  "source_trial": "colors_v15/cube_pair_d0_colors/seed_907",
+  "method": "Fit wrist RGB silhouettes of visually learned solids, varying only translation axes unobserved by side RGB-D.",
+  "runtime_inputs": "Wrist RGB, intrinsics, camera pose, learned visual geometry and side-camera translation constraints. No wrist depth or object truth.",
+  "truth_boundary": "Simulator object centers were used only as offline error oracles.",
+  "timing_scope": "Single-shot CPU fitting calls; excludes image acquisition, simulation, robot IK and the rest of policy.",
+  "observations": [
+    {
+      "color": "red",
+      "observation": "camera_014.npz",
+      "before_error_mm": 13.174569677060898,
+      "after_error_mm": 0.10837844595738448,
+      "cpu_ms": 3.676132999999915,
+      "bbox_rms_px": 0.2808009243952907,
+      "coverage": 0.9664924684906241,
+      "correction_mm": [
+        0.004632119995461353,
+        13.095735169004278,
+        0.27038440280631726
+      ]
+    },
+    {
+      "color": "green",
+      "observation": "camera_033.npz",
+      "before_error_mm": 9.926933782740972,
+      "after_error_mm": 0.11804668836992387,
+      "cpu_ms": 2.355960000000046,
+      "bbox_rms_px": 0.2896911086594017,
+      "coverage": 1.0,
+      "correction_mm": [
+        -0.0011499433666802047,
+        9.542064977818123,
+        -2.640226214457873
+      ]
+    }
+  ]
+}

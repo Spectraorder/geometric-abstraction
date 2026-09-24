@@ -16,10 +16,14 @@ curriculum is task-defined upright single columns with different colors,
 shapes and 2–4 levels; bridges and pyramids follow later. The new
 `inventory_tower` task supports named, random and explicit bottom-to-top goals,
 task-conditioned sampling, private whole-column evaluation and CPU control.
-Its baseline passed 5/5 reserved trials for two/three cubes and a cylinder-base
-three-level column, but **0/5** for four cubes, a tall cylinder cap and random
-three-level recipes. See the [single-column milestone, full results and actual
-replays](docs/SINGLE_COLUMNS.md); general tower construction remains open.
+The current CPU column policy passed **79/100 fresh frozen trials** with color
+permutations, random shape/identity goals and zero/two distractors. Two- and
+three-level tasks passed **73/80 (91.3%)**; four-level tasks passed **6/20**,
+so the overall 90% target remains unmet. See the [current results, CPU timings
+and limits](docs/COLUMN_POLICY_V2.md), [visual geometry](docs/COLUMN_GEOMETRY.md)
+and [evaluation protocol](docs/COLUMN_EVALUATION_PROTOCOL.md). The
+[first milestone and its 25/45 reserved result](docs/SINGLE_COLUMNS.md) remain
+available as historical evidence under a different matrix and sensor profile.
 
 ## Current object library and sampled scenes
 

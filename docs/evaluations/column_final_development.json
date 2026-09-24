@@ -1,0 +1,4416 @@
+{
+  "schema_version": 1,
+  "split": "Adaptively selected development comparisons; no held-out or generalization-rate claim.",
+  "selection": "The selected v22 development matrices, the corrected-geometry pitch comparison, and the earlier cube-only LP comparison are preserved below. This is not an exhaustive history of every attempted variant.",
+  "limitations": "Matrices differ, seeds and scenes repeat, and candidate changes were guided by these outcomes. Group and case denominators describe their own matrices only. Do not combine successes into a generalization success rate.",
+  "runtime_boundary": "CPU policy. RGB-D, wrist RGB, camera calibration, robot proprioception/IK, and public task goals only; no simulator object truth or evaluator feedback is returned to the policy.",
+  "sensor_scope": "Each group sensor is verified against every included result. Historical manifests lacking sensor metadata are supplemented by their recorded per-trial sensor fields.",
+  "success_definition": "Recorded evaluator success, including physical tower stability; policy completion notes alone are not success.",
+  "artifact_scope": "Portable public goals, candidate hashes, sensor settings, evaluation outcomes, policy errors and final policy notes only. No images, rollout states, object truth, or absolute paths.",
+  "groups": [
+    {
+      "name": "v22_colors",
+      "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+      "planned_trial_count": 36,
+      "completed_trial_count": 36,
+      "successes": 33,
+      "cases": [
+        {
+          "name": "cube_pair_d0_colors",
+          "recipe": "cube_pair",
+          "levels": null,
+          "distractors": 0,
+          "permute_colors": true,
+          "planned_trial_count": 3,
+          "completed_trial_count": 3,
+          "successes": 3,
+          "trials": [
+            {
+              "seed": 907,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "red",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cube"
+                  }
+                ]
+              },
+              "order": [
+                "red_cube",
+                "green_cube"
+              ],
+              "object_count": 2,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 1,
+                "required_placements": 1,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 2.067484766000001,
+                "rpc_cpu_seconds": 0.09163600899999932,
+                "compute_interval_count": 266,
+                "compute_interval_cpu_p50_ms": 0.007774000000002057,
+                "compute_interval_cpu_p95_ms": 41.56772300000006,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.10846338199999872,
+              "policy_sim_seconds": 63.500000000031896,
+              "color_permutation": {
+                "red": "green",
+                "yellow": "yellow",
+                "blue": "red",
+                "green": "blue"
+              }
+            },
+            {
+              "seed": 908,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "blue",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cube"
+                  }
+                ]
+              },
+              "order": [
+                "blue_cube",
+                "green_cube"
+              ],
+              "object_count": 2,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 1,
+                "required_placements": 1,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 2.2314007800000017,
+                "rpc_cpu_seconds": 0.10145683599999825,
+                "compute_interval_count": 265,
+                "compute_interval_cpu_p50_ms": 0.00844700000002252,
+                "compute_interval_cpu_p95_ms": 45.69198019999998,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.1190582909999991,
+              "policy_sim_seconds": 63.500000000031896,
+              "color_permutation": {
+                "red": "green",
+                "yellow": "yellow",
+                "blue": "blue",
+                "green": "red"
+              }
+            },
+            {
+              "seed": 909,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "yellow",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "blue",
+                    "shape": "cube"
+                  }
+                ]
+              },
+              "order": [
+                "yellow_cube",
+                "blue_cube"
+              ],
+              "object_count": 2,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 1,
+                "required_placements": 1,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 2.3106374799999996,
+                "rpc_cpu_seconds": 0.09903060500000005,
+                "compute_interval_count": 268,
+                "compute_interval_cpu_p50_ms": 0.007798499999989161,
+                "compute_interval_cpu_p95_ms": 44.02113850000013,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.11519388100000061,
+              "policy_sim_seconds": 63.500000000031896,
+              "color_permutation": {
+                "red": "blue",
+                "yellow": "green",
+                "blue": "yellow",
+                "green": "red"
+              }
+            }
+          ]
+        },
+        {
+          "name": "cube_pair_d2_colors",
+          "recipe": "cube_pair",
+          "levels": null,
+          "distractors": 2,
+          "permute_colors": true,
+          "planned_trial_count": 3,
+          "completed_trial_count": 3,
+          "successes": 3,
+          "trials": [
+            {
+              "seed": 907,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "red",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cube"
+                  }
+                ]
+              },
+              "order": [
+                "red_cube",
+                "green_cube"
+              ],
+              "object_count": 4,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 1,
+                "required_placements": 1,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 4.2554252619999975,
+                "rpc_cpu_seconds": 0.1502109100000017,
+                "compute_interval_count": 275,
+                "compute_interval_cpu_p50_ms": 0.01412499999986494,
+                "compute_interval_cpu_p95_ms": 93.84856699999985,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.19211619799999902,
+              "policy_sim_seconds": 64.30000000003002,
+              "color_permutation": {
+                "red": "green",
+                "yellow": "yellow",
+                "blue": "red",
+                "green": "blue"
+              }
+            },
+            {
+              "seed": 908,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "blue",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cube"
+                  }
+                ]
+              },
+              "order": [
+                "blue_cube",
+                "green_cube"
+              ],
+              "object_count": 4,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 1,
+                "required_placements": 1,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 2.8217886929999985,
+                "rpc_cpu_seconds": 0.11616693200000153,
+                "compute_interval_count": 268,
+                "compute_interval_cpu_p50_ms": 0.010903999999922753,
+                "compute_interval_cpu_p95_ms": 56.03059209999996,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.12407607000000098,
+              "policy_sim_seconds": 63.500000000031896,
+              "color_permutation": {
+                "red": "green",
+                "yellow": "yellow",
+                "blue": "blue",
+                "green": "red"
+              }
+            },
+            {
+              "seed": 909,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "yellow",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "blue",
+                    "shape": "cube"
+                  }
+                ]
+              },
+              "order": [
+                "yellow_cube",
+                "blue_cube"
+              ],
+              "object_count": 4,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 1,
+                "required_placements": 1,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 3.336957354999999,
+                "rpc_cpu_seconds": 0.12005869300000094,
+                "compute_interval_count": 268,
+                "compute_interval_cpu_p50_ms": 0.011831999999933895,
+                "compute_interval_cpu_p95_ms": 69.95260534999994,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.1932085679999993,
+              "policy_sim_seconds": 63.500000000031896,
+              "color_permutation": {
+                "red": "blue",
+                "yellow": "green",
+                "blue": "yellow",
+                "green": "red"
+              }
+            }
+          ]
+        },
+        {
+          "name": "cube_triple_d0_colors",
+          "recipe": "cube_triple",
+          "levels": null,
+          "distractors": 0,
+          "permute_colors": true,
+          "planned_trial_count": 3,
+          "completed_trial_count": 3,
+          "successes": 3,
+          "trials": [
+            {
+              "seed": 907,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "red",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "blue",
+                    "shape": "cube"
+                  }
+                ]
+              },
+              "order": [
+                "red_cube",
+                "green_cube",
+                "blue_cube"
+              ],
+              "object_count": 3,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 4.8091872490000025,
+                "rpc_cpu_seconds": 0.19405025699999834,
+                "compute_interval_count": 423,
+                "compute_interval_cpu_p50_ms": 0.011238999999996224,
+                "compute_interval_cpu_p95_ms": 57.86313550000008,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.25345333799999725,
+              "policy_sim_seconds": 94.04999999996069,
+              "color_permutation": {
+                "red": "green",
+                "yellow": "yellow",
+                "blue": "red",
+                "green": "blue"
+              }
+            },
+            {
+              "seed": 908,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "blue",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "red",
+                    "shape": "cube"
+                  }
+                ]
+              },
+              "order": [
+                "blue_cube",
+                "green_cube",
+                "red_cube"
+              ],
+              "object_count": 3,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 5.013192704999996,
+                "rpc_cpu_seconds": 0.2002601280000037,
+                "compute_interval_count": 590,
+                "compute_interval_cpu_p50_ms": 0.014007000000315628,
+                "compute_interval_cpu_p95_ms": 52.12419929999993,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.3958240569999987,
+              "policy_sim_seconds": 117.39999999990627,
+              "color_permutation": {
+                "red": "green",
+                "yellow": "yellow",
+                "blue": "blue",
+                "green": "red"
+              }
+            },
+            {
+              "seed": 909,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "yellow",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "blue",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "red",
+                    "shape": "cube"
+                  }
+                ]
+              },
+              "order": [
+                "yellow_cube",
+                "blue_cube",
+                "red_cube"
+              ],
+              "object_count": 3,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 4.853301546000002,
+                "rpc_cpu_seconds": 0.17281060299999754,
+                "compute_interval_count": 424,
+                "compute_interval_cpu_p50_ms": 0.009416500000136718,
+                "compute_interval_cpu_p95_ms": 57.190294599999596,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.24787042900000245,
+              "policy_sim_seconds": 94.04999999996069,
+              "color_permutation": {
+                "red": "blue",
+                "yellow": "green",
+                "blue": "yellow",
+                "green": "red"
+              }
+            }
+          ]
+        },
+        {
+          "name": "cube_triple_d2_colors",
+          "recipe": "cube_triple",
+          "levels": null,
+          "distractors": 2,
+          "permute_colors": true,
+          "planned_trial_count": 3,
+          "completed_trial_count": 3,
+          "successes": 3,
+          "trials": [
+            {
+              "seed": 907,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "red",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "blue",
+                    "shape": "cube"
+                  }
+                ]
+              },
+              "order": [
+                "red_cube",
+                "green_cube",
+                "blue_cube"
+              ],
+              "object_count": 5,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 5.593780685999997,
+                "rpc_cpu_seconds": 0.17805656600000344,
+                "compute_interval_count": 432,
+                "compute_interval_cpu_p50_ms": 0.009727999999764592,
+                "compute_interval_cpu_p95_ms": 65.79941024999994,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.1855574969999969,
+              "policy_sim_seconds": 94.84999999995883,
+              "color_permutation": {
+                "red": "green",
+                "yellow": "yellow",
+                "blue": "red",
+                "green": "blue"
+              }
+            },
+            {
+              "seed": 908,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "blue",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "red",
+                    "shape": "cube"
+                  }
+                ]
+              },
+              "order": [
+                "blue_cube",
+                "green_cube",
+                "red_cube"
+              ],
+              "object_count": 5,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 6.721747760000003,
+                "rpc_cpu_seconds": 0.20751264899999686,
+                "compute_interval_count": 587,
+                "compute_interval_cpu_p50_ms": 0.011143000000046754,
+                "compute_interval_cpu_p95_ms": 67.27624880000027,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.40949510800000066,
+              "policy_sim_seconds": 119.99999999990021,
+              "color_permutation": {
+                "red": "green",
+                "yellow": "yellow",
+                "blue": "blue",
+                "green": "red"
+              }
+            },
+            {
+              "seed": 909,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "yellow",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "blue",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "red",
+                    "shape": "cube"
+                  }
+                ]
+              },
+              "order": [
+                "yellow_cube",
+                "blue_cube",
+                "red_cube"
+              ],
+              "object_count": 5,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 5.295079403000004,
+                "rpc_cpu_seconds": 0.15866207299999613,
+                "compute_interval_count": 425,
+                "compute_interval_cpu_p50_ms": 0.008114999999975225,
+                "compute_interval_cpu_p95_ms": 62.7758940000005,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.1833577960000019,
+              "policy_sim_seconds": 94.04999999996069,
+              "color_permutation": {
+                "red": "blue",
+                "yellow": "green",
+                "blue": "yellow",
+                "green": "red"
+              }
+            }
+          ]
+        },
+        {
+          "name": "cube_quad_d0_colors",
+          "recipe": "cube_quad",
+          "levels": null,
+          "distractors": 0,
+          "permute_colors": true,
+          "planned_trial_count": 3,
+          "completed_trial_count": 3,
+          "successes": 3,
+          "trials": [
+            {
+              "seed": 907,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "red",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "blue",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "yellow",
+                    "shape": "cube"
+                  }
+                ]
+              },
+              "order": [
+                "red_cube",
+                "green_cube",
+                "blue_cube",
+                "yellow_cube"
+              ],
+              "object_count": 4,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 3,
+                "required_placements": 3,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 8.001312053,
+                "rpc_cpu_seconds": 0.2579462170000013,
+                "compute_interval_count": 769,
+                "compute_interval_cpu_p50_ms": 0.010193999999685843,
+                "compute_interval_cpu_p95_ms": 57.85448760000032,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.4435326010000029,
+              "policy_sim_seconds": 150.19999999999217,
+              "color_permutation": {
+                "red": "green",
+                "yellow": "yellow",
+                "blue": "red",
+                "green": "blue"
+              }
+            },
+            {
+              "seed": 908,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "blue",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "red",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "yellow",
+                    "shape": "cube"
+                  }
+                ]
+              },
+              "order": [
+                "blue_cube",
+                "green_cube",
+                "red_cube",
+                "yellow_cube"
+              ],
+              "object_count": 4,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 3,
+                "required_placements": 3,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 7.703695128,
+                "rpc_cpu_seconds": 0.256738798000001,
+                "compute_interval_count": 752,
+                "compute_interval_cpu_p50_ms": 0.011667999999964707,
+                "compute_interval_cpu_p95_ms": 58.89870484999971,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.4532567729999979,
+              "policy_sim_seconds": 148.59999999998453,
+              "color_permutation": {
+                "red": "green",
+                "yellow": "yellow",
+                "blue": "blue",
+                "green": "red"
+              }
+            },
+            {
+              "seed": 909,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "yellow",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "blue",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "red",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cube"
+                  }
+                ]
+              },
+              "order": [
+                "yellow_cube",
+                "blue_cube",
+                "red_cube",
+                "green_cube"
+              ],
+              "object_count": 4,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 3,
+                "required_placements": 3,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 7.444149567000005,
+                "rpc_cpu_seconds": 0.23934261399999535,
+                "compute_interval_count": 599,
+                "compute_interval_cpu_p50_ms": 0.008887000000790124,
+                "compute_interval_cpu_p95_ms": 59.53247729999944,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.2869311689999998,
+              "policy_sim_seconds": 126.04999999988611,
+              "color_permutation": {
+                "red": "blue",
+                "yellow": "green",
+                "blue": "yellow",
+                "green": "red"
+              }
+            }
+          ]
+        },
+        {
+          "name": "cube_quad_d2_colors",
+          "recipe": "cube_quad",
+          "levels": null,
+          "distractors": 2,
+          "permute_colors": true,
+          "planned_trial_count": 3,
+          "completed_trial_count": 3,
+          "successes": 1,
+          "trials": [
+            {
+              "seed": 907,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "red",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "blue",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "yellow",
+                    "shape": "cube"
+                  }
+                ]
+              },
+              "order": [
+                "red_cube",
+                "green_cube",
+                "blue_cube",
+                "yellow_cube"
+              ],
+              "object_count": 6,
+              "success": false,
+              "metrics": {
+                "success": false,
+                "score": 0.0,
+                "placed_blocks": 0,
+                "required_placements": 3,
+                "structure_stable": false,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 8.469354986,
+                "rpc_cpu_seconds": 0.23789238499999893,
+                "compute_interval_count": 601,
+                "compute_interval_cpu_p50_ms": 0.008533000000032764,
+                "compute_interval_cpu_p95_ms": 68.67948999999996,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.26223664099999944,
+              "policy_sim_seconds": 126.04999999988611,
+              "final_failure_context": [
+                "yellow_2 after opening displacement=[-0.0015, -0.0007, -0.007]",
+                "yellow_2 after withdrawal center=[-0.0786, -0.2313, 0.5035]",
+                "LEVEL confirmed 4/4 id=yellow_2",
+                "Column released; all levels visually placed in task order"
+              ],
+              "color_permutation": {
+                "red": "green",
+                "yellow": "yellow",
+                "blue": "red",
+                "green": "blue"
+              }
+            },
+            {
+              "seed": 908,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "blue",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "red",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "yellow",
+                    "shape": "cube"
+                  }
+                ]
+              },
+              "order": [
+                "blue_cube",
+                "green_cube",
+                "red_cube",
+                "yellow_cube"
+              ],
+              "object_count": 6,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 3,
+                "required_placements": 3,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 8.946557547000003,
+                "rpc_cpu_seconds": 0.25086288099999654,
+                "compute_interval_count": 762,
+                "compute_interval_cpu_p50_ms": 0.008176500000067755,
+                "compute_interval_cpu_p95_ms": 65.69946300000025,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.4252022309999903,
+              "policy_sim_seconds": 151.7999999999998,
+              "color_permutation": {
+                "red": "green",
+                "yellow": "yellow",
+                "blue": "blue",
+                "green": "red"
+              }
+            },
+            {
+              "seed": 909,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "yellow",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "blue",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "red",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cube"
+                  }
+                ]
+              },
+              "order": [
+                "yellow_cube",
+                "blue_cube",
+                "red_cube",
+                "green_cube"
+              ],
+              "object_count": 6,
+              "success": false,
+              "metrics": {
+                "success": false,
+                "score": 1.0,
+                "placed_blocks": 3,
+                "required_placements": 3,
+                "structure_stable": false,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 9.030693338999985,
+                "rpc_cpu_seconds": 0.2561937280000146,
+                "compute_interval_count": 740,
+                "compute_interval_cpu_p50_ms": 0.008954499999935805,
+                "compute_interval_cpu_p95_ms": 66.59452869999997,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.42305953700000654,
+              "policy_sim_seconds": 149.39999999998835,
+              "final_failure_context": [
+                "green_5 after opening displacement=[-0.0001, -0.0016, -0.0074]",
+                "green_5 after withdrawal center=[-0.0192, -0.2364, 0.5036]",
+                "LEVEL confirmed 4/4 id=green_5",
+                "Column released; all levels visually placed in task order"
+              ],
+              "color_permutation": {
+                "red": "blue",
+                "yellow": "green",
+                "blue": "yellow",
+                "green": "red"
+              }
+            }
+          ]
+        },
+        {
+          "name": "slender_top_d0_colors",
+          "recipe": "slender_top",
+          "levels": null,
+          "distractors": 0,
+          "permute_colors": true,
+          "planned_trial_count": 3,
+          "completed_trial_count": 3,
+          "successes": 3,
+          "trials": [
+            {
+              "seed": 907,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "yellow",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "red",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "blue",
+                    "shape": "thin_prism"
+                  }
+                ]
+              },
+              "order": [
+                "yellow_cube",
+                "red_cube",
+                "blue_thin_prism"
+              ],
+              "object_count": 3,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 4.176268410000001,
+                "rpc_cpu_seconds": 0.13748939799999868,
+                "compute_interval_count": 416,
+                "compute_interval_cpu_p50_ms": 0.007355000000153211,
+                "compute_interval_cpu_p95_ms": 53.50321200000013,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.1721958910000021,
+              "policy_sim_seconds": 96.49999999995498,
+              "color_permutation": {
+                "red": "green",
+                "yellow": "yellow",
+                "blue": "red",
+                "green": "blue"
+              }
+            },
+            {
+              "seed": 908,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "yellow",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "blue",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "red",
+                    "shape": "thin_prism"
+                  }
+                ]
+              },
+              "order": [
+                "yellow_cube",
+                "blue_cube",
+                "red_thin_prism"
+              ],
+              "object_count": 3,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 4.792346272000001,
+                "rpc_cpu_seconds": 0.1751221269999986,
+                "compute_interval_count": 584,
+                "compute_interval_cpu_p50_ms": 0.008226499999985926,
+                "compute_interval_cpu_p95_ms": 49.848369000000446,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.379725886000001,
+              "policy_sim_seconds": 119.84999999990056,
+              "color_permutation": {
+                "red": "green",
+                "yellow": "yellow",
+                "blue": "blue",
+                "green": "red"
+              }
+            },
+            {
+              "seed": 909,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "green",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "yellow",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "red",
+                    "shape": "thin_prism"
+                  }
+                ]
+              },
+              "order": [
+                "green_cube",
+                "yellow_cube",
+                "red_thin_prism"
+              ],
+              "object_count": 3,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 3.8911184180000022,
+                "rpc_cpu_seconds": 0.14125559499999765,
+                "compute_interval_count": 416,
+                "compute_interval_cpu_p50_ms": 0.006708999999993637,
+                "compute_interval_cpu_p95_ms": 48.614088750000064,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.1721051330000014,
+              "policy_sim_seconds": 96.49999999995498,
+              "color_permutation": {
+                "red": "blue",
+                "yellow": "green",
+                "blue": "yellow",
+                "green": "red"
+              }
+            }
+          ]
+        },
+        {
+          "name": "slender_top_d2_colors",
+          "recipe": "slender_top",
+          "levels": null,
+          "distractors": 2,
+          "permute_colors": true,
+          "planned_trial_count": 3,
+          "completed_trial_count": 3,
+          "successes": 2,
+          "trials": [
+            {
+              "seed": 907,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "yellow",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "red",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "blue",
+                    "shape": "thin_prism"
+                  }
+                ]
+              },
+              "order": [
+                "yellow_cube",
+                "red_cube",
+                "blue_thin_prism"
+              ],
+              "object_count": 5,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 4.641804124999997,
+                "rpc_cpu_seconds": 0.14785830000000338,
+                "compute_interval_count": 416,
+                "compute_interval_cpu_p50_ms": 0.008455000000129331,
+                "compute_interval_cpu_p95_ms": 58.68928974999993,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.17742324300000245,
+              "policy_sim_seconds": 96.49999999995498,
+              "color_permutation": {
+                "red": "green",
+                "yellow": "yellow",
+                "blue": "red",
+                "green": "blue"
+              }
+            },
+            {
+              "seed": 908,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "yellow",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "blue",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "red",
+                    "shape": "thin_prism"
+                  }
+                ]
+              },
+              "order": [
+                "yellow_cube",
+                "blue_cube",
+                "red_thin_prism"
+              ],
+              "object_count": 5,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 6.8296777790000025,
+                "rpc_cpu_seconds": 0.20448664599999777,
+                "compute_interval_count": 590,
+                "compute_interval_cpu_p50_ms": 0.011033999999854327,
+                "compute_interval_cpu_p95_ms": 67.51732370000005,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.3710688589999993,
+              "policy_sim_seconds": 123.24999999989264,
+              "color_permutation": {
+                "red": "green",
+                "yellow": "yellow",
+                "blue": "blue",
+                "green": "red"
+              }
+            },
+            {
+              "seed": 909,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "green",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "yellow",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "red",
+                    "shape": "thin_prism"
+                  }
+                ]
+              },
+              "order": [
+                "green_cube",
+                "yellow_cube",
+                "red_thin_prism"
+              ],
+              "object_count": 5,
+              "success": false,
+              "metrics": {
+                "success": false,
+                "score": 0.5,
+                "placed_blocks": 1,
+                "required_placements": 2,
+                "structure_stable": false,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Selected instance is occluded: red_1",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 3.7978211140000018,
+                "rpc_cpu_seconds": 0.11697348599999843,
+                "compute_interval_count": 317,
+                "compute_interval_cpu_p50_ms": 0.009452000000020888,
+                "compute_interval_cpu_p95_ms": 63.544732400000015,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.15541187199999884,
+              "policy_sim_seconds": 61.85000000003042,
+              "final_failure_context": [
+                "yellow_2 after opening displacement=[-0.0008, 0.0001, -0.0048]",
+                "yellow_2 after withdrawal center=[-0.0798, -0.2178, 0.4446]",
+                "LEVEL confirmed 2/3 id=yellow_2",
+                "Selected instance is occluded: red_1"
+              ],
+              "color_permutation": {
+                "red": "blue",
+                "yellow": "green",
+                "blue": "yellow",
+                "green": "red"
+              }
+            }
+          ]
+        },
+        {
+          "name": "mixed_triple_d0_colors",
+          "recipe": "mixed_triple",
+          "levels": null,
+          "distractors": 0,
+          "permute_colors": true,
+          "planned_trial_count": 3,
+          "completed_trial_count": 3,
+          "successes": 3,
+          "trials": [
+            {
+              "seed": 907,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "red",
+                    "shape": "prism"
+                  },
+                  {
+                    "color": "blue",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cylinder"
+                  }
+                ]
+              },
+              "order": [
+                "red_prism",
+                "blue_cube",
+                "green_cylinder"
+              ],
+              "object_count": 3,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 4.053549905999998,
+                "rpc_cpu_seconds": 0.14179155600000207,
+                "compute_interval_count": 424,
+                "compute_interval_cpu_p50_ms": 0.007830499999972318,
+                "compute_interval_cpu_p95_ms": 53.046386950000034,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.18794665700000124,
+              "policy_sim_seconds": 99.7499999999474,
+              "color_permutation": {
+                "red": "green",
+                "yellow": "yellow",
+                "blue": "red",
+                "green": "blue"
+              }
+            },
+            {
+              "seed": 908,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "blue",
+                    "shape": "prism"
+                  },
+                  {
+                    "color": "red",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cylinder"
+                  }
+                ]
+              },
+              "order": [
+                "blue_prism",
+                "red_cube",
+                "green_cylinder"
+              ],
+              "object_count": 3,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 4.473893789000002,
+                "rpc_cpu_seconds": 0.1758455309999985,
+                "compute_interval_count": 589,
+                "compute_interval_cpu_p50_ms": 0.009272999999976328,
+                "compute_interval_cpu_p95_ms": 47.83850300000001,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.38426577799999695,
+              "policy_sim_seconds": 123.24999999989264,
+              "color_permutation": {
+                "red": "green",
+                "yellow": "yellow",
+                "blue": "blue",
+                "green": "red"
+              }
+            },
+            {
+              "seed": 909,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "yellow",
+                    "shape": "prism"
+                  },
+                  {
+                    "color": "red",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "blue",
+                    "shape": "cylinder"
+                  }
+                ]
+              },
+              "order": [
+                "yellow_prism",
+                "red_cube",
+                "blue_cylinder"
+              ],
+              "object_count": 3,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 4.252163862000002,
+                "rpc_cpu_seconds": 0.14489349299999793,
+                "compute_interval_count": 421,
+                "compute_interval_cpu_p50_ms": 0.008514000000126032,
+                "compute_interval_cpu_p95_ms": 56.42743599999989,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.18850189100000048,
+              "policy_sim_seconds": 99.7499999999474,
+              "color_permutation": {
+                "red": "blue",
+                "yellow": "green",
+                "blue": "yellow",
+                "green": "red"
+              }
+            }
+          ]
+        },
+        {
+          "name": "mixed_triple_d2_colors",
+          "recipe": "mixed_triple",
+          "levels": null,
+          "distractors": 2,
+          "permute_colors": true,
+          "planned_trial_count": 3,
+          "completed_trial_count": 3,
+          "successes": 3,
+          "trials": [
+            {
+              "seed": 907,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "red",
+                    "shape": "prism"
+                  },
+                  {
+                    "color": "blue",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cylinder"
+                  }
+                ]
+              },
+              "order": [
+                "red_prism",
+                "blue_cube",
+                "green_cylinder"
+              ],
+              "object_count": 5,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 5.400990444999999,
+                "rpc_cpu_seconds": 0.14860761200000133,
+                "compute_interval_count": 434,
+                "compute_interval_cpu_p50_ms": 0.008584500000075046,
+                "compute_interval_cpu_p95_ms": 71.11673304999991,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.18863636300000053,
+              "policy_sim_seconds": 100.54999999994554,
+              "color_permutation": {
+                "red": "green",
+                "yellow": "yellow",
+                "blue": "red",
+                "green": "blue"
+              }
+            },
+            {
+              "seed": 908,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "blue",
+                    "shape": "prism"
+                  },
+                  {
+                    "color": "red",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cylinder"
+                  }
+                ]
+              },
+              "order": [
+                "blue_prism",
+                "red_cube",
+                "green_cylinder"
+              ],
+              "object_count": 5,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 6.487759688000003,
+                "rpc_cpu_seconds": 0.17541357799999707,
+                "compute_interval_count": 580,
+                "compute_interval_cpu_p50_ms": 0.00896750000001223,
+                "compute_interval_cpu_p95_ms": 71.62668359999964,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.38138750499999663,
+              "policy_sim_seconds": 124.89999999988879,
+              "color_permutation": {
+                "red": "green",
+                "yellow": "yellow",
+                "blue": "blue",
+                "green": "red"
+              }
+            },
+            {
+              "seed": 909,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "yellow",
+                    "shape": "prism"
+                  },
+                  {
+                    "color": "red",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "blue",
+                    "shape": "cylinder"
+                  }
+                ]
+              },
+              "order": [
+                "yellow_prism",
+                "red_cube",
+                "blue_cylinder"
+              ],
+              "object_count": 5,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 5.080367672000002,
+                "rpc_cpu_seconds": 0.1493840779999976,
+                "compute_interval_count": 426,
+                "compute_interval_cpu_p50_ms": 0.008570500000026904,
+                "compute_interval_cpu_p95_ms": 65.75668324999995,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.20409464700000157,
+              "policy_sim_seconds": 99.7499999999474,
+              "color_permutation": {
+                "red": "blue",
+                "yellow": "green",
+                "blue": "yellow",
+                "green": "red"
+              }
+            }
+          ]
+        },
+        {
+          "name": "cylinder_base_d0_colors",
+          "recipe": "cylinder_base",
+          "levels": null,
+          "distractors": 0,
+          "permute_colors": true,
+          "planned_trial_count": 3,
+          "completed_trial_count": 3,
+          "successes": 3,
+          "trials": [
+            {
+              "seed": 907,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "blue",
+                    "shape": "cylinder"
+                  },
+                  {
+                    "color": "yellow",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cube"
+                  }
+                ]
+              },
+              "order": [
+                "blue_cylinder",
+                "yellow_cube",
+                "green_cube"
+              ],
+              "object_count": 3,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 3.5455023519999984,
+                "rpc_cpu_seconds": 0.12778032700000158,
+                "compute_interval_count": 406,
+                "compute_interval_cpu_p50_ms": 0.008233500000023874,
+                "compute_interval_cpu_p95_ms": 47.9629092499998,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.17463350300000258,
+              "policy_sim_seconds": 97.14999999995347,
+              "color_permutation": {
+                "red": "green",
+                "yellow": "yellow",
+                "blue": "red",
+                "green": "blue"
+              }
+            },
+            {
+              "seed": 908,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "red",
+                    "shape": "cylinder"
+                  },
+                  {
+                    "color": "yellow",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cube"
+                  }
+                ]
+              },
+              "order": [
+                "red_cylinder",
+                "yellow_cube",
+                "green_cube"
+              ],
+              "object_count": 3,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 4.028552973999999,
+                "rpc_cpu_seconds": 0.17288885400000048,
+                "compute_interval_count": 574,
+                "compute_interval_cpu_p50_ms": 0.010233499999956486,
+                "compute_interval_cpu_p95_ms": 45.27058279999989,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.3918915719999978,
+              "policy_sim_seconds": 120.6499999998987,
+              "color_permutation": {
+                "red": "green",
+                "yellow": "yellow",
+                "blue": "blue",
+                "green": "red"
+              }
+            },
+            {
+              "seed": 909,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "red",
+                    "shape": "cylinder"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "blue",
+                    "shape": "cube"
+                  }
+                ]
+              },
+              "order": [
+                "red_cylinder",
+                "green_cube",
+                "blue_cube"
+              ],
+              "object_count": 3,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 3.645406755,
+                "rpc_cpu_seconds": 0.1348333959999993,
+                "compute_interval_count": 405,
+                "compute_interval_cpu_p50_ms": 0.00787299999993607,
+                "compute_interval_cpu_p95_ms": 50.90132400000005,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.1756290889999983,
+              "policy_sim_seconds": 96.49999999995498,
+              "color_permutation": {
+                "red": "blue",
+                "yellow": "green",
+                "blue": "yellow",
+                "green": "red"
+              }
+            }
+          ]
+        },
+        {
+          "name": "cylinder_base_d2_colors",
+          "recipe": "cylinder_base",
+          "levels": null,
+          "distractors": 2,
+          "permute_colors": true,
+          "planned_trial_count": 3,
+          "completed_trial_count": 3,
+          "successes": 3,
+          "trials": [
+            {
+              "seed": 907,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "blue",
+                    "shape": "cylinder"
+                  },
+                  {
+                    "color": "yellow",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cube"
+                  }
+                ]
+              },
+              "order": [
+                "blue_cylinder",
+                "yellow_cube",
+                "green_cube"
+              ],
+              "object_count": 5,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 4.165942335000001,
+                "rpc_cpu_seconds": 0.1290170849999989,
+                "compute_interval_count": 405,
+                "compute_interval_cpu_p50_ms": 0.006954000000058969,
+                "compute_interval_cpu_p95_ms": 58.881725999999695,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.1696041670000028,
+              "policy_sim_seconds": 96.49999999995498,
+              "color_permutation": {
+                "red": "green",
+                "yellow": "yellow",
+                "blue": "red",
+                "green": "blue"
+              }
+            },
+            {
+              "seed": 908,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "red",
+                    "shape": "cylinder"
+                  },
+                  {
+                    "color": "yellow",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cube"
+                  }
+                ]
+              },
+              "order": [
+                "red_cylinder",
+                "yellow_cube",
+                "green_cube"
+              ],
+              "object_count": 5,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 5.421856759000009,
+                "rpc_cpu_seconds": 0.1637709319999917,
+                "compute_interval_count": 571,
+                "compute_interval_cpu_p50_ms": 0.009131999999745233,
+                "compute_interval_cpu_p95_ms": 58.98407450000009,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.33842411800000427,
+              "policy_sim_seconds": 123.24999999989264,
+              "color_permutation": {
+                "red": "green",
+                "yellow": "yellow",
+                "blue": "blue",
+                "green": "red"
+              }
+            },
+            {
+              "seed": 909,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "red",
+                    "shape": "cylinder"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "blue",
+                    "shape": "cube"
+                  }
+                ]
+              },
+              "order": [
+                "red_cylinder",
+                "green_cube",
+                "blue_cube"
+              ],
+              "object_count": 5,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 4.085011539999998,
+                "rpc_cpu_seconds": 0.13102743500000136,
+                "compute_interval_count": 406,
+                "compute_interval_cpu_p50_ms": 0.007474999999979026,
+                "compute_interval_cpu_p95_ms": 56.67544524999995,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.18056357100000042,
+              "policy_sim_seconds": 96.49999999995498,
+              "color_permutation": {
+                "red": "blue",
+                "yellow": "green",
+                "blue": "yellow",
+                "green": "red"
+              }
+            }
+          ]
+        }
+      ],
+      "sensor": {
+        "depth_sampling": "pixel_center",
+        "offscreen_samples": 0
+      },
+      "sensor_source": "Recorded per-trial results, checked uniformly across this group.",
+      "task": "inventory_tower",
+      "layout": "sampled",
+      "scope": "Only the declared cases in this adaptive development matrix; repeated seeds across groups are not independent validation."
+    },
+    {
+      "name": "v22_random",
+      "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+      "planned_trial_count": 18,
+      "completed_trial_count": 18,
+      "successes": 13,
+      "cases": [
+        {
+          "name": "random_l2",
+          "recipe": "random",
+          "levels": 2,
+          "distractors": 0,
+          "permute_colors": false,
+          "planned_trial_count": 6,
+          "completed_trial_count": 6,
+          "successes": 6,
+          "trials": [
+            {
+              "seed": 901,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "blue",
+                    "shape": "prism"
+                  },
+                  {
+                    "color": "blue",
+                    "shape": "cylinder"
+                  }
+                ]
+              },
+              "order": [
+                "blue_prism",
+                "blue_cylinder"
+              ],
+              "object_count": 2,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 1,
+                "required_placements": 1,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 2.6583135939999964,
+                "rpc_cpu_seconds": 0.12429940600000378,
+                "compute_interval_count": 273,
+                "compute_interval_cpu_p50_ms": 0.012279999999975644,
+                "compute_interval_cpu_p95_ms": 54.751090400000145,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.18843766699999787,
+              "policy_sim_seconds": 67.75000000002198
+            },
+            {
+              "seed": 902,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "blue",
+                    "shape": "cylinder"
+                  },
+                  {
+                    "color": "red",
+                    "shape": "cylinder"
+                  }
+                ]
+              },
+              "order": [
+                "blue_cylinder",
+                "red_cylinder"
+              ],
+              "object_count": 2,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 1,
+                "required_placements": 1,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 2.170105817999999,
+                "rpc_cpu_seconds": 0.1247599890000014,
+                "compute_interval_count": 273,
+                "compute_interval_cpu_p50_ms": 0.01514800000013139,
+                "compute_interval_cpu_p95_ms": 41.23992880000014,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.2091866439999981,
+              "policy_sim_seconds": 67.75000000002198
+            },
+            {
+              "seed": 903,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "green",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "red",
+                    "shape": "thin_prism"
+                  }
+                ]
+              },
+              "order": [
+                "green_cube",
+                "red_thin_prism"
+              ],
+              "object_count": 2,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 1,
+                "required_placements": 1,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 2.689437734000001,
+                "rpc_cpu_seconds": 0.12839384599999903,
+                "compute_interval_count": 269,
+                "compute_interval_cpu_p50_ms": 0.011884999999933754,
+                "compute_interval_cpu_p95_ms": 53.26087019999999,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.14323803499999777,
+              "policy_sim_seconds": 65.95000000002618
+            },
+            {
+              "seed": 904,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "green",
+                    "shape": "cylinder"
+                  },
+                  {
+                    "color": "yellow",
+                    "shape": "cube"
+                  }
+                ]
+              },
+              "order": [
+                "green_cylinder",
+                "yellow_cube"
+              ],
+              "object_count": 2,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 1,
+                "required_placements": 1,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 2.247439137999998,
+                "rpc_cpu_seconds": 0.12598036500000187,
+                "compute_interval_count": 264,
+                "compute_interval_cpu_p50_ms": 0.012269999999980907,
+                "compute_interval_cpu_p95_ms": 45.061894150000136,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.2161974580000008,
+              "policy_sim_seconds": 65.3000000000277
+            },
+            {
+              "seed": 905,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "blue",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cylinder"
+                  }
+                ]
+              },
+              "order": [
+                "blue_cube",
+                "green_cylinder"
+              ],
+              "object_count": 2,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 1,
+                "required_placements": 1,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 2.2772848450000036,
+                "rpc_cpu_seconds": 0.12227075199999632,
+                "compute_interval_count": 265,
+                "compute_interval_cpu_p50_ms": 0.011989999999961753,
+                "compute_interval_cpu_p95_ms": 46.240002200000056,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.198564937,
+              "policy_sim_seconds": 65.3000000000277
+            },
+            {
+              "seed": 906,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "blue",
+                    "shape": "prism"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cylinder"
+                  }
+                ]
+              },
+              "order": [
+                "blue_prism",
+                "green_cylinder"
+              ],
+              "object_count": 2,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 1,
+                "required_placements": 1,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 2.4745213629999987,
+                "rpc_cpu_seconds": 0.1355244500000014,
+                "compute_interval_count": 290,
+                "compute_interval_cpu_p50_ms": 0.01072950000002848,
+                "compute_interval_cpu_p95_ms": 46.03191195000008,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.2051907939999995,
+              "policy_sim_seconds": 68.85000000001942
+            }
+          ]
+        },
+        {
+          "name": "random_l3",
+          "recipe": "random",
+          "levels": 3,
+          "distractors": 0,
+          "permute_colors": false,
+          "planned_trial_count": 6,
+          "completed_trial_count": 6,
+          "successes": 6,
+          "trials": [
+            {
+              "seed": 901,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "blue",
+                    "shape": "prism"
+                  },
+                  {
+                    "color": "blue",
+                    "shape": "cylinder"
+                  },
+                  {
+                    "color": "yellow",
+                    "shape": "cylinder"
+                  }
+                ]
+              },
+              "order": [
+                "blue_prism",
+                "blue_cylinder",
+                "yellow_cylinder"
+              ],
+              "object_count": 3,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 4.377584620000003,
+                "rpc_cpu_seconds": 0.165395891999998,
+                "compute_interval_count": 431,
+                "compute_interval_cpu_p50_ms": 0.0093979999999938,
+                "compute_interval_cpu_p95_ms": 57.81891600000022,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.24475100199999744,
+              "policy_sim_seconds": 101.54999999994321
+            },
+            {
+              "seed": 902,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "blue",
+                    "shape": "cylinder"
+                  },
+                  {
+                    "color": "red",
+                    "shape": "cylinder"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "thin_prism"
+                  }
+                ]
+              },
+              "order": [
+                "blue_cylinder",
+                "red_cylinder",
+                "green_thin_prism"
+              ],
+              "object_count": 3,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 4.223003352000002,
+                "rpc_cpu_seconds": 0.19756410499999807,
+                "compute_interval_count": 436,
+                "compute_interval_cpu_p50_ms": 0.01170350000001541,
+                "compute_interval_cpu_p95_ms": 51.32543525,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.28101711300000165,
+              "policy_sim_seconds": 101.54999999994321
+            },
+            {
+              "seed": 903,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "green",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "red",
+                    "shape": "prism"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "thin_prism"
+                  }
+                ]
+              },
+              "order": [
+                "green_cube",
+                "red_prism",
+                "green_thin_prism"
+              ],
+              "object_count": 3,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 5.282135765999997,
+                "rpc_cpu_seconds": 0.20907296700000244,
+                "compute_interval_count": 594,
+                "compute_interval_cpu_p50_ms": 0.015665999999692204,
+                "compute_interval_cpu_p95_ms": 54.11083980000037,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.5592515410000036,
+              "policy_sim_seconds": 124.2499999998903
+            },
+            {
+              "seed": 904,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "green",
+                    "shape": "cylinder"
+                  },
+                  {
+                    "color": "yellow",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "yellow",
+                    "shape": "thin_prism"
+                  }
+                ]
+              },
+              "order": [
+                "green_cylinder",
+                "yellow_cube",
+                "yellow_thin_prism"
+              ],
+              "object_count": 3,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 4.0150898900000005,
+                "rpc_cpu_seconds": 0.14845974699999995,
+                "compute_interval_count": 418,
+                "compute_interval_cpu_p50_ms": 0.00817899999999705,
+                "compute_interval_cpu_p95_ms": 51.987042750000064,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.19162534899999883,
+              "policy_sim_seconds": 98.29999999995078
+            },
+            {
+              "seed": 905,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "blue",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cylinder"
+                  },
+                  {
+                    "color": "blue",
+                    "shape": "thin_prism"
+                  }
+                ]
+              },
+              "order": [
+                "blue_cube",
+                "green_cylinder",
+                "blue_thin_prism"
+              ],
+              "object_count": 3,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 4.4529660180000015,
+                "rpc_cpu_seconds": 0.16913533799999828,
+                "compute_interval_count": 432,
+                "compute_interval_cpu_p50_ms": 0.010086000000297801,
+                "compute_interval_cpu_p95_ms": 56.68019150000003,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.2313073800000005,
+              "policy_sim_seconds": 100.54999999994554
+            },
+            {
+              "seed": 906,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "blue",
+                    "shape": "prism"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cylinder"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cube"
+                  }
+                ]
+              },
+              "order": [
+                "blue_prism",
+                "green_cylinder",
+                "green_cube"
+              ],
+              "object_count": 3,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 4.2609407159999995,
+                "rpc_cpu_seconds": 0.17273300100000086,
+                "compute_interval_count": 492,
+                "compute_interval_cpu_p50_ms": 0.010261999999983118,
+                "compute_interval_cpu_p95_ms": 51.12529299999994,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.29164029500000055,
+              "policy_sim_seconds": 102.29999999994146
+            }
+          ]
+        },
+        {
+          "name": "random_l4",
+          "recipe": "random",
+          "levels": 4,
+          "distractors": 0,
+          "permute_colors": false,
+          "planned_trial_count": 6,
+          "completed_trial_count": 6,
+          "successes": 1,
+          "trials": [
+            {
+              "seed": 901,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "blue",
+                    "shape": "prism"
+                  },
+                  {
+                    "color": "blue",
+                    "shape": "cylinder"
+                  },
+                  {
+                    "color": "yellow",
+                    "shape": "cylinder"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cylinder"
+                  }
+                ]
+              },
+              "order": [
+                "blue_prism",
+                "blue_cylinder",
+                "yellow_cylinder",
+                "green_cylinder"
+              ],
+              "object_count": 4,
+              "success": false,
+              "metrics": {
+                "success": false,
+                "score": 0.6666666666666666,
+                "placed_blocks": 2,
+                "required_placements": 3,
+                "structure_stable": false,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Selected instance is occluded: green_3",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 6.530192528,
+                "rpc_cpu_seconds": 0.23837212300000013,
+                "compute_interval_count": 659,
+                "compute_interval_cpu_p50_ms": 0.010371000000120034,
+                "compute_interval_cpu_p95_ms": 57.79524489999992,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.432016144000003,
+              "policy_sim_seconds": 129.14999999989166,
+              "final_failure_context": [
+                "green_3 release offset=[0.0056, -0.0056] gap=0.0022",
+                "green_3 geometry unconfirmed after opening.",
+                "green_3 geometry unconfirmed after withdrawal.",
+                "Selected instance is occluded: green_3"
+              ]
+            },
+            {
+              "seed": 902,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "blue",
+                    "shape": "cylinder"
+                  },
+                  {
+                    "color": "red",
+                    "shape": "cylinder"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "prism"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "thin_prism"
+                  }
+                ]
+              },
+              "order": [
+                "blue_cylinder",
+                "red_cylinder",
+                "green_prism",
+                "green_thin_prism"
+              ],
+              "object_count": 4,
+              "success": false,
+              "metrics": {
+                "success": false,
+                "score": 0.6666666666666666,
+                "placed_blocks": 2,
+                "required_placements": 3,
+                "structure_stable": false,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Selected instance is occluded: green_2",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 7.163685976000006,
+                "rpc_cpu_seconds": 0.2706909549999938,
+                "compute_interval_count": 661,
+                "compute_interval_cpu_p50_ms": 0.009473999999953797,
+                "compute_interval_cpu_p95_ms": 56.721738000000244,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.40067832899999534,
+              "policy_sim_seconds": 129.79999999989477,
+              "final_failure_context": [
+                "green_2 release offset=[-0.0026, -0.0029] gap=0.0021",
+                "green_2 geometry unconfirmed after opening.",
+                "green_2 geometry unconfirmed after withdrawal.",
+                "Selected instance is occluded: green_2"
+              ]
+            },
+            {
+              "seed": 903,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "green",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "red",
+                    "shape": "prism"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "prism"
+                  },
+                  {
+                    "color": "blue",
+                    "shape": "thin_prism"
+                  }
+                ]
+              },
+              "order": [
+                "green_cube",
+                "red_prism",
+                "green_prism",
+                "blue_thin_prism"
+              ],
+              "object_count": 4,
+              "success": false,
+              "metrics": {
+                "success": false,
+                "score": 0.0,
+                "placed_blocks": 0,
+                "required_placements": 3,
+                "structure_stable": false,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Selected instance is occluded: blue_1",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 7.137179472999997,
+                "rpc_cpu_seconds": 0.25048351200000296,
+                "compute_interval_count": 750,
+                "compute_interval_cpu_p50_ms": 0.010946499999886505,
+                "compute_interval_cpu_p95_ms": 58.25746060000005,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.5183250769999956,
+              "policy_sim_seconds": 148.99999999998644,
+              "final_failure_context": [
+                "blue_1 release offset=[-0.0005, -0.0018] gap=0.0024",
+                "blue_1 after opening displacement=[-0.0011, -0.0119, -0.0069]",
+                "blue_1 after withdrawal center=[-0.0195, -0.2408, 0.5783]",
+                "Selected instance is occluded: blue_1"
+              ]
+            },
+            {
+              "seed": 904,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "green",
+                    "shape": "cylinder"
+                  },
+                  {
+                    "color": "yellow",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "yellow",
+                    "shape": "prism"
+                  },
+                  {
+                    "color": "blue",
+                    "shape": "prism"
+                  }
+                ]
+              },
+              "order": [
+                "green_cylinder",
+                "yellow_cube",
+                "yellow_prism",
+                "blue_prism"
+              ],
+              "object_count": 4,
+              "success": false,
+              "metrics": {
+                "success": false,
+                "score": 0.0,
+                "placed_blocks": 0,
+                "required_placements": 3,
+                "structure_stable": false,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Selected instance is occluded: green_3",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.7444072340000003,
+                "rpc_cpu_seconds": 0.0694166929999995,
+                "compute_interval_count": 268,
+                "compute_interval_cpu_p50_ms": 0.024995500000013493,
+                "compute_interval_cpu_p95_ms": 56.401571099999984,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.3374295700000003,
+              "policy_sim_seconds": 29.949999999993917,
+              "final_failure_context": [
+                "yellow_0 after opening displacement=[-0.0003, -0.0008, -0.0039]",
+                "yellow_0 after withdrawal center=[0.1, -0.2772, 0.4299]",
+                "CLEAR confirmed yellow_0",
+                "Selected instance is occluded: green_3"
+              ]
+            },
+            {
+              "seed": 905,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "blue",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cylinder"
+                  },
+                  {
+                    "color": "yellow",
+                    "shape": "cylinder"
+                  },
+                  {
+                    "color": "blue",
+                    "shape": "cylinder"
+                  }
+                ]
+              },
+              "order": [
+                "blue_cube",
+                "green_cylinder",
+                "yellow_cylinder",
+                "blue_cylinder"
+              ],
+              "object_count": 4,
+              "success": false,
+              "metrics": {
+                "success": false,
+                "score": 0.6666666666666666,
+                "placed_blocks": 2,
+                "required_placements": 3,
+                "structure_stable": false,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Selected instance is occluded: blue_1",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 4.798534693999999,
+                "rpc_cpu_seconds": 0.16359022500000142,
+                "compute_interval_count": 466,
+                "compute_interval_cpu_p50_ms": 0.010331499999849392,
+                "compute_interval_cpu_p95_ms": 59.897628250000025,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.2836783360000057,
+              "policy_sim_seconds": 94.39999999995987,
+              "final_failure_context": [
+                "yellow_0 after opening displacement=[0.0014, -0.0072, -0.0062]",
+                "yellow_0 after withdrawal center=[-0.0213, -0.2574, 0.5193]",
+                "LEVEL confirmed 3/4 id=yellow_0",
+                "Selected instance is occluded: blue_1"
+              ]
+            },
+            {
+              "seed": 906,
+              "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "blue",
+                    "shape": "prism"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cylinder"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "red",
+                    "shape": "thin_prism"
+                  }
+                ]
+              },
+              "order": [
+                "blue_prism",
+                "green_cylinder",
+                "green_cube",
+                "red_thin_prism"
+              ],
+              "object_count": 4,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 3,
+                "required_placements": 3,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 6.798002787999997,
+                "rpc_cpu_seconds": 0.223326851000003,
+                "compute_interval_count": 612,
+                "compute_interval_cpu_p50_ms": 0.009256499999776846,
+                "compute_interval_cpu_p95_ms": 62.254318499999734,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.34094698899999987,
+              "policy_sim_seconds": 133.6999999999134
+            }
+          ]
+        }
+      ],
+      "sensor": {
+        "depth_sampling": "pixel_center",
+        "offscreen_samples": 0
+      },
+      "sensor_source": "Recorded per-trial results, checked uniformly across this group.",
+      "task": "inventory_tower",
+      "layout": "sampled",
+      "scope": "Only the declared cases in this adaptive development matrix; repeated seeds across groups are not independent validation."
+    },
+    {
+      "name": "pitch_refreshed",
+      "candidate_sha256": "30a9ae990feda8ef497f08ed5cf320014a540e083513ff9dd2f6404940f66f4d",
+      "planned_trial_count": 6,
+      "completed_trial_count": 6,
+      "successes": 1,
+      "cases": [
+        {
+          "name": "random_l3",
+          "recipe": "random",
+          "levels": 3,
+          "distractors": 0,
+          "permute_colors": false,
+          "planned_trial_count": 6,
+          "completed_trial_count": 6,
+          "successes": 1,
+          "trials": [
+            {
+              "seed": 901,
+              "candidate_sha256": "30a9ae990feda8ef497f08ed5cf320014a540e083513ff9dd2f6404940f66f4d",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "blue",
+                    "shape": "prism"
+                  },
+                  {
+                    "color": "blue",
+                    "shape": "cylinder"
+                  },
+                  {
+                    "color": "yellow",
+                    "shape": "cylinder"
+                  }
+                ]
+              },
+              "order": [
+                "blue_prism",
+                "blue_cylinder",
+                "yellow_cylinder"
+              ],
+              "object_count": 3,
+              "success": false,
+              "metrics": {
+                "success": false,
+                "score": 0.5,
+                "placed_blocks": 1,
+                "required_placements": 2,
+                "structure_stable": false,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "No reachable transport clearance above the column",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 3.2432728650000024,
+                "rpc_cpu_seconds": 0.13524147399999764,
+                "compute_interval_count": 374,
+                "compute_interval_cpu_p50_ms": 0.019008499999917383,
+                "compute_interval_cpu_p95_ms": 58.5365266000001,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.41723402800000375,
+              "policy_sim_seconds": 72.20000000001161,
+              "final_failure_context": [
+                "yellow_0 payload tilt=[0.0623, 0.1906, 0.9797]",
+                "PITCH observed-grasp tipping_limit_deg=18.722",
+                "PITCH observed-grasp release tilt_deg=8.595 error_mm=2.98",
+                "No reachable transport clearance above the column"
+              ]
+            },
+            {
+              "seed": 902,
+              "candidate_sha256": "30a9ae990feda8ef497f08ed5cf320014a540e083513ff9dd2f6404940f66f4d",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "blue",
+                    "shape": "cylinder"
+                  },
+                  {
+                    "color": "red",
+                    "shape": "cylinder"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "thin_prism"
+                  }
+                ]
+              },
+              "order": [
+                "blue_cylinder",
+                "red_cylinder",
+                "green_thin_prism"
+              ],
+              "object_count": 3,
+              "success": false,
+              "metrics": {
+                "success": false,
+                "score": 0.5,
+                "placed_blocks": 1,
+                "required_placements": 2,
+                "structure_stable": false,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Selected instance is occluded: green_2",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 2.932727202999997,
+                "rpc_cpu_seconds": 0.15884423600000305,
+                "compute_interval_count": 356,
+                "compute_interval_cpu_p50_ms": 0.017675499999869615,
+                "compute_interval_cpu_p95_ms": 49.27256074999975,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.3411817229999974,
+              "policy_sim_seconds": 73.90000000000765,
+              "final_failure_context": [
+                "green_2 visible finger reach=0.0119; geometry grasp offset=0.024",
+                "PITCH source transfer tilt_deg=0.275 error_mm=0.039",
+                "green_2 applied grasp offset=0.013",
+                "Selected instance is occluded: green_2"
+              ]
+            },
+            {
+              "seed": 903,
+              "candidate_sha256": "30a9ae990feda8ef497f08ed5cf320014a540e083513ff9dd2f6404940f66f4d",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "green",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "red",
+                    "shape": "prism"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "thin_prism"
+                  }
+                ]
+              },
+              "order": [
+                "green_cube",
+                "red_prism",
+                "green_thin_prism"
+              ],
+              "object_count": 3,
+              "success": false,
+              "metrics": {
+                "success": false,
+                "score": 0.5,
+                "placed_blocks": 1,
+                "required_placements": 2,
+                "structure_stable": false,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Visible cuboid extent contradicts learned dimensions",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 3.940479428999995,
+                "rpc_cpu_seconds": 0.18618499500000552,
+                "compute_interval_count": 485,
+                "compute_interval_cpu_p50_ms": 0.022218999999878974,
+                "compute_interval_cpu_p95_ms": 60.894684399999896,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.6176523239999963,
+              "policy_sim_seconds": 94.09999999996057,
+              "final_failure_context": [
+                "green_1 visible finger reach=0.0121; geometry grasp offset=0.024",
+                "PITCH source transfer tilt_deg=1.547 error_mm=0.363",
+                "green_1 applied grasp offset=0.0139",
+                "Visible cuboid extent contradicts learned dimensions"
+              ]
+            },
+            {
+              "seed": 904,
+              "candidate_sha256": "30a9ae990feda8ef497f08ed5cf320014a540e083513ff9dd2f6404940f66f4d",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "green",
+                    "shape": "cylinder"
+                  },
+                  {
+                    "color": "yellow",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "yellow",
+                    "shape": "thin_prism"
+                  }
+                ]
+              },
+              "order": [
+                "green_cylinder",
+                "yellow_cube",
+                "yellow_thin_prism"
+              ],
+              "object_count": 3,
+              "success": false,
+              "metrics": {
+                "success": false,
+                "score": 0.5,
+                "placed_blocks": 1,
+                "required_placements": 2,
+                "structure_stable": false,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Pitched tool waypoint is unreachable within 3 mm",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 2.6509185339999988,
+                "rpc_cpu_seconds": 0.10438746500000146,
+                "compute_interval_count": 321,
+                "compute_interval_cpu_p50_ms": 0.014188000000192602,
+                "compute_interval_cpu_p95_ms": 53.31216299999974,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.24832546200000039,
+              "policy_sim_seconds": 68.05000000002129,
+              "final_failure_context": [
+                "yellow_0 visible finger reach=0.0121; geometry grasp offset=0.024",
+                "PITCH source transfer tilt_deg=0.942 error_mm=0.173",
+                "yellow_0 applied grasp offset=0.014",
+                "Pitched tool waypoint is unreachable within 3 mm"
+              ]
+            },
+            {
+              "seed": 905,
+              "candidate_sha256": "30a9ae990feda8ef497f08ed5cf320014a540e083513ff9dd2f6404940f66f4d",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "blue",
+                    "shape": "cube"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cylinder"
+                  },
+                  {
+                    "color": "blue",
+                    "shape": "thin_prism"
+                  }
+                ]
+              },
+              "order": [
+                "blue_cube",
+                "green_cylinder",
+                "blue_thin_prism"
+              ],
+              "object_count": 3,
+              "success": false,
+              "metrics": {
+                "success": false,
+                "score": 0.5,
+                "placed_blocks": 1,
+                "required_placements": 2,
+                "structure_stable": false,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Visible cuboid extent contradicts learned dimensions",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 2.982129291999997,
+                "rpc_cpu_seconds": 0.14205788500000285,
+                "compute_interval_count": 325,
+                "compute_interval_cpu_p50_ms": 0.01755400000003071,
+                "compute_interval_cpu_p95_ms": 58.95883859999995,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.3909887160000016,
+              "policy_sim_seconds": 69.75000000001732,
+              "final_failure_context": [
+                "blue_0 visible finger reach=0.0212; geometry grasp offset=0.0284",
+                "PITCH source transfer tilt_deg=2.676 error_mm=0.266",
+                "blue_0 applied grasp offset=0.0139",
+                "Visible cuboid extent contradicts learned dimensions"
+              ]
+            },
+            {
+              "seed": 906,
+              "candidate_sha256": "30a9ae990feda8ef497f08ed5cf320014a540e083513ff9dd2f6404940f66f4d",
+              "goal": {
+                "kind": "single_column",
+                "levels": [
+                  {
+                    "color": "blue",
+                    "shape": "prism"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cylinder"
+                  },
+                  {
+                    "color": "green",
+                    "shape": "cube"
+                  }
+                ]
+              },
+              "order": [
+                "blue_prism",
+                "green_cylinder",
+                "green_cube"
+              ],
+              "object_count": 3,
+              "success": true,
+              "metrics": {
+                "success": true,
+                "score": 1.0,
+                "placed_blocks": 2,
+                "required_placements": 2,
+                "structure_stable": true,
+                "failure": null
+              },
+              "policy_error": null,
+              "final_note": "Column released; all levels visually placed in task order",
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 4.701132869000007,
+                "rpc_cpu_seconds": 0.21310186399999254,
+                "compute_interval_count": 492,
+                "compute_interval_cpu_p50_ms": 0.015082500000040966,
+                "compute_interval_cpu_p95_ms": 56.40642570000002,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              },
+              "robot_ik_cpu_seconds": 0.516932853000001,
+              "policy_sim_seconds": 102.29999999994146
+            }
+          ]
+        }
+      ],
+      "sensor": {
+        "depth_sampling": "pixel_center",
+        "offscreen_samples": 0
+      },
+      "sensor_source": "Recorded per-trial results, checked uniformly across this group.",
+      "task": "inventory_tower",
+      "layout": "sampled",
+      "scope": "Only the declared cases in this adaptive development matrix; repeated seeds across groups are not independent validation."
+    }
+  ],
+  "skipped_paths": [],
+  "included_group_count": 3,
+  "included_trial_record_count": 72,
+  "selected_candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+  "cpu_scope": "Each trial retains its recorded CPU profile and exact scope. Worker policy compute excludes simulator/rendering, RPC serialization, and host robot IK; robot IK CPU time is recorded separately. These trial profiles are not isolated algorithm microbenchmarks.",
+  "pitch_comparison": {
+    "baseline_group": "v22_random",
+    "baseline_case": "random_l3",
+    "baseline_candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+    "candidate_group": "pitch_refreshed",
+    "candidate_sha256": "30a9ae990feda8ef497f08ed5cf320014a540e083513ff9dd2f6404940f66f4d",
+    "seeds": [
+      901,
+      902,
+      903,
+      904,
+      905,
+      906
+    ],
+    "baseline_successes": 6,
+    "candidate_successes": 1,
+    "paired_case_count": 6,
+    "activated_trials": 5,
+    "activated_successes": 0,
+    "decision": "Rejected. Retain corrected geometry with the ordinary controller; none of the five activated pitched trials reached opening.",
+    "scope": "Adaptive development. Pitch baseline records are already included in the v22_random/random_l3 group and are not duplicated."
+  },
+  "lp_comparison": {
+    "scope": "Bounded adaptive development experiment; six new physical trials paired with six existing frozen-v21 results. No held-out or generalization-rate claim.",
+    "status": "complete",
+    "baseline_candidate_sha256": "9ed75829d6882c753db91318af385247738143d33c5efbca24409bd6f9b0bd1f",
+    "candidate_sha256": "915a787e262753187605e9f7f1625a94b6e6af41c60e82d72884324b52324833",
+    "baseline_successes": 4,
+    "candidate_successes": 3,
+    "paired_case_count": 6,
+    "runtime_inputs": "Only visual cube models, learned volume mass ratios, existing six-second visual velocity predictions, public goals and robot proprioception.",
+    "change": "Replace only cube-prefix weighted target choice with a three-variable LP maximizing the minimum predicted upper-substack COM support-edge margin. Preserve release-drift compensation and controls. Enforce a conservative16-sided inscribed approximation to the existing6mm radial target bound and break LP ties nearest the weighted target.",
+    "unchanged": "Frozen v21 perception, grasp, release sequence, sensor, scene generation, physics and strict evaluator.",
+    "cpu_solver": "scipy.optimize.linprog using HiGHS, threads=1; no GPU policy component.",
+    "analytic_check": "For two equal cube supports centered at0 and-2mm in X, the LP recovered the closed-form new X=-2/3mm and minimum margin13+2/3mm within30nm.",
+    "recommendation": "Retain existing weighted balancing. Physical success regressed from4/6 to3/6; objective gains do not establish stable tower dynamics.",
+    "interpretation": [
+      "Seed908 with no distractors regressed from stable to full collapse.",
+      "Seed907 with two distractors improved partial score0 to1 and removed support-margin violations, but still failed the strict3mm drift criterion.",
+      "Seed909 with two distractors still failed angular-motion stability.",
+      "All six LP trials visually completed four levels, but only three passed physical evaluation."
+    ],
+    "numerical_note": "Logged pre-LP margins refer to the raw weighted reference before release compensation and final target clipping, not to a separately replayed baseline action. The paired physical outcomes, rather than these objective values, determine the recommendation.",
+    "offline_boundary": "Private evaluator outcomes/stability reasons are retained only for experiment assessment and were never returned to candidate runtime.",
+    "trials": [
+      {
+        "case": "cube_quad_d0_colors",
+        "seed": 907,
+        "distractors": 0,
+        "weighted_v21": {
+          "candidate_sha256": "9ed75829d6882c753db91318af385247738143d33c5efbca24409bd6f9b0bd1f",
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "red",
+                "shape": "cube"
+              },
+              {
+                "color": "green",
+                "shape": "cube"
+              },
+              {
+                "color": "blue",
+                "shape": "cube"
+              },
+              {
+                "color": "yellow",
+                "shape": "cube"
+              }
+            ]
+          },
+          "order": [
+            "red_cube",
+            "green_cube",
+            "blue_cube",
+            "yellow_cube"
+          ],
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          },
+          "success": true,
+          "metrics": {
+            "success": true,
+            "score": 1.0,
+            "placed_blocks": 3,
+            "required_placements": 3,
+            "structure_stable": true,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_stability_check": {
+            "stable": true,
+            "reasons": [],
+            "blocks": [
+              "red_cube",
+              "green_cube",
+              "blue_cube",
+              "yellow_cube"
+            ],
+            "duration_s": 5.0,
+            "time": 156.65000000001987
+          },
+          "final_policy_notes": [
+            "yellow_1 after opening displacement=[-0.0004, -0.0012, -0.0052]",
+            "yellow_1 after withdrawal center=[-0.0219, -0.2362, 0.5036]",
+            "LEVEL confirmed 4/4 id=yellow_1",
+            "Column released; all levels visually placed in task order"
+          ],
+          "worker_cpu_profile": {
+            "policy_compute_cpu_seconds": 8.379621404000005,
+            "rpc_cpu_seconds": 0.2787437269999942,
+            "compute_interval_count": 769,
+            "compute_interval_cpu_p50_ms": 0.01147300000003959,
+            "compute_interval_cpu_p95_ms": 60.67470240000005,
+            "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+          }
+        },
+        "linear_program": {
+          "candidate_sha256": "915a787e262753187605e9f7f1625a94b6e6af41c60e82d72884324b52324833",
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "red",
+                "shape": "cube"
+              },
+              {
+                "color": "green",
+                "shape": "cube"
+              },
+              {
+                "color": "blue",
+                "shape": "cube"
+              },
+              {
+                "color": "yellow",
+                "shape": "cube"
+              }
+            ]
+          },
+          "order": [
+            "red_cube",
+            "green_cube",
+            "blue_cube",
+            "yellow_cube"
+          ],
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          },
+          "success": true,
+          "metrics": {
+            "success": true,
+            "score": 1.0,
+            "placed_blocks": 3,
+            "required_placements": 3,
+            "structure_stable": true,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_stability_check": {
+            "stable": true,
+            "reasons": [],
+            "blocks": [
+              "red_cube",
+              "green_cube",
+              "blue_cube",
+              "yellow_cube"
+            ],
+            "duration_s": 5.0,
+            "time": 155.20000000001295
+          },
+          "final_policy_notes": [
+            "yellow_1 after opening displacement=[-0.0003, -0.0017, -0.0068]",
+            "yellow_1 after withdrawal center=[-0.0206, -0.2374, 0.5036]",
+            "LEVEL confirmed 4/4 id=yellow_1",
+            "Column released; all levels visually placed in task order"
+          ],
+          "worker_cpu_profile": {
+            "policy_compute_cpu_seconds": 7.774903394999999,
+            "rpc_cpu_seconds": 0.253658786000001,
+            "compute_interval_count": 770,
+            "compute_interval_cpu_p50_ms": 0.010098499999777744,
+            "compute_interval_cpu_p95_ms": 58.200935500000426,
+            "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+          },
+          "lp_logged_refresh_count": 12,
+          "lp_fallback_refresh_count": 0,
+          "last_lp_note": "BALANCE_LP margins=(0.013771257939781484, 0.014593706731738766) weighted=[-0.02, -0.2373] target=[-0.0206, -0.2381]"
+        }
+      },
+      {
+        "case": "cube_quad_d0_colors",
+        "seed": 908,
+        "distractors": 0,
+        "weighted_v21": {
+          "candidate_sha256": "9ed75829d6882c753db91318af385247738143d33c5efbca24409bd6f9b0bd1f",
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "blue",
+                "shape": "cube"
+              },
+              {
+                "color": "green",
+                "shape": "cube"
+              },
+              {
+                "color": "red",
+                "shape": "cube"
+              },
+              {
+                "color": "yellow",
+                "shape": "cube"
+              }
+            ]
+          },
+          "order": [
+            "blue_cube",
+            "green_cube",
+            "red_cube",
+            "yellow_cube"
+          ],
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          },
+          "success": true,
+          "metrics": {
+            "success": true,
+            "score": 1.0,
+            "placed_blocks": 3,
+            "required_placements": 3,
+            "structure_stable": true,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_stability_check": {
+            "stable": true,
+            "reasons": [],
+            "blocks": [
+              "blue_cube",
+              "green_cube",
+              "red_cube",
+              "yellow_cube"
+            ],
+            "duration_s": 5.0,
+            "time": 155.05000000001223
+          },
+          "final_policy_notes": [
+            "yellow_1 after opening displacement=[0.0001, -0.0018, -0.0074]",
+            "yellow_1 after withdrawal center=[-0.0175, -0.2355, 0.5036]",
+            "LEVEL confirmed 4/4 id=yellow_1",
+            "Column released; all levels visually placed in task order"
+          ],
+          "worker_cpu_profile": {
+            "policy_compute_cpu_seconds": 7.844884277000004,
+            "rpc_cpu_seconds": 0.2883902939999954,
+            "compute_interval_count": 752,
+            "compute_interval_cpu_p50_ms": 0.011382499999990081,
+            "compute_interval_cpu_p95_ms": 58.60460350000018,
+            "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+          }
+        },
+        "linear_program": {
+          "candidate_sha256": "915a787e262753187605e9f7f1625a94b6e6af41c60e82d72884324b52324833",
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "blue",
+                "shape": "cube"
+              },
+              {
+                "color": "green",
+                "shape": "cube"
+              },
+              {
+                "color": "red",
+                "shape": "cube"
+              },
+              {
+                "color": "yellow",
+                "shape": "cube"
+              }
+            ]
+          },
+          "order": [
+            "blue_cube",
+            "green_cube",
+            "red_cube",
+            "yellow_cube"
+          ],
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          },
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.0,
+            "placed_blocks": 0,
+            "required_placements": 3,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_stability_check": {
+            "stable": false,
+            "reasons": [
+              "blue_cube: insufficient upper-substack support margin",
+              "green_cube: drift exceeds 3 mm",
+              "green_cube: incorrect support height",
+              "green_cube: insufficient upper-substack support margin",
+              "green_cube: local Z axis is not upright",
+              "green_cube: missing contact with blue_cube",
+              "green_cube: rotating",
+              "green_cube: support face is not horizontal",
+              "green_cube: translating",
+              "red_cube: drift exceeds 3 mm",
+              "red_cube: incorrect support height",
+              "red_cube: insufficient upper-substack support margin",
+              "red_cube: local Z axis is not upright",
+              "red_cube: missing contact with green_cube",
+              "red_cube: rotating",
+              "red_cube: support face is not horizontal",
+              "red_cube: translating",
+              "yellow_cube: drift exceeds 3 mm",
+              "yellow_cube: incorrect support height",
+              "yellow_cube: local Z axis is not upright",
+              "yellow_cube: missing contact with red_cube",
+              "yellow_cube: rotating",
+              "yellow_cube: translating"
+            ],
+            "blocks": [
+              "blue_cube",
+              "green_cube",
+              "red_cube",
+              "yellow_cube"
+            ],
+            "duration_s": 5.0,
+            "time": 155.05000000001223
+          },
+          "final_policy_notes": [
+            "yellow_1 after opening displacement=[0.0002, -0.0021, -0.0074]",
+            "yellow_1 after withdrawal center=[-0.0148, -0.2387, 0.5036]",
+            "LEVEL confirmed 4/4 id=yellow_1",
+            "Column released; all levels visually placed in task order"
+          ],
+          "worker_cpu_profile": {
+            "policy_compute_cpu_seconds": 7.382573845000015,
+            "rpc_cpu_seconds": 0.2562339249999861,
+            "compute_interval_count": 764,
+            "compute_interval_cpu_p50_ms": 0.010468999999790896,
+            "compute_interval_cpu_p95_ms": 56.72678585000025,
+            "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+          },
+          "lp_logged_refresh_count": 12,
+          "lp_fallback_refresh_count": 0,
+          "last_lp_note": "BALANCE_LP margins=(0.009425911130294451, 0.013011738818216254) weighted=[-0.0213, -0.2353] target=[-0.0176, -0.2389]"
+        }
+      },
+      {
+        "case": "cube_quad_d0_colors",
+        "seed": 909,
+        "distractors": 0,
+        "weighted_v21": {
+          "candidate_sha256": "9ed75829d6882c753db91318af385247738143d33c5efbca24409bd6f9b0bd1f",
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "yellow",
+                "shape": "cube"
+              },
+              {
+                "color": "blue",
+                "shape": "cube"
+              },
+              {
+                "color": "red",
+                "shape": "cube"
+              },
+              {
+                "color": "green",
+                "shape": "cube"
+              }
+            ]
+          },
+          "order": [
+            "yellow_cube",
+            "blue_cube",
+            "red_cube",
+            "green_cube"
+          ],
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          },
+          "success": true,
+          "metrics": {
+            "success": true,
+            "score": 1.0,
+            "placed_blocks": 3,
+            "required_placements": 3,
+            "structure_stable": true,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_stability_check": {
+            "stable": true,
+            "reasons": [],
+            "blocks": [
+              "yellow_cube",
+              "blue_cube",
+              "red_cube",
+              "green_cube"
+            ],
+            "duration_s": 5.0,
+            "time": 132.49999999990456
+          },
+          "final_policy_notes": [
+            "green_3 after opening displacement=[-0.0018, -0.0011, -0.0072]",
+            "green_3 after withdrawal center=[-0.079, -0.2365, 0.5036]",
+            "LEVEL confirmed 4/4 id=green_3",
+            "Column released; all levels visually placed in task order"
+          ],
+          "worker_cpu_profile": {
+            "policy_compute_cpu_seconds": 7.666622105000004,
+            "rpc_cpu_seconds": 0.24957626999999555,
+            "compute_interval_count": 599,
+            "compute_interval_cpu_p50_ms": 0.01014899999995933,
+            "compute_interval_cpu_p95_ms": 61.86082749999995,
+            "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+          }
+        },
+        "linear_program": {
+          "candidate_sha256": "915a787e262753187605e9f7f1625a94b6e6af41c60e82d72884324b52324833",
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "yellow",
+                "shape": "cube"
+              },
+              {
+                "color": "blue",
+                "shape": "cube"
+              },
+              {
+                "color": "red",
+                "shape": "cube"
+              },
+              {
+                "color": "green",
+                "shape": "cube"
+              }
+            ]
+          },
+          "order": [
+            "yellow_cube",
+            "blue_cube",
+            "red_cube",
+            "green_cube"
+          ],
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          },
+          "success": true,
+          "metrics": {
+            "success": true,
+            "score": 1.0,
+            "placed_blocks": 3,
+            "required_placements": 3,
+            "structure_stable": true,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_stability_check": {
+            "stable": true,
+            "reasons": [],
+            "blocks": [
+              "yellow_cube",
+              "blue_cube",
+              "red_cube",
+              "green_cube"
+            ],
+            "duration_s": 5.0,
+            "time": 132.49999999990456
+          },
+          "final_policy_notes": [
+            "green_3 after opening displacement=[-0.0021, -0.0015, -0.0073]",
+            "green_3 after withdrawal center=[-0.0799, -0.2368, 0.5036]",
+            "LEVEL confirmed 4/4 id=green_3",
+            "Column released; all levels visually placed in task order"
+          ],
+          "worker_cpu_profile": {
+            "policy_compute_cpu_seconds": 6.992992361000006,
+            "rpc_cpu_seconds": 0.21662205399999354,
+            "compute_interval_count": 611,
+            "compute_interval_cpu_p50_ms": 0.007388999999857759,
+            "compute_interval_cpu_p95_ms": 56.17160399999999,
+            "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+          },
+          "lp_logged_refresh_count": 12,
+          "lp_fallback_refresh_count": 0,
+          "last_lp_note": "BALANCE_LP margins=(0.011577241380034325, 0.013886752773794225) weighted=[-0.0804, -0.2374] target=[-0.0802, -0.2397]"
+        }
+      },
+      {
+        "case": "cube_quad_d2_colors",
+        "seed": 907,
+        "distractors": 2,
+        "weighted_v21": {
+          "candidate_sha256": "9ed75829d6882c753db91318af385247738143d33c5efbca24409bd6f9b0bd1f",
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "red",
+                "shape": "cube"
+              },
+              {
+                "color": "green",
+                "shape": "cube"
+              },
+              {
+                "color": "blue",
+                "shape": "cube"
+              },
+              {
+                "color": "yellow",
+                "shape": "cube"
+              }
+            ]
+          },
+          "order": [
+            "red_cube",
+            "green_cube",
+            "blue_cube",
+            "yellow_cube"
+          ],
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          },
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 0.0,
+            "placed_blocks": 0,
+            "required_placements": 3,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_stability_check": {
+            "stable": false,
+            "reasons": [
+              "blue_cube: drift exceeds 3 mm",
+              "blue_cube: insufficient upper-substack support margin",
+              "blue_cube: rotating",
+              "green_cube: insufficient upper-substack support margin",
+              "yellow_cube: drift exceeds 3 mm",
+              "yellow_cube: rotating"
+            ],
+            "blocks": [
+              "red_cube",
+              "green_cube",
+              "blue_cube",
+              "yellow_cube"
+            ],
+            "duration_s": 5.0,
+            "time": 132.49999999990456
+          },
+          "final_policy_notes": [
+            "yellow_2 after opening displacement=[-0.0015, -0.0007, -0.007]",
+            "yellow_2 after withdrawal center=[-0.0786, -0.2313, 0.5035]",
+            "LEVEL confirmed 4/4 id=yellow_2",
+            "Column released; all levels visually placed in task order"
+          ],
+          "worker_cpu_profile": {
+            "policy_compute_cpu_seconds": 8.383393613000003,
+            "rpc_cpu_seconds": 0.23248043199999677,
+            "compute_interval_count": 601,
+            "compute_interval_cpu_p50_ms": 0.008967999999942577,
+            "compute_interval_cpu_p95_ms": 68.31899500000027,
+            "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+          }
+        },
+        "linear_program": {
+          "candidate_sha256": "915a787e262753187605e9f7f1625a94b6e6af41c60e82d72884324b52324833",
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "red",
+                "shape": "cube"
+              },
+              {
+                "color": "green",
+                "shape": "cube"
+              },
+              {
+                "color": "blue",
+                "shape": "cube"
+              },
+              {
+                "color": "yellow",
+                "shape": "cube"
+              }
+            ]
+          },
+          "order": [
+            "red_cube",
+            "green_cube",
+            "blue_cube",
+            "yellow_cube"
+          ],
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          },
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 1.0,
+            "placed_blocks": 3,
+            "required_placements": 3,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_stability_check": {
+            "stable": false,
+            "reasons": [
+              "blue_cube: drift exceeds 3 mm",
+              "yellow_cube: drift exceeds 3 mm"
+            ],
+            "blocks": [
+              "red_cube",
+              "green_cube",
+              "blue_cube",
+              "yellow_cube"
+            ],
+            "duration_s": 5.0,
+            "time": 132.49999999990456
+          },
+          "final_policy_notes": [
+            "yellow_2 after opening displacement=[-0.0021, -0.0014, -0.0071]",
+            "yellow_2 after withdrawal center=[-0.0836, -0.2371, 0.5036]",
+            "LEVEL confirmed 4/4 id=yellow_2",
+            "Column released; all levels visually placed in task order"
+          ],
+          "worker_cpu_profile": {
+            "policy_compute_cpu_seconds": 8.231555404999988,
+            "rpc_cpu_seconds": 0.22817296900001088,
+            "compute_interval_count": 613,
+            "compute_interval_cpu_p50_ms": 0.008903999999976264,
+            "compute_interval_cpu_p95_ms": 66.43574240000008,
+            "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+          },
+          "lp_logged_refresh_count": 12,
+          "lp_fallback_refresh_count": 0,
+          "last_lp_note": "BALANCE_LP margins=(0.006430623747222336, 0.011928959173800754) weighted=[-0.0802, -0.2335] target=[-0.0824, -0.239]"
+        }
+      },
+      {
+        "case": "cube_quad_d2_colors",
+        "seed": 908,
+        "distractors": 2,
+        "weighted_v21": {
+          "candidate_sha256": "9ed75829d6882c753db91318af385247738143d33c5efbca24409bd6f9b0bd1f",
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "blue",
+                "shape": "cube"
+              },
+              {
+                "color": "green",
+                "shape": "cube"
+              },
+              {
+                "color": "red",
+                "shape": "cube"
+              },
+              {
+                "color": "yellow",
+                "shape": "cube"
+              }
+            ]
+          },
+          "order": [
+            "blue_cube",
+            "green_cube",
+            "red_cube",
+            "yellow_cube"
+          ],
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          },
+          "success": true,
+          "metrics": {
+            "success": true,
+            "score": 1.0,
+            "placed_blocks": 3,
+            "required_placements": 3,
+            "structure_stable": true,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_stability_check": {
+            "stable": true,
+            "reasons": [],
+            "blocks": [
+              "blue_cube",
+              "green_cube",
+              "red_cube",
+              "yellow_cube"
+            ],
+            "duration_s": 5.0,
+            "time": 158.2500000000275
+          },
+          "final_policy_notes": [
+            "yellow_1 after opening displacement=[-0.0, -0.0017, -0.0052]",
+            "yellow_1 after withdrawal center=[-0.0201, -0.2375, 0.5036]",
+            "LEVEL confirmed 4/4 id=yellow_1",
+            "Column released; all levels visually placed in task order"
+          ],
+          "worker_cpu_profile": {
+            "policy_compute_cpu_seconds": 8.866102388999991,
+            "rpc_cpu_seconds": 0.25736772900001004,
+            "compute_interval_count": 762,
+            "compute_interval_cpu_p50_ms": 0.010379000000004801,
+            "compute_interval_cpu_p95_ms": 64.00600314999946,
+            "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+          }
+        },
+        "linear_program": {
+          "candidate_sha256": "915a787e262753187605e9f7f1625a94b6e6af41c60e82d72884324b52324833",
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "blue",
+                "shape": "cube"
+              },
+              {
+                "color": "green",
+                "shape": "cube"
+              },
+              {
+                "color": "red",
+                "shape": "cube"
+              },
+              {
+                "color": "yellow",
+                "shape": "cube"
+              }
+            ]
+          },
+          "order": [
+            "blue_cube",
+            "green_cube",
+            "red_cube",
+            "yellow_cube"
+          ],
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          },
+          "success": true,
+          "metrics": {
+            "success": true,
+            "score": 1.0,
+            "placed_blocks": 3,
+            "required_placements": 3,
+            "structure_stable": true,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_stability_check": {
+            "stable": true,
+            "reasons": [],
+            "blocks": [
+              "blue_cube",
+              "green_cube",
+              "red_cube",
+              "yellow_cube"
+            ],
+            "duration_s": 5.0,
+            "time": 157.4500000000237
+          },
+          "final_policy_notes": [
+            "yellow_1 after opening displacement=[-0.0001, -0.0016, -0.007]",
+            "yellow_1 after withdrawal center=[-0.0195, -0.237, 0.5036]",
+            "LEVEL confirmed 4/4 id=yellow_1",
+            "Column released; all levels visually placed in task order"
+          ],
+          "worker_cpu_profile": {
+            "policy_compute_cpu_seconds": 8.926496730999993,
+            "rpc_cpu_seconds": 0.2539364280000067,
+            "compute_interval_count": 767,
+            "compute_interval_cpu_p50_ms": 0.009526000000148471,
+            "compute_interval_cpu_p95_ms": 66.25386570000025,
+            "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+          },
+          "lp_logged_refresh_count": 12,
+          "lp_fallback_refresh_count": 0,
+          "last_lp_note": "BALANCE_LP margins=(0.01459088123750061, 0.014787846404585928) weighted=[-0.0197, -0.2379] target=[-0.0199, -0.2377]"
+        }
+      },
+      {
+        "case": "cube_quad_d2_colors",
+        "seed": 909,
+        "distractors": 2,
+        "weighted_v21": {
+          "candidate_sha256": "9ed75829d6882c753db91318af385247738143d33c5efbca24409bd6f9b0bd1f",
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "yellow",
+                "shape": "cube"
+              },
+              {
+                "color": "blue",
+                "shape": "cube"
+              },
+              {
+                "color": "red",
+                "shape": "cube"
+              },
+              {
+                "color": "green",
+                "shape": "cube"
+              }
+            ]
+          },
+          "order": [
+            "yellow_cube",
+            "blue_cube",
+            "red_cube",
+            "green_cube"
+          ],
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          },
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 1.0,
+            "placed_blocks": 3,
+            "required_placements": 3,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_stability_check": {
+            "stable": false,
+            "reasons": [
+              "blue_cube: rotating",
+              "green_cube: rotating",
+              "red_cube: rotating"
+            ],
+            "blocks": [
+              "yellow_cube",
+              "blue_cube",
+              "red_cube",
+              "green_cube"
+            ],
+            "duration_s": 5.0,
+            "time": 155.85000000001605
+          },
+          "final_policy_notes": [
+            "green_5 after opening displacement=[-0.0001, -0.0016, -0.0074]",
+            "green_5 after withdrawal center=[-0.0192, -0.2364, 0.5036]",
+            "LEVEL confirmed 4/4 id=green_5",
+            "Column released; all levels visually placed in task order"
+          ],
+          "worker_cpu_profile": {
+            "policy_compute_cpu_seconds": 8.83764193700001,
+            "rpc_cpu_seconds": 0.25409047899999204,
+            "compute_interval_count": 740,
+            "compute_interval_cpu_p50_ms": 0.008421500000022064,
+            "compute_interval_cpu_p95_ms": 64.87596245000012,
+            "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+          }
+        },
+        "linear_program": {
+          "candidate_sha256": "915a787e262753187605e9f7f1625a94b6e6af41c60e82d72884324b52324833",
+          "goal": {
+            "kind": "single_column",
+            "levels": [
+              {
+                "color": "yellow",
+                "shape": "cube"
+              },
+              {
+                "color": "blue",
+                "shape": "cube"
+              },
+              {
+                "color": "red",
+                "shape": "cube"
+              },
+              {
+                "color": "green",
+                "shape": "cube"
+              }
+            ]
+          },
+          "order": [
+            "yellow_cube",
+            "blue_cube",
+            "red_cube",
+            "green_cube"
+          ],
+          "sensor": {
+            "depth_sampling": "pixel_center",
+            "offscreen_samples": 0
+          },
+          "success": false,
+          "metrics": {
+            "success": false,
+            "score": 1.0,
+            "placed_blocks": 3,
+            "required_placements": 3,
+            "structure_stable": false,
+            "failure": null
+          },
+          "policy_error": null,
+          "final_stability_check": {
+            "stable": false,
+            "reasons": [
+              "blue_cube: rotating",
+              "green_cube: rotating",
+              "green_cube: translating",
+              "red_cube: rotating"
+            ],
+            "blocks": [
+              "yellow_cube",
+              "blue_cube",
+              "red_cube",
+              "green_cube"
+            ],
+            "duration_s": 5.0,
+            "time": 155.85000000001605
+          },
+          "final_policy_notes": [
+            "green_5 after opening displacement=[-0.0002, -0.0017, -0.0074]",
+            "green_5 after withdrawal center=[-0.0195, -0.2362, 0.5036]",
+            "LEVEL confirmed 4/4 id=green_5",
+            "Column released; all levels visually placed in task order"
+          ],
+          "worker_cpu_profile": {
+            "policy_compute_cpu_seconds": 8.647620057999985,
+            "rpc_cpu_seconds": 0.24223517700001287,
+            "compute_interval_count": 750,
+            "compute_interval_cpu_p50_ms": 0.007585000000032149,
+            "compute_interval_cpu_p95_ms": 64.07057970000008,
+            "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+          },
+          "lp_logged_refresh_count": 12,
+          "lp_fallback_refresh_count": 0,
+          "last_lp_note": "BALANCE_LP margins=(0.014508986646602542, 0.01468694802686703) weighted=[-0.0203, -0.2377] target=[-0.02, -0.2377]"
+        }
+      }
+    ]
+  },
+  "lp_scope": "The LP comparison uses the earlier frozen v21 candidate, not selected v22. It preserves six candidate trials and their six exact paired baseline records. No maintained LP change was adopted.",
+  "included_main_trial_record_count": 60,
+  "included_lp_trial_record_count": 12,
+  "heldout_scope": "No reserved trial or reserved outcome is included here. Selection and comparisons use development seeds only; this report must not be combined with held-out data to guide source tuning."
+}

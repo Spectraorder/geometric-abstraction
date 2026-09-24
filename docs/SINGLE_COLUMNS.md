@@ -75,7 +75,9 @@ tasks and budgets; their success rates should not be pooled.
 
 ## Frozen evaluation
 
-Source: `policies/stack_column_cpu.py`.
+Historical source: `2f6397e:policies/stack_column_cpu.py`. The maintained policy
+has since changed; see the [second milestone](COLUMN_POLICY_V2.md) for its
+source hash, sensor change and separate frozen evaluation.
 
 ```text
 cf9c9fba5fb1917f6a7eb69485ba4804e3f6dd3f8e5b1ec47185cc45a1f6f30e

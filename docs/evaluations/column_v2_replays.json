@@ -1,0 +1,70 @@
+{
+  "scope": "Actual saved physics-state replays; external view is display-only, not a policy input.",
+  "records": [
+    {
+      "artifact_prefix": "column_v2_random3_1017",
+      "trial": "random_tall/random_l3_d2/seed_1017",
+      "seed": 1017,
+      "order": [
+        "green_cylinder",
+        "green_prism",
+        "yellow_thin_prism"
+      ],
+      "success": true,
+      "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+      "video": {
+        "frames": 217,
+        "fps": 12,
+        "speed": 6.0,
+        "duration_seconds": 18.083333333333332,
+        "source": "saved actual physics states",
+        "success": true
+      },
+      "selection": "Selected illustrative frozen trial; see full100-trial denominator in column_v2_heldout.json."
+    },
+    {
+      "artifact_prefix": "column_v2_quad_1004",
+      "trial": "named_colors/cube_quad_d2_colors/seed_1004",
+      "seed": 1004,
+      "order": [
+        "green_cube",
+        "blue_cube",
+        "yellow_cube",
+        "red_cube"
+      ],
+      "success": true,
+      "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+      "video": {
+        "frames": 313,
+        "fps": 12,
+        "speed": 6.0,
+        "duration_seconds": 26.083333333333332,
+        "source": "saved actual physics states",
+        "success": true
+      },
+      "selection": "Selected illustrative frozen trial; see full100-trial denominator in column_v2_heldout.json."
+    },
+    {
+      "artifact_prefix": "column_v2_random4_failure_1017",
+      "trial": "random_tall/random_l4_d2/seed_1017",
+      "seed": 1017,
+      "order": [
+        "green_cylinder",
+        "green_prism",
+        "yellow_prism",
+        "blue_cylinder"
+      ],
+      "success": false,
+      "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+      "video": {
+        "frames": 271,
+        "fps": 12,
+        "speed": 6.0,
+        "duration_seconds": 22.583333333333332,
+        "source": "saved actual physics states",
+        "success": false
+      },
+      "selection": "Selected illustrative frozen trial; see full100-trial denominator in column_v2_heldout.json."
+    }
+  ]
+}

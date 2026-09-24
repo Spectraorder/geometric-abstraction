@@ -1,0 +1,222 @@
+{
+  "scope": "Frozen v22 runtime audit; development diagnostics only; no source edits, tuning, or held-out trials.",
+  "candidate": {
+    "path": "policies/stack_column_cpu.py",
+    "sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+    "audit_copy_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f"
+  },
+  "conclusion": "The audited frozen policy uses CPU numerical computation and permitted sensor/proprioception/public-goal inputs. No privileged object-state path was found. With all camera evidence removed it stops without motion.",
+  "boundary": {
+    "candidate_imports": [
+      "numpy",
+      "scipy",
+      "scipy.optimize",
+      "scipy.sparse",
+      "scipy.sparse.csgraph"
+    ],
+    "candidate_api_methods": [
+      "camera",
+      "gripper",
+      "move_tool",
+      "note",
+      "plan_tool",
+      "proprioception",
+      "task",
+      "wait"
+    ],
+    "side_camera_fields": [
+      "camera_to_world",
+      "depth_m",
+      "intrinsics",
+      "rgb",
+      "time",
+      "valid_depth"
+    ],
+    "wrist_camera_fields": [
+      "rgb",
+      "intrinsics",
+      "camera_to_world",
+      "time"
+    ],
+    "proprioception_fields": [
+      "joint_angles",
+      "tool_position",
+      "tool_rotation",
+      "time"
+    ],
+    "public_task": "Ordered color and shape identities only; no object poses, dimensions, contacts or evaluation metrics.",
+    "robot_ik": "CPU SciPy least_squares over arm joint angles and limits; scratch MuJoCo kinematics returns tool pose and Cartesian error. No object pose/contact/result is read by the solver.",
+    "privileged_state": "Object truth is retained by the host for rendering, physical simulation and evaluation. The worker terminates before final evaluation; no evaluation result is returned through RPC.",
+    "isolation": "Linux bubblewrap: network disabled, home checkout masked, runtime read-only, private writable scratch, private /dev. Direct probes verified no NVIDIA or DRI GPU devices and no checkout read/runtime write access.",
+    "cpu_environment": {
+      "OPENBLAS_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1"
+    },
+    "sensor": {
+      "depth_sampling": "pixel_center",
+      "offscreen_samples": 0
+    },
+    "limitations": "This is a targeted code, sandbox and sensor-ablation audit of the frozen candidate, not a formal security proof. Camera calibration and depth are ideal simulator sensors; GPU simulation/rendering are allowed."
+  },
+  "sensor_blackout": {
+    "artifact": "outputs/columns_02/runtime_audit/blackout_random3_901/result.json",
+    "seed": 901,
+    "task": "inventory_tower",
+    "scene": {
+      "generator": "block_catalog_v1",
+      "scene_task": "single_column",
+      "seed": 901,
+      "object_count": 3,
+      "objects": [
+        "blue_prism",
+        "blue_cylinder",
+        "yellow_cylinder"
+      ],
+      "roles": {
+        "level_0": "blue_prism",
+        "level_1": "blue_cylinder",
+        "level_2": "yellow_cylinder"
+      },
+      "recipe": "random",
+      "order": [
+        "blue_prism",
+        "blue_cylinder",
+        "yellow_cylinder"
+      ]
+    },
+    "goal": {
+      "kind": "single_column",
+      "levels": [
+        {
+          "color": "blue",
+          "shape": "prism"
+        },
+        {
+          "color": "blue",
+          "shape": "cylinder"
+        },
+        {
+          "color": "yellow",
+          "shape": "cylinder"
+        }
+      ]
+    },
+    "candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+    "metrics": {
+      "success": false,
+      "score": 0.0,
+      "placed_blocks": 0,
+      "required_placements": 2,
+      "structure_stable": false,
+      "failure": null
+    },
+    "policy_error": null,
+    "policy_sim_seconds": 0.0,
+    "api_method_counts": {
+      "task": 1,
+      "camera": 1,
+      "note": 1,
+      "done": 1
+    },
+    "pixels": {
+      "rgb_all_zero": true,
+      "valid_depth_count": 0,
+      "finite_depth_count": 0
+    },
+    "notes": [
+      "Insufficient tabletop depth."
+    ],
+    "policy_compute_cpu_seconds": 0.157912163,
+    "robot_ik_cpu_seconds": 0.0
+  },
+  "boundary_tests": {
+    "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m unittest tests.test_vision_boundary tests.test_wrist_sensor -v",
+    "tests_run": 5,
+    "passed": 4,
+    "skipped": 1,
+    "skip_reason": "macOS sandbox test on Linux",
+    "failed": 0,
+    "checks": [
+      "Numerical runtime works inside the sandbox; checkout/GPU devices unavailable and runtime read-only.",
+      "Policy validator rejects simulator imports, file reads and private attributes.",
+      "Wrist RPC contains RGB/calibration only; side depth is removed under blackout.",
+      "Robot-only preview returns only its documented fields; invalid reflections and camera views are rejected.",
+      "CPU timing excludes host RPC wait with production thread limits."
+    ],
+    "logs": [
+      "outputs/columns_02/runtime_audit/boundary_tests_cpu_env.log",
+      "outputs/columns_02/runtime_audit/boundary_tests.log"
+    ],
+    "initial_uncontrolled_run": "With numerical thread environment variables unset, the timing test reported 1.529 RPC CPU seconds against a 0.1-second assertion. All access checks passed. The full suite passed with the thread limits already enforced by production workers; no code was changed."
+  },
+  "cpu_measurements": {
+    "source": "outputs/columns_02/v22_random/summary.json",
+    "groups": [
+      "random_l2",
+      "random_l3"
+    ],
+    "seeds_per_group": [
+      901,
+      902,
+      903,
+      904,
+      905,
+      906
+    ],
+    "trials": 12,
+    "policy_compute_cpu_seconds_p50": 3.352263812000001,
+    "policy_compute_cpu_seconds_p95": 4.826092404599999,
+    "robot_ik_cpu_seconds_p50": 0.21269205099999944,
+    "scope": "Worker compile/import/run CPU; excludes RPC serialization, simulator, rendering and host IK. Host IK CPU is reported separately."
+  },
+  "historical_inventory": {
+    "path": "policies/stack_inventory_cpu.py",
+    "expected_sha256": "20613dbf213444f77aac9fdcbdf2b6245d249e0770ab362121e5663e4e53394b",
+    "observed_sha256": "20613dbf213444f77aac9fdcbdf2b6245d249e0770ab362121e5663e4e53394b",
+    "historical_report": "docs/evaluations/inventory_cpu.json",
+    "historical_report_hash_matches": true,
+    "existing_regression": {
+      "artifact": "outputs/columns_02/regression_inventory/result.json",
+      "seed": 611,
+      "task": "inventory_prism",
+      "scene": {
+        "generator": "block_catalog_v1",
+        "scene_task": "upright_thin_prism",
+        "seed": 611,
+        "object_count": 6,
+        "objects": [
+          "red_thin_prism",
+          "blue_cube",
+          "yellow_cylinder",
+          "green_thin_prism",
+          "blue_triangular_prism",
+          "blue_cylinder"
+        ],
+        "roles": {
+          "target": "red_thin_prism",
+          "base": "blue_cube"
+        }
+      },
+      "candidate_sha256": "20613dbf213444f77aac9fdcbdf2b6245d249e0770ab362121e5663e4e53394b",
+      "metrics": {
+        "success": true,
+        "score": 1.0,
+        "placed_blocks": 1,
+        "required_placements": 1,
+        "structure_stable": true,
+        "failure": null
+      },
+      "policy_error": null
+    },
+    "interpretation": "Historical bundle unchanged; existing six-object seed611 regression passed. This audit verifies its recorded provenance and result and does not rerun the historical suite."
+  },
+  "audited_sources": {
+    "scripts/run_vision_trial.py": "869dfcf1a0270f38da1021affe2d8aff6a64ee723a427769f0100ce0a8aeca5c",
+    "scripts/vision_policy_worker.py": "5e12def2e936b33d63fa63bcfb69592e60e03af58f80b55f04a06cd96872734f",
+    "src/aspire_so100/rgbd.py": "20ffe8493885de4fc1595c70dd944337de8c6ee8d06184271f87dcd4632a17fe",
+    "src/aspire_so100/tower_tasks.py": "8b84e63fc86bbe1042ce0077da25c7eb6032bd576763169295d4300ffec34fcc",
+    "src/aspire_so100/inventory_tower.py": "96b5b67f13206bb72167d3081095c8f1d77980e6af19e5f35c3a3792ef5bf88c",
+    "tests/test_vision_boundary.py": "bda994e9e4ddd2a04eb0df9edd4c63478afe5adee1d2c31a4d57b0ecc6cd2123",
+    "tests/test_wrist_sensor.py": "c63b511cc67aff038e5f32b25b716799d726f02653663416c993d325200b08e4"
+  }
+}

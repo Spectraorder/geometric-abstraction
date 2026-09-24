@@ -1,0 +1,214 @@
+{
+  "schema_version": 1,
+  "split": "Selected development diagnostic; no held-out trials inspected and no generalization-rate claim.",
+  "selection": "Two failed cube_quad_d2_colors trials (907, 909) and the matched successful development trial 908 from v22_colors.",
+  "candidate": {
+    "path": "policies/stack_column_cpu.py",
+    "sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f"
+  },
+  "runtime_boundary": "Simulator object truth is used only for this offline evaluation. No policy is executed or given state, contact, velocity or evaluator information.",
+  "method": {
+    "restore": "Exact final archived MuJoCo mjSTATE_INTEGRATION checkpoint, including saved controls.",
+    "continuation": "Hold saved actuator controls unchanged; integrate the same model and physics for 60 seconds.",
+    "duration_s": 60.0,
+    "sample_period_s": 0.05,
+    "strict_window_s": 5.0,
+    "maximum_allowed_position_drift_m": 0.003,
+    "strict_window_rule": "All original structure_status checks must pass at each of the 100 samples after a window start, and every object must remain within 3 mm of its window-start 3D position.",
+    "structural_checks": "Original contact, support height, support margin, uprightness, translational velocity and angular velocity checks; thresholds unchanged.",
+    "time_origin": "Saved final checkpoint. It is 6.8 seconds after policy completion: original evaluation waits 0.8 seconds, checks 5 seconds, then the recorder waits another 1 second.",
+    "collapse_event_definition": "First 50 ms sample at which the top object center is more than 30 mm below its saved-final height. This diagnostic event does not replace the official success definition."
+  },
+  "findings": "Neither selected failure acquires a strict passing five-second window during the extra 60 seconds. The recorded success initially passes again but collapses later, demonstrating that five-second success does not establish minute-long durability. These examples do not support a waiting-only correction.",
+  "trials": [
+    {
+      "seed": 907,
+      "source_matrix": "v22_colors",
+      "source_case": "cube_quad_d2_colors",
+      "goal_bottom_to_top": [
+        "red_cube",
+        "green_cube",
+        "blue_cube",
+        "yellow_cube"
+      ],
+      "source_candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+      "source_final_state_sha256": "47ec21d69097b28dd1e946de7d8178009221a289a80bcbf5567a05cd45945a5f",
+      "original_outcome": {
+        "success": false,
+        "metrics": {
+          "success": false,
+          "score": 0.0,
+          "placed_blocks": 0,
+          "required_placements": 3,
+          "structure_stable": false,
+          "failure": null
+        },
+        "strict_check_reasons": [
+          "blue_cube: drift exceeds 3 mm",
+          "blue_cube: insufficient upper-substack support margin",
+          "blue_cube: rotating",
+          "green_cube: insufficient upper-substack support margin",
+          "yellow_cube: drift exceeds 3 mm",
+          "yellow_cube: rotating"
+        ]
+      },
+      "policy_end_physics_time_s": 126.69999999988612,
+      "saved_final_physics_time_s": 133.49999999990933,
+      "saved_final_seconds_after_policy_end": 6.8,
+      "earliest_strict_window": null,
+      "last_strict_window": null,
+      "strict_passing_windows": 0,
+      "all_windows": 1101,
+      "windows_passing_structure_checks": 0,
+      "minimum_5s_drift_during_structure_passing_windows_mm": null,
+      "earliest_collapse_event_s": 0.55,
+      "top_center_height_drop_after_60s_mm": 87.87340575406432,
+      "initial_structure_status": {
+        "stable": false,
+        "reasons": [
+          "green_cube: insufficient upper-substack support margin",
+          "blue_cube: insufficient upper-substack support margin"
+        ]
+      },
+      "final_structure_status": {
+        "stable": false,
+        "reasons": [
+          "blue_cube: local Z axis is not upright",
+          "yellow_cube: local Z axis is not upright",
+          "red_cube: insufficient upper-substack support margin",
+          "blue_cube: incorrect support height",
+          "green_cube: insufficient upper-substack support margin",
+          "yellow_cube: missing contact with blue_cube",
+          "yellow_cube: incorrect support height",
+          "blue_cube: support face is not horizontal"
+        ]
+      }
+    },
+    {
+      "seed": 908,
+      "source_matrix": "v22_colors",
+      "source_case": "cube_quad_d2_colors",
+      "goal_bottom_to_top": [
+        "blue_cube",
+        "green_cube",
+        "red_cube",
+        "yellow_cube"
+      ],
+      "source_candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+      "source_final_state_sha256": "c8f6b321268537631686fc6ce77313d94060839535478b3f535dfe8a64446d22",
+      "original_outcome": {
+        "success": true,
+        "metrics": {
+          "success": true,
+          "score": 1.0,
+          "placed_blocks": 3,
+          "required_placements": 3,
+          "structure_stable": true,
+          "failure": null
+        },
+        "strict_check_reasons": []
+      },
+      "policy_end_physics_time_s": 152.44999999999982,
+      "saved_final_physics_time_s": 159.2500000000323,
+      "saved_final_seconds_after_policy_end": 6.8,
+      "earliest_strict_window": {
+        "start_s": 0.0,
+        "end_s": 5.0,
+        "maximum_position_drift_mm": 0.15644638142279352
+      },
+      "last_strict_window": {
+        "start_s": 34.15,
+        "end_s": 39.15,
+        "maximum_position_drift_mm": 2.9872341425513507
+      },
+      "strict_passing_windows": 584,
+      "all_windows": 1101,
+      "windows_passing_structure_checks": 759,
+      "minimum_5s_drift_during_structure_passing_windows_mm": 0.15644638142279352,
+      "earliest_collapse_event_s": 49.25,
+      "top_center_height_drop_after_60s_mm": 88.68227592667633,
+      "initial_structure_status": {
+        "stable": true,
+        "reasons": []
+      },
+      "final_structure_status": {
+        "stable": false,
+        "reasons": [
+          "green_cube: local Z axis is not upright",
+          "red_cube: local Z axis is not upright",
+          "yellow_cube: local Z axis is not upright",
+          "green_cube: missing contact with blue_cube",
+          "green_cube: incorrect support height",
+          "blue_cube: insufficient upper-substack support margin",
+          "red_cube: missing contact with green_cube",
+          "red_cube: incorrect support height",
+          "green_cube: support face is not horizontal",
+          "yellow_cube: missing contact with red_cube",
+          "yellow_cube: incorrect support height",
+          "red_cube: support face is not horizontal"
+        ]
+      }
+    },
+    {
+      "seed": 909,
+      "source_matrix": "v22_colors",
+      "source_case": "cube_quad_d2_colors",
+      "goal_bottom_to_top": [
+        "yellow_cube",
+        "blue_cube",
+        "red_cube",
+        "green_cube"
+      ],
+      "source_candidate_sha256": "621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f",
+      "source_final_state_sha256": "6c501c105b701be30a2e090a8c3d24c10deac8e07ad459fdd76b99087b3ce2d4",
+      "original_outcome": {
+        "success": false,
+        "metrics": {
+          "success": false,
+          "score": 1.0,
+          "placed_blocks": 3,
+          "required_placements": 3,
+          "structure_stable": false,
+          "failure": null
+        },
+        "strict_check_reasons": [
+          "blue_cube: rotating",
+          "green_cube: rotating",
+          "red_cube: rotating"
+        ]
+      },
+      "policy_end_physics_time_s": 150.04999999998836,
+      "saved_final_physics_time_s": 156.85000000002083,
+      "saved_final_seconds_after_policy_end": 6.8,
+      "earliest_strict_window": null,
+      "last_strict_window": null,
+      "strict_passing_windows": 0,
+      "all_windows": 1101,
+      "windows_passing_structure_checks": 91,
+      "minimum_5s_drift_during_structure_passing_windows_mm": 4.567048577277488,
+      "earliest_collapse_event_s": 11.450000000000001,
+      "top_center_height_drop_after_60s_mm": 88.61841987579105,
+      "initial_structure_status": {
+        "stable": true,
+        "reasons": []
+      },
+      "final_structure_status": {
+        "stable": false,
+        "reasons": [
+          "blue_cube: local Z axis is not upright",
+          "red_cube: local Z axis is not upright",
+          "green_cube: local Z axis is not upright",
+          "blue_cube: missing contact with yellow_cube",
+          "blue_cube: incorrect support height",
+          "yellow_cube: insufficient upper-substack support margin",
+          "red_cube: missing contact with blue_cube",
+          "red_cube: incorrect support height",
+          "blue_cube: support face is not horizontal",
+          "green_cube: missing contact with red_cube",
+          "green_cube: incorrect support height",
+          "red_cube: support face is not horizontal"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "schema_version": 1,
+  "scope": "Offline geometry development diagnostic; not end-to-end policy success or held-out accuracy.",
+  "sample_count": 11,
+  "measurement_stage": "Initial cylinder geometry development before later partial-occlusion refinements.",
+  "method": {
+    "observations": "All 11 initial cylinders from archived random seeds 826-830 and mixed_triple seeds 821-825.",
+    "paired_rendering": "Pixel-aligned frames were rendered from the exact archived physics state at each observation time.",
+    "error": "Euclidean 3-D center error against the replayed simulator object center, in millimeters.",
+    "baseline": "Instance visible-bounds center; not the entire historical control policy.",
+    "truth_boundary": "Simulator object truth was used only in this offline evaluation, never as a policy input.",
+    "dimensions": "Cylinder radius and height were learned from the input RGB-D; no catalog dimensions entered the fit.",
+    "split": "Earlier evaluation examples were explicitly reused as development data; they are not fresh held-out cases."
+  },
+  "timing": {
+    "clock": "time.process_time",
+    "cpu": "Intel Core i9-14900K",
+    "blas_threads": 1,
+    "samples": "One fit per archived cylinder observation.",
+    "included": "Instance mask isolation and numerical geometry fit.",
+    "excluded": "Tracking, full policy control, RPC, robot IK, simulation and rendering."
+  },
+  "aggregate": {
+    "visible_bounds_msaa_center_error_mm": {
+      "median": 2.4356584934708247,
+      "maximum": 5.428510279681787
+    },
+    "circle_msaa_center_error_mm": {
+      "median": 1.7527612072068661,
+      "maximum": 2.087386778611851
+    },
+    "circle_pixel_aligned_center_error_mm": {
+      "median": 0.09267451985645532,
+      "maximum": 0.3276763663198386
+    },
+    "circle_pixel_aligned_fit_cpu_ms": {
+      "median": 5.23874099999988,
+      "maximum": 5.607755000000214
+    }
+  },
+  "observations": [
+    {
+      "source_curriculum": "random_3_levels",
+      "seed": 826,
+      "color": "blue",
+      "observation": "camera_001",
+      "visible_bounds_msaa_center_error_mm": 5.428510279681787,
+      "circle_msaa_center_error_mm": 2.087386778611851,
+      "circle_pixel_aligned_center_error_mm": 0.26752547753888384,
+      "circle_msaa_diameter_mm": 30.440928206430442,
+      "circle_pixel_aligned_diameter_mm": 30.385395212100295,
+      "circle_msaa_surface_rms_mm": 0.0475569293230736,
+      "circle_pixel_aligned_surface_rms_mm": 0.02690041252764688,
+      "circle_pixel_aligned_fit_cpu_ms": 5.5788450000000545
+    },
+    {
+      "source_curriculum": "random_3_levels",
+      "seed": 827,
+      "color": "green",
+      "observation": "camera_001",
+      "visible_bounds_msaa_center_error_mm": 1.5534051977714987,
+      "circle_msaa_center_error_mm": 1.4196343202296005,
+      "circle_pixel_aligned_center_error_mm": 0.3276763663198386,
+      "circle_msaa_diameter_mm": 29.620728150057396,
+      "circle_pixel_aligned_diameter_mm": 30.46543593576317,
+      "circle_msaa_surface_rms_mm": 0.035782620561043775,
+      "circle_pixel_aligned_surface_rms_mm": 0.00966233591474225,
+      "circle_pixel_aligned_fit_cpu_ms": 5.581901000000222
+    },
+    {
+      "source_curriculum": "random_3_levels",
+      "seed": 828,
+      "color": "red",
+      "observation": "camera_001",
+      "visible_bounds_msaa_center_error_mm": 2.4356584934708247,
+      "circle_msaa_center_error_mm": 1.7368805083015568,
+      "circle_pixel_aligned_center_error_mm": 0.046964069354769475,
+      "circle_msaa_diameter_mm": 29.872781220223857,
+      "circle_pixel_aligned_diameter_mm": 29.87644095423092,
+      "circle_msaa_surface_rms_mm": 0.042937378787509736,
+      "circle_pixel_aligned_surface_rms_mm": 0.026565098372005005,
+      "circle_pixel_aligned_fit_cpu_ms": 5.221536000000082
+    },
+    {
+      "source_curriculum": "random_3_levels",
+      "seed": 829,
+      "color": "yellow",
+      "observation": "camera_001",
+      "visible_bounds_msaa_center_error_mm": 2.0302287287182796,
+      "circle_msaa_center_error_mm": 1.8994690068709066,
+      "circle_pixel_aligned_center_error_mm": 0.27380720672804265,
+      "circle_msaa_diameter_mm": 30.392496234922756,
+      "circle_pixel_aligned_diameter_mm": 30.390607417807903,
+      "circle_msaa_surface_rms_mm": 0.03780003030544752,
+      "circle_pixel_aligned_surface_rms_mm": 0.02687698065602594,
+      "circle_pixel_aligned_fit_cpu_ms": 5.23874099999988
+    },
+    {
+      "source_curriculum": "random_3_levels",
+      "seed": 830,
+      "color": "red",
+      "observation": "camera_001",
+      "visible_bounds_msaa_center_error_mm": 2.3849131993265864,
+      "circle_msaa_center_error_mm": 1.7689315698678956,
+      "circle_pixel_aligned_center_error_mm": 0.05970489631406548,
+      "circle_msaa_diameter_mm": 29.91727101429394,
+      "circle_pixel_aligned_diameter_mm": 29.946354724805712,
+      "circle_msaa_surface_rms_mm": 0.04365102192906836,
+      "circle_pixel_aligned_surface_rms_mm": 0.02750245732594122,
+      "circle_pixel_aligned_fit_cpu_ms": 4.997413999999978
+    },
+    {
+      "source_curriculum": "random_3_levels",
+      "seed": 830,
+      "color": "blue",
+      "observation": "camera_001",
+      "visible_bounds_msaa_center_error_mm": 3.017400947595588,
+      "circle_msaa_center_error_mm": 1.9969610695903683,
+      "circle_pixel_aligned_center_error_mm": 0.08026773641666543,
+      "circle_msaa_diameter_mm": 30.681178639421233,
+      "circle_pixel_aligned_diameter_mm": 29.987563524762887,
+      "circle_msaa_surface_rms_mm": 0.037059581732229875,
+      "circle_pixel_aligned_surface_rms_mm": 0.028817501134913742,
+      "circle_pixel_aligned_fit_cpu_ms": 4.904765999999672
+    },
+    {
+      "source_curriculum": "mixed_triple",
+      "seed": 821,
+      "color": "red",
+      "observation": "camera_001",
+      "visible_bounds_msaa_center_error_mm": 1.8641721927846615,
+      "circle_msaa_center_error_mm": 1.6194310121204443,
+      "circle_pixel_aligned_center_error_mm": 0.05563148194210269,
+      "circle_msaa_diameter_mm": 29.9581276829936,
+      "circle_pixel_aligned_diameter_mm": 29.82371416037619,
+      "circle_msaa_surface_rms_mm": 0.03432514073982284,
+      "circle_pixel_aligned_surface_rms_mm": 0.028627297814607527,
+      "circle_pixel_aligned_fit_cpu_ms": 5.607755000000214
+    },
+    {
+      "source_curriculum": "mixed_triple",
+      "seed": 822,
+      "color": "red",
+      "observation": "camera_001",
+      "visible_bounds_msaa_center_error_mm": 4.544453075937115,
+      "circle_msaa_center_error_mm": 2.0656817855226928,
+      "circle_pixel_aligned_center_error_mm": 0.25028085219864205,
+      "circle_msaa_diameter_mm": 30.385991324155977,
+      "circle_pixel_aligned_diameter_mm": 30.348496423224752,
+      "circle_msaa_surface_rms_mm": 0.04049281376616226,
+      "circle_pixel_aligned_surface_rms_mm": 0.025781518035834245,
+      "circle_pixel_aligned_fit_cpu_ms": 5.181815999999895
+    },
+    {
+      "source_curriculum": "mixed_triple",
+      "seed": 823,
+      "color": "red",
+      "observation": "camera_001",
+      "visible_bounds_msaa_center_error_mm": 2.6628143633074366,
+      "circle_msaa_center_error_mm": 1.75021939011609,
+      "circle_pixel_aligned_center_error_mm": 0.05193210531556975,
+      "circle_msaa_diameter_mm": 29.929225534353556,
+      "circle_pixel_aligned_diameter_mm": 29.835973390234567,
+      "circle_msaa_surface_rms_mm": 0.05601754610567675,
+      "circle_pixel_aligned_surface_rms_mm": 0.02548570787447403,
+      "circle_pixel_aligned_fit_cpu_ms": 4.872247000000218
+    },
+    {
+      "source_curriculum": "mixed_triple",
+      "seed": 824,
+      "color": "red",
+      "observation": "camera_001",
+      "visible_bounds_msaa_center_error_mm": 2.2940201275861596,
+      "circle_msaa_center_error_mm": 1.7527612072068661,
+      "circle_pixel_aligned_center_error_mm": 0.2698858829932328,
+      "circle_msaa_diameter_mm": 29.761512042876387,
+      "circle_pixel_aligned_diameter_mm": 29.376870918109034,
+      "circle_msaa_surface_rms_mm": 0.04515930346994617,
+      "circle_pixel_aligned_surface_rms_mm": 0.023969423445245025,
+      "circle_pixel_aligned_fit_cpu_ms": 5.332575999999811
+    },
+    {
+      "source_curriculum": "mixed_triple",
+      "seed": 825,
+      "color": "red",
+      "observation": "camera_001",
+      "visible_bounds_msaa_center_error_mm": 2.5167500471914783,
+      "circle_msaa_center_error_mm": 1.698581968113918,
+      "circle_pixel_aligned_center_error_mm": 0.09267451985645532,
+      "circle_msaa_diameter_mm": 30.01695231233498,
+      "circle_pixel_aligned_diameter_mm": 29.72929051554758,
+      "circle_msaa_surface_rms_mm": 0.03961575879702856,
+      "circle_pixel_aligned_surface_rms_mm": 0.02833166465687563,
+      "circle_pixel_aligned_fit_cpu_ms": 5.456157999999434
+    }
+  ]
+}
