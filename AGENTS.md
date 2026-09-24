@@ -1,8 +1,9 @@
 # Project direction
 
-Build varied towers from the five-shape, four-color block inventory. The first
-curriculum covers upright single columns with different identities, shapes and
-level counts. Bridges and pyramids are later extensions.
+Build varied towers from the five-shape, four-color block inventory. The historical first
+curriculum covers upright single columns. Current work prioritizes low-rise
+support graphs, multiple foundations, bridges and stepped structures rather
+than increasing height. Preserve the frozen column policy and its evidence.
 
 Use English for maintained documentation, code comments and docstrings.
 Preserve recorded prompts, observations and experiment artifacts as evidence;

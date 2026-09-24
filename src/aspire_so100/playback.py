@@ -17,6 +17,7 @@ from aspire_so100.tower import TowerEnv, TowerAPI
 from aspire_so100.prism import PrismEnv
 from aspire_so100.inventory_prism import InventoryPrismEnv
 from aspire_so100.inventory_tower import InventoryTowerEnv
+from aspire_so100.inventory_structure import InventoryStructureEnv
 
 
 class RecordingMixin:
@@ -55,11 +56,18 @@ class RecordedInventoryTowerEnv(RecordingMixin, InventoryTowerEnv):
     pass
 
 
+class RecordedInventoryStructureEnv(RecordingMixin, InventoryStructureEnv):
+    pass
+
+
 def recorded_env_for_result(result, output_dir):
     """Reconstruct the exact sampled object identities before restoring states."""
-    if result.get('task') in ('inventory_prism', 'inventory_tower'):
+    if result.get('task') in ('inventory_prism', 'inventory_tower', 'inventory_structure'):
         metadata = result['scene']
-        if result['task'] == 'inventory_tower':
+        if result['task'] == 'inventory_structure':
+            env = RecordedInventoryStructureEnv(output_dir, scene_seed=result['seed'], object_count=metadata['object_count'],
+                                                 recipe=metadata['recipe'], color_map=metadata['color_map'])
+        elif result['task'] == 'inventory_tower':
             env = RecordedInventoryTowerEnv(output_dir, scene_seed=result['seed'], object_count=metadata['object_count'],
                                              recipe=metadata['recipe'], recipe_order=metadata['order'])
         else:
@@ -182,21 +190,23 @@ def watch_vision_rollout(trial: Path) -> None:
 def watch_vision_policy(candidate: Path, seed: int = 81, output: Path | None = None,
                         layout: str = "nominal", task: str = "tower", object_count: int | None = None,
                         tower_recipe: str | None = None, tower_levels: int | None = None,
-                        tower_order: list[str] | None = None) -> None:
+                        tower_order: list[str] | None = None, structure_recipe: str | None = None,
+                        structure_color_map: dict | None = None) -> None:
     """Execute the sensor-only policy once, then replay its actual trajectory."""
     candidate = Path(candidate).resolve()
     runner = Path(__file__).resolve().parents[2] / "scripts" / "run_vision_trial.py"
     if output is None:
         with TemporaryDirectory(prefix="aspire-vision-trial-") as directory:
-            _run_and_watch_vision(candidate, seed, Path(directory) / "trial", runner, layout, task, object_count, tower_recipe, tower_levels, tower_order)
+            _run_and_watch_vision(candidate, seed, Path(directory) / "trial", runner, layout, task, object_count, tower_recipe, tower_levels, tower_order, structure_recipe, structure_color_map)
     else:
-        _run_and_watch_vision(candidate, seed, Path(output).resolve(), runner, layout, task, object_count, tower_recipe, tower_levels, tower_order)
+        _run_and_watch_vision(candidate, seed, Path(output).resolve(), runner, layout, task, object_count, tower_recipe, tower_levels, tower_order, structure_recipe, structure_color_map)
 
 
 def _run_and_watch_vision(candidate: Path, seed: int, output: Path, runner: Path,
                          layout: str = "nominal", task: str = "tower", object_count: int | None = None,
                          tower_recipe: str | None = None, tower_levels: int | None = None,
-                         tower_order: list[str] | None = None) -> None:
+                         tower_order: list[str] | None = None, structure_recipe: str | None = None,
+                         structure_color_map: dict | None = None) -> None:
     if output.exists():
         raise FileExistsError(f"Vision trial output already exists: {output}")
     print(f"Executing RGB-D policy on seed {seed}; Viser opens after the rollout completes...", flush=True)
@@ -205,5 +215,7 @@ def _run_and_watch_vision(candidate: Path, seed: int, output: Path, runner: Path
                     "--output", str(output)] + ([] if object_count is None else ['--object-count', str(object_count)])
                     + ([] if tower_recipe is None else ['--tower-recipe', tower_recipe])
                     + ([] if tower_levels is None else ['--tower-levels', str(tower_levels)])
-                    + ([] if tower_order is None else ['--tower-order', *tower_order]), check=True)
+                    + ([] if tower_order is None else ['--tower-order', *tower_order])
+                    + ([] if structure_recipe is None else ['--structure-recipe', structure_recipe])
+                    + ([] if structure_color_map is None else ['--structure-color-map', json.dumps(structure_color_map)]), check=True)
     watch_vision_rollout(output)

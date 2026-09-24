@@ -21,8 +21,9 @@ import mujoco
 import numpy as np
 from scipy.optimize import least_squares
 from PIL import Image
-from aspire_so100.playback import RecordedTowerEnv, RecordedPrismEnv, RecordedInventoryPrismEnv, RecordedInventoryTowerEnv
+from aspire_so100.playback import RecordedTowerEnv, RecordedPrismEnv, RecordedInventoryPrismEnv, RecordedInventoryTowerEnv, RecordedInventoryStructureEnv
 from aspire_so100.tower_tasks import RECIPES, TowerRecipe, tower_recipe
+from aspire_so100.structure_tasks import STRUCTURE_RECIPES, structure_recipe
 from aspire_so100.tower import ORDER
 from aspire_so100.rgbd import depth_preview
 
@@ -156,14 +157,16 @@ def main():
     p.add_argument('--candidate',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
     p.add_argument('--seed',type=int,default=81);p.add_argument('--timeout',type=float,default=120)
     p.add_argument('--layout', choices=('nominal','random_xy','sampled'), default='nominal')
-    p.add_argument('--task', choices=('tower','prism','inventory_prism','inventory_tower'), default='tower')
+    p.add_argument('--task', choices=('tower','prism','inventory_prism','inventory_tower','inventory_structure'), default='tower')
+    p.add_argument('--structure-recipe', choices=tuple(STRUCTURE_RECIPES))
+    p.add_argument('--structure-color-map', type=json.loads, help='JSON color bijection for structure goals')
     p.add_argument('--tower-recipe', choices=(*RECIPES, 'random'))
     p.add_argument('--tower-order', nargs='+', help='Explicit inventory object names, bottom to top')
     p.add_argument('--tower-levels', type=int, help='2..4 levels, for --tower-recipe random')
     p.add_argument('--object-count', type=int, help='Inventory sample size, default 6; inventory tasks only')
     p.add_argument('--sensor-blackout',action='store_true',help='Diagnostic: remove all policy RGB-D pixels; evaluation remains unchanged')
     a=p.parse_args()
-    inventory = a.task in ('inventory_prism', 'inventory_tower')
+    inventory = a.task in ('inventory_prism', 'inventory_tower', 'inventory_structure')
     if inventory != (a.layout == 'sampled'):
         p.error('Inventory tasks require --layout sampled; historical tasks use nominal/random_xy')
     if a.object_count is not None and (not inventory or not 2 <= a.object_count <= 20):
@@ -182,9 +185,20 @@ def main():
                 raise ValueError('object-count must include every recipe level')
         except ValueError as error:
             p.error(str(error))
+    if a.task != 'inventory_structure' and (a.structure_recipe is not None or a.structure_color_map is not None):
+        p.error('Structure options require --task inventory_structure')
+    if a.task == 'inventory_structure':
+        try:
+            recipe = structure_recipe(a.structure_recipe or 'cube_bridge', color_map=a.structure_color_map)
+            if (a.object_count or 6) < len(recipe.order):
+                raise ValueError('object-count must include every structure node')
+        except (ValueError, TypeError) as error:
+            p.error(str(error))
     a.output.mkdir(parents=True,exist_ok=False)
     validate_source(a.candidate.read_text())
-    env=(RecordedInventoryTowerEnv(a.output, scene_seed=a.seed, object_count=a.object_count or 6,
+    env=(RecordedInventoryStructureEnv(a.output, scene_seed=a.seed, object_count=a.object_count or 6,
+                                      recipe=recipe.name, color_map=a.structure_color_map) if a.task == 'inventory_structure' else
+         RecordedInventoryTowerEnv(a.output, scene_seed=a.seed, object_count=a.object_count or 6,
                                   recipe=recipe.name, recipe_order=recipe.order) if a.task == 'inventory_tower' else
          RecordedInventoryPrismEnv(a.output, scene_seed=a.seed, object_count=a.object_count or 6)
          if a.task=='inventory_prism' else (RecordedPrismEnv if a.task=='prism' else VisionTrialEnv)(a.output))
@@ -220,7 +234,7 @@ def main():
                             cpu_profile = params.get('cpu_profile')
                         if method=='done':break
                         if method=='failed':raise RuntimeError(params['error'])
-                        call_limit = 300*len(env.order) if a.task == 'inventory_tower' else 600
+                        call_limit = 300*len(env.order) if a.task in ('inventory_tower', 'inventory_structure') else 600
                         if len(calls)>call_limit:raise RuntimeError('API call limit exceeded')
                         try:
                             response=None
@@ -244,8 +258,8 @@ def main():
                                 response={'joint_angles':env.data.qpos[env.arm_qpos_addresses].copy(),'tool_position':env.data.site_xpos[env.site_id].copy(),'tool_rotation':env.data.site_xmat[env.site_id].reshape(3,3).copy(),'time':float(env.data.time)}
                                 calls[-1]['observation']={key: value.tolist() if isinstance(value,np.ndarray) else value for key,value in response.items()}
                             elif method=='task':
-                                if a.task != 'inventory_tower':
-                                    raise ValueError('Symbolic task descriptions require inventory_tower')
+                                if a.task not in ('inventory_tower', 'inventory_structure'):
+                                    raise ValueError('Symbolic task descriptions require an inventory construction task')
                                 response=env.recipe.public_goal()
                             elif method=='move_tool':move_tool(env,params['position'],max(.1,seconds),params.get('orientation'))
                             elif method=='plan_tool':response=plan_tool(env,params['position'],params.get('orientation'))
@@ -276,7 +290,7 @@ def main():
                     except subprocess.TimeoutExpired:proc.kill();proc.wait()
                     selector.close()
         policy_seconds=float(env.data.time)-start
-        env.check_structure(list(env.order if a.task in ('prism','inventory_prism','inventory_tower') else ORDER),duration=5.)
+        env.check_structure(list(env.order if a.task in ('prism','inventory_prism','inventory_tower','inventory_structure') else ORDER),duration=5.)
         metrics=env.evaluate()
         env.write_trace(metrics,error)
         frame=env.get_overhead_rgbd();Image.fromarray(frame['rgb']).save(a.output/'outcome.png')
@@ -290,11 +304,11 @@ def main():
                 'metrics':asdict(metrics),'observation_contract':'Side RGB-D, wrist RGB, calibration + robot proprioception ONLY; evaluator results never returned to policy'}
         if inventory:
             result['scene'] = env.scene_metadata
-        if a.task == 'inventory_tower':
+        if a.task in ('inventory_tower', 'inventory_structure'):
             result['goal'] = env.recipe.public_goal()
             result['sensor'] = {'depth_sampling': 'pixel_center', 'offscreen_samples': 0}
             result['api_call_limit'] = 300*len(env.order)
-            result['observation_contract'] += '; public symbolic bottom-to-top goal via task()'
+            result['observation_contract'] += '; public symbolic construction goal via task()'
         (a.output/'result.json').write_text(json.dumps(result,indent=2)+'\n')
         # Only this reduced result and rendered sensor frames go back to the actor.
         (a.output/'actor_feedback.json').write_text(json.dumps({'success':metrics.success,'policy_error':error,'policy_sim_seconds':policy_seconds,'notes':[c['params']['text'] for c in calls if c['method']=='note']},indent=2)+'\n')

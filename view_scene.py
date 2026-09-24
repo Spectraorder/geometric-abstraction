@@ -625,15 +625,19 @@ def build_scene(tower: bool = False, prism: bool = False, *, legacy: bool = Fals
 
 def main() -> None:
     import argparse
+    import json
     from aspire_so100.tower_tasks import RECIPES, TowerRecipe, tower_recipe
+    from aspire_so100.structure_tasks import STRUCTURE_RECIPES, structure_recipe
 
     parser = argparse.ArgumentParser(description="Watch the SO-100 stacking task.")
     parser.add_argument("--scene-only", action="store_true", help="Open the passive scene without a policy.")
-    parser.add_argument("--vision-task", choices=("tower", "prism", "inventory_prism", "inventory_tower"),
+    parser.add_argument("--vision-task", choices=("tower", "prism", "inventory_prism", "inventory_tower", "inventory_structure"),
                         help="Sensor-only task (default: tower); inventory tasks use sampled scene goals")
-    parser.add_argument('--scene-task', choices=('random', 'upright_thin_prism', 'catalog', 'single_column'),
+    parser.add_argument('--scene-task', choices=('random', 'upright_thin_prism', 'catalog', 'single_column', 'support_graph'),
                         help='New inventory scene: random subset, task-conditioned subset, or all 20 objects')
     parser.add_argument('--object-count', type=int, help='Subset size (default: 6); sampled passive scenes or inventory policies')
+    parser.add_argument('--structure-recipe', choices=tuple(STRUCTURE_RECIPES))
+    parser.add_argument('--structure-color-map', type=json.loads, help='JSON color bijection for structure goals')
     parser.add_argument('--tower-recipe', choices=(*RECIPES, 'random'))
     parser.add_argument('--tower-order', nargs='+', help='Explicit inventory objects, bottom to top')
     parser.add_argument('--tower-levels', type=int, help='2..4 levels, only for the random tower recipe')
@@ -673,8 +677,18 @@ def main() -> None:
                 raise ValueError('object-count must include every recipe level')
         except ValueError as error:
             parser.error(str(error))
-    inventory_policy = args.vision_policy is not None and args.vision_task in ('inventory_prism', 'inventory_tower')
-    if args.vision_task in ('inventory_prism', 'inventory_tower') and not inventory_policy:
+    graph_mode = args.vision_task == 'inventory_structure' or args.scene_task == 'support_graph'
+    if not graph_mode and (args.structure_recipe is not None or args.structure_color_map is not None):
+        parser.error('Structure options require inventory_structure or --scene-task support_graph')
+    if graph_mode:
+        try:
+            recipe = structure_recipe(args.structure_recipe or 'cube_bridge', color_map=args.structure_color_map)
+            if (args.object_count or 6) < len(recipe.order):
+                raise ValueError('object-count must include every structure node')
+        except (ValueError, TypeError) as error:
+            parser.error(str(error))
+    inventory_policy = args.vision_policy is not None and args.vision_task in ('inventory_prism', 'inventory_tower', 'inventory_structure')
+    if args.vision_task in ('inventory_prism', 'inventory_tower', 'inventory_structure') and not inventory_policy:
         parser.error('Inventory policy tasks require --vision-policy; use --scene-task for a passive scene')
     if args.object_count is not None:
         if not ((args.scene_only and args.vision_task is None) or inventory_policy):
@@ -700,7 +714,8 @@ def main() -> None:
         watch_vision_policy(args.vision_policy, seed=args.seed if args.seed is not None else 81,
                             output=args.vision_output, layout=layout, task=args.vision_task or 'tower',
                             object_count=args.object_count, tower_recipe=args.tower_recipe, tower_levels=args.tower_levels,
-                            tower_order=args.tower_order)
+                            tower_order=args.tower_order, structure_recipe=args.structure_recipe,
+                            structure_color_map=args.structure_color_map)
         return
     if args.vision_trial:
         from aspire_so100.playback import watch_vision_rollout

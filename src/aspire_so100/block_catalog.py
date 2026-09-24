@@ -47,18 +47,19 @@ def generate_block_layout(seed: int = 51, count: int = 6, task: str = 'random',
     distractors into remaining slots. Every object starts upright with zero yaw.
     A jittered grid bounds density and avoids rejection-sampling failures at 20.
     """
-    if task not in ('random', 'catalog', 'single_column', *TASK_OBJECTS):
+    if task not in ('random', 'catalog', 'single_column', 'support_graph', *TASK_OBJECTS):
         raise ValueError('Unknown scene generation task: ' + task)
     if not isinstance(count, int) or isinstance(count, bool) or not 1 <= count <= len(CATALOG_OBJECTS):
         raise ValueError('Object count must be an integer from 1 to 20')
-    if (task == 'single_column') != (required_objects is not None):
-        raise ValueError('single_column requires an explicit ordered object list')
+    if (task in ('single_column', 'support_graph')) != (required_objects is not None):
+        raise ValueError('Structured tasks require an explicit ordered object list')
     if task == 'catalog':
         return BlockLayout(task, dict(CATALOG_POSITIONS), {})
     roles = dict(TASK_OBJECTS.get(task, {}))
     if required_objects is not None:
-        if not 2 <= len(required_objects) <= 4 or len(set(required_objects)) != len(required_objects):
-            raise ValueError('A column requires 2..4 distinct objects')
+        minimum, maximum = (3, 8) if task == 'support_graph' else (2, 4)
+        if not minimum <= len(required_objects) <= maximum or len(set(required_objects)) != len(required_objects):
+            raise ValueError(f'{task} requires {minimum}..{maximum} distinct objects')
         if not set(required_objects) <= set(CATALOG_OBJECTS):
             raise ValueError('Required object is outside the inventory')
         roles = {f'level_{i}': name for i, name in enumerate(required_objects)}
