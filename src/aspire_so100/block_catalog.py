@@ -29,7 +29,10 @@ CATALOG_POSITIONS = {
 
 # Task requirements describe identities, not measurements sent to the actor.
 # All task generation lives here so future tasks can specify different roles.
-TASK_OBJECTS = {'upright_thin_prism': {'target': 'red_thin_prism', 'base': 'blue_cube'}}
+TASK_OBJECTS = {
+    'upright_thin_prism': {'target': 'red_thin_prism', 'base': 'blue_cube'},
+    'repair_thin_prism': {'target': 'red_thin_prism', 'base': 'blue_cube'},
+}
 
 
 @dataclass(frozen=True)
@@ -50,6 +53,8 @@ def generate_block_layout(seed: int = 51, count: int = 6, task: str = 'random') 
         raise ValueError('Unknown scene generation task: ' + task)
     if not isinstance(count, int) or isinstance(count, bool) or not 1 <= count <= len(CATALOG_OBJECTS):
         raise ValueError('Object count must be an integer from 1 to 20')
+    if task == 'repair_thin_prism' and not 2 <= count <= 10:
+        raise ValueError('Repair curriculum currently supports 2..10 objects')
     if task == 'catalog':
         return BlockLayout(task, dict(CATALOG_POSITIONS), {})
     roles = dict(TASK_OBJECTS.get(task, {}))
@@ -63,6 +68,11 @@ def generate_block_layout(seed: int = 51, count: int = 6, task: str = 'random') 
     positions = {}
     for name in selected:
         available = slots
+        if task == 'repair_thin_prism' and name not in required:
+            # Keep an initially clear repair workspace; clutter clearing is
+            # already a separate benchmark. Distractor identities remain random.
+            available = [(x, y) for x, y in slots
+                         if np.linalg.norm(np.array([x, y])-np.array([-.04, -.24])) > .115]
         if name in required:
             # Reserve central workspaces for task-critical objects.
             available = [(x, y) for x, y in slots if abs(x) <= .10 and -.36 <= y <= -.20]
@@ -71,4 +81,8 @@ def generate_block_layout(seed: int = 51, count: int = 6, task: str = 'random') 
         xy = np.asarray(slot)+rng.uniform(-.006, .006, 2)
         shape = name.split('_', 1)[1]
         positions[name] = (float(xy[0]), float(xy[1]), .40+SHAPE_DIMENSIONS[shape][2]/2)
+    if task == 'repair_thin_prism':
+        xy = np.array([-.04, -.24])+rng.uniform(-.015, .015, 2)
+        positions['blue_cube'] = (*map(float, xy), .415)
+        positions['red_thin_prism'] = (*map(float, xy), .46)
     return BlockLayout(task, positions, roles)

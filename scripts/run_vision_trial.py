@@ -1,6 +1,5 @@
 """Sensor-only RPC trial. Policy process cannot read simulator memory or prior code."""
 import argparse
-import ast
 import base64
 from dataclasses import asdict
 import hashlib
@@ -21,9 +20,11 @@ import mujoco
 import numpy as np
 from scipy.optimize import least_squares
 from PIL import Image
-from aspire_so100.playback import RecordedTowerEnv, RecordedPrismEnv, RecordedInventoryPrismEnv
+from aspire_so100.playback import RecordedTowerEnv, RecordedPrismEnv, RecordedInventoryPrismEnv, RecordedInventoryRepairEnv
 from aspire_so100.tower import ORDER
 from aspire_so100.rgbd import depth_preview
+from aspire_so100.repair_learning import diagnostics
+from aspire_so100.policy_validation import validate_source
 
 
 def pack(v):
@@ -95,8 +96,9 @@ def plan_tool(env,position,orientation=None):
 def move_tool(env,position,seconds,orientation=None):
     """Robot SDK: robot-model-only numerical IK, no object state inputs."""
     plan=plan_tool(env,position,orientation)
+    env.last_move_plan = plan
     if plan['position_error']>.005:
-        raise RuntimeError('Requested tool position is unreachable within 5 mm')
+        raise RuntimeError(f'Requested tool position {position} has IK error {plan["position_error"]:.6f} m (limit 0.005 m)')
     env.move_to_joint_positions(plan['joint_angles'],seconds)
 
 
@@ -120,15 +122,21 @@ def policy_worker_command(directory, candidate):
         if not shutil.which('bwrap'):
             raise RuntimeError('bwrap is required to run a vision policy on Linux')
         home = Path.home()
+        checkout = Path(__file__).resolve().parents[1]
+        hidden_roots = sorted({home, checkout}, key=lambda p: (len(p.parts), str(p)))
         command = ['bwrap', '--die-with-parent', '--unshare-net', '--new-session',
-                   '--ro-bind', '/', '/', '--tmpfs', str(home)]
+                   '--ro-bind', '/', '/']
+        # On the cluster HOME contains a symlink to /storage/project. Masking
+        # HOME alone leaves the checkout reachable through its real path.
+        for path in hidden_roots:
+            command += ['--tmpfs', str(path)]
         # uv commonly installs both the venv and its base interpreter under
         # HOME. Restore only their runtime directories after masking HOME;
         # the surrounding checkout and other home files stay hidden.
         runtime_paths = {Path(prefix) for prefix in (sys.prefix, sys.base_prefix)}
         runtime_paths.update(path.resolve() for path in tuple(runtime_paths))
         for path in sorted(runtime_paths, key=lambda p: (len(p.parts), str(p))):
-            if path.is_relative_to(home):
+            if any(path.is_relative_to(root) for root in hidden_roots):
                 command += ['--ro-bind', str(path), str(path)]
         return command + ['--proc', '/proc', '--dev', '/dev',
                 '--bind', str(directory), str(directory), '--chdir', str(directory),
@@ -136,37 +144,28 @@ def policy_worker_command(directory, candidate):
     raise RuntimeError(f'No vision policy sandbox for {sys.platform}')
 
 
-def validate_source(source):
-    tree=ast.parse(source)
-    forbidden={'open','exec','eval','compile','getattr','setattr','delattr','globals','locals','vars',
-               '__import__','input','breakpoint','print','load','save','savez','savez_compressed','fromfile',
-               'tofile','memmap','ctypeslib','ctypes','sys','os','subprocess'}
-    for n in ast.walk(tree):
-        if isinstance(n,(ast.Import,ast.ImportFrom)):
-            names=[a.name for a in n.names] if isinstance(n,ast.Import) else [n.module or '']
-            if any(x.split('.')[0] not in {'numpy','scipy','math'} for x in names):raise ValueError('Import outside numerical libraries')
-        if isinstance(n,ast.Attribute) and (n.attr.startswith('_') or n.attr in forbidden):raise ValueError('Forbidden attribute')
-        if isinstance(n,ast.Name) and n.id in forbidden:raise ValueError('Forbidden name')
-    compile(tree,'<vision policy>','exec')
-
-
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--candidate',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
     p.add_argument('--seed',type=int,default=81);p.add_argument('--timeout',type=float,default=120)
     p.add_argument('--layout', choices=('nominal','random_xy','sampled'), default='nominal')
-    p.add_argument('--task', choices=('tower','prism','inventory_prism'), default='tower')
-    p.add_argument('--object-count', type=int, help='Inventory sample size, default 6; only for inventory_prism')
+    p.add_argument('--task', choices=('tower','prism','inventory_prism','inventory_repair'), default='tower')
+    p.add_argument('--repair-case', choices=('centered','offset'), default='offset')
+    p.add_argument('--object-count', type=int, help='Inventory sample size, default 6; repair supports 2..10')
     p.add_argument('--sensor-blackout',action='store_true',help='Diagnostic: remove all policy RGB-D pixels; evaluation remains unchanged')
     a=p.parse_args()
-    if (a.task == 'inventory_prism') != (a.layout == 'sampled'):
-        p.error('inventory_prism requires --layout sampled; historical tasks use nominal/random_xy')
-    if a.object_count is not None and (a.task != 'inventory_prism' or not 2 <= a.object_count <= 20):
-        p.error('--object-count must be 2..20 and requires --task inventory_prism')
+    if (a.task in ('inventory_prism','inventory_repair')) != (a.layout == 'sampled'):
+        p.error('inventory tasks require --layout sampled; historical tasks use nominal/random_xy')
+    if a.object_count is not None and (a.task not in ('inventory_prism','inventory_repair') or not 2 <= a.object_count <= (10 if a.task == 'inventory_repair' else 20)):
+        p.error('--object-count requires an inventory task (repair: 2..10, prism: 2..20)')
     a.output.mkdir(parents=True,exist_ok=False)
     validate_source(a.candidate.read_text())
-    env=(RecordedInventoryPrismEnv(a.output, scene_seed=a.seed, object_count=a.object_count or 6)
-         if a.task=='inventory_prism' else (RecordedPrismEnv if a.task=='prism' else VisionTrialEnv)(a.output))
+    if a.task == 'inventory_repair':
+        env = RecordedInventoryRepairEnv(a.output, scene_seed=a.seed,
+            object_count=a.object_count or 6, repair_case=a.repair_case)
+    else:
+        env=(RecordedInventoryPrismEnv(a.output, scene_seed=a.seed, object_count=a.object_count or 6)
+             if a.task=='inventory_prism' else (RecordedPrismEnv if a.task=='prism' else VisionTrialEnv)(a.output))
     calls=[];error=None;images=[];cpu_profile=None
     try:
         env.reset(a.seed, layout=a.layout);env.frames.clear();env.capture()
@@ -235,9 +234,23 @@ def main():
                                 env.set_gripper(angle,max(.1,seconds))
                             elif method=='wait':env.wait(seconds)
                             elif method=='note':pass
+                            elif method=='report':
+                                if not isinstance(params.get('stage'),str) or not isinstance(params.get('values'),dict):
+                                    raise ValueError('report requires a stage string and values object')
+                                if len(json.dumps(params,allow_nan=False)) > 6000:
+                                    raise ValueError('Report exceeds 6000 characters')
+                                if a.task == 'inventory_repair':
+                                    preview=calls[-2] if len(calls)>1 and calls[-2]['method']=='plan_tool' else None
+                                    env.record_report(params, preview)
                             else:raise ValueError('API method not permitted')
+                            if method=='plan_tool':
+                                calls[-1]['observation']={k:v.tolist() if isinstance(v,np.ndarray) else v for k,v in response.items()}
+                            if method=='move_tool':
+                                calls[-1]['ik']={k:v.tolist() if isinstance(v,np.ndarray) else v for k,v in env.last_move_plan.items()}
+                            calls[-1]['completed']=True
                             proc.stdin.write(json.dumps({'result':pack(response)})+'\n');proc.stdin.flush()
                         except Exception as exc:
+                            calls[-1]['error']=type(exc).__name__+': '+str(exc)
                             proc.stdin.write(json.dumps({'error':type(exc).__name__+': '+str(exc)})+'\n');proc.stdin.flush()
                 except Exception as exc:
                     if isinstance(exc, RuntimeError) and str(exc).startswith('Policy process exited without completion'):
@@ -250,7 +263,7 @@ def main():
                     except subprocess.TimeoutExpired:proc.kill();proc.wait()
                     selector.close()
         policy_seconds=float(env.data.time)-start
-        env.check_structure(list(env.order if a.task in ('prism','inventory_prism') else ORDER),duration=5.)
+        env.check_structure(list(env.order if a.task in ('prism','inventory_prism','inventory_repair') else ORDER),duration=5.)
         metrics=env.evaluate()
         env.write_trace(metrics,error)
         frame=env.get_overhead_rgbd();Image.fromarray(frame['rgb']).save(a.output/'outcome.png')
@@ -262,11 +275,19 @@ def main():
                 'sensor_blackout':a.sensor_blackout,
                 'cpu_profile':cpu_profile,'robot_ik_cpu_seconds':getattr(env, 'robot_ik_cpu_seconds', 0.),
                 'metrics':asdict(metrics),'observation_contract':'Side RGB-D, wrist RGB, calibration + robot proprioception ONLY; evaluator results never returned to policy'}
-        if a.task == 'inventory_prism':
+        if a.task in ('inventory_prism','inventory_repair'):
             result['scene'] = env.scene_metadata
+        if a.task == 'inventory_repair':
+            result['repair'] = env.repair_metrics()
+            result['repair_progress'] = env.progress_metrics()
         (a.output/'result.json').write_text(json.dumps(result,indent=2)+'\n')
         # Only this reduced result and rendered sensor frames go back to the actor.
-        (a.output/'actor_feedback.json').write_text(json.dumps({'success':metrics.success,'policy_error':error,'policy_sim_seconds':policy_seconds,'notes':[c['params']['text'] for c in calls if c['method']=='note']},indent=2)+'\n')
+        feedback = {'success':metrics.success,'policy_error':error,'policy_sim_seconds':policy_seconds,'notes':[c['params']['text'] for c in calls if c['method']=='note']}
+        if a.task == 'inventory_repair':
+            feedback['post_trial_failure_reasons'] = env.checks[-1]['reasons']
+            feedback['post_trial_progress'] = env.progress_metrics()
+            feedback['diagnostics'] = diagnostics(calls)
+        (a.output/'actor_feedback.json').write_text(json.dumps(feedback,indent=2)+'\n')
         print(json.dumps(result,indent=2))
     finally:env.close()
 

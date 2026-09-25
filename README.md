@@ -13,6 +13,17 @@ This project adapts the three useful pieces of the ASPIRE workflow to the local
 
 ## Current object library and sampled scenes
 
+The next experiment is [placement repair toward collaborative high towers](docs/COLLABORATIVE_TOWER_CURRICULUM.md).
+It starts from the best inventory policy, tests whether the robot can recenter a
+prebuilt stack while preserving its foundation, and includes centered controls.
+The document defines the LLM learning budget, pass criteria, reach estimate,
+and later progression to tall towers and alternating human turns.
+The repair loop now separates full-task success from verified intermediate
+milestones, retains an exploration parent, and stops on stagnation. Use
+`scripts/learn_inventory_repair.py --root outputs/inventory_repair_01 --inspect-only`
+to audit saved evidence without starting model calls; live phases go to the
+campaign's `progress.log`.
+
 The library contains **20 objects: five shapes × red, yellow, blue, and green**.
 Each shape has one object of each color; there are no additional shape types
 or colors in the new scenes. Names follow `<color>_<shape>`.

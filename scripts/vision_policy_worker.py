@@ -63,6 +63,9 @@ class API:
         return self.call('wait',seconds=float(seconds))
     def note(self, text):
         return self.call('note',text=str(text)[:2000])
+    def report(self, stage, **values):
+        """Log measured geometry/checks. No evaluator result is returned."""
+        return self.call('report', stage=str(stage), values=values)
 
 
 namespace={}

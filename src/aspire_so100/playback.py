@@ -16,6 +16,7 @@ from aspire_so100.camera_view import run_camera_viewer
 from aspire_so100.tower import TowerEnv, TowerAPI
 from aspire_so100.prism import PrismEnv
 from aspire_so100.inventory_prism import InventoryPrismEnv
+from aspire_so100.inventory_repair import InventoryRepairEnv
 
 
 class RecordingMixin:
@@ -50,12 +51,17 @@ class RecordedInventoryPrismEnv(RecordingMixin, InventoryPrismEnv):
     pass
 
 
+class RecordedInventoryRepairEnv(RecordingMixin, InventoryRepairEnv):
+    pass
+
+
 def recorded_env_for_result(result, output_dir):
     """Reconstruct the exact sampled object identities before restoring states."""
-    if result.get('task') == 'inventory_prism':
+    if result.get('task') in ('inventory_prism', 'inventory_repair'):
         metadata = result['scene']
-        env = RecordedInventoryPrismEnv(output_dir, scene_seed=result['seed'],
-                                        object_count=metadata['object_count'])
+        cls = RecordedInventoryRepairEnv if result['task'] == 'inventory_repair' else RecordedInventoryPrismEnv
+        kwargs = {'repair_case': metadata['repair_case']} if result['task'] == 'inventory_repair' else {}
+        env = cls(output_dir, scene_seed=result['seed'], object_count=metadata['object_count'], **kwargs)
         if env.scene_metadata != metadata:
             env.close()
             raise ValueError('Recorded inventory scene does not match this generator')

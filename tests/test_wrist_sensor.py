@@ -31,6 +31,9 @@ def run(api):
     plan = api.plan_tool(robot['tool_position'], orientation=rotation)
     assert set(plan) == {'joint_angles', 'tool_position', 'tool_rotation', 'position_error'}
     assert plan['position_error'] < .001
+    assert api.report('identify', base_center=[0,0,0], target_center=[0,0,0],
+                      target_dimensions=[0,0,0]) is None
+    assert api.report('plan', role='grasp', position=robot['tool_position'].tolist()) is None
     assert api.proprioception()['time'] == robot['time']
     api.move_tool(robot['tool_position'], seconds=.1, orientation=rotation)
     assert np.linalg.norm(api.proprioception()['tool_position']-robot['tool_position']) < .004
@@ -58,15 +61,23 @@ def run(api):
             result = subprocess.run([
                 sys.executable, str(ROOT / 'scripts/run_vision_trial.py'),
                 '--candidate', str(candidate), '--output', str(output),
+                '--task', 'inventory_repair', '--layout', 'sampled', '--seed', '1501',
                 '--sensor-blackout'], capture_output=True, text=True, timeout=90,
                 env=worker_env)
             self.assertEqual(result.returncode, 0, result.stderr)
             metrics = json.loads((output / 'result.json').read_text())
             self.assertIsNone(metrics['policy_error'])
             self.assertFalse(metrics['success'])
+            self.assertFalse(any(metrics['repair_progress']['verified'].values()))
             with np.load(output / 'camera_000.npz') as wrist:
                 self.assertNotIn('depth_m', wrist.files)
             calls = json.loads((output / 'api_calls.json').read_text())
+            preview=next(c for c in calls if c['method']=='plan_tool')
+            self.assertLess(preview['observation']['position_error'],.001)
+            self.assertTrue(preview['completed'])
+            feedback=json.loads((output/'actor_feedback.json').read_text())
+            self.assertIn('diagnostics',feedback)
+            self.assertTrue(feedback['post_trial_progress']['checks'][0]['reasons'])
             self.assertTrue(any(c['params'].get('text') == 'invalid view rejected' for c in calls))
             self.assertTrue(any(c['params'].get('text') == 'reflection rejected' for c in calls))
 
