@@ -1,0 +1,115 @@
+{
+  "schema": "aspire-policy-benchmark/1",
+  "status": "protocol_not_completed_evaluation",
+  "base_commit": "3a2a48a",
+  "profiles": {
+    "tower_recovery": [
+      "tower_nominal",
+      "tower_random",
+      "short_occlusion",
+      "persistent_stop",
+      "grasp_miss",
+      "lift_loss"
+    ],
+    "inventory": [
+      "prism_clutter",
+      "inventory_2",
+      "inventory_6",
+      "inventory_10"
+    ],
+    "all_supported": [
+      "tower_nominal",
+      "tower_random",
+      "short_occlusion",
+      "persistent_stop",
+      "grasp_miss",
+      "lift_loss",
+      "prism_clutter",
+      "inventory_2",
+      "inventory_6",
+      "inventory_10"
+    ]
+  },
+  "cells": [
+    {
+      "id": "tower_nominal",
+      "task": "tower3",
+      "endpoint": "completion",
+      "minimum_n": 50,
+      "wilson_lower_target": 0.9
+    },
+    {
+      "id": "tower_random",
+      "task": "tower3",
+      "endpoint": "completion",
+      "minimum_n": 50,
+      "wilson_lower_target": 0.9
+    },
+    {
+      "id": "short_occlusion",
+      "task": "transient_occlusion",
+      "endpoint": "recovery",
+      "minimum_n": 50,
+      "wilson_lower_target": 0.9
+    },
+    {
+      "id": "persistent_stop",
+      "task": "persistent_occlusion",
+      "endpoint": "abstention",
+      "minimum_n": 50,
+      "wilson_lower_target": 0.9
+    },
+    {
+      "id": "grasp_miss",
+      "task": "grasp_miss",
+      "endpoint": "recovery",
+      "minimum_n": 50,
+      "wilson_lower_target": 0.9
+    },
+    {
+      "id": "lift_loss",
+      "task": "lift_loss",
+      "endpoint": "recovery",
+      "minimum_n": 50,
+      "wilson_lower_target": 0.9
+    },
+    {
+      "id": "prism_clutter",
+      "task": "prism_clutter",
+      "endpoint": "completion",
+      "minimum_n": 50,
+      "wilson_lower_target": 0.9
+    },
+    {
+      "id": "inventory_2",
+      "task": "inventory_prism",
+      "endpoint": "completion",
+      "minimum_n": 50,
+      "wilson_lower_target": 0.9
+    },
+    {
+      "id": "inventory_6",
+      "task": "inventory_prism",
+      "endpoint": "completion",
+      "minimum_n": 50,
+      "wilson_lower_target": 0.9
+    },
+    {
+      "id": "inventory_10",
+      "task": "inventory_prism",
+      "endpoint": "completion",
+      "minimum_n": 50,
+      "wilson_lower_target": 0.9
+    }
+  ],
+  "gates": [
+    "sensor_only_actor",
+    "frozen_policy_and_harness",
+    "heldout_not_used_for_repairs",
+    "finite_budgets",
+    "full_attempt_accounting",
+    "private_evaluator",
+    "no_unsafe_actions"
+  ],
+  "limits": "Suggested release criterion; 50 trials per cell is a starting design, not a power analysis. Claims apply only to the frozen distributions."
+}

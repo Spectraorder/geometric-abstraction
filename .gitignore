@@ -12,3 +12,8 @@ wheels/
 # Local simulator artifacts
 outputs/
 MUJOCO_LOG.TXT
+
+# Local model credentials and hosting metadata
+jev_api.txt
+.env*
+.vercel/

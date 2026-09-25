@@ -1,5 +1,17 @@
 # ASPIRE SO-100 stacking
 
+## Recovery tasks, benchmark, and Astra × Jev
+
+- [Task catalog: executable skills, pilot evidence, and future tasks](docs/TASK_CATALOG.md)
+- [Policy completeness benchmark and release gates](docs/POLICY_BENCHMARK.md)
+- [Real Astra/Jev harness, limits, and reproduction](docs/DUAL_SYSTEM.md)
+- [Verification report and limitations](docs/DUAL_SYSTEM_QA.md)
+- [Public English recovery lab](https://aspire-so100-recovery.vercel.app/) · [live model comparison](https://aspire-so100-recovery.vercel.app/#benchmark)
+- English interactive lab: `uv run python scripts/serve_vision_demo.py --bind 127.0.0.1 --port 8093 --root web/recovery`
+
+The model integration currently gates initial observations only. Historical privileged-state experiments remain a separate track; see the [observation audit](docs/OBSERVATION_AUDIT.zh-CN.md).
+
+
 新增 Mac RGB-D + 本体感知三层塔学习：空任务技能库，两轮达到 3/3，冻结后验证 2/2。见 [运行指南](docs/VISION_FROM_SCRATCH.zh-CN.md)、[可视化与后台部署](docs/VISION_DEPLOYMENT.zh-CN.md) 和 [历史输入审计](docs/OBSERVATION_AUDIT.zh-CN.md)。录像和公开证据随仓库保存在 `web/vision/`。[固定公网 Demo](https://aspire-so100-vision.vercel.app/) 已部署；Mac 后台服务和临时隧道启动方法见部署指南。
 
 This project adapts the three useful pieces of the ASPIRE workflow to the local

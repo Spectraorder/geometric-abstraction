@@ -1,0 +1,285 @@
+{
+  "result": {
+    "seed": 4001,
+    "layout": "random_xy",
+    "task": "tower",
+    "success": false,
+    "policy_error": "RuntimeError: RuntimeError: Model gate stopped before motion",
+    "policy_sim_seconds": 0.40000000000000024,
+    "candidate_sha256": "801f095151d100d77fbfd3ed139a087bf7b17ad31adc9f77ce238d180395d1fc",
+    "camera_calls": 3,
+    "sensor_blackout": false,
+    "cpu_profile": {
+      "policy_compute_cpu_seconds": 0.13706100000000007,
+      "rpc_cpu_seconds": 0.008057999999999926,
+      "compute_interval_count": 12,
+      "compute_interval_cpu_p50_ms": 0.058000000000002494,
+      "compute_interval_cpu_p95_ms": 56.16629999999993,
+      "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+    },
+    "robot_ik_cpu_seconds": 0.0,
+    "metrics": {
+      "success": false,
+      "score": 0.0,
+      "placed_blocks": 0,
+      "required_placements": 2,
+      "structure_stable": false,
+      "failure": "RuntimeError: RuntimeError: Model gate stopped before motion"
+    },
+    "observation_contract": "Side RGB-D, wrist RGB, calibration + robot proprioception ONLY; evaluator results never returned to policy",
+    "decision_scope": "initial_observation_gate_then_frozen_visual_skill",
+    "decision_mode": "hybrid"
+  },
+  "decision_trace": {
+    "mode": "hybrid",
+    "scope": "initial_observation_gate_then_frozen_visual_skill",
+    "simulation_paused_during_model_calls": true,
+    "records": [
+      {
+        "state_version": 0,
+        "plan_before": 1,
+        "plan_after": 1,
+        "proposed": "reobserve",
+        "executed": false,
+        "gated_action": "reobserve",
+        "trigger": null,
+        "slow_calls_total": 0,
+        "wall_seconds": 0.7729887500172481,
+        "decision": {
+          "action": "reobserve",
+          "confidence": 1.0,
+          "state_version": 0,
+          "plan_version": 1,
+          "model": "jev-1.13.0",
+          "wall_seconds": 0.772103708004579,
+          "usage": {
+            "input_tokens": 584,
+            "output_tokens": 61
+          },
+          "estimated_usd": 2.4528000000000003e-05,
+          "cost_basis": "published input rate 2026-09-24; not invoice",
+          "probabilities": {
+            "escalate": 0.0,
+            "retry_grasp": 0.0,
+            "stop": 0.0,
+            "continue": 0.0,
+            "reobserve": 1.0
+          }
+        },
+        "plan_text_before": "Reobserve with fresh RGB-D before motion because blue is not visible. Continue only when visual prerequisites for the blue-red-green tower hold; otherwise reobserve within the remaining budget, then escalate if evidence remains insufficient or conflicts.",
+        "plan_text_after": "Reobserve with fresh RGB-D before motion because blue is not visible. Continue only when visual prerequisites for the blue-red-green tower hold; otherwise reobserve within the remaining budget, then escalate if evidence remains insufficient or conflicts.",
+        "state": {
+          "version": 0,
+          "time_s": 0.6500000000000005,
+          "phase": "initial_observation",
+          "visible_colors": [
+            "red",
+            "green"
+          ],
+          "table_fit_valid": true,
+          "grasp_confirmed": null,
+          "reobservations_left": 2,
+          "grasp_retries_left": 1
+        },
+        "service_seconds": 0.7731469579739496
+      },
+      {
+        "state_version": 1,
+        "plan_before": 1,
+        "plan_after": 1,
+        "proposed": "reobserve",
+        "executed": false,
+        "gated_action": "reobserve",
+        "trigger": null,
+        "slow_calls_total": 0,
+        "wall_seconds": 0.8827599999494851,
+        "decision": {
+          "action": "reobserve",
+          "confidence": 1.0,
+          "state_version": 1,
+          "plan_version": 1,
+          "model": "jev-1.13.0",
+          "wall_seconds": 0.8825284580234438,
+          "usage": {
+            "input_tokens": 584,
+            "output_tokens": 61
+          },
+          "estimated_usd": 2.4528000000000003e-05,
+          "cost_basis": "published input rate 2026-09-24; not invoice",
+          "probabilities": {
+            "reobserve": 1.0,
+            "continue": 0.0,
+            "stop": 0.0,
+            "retry_grasp": 0.0,
+            "escalate": 0.0
+          }
+        },
+        "plan_text_before": "Reobserve with fresh RGB-D before motion because blue is not visible. Continue only when visual prerequisites for the blue-red-green tower hold; otherwise reobserve within the remaining budget, then escalate if evidence remains insufficient or conflicts.",
+        "plan_text_after": "Reobserve with fresh RGB-D before motion because blue is not visible. Continue only when visual prerequisites for the blue-red-green tower hold; otherwise reobserve within the remaining budget, then escalate if evidence remains insufficient or conflicts.",
+        "state": {
+          "version": 1,
+          "time_s": 0.8500000000000006,
+          "phase": "initial_observation",
+          "visible_colors": [
+            "red",
+            "green"
+          ],
+          "table_fit_valid": true,
+          "grasp_confirmed": null,
+          "reobservations_left": 1,
+          "grasp_retries_left": 1
+        },
+        "service_seconds": 0.8827749580377713
+      },
+      {
+        "state_version": 2,
+        "plan_before": 1,
+        "plan_after": 2,
+        "proposed": "reobserve",
+        "executed": false,
+        "gated_action": "stop",
+        "trigger": "precondition_violation",
+        "slow_calls_total": 1,
+        "wall_seconds": 23.352986374986358,
+        "decision": {
+          "action": "reobserve",
+          "confidence": 0.52,
+          "state_version": 2,
+          "plan_version": 1,
+          "model": "jev-1.13.0",
+          "wall_seconds": 1.2084860840113834,
+          "usage": {
+            "input_tokens": 588,
+            "output_tokens": 61
+          },
+          "estimated_usd": 2.4696000000000002e-05,
+          "cost_basis": "published input rate 2026-09-24; not invoice",
+          "probabilities": {
+            "retry_grasp": 0.0,
+            "escalate": 0.36,
+            "continue": 0.01,
+            "reobserve": 0.61,
+            "stop": 0.02
+          }
+        },
+        "plan_text_before": "Reobserve with fresh RGB-D before motion because blue is not visible. Continue only when visual prerequisites for the blue-red-green tower hold; otherwise reobserve within the remaining budget, then escalate if evidence remains insufficient or conflicts.",
+        "plan_text_after": "Escalate: blue, red, and green are visible and the table fit is valid, contradicting the current plan\u2019s premise. A revised plan requires a fresh observation before motion, but the observation budget is exhausted. Do not move.",
+        "state": {
+          "version": 2,
+          "time_s": 1.0500000000000007,
+          "phase": "initial_observation",
+          "visible_colors": [
+            "blue",
+            "red",
+            "green"
+          ],
+          "table_fit_valid": true,
+          "grasp_confirmed": null,
+          "reobservations_left": 0,
+          "grasp_retries_left": 1
+        },
+        "service_seconds": 23.353027915931307
+      }
+    ],
+    "planner_calls": [
+      {
+        "requested_model": "gpt-6-astra",
+        "reasoning": "high",
+        "wall_seconds": 18.023288125055842,
+        "usage": {
+          "input_tokens": 12928,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 123,
+          "reasoning_output_tokens": 63
+        },
+        "request": {
+          "role": "plan_or_repair",
+          "state": {
+            "version": 0,
+            "time_s": 0.6500000000000005,
+            "phase": "initial_observation",
+            "visible_colors": [
+              "red",
+              "green"
+            ],
+            "table_fit_valid": true,
+            "grasp_confirmed": null,
+            "reobservations_left": 2,
+            "grasp_retries_left": 1
+          },
+          "current_plan": "Build blue-red-green tower. Verify visual evidence before existing skills; reobserve uncertainty, retry failed grasps, escalate conflicts.",
+          "trigger": "initial_plan",
+          "allowed_actions": {
+            "continue": "Proceed to the next existing skill only when visual prerequisites hold.",
+            "reobserve": "Acquire fresh RGB-D when evidence is missing and observation budget remains.",
+            "retry_grasp": "Retry an unconfirmed grasp within the remaining retry budget.",
+            "escalate": "Request a revised plan when evidence conflicts, budget is exhausted, or no action fits.",
+            "stop": "Stop this task when recovery is unavailable."
+          },
+          "constraint": "Only change the recovery plan, never budgets or execution code. A revised plan requires a fresh observation before motion."
+        },
+        "response": {
+          "plan": "Reobserve with fresh RGB-D before motion because blue is not visible. Continue only when visual prerequisites for the blue-red-green tower hold; otherwise reobserve within the remaining budget, then escalate if evidence remains insufficient or conflicts."
+        },
+        "estimated_usd": null,
+        "cost_basis": "Codex subscription; no API invoice available"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "reasoning": "high",
+        "wall_seconds": 22.144161249976605,
+        "usage": {
+          "input_tokens": 12951,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 202,
+          "reasoning_output_tokens": 138
+        },
+        "request": {
+          "role": "plan_or_repair",
+          "state": {
+            "version": 2,
+            "time_s": 1.0500000000000007,
+            "phase": "initial_observation",
+            "visible_colors": [
+              "blue",
+              "red",
+              "green"
+            ],
+            "table_fit_valid": true,
+            "grasp_confirmed": null,
+            "reobservations_left": 0,
+            "grasp_retries_left": 1
+          },
+          "current_plan": "Reobserve with fresh RGB-D before motion because blue is not visible. Continue only when visual prerequisites for the blue-red-green tower hold; otherwise reobserve within the remaining budget, then escalate if evidence remains insufficient or conflicts.",
+          "trigger": "precondition_violation",
+          "allowed_actions": {
+            "continue": "Proceed to the next existing skill only when visual prerequisites hold.",
+            "reobserve": "Acquire fresh RGB-D when evidence is missing and observation budget remains.",
+            "retry_grasp": "Retry an unconfirmed grasp within the remaining retry budget.",
+            "escalate": "Request a revised plan when evidence conflicts, budget is exhausted, or no action fits.",
+            "stop": "Stop this task when recovery is unavailable."
+          },
+          "constraint": "Only change the recovery plan, never budgets or execution code. A revised plan requires a fresh observation before motion."
+        },
+        "response": {
+          "plan": "Escalate: blue, red, and green are visible and the table fit is valid, contradicting the current plan\u2019s premise. A revised plan requires a fresh observation before motion, but the observation budget is exhausted. Do not move."
+        },
+        "estimated_usd": null,
+        "cost_basis": "Codex subscription; no API invoice available"
+      }
+    ],
+    "astra_decision_calls": [],
+    "threshold": 0.8,
+    "threshold_calibrated": false
+  },
+  "harness": {
+    "mode": "hybrid",
+    "runner_sha256": "3cde9bf63685e21eee0b339f0b12fd0049c2fe430a07f6a15434e401aab50ac5",
+    "adapter_sha256": "32fcad84bb6e0bba4ea39e054668b9e6723e46d739c9ba570d0a6b7d3e87b7d5",
+    "model_wait_simulation": "paused",
+    "wall_timeout_s": 900,
+    "source_base_commit": "3a2a48a"
+  }
+}

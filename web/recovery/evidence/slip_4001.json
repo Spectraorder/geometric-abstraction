@@ -1,0 +1,611 @@
+{
+  "seed": 4001,
+  "layout": "random_xy",
+  "task": "tower",
+  "success": true,
+  "policy_error": null,
+  "policy_sim_seconds": 106.29999999993214,
+  "candidate_sha256": "9d4484224ddcfb8c00e8c930ca68471a3e10b3ebd067a7c9fcc587a62e765e4b",
+  "camera_calls": 82,
+  "sensor_blackout": false,
+  "cpu_profile": {
+    "policy_compute_cpu_seconds": 0.8990789999999997,
+    "rpc_cpu_seconds": 0.12854500000000035,
+    "compute_interval_count": 354,
+    "compute_interval_cpu_p50_ms": 0.008000000000008,
+    "compute_interval_cpu_p95_ms": 13.241400000000032,
+    "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+  },
+  "robot_ik_cpu_seconds": 0.12662399999999963,
+  "metrics": {
+    "success": true,
+    "score": 1.0,
+    "placed_blocks": 2,
+    "required_placements": 2,
+    "structure_stable": true,
+    "failure": null
+  },
+  "observation_contract": "Side RGB-D, wrist RGB, calibration + robot proprioception ONLY; evaluator results never returned to policy",
+  "id": "slip_4001",
+  "pilot": false,
+  "policy_label": "无初始可见性门控",
+  "motion_calls": 77,
+  "start_sim_time": 0.6500000000000005,
+  "fault_events": [
+    {
+      "time": 9.79399999999994,
+      "event": "jaw_open_during_lift",
+      "robot_lift_m": 0.035,
+      "duration_s": 0.45,
+      "mechanism": "actuator disturbance, not friction randomization"
+    },
+    {
+      "time": 10.24400000000009,
+      "event": "jaw_command_restored"
+    }
+  ],
+  "adapter_sha256": "e50eb8269fedee1af1df3b655dc6e273152dbeff514bd32cdc6bd3d5614d2446",
+  "runner_sha256": "d41a532c705986014e7a398b6d63e0a8cf0307a04b8fb5c11d12a556f0558cc9",
+  "notes": [
+    {
+      "time": 2.7499999999999187,
+      "method": "note",
+      "params": {
+        "text": "blue measured center=[-0.1202, -0.2594, 0.4149] dimensions=[0.0272, 0.0273, 0.0297]"
+      }
+    },
+    {
+      "time": 2.7499999999999187,
+      "method": "note",
+      "params": {
+        "text": "red measured center=[-0.0488, -0.3139, 0.415] dimensions=[0.0298, 0.0298, 0.0298]"
+      }
+    },
+    {
+      "time": 2.7499999999999187,
+      "method": "note",
+      "params": {
+        "text": "green measured center=[0.0754, -0.2697, 0.415] dimensions=[0.0298, 0.0298, 0.0298]"
+      }
+    },
+    {
+      "time": 2.7499999999999187,
+      "method": "note",
+      "params": {
+        "text": "Testing consistent final contact gap tolerance of -5 mm."
+      }
+    },
+    {
+      "time": 2.7499999999999187,
+      "method": "note",
+      "params": {
+        "text": "blue elevated grasp offset=0.0267"
+      }
+    },
+    {
+      "time": 2.7499999999999187,
+      "method": "note",
+      "params": {
+        "text": "blue placement bias=[0.0, 0.0]"
+      }
+    },
+    {
+      "time": 5.049999999999666,
+      "method": "note",
+      "params": {
+        "text": "blue visible finger reach=0.016; geometry grasp offset=0.0234"
+      }
+    },
+    {
+      "time": 15.400000000001812,
+      "method": "note",
+      "params": {
+        "text": "Grasp not confirmed; withdrawn."
+      }
+    },
+    {
+      "time": 15.400000000001812,
+      "method": "note",
+      "params": {
+        "text": "blue retry after visually unconfirmed grasp or placement."
+      }
+    },
+    {
+      "time": 15.400000000001812,
+      "method": "note",
+      "params": {
+        "text": "blue elevated grasp offset=0.0267"
+      }
+    },
+    {
+      "time": 15.400000000001812,
+      "method": "note",
+      "params": {
+        "text": "blue placement bias=[0.0, 0.0]"
+      }
+    },
+    {
+      "time": 17.70000000000107,
+      "method": "note",
+      "params": {
+        "text": "blue visible finger reach=0.0198; geometry grasp offset=0.0272"
+      }
+    },
+    {
+      "time": 23.049999999998104,
+      "method": "note",
+      "params": {
+        "text": "blue visible finger clearance above cube bottom=0.0025"
+      }
+    },
+    {
+      "time": 23.049999999998104,
+      "method": "note",
+      "params": {
+        "text": "blue wrist grasp corroboration=True"
+      }
+    },
+    {
+      "time": 23.049999999998104,
+      "method": "note",
+      "params": {
+        "text": "Selected clear workspace using observed cube/gripper transform; predicted final tilt=0.02"
+      }
+    },
+    {
+      "time": 28.299999999995194,
+      "method": "note",
+      "params": {
+        "text": "blue alignment to aim=0.0054 gap=0.031"
+      }
+    },
+    {
+      "time": 29.09999999999475,
+      "method": "note",
+      "params": {
+        "text": "blue alignment to aim=0.0018 gap=0.023"
+      }
+    },
+    {
+      "time": 29.899999999994307,
+      "method": "note",
+      "params": {
+        "text": "blue alignment to aim=0.0021 gap=0.0233"
+      }
+    },
+    {
+      "time": 30.699999999993864,
+      "method": "note",
+      "params": {
+        "text": "blue alignment to aim=0.001 gap=0.0239"
+      }
+    },
+    {
+      "time": 30.84999999999378,
+      "method": "note",
+      "params": {
+        "text": "blue alignment to aim=0.001 gap=0.0239"
+      }
+    },
+    {
+      "time": 31.649999999993337,
+      "method": "note",
+      "params": {
+        "text": "blue alignment to aim=0.0012 gap=0.0112"
+      }
+    },
+    {
+      "time": 32.44999999999369,
+      "method": "note",
+      "params": {
+        "text": "blue alignment to aim=0.0019 gap=0.0108"
+      }
+    },
+    {
+      "time": 33.24999999999467,
+      "method": "note",
+      "params": {
+        "text": "blue alignment to aim=0.002 gap=0.0114"
+      }
+    },
+    {
+      "time": 34.04999999999565,
+      "method": "note",
+      "params": {
+        "text": "blue alignment to aim=0.0006 gap=0.007"
+      }
+    },
+    {
+      "time": 34.849999999996626,
+      "method": "note",
+      "params": {
+        "text": "blue alignment to aim=0.0014 gap=0.0033"
+      }
+    },
+    {
+      "time": 35.649999999997604,
+      "method": "note",
+      "params": {
+        "text": "blue alignment to aim=0.0008 gap=0.0025"
+      }
+    },
+    {
+      "time": 35.649999999997604,
+      "method": "note",
+      "params": {
+        "text": "blue release offset=[0.0008, 0.0003] gap=0.0025"
+      }
+    },
+    {
+      "time": 36.2999999999984,
+      "method": "note",
+      "params": {
+        "text": "blue after opening displacement=[-0.0022, 0.0003, -0.003]"
+      }
+    },
+    {
+      "time": 42.6000000000061,
+      "method": "note",
+      "params": {
+        "text": "blue after withdrawal center=[-0.0211, -0.2378, 0.415]"
+      }
+    },
+    {
+      "time": 42.6000000000061,
+      "method": "note",
+      "params": {
+        "text": "red elevated grasp offset=0.0269"
+      }
+    },
+    {
+      "time": 42.6000000000061,
+      "method": "note",
+      "params": {
+        "text": "red placement bias=[0.0, 0.0]"
+      }
+    },
+    {
+      "time": 44.90000000000891,
+      "method": "note",
+      "params": {
+        "text": "red visible finger reach=0.0197; geometry grasp offset=0.0272"
+      }
+    },
+    {
+      "time": 50.25000000001545,
+      "method": "note",
+      "params": {
+        "text": "red visible finger clearance above cube bottom=0.0322"
+      }
+    },
+    {
+      "time": 50.25000000001545,
+      "method": "note",
+      "params": {
+        "text": "red wrist grasp corroboration=True"
+      }
+    },
+    {
+      "time": 55.50000000002186,
+      "method": "note",
+      "params": {
+        "text": "red alignment to aim=0.006 gap=0.031"
+      }
+    },
+    {
+      "time": 56.30000000002284,
+      "method": "note",
+      "params": {
+        "text": "red alignment to aim=0.0012 gap=0.0225"
+      }
+    },
+    {
+      "time": 57.10000000002382,
+      "method": "note",
+      "params": {
+        "text": "red alignment to aim=0.001 gap=0.0233"
+      }
+    },
+    {
+      "time": 57.250000000024,
+      "method": "note",
+      "params": {
+        "text": "red alignment to aim=0.001 gap=0.0233"
+      }
+    },
+    {
+      "time": 58.05000000002498,
+      "method": "note",
+      "params": {
+        "text": "red alignment to aim=0.0 gap=0.0111"
+      }
+    },
+    {
+      "time": 58.20000000002516,
+      "method": "note",
+      "params": {
+        "text": "red alignment to aim=0.0 gap=0.011"
+      }
+    },
+    {
+      "time": 59.00000000002614,
+      "method": "note",
+      "params": {
+        "text": "red alignment to aim=0.0012 gap=0.0075"
+      }
+    },
+    {
+      "time": 59.80000000002712,
+      "method": "note",
+      "params": {
+        "text": "red alignment to aim=0.0017 gap=0.0023"
+      }
+    },
+    {
+      "time": 60.600000000028096,
+      "method": "note",
+      "params": {
+        "text": "red alignment to aim=0.0013 gap=0.0037"
+      }
+    },
+    {
+      "time": 61.400000000029074,
+      "method": "note",
+      "params": {
+        "text": "red alignment to aim=0.0013 gap=0.002"
+      }
+    },
+    {
+      "time": 62.20000000003005,
+      "method": "note",
+      "params": {
+        "text": "red alignment to aim=0.001 gap=0.0035"
+      }
+    },
+    {
+      "time": 62.20000000003005,
+      "method": "note",
+      "params": {
+        "text": "red release offset=[-0.0008, -0.0006] gap=0.0035"
+      }
+    },
+    {
+      "time": 62.850000000030846,
+      "method": "note",
+      "params": {
+        "text": "red after opening displacement=[0.0002, -0.0007, -0.0042]"
+      }
+    },
+    {
+      "time": 69.15000000002024,
+      "method": "note",
+      "params": {
+        "text": "red after withdrawal center=[-0.0213, -0.2389, 0.4447]"
+      }
+    },
+    {
+      "time": 73.25000000001069,
+      "method": "note",
+      "params": {
+        "text": "Retaining unobstructed preplacement blue support measurement."
+      }
+    },
+    {
+      "time": 73.25000000001069,
+      "method": "note",
+      "params": {
+        "text": "Settled red drift=0.0 gap=-0.0002 normal_z=1.0 offset=[0.0002, 0.0011]"
+      }
+    },
+    {
+      "time": 73.25000000001069,
+      "method": "note",
+      "params": {
+        "text": "Measured red release-to-settled XY shift=[0.0002, -0.0008]; support-centering compensation=[0.0, 0.0]"
+      }
+    },
+    {
+      "time": 73.25000000001069,
+      "method": "note",
+      "params": {
+        "text": "green elevated grasp offset=0.0268"
+      }
+    },
+    {
+      "time": 73.25000000001069,
+      "method": "note",
+      "params": {
+        "text": "green placement bias=[0.0, 0.0]"
+      }
+    },
+    {
+      "time": 75.55000000000533,
+      "method": "note",
+      "params": {
+        "text": "green visible finger reach=0.0194; geometry grasp offset=0.0269"
+      }
+    },
+    {
+      "time": 80.89999999999286,
+      "method": "note",
+      "params": {
+        "text": "green visible finger clearance above cube bottom=0.028"
+      }
+    },
+    {
+      "time": 80.89999999999286,
+      "method": "note",
+      "params": {
+        "text": "green wrist grasp corroboration=True"
+      }
+    },
+    {
+      "time": 86.14999999998062,
+      "method": "note",
+      "params": {
+        "text": "green alignment to aim=0.004 gap=0.0243"
+      }
+    },
+    {
+      "time": 86.94999999997876,
+      "method": "note",
+      "params": {
+        "text": "green alignment to aim=0.0015 gap=0.0214"
+      }
+    },
+    {
+      "time": 87.7499999999769,
+      "method": "note",
+      "params": {
+        "text": "green alignment to aim=0.0 gap=0.0229"
+      }
+    },
+    {
+      "time": 87.89999999997654,
+      "method": "note",
+      "params": {
+        "text": "green alignment to aim=0.0001 gap=0.023"
+      }
+    },
+    {
+      "time": 88.69999999997468,
+      "method": "note",
+      "params": {
+        "text": "green alignment to aim=0.0024 gap=0.0143"
+      }
+    },
+    {
+      "time": 89.49999999997281,
+      "method": "note",
+      "params": {
+        "text": "green alignment to aim=0.0013 gap=0.0111"
+      }
+    },
+    {
+      "time": 90.29999999997095,
+      "method": "note",
+      "params": {
+        "text": "green alignment to aim=0.0011 gap=0.0106"
+      }
+    },
+    {
+      "time": 91.09999999996909,
+      "method": "note",
+      "params": {
+        "text": "green alignment to aim=0.0011 gap=0.008"
+      }
+    },
+    {
+      "time": 91.89999999996722,
+      "method": "note",
+      "params": {
+        "text": "green alignment to aim=0.0015 gap=0.0041"
+      }
+    },
+    {
+      "time": 92.69999999996536,
+      "method": "note",
+      "params": {
+        "text": "green alignment to aim=0.0013 gap=0.0032"
+      }
+    },
+    {
+      "time": 93.49999999996349,
+      "method": "note",
+      "params": {
+        "text": "green alignment to aim=0.0008 gap=0.003"
+      }
+    },
+    {
+      "time": 93.49999999996349,
+      "method": "note",
+      "params": {
+        "text": "green release offset=[-0.0008, 0.0001] gap=0.003"
+      }
+    },
+    {
+      "time": 94.14999999996198,
+      "method": "note",
+      "params": {
+        "text": "green after opening displacement=[0.0, -0.0002, -0.0034]"
+      }
+    },
+    {
+      "time": 100.4499999999473,
+      "method": "note",
+      "params": {
+        "text": "green after withdrawal center=[-0.0224, -0.2408, 0.4742]"
+      }
+    },
+    {
+      "time": 106.94999999993215,
+      "method": "note",
+      "params": {
+        "text": "Both blocks physically transported and released; robot withdrawn; final settling wait completed."
+      }
+    },
+    {
+      "time": 106.94999999993215,
+      "method": "note",
+      "params": {
+        "text": "Observed final green center=[-0.0227, -0.2416, 0.4742]"
+      }
+    }
+  ],
+  "note": "开发/演示场景；未做独立预留验证。侧面面板保留实际策略输入，腕部画面用于回放。",
+  "parameters": {
+    "task": "tower3",
+    "observation": "rgbd-proprio",
+    "guard": "none",
+    "initial_reobserve": 0,
+    "wait_ms": 0,
+    "min_pixels": null,
+    "guard_height_mm": null,
+    "fault": "slip",
+    "roi": "na",
+    "masked_side_calls": 0,
+    "seed": 4001,
+    "lift_trigger_mm": 35,
+    "open_ms": 450,
+    "applied_angle_rad": 0.8
+  },
+  "experiment_id": "tower3__guard=none__reobs=0__wait_ms=0__fault=slip__roi=na__frames=0__seed=4001",
+  "configuration_sha256": "5fe453114769ac9a5d8ad16ae53afc1020d64559bf3e84c8dfbe57e9eb733021",
+  "policy_parent_sha256": null,
+  "fault_label": "抬升 35 mm → 开爪 450 ms",
+  "events": [
+    {
+      "time": 0.6500000000000005,
+      "label": "开始观测"
+    },
+    {
+      "time": 9.79399999999994,
+      "label": "抬升中开爪"
+    },
+    {
+      "time": 15.400000000001812,
+      "label": "视觉未确认抓起"
+    },
+    {
+      "time": 15.400000000001812,
+      "label": "重新抓取"
+    },
+    {
+      "time": 106.94999999993215,
+      "label": "策略完成，交给独立判分"
+    }
+  ],
+  "evidence": "evidence/slip_4001.json",
+  "video": "media/slip_4001.mp4",
+  "poster": "media/slip_4001.png",
+  "input": "media/slip_4001_input.png",
+  "video_metadata": {
+    "frames": 1132,
+    "fps": 20,
+    "speed": 2,
+    "duration_seconds": 56.6,
+    "source": "saved actual physics states; side panels last recorded policy input; wrist reconstructed",
+    "success": true
+  },
+  "video_sha256": "61566a6882fe03da3ed1ad2efe67b4c27c6f90ad9f753a3ec6a7233fcda72e93"
+}

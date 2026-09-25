@@ -1,0 +1,153 @@
+{
+  "seed": 4001,
+  "layout": "random_xy",
+  "task": "tower",
+  "success": false,
+  "policy_error": null,
+  "policy_sim_seconds": 0.40000000000000024,
+  "candidate_sha256": "d4939d8ac2bac5775cc1844f0398f91927faa7a39db07e1b266800f8a8e48429",
+  "camera_calls": 3,
+  "sensor_blackout": false,
+  "cpu_profile": {
+    "policy_compute_cpu_seconds": 0.15267700000000003,
+    "rpc_cpu_seconds": 0.005458999999999964,
+    "compute_interval_count": 10,
+    "compute_interval_cpu_p50_ms": 0.0085000000000085,
+    "compute_interval_cpu_p95_ms": 83.11124999999984,
+    "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+  },
+  "robot_ik_cpu_seconds": 0.0,
+  "metrics": {
+    "success": false,
+    "score": 0.0,
+    "placed_blocks": 0,
+    "required_placements": 2,
+    "structure_stable": false,
+    "failure": null
+  },
+  "observation_contract": "Side RGB-D, wrist RGB, calibration + robot proprioception ONLY; evaluator results never returned to policy",
+  "id": "persistent_occlusion_4001",
+  "pilot": true,
+  "policy_label": "RGB 色彩门控 · 复观 2 次",
+  "motion_calls": 0,
+  "start_sim_time": 0.6500000000000005,
+  "fault_events": [
+    {
+      "time": 0.6500000000000005,
+      "event": "sensor_rectangle",
+      "side_camera": 1,
+      "rectangle": [
+        0,
+        0,
+        320,
+        240
+      ],
+      "mechanism": "synthetic image occlusion; not a physical occluder"
+    },
+    {
+      "time": 0.8500000000000006,
+      "event": "sensor_rectangle",
+      "side_camera": 2,
+      "rectangle": [
+        0,
+        0,
+        320,
+        240
+      ],
+      "mechanism": "synthetic image occlusion; not a physical occluder"
+    },
+    {
+      "time": 1.0500000000000007,
+      "event": "sensor_rectangle",
+      "side_camera": 3,
+      "rectangle": [
+        0,
+        0,
+        320,
+        240
+      ],
+      "mechanism": "synthetic image occlusion; not a physical occluder"
+    }
+  ],
+  "adapter_sha256": "e50eb8269fedee1af1df3b655dc6e273152dbeff514bd32cdc6bd3d5614d2446",
+  "runner_sha256": "d41a532c705986014e7a398b6d63e0a8cf0307a04b8fb5c11d12a556f0558cc9",
+  "notes": [
+    {
+      "time": 0.6500000000000005,
+      "method": "note",
+      "params": {
+        "text": "Initial geometry incomplete: hold arm, request fresh observation."
+      }
+    },
+    {
+      "time": 0.8500000000000006,
+      "method": "note",
+      "params": {
+        "text": "Initial geometry incomplete: hold arm, request fresh observation."
+      }
+    },
+    {
+      "time": 1.0500000000000007,
+      "method": "note",
+      "params": {
+        "text": "Initial geometry incomplete: hold arm, request fresh observation."
+      }
+    },
+    {
+      "time": 1.0500000000000007,
+      "method": "note",
+      "params": {
+        "text": "Observation budget exhausted; no arm motion issued."
+      }
+    }
+  ],
+  "note": "早期宽遮挡 pilot（包含背景），保留审计，不与精确目标遮挡合并统计。",
+  "parameters": {
+    "task": "tower3",
+    "observation": "rgbd-proprio",
+    "guard": "rgb",
+    "initial_reobserve": 2,
+    "wait_ms": 200,
+    "min_pixels": 8,
+    "guard_height_mm": null,
+    "fault": "occlusion",
+    "roi": "broad-rgb",
+    "masked_side_calls": 999,
+    "seed": 4001
+  },
+  "experiment_id": "tower3__guard=rgb__reobs=2__wait_ms=200__fault=occlusion__roi=broad-rgb__frames=999__seed=4001",
+  "configuration_sha256": "bd2097a9371acf2a12c7a711133ab1210655a3d7a04d13a60e06b1e83a146e1f",
+  "policy_parent_sha256": "9d4484224ddcfb8c00e8c930ca68471a3e10b3ebd067a7c9fcc587a62e765e4b",
+  "fault_label": "宽区域 / pilot · 前 999 次观测（持续）",
+  "events": [
+    {
+      "time": 0.6500000000000005,
+      "label": "开始观测"
+    },
+    {
+      "time": 0.6500000000000005,
+      "label": "注入图像遮挡"
+    },
+    {
+      "time": 1.0500000000000007,
+      "label": "观测预算耗尽，停止"
+    },
+    {
+      "time": 1.0500000000000007,
+      "label": "策略结束，任务未完成"
+    }
+  ],
+  "evidence": "evidence/persistent_occlusion_4001.json",
+  "video": "media/persistent_occlusion_4001.mp4",
+  "poster": "media/persistent_occlusion_4001.png",
+  "input": "media/persistent_occlusion_4001_input.png",
+  "video_metadata": {
+    "frames": 73,
+    "fps": 20,
+    "speed": 2,
+    "duration_seconds": 3.65,
+    "source": "saved actual physics states; side panels last recorded policy input; wrist reconstructed",
+    "success": false
+  },
+  "video_sha256": "8d9b417162f991718699cf677c286385357517d793d74126ce7a14756992f651"
+}

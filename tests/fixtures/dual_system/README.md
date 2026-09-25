@@ -1,0 +1,1 @@
+Real RGB-D observations from development recovery experiments. Sensor-only arrays, no simulator object labels. Case provenance and SHA-256 hashes are in research/dual_system_20260924/cases.json. These are not heldout data.

@@ -1,0 +1,489 @@
+{
+  "result": {
+    "seed": 4001,
+    "layout": "random_xy",
+    "task": "tower",
+    "success": false,
+    "policy_error": "RuntimeError: RuntimeError: Model gate stopped before motion",
+    "policy_sim_seconds": 0.40000000000000024,
+    "candidate_sha256": "801f095151d100d77fbfd3ed139a087bf7b17ad31adc9f77ce238d180395d1fc",
+    "camera_calls": 3,
+    "sensor_blackout": false,
+    "cpu_profile": {
+      "policy_compute_cpu_seconds": 0.12442500000000001,
+      "rpc_cpu_seconds": 0.005359999999999976,
+      "compute_interval_count": 12,
+      "compute_interval_cpu_p50_ms": 0.023999999999996247,
+      "compute_interval_cpu_p95_ms": 51.661449999999924,
+      "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+    },
+    "robot_ik_cpu_seconds": 0.0,
+    "metrics": {
+      "success": false,
+      "score": 0.0,
+      "placed_blocks": 0,
+      "required_placements": 2,
+      "structure_stable": false,
+      "failure": "RuntimeError: RuntimeError: Model gate stopped before motion"
+    },
+    "observation_contract": "Side RGB-D, wrist RGB, calibration + robot proprioception ONLY; evaluator results never returned to policy",
+    "decision_scope": "initial_observation_gate_then_frozen_visual_skill",
+    "decision_mode": "astra_only"
+  },
+  "decision_trace": {
+    "mode": "astra_only",
+    "scope": "initial_observation_gate_then_frozen_visual_skill",
+    "simulation_paused_during_model_calls": true,
+    "records": [
+      {
+        "state_version": 0,
+        "plan_before": 1,
+        "plan_after": 1,
+        "proposed": "reobserve",
+        "executed": false,
+        "gated_action": "reobserve",
+        "trigger": null,
+        "slow_calls_total": 0,
+        "wall_seconds": 13.336576292058453,
+        "decision": {
+          "action": "reobserve",
+          "confidence": 1.0,
+          "state_version": 0,
+          "plan_version": 1,
+          "model": "gpt-6-astra",
+          "reasoning": "low",
+          "wall_seconds": 13.336434000055306,
+          "usage": {
+            "input_tokens": 12943,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 22,
+            "reasoning_output_tokens": 0
+          },
+          "request": {
+            "role": "decision",
+            "state": {
+              "version": 0,
+              "time_s": 0.6500000000000005,
+              "phase": "initial_observation",
+              "visible_colors": [
+                "red",
+                "green"
+              ],
+              "table_fit_valid": true,
+              "grasp_confirmed": null,
+              "reobservations_left": 2,
+              "grasp_retries_left": 1
+            },
+            "plan": "Reobserve before any motion: blue is missing from visible evidence. Continue only when visual prerequisites for the blue-red-green tower hold. Reobserve unresolved uncertainty within the existing budget; retry failed grasps within the existing retry budget. Escalate conflicting evidence or exhausted recovery budgets.",
+            "actions": {
+              "continue": "Proceed to the next existing skill only when visual prerequisites hold.",
+              "reobserve": "Acquire fresh RGB-D when evidence is missing and observation budget remains.",
+              "retry_grasp": "Retry an unconfirmed grasp within the remaining retry budget.",
+              "escalate": "Request a revised plan when evidence conflicts, budget is exhausted, or no action fits.",
+              "stop": "Stop this task when recovery is unavailable."
+            }
+          },
+          "response": {
+            "action": "reobserve",
+            "confidence": 1.0
+          },
+          "estimated_usd": null,
+          "cost_basis": "Codex subscription; no API invoice available"
+        },
+        "plan_text_before": "Reobserve before any motion: blue is missing from visible evidence. Continue only when visual prerequisites for the blue-red-green tower hold. Reobserve unresolved uncertainty within the existing budget; retry failed grasps within the existing retry budget. Escalate conflicting evidence or exhausted recovery budgets.",
+        "plan_text_after": "Reobserve before any motion: blue is missing from visible evidence. Continue only when visual prerequisites for the blue-red-green tower hold. Reobserve unresolved uncertainty within the existing budget; retry failed grasps within the existing retry budget. Escalate conflicting evidence or exhausted recovery budgets.",
+        "state": {
+          "version": 0,
+          "time_s": 0.6500000000000005,
+          "phase": "initial_observation",
+          "visible_colors": [
+            "red",
+            "green"
+          ],
+          "table_fit_valid": true,
+          "grasp_confirmed": null,
+          "reobservations_left": 2,
+          "grasp_retries_left": 1
+        },
+        "service_seconds": 13.336632790975273
+      },
+      {
+        "state_version": 1,
+        "plan_before": 1,
+        "plan_after": 1,
+        "proposed": "reobserve",
+        "executed": false,
+        "gated_action": "reobserve",
+        "trigger": null,
+        "slow_calls_total": 0,
+        "wall_seconds": 11.937676458037458,
+        "decision": {
+          "action": "reobserve",
+          "confidence": 1.0,
+          "state_version": 1,
+          "plan_version": 1,
+          "model": "gpt-6-astra",
+          "reasoning": "low",
+          "wall_seconds": 11.937530708033592,
+          "usage": {
+            "input_tokens": 12943,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 22,
+            "reasoning_output_tokens": 0
+          },
+          "request": {
+            "role": "decision",
+            "state": {
+              "version": 1,
+              "time_s": 0.8500000000000006,
+              "phase": "initial_observation",
+              "visible_colors": [
+                "red",
+                "green"
+              ],
+              "table_fit_valid": true,
+              "grasp_confirmed": null,
+              "reobservations_left": 1,
+              "grasp_retries_left": 1
+            },
+            "plan": "Reobserve before any motion: blue is missing from visible evidence. Continue only when visual prerequisites for the blue-red-green tower hold. Reobserve unresolved uncertainty within the existing budget; retry failed grasps within the existing retry budget. Escalate conflicting evidence or exhausted recovery budgets.",
+            "actions": {
+              "continue": "Proceed to the next existing skill only when visual prerequisites hold.",
+              "reobserve": "Acquire fresh RGB-D when evidence is missing and observation budget remains.",
+              "retry_grasp": "Retry an unconfirmed grasp within the remaining retry budget.",
+              "escalate": "Request a revised plan when evidence conflicts, budget is exhausted, or no action fits.",
+              "stop": "Stop this task when recovery is unavailable."
+            }
+          },
+          "response": {
+            "action": "reobserve",
+            "confidence": 1.0
+          },
+          "estimated_usd": null,
+          "cost_basis": "Codex subscription; no API invoice available"
+        },
+        "plan_text_before": "Reobserve before any motion: blue is missing from visible evidence. Continue only when visual prerequisites for the blue-red-green tower hold. Reobserve unresolved uncertainty within the existing budget; retry failed grasps within the existing retry budget. Escalate conflicting evidence or exhausted recovery budgets.",
+        "plan_text_after": "Reobserve before any motion: blue is missing from visible evidence. Continue only when visual prerequisites for the blue-red-green tower hold. Reobserve unresolved uncertainty within the existing budget; retry failed grasps within the existing retry budget. Escalate conflicting evidence or exhausted recovery budgets.",
+        "state": {
+          "version": 1,
+          "time_s": 0.8500000000000006,
+          "phase": "initial_observation",
+          "visible_colors": [
+            "red",
+            "green"
+          ],
+          "table_fit_valid": true,
+          "grasp_confirmed": null,
+          "reobservations_left": 1,
+          "grasp_retries_left": 1
+        },
+        "service_seconds": 11.937692958978005
+      },
+      {
+        "state_version": 2,
+        "plan_before": 1,
+        "plan_after": 2,
+        "proposed": "escalate",
+        "executed": false,
+        "gated_action": "stop",
+        "trigger": "requested_escalation",
+        "slow_calls_total": 1,
+        "wall_seconds": 31.198450958007015,
+        "decision": {
+          "action": "escalate",
+          "confidence": 0.96,
+          "state_version": 2,
+          "plan_version": 1,
+          "model": "gpt-6-astra",
+          "reasoning": "low",
+          "wall_seconds": 14.021810124977492,
+          "usage": {
+            "input_tokens": 12946,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 74,
+            "reasoning_output_tokens": 49
+          },
+          "request": {
+            "role": "decision",
+            "state": {
+              "version": 2,
+              "time_s": 1.0500000000000007,
+              "phase": "initial_observation",
+              "visible_colors": [
+                "blue",
+                "red",
+                "green"
+              ],
+              "table_fit_valid": true,
+              "grasp_confirmed": null,
+              "reobservations_left": 0,
+              "grasp_retries_left": 1
+            },
+            "plan": "Reobserve before any motion: blue is missing from visible evidence. Continue only when visual prerequisites for the blue-red-green tower hold. Reobserve unresolved uncertainty within the existing budget; retry failed grasps within the existing retry budget. Escalate conflicting evidence or exhausted recovery budgets.",
+            "actions": {
+              "continue": "Proceed to the next existing skill only when visual prerequisites hold.",
+              "reobserve": "Acquire fresh RGB-D when evidence is missing and observation budget remains.",
+              "retry_grasp": "Retry an unconfirmed grasp within the remaining retry budget.",
+              "escalate": "Request a revised plan when evidence conflicts, budget is exhausted, or no action fits.",
+              "stop": "Stop this task when recovery is unavailable."
+            }
+          },
+          "response": {
+            "action": "escalate",
+            "confidence": 0.96
+          },
+          "estimated_usd": null,
+          "cost_basis": "Codex subscription; no API invoice available"
+        },
+        "plan_text_before": "Reobserve before any motion: blue is missing from visible evidence. Continue only when visual prerequisites for the blue-red-green tower hold. Reobserve unresolved uncertainty within the existing budget; retry failed grasps within the existing retry budget. Escalate conflicting evidence or exhausted recovery budgets.",
+        "plan_text_after": "Stop without motion. All required colors are visible and the table fit is valid, but this revised plan requires a fresh observation and the observation budget is exhausted. Leave budgets and execution code unchanged.",
+        "state": {
+          "version": 2,
+          "time_s": 1.0500000000000007,
+          "phase": "initial_observation",
+          "visible_colors": [
+            "blue",
+            "red",
+            "green"
+          ],
+          "table_fit_valid": true,
+          "grasp_confirmed": null,
+          "reobservations_left": 0,
+          "grasp_retries_left": 1
+        },
+        "service_seconds": 31.1984574169619
+      }
+    ],
+    "planner_calls": [
+      {
+        "requested_model": "gpt-6-astra",
+        "reasoning": "high",
+        "wall_seconds": 18.4411467500031,
+        "usage": {
+          "input_tokens": 12973,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 131,
+          "reasoning_output_tokens": 60
+        },
+        "request": {
+          "role": "plan_or_repair",
+          "state": {
+            "version": 0,
+            "time_s": 0.6500000000000005,
+            "phase": "initial_observation",
+            "visible_colors": [
+              "red",
+              "green"
+            ],
+            "table_fit_valid": true,
+            "grasp_confirmed": null,
+            "reobservations_left": 2,
+            "grasp_retries_left": 1
+          },
+          "current_plan": "Build blue-red-green tower. Verify visual evidence before existing skills; reobserve uncertainty, retry failed grasps, escalate conflicts.",
+          "trigger": "initial_plan",
+          "allowed_actions": {
+            "continue": "Proceed to the next existing skill only when visual prerequisites hold.",
+            "reobserve": "Acquire fresh RGB-D when evidence is missing and observation budget remains.",
+            "retry_grasp": "Retry an unconfirmed grasp within the remaining retry budget.",
+            "escalate": "Request a revised plan when evidence conflicts, budget is exhausted, or no action fits.",
+            "stop": "Stop this task when recovery is unavailable."
+          },
+          "constraint": "Only change the recovery plan, never budgets or execution code. A revised plan requires a fresh observation before motion."
+        },
+        "response": {
+          "plan": "Reobserve before any motion: blue is missing from visible evidence. Continue only when visual prerequisites for the blue-red-green tower hold. Reobserve unresolved uncertainty within the existing budget; retry failed grasps within the existing retry budget. Escalate conflicting evidence or exhausted recovery budgets."
+        },
+        "estimated_usd": null,
+        "cost_basis": "Codex subscription; no API invoice available"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "reasoning": "high",
+        "wall_seconds": 17.176252332981676,
+        "usage": {
+          "input_tokens": 12966,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 220,
+          "reasoning_output_tokens": 166
+        },
+        "request": {
+          "role": "plan_or_repair",
+          "state": {
+            "version": 2,
+            "time_s": 1.0500000000000007,
+            "phase": "initial_observation",
+            "visible_colors": [
+              "blue",
+              "red",
+              "green"
+            ],
+            "table_fit_valid": true,
+            "grasp_confirmed": null,
+            "reobservations_left": 0,
+            "grasp_retries_left": 1
+          },
+          "current_plan": "Reobserve before any motion: blue is missing from visible evidence. Continue only when visual prerequisites for the blue-red-green tower hold. Reobserve unresolved uncertainty within the existing budget; retry failed grasps within the existing retry budget. Escalate conflicting evidence or exhausted recovery budgets.",
+          "trigger": "requested_escalation",
+          "allowed_actions": {
+            "continue": "Proceed to the next existing skill only when visual prerequisites hold.",
+            "reobserve": "Acquire fresh RGB-D when evidence is missing and observation budget remains.",
+            "retry_grasp": "Retry an unconfirmed grasp within the remaining retry budget.",
+            "escalate": "Request a revised plan when evidence conflicts, budget is exhausted, or no action fits.",
+            "stop": "Stop this task when recovery is unavailable."
+          },
+          "constraint": "Only change the recovery plan, never budgets or execution code. A revised plan requires a fresh observation before motion."
+        },
+        "response": {
+          "plan": "Stop without motion. All required colors are visible and the table fit is valid, but this revised plan requires a fresh observation and the observation budget is exhausted. Leave budgets and execution code unchanged."
+        },
+        "estimated_usd": null,
+        "cost_basis": "Codex subscription; no API invoice available"
+      }
+    ],
+    "astra_decision_calls": [
+      {
+        "requested_model": "gpt-6-astra",
+        "reasoning": "low",
+        "wall_seconds": 13.336434000055306,
+        "usage": {
+          "input_tokens": 12943,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 22,
+          "reasoning_output_tokens": 0
+        },
+        "request": {
+          "role": "decision",
+          "state": {
+            "version": 0,
+            "time_s": 0.6500000000000005,
+            "phase": "initial_observation",
+            "visible_colors": [
+              "red",
+              "green"
+            ],
+            "table_fit_valid": true,
+            "grasp_confirmed": null,
+            "reobservations_left": 2,
+            "grasp_retries_left": 1
+          },
+          "plan": "Reobserve before any motion: blue is missing from visible evidence. Continue only when visual prerequisites for the blue-red-green tower hold. Reobserve unresolved uncertainty within the existing budget; retry failed grasps within the existing retry budget. Escalate conflicting evidence or exhausted recovery budgets.",
+          "actions": {
+            "continue": "Proceed to the next existing skill only when visual prerequisites hold.",
+            "reobserve": "Acquire fresh RGB-D when evidence is missing and observation budget remains.",
+            "retry_grasp": "Retry an unconfirmed grasp within the remaining retry budget.",
+            "escalate": "Request a revised plan when evidence conflicts, budget is exhausted, or no action fits.",
+            "stop": "Stop this task when recovery is unavailable."
+          }
+        },
+        "response": {
+          "action": "reobserve",
+          "confidence": 1.0
+        },
+        "estimated_usd": null,
+        "cost_basis": "Codex subscription; no API invoice available"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "reasoning": "low",
+        "wall_seconds": 11.937530708033592,
+        "usage": {
+          "input_tokens": 12943,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 22,
+          "reasoning_output_tokens": 0
+        },
+        "request": {
+          "role": "decision",
+          "state": {
+            "version": 1,
+            "time_s": 0.8500000000000006,
+            "phase": "initial_observation",
+            "visible_colors": [
+              "red",
+              "green"
+            ],
+            "table_fit_valid": true,
+            "grasp_confirmed": null,
+            "reobservations_left": 1,
+            "grasp_retries_left": 1
+          },
+          "plan": "Reobserve before any motion: blue is missing from visible evidence. Continue only when visual prerequisites for the blue-red-green tower hold. Reobserve unresolved uncertainty within the existing budget; retry failed grasps within the existing retry budget. Escalate conflicting evidence or exhausted recovery budgets.",
+          "actions": {
+            "continue": "Proceed to the next existing skill only when visual prerequisites hold.",
+            "reobserve": "Acquire fresh RGB-D when evidence is missing and observation budget remains.",
+            "retry_grasp": "Retry an unconfirmed grasp within the remaining retry budget.",
+            "escalate": "Request a revised plan when evidence conflicts, budget is exhausted, or no action fits.",
+            "stop": "Stop this task when recovery is unavailable."
+          }
+        },
+        "response": {
+          "action": "reobserve",
+          "confidence": 1.0
+        },
+        "estimated_usd": null,
+        "cost_basis": "Codex subscription; no API invoice available"
+      },
+      {
+        "requested_model": "gpt-6-astra",
+        "reasoning": "low",
+        "wall_seconds": 14.021810124977492,
+        "usage": {
+          "input_tokens": 12946,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 74,
+          "reasoning_output_tokens": 49
+        },
+        "request": {
+          "role": "decision",
+          "state": {
+            "version": 2,
+            "time_s": 1.0500000000000007,
+            "phase": "initial_observation",
+            "visible_colors": [
+              "blue",
+              "red",
+              "green"
+            ],
+            "table_fit_valid": true,
+            "grasp_confirmed": null,
+            "reobservations_left": 0,
+            "grasp_retries_left": 1
+          },
+          "plan": "Reobserve before any motion: blue is missing from visible evidence. Continue only when visual prerequisites for the blue-red-green tower hold. Reobserve unresolved uncertainty within the existing budget; retry failed grasps within the existing retry budget. Escalate conflicting evidence or exhausted recovery budgets.",
+          "actions": {
+            "continue": "Proceed to the next existing skill only when visual prerequisites hold.",
+            "reobserve": "Acquire fresh RGB-D when evidence is missing and observation budget remains.",
+            "retry_grasp": "Retry an unconfirmed grasp within the remaining retry budget.",
+            "escalate": "Request a revised plan when evidence conflicts, budget is exhausted, or no action fits.",
+            "stop": "Stop this task when recovery is unavailable."
+          }
+        },
+        "response": {
+          "action": "escalate",
+          "confidence": 0.96
+        },
+        "estimated_usd": null,
+        "cost_basis": "Codex subscription; no API invoice available"
+      }
+    ],
+    "threshold": 0.8,
+    "threshold_calibrated": false
+  },
+  "harness": {
+    "mode": "astra_only",
+    "runner_sha256": "3cde9bf63685e21eee0b339f0b12fd0049c2fe430a07f6a15434e401aab50ac5",
+    "adapter_sha256": "32fcad84bb6e0bba4ea39e054668b9e6723e46d739c9ba570d0a6b7d3e87b7d5",
+    "model_wait_simulation": "paused",
+    "wall_timeout_s": 900,
+    "source_base_commit": "3a2a48a"
+  }
+}

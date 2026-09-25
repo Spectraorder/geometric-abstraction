@@ -158,7 +158,10 @@ def main():
     p.add_argument('--task', choices=('tower','prism','inventory_prism'), default='tower')
     p.add_argument('--object-count', type=int, help='Inventory sample size, default 6; only for inventory_prism')
     p.add_argument('--sensor-blackout',action='store_true',help='Diagnostic: remove all policy RGB-D pixels; evaluation remains unchanged')
+    p.add_argument('--decision-mode',choices=('hybrid','astra_only','jev_only'))
+    p.add_argument('--decision-confidence',type=float,default=.8)
     a=p.parse_args()
+    if not 0 <= a.decision_confidence <= 1:p.error('confidence must be 0..1')
     if (a.task == 'inventory_prism') != (a.layout == 'sampled'):
         p.error('inventory_prism requires --layout sampled; historical tasks use nominal/random_xy')
     if a.object_count is not None and (a.task != 'inventory_prism' or not 2 <= a.object_count <= 20):
@@ -167,6 +170,10 @@ def main():
     validate_source(a.candidate.read_text())
     env=(RecordedInventoryPrismEnv(a.output, scene_seed=a.seed, object_count=a.object_count or 6)
          if a.task=='inventory_prism' else (RecordedPrismEnv if a.task=='prism' else VisionTrialEnv)(a.output))
+    decision_session=None
+    if a.decision_mode:
+        from aspire_so100.decision_session import DecisionSession
+        decision_session=DecisionSession(a.decision_mode,a.output,a.decision_confidence)
     calls=[];error=None;images=[];cpu_profile=None
     try:
         env.reset(a.seed, layout=a.layout);env.frames.clear();env.capture()
@@ -234,6 +241,9 @@ def main():
                                 if not np.isfinite(angle) or not -.174<=angle<=1.75:raise ValueError('Jaw angle outside hardware limits')
                                 env.set_gripper(angle,max(.1,seconds))
                             elif method=='wait':env.wait(seconds)
+                            elif method=='decision':
+                                if decision_session is None:raise ValueError('Decision service not enabled')
+                                response=decision_session.decide(params['state'],float(env.data.time))
                             elif method=='note':pass
                             else:raise ValueError('API method not permitted')
                             proc.stdin.write(json.dumps({'result':pack(response)})+'\n');proc.stdin.flush()
@@ -262,6 +272,10 @@ def main():
                 'sensor_blackout':a.sensor_blackout,
                 'cpu_profile':cpu_profile,'robot_ik_cpu_seconds':getattr(env, 'robot_ik_cpu_seconds', 0.),
                 'metrics':asdict(metrics),'observation_contract':'Side RGB-D, wrist RGB, calibration + robot proprioception ONLY; evaluator results never returned to policy'}
+        if decision_session is not None:
+            decision_session.write()
+            result['decision_scope']='initial_observation_gate_then_frozen_visual_skill'
+            result['decision_mode']=a.decision_mode
         if a.task == 'inventory_prism':
             result['scene'] = env.scene_metadata
         (a.output/'result.json').write_text(json.dumps(result,indent=2)+'\n')

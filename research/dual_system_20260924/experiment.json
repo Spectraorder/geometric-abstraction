@@ -1,0 +1,20 @@
+{
+  "schema": "aspire-dual-system/2",
+  "status": "development_integration_tested",
+  "observation": "RGB-D-derived state + shared frozen visual skill",
+  "jev_model": "jev-1.13.0",
+  "astra_model": "gpt-6-astra",
+  "phase": "initial_observation",
+  "confidence_threshold": 0.8,
+  "threshold_calibrated": false,
+  "groups": [
+    "hybrid",
+    "astra_only",
+    "jev_only"
+  ],
+  "fault_duration_sim_seconds": 0.35,
+  "max_extra_observations": 2,
+  "max_slow_repairs": 2,
+  "results": "../../docs/evaluations/dual_system_live.json",
+  "heldout_manifest": null
+}

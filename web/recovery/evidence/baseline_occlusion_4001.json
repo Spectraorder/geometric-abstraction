@@ -1,0 +1,104 @@
+{
+  "seed": 4001,
+  "layout": "random_xy",
+  "task": "tower",
+  "success": false,
+  "policy_error": null,
+  "policy_sim_seconds": 0.0,
+  "candidate_sha256": "9d4484224ddcfb8c00e8c930ca68471a3e10b3ebd067a7c9fcc587a62e765e4b",
+  "camera_calls": 1,
+  "sensor_blackout": false,
+  "cpu_profile": {
+    "policy_compute_cpu_seconds": 0.11038300000000004,
+    "rpc_cpu_seconds": 0.0015899999999999803,
+    "compute_interval_count": 3,
+    "compute_interval_cpu_p50_ms": 2.6560000000000192,
+    "compute_interval_cpu_p95_ms": 97.21629999999999,
+    "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+  },
+  "robot_ik_cpu_seconds": 0.0,
+  "metrics": {
+    "success": false,
+    "score": 0.0,
+    "placed_blocks": 0,
+    "required_placements": 2,
+    "structure_stable": false,
+    "failure": null
+  },
+  "observation_contract": "Side RGB-D, wrist RGB, calibration + robot proprioception ONLY; evaluator results never returned to policy",
+  "id": "baseline_occlusion_4001",
+  "pilot": true,
+  "policy_label": "无初始可见性门控",
+  "motion_calls": 0,
+  "start_sim_time": 0.6500000000000005,
+  "fault_events": [
+    {
+      "time": 0.6500000000000005,
+      "event": "sensor_rectangle",
+      "side_camera": 1,
+      "rectangle": [
+        0,
+        0,
+        320,
+        240
+      ],
+      "mechanism": "synthetic image occlusion; not a physical occluder"
+    }
+  ],
+  "adapter_sha256": "e50eb8269fedee1af1df3b655dc6e273152dbeff514bd32cdc6bd3d5614d2446",
+  "runner_sha256": "d41a532c705986014e7a398b6d63e0a8cf0307a04b8fb5c11d12a556f0558cc9",
+  "notes": [
+    {
+      "time": 0.6500000000000005,
+      "method": "note",
+      "params": {
+        "text": "Insufficient tabletop depth."
+      }
+    }
+  ],
+  "note": "早期宽遮挡 pilot（包含背景），保留审计，不与精确目标遮挡合并统计。",
+  "parameters": {
+    "task": "tower3",
+    "observation": "rgbd-proprio",
+    "guard": "none",
+    "initial_reobserve": 0,
+    "wait_ms": 0,
+    "min_pixels": null,
+    "guard_height_mm": null,
+    "fault": "occlusion",
+    "roi": "broad-rgb",
+    "masked_side_calls": 2,
+    "seed": 4001
+  },
+  "experiment_id": "tower3__guard=none__reobs=0__wait_ms=0__fault=occlusion__roi=broad-rgb__frames=2__seed=4001",
+  "configuration_sha256": "81c6ce08e09addddffe97dc51f9c9dc1a0d2bd77b52728d8762c8a9c5deebc1e",
+  "policy_parent_sha256": null,
+  "fault_label": "宽区域 / pilot · 前 2 次观测",
+  "events": [
+    {
+      "time": 0.6500000000000005,
+      "label": "开始观测"
+    },
+    {
+      "time": 0.6500000000000005,
+      "label": "注入图像遮挡"
+    },
+    {
+      "time": 0.6500000000000005,
+      "label": "策略结束，任务未完成"
+    }
+  ],
+  "evidence": "evidence/baseline_occlusion_4001.json",
+  "video": "media/baseline_occlusion_4001.mp4",
+  "poster": "media/baseline_occlusion_4001.png",
+  "input": "media/baseline_occlusion_4001_input.png",
+  "video_metadata": {
+    "frames": 69,
+    "fps": 20,
+    "speed": 2,
+    "duration_seconds": 3.45,
+    "source": "saved actual physics states; side panels last recorded policy input; wrist reconstructed",
+    "success": false
+  },
+  "video_sha256": "3e00deb5fdbe011d2c904f3df777d333aed3a751384112aac90fbc7c0a7062cf"
+}

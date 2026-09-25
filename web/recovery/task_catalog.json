@@ -1,0 +1,136 @@
+{
+  "schema": "aspire-task-catalog/1",
+  "as_of": "2026-09-24",
+  "tasks": [
+    {
+      "id": "tower3",
+      "name": "Three-cube tower",
+      "status": "validated",
+      "observation": "RGB-D + proprioception",
+      "entrypoint": "policies/stack_three_blocks_visual_geometry.py",
+      "evidence": "198/200 reserved random layouts; 10/10 nominal",
+      "source": "docs/VISUAL_RETRY_POLICY.md",
+      "limits": "Three upright 3 cm cubes; fixed colors; base relocation allowed."
+    },
+    {
+      "id": "prism_clutter",
+      "name": "Upright prism with clutter removal",
+      "status": "validated",
+      "observation": "RGB-D + proprioception",
+      "entrypoint": "policies/stack_prism_upright_visual.py",
+      "evidence": "47/50 reserved random layouts",
+      "source": "docs/PRISM_CLUTTER_POLICY.md",
+      "limits": "Purple slender prism on blue cube; up to two blockers; initial upright, zero yaw."
+    },
+    {
+      "id": "inventory_prism",
+      "name": "Select the correct shape among same-color objects",
+      "status": "validated",
+      "observation": "RGB-D + proprioception",
+      "entrypoint": "policies/stack_inventory_cpu.py",
+      "evidence": "78/80 reserved: 9/10 at 2 objects, 50/50 at 6, 19/20 at 10",
+      "source": "docs/INVENTORY_CPU_POLICY.zh-CN.md",
+      "limits": "Red slender prism on blue cube from 20-object catalog. Shape inventory is not arbitrary-goal competence."
+    },
+    {
+      "id": "transient_occlusion",
+      "name": "Reobserve after transient target occlusion",
+      "status": "pilot",
+      "observation": "RGB-D + proprioception",
+      "entrypoint": "research/recovery_lab_20260924/policies/reobserve_then_stack_v2.py",
+      "evidence": "2/2 development seeds in the historical precise-mask experiment",
+      "source": "research/recovery_lab_20260924/docs/04_LOCAL_RESULTS.zh-CN.md",
+      "limits": "Image-space fault; does not establish physical-occluder robustness."
+    },
+    {
+      "id": "persistent_occlusion",
+      "name": "Stop when target evidence stays absent",
+      "status": "pilot",
+      "observation": "RGB-D + proprioception",
+      "entrypoint": "research/recovery_lab_20260924/policies/reobserve_then_stack_v2.py",
+      "evidence": "Stopped without motion on one development seed",
+      "source": "research/recovery_lab_20260924/docs/04_LOCAL_RESULTS.zh-CN.md",
+      "limits": "Correct abstention is separate from tower completion."
+    },
+    {
+      "id": "grasp_miss",
+      "name": "Recover from the first failed gripper close",
+      "status": "pilot",
+      "observation": "RGB-D + proprioception",
+      "entrypoint": "policies/stack_three_blocks_visual_geometry.py",
+      "evidence": "One recovery-lab seed passed",
+      "source": "research/recovery_lab_20260924/docs/04_LOCAL_RESULTS.zh-CN.md",
+      "limits": "Existing retry skill; not a newly learned model policy."
+    },
+    {
+      "id": "lift_loss",
+      "name": "Recover from opening the gripper during lift",
+      "status": "pilot",
+      "observation": "RGB-D + proprioception",
+      "entrypoint": "policies/stack_three_blocks_visual_geometry.py",
+      "evidence": "One recovery-lab seed passed",
+      "source": "research/recovery_lab_20260924/docs/04_LOCAL_RESULTS.zh-CN.md",
+      "limits": "35 mm lift trigger; 450 ms opening; not friction randomization."
+    },
+    {
+      "id": "dual_system_gate",
+      "name": "Astra plan and Jev initial-observation decisions",
+      "status": "integration",
+      "observation": "RGB-D-derived summary + frozen visual skill",
+      "entrypoint": "scripts/run_dual_system_trial.py",
+      "evidence": "See live integration report; development only",
+      "source": "docs/DUAL_SYSTEM.md",
+      "limits": "Initial observation only. Full online grasp/rebuild orchestration is not implemented."
+    },
+    {
+      "id": "legacy_privileged",
+      "name": "Historical single-block and tower policies",
+      "status": "historical",
+      "observation": "Privileged object state",
+      "entrypoint": "src/aspire_so100/agent_loop.py",
+      "evidence": "Separate historical demonstrations",
+      "source": "docs/OBSERVATION_AUDIT.zh-CN.md",
+      "limits": "Never combine these scores with sensor-only results."
+    },
+    {
+      "id": "dual_tower_repair",
+      "name": "Repair one tower without disturbing the other",
+      "status": "design_only",
+      "observation": "Proposed RGB-D + proprioception",
+      "entrypoint": null,
+      "evidence": "Not executed",
+      "source": null,
+      "limits": "Needs support DAG, damage localization, and local dismantling."
+    },
+    {
+      "id": "bridge",
+      "name": "Two supports and a horizontal beam",
+      "status": "design_only",
+      "observation": "Proposed RGB-D + proprioception",
+      "entrypoint": null,
+      "evidence": "Not executed",
+      "source": null,
+      "limits": "Needs payload reorientation and two-contact support evaluation."
+    },
+    {
+      "id": "human_edit",
+      "name": "Continue after a person moves a block",
+      "status": "design_only",
+      "observation": "Proposed RGB-D + proprioception",
+      "entrypoint": null,
+      "evidence": "Not executed",
+      "source": null,
+      "limits": "Needs external-change detection, association recovery, and handover protocol."
+    },
+    {
+      "id": "severe_occlusion",
+      "name": "Reacquire identity after transport-time occlusion",
+      "status": "design_only",
+      "observation": "Proposed RGB-D + proprioception",
+      "entrypoint": null,
+      "evidence": "Not executed",
+      "source": null,
+      "limits": "Needs temporal identity and uncertainty-aware active viewpoints."
+    }
+  ]
+}
