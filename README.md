@@ -1,5 +1,11 @@
 # ASPIRE SO-100 stacking
 
+## Luna × Astra reasoning-effort experiments
+
+[Public English experiment page](https://aspire-so100-recovery.vercel.app/luna-astra/) · [Readable experiment guide](docs/LUNA_ASTRA_README.md) · [中文说明](docs/LUNA_ASTRA_README.zh-CN.md)
+
+The new campaign uses Luna for fast decisions and Astra for slow plans. It crosses three Luna efforts with four Astra efforts and includes seven single-model controls. No Jev calls are made in this campaign. See the guide for measured results and the initial-observation-only scope.
+
 ## Recovery tasks, benchmark, and Astra × Jev
 
 - [Task catalog: executable skills, pilot evidence, and future tasks](docs/TASK_CATALOG.md)

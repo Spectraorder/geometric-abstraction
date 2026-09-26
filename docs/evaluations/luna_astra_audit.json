@@ -1,0 +1,10 @@
+{
+  "attempts": 57,
+  "model_calls": 198,
+  "rejected_precondition_violations": 1,
+  "all_sources_match": true,
+  "all_model_effort_routes_match": true,
+  "no_jev": true,
+  "shared_candidate": true,
+  "videos_verified": true
+}

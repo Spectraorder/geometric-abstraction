@@ -79,7 +79,10 @@ def main():
     guide=guide.replace('(evaluations/luna_astra_results.json)','(results.json)').replace('(../benchmarks/luna_astra_campaign.json)','(campaign.json)')
     for doc in ['TASK_CATALOG','POLICY_BENCHMARK']:
         guide=guide.replace(f'({doc}.md)',f'(../docs/{doc}.md)')
+    guide=guide.replace('(evaluations/luna_astra_audit.json)','(audit.json)')
     (WEB/'README.md').write_text(guide)
+    audit=ROOT/'docs/evaluations/luna_astra_audit.json'
+    if audit.exists():shutil.copy2(audit,WEB/'audit.json')
     print(f'Exported {len(runs)}/{len(manifest["jobs"])} actual attempts')
 
 if __name__=='__main__':main()

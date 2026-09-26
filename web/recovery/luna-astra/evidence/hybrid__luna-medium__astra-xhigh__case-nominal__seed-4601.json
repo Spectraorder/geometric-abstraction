@@ -1,0 +1,259 @@
+{
+  "configuration": {
+    "group": "hybrid__luna=medium__astra=xhigh",
+    "mode": "luna_hybrid",
+    "fast_effort": "medium",
+    "slow_effort": "xhigh",
+    "case": "nominal",
+    "fault": "none",
+    "seed": 4601,
+    "endpoint": "tower_completion",
+    "id": "hybrid__luna=medium__astra=xhigh__case=nominal__seed=4601"
+  },
+  "terminal": {
+    "group": "hybrid__luna=medium__astra=xhigh",
+    "mode": "luna_hybrid",
+    "fast_effort": "medium",
+    "slow_effort": "xhigh",
+    "case": "nominal",
+    "fault": "none",
+    "seed": 4601,
+    "endpoint": "tower_completion",
+    "id": "hybrid__luna=medium__astra=xhigh__case=nominal__seed=4601",
+    "status": "completed",
+    "error_type": null,
+    "started_at": 1790389616.028571,
+    "wall_seconds": 45.01627516746521
+  },
+  "result": {
+    "seed": 4601,
+    "layout": "random_xy",
+    "task": "tower",
+    "success": true,
+    "policy_error": null,
+    "policy_sim_seconds": 88.99999999997246,
+    "candidate_sha256": "801f095151d100d77fbfd3ed139a087bf7b17ad31adc9f77ce238d180395d1fc",
+    "camera_calls": 73,
+    "sensor_blackout": false,
+    "cpu_profile": {
+      "policy_compute_cpu_seconds": 0.7046600000000013,
+      "rpc_cpu_seconds": 0.11681699999999876,
+      "compute_interval_count": 317,
+      "compute_interval_cpu_p50_ms": 0.006999999999979245,
+      "compute_interval_cpu_p95_ms": 10.740399999999992,
+      "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+    },
+    "robot_ik_cpu_seconds": 0.0808169999999997,
+    "metrics": {
+      "success": true,
+      "score": 1.0,
+      "placed_blocks": 2,
+      "required_placements": 2,
+      "structure_stable": true,
+      "failure": null
+    },
+    "observation_contract": "Side RGB-D, wrist RGB, calibration + robot proprioception ONLY; evaluator results never returned to policy",
+    "decision_scope": "initial_observation_gate_then_frozen_visual_skill",
+    "decision_mode": "luna_hybrid"
+  },
+  "decision_trace": {
+    "mode": "luna_hybrid",
+    "scope": "initial_observation_gate_then_frozen_visual_skill",
+    "simulation_paused_during_model_calls": true,
+    "records": [
+      {
+        "state_version": 0,
+        "plan_before": 1,
+        "plan_after": 1,
+        "proposed": "continue",
+        "executed": false,
+        "gated_action": "continue",
+        "trigger": null,
+        "slow_calls_total": 0,
+        "wall_seconds": 8.97137229098007,
+        "decision_wall_seconds": 8.971370082930662,
+        "decision": {
+          "action": "continue",
+          "confidence": 1,
+          "state_version": 0,
+          "plan_version": 1,
+          "model": "gpt-6-luna",
+          "reasoning": "medium",
+          "wall_seconds": 8.9712363750441,
+          "usage": {
+            "input_tokens": 12505,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 19,
+            "reasoning_output_tokens": 0
+          },
+          "request": {
+            "role": "decision",
+            "state": {
+              "version": 0,
+              "time_s": 0.6500000000000005,
+              "phase": "initial_observation",
+              "visible_colors": [
+                "blue",
+                "red",
+                "green"
+              ],
+              "table_fit_valid": true,
+              "grasp_confirmed": null,
+              "reobservations_left": 2,
+              "grasp_retries_left": 1
+            },
+            "plan": "Build the blue-red-green tower using the frozen visual skill. Always use the latest observation. At initial_observation, continue if table_fit_valid is true and blue, red, and green are currently visible; grasp_confirmed may be null. If required evidence is missing, reobserve when reobservations_left > 0; otherwise escalate. Never retry a grasp during initial_observation. At verify_grasp, continue only if grasp_confirmed is true; if explicitly false, retry_grasp when grasp_retries_left > 0, otherwise escalate; if unknown, reobserve when observation budget remains, otherwise escalate. Escalate conflicting evidence or when no action fits. Stop if recovery is unavailable. After any plan repair, acquire a fresh observation and reassess these conditions before motion. Preserve budgets and execution code.",
+            "actions": {
+              "continue": "At initial_observation: table_fit_valid is true and all three colors are visible NOW. At verify_grasp: grasp_confirmed is true. Start or resume the frozen visual skill.",
+              "reobserve": "Acquire fresh RGB-D when evidence is missing and observation budget remains.",
+              "retry_grasp": "Only at verify_grasp, when grasp_confirmed is explicitly false and retries remain. Never choose this during initial_observation.",
+              "escalate": "Request a revised plan when evidence conflicts, budget is exhausted, or no action fits.",
+              "stop": "Stop this task when recovery is unavailable."
+            }
+          },
+          "response": {
+            "action": "continue",
+            "confidence": 1
+          },
+          "estimated_usd": null,
+          "cost_basis": "Codex subscription; no API invoice available"
+        },
+        "plan_text_before": "Build the blue-red-green tower using the frozen visual skill. Always use the latest observation. At initial_observation, continue if table_fit_valid is true and blue, red, and green are currently visible; grasp_confirmed may be null. If required evidence is missing, reobserve when reobservations_left > 0; otherwise escalate. Never retry a grasp during initial_observation. At verify_grasp, continue only if grasp_confirmed is true; if explicitly false, retry_grasp when grasp_retries_left > 0, otherwise escalate; if unknown, reobserve when observation budget remains, otherwise escalate. Escalate conflicting evidence or when no action fits. Stop if recovery is unavailable. After any plan repair, acquire a fresh observation and reassess these conditions before motion. Preserve budgets and execution code.",
+        "plan_text_after": "Build the blue-red-green tower using the frozen visual skill. Always use the latest observation. At initial_observation, continue if table_fit_valid is true and blue, red, and green are currently visible; grasp_confirmed may be null. If required evidence is missing, reobserve when reobservations_left > 0; otherwise escalate. Never retry a grasp during initial_observation. At verify_grasp, continue only if grasp_confirmed is true; if explicitly false, retry_grasp when grasp_retries_left > 0, otherwise escalate; if unknown, reobserve when observation budget remains, otherwise escalate. Escalate conflicting evidence or when no action fits. Stop if recovery is unavailable. After any plan repair, acquire a fresh observation and reassess these conditions before motion. Preserve budgets and execution code.",
+        "state": {
+          "version": 0,
+          "time_s": 0.6500000000000005,
+          "phase": "initial_observation",
+          "visible_colors": [
+            "blue",
+            "red",
+            "green"
+          ],
+          "table_fit_valid": true,
+          "grasp_confirmed": null,
+          "reobservations_left": 2,
+          "grasp_retries_left": 1
+        },
+        "service_seconds": 8.97140216594562
+      }
+    ],
+    "planner_calls": [
+      {
+        "requested_model": "gpt-6-astra",
+        "reasoning": "xhigh",
+        "wall_seconds": 29.92245641699992,
+        "usage": {
+          "input_tokens": 13059,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 528,
+          "reasoning_output_tokens": 349
+        },
+        "request": {
+          "role": "plan_or_repair",
+          "state": {
+            "version": 0,
+            "time_s": 0.6500000000000005,
+            "phase": "initial_observation",
+            "visible_colors": [
+              "blue",
+              "red",
+              "green"
+            ],
+            "table_fit_valid": true,
+            "grasp_confirmed": null,
+            "reobservations_left": 2,
+            "grasp_retries_left": 1
+          },
+          "current_plan": "Build blue-red-green tower. Verify visual evidence before existing skills; reobserve uncertainty, retry failed grasps, escalate conflicts.",
+          "trigger": "initial_plan",
+          "allowed_actions": {
+            "continue": "At initial_observation: table_fit_valid is true and all three colors are visible NOW. At verify_grasp: grasp_confirmed is true. Start or resume the frozen visual skill.",
+            "reobserve": "Acquire fresh RGB-D when evidence is missing and observation budget remains.",
+            "retry_grasp": "Only at verify_grasp, when grasp_confirmed is explicitly false and retries remain. Never choose this during initial_observation.",
+            "escalate": "Request a revised plan when evidence conflicts, budget is exhausted, or no action fits.",
+            "stop": "Stop this task when recovery is unavailable."
+          },
+          "constraint": "Write a conditional, phase-specific rule, not a statement that the current snapshot stays true. CURRENT observation always overrides old snapshot facts. At initial_observation, all colors visible plus valid table permits continue even if grasp_confirmed is null. Do not change budgets or execution code. A repaired plan requires a fresh observation before motion."
+        },
+        "response": {
+          "plan": "Build the blue-red-green tower using the frozen visual skill. Always use the latest observation. At initial_observation, continue if table_fit_valid is true and blue, red, and green are currently visible; grasp_confirmed may be null. If required evidence is missing, reobserve when reobservations_left > 0; otherwise escalate. Never retry a grasp during initial_observation. At verify_grasp, continue only if grasp_confirmed is true; if explicitly false, retry_grasp when grasp_retries_left > 0, otherwise escalate; if unknown, reobserve when observation budget remains, otherwise escalate. Escalate conflicting evidence or when no action fits. Stop if recovery is unavailable. After any plan repair, acquire a fresh observation and reassess these conditions before motion. Preserve budgets and execution code."
+        },
+        "estimated_usd": null,
+        "cost_basis": "Codex subscription; no API invoice available"
+      }
+    ],
+    "astra_decision_calls": [],
+    "fast_calls": [
+      {
+        "requested_model": "gpt-6-luna",
+        "reasoning": "medium",
+        "wall_seconds": 8.9712363750441,
+        "usage": {
+          "input_tokens": 12505,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 19,
+          "reasoning_output_tokens": 0
+        },
+        "request": {
+          "role": "decision",
+          "state": {
+            "version": 0,
+            "time_s": 0.6500000000000005,
+            "phase": "initial_observation",
+            "visible_colors": [
+              "blue",
+              "red",
+              "green"
+            ],
+            "table_fit_valid": true,
+            "grasp_confirmed": null,
+            "reobservations_left": 2,
+            "grasp_retries_left": 1
+          },
+          "plan": "Build the blue-red-green tower using the frozen visual skill. Always use the latest observation. At initial_observation, continue if table_fit_valid is true and blue, red, and green are currently visible; grasp_confirmed may be null. If required evidence is missing, reobserve when reobservations_left > 0; otherwise escalate. Never retry a grasp during initial_observation. At verify_grasp, continue only if grasp_confirmed is true; if explicitly false, retry_grasp when grasp_retries_left > 0, otherwise escalate; if unknown, reobserve when observation budget remains, otherwise escalate. Escalate conflicting evidence or when no action fits. Stop if recovery is unavailable. After any plan repair, acquire a fresh observation and reassess these conditions before motion. Preserve budgets and execution code.",
+          "actions": {
+            "continue": "At initial_observation: table_fit_valid is true and all three colors are visible NOW. At verify_grasp: grasp_confirmed is true. Start or resume the frozen visual skill.",
+            "reobserve": "Acquire fresh RGB-D when evidence is missing and observation budget remains.",
+            "retry_grasp": "Only at verify_grasp, when grasp_confirmed is explicitly false and retries remain. Never choose this during initial_observation.",
+            "escalate": "Request a revised plan when evidence conflicts, budget is exhausted, or no action fits.",
+            "stop": "Stop this task when recovery is unavailable."
+          }
+        },
+        "response": {
+          "action": "continue",
+          "confidence": 1
+        },
+        "estimated_usd": null,
+        "cost_basis": "Codex subscription; no API invoice available"
+      }
+    ],
+    "fast_model": "gpt-6-luna",
+    "fast_effort": "medium",
+    "slow_effort": "xhigh",
+    "threshold": 0.8,
+    "threshold_calibrated": false
+  },
+  "harness": {
+    "protocol": "luna-astra-effort/1",
+    "frozen_sources": {
+      "scripts/run_luna_astra_trial.py": "78309f7f42ff9d4c19251bba23ba0107823f604583c1e0f226863363cfbdd679",
+      "scripts/run_vision_trial.py": "187ae4e3fad4ff347977d516a753f92b26ea7191b481ccf463762a02552f455e",
+      "scripts/build_dual_system_policy.py": "d8feb835947092d14a486edcea76cc5fe5e7095566f2dbb9e6038afac5f81373",
+      "src/aspire_so100/dual_system.py": "abefa58ca031ff070dc6e315142363d296f5c0138de3324d7fe935b61f4c18ba",
+      "src/aspire_so100/astra_decision.py": "a5c4f8fb347ca5a01d8465f4cbb795e2b87929978e82c15a5453a254ec871333",
+      "src/aspire_so100/decision_session.py": "20c3166710bda082a162601b4a790d1c7d6c25dfe32d135d5650d5c7c35ffeb8"
+    },
+    "mode": "luna_hybrid",
+    "runner_sha256": "187ae4e3fad4ff347977d516a753f92b26ea7191b481ccf463762a02552f455e",
+    "adapter_sha256": "78309f7f42ff9d4c19251bba23ba0107823f604583c1e0f226863363cfbdd679",
+    "model_wait_simulation": "paused",
+    "wall_timeout_s": 900,
+    "source_base_commit": "0285ccc",
+    "fast_effort": "medium",
+    "slow_effort": "xhigh",
+    "no_jev_calls": true
+  }
+}

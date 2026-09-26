@@ -1,0 +1,446 @@
+{
+  "scope": "Setup smoke run, excluded from the 57-trial frozen campaign",
+  "result": {
+    "seed": 4601,
+    "layout": "random_xy",
+    "task": "tower",
+    "success": true,
+    "policy_error": null,
+    "policy_sim_seconds": 95.79999999995661,
+    "candidate_sha256": "801f095151d100d77fbfd3ed139a087bf7b17ad31adc9f77ce238d180395d1fc",
+    "camera_calls": 85,
+    "sensor_blackout": false,
+    "cpu_profile": {
+      "policy_compute_cpu_seconds": 0.7203739999999993,
+      "rpc_cpu_seconds": 0.11707600000000074,
+      "compute_interval_count": 367,
+      "compute_interval_cpu_p50_ms": 0.004000000000004,
+      "compute_interval_cpu_p95_ms": 10.119900000000014,
+      "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+    },
+    "robot_ik_cpu_seconds": 0.07958099999999968,
+    "metrics": {
+      "success": true,
+      "score": 1.0,
+      "placed_blocks": 2,
+      "required_placements": 2,
+      "structure_stable": true,
+      "failure": null
+    },
+    "observation_contract": "Side RGB-D, wrist RGB, calibration + robot proprioception ONLY; evaluator results never returned to policy",
+    "decision_scope": "initial_observation_gate_then_frozen_visual_skill",
+    "decision_mode": "luna_hybrid"
+  },
+  "decision_trace": {
+    "mode": "luna_hybrid",
+    "scope": "initial_observation_gate_then_frozen_visual_skill",
+    "simulation_paused_during_model_calls": true,
+    "records": [
+      {
+        "state_version": 0,
+        "plan_before": 1,
+        "plan_after": 1,
+        "proposed": "reobserve",
+        "executed": false,
+        "gated_action": "reobserve",
+        "trigger": null,
+        "slow_calls_total": 0,
+        "wall_seconds": 10.448387083015405,
+        "decision_wall_seconds": 10.448384790914133,
+        "decision": {
+          "action": "reobserve",
+          "confidence": 0.99,
+          "state_version": 0,
+          "plan_version": 1,
+          "model": "gpt-6-luna",
+          "reasoning": "low",
+          "wall_seconds": 10.44830891606398,
+          "usage": {
+            "input_tokens": 12472,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 22,
+            "reasoning_output_tokens": 0
+          },
+          "request": {
+            "role": "decision",
+            "state": {
+              "version": 0,
+              "time_s": 0.6500000000000005,
+              "phase": "initial_observation",
+              "visible_colors": [
+                "red",
+                "green"
+              ],
+              "table_fit_valid": true,
+              "grasp_confirmed": null,
+              "reobservations_left": 2,
+              "grasp_retries_left": 1
+            },
+            "plan": "Require a fresh RGB-D observation before motion under this repaired plan. Always use CURRENT evidence. At initial_observation: continue if table_fit_valid is true and blue, red, and green are all visible, regardless of null grasp_confirmed; otherwise reobserve if evidence is missing and observation budget remains, or escalate. Never retry_grasp during initial_observation. At verify_grasp: continue if grasp_confirmed is true; retry_grasp if explicitly false and retries remain; reobserve if null and observation budget remains; otherwise escalate. Escalate conflicting evidence or when no action fits; stop if recovery is unavailable. Preserve budgets and execution code.",
+            "actions": {
+              "continue": "At initial_observation: table_fit_valid is true and all three colors are visible NOW. At verify_grasp: grasp_confirmed is true. Start or resume the frozen visual skill.",
+              "reobserve": "Acquire fresh RGB-D when evidence is missing and observation budget remains.",
+              "retry_grasp": "Only at verify_grasp, when grasp_confirmed is explicitly false and retries remain. Never choose this during initial_observation.",
+              "escalate": "Request a revised plan when evidence conflicts, budget is exhausted, or no action fits.",
+              "stop": "Stop this task when recovery is unavailable."
+            }
+          },
+          "response": {
+            "action": "reobserve",
+            "confidence": 0.99
+          },
+          "estimated_usd": null,
+          "cost_basis": "Codex subscription; no API invoice available"
+        },
+        "plan_text_before": "Require a fresh RGB-D observation before motion under this repaired plan. Always use CURRENT evidence. At initial_observation: continue if table_fit_valid is true and blue, red, and green are all visible, regardless of null grasp_confirmed; otherwise reobserve if evidence is missing and observation budget remains, or escalate. Never retry_grasp during initial_observation. At verify_grasp: continue if grasp_confirmed is true; retry_grasp if explicitly false and retries remain; reobserve if null and observation budget remains; otherwise escalate. Escalate conflicting evidence or when no action fits; stop if recovery is unavailable. Preserve budgets and execution code.",
+        "plan_text_after": "Require a fresh RGB-D observation before motion under this repaired plan. Always use CURRENT evidence. At initial_observation: continue if table_fit_valid is true and blue, red, and green are all visible, regardless of null grasp_confirmed; otherwise reobserve if evidence is missing and observation budget remains, or escalate. Never retry_grasp during initial_observation. At verify_grasp: continue if grasp_confirmed is true; retry_grasp if explicitly false and retries remain; reobserve if null and observation budget remains; otherwise escalate. Escalate conflicting evidence or when no action fits; stop if recovery is unavailable. Preserve budgets and execution code.",
+        "state": {
+          "version": 0,
+          "time_s": 0.6500000000000005,
+          "phase": "initial_observation",
+          "visible_colors": [
+            "red",
+            "green"
+          ],
+          "table_fit_valid": true,
+          "grasp_confirmed": null,
+          "reobservations_left": 2,
+          "grasp_retries_left": 1
+        },
+        "service_seconds": 10.448411041055806
+      },
+      {
+        "state_version": 1,
+        "plan_before": 1,
+        "plan_after": 1,
+        "proposed": "reobserve",
+        "executed": false,
+        "gated_action": "reobserve",
+        "trigger": null,
+        "slow_calls_total": 0,
+        "wall_seconds": 9.229677916970104,
+        "decision_wall_seconds": 9.229674416943453,
+        "decision": {
+          "action": "reobserve",
+          "confidence": 0.99,
+          "state_version": 1,
+          "plan_version": 1,
+          "model": "gpt-6-luna",
+          "reasoning": "low",
+          "wall_seconds": 9.229557208018377,
+          "usage": {
+            "input_tokens": 12472,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 22,
+            "reasoning_output_tokens": 0
+          },
+          "request": {
+            "role": "decision",
+            "state": {
+              "version": 1,
+              "time_s": 0.8500000000000006,
+              "phase": "initial_observation",
+              "visible_colors": [
+                "red",
+                "green"
+              ],
+              "table_fit_valid": true,
+              "grasp_confirmed": null,
+              "reobservations_left": 1,
+              "grasp_retries_left": 1
+            },
+            "plan": "Require a fresh RGB-D observation before motion under this repaired plan. Always use CURRENT evidence. At initial_observation: continue if table_fit_valid is true and blue, red, and green are all visible, regardless of null grasp_confirmed; otherwise reobserve if evidence is missing and observation budget remains, or escalate. Never retry_grasp during initial_observation. At verify_grasp: continue if grasp_confirmed is true; retry_grasp if explicitly false and retries remain; reobserve if null and observation budget remains; otherwise escalate. Escalate conflicting evidence or when no action fits; stop if recovery is unavailable. Preserve budgets and execution code.",
+            "actions": {
+              "continue": "At initial_observation: table_fit_valid is true and all three colors are visible NOW. At verify_grasp: grasp_confirmed is true. Start or resume the frozen visual skill.",
+              "reobserve": "Acquire fresh RGB-D when evidence is missing and observation budget remains.",
+              "retry_grasp": "Only at verify_grasp, when grasp_confirmed is explicitly false and retries remain. Never choose this during initial_observation.",
+              "escalate": "Request a revised plan when evidence conflicts, budget is exhausted, or no action fits.",
+              "stop": "Stop this task when recovery is unavailable."
+            }
+          },
+          "response": {
+            "action": "reobserve",
+            "confidence": 0.99
+          },
+          "estimated_usd": null,
+          "cost_basis": "Codex subscription; no API invoice available"
+        },
+        "plan_text_before": "Require a fresh RGB-D observation before motion under this repaired plan. Always use CURRENT evidence. At initial_observation: continue if table_fit_valid is true and blue, red, and green are all visible, regardless of null grasp_confirmed; otherwise reobserve if evidence is missing and observation budget remains, or escalate. Never retry_grasp during initial_observation. At verify_grasp: continue if grasp_confirmed is true; retry_grasp if explicitly false and retries remain; reobserve if null and observation budget remains; otherwise escalate. Escalate conflicting evidence or when no action fits; stop if recovery is unavailable. Preserve budgets and execution code.",
+        "plan_text_after": "Require a fresh RGB-D observation before motion under this repaired plan. Always use CURRENT evidence. At initial_observation: continue if table_fit_valid is true and blue, red, and green are all visible, regardless of null grasp_confirmed; otherwise reobserve if evidence is missing and observation budget remains, or escalate. Never retry_grasp during initial_observation. At verify_grasp: continue if grasp_confirmed is true; retry_grasp if explicitly false and retries remain; reobserve if null and observation budget remains; otherwise escalate. Escalate conflicting evidence or when no action fits; stop if recovery is unavailable. Preserve budgets and execution code.",
+        "state": {
+          "version": 1,
+          "time_s": 0.8500000000000006,
+          "phase": "initial_observation",
+          "visible_colors": [
+            "red",
+            "green"
+          ],
+          "table_fit_valid": true,
+          "grasp_confirmed": null,
+          "reobservations_left": 1,
+          "grasp_retries_left": 1
+        },
+        "service_seconds": 9.229685375001281
+      },
+      {
+        "state_version": 2,
+        "plan_before": 1,
+        "plan_after": 1,
+        "proposed": "continue",
+        "executed": false,
+        "gated_action": "continue",
+        "trigger": null,
+        "slow_calls_total": 0,
+        "wall_seconds": 9.984162500011735,
+        "decision_wall_seconds": 9.984160333988257,
+        "decision": {
+          "action": "continue",
+          "confidence": 1,
+          "state_version": 2,
+          "plan_version": 1,
+          "model": "gpt-6-luna",
+          "reasoning": "low",
+          "wall_seconds": 9.984060292015783,
+          "usage": {
+            "input_tokens": 12475,
+            "cached_input_tokens": 9984,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 19,
+            "reasoning_output_tokens": 0
+          },
+          "request": {
+            "role": "decision",
+            "state": {
+              "version": 2,
+              "time_s": 1.0500000000000007,
+              "phase": "initial_observation",
+              "visible_colors": [
+                "blue",
+                "red",
+                "green"
+              ],
+              "table_fit_valid": true,
+              "grasp_confirmed": null,
+              "reobservations_left": 0,
+              "grasp_retries_left": 1
+            },
+            "plan": "Require a fresh RGB-D observation before motion under this repaired plan. Always use CURRENT evidence. At initial_observation: continue if table_fit_valid is true and blue, red, and green are all visible, regardless of null grasp_confirmed; otherwise reobserve if evidence is missing and observation budget remains, or escalate. Never retry_grasp during initial_observation. At verify_grasp: continue if grasp_confirmed is true; retry_grasp if explicitly false and retries remain; reobserve if null and observation budget remains; otherwise escalate. Escalate conflicting evidence or when no action fits; stop if recovery is unavailable. Preserve budgets and execution code.",
+            "actions": {
+              "continue": "At initial_observation: table_fit_valid is true and all three colors are visible NOW. At verify_grasp: grasp_confirmed is true. Start or resume the frozen visual skill.",
+              "reobserve": "Acquire fresh RGB-D when evidence is missing and observation budget remains.",
+              "retry_grasp": "Only at verify_grasp, when grasp_confirmed is explicitly false and retries remain. Never choose this during initial_observation.",
+              "escalate": "Request a revised plan when evidence conflicts, budget is exhausted, or no action fits.",
+              "stop": "Stop this task when recovery is unavailable."
+            }
+          },
+          "response": {
+            "action": "continue",
+            "confidence": 1
+          },
+          "estimated_usd": null,
+          "cost_basis": "Codex subscription; no API invoice available"
+        },
+        "plan_text_before": "Require a fresh RGB-D observation before motion under this repaired plan. Always use CURRENT evidence. At initial_observation: continue if table_fit_valid is true and blue, red, and green are all visible, regardless of null grasp_confirmed; otherwise reobserve if evidence is missing and observation budget remains, or escalate. Never retry_grasp during initial_observation. At verify_grasp: continue if grasp_confirmed is true; retry_grasp if explicitly false and retries remain; reobserve if null and observation budget remains; otherwise escalate. Escalate conflicting evidence or when no action fits; stop if recovery is unavailable. Preserve budgets and execution code.",
+        "plan_text_after": "Require a fresh RGB-D observation before motion under this repaired plan. Always use CURRENT evidence. At initial_observation: continue if table_fit_valid is true and blue, red, and green are all visible, regardless of null grasp_confirmed; otherwise reobserve if evidence is missing and observation budget remains, or escalate. Never retry_grasp during initial_observation. At verify_grasp: continue if grasp_confirmed is true; retry_grasp if explicitly false and retries remain; reobserve if null and observation budget remains; otherwise escalate. Escalate conflicting evidence or when no action fits; stop if recovery is unavailable. Preserve budgets and execution code.",
+        "state": {
+          "version": 2,
+          "time_s": 1.0500000000000007,
+          "phase": "initial_observation",
+          "visible_colors": [
+            "blue",
+            "red",
+            "green"
+          ],
+          "table_fit_valid": true,
+          "grasp_confirmed": null,
+          "reobservations_left": 0,
+          "grasp_retries_left": 1
+        },
+        "service_seconds": 9.98416824999731
+      }
+    ],
+    "planner_calls": [
+      {
+        "requested_model": "gpt-6-astra",
+        "reasoning": "high",
+        "wall_seconds": 19.294697957928292,
+        "usage": {
+          "input_tokens": 13053,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 313,
+          "reasoning_output_tokens": 167
+        },
+        "request": {
+          "role": "plan_or_repair",
+          "state": {
+            "version": 0,
+            "time_s": 0.6500000000000005,
+            "phase": "initial_observation",
+            "visible_colors": [
+              "red",
+              "green"
+            ],
+            "table_fit_valid": true,
+            "grasp_confirmed": null,
+            "reobservations_left": 2,
+            "grasp_retries_left": 1
+          },
+          "current_plan": "Build blue-red-green tower. Verify visual evidence before existing skills; reobserve uncertainty, retry failed grasps, escalate conflicts.",
+          "trigger": "initial_plan",
+          "allowed_actions": {
+            "continue": "At initial_observation: table_fit_valid is true and all three colors are visible NOW. At verify_grasp: grasp_confirmed is true. Start or resume the frozen visual skill.",
+            "reobserve": "Acquire fresh RGB-D when evidence is missing and observation budget remains.",
+            "retry_grasp": "Only at verify_grasp, when grasp_confirmed is explicitly false and retries remain. Never choose this during initial_observation.",
+            "escalate": "Request a revised plan when evidence conflicts, budget is exhausted, or no action fits.",
+            "stop": "Stop this task when recovery is unavailable."
+          },
+          "constraint": "Write a conditional, phase-specific rule, not a statement that the current snapshot stays true. CURRENT observation always overrides old snapshot facts. At initial_observation, all colors visible plus valid table permits continue even if grasp_confirmed is null. Do not change budgets or execution code. A repaired plan requires a fresh observation before motion."
+        },
+        "response": {
+          "plan": "Require a fresh RGB-D observation before motion under this repaired plan. Always use CURRENT evidence. At initial_observation: continue if table_fit_valid is true and blue, red, and green are all visible, regardless of null grasp_confirmed; otherwise reobserve if evidence is missing and observation budget remains, or escalate. Never retry_grasp during initial_observation. At verify_grasp: continue if grasp_confirmed is true; retry_grasp if explicitly false and retries remain; reobserve if null and observation budget remains; otherwise escalate. Escalate conflicting evidence or when no action fits; stop if recovery is unavailable. Preserve budgets and execution code."
+        },
+        "estimated_usd": null,
+        "cost_basis": "Codex subscription; no API invoice available"
+      }
+    ],
+    "astra_decision_calls": [],
+    "fast_calls": [
+      {
+        "requested_model": "gpt-6-luna",
+        "reasoning": "low",
+        "wall_seconds": 10.44830891606398,
+        "usage": {
+          "input_tokens": 12472,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 22,
+          "reasoning_output_tokens": 0
+        },
+        "request": {
+          "role": "decision",
+          "state": {
+            "version": 0,
+            "time_s": 0.6500000000000005,
+            "phase": "initial_observation",
+            "visible_colors": [
+              "red",
+              "green"
+            ],
+            "table_fit_valid": true,
+            "grasp_confirmed": null,
+            "reobservations_left": 2,
+            "grasp_retries_left": 1
+          },
+          "plan": "Require a fresh RGB-D observation before motion under this repaired plan. Always use CURRENT evidence. At initial_observation: continue if table_fit_valid is true and blue, red, and green are all visible, regardless of null grasp_confirmed; otherwise reobserve if evidence is missing and observation budget remains, or escalate. Never retry_grasp during initial_observation. At verify_grasp: continue if grasp_confirmed is true; retry_grasp if explicitly false and retries remain; reobserve if null and observation budget remains; otherwise escalate. Escalate conflicting evidence or when no action fits; stop if recovery is unavailable. Preserve budgets and execution code.",
+          "actions": {
+            "continue": "At initial_observation: table_fit_valid is true and all three colors are visible NOW. At verify_grasp: grasp_confirmed is true. Start or resume the frozen visual skill.",
+            "reobserve": "Acquire fresh RGB-D when evidence is missing and observation budget remains.",
+            "retry_grasp": "Only at verify_grasp, when grasp_confirmed is explicitly false and retries remain. Never choose this during initial_observation.",
+            "escalate": "Request a revised plan when evidence conflicts, budget is exhausted, or no action fits.",
+            "stop": "Stop this task when recovery is unavailable."
+          }
+        },
+        "response": {
+          "action": "reobserve",
+          "confidence": 0.99
+        },
+        "estimated_usd": null,
+        "cost_basis": "Codex subscription; no API invoice available"
+      },
+      {
+        "requested_model": "gpt-6-luna",
+        "reasoning": "low",
+        "wall_seconds": 9.229557208018377,
+        "usage": {
+          "input_tokens": 12472,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 22,
+          "reasoning_output_tokens": 0
+        },
+        "request": {
+          "role": "decision",
+          "state": {
+            "version": 1,
+            "time_s": 0.8500000000000006,
+            "phase": "initial_observation",
+            "visible_colors": [
+              "red",
+              "green"
+            ],
+            "table_fit_valid": true,
+            "grasp_confirmed": null,
+            "reobservations_left": 1,
+            "grasp_retries_left": 1
+          },
+          "plan": "Require a fresh RGB-D observation before motion under this repaired plan. Always use CURRENT evidence. At initial_observation: continue if table_fit_valid is true and blue, red, and green are all visible, regardless of null grasp_confirmed; otherwise reobserve if evidence is missing and observation budget remains, or escalate. Never retry_grasp during initial_observation. At verify_grasp: continue if grasp_confirmed is true; retry_grasp if explicitly false and retries remain; reobserve if null and observation budget remains; otherwise escalate. Escalate conflicting evidence or when no action fits; stop if recovery is unavailable. Preserve budgets and execution code.",
+          "actions": {
+            "continue": "At initial_observation: table_fit_valid is true and all three colors are visible NOW. At verify_grasp: grasp_confirmed is true. Start or resume the frozen visual skill.",
+            "reobserve": "Acquire fresh RGB-D when evidence is missing and observation budget remains.",
+            "retry_grasp": "Only at verify_grasp, when grasp_confirmed is explicitly false and retries remain. Never choose this during initial_observation.",
+            "escalate": "Request a revised plan when evidence conflicts, budget is exhausted, or no action fits.",
+            "stop": "Stop this task when recovery is unavailable."
+          }
+        },
+        "response": {
+          "action": "reobserve",
+          "confidence": 0.99
+        },
+        "estimated_usd": null,
+        "cost_basis": "Codex subscription; no API invoice available"
+      },
+      {
+        "requested_model": "gpt-6-luna",
+        "reasoning": "low",
+        "wall_seconds": 9.984060292015783,
+        "usage": {
+          "input_tokens": 12475,
+          "cached_input_tokens": 9984,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 19,
+          "reasoning_output_tokens": 0
+        },
+        "request": {
+          "role": "decision",
+          "state": {
+            "version": 2,
+            "time_s": 1.0500000000000007,
+            "phase": "initial_observation",
+            "visible_colors": [
+              "blue",
+              "red",
+              "green"
+            ],
+            "table_fit_valid": true,
+            "grasp_confirmed": null,
+            "reobservations_left": 0,
+            "grasp_retries_left": 1
+          },
+          "plan": "Require a fresh RGB-D observation before motion under this repaired plan. Always use CURRENT evidence. At initial_observation: continue if table_fit_valid is true and blue, red, and green are all visible, regardless of null grasp_confirmed; otherwise reobserve if evidence is missing and observation budget remains, or escalate. Never retry_grasp during initial_observation. At verify_grasp: continue if grasp_confirmed is true; retry_grasp if explicitly false and retries remain; reobserve if null and observation budget remains; otherwise escalate. Escalate conflicting evidence or when no action fits; stop if recovery is unavailable. Preserve budgets and execution code.",
+          "actions": {
+            "continue": "At initial_observation: table_fit_valid is true and all three colors are visible NOW. At verify_grasp: grasp_confirmed is true. Start or resume the frozen visual skill.",
+            "reobserve": "Acquire fresh RGB-D when evidence is missing and observation budget remains.",
+            "retry_grasp": "Only at verify_grasp, when grasp_confirmed is explicitly false and retries remain. Never choose this during initial_observation.",
+            "escalate": "Request a revised plan when evidence conflicts, budget is exhausted, or no action fits.",
+            "stop": "Stop this task when recovery is unavailable."
+          }
+        },
+        "response": {
+          "action": "continue",
+          "confidence": 1
+        },
+        "estimated_usd": null,
+        "cost_basis": "Codex subscription; no API invoice available"
+      }
+    ],
+    "fast_model": "gpt-6-luna",
+    "fast_effort": "low",
+    "slow_effort": "high",
+    "threshold": 0.8,
+    "threshold_calibrated": false
+  },
+  "video_sha256": "2568f711d26de8dafa526a1b1c1d01758d00d45d3f3a1d11c5c67a00e4518f1c"
+}

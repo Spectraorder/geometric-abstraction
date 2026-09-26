@@ -1,0 +1,790 @@
+{
+  "schema": "luna-astra-campaign/1",
+  "split": "development",
+  "frozen_before_batch": true,
+  "source_base_commit": "0285ccc",
+  "scope": "initial_observation_gate_then_frozen_visual_skill",
+  "transport": "fresh tool-disabled Codex CLI subagent session per model call",
+  "models": {
+    "fast": "gpt-6-luna",
+    "slow": "gpt-6-astra"
+  },
+  "confidence_threshold": 0.8,
+  "threshold_calibrated": false,
+  "max_concurrent_trials": 2,
+  "randomized_order_seed": 926,
+  "automatic_retries": 0,
+  "model_call_timeout_seconds": 120,
+  "no_jev": true,
+  "cases": [
+    {
+      "case": "nominal",
+      "fault": "none",
+      "seed": 4601,
+      "endpoint": "tower_completion"
+    },
+    {
+      "case": "transient",
+      "fault": "transient_occlusion",
+      "seed": 4602,
+      "endpoint": "tower_completion"
+    },
+    {
+      "case": "persistent",
+      "fault": "persistent_occlusion",
+      "seed": 4603,
+      "endpoint": "correct_abstention"
+    }
+  ],
+  "groups": [
+    {
+      "group": "hybrid__luna=low__astra=low",
+      "mode": "luna_hybrid",
+      "fast_effort": "low",
+      "slow_effort": "low"
+    },
+    {
+      "group": "hybrid__luna=low__astra=medium",
+      "mode": "luna_hybrid",
+      "fast_effort": "low",
+      "slow_effort": "medium"
+    },
+    {
+      "group": "hybrid__luna=low__astra=high",
+      "mode": "luna_hybrid",
+      "fast_effort": "low",
+      "slow_effort": "high"
+    },
+    {
+      "group": "hybrid__luna=low__astra=xhigh",
+      "mode": "luna_hybrid",
+      "fast_effort": "low",
+      "slow_effort": "xhigh"
+    },
+    {
+      "group": "hybrid__luna=medium__astra=low",
+      "mode": "luna_hybrid",
+      "fast_effort": "medium",
+      "slow_effort": "low"
+    },
+    {
+      "group": "hybrid__luna=medium__astra=medium",
+      "mode": "luna_hybrid",
+      "fast_effort": "medium",
+      "slow_effort": "medium"
+    },
+    {
+      "group": "hybrid__luna=medium__astra=high",
+      "mode": "luna_hybrid",
+      "fast_effort": "medium",
+      "slow_effort": "high"
+    },
+    {
+      "group": "hybrid__luna=medium__astra=xhigh",
+      "mode": "luna_hybrid",
+      "fast_effort": "medium",
+      "slow_effort": "xhigh"
+    },
+    {
+      "group": "hybrid__luna=high__astra=low",
+      "mode": "luna_hybrid",
+      "fast_effort": "high",
+      "slow_effort": "low"
+    },
+    {
+      "group": "hybrid__luna=high__astra=medium",
+      "mode": "luna_hybrid",
+      "fast_effort": "high",
+      "slow_effort": "medium"
+    },
+    {
+      "group": "hybrid__luna=high__astra=high",
+      "mode": "luna_hybrid",
+      "fast_effort": "high",
+      "slow_effort": "high"
+    },
+    {
+      "group": "hybrid__luna=high__astra=xhigh",
+      "mode": "luna_hybrid",
+      "fast_effort": "high",
+      "slow_effort": "xhigh"
+    },
+    {
+      "group": "luna_only__effort=low",
+      "mode": "luna_only",
+      "fast_effort": "low",
+      "slow_effort": "high"
+    },
+    {
+      "group": "luna_only__effort=medium",
+      "mode": "luna_only",
+      "fast_effort": "medium",
+      "slow_effort": "high"
+    },
+    {
+      "group": "luna_only__effort=high",
+      "mode": "luna_only",
+      "fast_effort": "high",
+      "slow_effort": "high"
+    },
+    {
+      "group": "astra_only__effort=low",
+      "mode": "astra_only",
+      "fast_effort": "low",
+      "slow_effort": "low"
+    },
+    {
+      "group": "astra_only__effort=medium",
+      "mode": "astra_only",
+      "fast_effort": "medium",
+      "slow_effort": "medium"
+    },
+    {
+      "group": "astra_only__effort=high",
+      "mode": "astra_only",
+      "fast_effort": "high",
+      "slow_effort": "high"
+    },
+    {
+      "group": "astra_only__effort=xhigh",
+      "mode": "astra_only",
+      "fast_effort": "xhigh",
+      "slow_effort": "xhigh"
+    }
+  ],
+  "jobs": [
+    {
+      "group": "hybrid__luna=low__astra=medium",
+      "mode": "luna_hybrid",
+      "fast_effort": "low",
+      "slow_effort": "medium",
+      "case": "persistent",
+      "fault": "persistent_occlusion",
+      "seed": 4603,
+      "endpoint": "correct_abstention",
+      "id": "hybrid__luna=low__astra=medium__case=persistent__seed=4603"
+    },
+    {
+      "group": "hybrid__luna=low__astra=high",
+      "mode": "luna_hybrid",
+      "fast_effort": "low",
+      "slow_effort": "high",
+      "case": "nominal",
+      "fault": "none",
+      "seed": 4601,
+      "endpoint": "tower_completion",
+      "id": "hybrid__luna=low__astra=high__case=nominal__seed=4601"
+    },
+    {
+      "group": "hybrid__luna=high__astra=low",
+      "mode": "luna_hybrid",
+      "fast_effort": "high",
+      "slow_effort": "low",
+      "case": "transient",
+      "fault": "transient_occlusion",
+      "seed": 4602,
+      "endpoint": "tower_completion",
+      "id": "hybrid__luna=high__astra=low__case=transient__seed=4602"
+    },
+    {
+      "group": "hybrid__luna=medium__astra=medium",
+      "mode": "luna_hybrid",
+      "fast_effort": "medium",
+      "slow_effort": "medium",
+      "case": "persistent",
+      "fault": "persistent_occlusion",
+      "seed": 4603,
+      "endpoint": "correct_abstention",
+      "id": "hybrid__luna=medium__astra=medium__case=persistent__seed=4603"
+    },
+    {
+      "group": "hybrid__luna=low__astra=low",
+      "mode": "luna_hybrid",
+      "fast_effort": "low",
+      "slow_effort": "low",
+      "case": "nominal",
+      "fault": "none",
+      "seed": 4601,
+      "endpoint": "tower_completion",
+      "id": "hybrid__luna=low__astra=low__case=nominal__seed=4601"
+    },
+    {
+      "group": "hybrid__luna=high__astra=high",
+      "mode": "luna_hybrid",
+      "fast_effort": "high",
+      "slow_effort": "high",
+      "case": "transient",
+      "fault": "transient_occlusion",
+      "seed": 4602,
+      "endpoint": "tower_completion",
+      "id": "hybrid__luna=high__astra=high__case=transient__seed=4602"
+    },
+    {
+      "group": "hybrid__luna=high__astra=low",
+      "mode": "luna_hybrid",
+      "fast_effort": "high",
+      "slow_effort": "low",
+      "case": "nominal",
+      "fault": "none",
+      "seed": 4601,
+      "endpoint": "tower_completion",
+      "id": "hybrid__luna=high__astra=low__case=nominal__seed=4601"
+    },
+    {
+      "group": "luna_only__effort=low",
+      "mode": "luna_only",
+      "fast_effort": "low",
+      "slow_effort": "high",
+      "case": "transient",
+      "fault": "transient_occlusion",
+      "seed": 4602,
+      "endpoint": "tower_completion",
+      "id": "luna_only__effort=low__case=transient__seed=4602"
+    },
+    {
+      "group": "astra_only__effort=low",
+      "mode": "astra_only",
+      "fast_effort": "low",
+      "slow_effort": "low",
+      "case": "transient",
+      "fault": "transient_occlusion",
+      "seed": 4602,
+      "endpoint": "tower_completion",
+      "id": "astra_only__effort=low__case=transient__seed=4602"
+    },
+    {
+      "group": "luna_only__effort=high",
+      "mode": "luna_only",
+      "fast_effort": "high",
+      "slow_effort": "high",
+      "case": "persistent",
+      "fault": "persistent_occlusion",
+      "seed": 4603,
+      "endpoint": "correct_abstention",
+      "id": "luna_only__effort=high__case=persistent__seed=4603"
+    },
+    {
+      "group": "hybrid__luna=high__astra=xhigh",
+      "mode": "luna_hybrid",
+      "fast_effort": "high",
+      "slow_effort": "xhigh",
+      "case": "persistent",
+      "fault": "persistent_occlusion",
+      "seed": 4603,
+      "endpoint": "correct_abstention",
+      "id": "hybrid__luna=high__astra=xhigh__case=persistent__seed=4603"
+    },
+    {
+      "group": "astra_only__effort=medium",
+      "mode": "astra_only",
+      "fast_effort": "medium",
+      "slow_effort": "medium",
+      "case": "nominal",
+      "fault": "none",
+      "seed": 4601,
+      "endpoint": "tower_completion",
+      "id": "astra_only__effort=medium__case=nominal__seed=4601"
+    },
+    {
+      "group": "luna_only__effort=high",
+      "mode": "luna_only",
+      "fast_effort": "high",
+      "slow_effort": "high",
+      "case": "transient",
+      "fault": "transient_occlusion",
+      "seed": 4602,
+      "endpoint": "tower_completion",
+      "id": "luna_only__effort=high__case=transient__seed=4602"
+    },
+    {
+      "group": "hybrid__luna=medium__astra=xhigh",
+      "mode": "luna_hybrid",
+      "fast_effort": "medium",
+      "slow_effort": "xhigh",
+      "case": "nominal",
+      "fault": "none",
+      "seed": 4601,
+      "endpoint": "tower_completion",
+      "id": "hybrid__luna=medium__astra=xhigh__case=nominal__seed=4601"
+    },
+    {
+      "group": "hybrid__luna=medium__astra=medium",
+      "mode": "luna_hybrid",
+      "fast_effort": "medium",
+      "slow_effort": "medium",
+      "case": "transient",
+      "fault": "transient_occlusion",
+      "seed": 4602,
+      "endpoint": "tower_completion",
+      "id": "hybrid__luna=medium__astra=medium__case=transient__seed=4602"
+    },
+    {
+      "group": "luna_only__effort=high",
+      "mode": "luna_only",
+      "fast_effort": "high",
+      "slow_effort": "high",
+      "case": "nominal",
+      "fault": "none",
+      "seed": 4601,
+      "endpoint": "tower_completion",
+      "id": "luna_only__effort=high__case=nominal__seed=4601"
+    },
+    {
+      "group": "hybrid__luna=high__astra=medium",
+      "mode": "luna_hybrid",
+      "fast_effort": "high",
+      "slow_effort": "medium",
+      "case": "nominal",
+      "fault": "none",
+      "seed": 4601,
+      "endpoint": "tower_completion",
+      "id": "hybrid__luna=high__astra=medium__case=nominal__seed=4601"
+    },
+    {
+      "group": "hybrid__luna=medium__astra=xhigh",
+      "mode": "luna_hybrid",
+      "fast_effort": "medium",
+      "slow_effort": "xhigh",
+      "case": "transient",
+      "fault": "transient_occlusion",
+      "seed": 4602,
+      "endpoint": "tower_completion",
+      "id": "hybrid__luna=medium__astra=xhigh__case=transient__seed=4602"
+    },
+    {
+      "group": "hybrid__luna=high__astra=medium",
+      "mode": "luna_hybrid",
+      "fast_effort": "high",
+      "slow_effort": "medium",
+      "case": "transient",
+      "fault": "transient_occlusion",
+      "seed": 4602,
+      "endpoint": "tower_completion",
+      "id": "hybrid__luna=high__astra=medium__case=transient__seed=4602"
+    },
+    {
+      "group": "hybrid__luna=medium__astra=low",
+      "mode": "luna_hybrid",
+      "fast_effort": "medium",
+      "slow_effort": "low",
+      "case": "persistent",
+      "fault": "persistent_occlusion",
+      "seed": 4603,
+      "endpoint": "correct_abstention",
+      "id": "hybrid__luna=medium__astra=low__case=persistent__seed=4603"
+    },
+    {
+      "group": "hybrid__luna=low__astra=medium",
+      "mode": "luna_hybrid",
+      "fast_effort": "low",
+      "slow_effort": "medium",
+      "case": "transient",
+      "fault": "transient_occlusion",
+      "seed": 4602,
+      "endpoint": "tower_completion",
+      "id": "hybrid__luna=low__astra=medium__case=transient__seed=4602"
+    },
+    {
+      "group": "astra_only__effort=medium",
+      "mode": "astra_only",
+      "fast_effort": "medium",
+      "slow_effort": "medium",
+      "case": "transient",
+      "fault": "transient_occlusion",
+      "seed": 4602,
+      "endpoint": "tower_completion",
+      "id": "astra_only__effort=medium__case=transient__seed=4602"
+    },
+    {
+      "group": "astra_only__effort=medium",
+      "mode": "astra_only",
+      "fast_effort": "medium",
+      "slow_effort": "medium",
+      "case": "persistent",
+      "fault": "persistent_occlusion",
+      "seed": 4603,
+      "endpoint": "correct_abstention",
+      "id": "astra_only__effort=medium__case=persistent__seed=4603"
+    },
+    {
+      "group": "astra_only__effort=low",
+      "mode": "astra_only",
+      "fast_effort": "low",
+      "slow_effort": "low",
+      "case": "nominal",
+      "fault": "none",
+      "seed": 4601,
+      "endpoint": "tower_completion",
+      "id": "astra_only__effort=low__case=nominal__seed=4601"
+    },
+    {
+      "group": "astra_only__effort=xhigh",
+      "mode": "astra_only",
+      "fast_effort": "xhigh",
+      "slow_effort": "xhigh",
+      "case": "persistent",
+      "fault": "persistent_occlusion",
+      "seed": 4603,
+      "endpoint": "correct_abstention",
+      "id": "astra_only__effort=xhigh__case=persistent__seed=4603"
+    },
+    {
+      "group": "hybrid__luna=low__astra=low",
+      "mode": "luna_hybrid",
+      "fast_effort": "low",
+      "slow_effort": "low",
+      "case": "persistent",
+      "fault": "persistent_occlusion",
+      "seed": 4603,
+      "endpoint": "correct_abstention",
+      "id": "hybrid__luna=low__astra=low__case=persistent__seed=4603"
+    },
+    {
+      "group": "hybrid__luna=medium__astra=high",
+      "mode": "luna_hybrid",
+      "fast_effort": "medium",
+      "slow_effort": "high",
+      "case": "nominal",
+      "fault": "none",
+      "seed": 4601,
+      "endpoint": "tower_completion",
+      "id": "hybrid__luna=medium__astra=high__case=nominal__seed=4601"
+    },
+    {
+      "group": "hybrid__luna=high__astra=high",
+      "mode": "luna_hybrid",
+      "fast_effort": "high",
+      "slow_effort": "high",
+      "case": "nominal",
+      "fault": "none",
+      "seed": 4601,
+      "endpoint": "tower_completion",
+      "id": "hybrid__luna=high__astra=high__case=nominal__seed=4601"
+    },
+    {
+      "group": "luna_only__effort=medium",
+      "mode": "luna_only",
+      "fast_effort": "medium",
+      "slow_effort": "high",
+      "case": "transient",
+      "fault": "transient_occlusion",
+      "seed": 4602,
+      "endpoint": "tower_completion",
+      "id": "luna_only__effort=medium__case=transient__seed=4602"
+    },
+    {
+      "group": "luna_only__effort=low",
+      "mode": "luna_only",
+      "fast_effort": "low",
+      "slow_effort": "high",
+      "case": "nominal",
+      "fault": "none",
+      "seed": 4601,
+      "endpoint": "tower_completion",
+      "id": "luna_only__effort=low__case=nominal__seed=4601"
+    },
+    {
+      "group": "hybrid__luna=high__astra=medium",
+      "mode": "luna_hybrid",
+      "fast_effort": "high",
+      "slow_effort": "medium",
+      "case": "persistent",
+      "fault": "persistent_occlusion",
+      "seed": 4603,
+      "endpoint": "correct_abstention",
+      "id": "hybrid__luna=high__astra=medium__case=persistent__seed=4603"
+    },
+    {
+      "group": "hybrid__luna=low__astra=medium",
+      "mode": "luna_hybrid",
+      "fast_effort": "low",
+      "slow_effort": "medium",
+      "case": "nominal",
+      "fault": "none",
+      "seed": 4601,
+      "endpoint": "tower_completion",
+      "id": "hybrid__luna=low__astra=medium__case=nominal__seed=4601"
+    },
+    {
+      "group": "hybrid__luna=high__astra=xhigh",
+      "mode": "luna_hybrid",
+      "fast_effort": "high",
+      "slow_effort": "xhigh",
+      "case": "transient",
+      "fault": "transient_occlusion",
+      "seed": 4602,
+      "endpoint": "tower_completion",
+      "id": "hybrid__luna=high__astra=xhigh__case=transient__seed=4602"
+    },
+    {
+      "group": "hybrid__luna=medium__astra=low",
+      "mode": "luna_hybrid",
+      "fast_effort": "medium",
+      "slow_effort": "low",
+      "case": "nominal",
+      "fault": "none",
+      "seed": 4601,
+      "endpoint": "tower_completion",
+      "id": "hybrid__luna=medium__astra=low__case=nominal__seed=4601"
+    },
+    {
+      "group": "hybrid__luna=high__astra=high",
+      "mode": "luna_hybrid",
+      "fast_effort": "high",
+      "slow_effort": "high",
+      "case": "persistent",
+      "fault": "persistent_occlusion",
+      "seed": 4603,
+      "endpoint": "correct_abstention",
+      "id": "hybrid__luna=high__astra=high__case=persistent__seed=4603"
+    },
+    {
+      "group": "astra_only__effort=high",
+      "mode": "astra_only",
+      "fast_effort": "high",
+      "slow_effort": "high",
+      "case": "persistent",
+      "fault": "persistent_occlusion",
+      "seed": 4603,
+      "endpoint": "correct_abstention",
+      "id": "astra_only__effort=high__case=persistent__seed=4603"
+    },
+    {
+      "group": "hybrid__luna=low__astra=xhigh",
+      "mode": "luna_hybrid",
+      "fast_effort": "low",
+      "slow_effort": "xhigh",
+      "case": "nominal",
+      "fault": "none",
+      "seed": 4601,
+      "endpoint": "tower_completion",
+      "id": "hybrid__luna=low__astra=xhigh__case=nominal__seed=4601"
+    },
+    {
+      "group": "hybrid__luna=medium__astra=high",
+      "mode": "luna_hybrid",
+      "fast_effort": "medium",
+      "slow_effort": "high",
+      "case": "transient",
+      "fault": "transient_occlusion",
+      "seed": 4602,
+      "endpoint": "tower_completion",
+      "id": "hybrid__luna=medium__astra=high__case=transient__seed=4602"
+    },
+    {
+      "group": "hybrid__luna=medium__astra=low",
+      "mode": "luna_hybrid",
+      "fast_effort": "medium",
+      "slow_effort": "low",
+      "case": "transient",
+      "fault": "transient_occlusion",
+      "seed": 4602,
+      "endpoint": "tower_completion",
+      "id": "hybrid__luna=medium__astra=low__case=transient__seed=4602"
+    },
+    {
+      "group": "hybrid__luna=low__astra=high",
+      "mode": "luna_hybrid",
+      "fast_effort": "low",
+      "slow_effort": "high",
+      "case": "transient",
+      "fault": "transient_occlusion",
+      "seed": 4602,
+      "endpoint": "tower_completion",
+      "id": "hybrid__luna=low__astra=high__case=transient__seed=4602"
+    },
+    {
+      "group": "hybrid__luna=medium__astra=medium",
+      "mode": "luna_hybrid",
+      "fast_effort": "medium",
+      "slow_effort": "medium",
+      "case": "nominal",
+      "fault": "none",
+      "seed": 4601,
+      "endpoint": "tower_completion",
+      "id": "hybrid__luna=medium__astra=medium__case=nominal__seed=4601"
+    },
+    {
+      "group": "hybrid__luna=low__astra=xhigh",
+      "mode": "luna_hybrid",
+      "fast_effort": "low",
+      "slow_effort": "xhigh",
+      "case": "transient",
+      "fault": "transient_occlusion",
+      "seed": 4602,
+      "endpoint": "tower_completion",
+      "id": "hybrid__luna=low__astra=xhigh__case=transient__seed=4602"
+    },
+    {
+      "group": "hybrid__luna=medium__astra=high",
+      "mode": "luna_hybrid",
+      "fast_effort": "medium",
+      "slow_effort": "high",
+      "case": "persistent",
+      "fault": "persistent_occlusion",
+      "seed": 4603,
+      "endpoint": "correct_abstention",
+      "id": "hybrid__luna=medium__astra=high__case=persistent__seed=4603"
+    },
+    {
+      "group": "astra_only__effort=xhigh",
+      "mode": "astra_only",
+      "fast_effort": "xhigh",
+      "slow_effort": "xhigh",
+      "case": "transient",
+      "fault": "transient_occlusion",
+      "seed": 4602,
+      "endpoint": "tower_completion",
+      "id": "astra_only__effort=xhigh__case=transient__seed=4602"
+    },
+    {
+      "group": "luna_only__effort=low",
+      "mode": "luna_only",
+      "fast_effort": "low",
+      "slow_effort": "high",
+      "case": "persistent",
+      "fault": "persistent_occlusion",
+      "seed": 4603,
+      "endpoint": "correct_abstention",
+      "id": "luna_only__effort=low__case=persistent__seed=4603"
+    },
+    {
+      "group": "astra_only__effort=low",
+      "mode": "astra_only",
+      "fast_effort": "low",
+      "slow_effort": "low",
+      "case": "persistent",
+      "fault": "persistent_occlusion",
+      "seed": 4603,
+      "endpoint": "correct_abstention",
+      "id": "astra_only__effort=low__case=persistent__seed=4603"
+    },
+    {
+      "group": "hybrid__luna=high__astra=xhigh",
+      "mode": "luna_hybrid",
+      "fast_effort": "high",
+      "slow_effort": "xhigh",
+      "case": "nominal",
+      "fault": "none",
+      "seed": 4601,
+      "endpoint": "tower_completion",
+      "id": "hybrid__luna=high__astra=xhigh__case=nominal__seed=4601"
+    },
+    {
+      "group": "hybrid__luna=low__astra=low",
+      "mode": "luna_hybrid",
+      "fast_effort": "low",
+      "slow_effort": "low",
+      "case": "transient",
+      "fault": "transient_occlusion",
+      "seed": 4602,
+      "endpoint": "tower_completion",
+      "id": "hybrid__luna=low__astra=low__case=transient__seed=4602"
+    },
+    {
+      "group": "astra_only__effort=high",
+      "mode": "astra_only",
+      "fast_effort": "high",
+      "slow_effort": "high",
+      "case": "transient",
+      "fault": "transient_occlusion",
+      "seed": 4602,
+      "endpoint": "tower_completion",
+      "id": "astra_only__effort=high__case=transient__seed=4602"
+    },
+    {
+      "group": "hybrid__luna=low__astra=xhigh",
+      "mode": "luna_hybrid",
+      "fast_effort": "low",
+      "slow_effort": "xhigh",
+      "case": "persistent",
+      "fault": "persistent_occlusion",
+      "seed": 4603,
+      "endpoint": "correct_abstention",
+      "id": "hybrid__luna=low__astra=xhigh__case=persistent__seed=4603"
+    },
+    {
+      "group": "hybrid__luna=medium__astra=xhigh",
+      "mode": "luna_hybrid",
+      "fast_effort": "medium",
+      "slow_effort": "xhigh",
+      "case": "persistent",
+      "fault": "persistent_occlusion",
+      "seed": 4603,
+      "endpoint": "correct_abstention",
+      "id": "hybrid__luna=medium__astra=xhigh__case=persistent__seed=4603"
+    },
+    {
+      "group": "luna_only__effort=medium",
+      "mode": "luna_only",
+      "fast_effort": "medium",
+      "slow_effort": "high",
+      "case": "nominal",
+      "fault": "none",
+      "seed": 4601,
+      "endpoint": "tower_completion",
+      "id": "luna_only__effort=medium__case=nominal__seed=4601"
+    },
+    {
+      "group": "astra_only__effort=high",
+      "mode": "astra_only",
+      "fast_effort": "high",
+      "slow_effort": "high",
+      "case": "nominal",
+      "fault": "none",
+      "seed": 4601,
+      "endpoint": "tower_completion",
+      "id": "astra_only__effort=high__case=nominal__seed=4601"
+    },
+    {
+      "group": "hybrid__luna=low__astra=high",
+      "mode": "luna_hybrid",
+      "fast_effort": "low",
+      "slow_effort": "high",
+      "case": "persistent",
+      "fault": "persistent_occlusion",
+      "seed": 4603,
+      "endpoint": "correct_abstention",
+      "id": "hybrid__luna=low__astra=high__case=persistent__seed=4603"
+    },
+    {
+      "group": "astra_only__effort=xhigh",
+      "mode": "astra_only",
+      "fast_effort": "xhigh",
+      "slow_effort": "xhigh",
+      "case": "nominal",
+      "fault": "none",
+      "seed": 4601,
+      "endpoint": "tower_completion",
+      "id": "astra_only__effort=xhigh__case=nominal__seed=4601"
+    },
+    {
+      "group": "hybrid__luna=high__astra=low",
+      "mode": "luna_hybrid",
+      "fast_effort": "high",
+      "slow_effort": "low",
+      "case": "persistent",
+      "fault": "persistent_occlusion",
+      "seed": 4603,
+      "endpoint": "correct_abstention",
+      "id": "hybrid__luna=high__astra=low__case=persistent__seed=4603"
+    },
+    {
+      "group": "luna_only__effort=medium",
+      "mode": "luna_only",
+      "fast_effort": "medium",
+      "slow_effort": "high",
+      "case": "persistent",
+      "fault": "persistent_occlusion",
+      "seed": 4603,
+      "endpoint": "correct_abstention",
+      "id": "luna_only__effort=medium__case=persistent__seed=4603"
+    }
+  ],
+  "limitations": [
+    "Three matched case/seed combinations, one per condition; descriptive pilot, not generalization accuracy.",
+    "CLI startup, shared-machine load and provider queueing are included in latency.",
+    "Subscription dollar costs are unknown.",
+    "No model control during grasp or placement."
+  ]
+}
