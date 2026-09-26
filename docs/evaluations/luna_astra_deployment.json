@@ -1,0 +1,67 @@
+{
+  "public_url": "https://aspire-so100-recovery.vercel.app/luna-astra/",
+  "verified_at": "2026-09-26T02:56:44.467725+00:00",
+  "deployment_id": "dpl_EqmPDDuoRZNUhuC9XTsABHchLQqJ",
+  "source_commit": "f2be9cb",
+  "anonymous_access": true,
+  "http_checks": [
+    {
+      "path": "luna-astra/index.html",
+      "status": 200,
+      "sha256_match": true
+    },
+    {
+      "path": "luna-astra/app.js",
+      "status": 200,
+      "sha256_match": true
+    },
+    {
+      "path": "luna-astra/style.css",
+      "status": 200,
+      "sha256_match": true
+    },
+    {
+      "path": "luna-astra/results.json",
+      "status": 200,
+      "sha256_match": true
+    },
+    {
+      "path": "luna-astra/campaign.json",
+      "status": 200,
+      "sha256_match": true
+    },
+    {
+      "path": "luna-astra/README.md",
+      "status": 200,
+      "sha256_match": true
+    },
+    {
+      "path": "luna-astra/audit.json",
+      "status": 200,
+      "sha256_match": true
+    },
+    {
+      "path": "luna-astra/media/hybrid__luna-low__astra-high__case-transient__seed-4602.mp4",
+      "status": 200,
+      "sha256_match": true
+    }
+  ],
+  "video_range_status": 206,
+  "private_paths_return_404": true,
+  "independent_of_local_mac": true,
+  "git_auto_deploy_connected": false,
+  "browser_checks": {
+    "public_video_playback": {
+      "configuration": "hybrid__luna=low__astra=high",
+      "case": "transient",
+      "duration_seconds": 32.666667,
+      "observed_playback_seconds": 3.849631,
+      "paused": false,
+      "error": null
+    },
+    "all_12_matrix_cells_loaded": true,
+    "mobile_viewport_width": 390,
+    "mobile_document_width": 390,
+    "captured_console_errors": 0
+  }
+}
