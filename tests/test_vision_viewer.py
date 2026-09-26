@@ -1,6 +1,7 @@
 """Checks for the Linux worker and saved-state Viser replay path."""
 
 import importlib.util
+import json
 from pathlib import Path
 from tempfile import TemporaryDirectory
 import sys
@@ -10,7 +11,7 @@ from unittest.mock import patch
 import mujoco
 import numpy as np
 
-from aspire_so100.playback import load_vision_rollout
+from aspire_so100.playback import load_vision_rollout, load_trajectory_review, RolloutPlayback
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -54,3 +55,40 @@ class VisionViewerTests(unittest.TestCase):
                                 timestep=model.opt.timestep, state_type=int(state_type))
             with self.assertRaisesRegex(ValueError, "state size"):
                 load_vision_rollout(Path(tmp), model)
+
+    def test_trajectory_review_aligns_calls_with_saved_tool_motion(self):
+        model = mujoco.MjModel.from_xml_string(
+            "<mujoco><worldbody><body name='robot/link'><joint name='x' type='slide' axis='1 0 0'/>"
+            "<geom size='.01'/><site name='tool' pos='0 0 .1'/></body></worldbody></mujoco>")
+        data = mujoco.MjData(model)
+        state_type = mujoco.mjtState.mjSTATE_INTEGRATION
+        states=[]
+        for time,x in ((1.,0.),(2.,.1),(3.,.2)):
+            data.time=time;data.qpos[0]=x;mujoco.mj_forward(model,data)
+            state=np.empty(mujoco.mj_stateSize(model,state_type))
+            mujoco.mj_getState(model,data,state,state_type);states.append(state)
+        with TemporaryDirectory() as tmp:
+            trial=Path(tmp)
+            (trial/'api_calls.json').write_text(json.dumps([
+                {'time':1.2,'method':'plan_tool','params':{'position':[.1,0,.1]}},
+                {'time':1.5,'method':'move_tool','params':{'position':[.2,0,.1],'seconds':1.}},
+                {'time':2.5,'method':'gripper','params':{'angle':-.1,'seconds':.5}},
+            ]))
+            (trial/'result.json').write_text(json.dumps({'policy_sim_seconds':2.0}))
+            review=load_trajectory_review(trial,model,data,np.asarray(states),state_type,
+                                          model.site('tool').id)
+            np.testing.assert_allclose(review['times'],[0.,1.,2.])
+            np.testing.assert_allclose(review['positions'][:,0],[0.,.1,.2])
+            np.testing.assert_array_equal(review['robot_body_ids'],[1])
+            self.assertEqual(review['robot_positions'].shape,(3,1,3))
+            self.assertEqual(review['robot_quaternions'].shape,(3,1,4))
+            np.testing.assert_allclose(review['robot_positions'][:,0,0],[0.,.1,.2])
+            self.assertAlmostEqual(review['plans'][0]['time'],.2)
+            self.assertAlmostEqual(review['motions'][0]['time'],.5)
+            self.assertEqual(review['events'][-1]['method'],'gripper')
+            self.assertEqual(review['policy_end'],2.)
+            env=type('Saved',(),{'frames':np.asarray(states),'state_type':state_type})()
+            playback=RolloutPlayback(env,review['times'])
+            playback.seek(model,data,1.6)
+            self.assertEqual(playback.index,2)
+            self.assertAlmostEqual(data.qpos[0],.2)
