@@ -1,0 +1,1 @@
+{"transport":"collaboration.spawn_agent","model":"gpt-6-luna","effort":"low","fork_turns":"none","case":"dev-000 recorded RGB-D summary","robot_execution":false,"response":{"action":"reobserve","confidence":0.99},"included_in_batch":false}

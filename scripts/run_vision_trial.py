@@ -158,8 +158,10 @@ def main():
     p.add_argument('--task', choices=('tower','prism','inventory_prism'), default='tower')
     p.add_argument('--object-count', type=int, help='Inventory sample size, default 6; only for inventory_prism')
     p.add_argument('--sensor-blackout',action='store_true',help='Diagnostic: remove all policy RGB-D pixels; evaluation remains unchanged')
-    p.add_argument('--decision-mode',choices=('hybrid','astra_only','jev_only'))
+    p.add_argument('--decision-mode',choices=('hybrid','astra_only','jev_only','luna_hybrid','luna_only'))
     p.add_argument('--decision-confidence',type=float,default=.8)
+    p.add_argument('--fast-effort',choices=('low','medium','high','xhigh'),default='low')
+    p.add_argument('--slow-effort',choices=('low','medium','high','xhigh'),default='high')
     a=p.parse_args()
     if not 0 <= a.decision_confidence <= 1:p.error('confidence must be 0..1')
     if (a.task == 'inventory_prism') != (a.layout == 'sampled'):
@@ -173,7 +175,7 @@ def main():
     decision_session=None
     if a.decision_mode:
         from aspire_so100.decision_session import DecisionSession
-        decision_session=DecisionSession(a.decision_mode,a.output,a.decision_confidence)
+        decision_session=DecisionSession(a.decision_mode,a.output,a.decision_confidence,fast_effort=a.fast_effort,slow_effort=a.slow_effort)
     calls=[];error=None;images=[];cpu_profile=None
     try:
         env.reset(a.seed, layout=a.layout);env.frames.clear();env.capture()

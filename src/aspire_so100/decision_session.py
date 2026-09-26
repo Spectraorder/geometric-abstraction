@@ -5,9 +5,10 @@ from aspire_so100.dual_system import DualController,Plan,JevClient,actor_state
 from aspire_so100.astra_decision import Astra
 
 class DecisionSession:
-    def __init__(self,mode,output,confidence=.8,max_decisions=4):
+    def __init__(self,mode,output,confidence=.8,max_decisions=4,fast_effort='low',slow_effort='high'):
         self.mode=mode;self.output=Path(output);self.max_decisions=max_decisions
-        self.planner=Astra(reasoning='high');self.decider=Astra(reasoning='low')
+        self.planner=Astra(reasoning=slow_effort)
+        self.decider=Astra(reasoning=fast_effort,model='gpt-6-luna' if mode in {'luna_hybrid','luna_only'} else 'gpt-6-astra')
         self.plan=Plan(confidence_threshold=confidence);self.controller=None;self.records=[]
         self.started=time.perf_counter()
     def decide(self,state,simulation_time):
@@ -16,9 +17,9 @@ class DecisionSession:
         if not math.isfinite(simulation_time) or abs(state['time_s']-simulation_time)>.01:raise ValueError('Stale sensor time')
         if len(self.records)>=self.max_decisions:raise ValueError('High-level decision budget exhausted')
         if self.controller is None:
-            if self.mode!='jev_only':self.plan=self.planner.replan(state,self.plan,'initial_plan')
-            self.controller=DualController(self.decider.decide if self.mode=='astra_only' else JevClient(),
-                self.planner.replan if self.mode!='jev_only' else None,self.plan,mode=self.mode)
+            if self.mode not in {'jev_only','luna_only'}:self.plan=self.planner.replan(state,self.plan,'initial_plan')
+            self.controller=DualController(self.decider.decide if self.mode in {'astra_only','luna_hybrid','luna_only'} else JevClient(),
+                self.planner.replan if self.mode not in {'jev_only','luna_only'} else None,self.plan,mode=self.mode)
         before=time.perf_counter();event=self.controller.tick(state)
         event['state']=state;event['service_seconds']=time.perf_counter()-before
         self.records.append(event);self.write()
@@ -27,6 +28,8 @@ class DecisionSession:
     def write(self):
         data={'mode':self.mode,'scope':'initial_observation_gate_then_frozen_visual_skill',
               'simulation_paused_during_model_calls':True,'records':self.records,
-              'planner_calls':self.planner.calls,'astra_decision_calls':self.decider.calls,
+              'planner_calls':self.planner.calls,'astra_decision_calls':self.decider.calls if self.decider.model=='gpt-6-astra' else [],
+              'fast_calls':self.decider.calls,'fast_model':self.decider.model,
+              'fast_effort':self.decider.reasoning,'slow_effort':self.planner.reasoning,
               'threshold':self.plan.confidence_threshold,'threshold_calibrated':False}
         (self.output/'decision_trace.json').write_text(json.dumps(data,indent=2,allow_nan=False)+'\n')

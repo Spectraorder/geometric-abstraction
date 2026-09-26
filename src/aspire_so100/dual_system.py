@@ -98,7 +98,7 @@ class DualController:
     executor check; a revised plan always returns reobserve/stop, never immediate motion.
     """
     def __init__(self, decider, replanner=None, plan=None, mode='hybrid'):
-        if mode not in {'hybrid','astra_only','jev_only'}: raise ValueError('Unknown mode')
+        if mode not in {'hybrid','astra_only','jev_only','luna_hybrid','luna_only'}: raise ValueError('Unknown mode')
         self.decider,self.replanner,self.plan,self.mode=decider,replanner,plan or Plan(),mode
         self.slow_calls=0;self.last_version=-1;self.trace=[]
 
@@ -122,7 +122,7 @@ class DualController:
         action=reply['action'] if trigger is None else ('reobserve' if trigger=='low_confidence' and 'reobserve' in permitted(s) else 'stop')
         old_version=self.plan.version
         old_description=self.plan.description
-        if trigger and self.mode!='jev_only' and self.replanner and self.slow_calls<self.plan.max_slow_calls:
+        if trigger and self.mode not in {'jev_only','luna_only'} and self.replanner and self.slow_calls<self.plan.max_slow_calls:
             self.slow_calls+=1
             try:
                 update=self.replanner(s,self.plan,trigger)
