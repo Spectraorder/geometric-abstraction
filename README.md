@@ -11,6 +11,7 @@ cubes, a thin prism and a cylinder, with unique colors and varied layouts.
 
 ## Read first
 
+- [Run experiments](docs/RUN_EXPERIMENTS.md): setup, registration, training, testing and audit.
 - [Documentation index](docs/README.md): method, interface, protocol and results.
 - [Method](docs/METHOD.md): what the abstraction contains and how it updates.
 - [Latest results](docs/PARTIAL_GEOMETRY_BUDGET_LIMITED_RESULTS.md): preliminary,

@@ -1,0 +1,33 @@
+{
+  "purpose": "Paper methodology illustration, not an experimental result",
+  "source_sensor": "outputs/geometry_cube_stack_preflight_02/basic/geometry_preflight/trials/seed_2027100302/camera_000.npz",
+  "source_sha256": "5aefc6614b3b362f3fc2c56ad17e9c951d83286ef901b018052480928c71ebb0",
+  "observation_time": 0.6500000000000005,
+  "panel_a": "Recorded preflight RGB; crop x=111..252, y=18..178; calibrated depth is available but not pictured",
+  "panels_b_c_d": "Schematic geometry, illustrative metric values, and conceptual interfaces; not fitted to panel (a)",
+  "illustrative_object": "green",
+  "illustrative_support": "blue",
+  "center_m": [
+    0.12,
+    -0.01,
+    0.1
+  ],
+  "desired_center_m": [
+    0.1,
+    0.02,
+    0.06
+  ],
+  "remaining_translation_m": [
+    -0.02,
+    0.03,
+    -0.04
+  ],
+  "solid_paths": "Implemented geometry interface and policy training",
+  "dashed_paths": "Planned continuous online decisions and reuse of policy experience",
+  "source_script_sha256": "31ecf3441975521618d9cdea1daed60c977784e20b105480621d5f72c10bc01a",
+  "outputs": {
+    "agentic_geometry_method.png": "098590ca3458e97e453f773cb528390c71ef3ff5e6bff8efc7da24006a00d982",
+    "agentic_geometry_method.pdf": "e61f93971b17071d88217284dfb0009622cfaabb35b29ca6b2692f1e34691a2c",
+    "agentic_geometry_method.svg": "282bb023b14a4932a99a8f8f82acda340c7fbcb7131642c619732328ed25c3a8"
+  }
+}

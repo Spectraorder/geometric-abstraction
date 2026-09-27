@@ -1,6 +1,13 @@
 # Current experiment documentation
 
-Use these documents in order; the historical archive is not required reading.
+Start with [Running experiments](RUN_EXPERIMENTS.md) for commands and budget accounting.
+For background, use the documents below; historical material is optional.
+
+The new [three-cube stacking study](THREE_CUBE_GEOMETRY_STUDY.md) uses the updated
+geometry bundle and plans all iteration curves before training.
+
+For paper preparation, see [Geometric abstraction for agentic policy](GEOMETRIC_ABSTRACTION_METHODOLOGY.md),
+covering the text and symbolic interface, current policy training, and planned continuous online evaluation.
 
 1. [Method](METHOD.md): compact geometry, state updates and limitations.
 2. [Base/Full interface](VISUAL_INPUT_COMPARISON.md): matched input and action boundary.
@@ -15,10 +22,12 @@ the latest results and `AGENTS.md` describe the current execution boundary.
 
 ## Supporting diagnostics
 
+- [Point-based novel-block geometry](NOVEL_OBJECT_GEOMETRY_DESIGN.md): current design, API and tests.
+- [Novel-block validation](NOVEL_OBJECT_GEOMETRY_VALIDATION.md): physical diagnostics, isolated variants, results and reproduction commands.
 - [Conditional motion memory](CONDITIONAL_ATTACHMENT_EVIDENCE.md): offline point/region transport, contradictions and uncertainty.
 - [Explicit release/reacquisition](EXPLICIT_OPEN_GRIPPER_PROTOTYPE.md): separate human-designed counterfactual, not agent-learning evidence.
 
-These two documents remain here because the registered protocol links them.
+The motion-memory and release/reacquisition documents remain here because the registered protocol links them.
 Their prototypes are not additional treatment arms.
 
 ## Historical material
