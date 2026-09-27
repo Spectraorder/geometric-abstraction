@@ -21,6 +21,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent
 SO100_XML = PROJECT_ROOT / "assets" / "trs_so_arm100" / "so_arm100.xml"
 
 TABLE_HEIGHT = 0.40
+SIDE_CAMERA_DISTANCE_SCALE = 0.76
 
 
 def get_so100_spec() -> mujoco.MjSpec:
@@ -47,22 +48,24 @@ def get_table_spec() -> mujoco.MjSpec:
     spec = mujoco.MjSpec()
 
     body = spec.worldbody.add_body(name="table")
-    # Raised mast on the right edge, looking diagonally toward the workspace.
+    # Move 24 percent closer along the original optical axis; retain workspace margin.
+    scale = SIDE_CAMERA_DISTANCE_SCALE
+    camera_x, camera_y, camera_z = .48 * scale, -.30 * scale, .075 + .65 * scale
     horizontal = math.hypot(.48, .30)
     length = math.hypot(horizontal, .65)
     body.add_camera(
         name="overhead_camera",
-        pos=(0.48, -0.30, 0.725),
+        pos=(camera_x, camera_y, camera_z),
         xyaxes=(.30 / horizontal, .48 / horizontal, 0.0,
                 -.65 * .48 / (length * horizontal),
                 .65 * .30 / (length * horizontal), horizontal / length),
         fovy=60.0,
     )
     body.add_geom(name="camera_mast", type=mujoco.mjtGeom.mjGEOM_CYLINDER,
-                  pos=(.51,-.30,.35), size=(.012,.375), rgba=(.15,.17,.19,1),
+                  pos=(camera_x+.03, camera_y, camera_z/2), size=(.012, camera_z/2+.025), rgba=(.15,.17,.19,1),
                   contype=0, conaffinity=0, mass=0)
     body.add_geom(name="camera_mount", type=mujoco.mjtGeom.mjGEOM_BOX,
-                  pos=(.51,-.30,.725), size=(.025,.035,.022), rgba=(.12,.12,.12,1),
+                  pos=(camera_x+.03, camera_y, camera_z), size=(.025,.035,.022), rgba=(.12,.12,.12,1),
                   contype=0, conaffinity=0, mass=0)
     body.add_geom(
         name="table_top",

@@ -91,6 +91,37 @@ class SharedObserverTests(unittest.TestCase):
         self.assertGreater(len(calls), 3)
         self.assertFalse(any(action[0] == 'gripper' for action in api.actions))
 
+    def test_post_release_observation_failure_preserves_completed_release(self):
+        for error_type in (ValueError, RuntimeError):
+            with self.subTest(error=error_type.__name__):
+                api = PixelsOnlyAPI(); pnp = ObservedPnP(api)
+                fixed = {'center': np.array([.1, -.2, .418]), 'bottom': .403, 'extent_z': .015}
+                pnp.held = {'color': 'red', 'confirmed': True, 'park': api.position.copy()}
+                def observe(color, near=None):
+                    if pnp.held is None:
+                        raise error_type('Follow-up fit unavailable')
+                    return fixed
+                pnp.observe = observe
+                result = pnp.place([.1, -.2, .4])
+                self.assertEqual(result['status'], 'released')
+                self.assertFalse(result['held'])
+                self.assertIsNone(pnp.held)
+                self.assertFalse(result['task_success_certified'])
+                self.assertIn('Follow-up fit unavailable', result['observation_unavailable'])
+                self.assertNotIn('observation', result)
+                self.assertTrue(any(a[0] == 'gripper' for a in api.actions))
+
+    def test_pre_release_observation_failure_still_propagates(self):
+        api = PixelsOnlyAPI(); pnp = ObservedPnP(api)
+        pnp.held = {'color': 'red', 'confirmed': True, 'park': api.position.copy()}
+        def observe(color, near=None):
+            raise ValueError('Current grasp geometry unavailable')
+        pnp.observe = observe
+        with self.assertRaisesRegex(ValueError, 'Current grasp geometry'):
+            pnp.place([.1, -.2, .4])
+        self.assertIsNotNone(pnp.held)
+        self.assertEqual(api.actions, [])
+
     def test_view_fallback_requires_same_time_and_records_unavailable_side(self):
         initial = PixelsOnlyAPI().frame
         observer = MixedPnPObservation([{'color': 'blue', 'shape': 'cube'}])

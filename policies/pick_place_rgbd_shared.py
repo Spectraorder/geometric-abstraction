@@ -260,7 +260,9 @@ class RGBDPickPlace:
                   'surface_gap_m': gap, 'task_success_certified': False}
         try:
             result['observation'] = self.observe(color)
-        except RuntimeError as error:
+        except (ValueError, RuntimeError) as error:
+            # Release already happened. A missing follow-up estimate must not
+            # turn a completed release into an exception or certify stability.
             result['observation_unavailable'] = str(error)
         return result
 

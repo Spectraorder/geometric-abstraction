@@ -92,12 +92,22 @@ def run(api):
             xy = np.mean([fit['center'][:2] for fit in supports], axis=0)+unit*offset
             point = np.r_[xy, max(fit['top'] for fit in supports)]
         session.checkpoint(node['color'], 'before_pick')
-        picked = session.pick(node['color'], transit_z=float(point[2]+.085))
+        try:
+            picked = session.pick(node['color'], transit_z=float(point[2]+.085))
+        except (ValueError, RuntimeError) as error:
+            session.checkpoint(node['color'], 'pick_exception', action_status='exception')
+            api.note(node['key']+': observation unresolved during pick: '+str(error))
+            raise
         session.checkpoint(node['color'], 'pick', action_status=picked['status'])
         if not picked['held']:
             api.note(node['key']+': '+picked['status'])
             return
-        result = session.place(point)
+        try:
+            result = session.place(point)
+        except (ValueError, RuntimeError) as error:
+            session.checkpoint(node['color'], 'place_exception', action_status='exception')
+            api.note(node['key']+': observation unresolved during place: '+str(error))
+            raise
         session.checkpoint(node['color'], 'place', action_status=result['status'])
         api.note(node['key']+': '+result['status'])
         if result['status'] != 'released':
