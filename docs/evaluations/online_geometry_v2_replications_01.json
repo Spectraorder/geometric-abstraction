@@ -1,0 +1,3420 @@
+{
+  "schema": "online_geometry_replications_report_v2",
+  "protocol_sha256": "e095f48ff4d1dc065e791b8b1e234776c7aaffa9c23fc9709992d87a96383706",
+  "method": "consistency-gated instantaneous online state plus derived feedback; shared PnP execution",
+  "replica_rows": [
+    {
+      "replica": "replica_01",
+      "raw_training_curve": [
+        1,
+        1,
+        3,
+        5
+      ],
+      "symbolic_training_curve": [
+        1,
+        0,
+        3,
+        5
+      ],
+      "raw_threshold_revision": 3,
+      "symbolic_threshold_revision": 3,
+      "threshold_order": "same_revision",
+      "raw_reserved_successes": 28,
+      "symbolic_reserved_successes": 29,
+      "reserved_trials_per_arm": 30,
+      "reserved_difference_pp": 3.3333333333333326,
+      "paired_reserved": {
+        "both_success": 27,
+        "raw_only": 1,
+        "symbolic_only": 2,
+        "both_fail": 0,
+        "exact_mcnemar_two_sided_p": 1.0,
+        "interpretation": "Descriptive pilot statistic; independent agent campaigns are still required."
+      }
+    },
+    {
+      "replica": "replica_02",
+      "raw_training_curve": [
+        2,
+        5,
+        5,
+        5
+      ],
+      "symbolic_training_curve": [
+        2,
+        5,
+        5,
+        5
+      ],
+      "raw_threshold_revision": 1,
+      "symbolic_threshold_revision": 1,
+      "threshold_order": "same_revision",
+      "raw_reserved_successes": 30,
+      "symbolic_reserved_successes": 28,
+      "reserved_trials_per_arm": 30,
+      "reserved_difference_pp": -6.666666666666665,
+      "paired_reserved": {
+        "both_success": 28,
+        "raw_only": 2,
+        "symbolic_only": 0,
+        "both_fail": 0,
+        "exact_mcnemar_two_sided_p": 0.5,
+        "interpretation": "Descriptive pilot statistic; independent agent campaigns are still required."
+      }
+    },
+    {
+      "replica": "replica_03",
+      "raw_training_curve": [
+        2,
+        4,
+        5,
+        5
+      ],
+      "symbolic_training_curve": [
+        2,
+        0,
+        1,
+        4
+      ],
+      "raw_threshold_revision": 1,
+      "symbolic_threshold_revision": 3,
+      "threshold_order": "raw_earlier",
+      "raw_reserved_successes": 26,
+      "symbolic_reserved_successes": 29,
+      "reserved_trials_per_arm": 30,
+      "reserved_difference_pp": 9.999999999999998,
+      "paired_reserved": {
+        "both_success": 25,
+        "raw_only": 1,
+        "symbolic_only": 4,
+        "both_fail": 0,
+        "exact_mcnemar_two_sided_p": 0.375,
+        "interpretation": "Descriptive pilot statistic; independent agent campaigns are still required."
+      }
+    }
+  ],
+  "replicas": {
+    "replica_01": {
+      "campaign": "outputs/online_geometry_v2_replications_01/replica_01",
+      "manifest_sha256": "cbe9d88ab8b809969f78a576ba221a160b282af503beff57eaf77418d198dca4",
+      "treatment": "online action-free instantaneous symbolic/metric state plus matched sensor-derived feedback",
+      "runtime_library": "geometry.py",
+      "temporal_memory": false,
+      "arms": {
+        "raw": {
+          "training_curve": [
+            {
+              "revision": 0,
+              "successes": 1,
+              "allotted_rollout_slots": 5,
+              "executed_rollouts": 5,
+              "validation_error": null
+            },
+            {
+              "revision": 1,
+              "successes": 1,
+              "allotted_rollout_slots": 5,
+              "executed_rollouts": 5,
+              "validation_error": null
+            },
+            {
+              "revision": 2,
+              "successes": 3,
+              "allotted_rollout_slots": 5,
+              "executed_rollouts": 5,
+              "validation_error": null
+            },
+            {
+              "revision": 3,
+              "successes": 5,
+              "allotted_rollout_slots": 5,
+              "executed_rollouts": 5,
+              "validation_error": null
+            }
+          ],
+          "first_revision_at_80_percent": 3,
+          "rollout_slots_to_80_percent": 20,
+          "selected_revision": 3,
+          "heldout_successes": 28,
+          "heldout_trials": 30,
+          "heldout_sr": 0.9333333333333333,
+          "heldout_wilson_95": [
+            0.7867654163738308,
+            0.9815229762087295
+          ],
+          "generation_usage": {
+            "input_tokens": 66907,
+            "cached_input_tokens": 10624,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 24428,
+            "reasoning_output_tokens": 11388
+          },
+          "generation_seconds": 747.9076015649998,
+          "reserved_results": [
+            {
+              "seed": 72001,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 68,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.7192483559999999,
+                "rpc_cpu_seconds": 0.0925290320000001,
+                "compute_interval_count": 229,
+                "compute_interval_cpu_p50_ms": 0.008651999999997884,
+                "compute_interval_cpu_p95_ms": 12.129450399999994,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72002,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 69,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.7260533909999997,
+                "rpc_cpu_seconds": 0.09364110100000034,
+                "compute_interval_count": 233,
+                "compute_interval_cpu_p50_ms": 0.008895999999980475,
+                "compute_interval_cpu_p95_ms": 12.778687800000005,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72003,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 68,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.7206241280000003,
+                "rpc_cpu_seconds": 0.09151395299999962,
+                "compute_interval_count": 229,
+                "compute_interval_cpu_p50_ms": 0.009020999999997947,
+                "compute_interval_cpu_p95_ms": 12.460801999999987,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72004,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 69,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.7311951369999998,
+                "rpc_cpu_seconds": 0.09316547300000017,
+                "compute_interval_count": 233,
+                "compute_interval_cpu_p50_ms": 0.009262000000009873,
+                "compute_interval_cpu_p95_ms": 12.012505800000033,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72005,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 70,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.7244712759999999,
+                "rpc_cpu_seconds": 0.09536456300000004,
+                "compute_interval_count": 238,
+                "compute_interval_cpu_p50_ms": 0.008461999999986869,
+                "compute_interval_cpu_p95_ms": 12.600396950000002,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72006,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 69,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.7333447569999998,
+                "rpc_cpu_seconds": 0.09363097400000023,
+                "compute_interval_count": 233,
+                "compute_interval_cpu_p50_ms": 0.007267999999949204,
+                "compute_interval_cpu_p95_ms": 12.063569799999993,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72007,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 69,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.7234500639999997,
+                "rpc_cpu_seconds": 0.09421492300000031,
+                "compute_interval_count": 233,
+                "compute_interval_cpu_p50_ms": 0.007152000000010261,
+                "compute_interval_cpu_p95_ms": 12.226691999999998,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72008,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 69,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.7315271050000001,
+                "rpc_cpu_seconds": 0.09393645200000006,
+                "compute_interval_count": 233,
+                "compute_interval_cpu_p50_ms": 0.008752999999972477,
+                "compute_interval_cpu_p95_ms": 12.792519399999968,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72009,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 69,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.7421547670000007,
+                "rpc_cpu_seconds": 0.09533050699999926,
+                "compute_interval_count": 233,
+                "compute_interval_cpu_p50_ms": 0.008926000000020196,
+                "compute_interval_cpu_p95_ms": 12.97833400000001,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72010,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 69,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.7296794779999993,
+                "rpc_cpu_seconds": 0.09573465700000072,
+                "compute_interval_count": 233,
+                "compute_interval_cpu_p50_ms": 0.008671000000015638,
+                "compute_interval_cpu_p95_ms": 12.04452699999995,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72011,
+              "success": false,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": "task_evaluation",
+              "camera_calls": 70,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.7468942880000005,
+                "rpc_cpu_seconds": 0.09614347099999959,
+                "compute_interval_count": 237,
+                "compute_interval_cpu_p50_ms": 0.008367999999925324,
+                "compute_interval_cpu_p95_ms": 12.146896199999953,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72012,
+              "success": false,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": "task_evaluation",
+              "camera_calls": 70,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.7555626759999995,
+                "rpc_cpu_seconds": 0.09668244400000048,
+                "compute_interval_count": 237,
+                "compute_interval_cpu_p50_ms": 0.009168999999975558,
+                "compute_interval_cpu_p95_ms": 12.817045999999964,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72013,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 68,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.7261347200000006,
+                "rpc_cpu_seconds": 0.09511517899999944,
+                "compute_interval_count": 229,
+                "compute_interval_cpu_p50_ms": 0.008722999999988268,
+                "compute_interval_cpu_p95_ms": 12.040562200000004,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72014,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 70,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.7111571429999998,
+                "rpc_cpu_seconds": 0.09190991300000018,
+                "compute_interval_count": 238,
+                "compute_interval_cpu_p50_ms": 0.007327499999987275,
+                "compute_interval_cpu_p95_ms": 11.774330199999996,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72015,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 70,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.7243095639999997,
+                "rpc_cpu_seconds": 0.09343732900000021,
+                "compute_interval_count": 237,
+                "compute_interval_cpu_p50_ms": 0.008561999999989744,
+                "compute_interval_cpu_p95_ms": 12.099319000000026,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72016,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 70,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.7384218369999991,
+                "rpc_cpu_seconds": 0.09753838100000087,
+                "compute_interval_count": 237,
+                "compute_interval_cpu_p50_ms": 0.00906400000000307,
+                "compute_interval_cpu_p95_ms": 11.779850800000013,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72017,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 69,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.7197160610000004,
+                "rpc_cpu_seconds": 0.09399107099999962,
+                "compute_interval_count": 233,
+                "compute_interval_cpu_p50_ms": 0.00806700000000049,
+                "compute_interval_cpu_p95_ms": 12.239144599999983,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72018,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 69,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.7075187539999999,
+                "rpc_cpu_seconds": 0.09356250999999999,
+                "compute_interval_count": 233,
+                "compute_interval_cpu_p50_ms": 0.008263999999980065,
+                "compute_interval_cpu_p95_ms": 11.941707800000023,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72019,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 70,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.7535474970000006,
+                "rpc_cpu_seconds": 0.09608446399999951,
+                "compute_interval_count": 237,
+                "compute_interval_cpu_p50_ms": 0.009187000000021595,
+                "compute_interval_cpu_p95_ms": 12.344171400000011,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72020,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 70,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.718204458,
+                "rpc_cpu_seconds": 0.09679594800000008,
+                "compute_interval_count": 239,
+                "compute_interval_cpu_p50_ms": 0.00882600000001732,
+                "compute_interval_cpu_p95_ms": 11.91868620000005,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72021,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 70,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.7162347519999999,
+                "rpc_cpu_seconds": 0.09530995600000017,
+                "compute_interval_count": 247,
+                "compute_interval_cpu_p50_ms": 0.008390000000080278,
+                "compute_interval_cpu_p95_ms": 11.720585799999922,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72022,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 70,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.7265802989999995,
+                "rpc_cpu_seconds": 0.09667135700000037,
+                "compute_interval_count": 238,
+                "compute_interval_cpu_p50_ms": 0.008233999999995856,
+                "compute_interval_cpu_p95_ms": 12.046486999999948,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72023,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 67,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.7130050589999994,
+                "rpc_cpu_seconds": 0.09314805700000045,
+                "compute_interval_count": 232,
+                "compute_interval_cpu_p50_ms": 0.008685499999994128,
+                "compute_interval_cpu_p95_ms": 12.621459699999944,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72024,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 70,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.7220776519999998,
+                "rpc_cpu_seconds": 0.09586503000000021,
+                "compute_interval_count": 246,
+                "compute_interval_cpu_p50_ms": 0.006908500000013529,
+                "compute_interval_cpu_p95_ms": 11.667907750000026,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72025,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 71,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.7512400700000003,
+                "rpc_cpu_seconds": 0.09776402599999981,
+                "compute_interval_count": 243,
+                "compute_interval_cpu_p50_ms": 0.00794200000003853,
+                "compute_interval_cpu_p95_ms": 12.521341300000042,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72026,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 69,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.7225404059999991,
+                "rpc_cpu_seconds": 0.09560718000000079,
+                "compute_interval_count": 233,
+                "compute_interval_cpu_p50_ms": 0.009327999999975134,
+                "compute_interval_cpu_p95_ms": 12.231115599999963,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72027,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 70,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.7049065920000002,
+                "rpc_cpu_seconds": 0.09080853499999983,
+                "compute_interval_count": 237,
+                "compute_interval_cpu_p50_ms": 0.007690999999976356,
+                "compute_interval_cpu_p95_ms": 11.826913600000054,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72028,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 70,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.7314908010000002,
+                "rpc_cpu_seconds": 0.09679481299999984,
+                "compute_interval_count": 239,
+                "compute_interval_cpu_p50_ms": 0.008791000000007987,
+                "compute_interval_cpu_p95_ms": 12.122652600000068,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72029,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 68,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.6965259250000012,
+                "rpc_cpu_seconds": 0.09319101899999879,
+                "compute_interval_count": 229,
+                "compute_interval_cpu_p50_ms": 0.0087450000000322,
+                "compute_interval_cpu_p95_ms": 12.142688600000007,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72030,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 70,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.7236797569999994,
+                "rpc_cpu_seconds": 0.09561357400000059,
+                "compute_interval_count": 238,
+                "compute_interval_cpu_p50_ms": 0.008384499999902761,
+                "compute_interval_cpu_p95_ms": 11.77247240000001,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            }
+          ]
+        },
+        "symbolic": {
+          "training_curve": [
+            {
+              "revision": 0,
+              "successes": 1,
+              "allotted_rollout_slots": 5,
+              "executed_rollouts": 5,
+              "validation_error": null
+            },
+            {
+              "revision": 1,
+              "successes": 0,
+              "allotted_rollout_slots": 5,
+              "executed_rollouts": 5,
+              "validation_error": null
+            },
+            {
+              "revision": 2,
+              "successes": 3,
+              "allotted_rollout_slots": 5,
+              "executed_rollouts": 5,
+              "validation_error": null
+            },
+            {
+              "revision": 3,
+              "successes": 5,
+              "allotted_rollout_slots": 5,
+              "executed_rollouts": 5,
+              "validation_error": null
+            }
+          ],
+          "first_revision_at_80_percent": 3,
+          "rollout_slots_to_80_percent": 20,
+          "selected_revision": 3,
+          "heldout_successes": 29,
+          "heldout_trials": 30,
+          "heldout_sr": 0.9666666666666667,
+          "heldout_wilson_95": [
+            0.8332960900859082,
+            0.9940914096183874
+          ],
+          "generation_usage": {
+            "input_tokens": 75695,
+            "cached_input_tokens": 21248,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 21839,
+            "reasoning_output_tokens": 10608
+          },
+          "generation_seconds": 668.7502245249989,
+          "reserved_results": [
+            {
+              "seed": 72001,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 52,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.8542865139999998,
+                "rpc_cpu_seconds": 0.07753797700000026,
+                "compute_interval_count": 240,
+                "compute_interval_cpu_p50_ms": 0.012435000000005081,
+                "compute_interval_cpu_p95_ms": 20.5354369,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72002,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 54,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.864461988000001,
+                "rpc_cpu_seconds": 0.07959926399999898,
+                "compute_interval_count": 241,
+                "compute_interval_cpu_p50_ms": 0.00835700000001438,
+                "compute_interval_cpu_p95_ms": 19.848034000000013,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72003,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 54,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.902385428,
+                "rpc_cpu_seconds": 0.081754081,
+                "compute_interval_count": 246,
+                "compute_interval_cpu_p50_ms": 0.009221499999989557,
+                "compute_interval_cpu_p95_ms": 20.517828249999955,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72004,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 54,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.9209223419999998,
+                "rpc_cpu_seconds": 0.08255639400000012,
+                "compute_interval_count": 241,
+                "compute_interval_cpu_p50_ms": 0.00966599999996376,
+                "compute_interval_cpu_p95_ms": 20.996582999999845,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72005,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 55,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.8902621710000002,
+                "rpc_cpu_seconds": 0.08388944099999987,
+                "compute_interval_count": 252,
+                "compute_interval_cpu_p50_ms": 0.00930250000003019,
+                "compute_interval_cpu_p95_ms": 19.839896450000037,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72006,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 52,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.8936013990000007,
+                "rpc_cpu_seconds": 0.08155165099999931,
+                "compute_interval_count": 241,
+                "compute_interval_cpu_p50_ms": 0.01045399999999308,
+                "compute_interval_cpu_p95_ms": 20.815248000000008,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72007,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 55,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.9322150040000001,
+                "rpc_cpu_seconds": 0.08215947099999982,
+                "compute_interval_count": 246,
+                "compute_interval_cpu_p50_ms": 0.008476000000035011,
+                "compute_interval_cpu_p95_ms": 21.804152500000008,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72008,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 55,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.9184466670000012,
+                "rpc_cpu_seconds": 0.08396065399999872,
+                "compute_interval_count": 247,
+                "compute_interval_cpu_p50_ms": 0.011211000000010962,
+                "compute_interval_cpu_p95_ms": 20.65208779999999,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72009,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 54,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.9528706310000008,
+                "rpc_cpu_seconds": 0.08803157599999922,
+                "compute_interval_count": 241,
+                "compute_interval_cpu_p50_ms": 0.009769000000048322,
+                "compute_interval_cpu_p95_ms": 20.598231999999996,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72010,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 56,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.9212612100000006,
+                "rpc_cpu_seconds": 0.0848271369999993,
+                "compute_interval_count": 247,
+                "compute_interval_cpu_p50_ms": 0.009953000000062495,
+                "compute_interval_cpu_p95_ms": 20.46557160000001,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72011,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 53,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.8796529760000004,
+                "rpc_cpu_seconds": 0.08196083299999957,
+                "compute_interval_count": 244,
+                "compute_interval_cpu_p50_ms": 0.008980999999991246,
+                "compute_interval_cpu_p95_ms": 21.261416950000022,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72012,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 55,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.8892103040000001,
+                "rpc_cpu_seconds": 0.08405588799999972,
+                "compute_interval_count": 250,
+                "compute_interval_cpu_p50_ms": 0.009355500000002293,
+                "compute_interval_cpu_p95_ms": 20.22557639999999,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72013,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 38,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.6983566619999997,
+                "rpc_cpu_seconds": 0.060925989000000236,
+                "compute_interval_count": 175,
+                "compute_interval_cpu_p50_ms": 0.012408000000019292,
+                "compute_interval_cpu_p95_ms": 21.37063840000002,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72014,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 55,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.8586265020000008,
+                "rpc_cpu_seconds": 0.08180257299999921,
+                "compute_interval_count": 255,
+                "compute_interval_cpu_p50_ms": 0.009700000000001374,
+                "compute_interval_cpu_p95_ms": 19.159706499999974,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72015,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 41,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.6848915760000005,
+                "rpc_cpu_seconds": 0.061243244999999585,
+                "compute_interval_count": 186,
+                "compute_interval_cpu_p50_ms": 0.01260949999998262,
+                "compute_interval_cpu_p95_ms": 19.475494750000017,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72016,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 56,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.9196804799999996,
+                "rpc_cpu_seconds": 0.08368124800000043,
+                "compute_interval_count": 246,
+                "compute_interval_cpu_p50_ms": 0.01013449999998084,
+                "compute_interval_cpu_p95_ms": 21.12376700000003,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72017,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 65,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.1241184680000003,
+                "rpc_cpu_seconds": 0.10198685099999966,
+                "compute_interval_count": 286,
+                "compute_interval_cpu_p50_ms": 0.009350999999990783,
+                "compute_interval_cpu_p95_ms": 22.87807549999994,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72018,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 44,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.8122135849999998,
+                "rpc_cpu_seconds": 0.07135127700000027,
+                "compute_interval_count": 188,
+                "compute_interval_cpu_p50_ms": 0.013459499999979307,
+                "compute_interval_cpu_p95_ms": 23.383585299999982,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72019,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 56,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.9315018600000002,
+                "rpc_cpu_seconds": 0.08700746899999973,
+                "compute_interval_count": 255,
+                "compute_interval_cpu_p50_ms": 0.01089300000001181,
+                "compute_interval_cpu_p95_ms": 20.95408039999999,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72020,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 40,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.6937531879999999,
+                "rpc_cpu_seconds": 0.06144884800000017,
+                "compute_interval_count": 184,
+                "compute_interval_cpu_p50_ms": 0.012449999999997186,
+                "compute_interval_cpu_p95_ms": 20.40528214999997,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72021,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 55,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.8887623599999994,
+                "rpc_cpu_seconds": 0.08158905400000058,
+                "compute_interval_count": 249,
+                "compute_interval_cpu_p50_ms": 0.010050999999955401,
+                "compute_interval_cpu_p95_ms": 19.829196999999986,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72022,
+              "success": false,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": "task_evaluation",
+              "camera_calls": 40,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.7253120159999997,
+                "rpc_cpu_seconds": 0.0647789130000003,
+                "compute_interval_count": 187,
+                "compute_interval_cpu_p50_ms": 0.0109600000000043,
+                "compute_interval_cpu_p95_ms": 20.59545939999998,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72023,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 53,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.909484935000001,
+                "rpc_cpu_seconds": 0.08248310299999903,
+                "compute_interval_count": 240,
+                "compute_interval_cpu_p50_ms": 0.010708500000011778,
+                "compute_interval_cpu_p95_ms": 21.308894349999928,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72024,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 54,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.9096626530000005,
+                "rpc_cpu_seconds": 0.08789691499999949,
+                "compute_interval_count": 248,
+                "compute_interval_cpu_p50_ms": 0.008597500000040448,
+                "compute_interval_cpu_p95_ms": 20.57033665000003,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72025,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 55,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.9053594199999997,
+                "rpc_cpu_seconds": 0.08228328800000018,
+                "compute_interval_count": 252,
+                "compute_interval_cpu_p50_ms": 0.009148999999986085,
+                "compute_interval_cpu_p95_ms": 20.678987099999983,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72026,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 53,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.9017163279999997,
+                "rpc_cpu_seconds": 0.08106610700000041,
+                "compute_interval_count": 247,
+                "compute_interval_cpu_p50_ms": 0.012347000000023645,
+                "compute_interval_cpu_p95_ms": 20.740498600000045,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72027,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 39,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.6884927709999996,
+                "rpc_cpu_seconds": 0.05894001500000043,
+                "compute_interval_count": 182,
+                "compute_interval_cpu_p50_ms": 0.012395499999984239,
+                "compute_interval_cpu_p95_ms": 21.04655890000001,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72028,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 55,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.8852956479999994,
+                "rpc_cpu_seconds": 0.08234079500000058,
+                "compute_interval_count": 250,
+                "compute_interval_cpu_p50_ms": 0.00926400000000882,
+                "compute_interval_cpu_p95_ms": 20.592592749999977,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72029,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 66,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.0150500069999995,
+                "rpc_cpu_seconds": 0.1093021890000006,
+                "compute_interval_count": 287,
+                "compute_interval_cpu_p50_ms": 0.008542000000000272,
+                "compute_interval_cpu_p95_ms": 18.731731800000002,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72030,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 53,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.886805466,
+                "rpc_cpu_seconds": 0.07813822399999992,
+                "compute_interval_count": 244,
+                "compute_interval_cpu_p50_ms": 0.008454999999990553,
+                "compute_interval_cpu_p95_ms": 21.016035900000016,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            }
+          ]
+        }
+      },
+      "limitations": [
+        "Pilot with one stochastic generation chain per condition.",
+        "Tests online state plus derived feedback; temporal memory and prediction are disabled.",
+        "Raw actor sees matched RGB-D feedback and full runtime RGB-D; treatment additionally has supplied numerical scene geometry and symbolic text.",
+        "Shared execution was developed using different seeds; prior manual planner is not supplied."
+      ],
+      "paired_reserved": {
+        "both_success": 27,
+        "raw_only": 1,
+        "symbolic_only": 2,
+        "both_fail": 0,
+        "exact_mcnemar_two_sided_p": 1.0,
+        "interpretation": "Descriptive pilot statistic; independent agent campaigns are still required."
+      },
+      "integrity_audit": {
+        "executed_rollouts": 95,
+        "invalid_slots": 0,
+        "actor_turns": 6,
+        "sensor_attachments": 48,
+        "initial_sensor_feedback_matched": true,
+        "unchanged_actor_submissions": true,
+        "recorded_actor_events_tool_free": true,
+        "physical_outcomes_match_summary": true
+      }
+    },
+    "replica_02": {
+      "campaign": "outputs/online_geometry_v2_replications_01/replica_02",
+      "manifest_sha256": "e2c6afea988bad4866e06539518ae349eaf76e5b7465b2b9d5943ac9306c8b72",
+      "treatment": "online action-free instantaneous symbolic/metric state plus matched sensor-derived feedback",
+      "runtime_library": "geometry.py",
+      "temporal_memory": false,
+      "arms": {
+        "raw": {
+          "training_curve": [
+            {
+              "revision": 0,
+              "successes": 2,
+              "allotted_rollout_slots": 5,
+              "executed_rollouts": 5,
+              "validation_error": null
+            },
+            {
+              "revision": 1,
+              "successes": 5,
+              "allotted_rollout_slots": 5,
+              "executed_rollouts": 5,
+              "validation_error": null
+            },
+            {
+              "revision": 2,
+              "successes": 5,
+              "allotted_rollout_slots": 5,
+              "executed_rollouts": 5,
+              "validation_error": null
+            },
+            {
+              "revision": 3,
+              "successes": 5,
+              "allotted_rollout_slots": 5,
+              "executed_rollouts": 5,
+              "validation_error": null
+            }
+          ],
+          "first_revision_at_80_percent": 1,
+          "rollout_slots_to_80_percent": 10,
+          "selected_revision": 1,
+          "heldout_successes": 30,
+          "heldout_trials": 30,
+          "heldout_sr": 1.0,
+          "heldout_wilson_95": [
+            0.8864866068260312,
+            0.9999999999999999
+          ],
+          "generation_usage": {
+            "input_tokens": 66586,
+            "cached_input_tokens": 21248,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 23741,
+            "reasoning_output_tokens": 10354
+          },
+          "generation_seconds": 726.698947887,
+          "reserved_results": [
+            {
+              "seed": 72001,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 47,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.5130842089999994,
+                "rpc_cpu_seconds": 0.08471353600000067,
+                "compute_interval_count": 201,
+                "compute_interval_cpu_p50_ms": 0.005756999999995127,
+                "compute_interval_cpu_p95_ms": 10.12383,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72002,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 46,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.5016975639999997,
+                "rpc_cpu_seconds": 0.08026438300000038,
+                "compute_interval_count": 194,
+                "compute_interval_cpu_p50_ms": 0.006080499999977507,
+                "compute_interval_cpu_p95_ms": 10.050970100000011,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72003,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 47,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.505435138,
+                "rpc_cpu_seconds": 0.08379334699999991,
+                "compute_interval_count": 195,
+                "compute_interval_cpu_p50_ms": 0.005957000000000878,
+                "compute_interval_cpu_p95_ms": 10.120585599999982,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72004,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 46,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.49139579799999955,
+                "rpc_cpu_seconds": 0.07932050000000046,
+                "compute_interval_count": 191,
+                "compute_interval_cpu_p50_ms": 0.006079999999991648,
+                "compute_interval_cpu_p95_ms": 9.81949899999998,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72005,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 47,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.5011374620000004,
+                "rpc_cpu_seconds": 0.08132845199999966,
+                "compute_interval_count": 198,
+                "compute_interval_cpu_p50_ms": 0.005544999999995692,
+                "compute_interval_cpu_p95_ms": 9.97220474999999,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72006,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 46,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.4988569020000002,
+                "rpc_cpu_seconds": 0.08187293399999987,
+                "compute_interval_count": 197,
+                "compute_interval_cpu_p50_ms": 0.007791000000034742,
+                "compute_interval_cpu_p95_ms": 9.846500599999997,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72007,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 46,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.49820547600000054,
+                "rpc_cpu_seconds": 0.08112876699999938,
+                "compute_interval_count": 197,
+                "compute_interval_cpu_p50_ms": 0.00658400000000392,
+                "compute_interval_cpu_p95_ms": 9.953699999999987,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72008,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 47,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.5074003799999999,
+                "rpc_cpu_seconds": 0.08326378700000012,
+                "compute_interval_count": 202,
+                "compute_interval_cpu_p50_ms": 0.006864499999981177,
+                "compute_interval_cpu_p95_ms": 10.151041249999974,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72009,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 46,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.5029556049999988,
+                "rpc_cpu_seconds": 0.08286688600000108,
+                "compute_interval_count": 188,
+                "compute_interval_cpu_p50_ms": 0.006581500000046869,
+                "compute_interval_cpu_p95_ms": 10.313380099999982,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72010,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 46,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.49897025199999984,
+                "rpc_cpu_seconds": 0.08128461800000014,
+                "compute_interval_count": 194,
+                "compute_interval_cpu_p50_ms": 0.006918999999994124,
+                "compute_interval_cpu_p95_ms": 9.967718649999975,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72011,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 47,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.5063299280000003,
+                "rpc_cpu_seconds": 0.08052518499999975,
+                "compute_interval_count": 202,
+                "compute_interval_cpu_p50_ms": 0.006260500000007663,
+                "compute_interval_cpu_p95_ms": 10.030834049999973,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72012,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 48,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.5212148040000002,
+                "rpc_cpu_seconds": 0.08518611099999979,
+                "compute_interval_count": 200,
+                "compute_interval_cpu_p50_ms": 0.007045499999996929,
+                "compute_interval_cpu_p95_ms": 10.203919249999988,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72013,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 33,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.3642291379999999,
+                "rpc_cpu_seconds": 0.05698127800000008,
+                "compute_interval_count": 129,
+                "compute_interval_cpu_p50_ms": 0.006532000000003535,
+                "compute_interval_cpu_p95_ms": 8.734740400000007,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72014,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 46,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.5022781670000005,
+                "rpc_cpu_seconds": 0.08189719099999948,
+                "compute_interval_count": 197,
+                "compute_interval_cpu_p50_ms": 0.0066040000000211485,
+                "compute_interval_cpu_p95_ms": 10.16237239999999,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72015,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 35,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.39195599300000017,
+                "rpc_cpu_seconds": 0.06143110199999982,
+                "compute_interval_count": 141,
+                "compute_interval_cpu_p50_ms": 0.006957999999973596,
+                "compute_interval_cpu_p95_ms": 9.134257000000034,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72016,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 46,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.49931770399999953,
+                "rpc_cpu_seconds": 0.08301329300000046,
+                "compute_interval_count": 197,
+                "compute_interval_cpu_p50_ms": 0.007718000000017655,
+                "compute_interval_cpu_p95_ms": 10.28022599999997,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72017,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 46,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.4883715719999997,
+                "rpc_cpu_seconds": 0.08255815000000036,
+                "compute_interval_count": 194,
+                "compute_interval_cpu_p50_ms": 0.00655450000000557,
+                "compute_interval_cpu_p95_ms": 10.1380814,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72018,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 46,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.4991256930000002,
+                "rpc_cpu_seconds": 0.0820921109999998,
+                "compute_interval_count": 197,
+                "compute_interval_cpu_p50_ms": 0.008516000000013957,
+                "compute_interval_cpu_p95_ms": 10.006629600000004,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72019,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 47,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.5119962879999996,
+                "rpc_cpu_seconds": 0.08475996200000033,
+                "compute_interval_count": 195,
+                "compute_interval_cpu_p50_ms": 0.007617999999987024,
+                "compute_interval_cpu_p95_ms": 10.340464699999997,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72020,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 34,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.3716330799999996,
+                "rpc_cpu_seconds": 0.06049862100000036,
+                "compute_interval_count": 145,
+                "compute_interval_cpu_p50_ms": 0.006736000000007181,
+                "compute_interval_cpu_p95_ms": 9.082979399999997,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72021,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 47,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.503344834,
+                "rpc_cpu_seconds": 0.08407342200000006,
+                "compute_interval_count": 201,
+                "compute_interval_cpu_p50_ms": 0.005736999999977899,
+                "compute_interval_cpu_p95_ms": 10.006495000000005,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72022,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 46,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.48519014699999985,
+                "rpc_cpu_seconds": 0.07849896100000006,
+                "compute_interval_count": 197,
+                "compute_interval_cpu_p50_ms": 0.0054159999999803254,
+                "compute_interval_cpu_p95_ms": 9.972104999999997,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72023,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 46,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.5024192660000006,
+                "rpc_cpu_seconds": 0.08136010199999943,
+                "compute_interval_count": 182,
+                "compute_interval_cpu_p50_ms": 0.006713000000019287,
+                "compute_interval_cpu_p95_ms": 10.422430100000001,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72024,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 47,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.5096462320000008,
+                "rpc_cpu_seconds": 0.08131409099999926,
+                "compute_interval_count": 198,
+                "compute_interval_cpu_p50_ms": 0.005495500000007869,
+                "compute_interval_cpu_p95_ms": 10.303982900000012,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72025,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 47,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.5202890239999999,
+                "rpc_cpu_seconds": 0.08465563300000009,
+                "compute_interval_count": 198,
+                "compute_interval_cpu_p50_ms": 0.006827000000000916,
+                "compute_interval_cpu_p95_ms": 10.54560235,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72026,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 47,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.5203778860000002,
+                "rpc_cpu_seconds": 0.08359554399999977,
+                "compute_interval_count": 198,
+                "compute_interval_cpu_p50_ms": 0.006601000000022728,
+                "compute_interval_cpu_p95_ms": 10.392498949999988,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72027,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 34,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.3746050559999998,
+                "rpc_cpu_seconds": 0.05987698000000019,
+                "compute_interval_count": 142,
+                "compute_interval_cpu_p50_ms": 0.006804500000012759,
+                "compute_interval_cpu_p95_ms": 8.893272249999965,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72028,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 46,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.48719465500000014,
+                "rpc_cpu_seconds": 0.08098999899999981,
+                "compute_interval_count": 194,
+                "compute_interval_cpu_p50_ms": 0.006099500000050773,
+                "compute_interval_cpu_p95_ms": 10.1136007,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72029,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 45,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.4924054450000006,
+                "rpc_cpu_seconds": 0.07858147999999929,
+                "compute_interval_count": 181,
+                "compute_interval_cpu_p50_ms": 0.006850000000002687,
+                "compute_interval_cpu_p95_ms": 10.109774000000016,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72030,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 47,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.5067905070000001,
+                "rpc_cpu_seconds": 0.08269310100000007,
+                "compute_interval_count": 190,
+                "compute_interval_cpu_p50_ms": 0.007095000000012508,
+                "compute_interval_cpu_p95_ms": 10.093187200000001,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            }
+          ]
+        },
+        "symbolic": {
+          "training_curve": [
+            {
+              "revision": 0,
+              "successes": 2,
+              "allotted_rollout_slots": 5,
+              "executed_rollouts": 5,
+              "validation_error": null
+            },
+            {
+              "revision": 1,
+              "successes": 5,
+              "allotted_rollout_slots": 5,
+              "executed_rollouts": 5,
+              "validation_error": null
+            },
+            {
+              "revision": 2,
+              "successes": 5,
+              "allotted_rollout_slots": 5,
+              "executed_rollouts": 5,
+              "validation_error": null
+            },
+            {
+              "revision": 3,
+              "successes": 5,
+              "allotted_rollout_slots": 5,
+              "executed_rollouts": 5,
+              "validation_error": null
+            }
+          ],
+          "first_revision_at_80_percent": 1,
+          "rollout_slots_to_80_percent": 10,
+          "selected_revision": 1,
+          "heldout_successes": 28,
+          "heldout_trials": 30,
+          "heldout_sr": 0.9333333333333333,
+          "heldout_wilson_95": [
+            0.7867654163738308,
+            0.9815229762087295
+          ],
+          "generation_usage": {
+            "input_tokens": 79601,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 17960,
+            "reasoning_output_tokens": 5923
+          },
+          "generation_seconds": 553.8748181660012,
+          "reserved_results": [
+            {
+              "seed": 72001,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 60,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.013336833999999,
+                "rpc_cpu_seconds": 0.08954267400000099,
+                "compute_interval_count": 256,
+                "compute_interval_cpu_p50_ms": 0.007616500000001691,
+                "compute_interval_cpu_p95_ms": 21.13728849999996,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72002,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 63,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.0797407370000007,
+                "rpc_cpu_seconds": 0.09594282699999918,
+                "compute_interval_count": 266,
+                "compute_interval_cpu_p50_ms": 0.007729499999997724,
+                "compute_interval_cpu_p95_ms": 22.729228250000094,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72003,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 60,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.0833009739999993,
+                "rpc_cpu_seconds": 0.09300019400000059,
+                "compute_interval_count": 258,
+                "compute_interval_cpu_p50_ms": 0.0074505000000058,
+                "compute_interval_cpu_p95_ms": 22.150947050000024,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72004,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 63,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.064379899000002,
+                "rpc_cpu_seconds": 0.09866826599999803,
+                "compute_interval_count": 264,
+                "compute_interval_cpu_p50_ms": 0.007643000000001621,
+                "compute_interval_cpu_p95_ms": 21.34868665000006,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72005,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 63,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.9615307249999994,
+                "rpc_cpu_seconds": 0.08875700800000061,
+                "compute_interval_count": 253,
+                "compute_interval_cpu_p50_ms": 0.007531000000005061,
+                "compute_interval_cpu_p95_ms": 19.4577108,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72006,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 61,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.0438429990000002,
+                "rpc_cpu_seconds": 0.08915653199999987,
+                "compute_interval_count": 260,
+                "compute_interval_cpu_p50_ms": 0.007486000000000992,
+                "compute_interval_cpu_p95_ms": 21.100119450000033,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72007,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 64,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.0237195159999988,
+                "rpc_cpu_seconds": 0.09153641000000143,
+                "compute_interval_count": 254,
+                "compute_interval_cpu_p50_ms": 0.007018499999983385,
+                "compute_interval_cpu_p95_ms": 20.306986649999995,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72008,
+              "success": false,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": "task_evaluation",
+              "camera_calls": 101,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.3281394209999977,
+                "rpc_cpu_seconds": 0.14356704200000248,
+                "compute_interval_count": 432,
+                "compute_interval_cpu_p50_ms": 0.006656499999979637,
+                "compute_interval_cpu_p95_ms": 14.760169099999981,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72009,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 93,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.4402809360000006,
+                "rpc_cpu_seconds": 0.13081746299999938,
+                "compute_interval_count": 354,
+                "compute_interval_cpu_p50_ms": 0.006468000000009466,
+                "compute_interval_cpu_p95_ms": 21.702937849999977,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72010,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 64,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.0454615379999985,
+                "rpc_cpu_seconds": 0.1005233770000016,
+                "compute_interval_count": 271,
+                "compute_interval_cpu_p50_ms": 0.00767299999998583,
+                "compute_interval_cpu_p95_ms": 20.505158000000023,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72011,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 62,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.0630239810000004,
+                "rpc_cpu_seconds": 0.0978766929999996,
+                "compute_interval_count": 271,
+                "compute_interval_cpu_p50_ms": 0.007603000000022675,
+                "compute_interval_cpu_p95_ms": 21.95902799999988,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72012,
+              "success": false,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": "task_evaluation",
+              "camera_calls": 92,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.379093801,
+                "rpc_cpu_seconds": 0.13426159500000015,
+                "compute_interval_count": 350,
+                "compute_interval_cpu_p50_ms": 0.007166500000016507,
+                "compute_interval_cpu_p95_ms": 20.474934000000058,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72013,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 61,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.0776361499999987,
+                "rpc_cpu_seconds": 0.0936887390000013,
+                "compute_interval_count": 260,
+                "compute_interval_cpu_p50_ms": 0.007654999999967549,
+                "compute_interval_cpu_p95_ms": 22.837192649999817,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72014,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 60,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.0073540129999994,
+                "rpc_cpu_seconds": 0.08739223400000057,
+                "compute_interval_count": 258,
+                "compute_interval_cpu_p50_ms": 0.007433500000014748,
+                "compute_interval_cpu_p95_ms": 21.340683750000025,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72015,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 47,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.8719855749999994,
+                "rpc_cpu_seconds": 0.07123329900000064,
+                "compute_interval_count": 199,
+                "compute_interval_cpu_p50_ms": 0.007503000000019799,
+                "compute_interval_cpu_p95_ms": 22.81400800000005,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72016,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 61,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.9807271149999998,
+                "rpc_cpu_seconds": 0.09086121200000022,
+                "compute_interval_count": 232,
+                "compute_interval_cpu_p50_ms": 0.007756499999983513,
+                "compute_interval_cpu_p95_ms": 20.03690099999998,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72017,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 63,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.0527919760000006,
+                "rpc_cpu_seconds": 0.0920468489999994,
+                "compute_interval_count": 267,
+                "compute_interval_cpu_p50_ms": 0.007671999999958601,
+                "compute_interval_cpu_p95_ms": 21.163239000000043,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72018,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 60,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.0133257540000002,
+                "rpc_cpu_seconds": 0.08915416399999967,
+                "compute_interval_count": 229,
+                "compute_interval_cpu_p50_ms": 0.008310999999983082,
+                "compute_interval_cpu_p95_ms": 21.217961600000002,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72019,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 64,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.088573855,
+                "rpc_cpu_seconds": 0.09762160100000017,
+                "compute_interval_count": 268,
+                "compute_interval_cpu_p50_ms": 0.007754499999984565,
+                "compute_interval_cpu_p95_ms": 21.27196999999997,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72020,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 62,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.0548983140000001,
+                "rpc_cpu_seconds": 0.09493569599999988,
+                "compute_interval_count": 265,
+                "compute_interval_cpu_p50_ms": 0.007893000000036565,
+                "compute_interval_cpu_p95_ms": 21.63854440000001,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72021,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 65,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.019150447,
+                "rpc_cpu_seconds": 0.0992391670000001,
+                "compute_interval_count": 275,
+                "compute_interval_cpu_p50_ms": 0.007546999999830106,
+                "compute_interval_cpu_p95_ms": 20.686154199999987,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72022,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 61,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.056389978,
+                "rpc_cpu_seconds": 0.10070230000000005,
+                "compute_interval_count": 263,
+                "compute_interval_cpu_p50_ms": 0.007819999999991722,
+                "compute_interval_cpu_p95_ms": 21.44032439999993,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72023,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 77,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.2143026490000022,
+                "rpc_cpu_seconds": 0.12118213499999764,
+                "compute_interval_count": 291,
+                "compute_interval_cpu_p50_ms": 0.006423000000033152,
+                "compute_interval_cpu_p95_ms": 21.35728300000006,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72024,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 62,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.032108766999999,
+                "rpc_cpu_seconds": 0.09371904700000089,
+                "compute_interval_count": 266,
+                "compute_interval_cpu_p50_ms": 0.007616000000015832,
+                "compute_interval_cpu_p95_ms": 21.049306749999968,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72025,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 66,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.0321254309999996,
+                "rpc_cpu_seconds": 0.09855559700000019,
+                "compute_interval_count": 279,
+                "compute_interval_cpu_p50_ms": 0.007317000000006679,
+                "compute_interval_cpu_p95_ms": 20.894069100000035,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72026,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 61,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.0621367199999985,
+                "rpc_cpu_seconds": 0.09670620200000166,
+                "compute_interval_count": 260,
+                "compute_interval_cpu_p50_ms": 0.007657999999993725,
+                "compute_interval_cpu_p95_ms": 22.40043119999995,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72027,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 61,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.04936958,
+                "rpc_cpu_seconds": 0.09015329200000008,
+                "compute_interval_count": 261,
+                "compute_interval_cpu_p50_ms": 0.007772999999988706,
+                "compute_interval_cpu_p95_ms": 22.664526000000016,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72028,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 61,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.9924450339999993,
+                "rpc_cpu_seconds": 0.08499614600000055,
+                "compute_interval_count": 260,
+                "compute_interval_cpu_p50_ms": 0.007497999999994676,
+                "compute_interval_cpu_p95_ms": 20.128064549999998,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72029,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 62,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.0360463229999997,
+                "rpc_cpu_seconds": 0.09561230500000012,
+                "compute_interval_count": 255,
+                "compute_interval_cpu_p50_ms": 0.008042000000041405,
+                "compute_interval_cpu_p95_ms": 21.07122979999999,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72030,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 64,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.955581841,
+                "rpc_cpu_seconds": 0.09077401699999987,
+                "compute_interval_count": 263,
+                "compute_interval_cpu_p50_ms": 0.007548999999995587,
+                "compute_interval_cpu_p95_ms": 18.979962800000028,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            }
+          ]
+        }
+      },
+      "limitations": [
+        "Pilot with one stochastic generation chain per condition.",
+        "Tests online state plus derived feedback; temporal memory and prediction are disabled.",
+        "Raw actor sees matched RGB-D feedback and full runtime RGB-D; treatment additionally has supplied numerical scene geometry and symbolic text.",
+        "Shared execution was developed using different seeds; prior manual planner is not supplied."
+      ],
+      "paired_reserved": {
+        "both_success": 28,
+        "raw_only": 2,
+        "symbolic_only": 0,
+        "both_fail": 0,
+        "exact_mcnemar_two_sided_p": 0.5,
+        "interpretation": "Descriptive pilot statistic; independent agent campaigns are still required."
+      },
+      "integrity_audit": {
+        "executed_rollouts": 95,
+        "invalid_slots": 0,
+        "actor_turns": 6,
+        "sensor_attachments": 48,
+        "initial_sensor_feedback_matched": true,
+        "unchanged_actor_submissions": true,
+        "recorded_actor_events_tool_free": true,
+        "physical_outcomes_match_summary": true
+      }
+    },
+    "replica_03": {
+      "campaign": "outputs/online_geometry_v2_replications_01/replica_03",
+      "manifest_sha256": "8f3f9a55b5016171b3b79ff7986f50040a67f0e186d1bc9e55fb504301a3ef57",
+      "treatment": "online action-free instantaneous symbolic/metric state plus matched sensor-derived feedback",
+      "runtime_library": "geometry.py",
+      "temporal_memory": false,
+      "arms": {
+        "raw": {
+          "training_curve": [
+            {
+              "revision": 0,
+              "successes": 2,
+              "allotted_rollout_slots": 5,
+              "executed_rollouts": 5,
+              "validation_error": null
+            },
+            {
+              "revision": 1,
+              "successes": 4,
+              "allotted_rollout_slots": 5,
+              "executed_rollouts": 5,
+              "validation_error": null
+            },
+            {
+              "revision": 2,
+              "successes": 5,
+              "allotted_rollout_slots": 5,
+              "executed_rollouts": 5,
+              "validation_error": null
+            },
+            {
+              "revision": 3,
+              "successes": 5,
+              "allotted_rollout_slots": 5,
+              "executed_rollouts": 5,
+              "validation_error": null
+            }
+          ],
+          "first_revision_at_80_percent": 1,
+          "rollout_slots_to_80_percent": 10,
+          "selected_revision": 2,
+          "heldout_successes": 26,
+          "heldout_trials": 30,
+          "heldout_sr": 0.8666666666666667,
+          "heldout_wilson_95": [
+            0.703186733179637,
+            0.9469034451594526
+          ],
+          "generation_usage": {
+            "input_tokens": 65734,
+            "cached_input_tokens": 10624,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 20244,
+            "reasoning_output_tokens": 8792
+          },
+          "generation_seconds": 626.1011523639991,
+          "reserved_results": [
+            {
+              "seed": 72001,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 43,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.4637584380000004,
+                "rpc_cpu_seconds": 0.07336214299999963,
+                "compute_interval_count": 151,
+                "compute_interval_cpu_p50_ms": 0.007232999999995382,
+                "compute_interval_cpu_p95_ms": 9.406045500000044,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72002,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 57,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.6197278669999992,
+                "rpc_cpu_seconds": 0.09824731300000086,
+                "compute_interval_count": 219,
+                "compute_interval_cpu_p50_ms": 0.0074899999999988864,
+                "compute_interval_cpu_p95_ms": 10.422155400000026,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72003,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 58,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.6248815220000006,
+                "rpc_cpu_seconds": 0.09978655999999936,
+                "compute_interval_count": 223,
+                "compute_interval_cpu_p50_ms": 0.006492999999996307,
+                "compute_interval_cpu_p95_ms": 10.659441800000023,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72004,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 56,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.6136113249999996,
+                "rpc_cpu_seconds": 0.0972683980000004,
+                "compute_interval_count": 215,
+                "compute_interval_cpu_p50_ms": 0.007656999999994252,
+                "compute_interval_cpu_p95_ms": 10.28319070000002,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72005,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 56,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.5805498459999997,
+                "rpc_cpu_seconds": 0.08921521700000026,
+                "compute_interval_count": 210,
+                "compute_interval_cpu_p50_ms": 0.005643500000027113,
+                "compute_interval_cpu_p95_ms": 9.868072649999984,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72006,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 43,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.4672518330000004,
+                "rpc_cpu_seconds": 0.0723707879999996,
+                "compute_interval_count": 151,
+                "compute_interval_cpu_p50_ms": 0.007452999999990606,
+                "compute_interval_cpu_p95_ms": 9.493303499999994,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72007,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 43,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.45806205099999936,
+                "rpc_cpu_seconds": 0.0719804970000007,
+                "compute_interval_count": 151,
+                "compute_interval_cpu_p50_ms": 0.006788000000007566,
+                "compute_interval_cpu_p95_ms": 9.143765999999998,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72008,
+              "success": false,
+              "policy_error": "RuntimeError: RuntimeError: No visible green block.",
+              "rollout_executed": true,
+              "failure_stage": "policy_execution",
+              "camera_calls": 45,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.4742804620000004,
+                "rpc_cpu_seconds": 0.0760893809999996,
+                "compute_interval_count": 161,
+                "compute_interval_cpu_p50_ms": 0.00722699999999854,
+                "compute_interval_cpu_p95_ms": 9.531161999999982,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72009,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 56,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.6160022819999996,
+                "rpc_cpu_seconds": 0.09718892900000045,
+                "compute_interval_count": 215,
+                "compute_interval_cpu_p50_ms": 0.0076839999999522846,
+                "compute_interval_cpu_p95_ms": 10.666316499999962,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72010,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 57,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.6098188789999999,
+                "rpc_cpu_seconds": 0.09679159400000012,
+                "compute_interval_count": 219,
+                "compute_interval_cpu_p50_ms": 0.007079999999992648,
+                "compute_interval_cpu_p95_ms": 10.258320600000042,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72011,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 44,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.47588424800000023,
+                "rpc_cpu_seconds": 0.07554746999999978,
+                "compute_interval_count": 157,
+                "compute_interval_cpu_p50_ms": 0.0079600000000013,
+                "compute_interval_cpu_p95_ms": 9.36833060000003,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72012,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 58,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.6218182059999995,
+                "rpc_cpu_seconds": 0.10048270400000056,
+                "compute_interval_count": 219,
+                "compute_interval_cpu_p50_ms": 0.007392000000022714,
+                "compute_interval_cpu_p95_ms": 10.244968299999995,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72013,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 42,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.4439420859999996,
+                "rpc_cpu_seconds": 0.06736760400000044,
+                "compute_interval_count": 147,
+                "compute_interval_cpu_p50_ms": 0.006582000000004973,
+                "compute_interval_cpu_p95_ms": 9.208680200000051,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72014,
+              "success": false,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": "task_evaluation",
+              "camera_calls": 44,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.47114736899999987,
+                "rpc_cpu_seconds": 0.0739142580000001,
+                "compute_interval_count": 155,
+                "compute_interval_cpu_p50_ms": 0.005912999999968527,
+                "compute_interval_cpu_p95_ms": 9.682969900000021,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72015,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 43,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.5011217860000006,
+                "rpc_cpu_seconds": 0.07651128199999949,
+                "compute_interval_count": 152,
+                "compute_interval_cpu_p50_ms": 0.008004499999991754,
+                "compute_interval_cpu_p95_ms": 10.092964250000001,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72016,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 85,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.8328369739999998,
+                "rpc_cpu_seconds": 0.1258195400000001,
+                "compute_interval_count": 317,
+                "compute_interval_cpu_p50_ms": 0.005680000000007901,
+                "compute_interval_cpu_p95_ms": 9.416462199999964,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72017,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 56,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.6166209769999995,
+                "rpc_cpu_seconds": 0.09743973300000047,
+                "compute_interval_count": 215,
+                "compute_interval_cpu_p50_ms": 0.007695000000002006,
+                "compute_interval_cpu_p95_ms": 10.548889799999989,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72018,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 53,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.5477009270000003,
+                "rpc_cpu_seconds": 0.09050850199999974,
+                "compute_interval_count": 192,
+                "compute_interval_cpu_p50_ms": 0.005257499999994364,
+                "compute_interval_cpu_p95_ms": 9.2591871,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72019,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 57,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.6238120099999999,
+                "rpc_cpu_seconds": 0.09825267700000015,
+                "compute_interval_count": 219,
+                "compute_interval_cpu_p50_ms": 0.006290000000075402,
+                "compute_interval_cpu_p95_ms": 10.632540700000003,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72020,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 43,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.4548273540000002,
+                "rpc_cpu_seconds": 0.07140013899999972,
+                "compute_interval_count": 151,
+                "compute_interval_cpu_p50_ms": 0.007224999999999593,
+                "compute_interval_cpu_p95_ms": 9.235792500000006,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72021,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 58,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.5945484950000003,
+                "rpc_cpu_seconds": 0.08968389099999971,
+                "compute_interval_count": 216,
+                "compute_interval_cpu_p50_ms": 0.0072635000000209615,
+                "compute_interval_cpu_p95_ms": 10.421773500000002,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72022,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 44,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.5021221649999997,
+                "rpc_cpu_seconds": 0.07697525700000032,
+                "compute_interval_count": 156,
+                "compute_interval_cpu_p50_ms": 0.006606999999991814,
+                "compute_interval_cpu_p95_ms": 10.207115749999982,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72023,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 56,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.6723719820000003,
+                "rpc_cpu_seconds": 0.10341392899999982,
+                "compute_interval_count": 223,
+                "compute_interval_cpu_p50_ms": 0.008296999999990451,
+                "compute_interval_cpu_p95_ms": 11.663446000000022,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72024,
+              "success": false,
+              "policy_error": "RuntimeError: RuntimeError: No visible green block.",
+              "rollout_executed": true,
+              "failure_stage": "policy_execution",
+              "camera_calls": 46,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.48068874900000064,
+                "rpc_cpu_seconds": 0.0784252929999994,
+                "compute_interval_count": 165,
+                "compute_interval_cpu_p50_ms": 0.006805999999998091,
+                "compute_interval_cpu_p95_ms": 9.398540799999996,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72025,
+              "success": false,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": "task_evaluation",
+              "camera_calls": 58,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.6305873360000003,
+                "rpc_cpu_seconds": 0.09947178599999978,
+                "compute_interval_count": 218,
+                "compute_interval_cpu_p50_ms": 0.007162499999990857,
+                "compute_interval_cpu_p95_ms": 10.410017649999986,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72026,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 56,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.6126431739999991,
+                "rpc_cpu_seconds": 0.09635417300000088,
+                "compute_interval_count": 210,
+                "compute_interval_cpu_p50_ms": 0.007677499999997339,
+                "compute_interval_cpu_p95_ms": 10.598162900000009,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72027,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 43,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.4614682200000001,
+                "rpc_cpu_seconds": 0.07139913499999997,
+                "compute_interval_count": 151,
+                "compute_interval_cpu_p50_ms": 0.006546000000023922,
+                "compute_interval_cpu_p95_ms": 9.401748500000002,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72028,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 56,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.6047705610000009,
+                "rpc_cpu_seconds": 0.09531598899999902,
+                "compute_interval_count": 209,
+                "compute_interval_cpu_p50_ms": 0.006877000000016231,
+                "compute_interval_cpu_p95_ms": 10.475857400000015,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72029,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 42,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.449028188,
+                "rpc_cpu_seconds": 0.06993174500000013,
+                "compute_interval_count": 147,
+                "compute_interval_cpu_p50_ms": 0.00757300000001071,
+                "compute_interval_cpu_p95_ms": 9.770911199999992,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72030,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 57,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 0.6084333149999996,
+                "rpc_cpu_seconds": 0.10039015200000037,
+                "compute_interval_count": 215,
+                "compute_interval_cpu_p50_ms": 0.007107000000006192,
+                "compute_interval_cpu_p95_ms": 10.331384299999979,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            }
+          ]
+        },
+        "symbolic": {
+          "training_curve": [
+            {
+              "revision": 0,
+              "successes": 2,
+              "allotted_rollout_slots": 5,
+              "executed_rollouts": 5,
+              "validation_error": null
+            },
+            {
+              "revision": 1,
+              "successes": 0,
+              "allotted_rollout_slots": 5,
+              "executed_rollouts": 5,
+              "validation_error": null
+            },
+            {
+              "revision": 2,
+              "successes": 1,
+              "allotted_rollout_slots": 5,
+              "executed_rollouts": 5,
+              "validation_error": null
+            },
+            {
+              "revision": 3,
+              "successes": 4,
+              "allotted_rollout_slots": 5,
+              "executed_rollouts": 5,
+              "validation_error": null
+            }
+          ],
+          "first_revision_at_80_percent": 3,
+          "rollout_slots_to_80_percent": 20,
+          "selected_revision": 3,
+          "heldout_successes": 29,
+          "heldout_trials": 30,
+          "heldout_sr": 0.9666666666666667,
+          "heldout_wilson_95": [
+            0.8332960900859082,
+            0.9940914096183874
+          ],
+          "generation_usage": {
+            "input_tokens": 75553,
+            "cached_input_tokens": 31872,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 21642,
+            "reasoning_output_tokens": 9644
+          },
+          "generation_seconds": 662.5165316399989,
+          "reserved_results": [
+            {
+              "seed": 72001,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 70,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.210733572,
+                "rpc_cpu_seconds": 0.104214841,
+                "compute_interval_count": 270,
+                "compute_interval_cpu_p50_ms": 0.00870750000003806,
+                "compute_interval_cpu_p95_ms": 21.757863100000016,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72002,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 72,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.2880033400000006,
+                "rpc_cpu_seconds": 0.10893010199999958,
+                "compute_interval_count": 287,
+                "compute_interval_cpu_p50_ms": 0.008724000000071008,
+                "compute_interval_cpu_p95_ms": 22.701533399999995,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72003,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 72,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.304068371999998,
+                "rpc_cpu_seconds": 0.10685687000000213,
+                "compute_interval_count": 282,
+                "compute_interval_cpu_p50_ms": 0.008349000000018592,
+                "compute_interval_cpu_p95_ms": 22.53101190000001,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72004,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 73,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.2904753850000006,
+                "rpc_cpu_seconds": 0.11425804799999922,
+                "compute_interval_count": 289,
+                "compute_interval_cpu_p50_ms": 0.008801999999974441,
+                "compute_interval_cpu_p95_ms": 21.394133199999963,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72005,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 74,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.2429733310000017,
+                "rpc_cpu_seconds": 0.10509535499999845,
+                "compute_interval_count": 299,
+                "compute_interval_cpu_p50_ms": 0.008269999999976907,
+                "compute_interval_cpu_p95_ms": 21.36197150000001,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72006,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 71,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.267379174,
+                "rpc_cpu_seconds": 0.10524211899999983,
+                "compute_interval_count": 274,
+                "compute_interval_cpu_p50_ms": 0.008684499999994655,
+                "compute_interval_cpu_p95_ms": 22.03118645,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72007,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 74,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.2894023799999992,
+                "rpc_cpu_seconds": 0.11193446100000076,
+                "compute_interval_count": 292,
+                "compute_interval_cpu_p50_ms": 0.008887999999984686,
+                "compute_interval_cpu_p95_ms": 20.914394699999896,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72008,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 71,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.2529831769999993,
+                "rpc_cpu_seconds": 0.10753146100000058,
+                "compute_interval_count": 286,
+                "compute_interval_cpu_p50_ms": 0.008220000000003225,
+                "compute_interval_cpu_p95_ms": 21.858972000000005,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72009,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 71,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.2953405440000003,
+                "rpc_cpu_seconds": 0.11203548299999969,
+                "compute_interval_count": 291,
+                "compute_interval_cpu_p50_ms": 0.008791000000007987,
+                "compute_interval_cpu_p95_ms": 22.209250499999943,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72010,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 74,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.2815206130000019,
+                "rpc_cpu_seconds": 0.10653479499999813,
+                "compute_interval_count": 293,
+                "compute_interval_cpu_p50_ms": 0.008530999999978306,
+                "compute_interval_cpu_p95_ms": 21.87168120000007,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72011,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 73,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.247109102,
+                "rpc_cpu_seconds": 0.10353961399999992,
+                "compute_interval_count": 282,
+                "compute_interval_cpu_p50_ms": 0.007686999999978461,
+                "compute_interval_cpu_p95_ms": 21.55001429999999,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72012,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 74,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.3113258790000002,
+                "rpc_cpu_seconds": 0.11026103300000009,
+                "compute_interval_count": 293,
+                "compute_interval_cpu_p50_ms": 0.008419000000037258,
+                "compute_interval_cpu_p95_ms": 22.64571340000005,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72013,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 70,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.2445506919999985,
+                "rpc_cpu_seconds": 0.10074941400000156,
+                "compute_interval_count": 279,
+                "compute_interval_cpu_p50_ms": 0.00877899999984777,
+                "compute_interval_cpu_p95_ms": 22.26173780000001,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72014,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 70,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.2293558269999982,
+                "rpc_cpu_seconds": 0.10171727400000177,
+                "compute_interval_count": 285,
+                "compute_interval_cpu_p50_ms": 0.008500999999938585,
+                "compute_interval_cpu_p95_ms": 22.340456799999988,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72015,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 71,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.2616163889999992,
+                "rpc_cpu_seconds": 0.10635733500000089,
+                "compute_interval_count": 289,
+                "compute_interval_cpu_p50_ms": 0.008700999999999848,
+                "compute_interval_cpu_p95_ms": 22.181861800000004,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72016,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 72,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.2564872250000003,
+                "rpc_cpu_seconds": 0.10515203399999956,
+                "compute_interval_count": 290,
+                "compute_interval_cpu_p50_ms": 0.008355500000001292,
+                "compute_interval_cpu_p95_ms": 21.533775500000022,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72017,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 73,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.2950922890000003,
+                "rpc_cpu_seconds": 0.10985098799999954,
+                "compute_interval_count": 292,
+                "compute_interval_cpu_p50_ms": 0.008413499999970764,
+                "compute_interval_cpu_p95_ms": 21.88976450000001,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72018,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 71,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.2672780739999991,
+                "rpc_cpu_seconds": 0.10555193600000076,
+                "compute_interval_count": 286,
+                "compute_interval_cpu_p50_ms": 0.008018499999984385,
+                "compute_interval_cpu_p95_ms": 22.09554249999997,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72019,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 74,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.3108054709999994,
+                "rpc_cpu_seconds": 0.11248348400000058,
+                "compute_interval_count": 294,
+                "compute_interval_cpu_p50_ms": 0.00884100000003718,
+                "compute_interval_cpu_p95_ms": 21.85520455000008,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72020,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 72,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.269467257,
+                "rpc_cpu_seconds": 0.1060501889999999,
+                "compute_interval_count": 281,
+                "compute_interval_cpu_p50_ms": 0.00869300000005957,
+                "compute_interval_cpu_p95_ms": 22.07234499999999,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72021,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 75,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.2325277250000015,
+                "rpc_cpu_seconds": 0.1031547449999985,
+                "compute_interval_count": 297,
+                "compute_interval_cpu_p50_ms": 0.006955000000030687,
+                "compute_interval_cpu_p95_ms": 21.30247500000002,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72022,
+              "success": false,
+              "policy_error": "RuntimeError: KeyError: 'green'",
+              "rollout_executed": true,
+              "failure_stage": "policy_execution",
+              "camera_calls": 54,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.0041524519999985,
+                "rpc_cpu_seconds": 0.08262596000000158,
+                "compute_interval_count": 221,
+                "compute_interval_cpu_p50_ms": 0.008868000000106235,
+                "compute_interval_cpu_p95_ms": 21.547723999999935,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72023,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 73,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.306084226000002,
+                "rpc_cpu_seconds": 0.11456709599999804,
+                "compute_interval_count": 284,
+                "compute_interval_cpu_p50_ms": 0.008553000000022237,
+                "compute_interval_cpu_p95_ms": 22.106953700000005,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72024,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 75,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.2707932839999994,
+                "rpc_cpu_seconds": 0.11274679900000054,
+                "compute_interval_count": 297,
+                "compute_interval_cpu_p50_ms": 0.00823799999999375,
+                "compute_interval_cpu_p95_ms": 22.390842400000157,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72025,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 75,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.3026372860000013,
+                "rpc_cpu_seconds": 0.11208491499999867,
+                "compute_interval_count": 301,
+                "compute_interval_cpu_p50_ms": 0.00854299999997199,
+                "compute_interval_cpu_p95_ms": 22.23817100000003,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72026,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 72,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.2940084299999997,
+                "rpc_cpu_seconds": 0.10985069400000033,
+                "compute_interval_count": 289,
+                "compute_interval_cpu_p50_ms": 0.008102999999981542,
+                "compute_interval_cpu_p95_ms": 22.912862800000102,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72027,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 71,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.2340425509999988,
+                "rpc_cpu_seconds": 0.10171201000000113,
+                "compute_interval_count": 286,
+                "compute_interval_cpu_p50_ms": 0.008610999999936197,
+                "compute_interval_cpu_p95_ms": 21.874106749999957,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72028,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 71,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.2779292960000013,
+                "rpc_cpu_seconds": 0.10658236499999896,
+                "compute_interval_count": 290,
+                "compute_interval_cpu_p50_ms": 0.008557500000061502,
+                "compute_interval_cpu_p95_ms": 22.859729650000038,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72029,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 72,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.2825417819999991,
+                "rpc_cpu_seconds": 0.10959442000000108,
+                "compute_interval_count": 289,
+                "compute_interval_cpu_p50_ms": 0.008223000000029401,
+                "compute_interval_cpu_p95_ms": 21.70572559999999,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            },
+            {
+              "seed": 72030,
+              "success": true,
+              "policy_error": null,
+              "rollout_executed": true,
+              "failure_stage": null,
+              "camera_calls": 73,
+              "cpu_profile": {
+                "policy_compute_cpu_seconds": 1.2670806230000022,
+                "rpc_cpu_seconds": 0.10925493299999778,
+                "compute_interval_count": 295,
+                "compute_interval_cpu_p50_ms": 0.00825899999989943,
+                "compute_interval_cpu_p95_ms": 21.807761500000076,
+                "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+              }
+            }
+          ]
+        }
+      },
+      "limitations": [
+        "Pilot with one stochastic generation chain per condition.",
+        "Tests online state plus derived feedback; temporal memory and prediction are disabled.",
+        "Raw actor sees matched RGB-D feedback and full runtime RGB-D; treatment additionally has supplied numerical scene geometry and symbolic text.",
+        "Shared execution was developed using different seeds; prior manual planner is not supplied."
+      ],
+      "paired_reserved": {
+        "both_success": 25,
+        "raw_only": 1,
+        "symbolic_only": 4,
+        "both_fail": 0,
+        "exact_mcnemar_two_sided_p": 0.375,
+        "interpretation": "Descriptive pilot statistic; independent agent campaigns are still required."
+      },
+      "integrity_audit": {
+        "executed_rollouts": 95,
+        "invalid_slots": 0,
+        "actor_turns": 6,
+        "sensor_attachments": 48,
+        "initial_sensor_feedback_matched": true,
+        "unchanged_actor_submissions": true,
+        "recorded_actor_events_tool_free": true,
+        "physical_outcomes_match_summary": true
+      }
+    }
+  },
+  "pooled_descriptive_counts": {
+    "raw": {
+      "successes": 84,
+      "episodes": 90
+    },
+    "symbolic": {
+      "successes": 86,
+      "episodes": 90
+    }
+  },
+  "direction_counts": {
+    "symbolic_reaches_threshold_earlier": 0,
+    "raw_reaches_threshold_earlier": 1,
+    "symbolic_has_higher_reserved_sr": 2,
+    "raw_has_higher_reserved_sr": 1
+  },
+  "audit": {
+    "same_geometry_library_across_replicas": true,
+    "distinct_training_layouts": true,
+    "all_selected_sources_preserved": true,
+    "source_snapshots_match_manifests": true,
+    "latest_freeze_before_earliest_reserved_start_s": 0.021060466766357422
+  },
+  "limits": [
+    "Three independent coding-agent chains; simple uniquely colored cubes in one simulator.",
+    "The shared PnP baseline already exposes basic visible-surface position/size estimates; this tests an additional rigid/symbolic state abstraction, not all geometry versus none.",
+    "Shared reserved layouts and within-policy episodes are dependent; pooled counts have no binomial confidence interval.",
+    "This combined treatment supplies online metric/symbolic geometry and derived feedback, not isolated relation names or temporal memory.",
+    "Do not pool prior v1 or feedback-only pilots with this version."
+  ]
+}

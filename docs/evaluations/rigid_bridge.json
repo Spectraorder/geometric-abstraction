@@ -1,0 +1,505 @@
+{
+  "purpose": "fixed_layout_geometry_demo_not_generalization_evaluation",
+  "trials": [
+    {
+      "path": "outputs/rigid_bridge_01",
+      "summary": {
+        "purpose": "single_example_not_a_success_rate_estimate",
+        "seed": 3601,
+        "private_evaluator_success": true,
+        "policy_error": null,
+        "task": "thin_beam_bridge",
+        "wrist_depth": true,
+        "record_count": 20,
+        "new_wrist_geometry_controls_actions": false,
+        "views": {
+          "side": {
+            "attempts": 80,
+            "available": 76,
+            "full_reliable_pose": 47,
+            "selected": 72
+          },
+          "wrist": {
+            "attempts": 80,
+            "available": 40,
+            "full_reliable_pose": 8,
+            "selected": 5
+          }
+        },
+        "final_errors": {
+          "blue": {
+            "translation_to_goal_m": [
+              -0.0001494095977912016,
+              0.0003013553046305739,
+              -0.003251854742031157
+            ],
+            "center_error_m": 0.003269204415574474,
+            "xy_error_m": 0.0003363602942398443,
+            "pose_fully_observed": false,
+            "interpretation": "visual_estimate_not_contact_or_stability_truth",
+            "vertex_rms_m": 0.00326991590563535,
+            "rotation_error_rad": 0.003226695285737896,
+            "rotation_metric": "cube_symmetry"
+          },
+          "yellow": {
+            "translation_to_goal_m": [
+              -0.0005483009286292705,
+              0.00017353047872359362,
+              9.950776104517e-05
+            ],
+            "center_error_m": 0.0005836510343432817,
+            "xy_error_m": 0.0005751058471114339,
+            "pose_fully_observed": true,
+            "interpretation": "visual_estimate_not_contact_or_stability_truth",
+            "vertex_rms_m": 0.0005881725765488524,
+            "rotation_error_rad": 0.0034433882951969753,
+            "rotation_metric": "cube_symmetry"
+          },
+          "green": {
+            "translation_to_goal_m": [
+              0.0005665230243298534,
+              0.001339139101251885,
+              0.00022545238110094346
+            ],
+            "center_error_m": 0.0014714179031606333,
+            "xy_error_m": 0.0014540432832613854,
+            "pose_fully_observed": false,
+            "interpretation": "visual_estimate_not_contact_or_stability_truth",
+            "vertex_rms_m": 0.0015059500897945273,
+            "rotation_error_rad": 0.0016797751465988226,
+            "rotation_metric": "maximum_dimension_axis_error"
+          },
+          "red": {
+            "translation_to_goal_m": [
+              0.0006624020662379243,
+              0.002244985620030643,
+              0.00030852860358632217
+            ],
+            "center_error_m": 0.0023609165234568475,
+            "xy_error_m": 0.0023406701885358904,
+            "pose_fully_observed": true,
+            "interpretation": "visual_estimate_not_contact_or_stability_truth",
+            "rotation_error_rad": 0.001411643210531165,
+            "rotation_metric": "unoriented_cylinder_axis; axial_yaw_ignored",
+            "radius_error_m": 0.0
+          }
+        },
+        "final_relations": {
+          "green_on_blue": {
+            "signed_surface_gap_m": -0.003485697519959585,
+            "projected_overlap_area_m2": 0.00042518450821372707,
+            "both_poses_fully_observed": false,
+            "contact_or_stability_certified": false
+          },
+          "green_on_yellow": {
+            "signed_surface_gap_m": -0.00013363987820214085,
+            "projected_overlap_area_m2": 0.00037283468616764717,
+            "both_poses_fully_observed": false,
+            "contact_or_stability_certified": false
+          },
+          "red_on_green": {
+            "signed_surface_gap_m": -8.525776902379434e-05,
+            "projected_overlap_area_m2": 0.0006808759513221476,
+            "both_poses_fully_observed": false,
+            "contact_or_stability_certified": false
+          }
+        },
+        "geometry_replay_latency_ms": {
+          "samples": 116,
+          "median": 7.3931944998548715,
+          "p95": 14.564912250762063,
+          "scope": "one successful object fit; excludes acquisition, RPC, rendering, agent and actions"
+        }
+      },
+      "manifest": {
+        "seed": 3601,
+        "purpose": "geometry_observation_demo_not_success_rate_evaluation",
+        "controller": "structure_policy (unique-color declared shapes)",
+        "task": "thin_beam_bridge",
+        "wrist_depth": true,
+        "candidate_sha256": "3c0369bcbb1d201b1bc3a9e88d50971617e2cf6af93205824fdfbd90b3f0c3c8",
+        "object_state_access": "RGB-D only; robot pad geometry uses model and encoders",
+        "new_wrist_geometry_controls_actions": false,
+        "noslip_iterations": 0,
+        "trial_wall_seconds": 15.27758028900007
+      },
+      "last_policy_notes": [
+        "red_0 alignment to aim=0.0007 gap=0.0113",
+        "red_0 release offset=[0.0001, 0.0002] gap=0.0043",
+        "red_0 after opening displacement=[-0.0001, -0.0014, -0.0055]",
+        "red_0 after withdrawal center=[-0.0205, -0.1998, 0.4744]",
+        "NODE confirmed cap 4/4",
+        "Structure released; all nodes visually placed according to the support graph"
+      ]
+    },
+    {
+      "path": "outputs/rigid_bridge_3602",
+      "summary": {
+        "purpose": "single_example_not_a_success_rate_estimate",
+        "seed": 3602,
+        "private_evaluator_success": false,
+        "policy_error": null,
+        "task": "thin_beam_bridge",
+        "wrist_depth": true,
+        "record_count": 16,
+        "new_wrist_geometry_controls_actions": false,
+        "views": {
+          "side": {
+            "attempts": 64,
+            "available": 51,
+            "full_reliable_pose": 26,
+            "selected": 48
+          },
+          "wrist": {
+            "attempts": 64,
+            "available": 19,
+            "full_reliable_pose": 2,
+            "selected": 4
+          }
+        },
+        "final_errors": {
+          "blue": {
+            "translation_to_goal_m": [
+              -0.0007769030786312532,
+              6.80637519223648e-05,
+              -0.002914751985235331
+            ],
+            "center_error_m": 0.003017281923080071,
+            "xy_error_m": 0.0007798788802836428,
+            "pose_fully_observed": false,
+            "interpretation": "visual_estimate_not_contact_or_stability_truth",
+            "vertex_rms_m": 0.0030175361719257028,
+            "rotation_error_rad": 0.0018528965998662146,
+            "rotation_metric": "cube_symmetry"
+          },
+          "yellow": {
+            "translation_to_goal_m": [
+              -0.0001535847909785032,
+              0.00011044438494156594,
+              5.534106343868528e-05
+            ],
+            "center_error_m": 0.00019710120113169253,
+            "xy_error_m": 0.00018917254077965785,
+            "pose_fully_observed": true,
+            "interpretation": "visual_estimate_not_contact_or_stability_truth",
+            "vertex_rms_m": 0.00020058234719091533,
+            "rotation_error_rad": 0.0017600781268015918,
+            "rotation_metric": "cube_symmetry"
+          },
+          "green": {
+            "translation_to_goal_m": [
+              0.00019372696792635535,
+              0.0005934962526244203,
+              6.0827760387294205e-05
+            ],
+            "center_error_m": 0.0006272702419331742,
+            "xy_error_m": 0.0006243139754812227,
+            "pose_fully_observed": false,
+            "interpretation": "visual_estimate_not_contact_or_stability_truth",
+            "vertex_rms_m": 0.0006275994466779434,
+            "rotation_error_rad": 0.0011975697658465154,
+            "rotation_metric": "maximum_dimension_axis_error"
+          }
+        },
+        "final_relations": {
+          "green_on_blue": {
+            "signed_surface_gap_m": -0.0029959908028979187,
+            "projected_overlap_area_m2": 0.0004588611660174828,
+            "both_poses_fully_observed": false,
+            "contact_or_stability_certified": false
+          },
+          "green_on_yellow": {
+            "signed_surface_gap_m": -1.1843939403621828e-05,
+            "projected_overlap_area_m2": 0.0004217790177411416,
+            "both_poses_fully_observed": false,
+            "contact_or_stability_certified": false
+          }
+        },
+        "geometry_replay_latency_ms": {
+          "samples": 70,
+          "median": 9.277628999825538,
+          "p95": 18.224207600178488,
+          "scope": "one successful object fit; excludes acquisition, RPC, rendering, agent and actions"
+        }
+      },
+      "manifest": {
+        "seed": 3602,
+        "purpose": "geometry_observation_demo_not_success_rate_evaluation",
+        "controller": "structure_policy (unique-color declared shapes)",
+        "task": "thin_beam_bridge",
+        "wrist_depth": true,
+        "candidate_sha256": "3c0369bcbb1d201b1bc3a9e88d50971617e2cf6af93205824fdfbd90b3f0c3c8",
+        "object_state_access": "RGB-D only; robot pad geometry uses model and encoders",
+        "new_wrist_geometry_controls_actions": false,
+        "noslip_iterations": 0,
+        "trial_wall_seconds": 12.58957775700037
+      },
+      "last_policy_notes": [
+        "green_3 visual dimensions refined=[0.05851, 0.02951, 0.01484]",
+        "green_3 release offset=[0.0002, -0.0] gap=0.0036",
+        "green_3 after opening displacement=[0.0001, -0.0005, -0.0038]",
+        "green_3 after withdrawal center=[0.0396, -0.1985, 0.4373]",
+        "NODE confirmed beam 3/4",
+        "Selected instance is occluded: red_0"
+      ]
+    },
+    {
+      "path": "outputs/rigid_bridge_3603",
+      "summary": {
+        "purpose": "single_example_not_a_success_rate_estimate",
+        "seed": 3603,
+        "private_evaluator_success": true,
+        "policy_error": null,
+        "task": "thin_beam_bridge",
+        "wrist_depth": true,
+        "record_count": 20,
+        "new_wrist_geometry_controls_actions": false,
+        "views": {
+          "side": {
+            "attempts": 80,
+            "available": 71,
+            "full_reliable_pose": 49,
+            "selected": 60
+          },
+          "wrist": {
+            "attempts": 80,
+            "available": 60,
+            "full_reliable_pose": 29,
+            "selected": 17
+          }
+        },
+        "final_errors": {
+          "blue": {
+            "translation_to_goal_m": [
+              0.00023332819721932907,
+              6.388314849320453e-05,
+              0.00010500032293081496
+            ],
+            "center_error_m": 0.00026371987428823484,
+            "xy_error_m": 0.00024191548995264225,
+            "pose_fully_observed": true,
+            "interpretation": "visual_estimate_not_contact_or_stability_truth",
+            "vertex_rms_m": 0.0002717325943136245,
+            "rotation_error_rad": 0.003098524468100644,
+            "rotation_metric": "cube_symmetry"
+          },
+          "yellow": {
+            "translation_to_goal_m": [
+              -0.00010165476627268556,
+              0.00034950579516912494,
+              0.00010017362837899668
+            ],
+            "center_error_m": 0.0003775218512687312,
+            "xy_error_m": 0.00036398900033209335,
+            "pose_fully_observed": true,
+            "interpretation": "visual_estimate_not_contact_or_stability_truth",
+            "vertex_rms_m": 0.0003836576934653014,
+            "rotation_error_rad": 0.0032328663376926894,
+            "rotation_metric": "cube_symmetry"
+          },
+          "green": {
+            "translation_to_goal_m": [
+              -0.0001347588999681959,
+              7.501106777130229e-05,
+              0.00022621839358233364
+            ],
+            "center_error_m": 0.0002737907650082463,
+            "xy_error_m": 0.00015422911984715835,
+            "pose_fully_observed": true,
+            "interpretation": "visual_estimate_not_contact_or_stability_truth",
+            "vertex_rms_m": 0.0002809394118097438,
+            "rotation_error_rad": 0.002212518723375635,
+            "rotation_metric": "maximum_dimension_axis_error"
+          },
+          "red": {
+            "translation_to_goal_m": [
+              0.00023100918027137846,
+              -0.0015183512946950195,
+              0.0003034814863630553
+            ],
+            "center_error_m": 0.001565521289550808,
+            "xy_error_m": 0.0015358241746605294,
+            "pose_fully_observed": true,
+            "interpretation": "visual_estimate_not_contact_or_stability_truth",
+            "rotation_error_rad": 0.0010072320757708879,
+            "rotation_metric": "unoriented_cylinder_axis; axial_yaw_ignored",
+            "radius_error_m": 0.0
+          }
+        },
+        "final_relations": {
+          "green_on_blue": {
+            "signed_surface_gap_m": -0.00014248310295311706,
+            "projected_overlap_area_m2": 0.0004235896598675428,
+            "both_poses_fully_observed": true,
+            "contact_or_stability_certified": false
+          },
+          "green_on_yellow": {
+            "signed_surface_gap_m": -0.00012462734999946212,
+            "projected_overlap_area_m2": 0.0004345829059922016,
+            "both_poses_fully_observed": true,
+            "contact_or_stability_certified": false
+          },
+          "red_on_green": {
+            "signed_surface_gap_m": -8.298856040817038e-05,
+            "projected_overlap_area_m2": 0.0006828774469800907,
+            "both_poses_fully_observed": true,
+            "contact_or_stability_certified": false
+          }
+        },
+        "geometry_replay_latency_ms": {
+          "samples": 131,
+          "median": 7.421852999868861,
+          "p95": 15.040896000300563,
+          "scope": "one successful object fit; excludes acquisition, RPC, rendering, agent and actions"
+        }
+      },
+      "manifest": {
+        "seed": 3603,
+        "purpose": "geometry_observation_demo_not_success_rate_evaluation",
+        "controller": "structure_policy (unique-color declared shapes)",
+        "task": "thin_beam_bridge",
+        "wrist_depth": true,
+        "candidate_sha256": "3c0369bcbb1d201b1bc3a9e88d50971617e2cf6af93205824fdfbd90b3f0c3c8",
+        "object_state_access": "RGB-D only; robot pad geometry uses model and encoders",
+        "new_wrist_geometry_controls_actions": false,
+        "noslip_iterations": 0,
+        "trial_wall_seconds": 15.53539193100005
+      },
+      "last_policy_notes": [
+        "red_0 alignment to aim=0.0007 gap=0.0108",
+        "red_0 release offset=[-0.0, 0.0003] gap=0.003",
+        "red_0 after opening displacement=[0.0001, -0.0023, -0.0047]",
+        "red_0 after withdrawal center=[-0.0204, -0.2767, 0.4744]",
+        "NODE confirmed cap 4/4",
+        "Structure released; all nodes visually placed according to the support graph"
+      ]
+    }
+  ],
+  "successes": 2,
+  "count": 3,
+  "same_seed_sensor_control": {
+    "summary": {
+      "purpose": "single_example_not_a_success_rate_estimate",
+      "seed": 3601,
+      "private_evaluator_success": true,
+      "policy_error": null,
+      "task": "thin_beam_bridge",
+      "wrist_depth": false,
+      "record_count": 20,
+      "new_wrist_geometry_controls_actions": false,
+      "views": {
+        "side": {
+          "attempts": 80,
+          "available": 76,
+          "full_reliable_pose": 47,
+          "selected": 76
+        },
+        "wrist": {
+          "attempts": 0,
+          "available": 0,
+          "full_reliable_pose": 0,
+          "selected": 0
+        }
+      },
+      "final_errors": {
+        "blue": {
+          "translation_to_goal_m": [
+            -0.0001494095977912016,
+            0.0003013553046305739,
+            -0.003251854742031157
+          ],
+          "center_error_m": 0.003269204415574474,
+          "xy_error_m": 0.0003363602942398443,
+          "pose_fully_observed": false,
+          "interpretation": "visual_estimate_not_contact_or_stability_truth",
+          "vertex_rms_m": 0.00326991590563535,
+          "rotation_error_rad": 0.003226695285737896,
+          "rotation_metric": "cube_symmetry"
+        },
+        "yellow": {
+          "translation_to_goal_m": [
+            -0.0005483009286292705,
+            0.00017353047872359362,
+            9.950776104517e-05
+          ],
+          "center_error_m": 0.0005836510343432817,
+          "xy_error_m": 0.0005751058471114339,
+          "pose_fully_observed": true,
+          "interpretation": "visual_estimate_not_contact_or_stability_truth",
+          "vertex_rms_m": 0.0005881725765488524,
+          "rotation_error_rad": 0.0034433882951969753,
+          "rotation_metric": "cube_symmetry"
+        },
+        "green": {
+          "translation_to_goal_m": [
+            0.0005665230243298534,
+            0.001339139101251885,
+            0.00022545238110094346
+          ],
+          "center_error_m": 0.0014714179031606333,
+          "xy_error_m": 0.0014540432832613854,
+          "pose_fully_observed": false,
+          "interpretation": "visual_estimate_not_contact_or_stability_truth",
+          "vertex_rms_m": 0.0015059500897945273,
+          "rotation_error_rad": 0.0016797751465988226,
+          "rotation_metric": "maximum_dimension_axis_error"
+        },
+        "red": {
+          "translation_to_goal_m": [
+            0.0006624020662379243,
+            0.002244985620030643,
+            0.00030852860358632217
+          ],
+          "center_error_m": 0.0023609165234568475,
+          "xy_error_m": 0.0023406701885358904,
+          "pose_fully_observed": true,
+          "interpretation": "visual_estimate_not_contact_or_stability_truth",
+          "rotation_error_rad": 0.001411643210531165,
+          "rotation_metric": "unoriented_cylinder_axis; axial_yaw_ignored",
+          "radius_error_m": 0.0
+        }
+      },
+      "final_relations": {
+        "green_on_blue": {
+          "signed_surface_gap_m": -0.003485697519959585,
+          "projected_overlap_area_m2": 0.00042518450821372707,
+          "both_poses_fully_observed": false,
+          "contact_or_stability_certified": false
+        },
+        "green_on_yellow": {
+          "signed_surface_gap_m": -0.00013363987820214085,
+          "projected_overlap_area_m2": 0.00037283468616764717,
+          "both_poses_fully_observed": false,
+          "contact_or_stability_certified": false
+        },
+        "red_on_green": {
+          "signed_surface_gap_m": -8.525776902379434e-05,
+          "projected_overlap_area_m2": 0.0006808759513221476,
+          "both_poses_fully_observed": false,
+          "contact_or_stability_certified": false
+        }
+      },
+      "geometry_replay_latency_ms": {
+        "samples": 76,
+        "median": 7.935064500088629,
+        "p95": 15.869619749992125,
+        "scope": "one successful object fit; excludes acquisition, RPC, rendering, agent and actions"
+      }
+    },
+    "manifest": {
+      "seed": 3601,
+      "purpose": "geometry_observation_demo_not_success_rate_evaluation",
+      "controller": "structure_policy (unique-color declared shapes)",
+      "task": "thin_beam_bridge",
+      "wrist_depth": false,
+      "candidate_sha256": "3c0369bcbb1d201b1bc3a9e88d50971617e2cf6af93205824fdfbd90b3f0c3c8",
+      "object_state_access": "RGB-D only; robot pad geometry uses model and encoders",
+      "new_wrist_geometry_controls_actions": false,
+      "noslip_iterations": 0,
+      "trial_wall_seconds": 14.625333169000442
+    },
+    "action_count": 137,
+    "actions_identical": true,
+    "physics_states_identical": true
+  }
+}

@@ -1,0 +1,429 @@
+{
+  "scope": "Measure frozen CPU geometry processing on one recorded occlusion case.\n\nThis is an in-memory replay microbenchmark, not end-to-end policy latency or an\nagent speedup experiment. The simulator and model are never called.\n",
+  "repetitions": 30,
+  "warmup": 3,
+  "fixture": {
+    "seed": 990205,
+    "time": 75.90000000000451,
+    "object": "red",
+    "views": {
+      "side": [
+        240,
+        320
+      ],
+      "wrist": [
+        240,
+        320
+      ]
+    }
+  },
+  "checkpoint_characters": 625,
+  "checkpoint": {
+    "object": "red",
+    "step": "place",
+    "time": 75.9,
+    "frame": "world",
+    "units": "meters",
+    "status": "unavailable",
+    "action_status": "exception: visual pose unavailable",
+    "constraints": {
+      "object": "red",
+      "time": 75.90000000000451,
+      "kind": "current_visual_center_constraints",
+      "basis_world": [
+        [
+          0.24846,
+          -0.126017,
+          0.96041
+        ],
+        [
+          0.095333,
+          0.989869,
+          0.10522
+        ],
+        [
+          -0.963939,
+          0.065415,
+          0.257957
+        ]
+      ],
+      "bounds_m": [
+        [
+          0.465271,
+          0.466306
+        ],
+        [
+          -0.253542,
+          -0.250066
+        ],
+        [
+          0.176548,
+          0.178521
+        ]
+      ],
+      "face_constrained_axes": [
+        true,
+        true,
+        false
+      ],
+      "visual_dimensions_m": [
+        0.014893,
+        0.033024,
+        0.060682
+      ],
+      "dimension_refinements": 2,
+      "condition": "fitted_orientation_and_visual_dimensions",
+      "pose_available": false
+    }
+  },
+  "summary": {
+    "observation_wall_ms": {
+      "median": 134.7568455,
+      "p95": 145.84834575,
+      "min": 128.690709,
+      "max": 147.848609
+    },
+    "observation_cpu_ms": {
+      "median": 134.753038,
+      "p95": 145.83795164999998,
+      "min": 128.68874,
+      "max": 147.843126
+    },
+    "checkpoint_and_json_wall_ms": {
+      "median": 0.0443065,
+      "p95": 0.04751225,
+      "min": 0.040907,
+      "max": 0.048521
+    },
+    "checkpoint_and_json_cpu_ms": {
+      "median": 0.0430235,
+      "p95": 0.04617025,
+      "min": 0.039866,
+      "max": 0.046961
+    },
+    "total_wall_ms": {
+      "median": 134.80003599999998,
+      "p95": 145.89466455,
+      "min": 128.732303,
+      "max": 147.896025
+    },
+    "total_cpu_ms": {
+      "median": 134.794915,
+      "p95": 145.88296785,
+      "min": 128.729117,
+      "max": 147.889288
+    }
+  },
+  "samples": [
+    {
+      "observation_wall_ms": 146.141811,
+      "observation_cpu_ms": 146.124594,
+      "checkpoint_and_json_wall_ms": 0.044517,
+      "checkpoint_and_json_cpu_ms": 0.043425,
+      "total_wall_ms": 146.186328,
+      "total_cpu_ms": 146.168019
+    },
+    {
+      "observation_wall_ms": 147.848609,
+      "observation_cpu_ms": 147.843126,
+      "checkpoint_and_json_wall_ms": 0.047416,
+      "checkpoint_and_json_cpu_ms": 0.046162,
+      "total_wall_ms": 147.896025,
+      "total_cpu_ms": 147.889288
+    },
+    {
+      "observation_wall_ms": 141.370771,
+      "observation_cpu_ms": 141.368707,
+      "checkpoint_and_json_wall_ms": 0.044666,
+      "checkpoint_and_json_cpu_ms": 0.043169,
+      "total_wall_ms": 141.415437,
+      "total_cpu_ms": 141.411876
+    },
+    {
+      "observation_wall_ms": 144.058131,
+      "observation_cpu_ms": 144.05588,
+      "checkpoint_and_json_wall_ms": 0.044974,
+      "checkpoint_and_json_cpu_ms": 0.043647,
+      "total_wall_ms": 144.103105,
+      "total_cpu_ms": 144.099527
+    },
+    {
+      "observation_wall_ms": 145.489666,
+      "observation_cpu_ms": 145.487611,
+      "checkpoint_and_json_wall_ms": 0.048521,
+      "checkpoint_and_json_cpu_ms": 0.046961,
+      "total_wall_ms": 145.538187,
+      "total_cpu_ms": 145.534572
+    },
+    {
+      "observation_wall_ms": 141.677883,
+      "observation_cpu_ms": 141.675552,
+      "checkpoint_and_json_wall_ms": 0.045062,
+      "checkpoint_and_json_cpu_ms": 0.043876,
+      "total_wall_ms": 141.722945,
+      "total_cpu_ms": 141.719428
+    },
+    {
+      "observation_wall_ms": 143.023579,
+      "observation_cpu_ms": 143.017281,
+      "checkpoint_and_json_wall_ms": 0.04621,
+      "checkpoint_and_json_cpu_ms": 0.044714,
+      "total_wall_ms": 143.069789,
+      "total_cpu_ms": 143.061995
+    },
+    {
+      "observation_wall_ms": 141.666585,
+      "observation_cpu_ms": 141.664086,
+      "checkpoint_and_json_wall_ms": 0.045316,
+      "checkpoint_and_json_cpu_ms": 0.044298,
+      "total_wall_ms": 141.711901,
+      "total_cpu_ms": 141.708384
+    },
+    {
+      "observation_wall_ms": 144.229661,
+      "observation_cpu_ms": 144.226944,
+      "checkpoint_and_json_wall_ms": 0.044979,
+      "checkpoint_and_json_cpu_ms": 0.044061,
+      "total_wall_ms": 144.27464,
+      "total_cpu_ms": 144.271005
+    },
+    {
+      "observation_wall_ms": 143.169636,
+      "observation_cpu_ms": 143.167525,
+      "checkpoint_and_json_wall_ms": 0.047591,
+      "checkpoint_and_json_cpu_ms": 0.046177,
+      "total_wall_ms": 143.217227,
+      "total_cpu_ms": 143.213702
+    },
+    {
+      "observation_wall_ms": 141.961029,
+      "observation_cpu_ms": 141.958661,
+      "checkpoint_and_json_wall_ms": 0.046188,
+      "checkpoint_and_json_cpu_ms": 0.045045,
+      "total_wall_ms": 142.007217,
+      "total_cpu_ms": 142.003706
+    },
+    {
+      "observation_wall_ms": 141.929641,
+      "observation_cpu_ms": 141.927303,
+      "checkpoint_and_json_wall_ms": 0.045438,
+      "checkpoint_and_json_cpu_ms": 0.044274,
+      "total_wall_ms": 141.975079,
+      "total_cpu_ms": 141.971577
+    },
+    {
+      "observation_wall_ms": 136.189656,
+      "observation_cpu_ms": 136.187672,
+      "checkpoint_and_json_wall_ms": 0.043768,
+      "checkpoint_and_json_cpu_ms": 0.042372,
+      "total_wall_ms": 136.233424,
+      "total_cpu_ms": 136.230044
+    },
+    {
+      "observation_wall_ms": 130.810231,
+      "observation_cpu_ms": 130.804629,
+      "checkpoint_and_json_wall_ms": 0.043372,
+      "checkpoint_and_json_cpu_ms": 0.042238,
+      "total_wall_ms": 130.853603,
+      "total_cpu_ms": 130.846867
+    },
+    {
+      "observation_wall_ms": 131.578038,
+      "observation_cpu_ms": 131.576237,
+      "checkpoint_and_json_wall_ms": 0.042039,
+      "checkpoint_and_json_cpu_ms": 0.040627,
+      "total_wall_ms": 131.620077,
+      "total_cpu_ms": 131.616864
+    },
+    {
+      "observation_wall_ms": 131.583452,
+      "observation_cpu_ms": 131.581515,
+      "checkpoint_and_json_wall_ms": 0.045245,
+      "checkpoint_and_json_cpu_ms": 0.043913,
+      "total_wall_ms": 131.628697,
+      "total_cpu_ms": 131.625428
+    },
+    {
+      "observation_wall_ms": 134.053214,
+      "observation_cpu_ms": 134.051118,
+      "checkpoint_and_json_wall_ms": 0.043885,
+      "checkpoint_and_json_cpu_ms": 0.04266,
+      "total_wall_ms": 134.097099,
+      "total_cpu_ms": 134.093778
+    },
+    {
+      "observation_wall_ms": 132.552418,
+      "observation_cpu_ms": 132.550335,
+      "checkpoint_and_json_wall_ms": 0.044096,
+      "checkpoint_and_json_cpu_ms": 0.042878,
+      "total_wall_ms": 132.596514,
+      "total_cpu_ms": 132.593213
+    },
+    {
+      "observation_wall_ms": 132.0858,
+      "observation_cpu_ms": 132.083719,
+      "checkpoint_and_json_wall_ms": 0.043854,
+      "checkpoint_and_json_cpu_ms": 0.042636,
+      "total_wall_ms": 132.129654,
+      "total_cpu_ms": 132.126355
+    },
+    {
+      "observation_wall_ms": 131.125678,
+      "observation_cpu_ms": 131.123727,
+      "checkpoint_and_json_wall_ms": 0.042052,
+      "checkpoint_and_json_cpu_ms": 0.040747,
+      "total_wall_ms": 131.16773,
+      "total_cpu_ms": 131.164474
+    },
+    {
+      "observation_wall_ms": 134.40773,
+      "observation_cpu_ms": 134.405702,
+      "checkpoint_and_json_wall_ms": 0.043306,
+      "checkpoint_and_json_cpu_ms": 0.041998,
+      "total_wall_ms": 134.451036,
+      "total_cpu_ms": 134.4477
+    },
+    {
+      "observation_wall_ms": 134.383024,
+      "observation_cpu_ms": 134.374187,
+      "checkpoint_and_json_wall_ms": 0.044684,
+      "checkpoint_and_json_cpu_ms": 0.043703,
+      "total_wall_ms": 134.427708,
+      "total_cpu_ms": 134.41789
+    },
+    {
+      "observation_wall_ms": 131.398174,
+      "observation_cpu_ms": 131.395907,
+      "checkpoint_and_json_wall_ms": 0.040907,
+      "checkpoint_and_json_cpu_ms": 0.039866,
+      "total_wall_ms": 131.439081,
+      "total_cpu_ms": 131.435773
+    },
+    {
+      "observation_wall_ms": 128.690709,
+      "observation_cpu_ms": 128.68874,
+      "checkpoint_and_json_wall_ms": 0.041594,
+      "checkpoint_and_json_cpu_ms": 0.040377,
+      "total_wall_ms": 128.732303,
+      "total_cpu_ms": 128.729117
+    },
+    {
+      "observation_wall_ms": 133.460138,
+      "observation_cpu_ms": 133.457913,
+      "checkpoint_and_json_wall_ms": 0.042025,
+      "checkpoint_and_json_cpu_ms": 0.040978,
+      "total_wall_ms": 133.502163,
+      "total_cpu_ms": 133.498891
+    },
+    {
+      "observation_wall_ms": 133.608051,
+      "observation_cpu_ms": 133.605763,
+      "checkpoint_and_json_wall_ms": 0.044757,
+      "checkpoint_and_json_cpu_ms": 0.043766,
+      "total_wall_ms": 133.652808,
+      "total_cpu_ms": 133.649529
+    },
+    {
+      "observation_wall_ms": 132.065561,
+      "observation_cpu_ms": 132.063432,
+      "checkpoint_and_json_wall_ms": 0.042308,
+      "checkpoint_and_json_cpu_ms": 0.041162,
+      "total_wall_ms": 132.107869,
+      "total_cpu_ms": 132.104594
+    },
+    {
+      "observation_wall_ms": 132.040355,
+      "observation_cpu_ms": 132.010741,
+      "checkpoint_and_json_wall_ms": 0.041564,
+      "checkpoint_and_json_cpu_ms": 0.040648,
+      "total_wall_ms": 132.081919,
+      "total_cpu_ms": 132.051389
+    },
+    {
+      "observation_wall_ms": 135.105961,
+      "observation_cpu_ms": 135.100374,
+      "checkpoint_and_json_wall_ms": 0.043075,
+      "checkpoint_and_json_cpu_ms": 0.041756,
+      "total_wall_ms": 135.149036,
+      "total_cpu_ms": 135.14213
+    },
+    {
+      "observation_wall_ms": 136.135165,
+      "observation_cpu_ms": 136.12956,
+      "checkpoint_and_json_wall_ms": 0.04252,
+      "checkpoint_and_json_cpu_ms": 0.041604,
+      "total_wall_ms": 136.177685,
+      "total_cpu_ms": 136.171164
+    }
+  ],
+  "model_calls": 0,
+  "simulator_calls": 0,
+  "environment": {
+    "platform": "Linux-7.0.0-31-generic-x86_64-with-glibc2.39",
+    "python": "3.14.2",
+    "numpy": "2.5.3",
+    "logical_cpus": 32,
+    "cpu_affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "thread_environment": {
+      "OPENBLAS_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1"
+    },
+    "load_average_start": [
+      0.8623046875,
+      0.98388671875,
+      0.7685546875
+    ],
+    "load_average_end": [
+      1.03369140625,
+      1.017578125,
+      0.78076171875
+    ]
+  },
+  "source_sha256": {
+    "/home/pcmachine/Documents/agentic_policy/aspire_so100/scripts/benchmark_target_abstraction.py": "8dcf02221040bd5d79da59ca937eae022b4f5eb573eadb2bae16e5e7db4ce990",
+    "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/constraint_geometry_learning_replications_01/replica_01/symbolic_library.py": "4a9954b6b0cfa8fa3df6fdb0cefce782205ee49d5ded947a20878db8ed25ad64",
+    "/home/pcmachine/Documents/agentic_policy/aspire_so100/tests/fixtures/partial_cuboid_failure_rgbd.json": "0c79a648784c788d3e3c0992508f567e3d49db49618b84233a249482756e05ce",
+    "/home/pcmachine/Documents/agentic_policy/aspire_so100/tests/fixtures/partial_cuboid_failure_rgbd.npz": "7d77f5adc05e5354eb09c9278ea60a3cb8ace462174ab5a72c91155780fc1aad"
+  },
+  "limitations": [
+    "One repeated recorded occlusion case, not a representative frame or task distribution.",
+    "Includes robot masking, original failed-view fits, extra partial-constraint fit, checkpoint and JSON.",
+    "Excludes module import, initial object-model fitting, sensor IO, simulation, model reasoning and actions.",
+    "CPU timings include all process threads; wall timings can be affected by concurrent campaign activity.",
+    "Single-thread environment requested; no isolated-core or hardware-real-time guarantee.",
+    "No VLM timing comparison, control-frequency claim or policy success benefit follows."
+  ]
+}

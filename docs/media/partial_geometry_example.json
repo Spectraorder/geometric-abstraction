@@ -1,0 +1,57 @@
+{
+  "scope": "Plot real RGB-D evidence and conditional center intervals, never object truth.",
+  "seed": 990205,
+  "time": 75.90000000000451,
+  "object": "red",
+  "source_sha256": {
+    "/home/pcmachine/Documents/agentic_policy/aspire_so100/scripts/plot_partial_geometry_example.py": "a38162354e32d8dac6690568828c73d9d08412c4caeeef709f5284fc66717315",
+    "/home/pcmachine/Documents/agentic_policy/aspire_so100/tests/fixtures/partial_cuboid_failure_rgbd.npz": "7d77f5adc05e5354eb09c9278ea60a3cb8ace462174ab5a72c91155780fc1aad",
+    "/home/pcmachine/Documents/agentic_policy/aspire_so100/docs/evaluations/observer_input_failure_replay.json": "e447d1b35391dc782734531252b83bf72ad2ab1985cef773ff97701124c95ace"
+  },
+  "fitted_basis_rows_world": [
+    [
+      0.24846049497977318,
+      -0.12601720399386604,
+      0.9604098326922599
+    ],
+    [
+      0.09533265514880965,
+      0.9898689215853305,
+      0.10521978398463346
+    ],
+    [
+      -0.9639393483496171,
+      0.06541545977109042,
+      0.2579568768733498
+    ]
+  ],
+  "center_bounds_m": [
+    [
+      0.4652709898602015,
+      0.46630600567756053
+    ],
+    [
+      -0.2535424794845019,
+      -0.25006619182857637
+    ],
+    [
+      0.17654759736455747,
+      0.17852080418579122
+    ]
+  ],
+  "interval_widths_mm": [
+    1.0350158173590418,
+    3.4762876559255584,
+    1.9732068212337528
+  ],
+  "prediction_relative_to_interval_midpoint_mm": [
+    3.3513027269118645,
+    -0.03324658930992097,
+    1.2940840117890429
+  ],
+  "limitations": [
+    "RGB images and geometric evidence are actual development observations.",
+    "Interval widths and predictions are model-conditioned, not ground truth.",
+    "This illustrates evidence; no task success or pose accuracy gain is claimed."
+  ]
+}

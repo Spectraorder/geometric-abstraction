@@ -1,0 +1,402 @@
+{
+  "label": "final",
+  "time": 132.69999999990551,
+  "coordinate_frame": "world",
+  "units": "meters_radians",
+  "target_anchor_label": "controller_visual_plan_revision_5",
+  "errors": {
+    "blue": {
+      "translation_to_goal_m": [
+        -0.0001494095977912016,
+        0.0003013553046305739,
+        -0.003251854742031157
+      ],
+      "center_error_m": 0.003269204415574474,
+      "xy_error_m": 0.0003363602942398443,
+      "pose_fully_observed": false,
+      "interpretation": "visual_estimate_not_contact_or_stability_truth",
+      "vertex_rms_m": 0.00326991590563535,
+      "rotation_error_rad": 0.003226695285737896,
+      "rotation_metric": "cube_symmetry"
+    },
+    "yellow": {
+      "translation_to_goal_m": [
+        -0.0005483009286292705,
+        0.00017353047872359362,
+        9.950776104517e-05
+      ],
+      "center_error_m": 0.0005836510343432817,
+      "xy_error_m": 0.0005751058471114339,
+      "pose_fully_observed": true,
+      "interpretation": "visual_estimate_not_contact_or_stability_truth",
+      "vertex_rms_m": 0.0005881725765488524,
+      "rotation_error_rad": 0.0034433882951969753,
+      "rotation_metric": "cube_symmetry"
+    },
+    "green": {
+      "translation_to_goal_m": [
+        0.0005665230243298534,
+        0.001339139101251885,
+        0.00022545238110094346
+      ],
+      "center_error_m": 0.0014714179031606333,
+      "xy_error_m": 0.0014540432832613854,
+      "pose_fully_observed": false,
+      "interpretation": "visual_estimate_not_contact_or_stability_truth",
+      "vertex_rms_m": 0.0015059500897945273,
+      "rotation_error_rad": 0.0016797751465988226,
+      "rotation_metric": "maximum_dimension_axis_error"
+    },
+    "red": {
+      "translation_to_goal_m": [
+        0.0006624020662379243,
+        0.002244985620030643,
+        0.00030852860358632217
+      ],
+      "center_error_m": 0.0023609165234568475,
+      "xy_error_m": 0.0023406701885358904,
+      "pose_fully_observed": true,
+      "interpretation": "visual_estimate_not_contact_or_stability_truth",
+      "rotation_error_rad": 0.001411643210531165,
+      "rotation_metric": "unoriented_cylinder_axis; axial_yaw_ignored",
+      "radius_error_m": 0.0
+    }
+  },
+  "relations": {
+    "green_on_blue": {
+      "signed_surface_gap_m": -0.003485697519959585,
+      "projected_overlap_area_m2": 0.00042518450821372707,
+      "both_poses_fully_observed": false,
+      "contact_or_stability_certified": false
+    },
+    "green_on_yellow": {
+      "signed_surface_gap_m": -0.00013363987820214085,
+      "projected_overlap_area_m2": 0.00037283468616764717,
+      "both_poses_fully_observed": false,
+      "contact_or_stability_certified": false
+    },
+    "red_on_green": {
+      "signed_surface_gap_m": -8.525776902379434e-05,
+      "projected_overlap_area_m2": 0.0006808759513221476,
+      "both_poses_fully_observed": false,
+      "contact_or_stability_certified": false
+    }
+  },
+  "objects": {
+    "blue": {
+      "shape": "cube",
+      "center": [
+        -0.04961298632167148,
+        -0.1981875113168102,
+        0.41820247876234024
+      ],
+      "rotation": [
+        [
+          -0.0030324825505738673,
+          -3.3434060062951533e-06,
+          -0.9999954020086302
+        ],
+        [
+          -0.9999947942246806,
+          -0.0011025252563222196,
+          0.003032484393677759
+        ],
+        [
+          -0.001102530325747142,
+          0.9999993922132557,
+          8.933825901280557e-17
+        ]
+      ],
+      "height": 0.029895189780470705,
+      "dims": [
+        0.029895189780470705,
+        0.029895189780470705
+      ],
+      "vertices_kind": "inferred_rigid_box_corners",
+      "selected_view": "side",
+      "observed_face_count": 1,
+      "position_fully_observed": false,
+      "inferred_orientation": true
+    },
+    "yellow": {
+      "shape": "cube",
+      "center": [
+        0.01057660843132823,
+        -0.19805968649090322,
+        0.4148510076193862
+      ],
+      "rotation": [
+        [
+          -0.0031942680521402866,
+          -0.0011512371472004168,
+          0.9999942356357066
+        ],
+        [
+          -0.0005710314740948348,
+          -0.9999991721795827,
+          -0.0011530668684746543
+        ],
+        [
+          0.9999947352734746,
+          -0.0005747113871211447,
+          0.0031936080152147888
+        ]
+      ],
+      "height": 0.029895349168093756,
+      "dims": [
+        0.029895349168093756,
+        0.029895349168093756
+      ],
+      "vertices_kind": "inferred_rigid_box_corners",
+      "selected_view": "side",
+      "observed_face_count": 3,
+      "position_fully_observed": true,
+      "inferred_orientation": false
+    },
+    "green": {
+      "shape": "thin_prism",
+      "center": [
+        -0.020433567232711714,
+        -0.1992252951134315,
+        0.4371196280649746
+      ],
+      "rotation": [
+        [
+          -5.5794091390596284e-05,
+          0.00029796118615393224,
+          0.9999999540530744
+        ],
+        [
+          -0.0016531534169246884,
+          -0.9999985891780602,
+          0.0002978685432771226
+        ],
+        [
+          0.999998631984464,
+          -0.0016531367216627846,
+          5.628658822796905e-05
+        ]
+      ],
+      "height": 0.014893723071062237,
+      "dims": [
+        0.058541193117713705,
+        0.02864660868518712
+      ],
+      "vertices_kind": "inferred_rigid_box_corners",
+      "selected_view": "side",
+      "observed_face_count": 2,
+      "position_fully_observed": false,
+      "inferred_orientation": false
+    },
+    "red": {
+      "shape": "cylinder",
+      "center": [
+        -0.020529446274619785,
+        -0.20013114163221027,
+        0.4744388061525055
+      ],
+      "rotation": [
+        [
+          0.9999999997528546,
+          0.0,
+          -2.223265135170129e-05
+        ],
+        [
+          -3.138066826127964e-08,
+          0.9999990038790337,
+          -0.0014114676543570562
+        ],
+        [
+          2.2232629205291144e-05,
+          0.001411467654705894,
+          0.9999990036318886
+        ]
+      ],
+      "height": 0.05991078554897033,
+      "dims": [
+        0.029788205344276966,
+        0.029788205344276966
+      ],
+      "axis": [
+        -2.2232651351701287e-05,
+        -0.001411467654357056,
+        0.9999990036318885
+      ],
+      "radius": 0.014894102672138483,
+      "end_centers": [
+        [
+          -0.020528780286816126,
+          -0.20008886056423553,
+          0.44448344322461847
+        ],
+        [
+          -0.020530112262423444,
+          -0.200173422700185,
+          0.5043941690803926
+        ]
+      ],
+      "vertices_kind": "sampled_model_rims_not_physical_vertices",
+      "selected_view": "side",
+      "observed_face_count": 1,
+      "position_fully_observed": true,
+      "inferred_orientation": false
+    }
+  },
+  "targets": {
+    "blue": {
+      "shape": "cube",
+      "center": [
+        -0.04976239591946268,
+        -0.19788615601217963,
+        0.4149506240203091
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "height": 0.029895189780470705,
+      "dims": [
+        0.029895189780470705,
+        0.029895189780470705
+      ],
+      "support": [
+        "table"
+      ],
+      "source": "constructed_task_goal_from_visual_dimensions_and_public_graph"
+    },
+    "yellow": {
+      "shape": "cube",
+      "center": [
+        0.010028307502698959,
+        -0.19788615601217963,
+        0.4149505153804314
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "height": 0.029895349168093756,
+      "dims": [
+        0.029895349168093756,
+        0.029895349168093756
+      ],
+      "support": [
+        "table"
+      ],
+      "source": "constructed_task_goal_from_visual_dimensions_and_public_graph"
+    },
+    "green": {
+      "shape": "thin_prism",
+      "center": [
+        -0.01986704420838186,
+        -0.19788615601217963,
+        0.43734508044607556
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "height": 0.014893723071062237,
+      "dims": [
+        0.05790242384537943,
+        0.02864660868518712
+      ],
+      "support": [
+        "blue",
+        "yellow"
+      ],
+      "source": "constructed_task_goal_from_visual_dimensions_and_public_graph"
+    },
+    "red": {
+      "shape": "cylinder",
+      "center": [
+        -0.01986704420838186,
+        -0.19788615601217963,
+        0.4747473347560918
+      ],
+      "rotation": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "height": 0.05991078554897033,
+      "dims": [
+        0.029788205344276966,
+        0.029788205344276966
+      ],
+      "axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "radius": 0.014894102672138483,
+      "end_centers": [
+        [
+          -0.01986704420838186,
+          -0.19788615601217963,
+          0.44479194198160665
+        ],
+        [
+          -0.01986704420838186,
+          -0.19788615601217963,
+          0.504702727530577
+        ]
+      ],
+      "support": [
+        "green"
+      ],
+      "source": "constructed_task_goal_from_visual_dimensions_and_public_graph"
+    }
+  }
+}

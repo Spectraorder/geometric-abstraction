@@ -1,0 +1,45 @@
+{
+  "status": "completed",
+  "scope": "Open explicitly after a known development placement exception; no SR claim.\n\nThis manually inserted probe is not an evolved policy and never enters actor\nfeedback. It verifies the shared command after an unchanged visual failure prefix.\n",
+  "protocol_sha256": "952cf749f4e707b54f8116dd3af320ac8f0a385057bdee7cc0580f676b290401",
+  "unchanged_api_prefix_length": 280,
+  "identical_camera_archives": 48,
+  "opening_command": {
+    "time": 80.39999999999402,
+    "method": "gripper",
+    "params": {
+      "angle": 0.8,
+      "seconds": 0.6
+    }
+  },
+  "opening_checkpoint": {
+    "object": "blue",
+    "step": "explicit_open",
+    "time": 81.0,
+    "frame": "world",
+    "units": "meters",
+    "status": "unavailable",
+    "action_status": "opened_unverified",
+    "placement_goal": {
+      "reference": "center_xy_min_z",
+      "point_m": [
+        -0.011212,
+        -0.253559,
+        0.430189
+      ],
+      "remaining_translation_m": null
+    }
+  },
+  "task_success_claim": false,
+  "physical_release_certified": false,
+  "limitations": [
+    "One manually triggered development case, not agent learning or an SR-effect test.",
+    "Explicit opening clears controller bookkeeping only after command acknowledgment.",
+    "No task-specific trigger, automatic recovery, retreat or stable-support check is added to the interface."
+  ],
+  "artifact_sha256": {
+    "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/explicit_open_development_01/seed_990202/api_calls.json": "72a065ae7cba4036095eb5fcbff05cf6dedfc64402fd8d0025b06fe8d44f6df3",
+    "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/explicit_open_development_01/seed_990202/geometry_records.json": "07ee48e4e11334bdb8fabe86d11e7e009a8d18749fddb2485fa324f841466c10",
+    "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_guard_threshold_development_01/trials/seed_990202/api_calls.json": "65764269c879a6be4ecbff08e18d13585233c12b1c9c3d9e9aeef9bc7c0730aa"
+  }
+}

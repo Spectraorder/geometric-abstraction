@@ -1,0 +1,375 @@
+{
+  "scope": "Reproduce a logged visual fit failure and isolate model/mask effects offline.",
+  "seed": 990205,
+  "object": "red",
+  "time": 75.90000000000451,
+  "initial_model_time": 59.9500000000273,
+  "variants": [
+    {
+      "model": "current",
+      "mask": "robot_mask",
+      "input_model": {
+        "height": 0.014893243488705687,
+        "dims": [
+          0.060681561773156534,
+          0.0330240734568234
+        ],
+        "initial_dims_m": [
+          0.05810663700127025,
+          0.029920480948577466
+        ],
+        "dims_upper_m": [
+          0.0705416055763751,
+          0.04186443868891654
+        ],
+        "dimension_pixel_footprint_m": [
+          0.006217484287552422,
+          0.0059719788701695364
+        ],
+        "dimension_refinement_count": 2
+      },
+      "status": "rejected",
+      "error": "No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'joint_correspondence', 'reason': 'Unique cuboid correspondence still has wide hidden position intervals'}]",
+      "diagnostic_bounds": {
+        "rotation": [
+          [
+            0.24846049497977318,
+            0.09533265514880965,
+            -0.9639393483496171
+          ],
+          [
+            -0.12601720399386604,
+            0.9898689215853305,
+            0.06541545977109042
+          ],
+          [
+            0.9604098326922599,
+            0.10521978398463346,
+            0.2579568768733498
+          ]
+        ],
+        "center": [
+          -0.07963100611832666,
+          -0.2977780711314879,
+          0.4661788106579788
+        ],
+        "constrained_axes": [
+          true,
+          true,
+          false
+        ],
+        "finite_center_bounds_m": [
+          [
+            0.4652709898602015,
+            0.46630600567756053
+          ],
+          [
+            -0.2535424794845019,
+            -0.25006619182857637
+          ],
+          [
+            0.17654759736455747,
+            0.17852080418579122
+          ]
+        ],
+        "finite_center_width_m": [
+          0.0010350158173590418,
+          0.0034762876559255584,
+          0.001973206821233753
+        ],
+        "axis_dimensions": [
+          0.014893243488705687,
+          0.0330240734568234,
+          0.060681561773156534
+        ],
+        "temporal_pose_prior_used": false
+      }
+    },
+    {
+      "model": "current",
+      "mask": "no_robot_mask",
+      "input_model": {
+        "height": 0.014893243488705687,
+        "dims": [
+          0.060681561773156534,
+          0.0330240734568234
+        ],
+        "initial_dims_m": [
+          0.05810663700127025,
+          0.029920480948577466
+        ],
+        "dims_upper_m": [
+          0.0705416055763751,
+          0.04186443868891654
+        ],
+        "dimension_pixel_footprint_m": [
+          0.006217484287552422,
+          0.0059719788701695364
+        ],
+        "dimension_refinement_count": 2
+      },
+      "status": "rejected",
+      "error": "No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'joint_correspondence', 'reason': 'Unique cuboid correspondence still has wide hidden position intervals'}]",
+      "diagnostic_bounds": {
+        "rotation": [
+          [
+            0.24846049497977318,
+            0.09533265514880965,
+            -0.9639393483496171
+          ],
+          [
+            -0.12601720399386604,
+            0.9898689215853305,
+            0.06541545977109042
+          ],
+          [
+            0.9604098326922599,
+            0.10521978398463346,
+            0.2579568768733498
+          ]
+        ],
+        "center": [
+          -0.07963100611832666,
+          -0.2977780711314879,
+          0.4661788106579788
+        ],
+        "constrained_axes": [
+          true,
+          true,
+          false
+        ],
+        "finite_center_bounds_m": [
+          [
+            0.4652709898602015,
+            0.46630600567756053
+          ],
+          [
+            -0.2535424794845019,
+            -0.25006619182857637
+          ],
+          [
+            0.17654759736455747,
+            0.17852080418579122
+          ]
+        ],
+        "finite_center_width_m": [
+          0.0010350158173590418,
+          0.0034762876559255584,
+          0.001973206821233753
+        ],
+        "axis_dimensions": [
+          0.014893243488705687,
+          0.0330240734568234,
+          0.060681561773156534
+        ],
+        "temporal_pose_prior_used": false
+      }
+    },
+    {
+      "model": "initial",
+      "mask": "robot_mask",
+      "input_model": {
+        "height": 0.014893243488705687,
+        "dims": [
+          0.05810663700127025,
+          0.029920480948577466
+        ],
+        "initial_dims_m": [
+          0.05810663700127025,
+          0.029920480948577466
+        ],
+        "dims_upper_m": [
+          0.0705416055763751,
+          0.04186443868891654
+        ],
+        "dimension_pixel_footprint_m": [
+          0.006217484287552422,
+          0.0059719788701695364
+        ],
+        "dimension_refinement_count": 0
+      },
+      "status": "accepted",
+      "center_m": [
+        -0.07968915892757461,
+        -0.2962280728504403,
+        0.4663978282993437
+      ],
+      "position_fully_observed": false,
+      "diagnostic_bounds": {
+        "rotation": [
+          [
+            0.24846049497977318,
+            0.09533265514880965,
+            -0.9639393483496171
+          ],
+          [
+            -0.12601720399386604,
+            0.9898689215853305,
+            0.06541545977109042
+          ],
+          [
+            0.9604098326922599,
+            0.10521978398463346,
+            0.2579568768733498
+          ]
+        ],
+        "center": [
+          -0.07948306926117113,
+          -0.29624199624689906,
+          0.46634209032462576
+        ],
+        "constrained_axes": [
+          true,
+          true,
+          false
+        ],
+        "finite_center_bounds_m": [
+          [
+            0.4652709898602015,
+            0.46630600567756053
+          ],
+          [
+            -0.251990683230379,
+            -0.25161798808269936
+          ],
+          [
+            0.17753370077517436,
+            0.17753470077517433
+          ]
+        ],
+        "finite_center_width_m": [
+          0.0010350158173590418,
+          0.00037269514767962475,
+          9.999999999732445e-07
+        ],
+        "axis_dimensions": [
+          0.014893243488705687,
+          0.029920480948577466,
+          0.05870935495192278
+        ],
+        "temporal_pose_prior_used": false
+      }
+    },
+    {
+      "model": "initial",
+      "mask": "no_robot_mask",
+      "input_model": {
+        "height": 0.014893243488705687,
+        "dims": [
+          0.05810663700127025,
+          0.029920480948577466
+        ],
+        "initial_dims_m": [
+          0.05810663700127025,
+          0.029920480948577466
+        ],
+        "dims_upper_m": [
+          0.0705416055763751,
+          0.04186443868891654
+        ],
+        "dimension_pixel_footprint_m": [
+          0.006217484287552422,
+          0.0059719788701695364
+        ],
+        "dimension_refinement_count": 0
+      },
+      "status": "accepted",
+      "center_m": [
+        -0.07968915892757461,
+        -0.2962280728504403,
+        0.4663978282993437
+      ],
+      "position_fully_observed": false,
+      "diagnostic_bounds": {
+        "rotation": [
+          [
+            0.24846049497977318,
+            0.09533265514880965,
+            -0.9639393483496171
+          ],
+          [
+            -0.12601720399386604,
+            0.9898689215853305,
+            0.06541545977109042
+          ],
+          [
+            0.9604098326922599,
+            0.10521978398463346,
+            0.2579568768733498
+          ]
+        ],
+        "center": [
+          -0.07948306926117113,
+          -0.29624199624689906,
+          0.46634209032462576
+        ],
+        "constrained_axes": [
+          true,
+          true,
+          false
+        ],
+        "finite_center_bounds_m": [
+          [
+            0.4652709898602015,
+            0.46630600567756053
+          ],
+          [
+            -0.251990683230379,
+            -0.25161798808269936
+          ],
+          [
+            0.17753370077517436,
+            0.17753470077517433
+          ]
+        ],
+        "finite_center_width_m": [
+          0.0010350158173590418,
+          0.00037269514767962475,
+          9.999999999732445e-07
+        ],
+        "axis_dimensions": [
+          0.014893243488705687,
+          0.029920480948577466,
+          0.05870935495192278
+        ],
+        "temporal_pose_prior_used": false
+      }
+    }
+  ],
+  "pose_recovered": false,
+  "live_observer_changed": false,
+  "conditional_prediction_comparison": {
+    "predicted_center_m": [
+      -0.07982525863988207,
+      -0.29670774742366085,
+      0.470198167140587
+    ],
+    "prediction_in_fitted_basis_m": [
+      0.46913980049579285,
+      -0.25183758224584907,
+      0.1788282847869634
+    ],
+    "outside_visual_bounds_m": [
+      0.002833794818232316,
+      0.0,
+      0.00030748060117216647
+    ],
+    "inside_all_visual_bounds": false,
+    "pose_fused": false,
+    "interpretation": "A non-contradicted enclosing sphere does not establish compatibility with tighter visual constraints."
+  },
+  "limitations": [
+    "Single development failure, not success-rate evidence.",
+    "Relaxed bounds are diagnostic only; they are not calibrated confidence intervals.",
+    "Public robot geometry and RGB-D-derived dimensions only; no object truth or success labels."
+  ],
+  "input_sha256": {
+    "/home/pcmachine/Documents/agentic_policy/aspire_so100/scripts/replay_observer_inputs.py": "938a4ac979549eee10563c06cfddb7b36e0aea4d1e7588639e9e43ed50f1515c",
+    "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/observer_input_logging_development_01/logging_library.py": "d8ca5f64c180732fdedc1507ad54609c79e683a6b6ff070ff8b74f4addf3c4fd",
+    "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/observer_input_logging_development_01/equivalence.json": "173f554ee04f165a06cd9f5973e693925b98eb71dfedc3165fb889cf63b32d2b",
+    "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/observer_input_logging_development_01/seed_990205/geometry_records.json": "47f8c822b99c7f23bfd375beec0138b0fb695270dfd187ddf8d0ecdb8c8125af",
+    "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/observer_input_logging_development_01/seed_990205/camera_042.npz": "93b2c1a179e6f13a16fd1552110dcbb0c506a8861f4173b4d52b481a3274ed87",
+    "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/observer_input_logging_development_01/seed_990205/camera_043.npz": "73d3e72216e4b8903d678e171f3d25fd105fd577a05b06f28fcd978b4ec8e5bc",
+    "docs/evaluations/conditional_attachment_failure_replay.json": "f6495702f7c6bf9dd7f6173ade2cd4590f28a8fa99f76f78b520523e43dbc6dd"
+  }
+}

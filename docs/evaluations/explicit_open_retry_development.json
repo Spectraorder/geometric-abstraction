@@ -1,0 +1,260 @@
+{
+  "scope": "Development-only generic open/reacquire/retry after a placement exception.\n\nA human-authored bounded recovery intervention on all five prior guard-development\nlayouts. Never actor feedback, no model call, no reserved layouts or object truth.\n",
+  "status": "completed",
+  "protocol_sha256": "017f91cc4831c6c3dcdbc83e088c0d981858d8ff723a91428f96cd6ec45c2a95",
+  "trials": [
+    {
+      "seed": 990201,
+      "original_success": false,
+      "recovery_success": false,
+      "policy_error": null,
+      "opening_count": 0,
+      "first_changed_api_index": null,
+      "unchanged_camera_prefix_count": 54,
+      "recovery_checkpoints": [],
+      "artifact_sha256": {
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/explicit_open_retry_development_01/trials/seed_990201/result.json": "3b4298a4efd25cc6d756e3f1e719d6c582c9bb4d1e402811ea3c145d73824c4b",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/explicit_open_retry_development_01/trials/seed_990201/api_calls.json": "7567599b9bb84059eebcf985b5b908a7222750a4abf6d572bf1575b06b922fcb",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_guard_threshold_development_01/trials/seed_990201/result.json": "dd55eaf9147610c5660d3813d2d9b2439de14fa76ef8337fbe7368ec12b8fb93",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_guard_threshold_development_01/trials/seed_990201/api_calls.json": "11089d3baf9a2ba0936478ad3758cb35bc5bba9238f28e6585708ac53adba7af"
+      }
+    },
+    {
+      "seed": 990202,
+      "original_success": false,
+      "recovery_success": true,
+      "policy_error": null,
+      "opening_count": 1,
+      "first_changed_api_index": 280,
+      "unchanged_camera_prefix_count": 48,
+      "recovery_checkpoints": [
+        {
+          "object": "blue",
+          "step": "recovery_open",
+          "time": 81.0,
+          "frame": "world",
+          "units": "meters",
+          "status": "unavailable",
+          "action_status": "opened_unverified",
+          "placement_goal": {
+            "reference": "center_xy_min_z",
+            "point_m": [
+              -0.011212,
+              -0.253559,
+              0.430189
+            ],
+            "remaining_translation_m": null
+          }
+        },
+        {
+          "object": "blue",
+          "step": "recovery_pick",
+          "time": 90.25,
+          "frame": "world",
+          "units": "meters",
+          "status": "current_estimate",
+          "action_status": "lift_visually_confirmed",
+          "geometry": {
+            "shape": "thin_prism",
+            "center_m": [
+              -0.011491,
+              -0.234331,
+              0.493476
+            ],
+            "position_fully_observed": false,
+            "orientation_inferred": false,
+            "dimensions_m": [
+              0.014893,
+              0.05956,
+              0.029777
+            ],
+            "normal": [
+              -0.000699,
+              0.07547,
+              0.997148
+            ]
+          }
+        },
+        {
+          "object": "blue",
+          "step": "recovery_place",
+          "time": 110.95,
+          "frame": "world",
+          "units": "meters",
+          "status": "current_estimate",
+          "action_status": "released",
+          "geometry": {
+            "shape": "thin_prism",
+            "center_m": [
+              -0.011699,
+              -0.251959,
+              0.437277
+            ],
+            "position_fully_observed": false,
+            "orientation_inferred": true,
+            "dimensions_m": [
+              0.05956,
+              0.029777,
+              0.014893
+            ],
+            "normal": [
+              0.000102,
+              -0.00138,
+              0.999999
+            ]
+          },
+          "estimated_change": {
+            "since": 90.25,
+            "center_delta_m": [
+              -0.000207,
+              -0.017627,
+              -0.056199
+            ],
+            "both_positions_fully_observed": false
+          },
+          "placement_goal": {
+            "reference": "center_xy_min_z",
+            "point_m": [
+              -0.011212,
+              -0.253559,
+              0.430189
+            ],
+            "remaining_translation_m": [
+              0.000486,
+              -0.001601,
+              0.000382
+            ]
+          }
+        }
+      ],
+      "artifact_sha256": {
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/explicit_open_retry_development_01/trials/seed_990202/result.json": "6419a5343cbcc9f0c73b271bfa42690f9716297c5fd62eb8d0c42e60922e62ec",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/explicit_open_retry_development_01/trials/seed_990202/api_calls.json": "5b21e533b4b4449ff653d54b84f46cf224df0425577a5a074ffc26d1b0486988",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_guard_threshold_development_01/trials/seed_990202/result.json": "81e995a6ee265fb5fa30d066a407c14033a5e3809ab12273631b5ff635a1640e",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_guard_threshold_development_01/trials/seed_990202/api_calls.json": "65764269c879a6be4ecbff08e18d13585233c12b1c9c3d9e9aeef9bc7c0730aa"
+      }
+    },
+    {
+      "seed": 990203,
+      "original_success": true,
+      "recovery_success": true,
+      "policy_error": null,
+      "opening_count": 0,
+      "first_changed_api_index": null,
+      "unchanged_camera_prefix_count": 63,
+      "recovery_checkpoints": [],
+      "artifact_sha256": {
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/explicit_open_retry_development_01/trials/seed_990203/result.json": "52bc1d0e91616a424ab5fa796b2d520b5abb8e05a94218dbf9d2c6f06a7d8eb2",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/explicit_open_retry_development_01/trials/seed_990203/api_calls.json": "b3b41e69cff2d9489e2e794db8238168f5fa5eb347c791ba34fd5445aabcd7d7",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_guard_threshold_development_01/trials/seed_990203/result.json": "d7ce59e7d5dcde5899625e658b652fa4dd1ae563b343be3c10c21cd4471f013c",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_guard_threshold_development_01/trials/seed_990203/api_calls.json": "d3ca2a7de84da3be09bb6f16e17a815de743379fb551bbb1de325c848f5724c6"
+      }
+    },
+    {
+      "seed": 990204,
+      "original_success": false,
+      "recovery_success": false,
+      "policy_error": null,
+      "opening_count": 0,
+      "first_changed_api_index": null,
+      "unchanged_camera_prefix_count": 5,
+      "recovery_checkpoints": [],
+      "artifact_sha256": {
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/explicit_open_retry_development_01/trials/seed_990204/result.json": "5fcb34ac5a18ab9a469a15af994650c143c2e1a24a3745b1407a17a039f221e7",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/explicit_open_retry_development_01/trials/seed_990204/api_calls.json": "6e36ffc7f1f160f7bbde73dcff70e9b2bfdaabcef4c4950c0172c393567efc39",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_guard_threshold_development_01/trials/seed_990204/result.json": "6e52017f61c2254ed5957bb20d8c9f642e589c891b4e6520452483fd86727eb1",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_guard_threshold_development_01/trials/seed_990204/api_calls.json": "2c1e52d2a600848e64a41349e05423eaec668c0e1f09e3e2ccdeef3f13b156b9"
+      }
+    },
+    {
+      "seed": 990205,
+      "original_success": false,
+      "recovery_success": false,
+      "policy_error": null,
+      "opening_count": 1,
+      "first_changed_api_index": 257,
+      "unchanged_camera_prefix_count": 44,
+      "recovery_checkpoints": [
+        {
+          "object": "red",
+          "step": "recovery_open",
+          "time": 76.5,
+          "frame": "world",
+          "units": "meters",
+          "status": "unavailable",
+          "action_status": "opened_unverified",
+          "placement_goal": {
+            "reference": "center_xy_min_z",
+            "point_m": [
+              -0.080063,
+              -0.300489,
+              0.429936
+            ],
+            "remaining_translation_m": null
+          }
+        },
+        {
+          "object": "red",
+          "step": "recovery_pick",
+          "time": 85.75,
+          "frame": "world",
+          "units": "meters",
+          "status": "current_estimate",
+          "action_status": "lift_visually_confirmed",
+          "geometry": {
+            "shape": "thin_prism",
+            "center_m": [
+              -0.082661,
+              -0.278816,
+              0.491811
+            ],
+            "position_fully_observed": true,
+            "orientation_inferred": false,
+            "dimensions_m": [
+              0.014893,
+              0.033024,
+              0.060682
+            ],
+            "normal": [
+              0.025198,
+              0.244984,
+              0.9692
+            ]
+          }
+        },
+        {
+          "object": "red",
+          "step": "recovery_exception",
+          "time": 91.0,
+          "frame": "world",
+          "units": "meters",
+          "status": "unavailable",
+          "action_status": "exception: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes w",
+          "placement_goal": {
+            "reference": "center_xy_min_z",
+            "point_m": [
+              -0.080063,
+              -0.300489,
+              0.429936
+            ],
+            "remaining_translation_m": null
+          }
+        }
+      ],
+      "artifact_sha256": {
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/explicit_open_retry_development_01/trials/seed_990205/result.json": "a1202c552ebf4e44217f0a4112c856bbbadaaf457e652024b4c5b050f47a3566",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/explicit_open_retry_development_01/trials/seed_990205/api_calls.json": "8aeb2215435966e7e4d90f232adfa862ff49dd679ded73414c52e6415a910b1b",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_guard_threshold_development_01/trials/seed_990205/result.json": "f73fcb926d3fabd3db0c2324cf0c7cf151ae3d281cbec3e65704e90823eaf80a",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_guard_threshold_development_01/trials/seed_990205/api_calls.json": "2d2f432bcd237f4d7fd4b6d68869a5ae56a1b5084020ce210e3550f78c446e11"
+      }
+    }
+  ],
+  "original_successes": 1,
+  "recovery_successes": 2,
+  "limitations": [
+    "Five previously inspected development layouts, not independent generalization evidence.",
+    "Human-authored recovery; no model update or geometry-vs-Base contrast.",
+    "Runtime recovery uses visual PnP and public robot commands; final binary success is read only after rollout.",
+    "Opening acknowledgment certifies neither physical release nor stability."
+  ]
+}

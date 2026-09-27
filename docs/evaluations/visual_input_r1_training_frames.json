@@ -1,0 +1,107 @@
+{
+  "scope": "Complete first-revision training gallery; every registered seed, no outcome selection. Not provided to experimental actors.",
+  "image": "docs/media/visual_input_r1_training.png",
+  "image_sha256": "e3e1c93cceafa48aba56bd00b19ac6919a5189243e582087035580069a3e5d0c",
+  "frames": [
+    {
+      "arm": "basic",
+      "seed": 990101,
+      "success": true,
+      "rgb_path": "outputs/visual_input_learning_replications_01/replica_01/basic/round_001/trials/seed_990101/camera_072.png",
+      "rgb_sha256": "ba3c16f4ef01e12c5a09698773d8943e84a0c0e47b1b60289a304c2d980277cf",
+      "sensor_path": "outputs/visual_input_learning_replications_01/replica_01/basic/round_001/trials/seed_990101/camera_072.npz",
+      "time": 128.5499999998857,
+      "result_sha256": "3616f9944ea3993ac3babe35ef85328fd3d3a51eb5f96f895f43df832c705d02"
+    },
+    {
+      "arm": "basic",
+      "seed": 990102,
+      "success": false,
+      "rgb_path": "outputs/visual_input_learning_replications_01/replica_01/basic/round_001/trials/seed_990102/camera_053.png",
+      "rgb_sha256": "f8d24787ad7cee58c65489be5bca94c203ffe5ce332c9851d0671e7cc711763f",
+      "sensor_path": "outputs/visual_input_learning_replications_01/replica_01/basic/round_001/trials/seed_990102/camera_053.npz",
+      "time": 83.94999999998575,
+      "result_sha256": "bd63ed867925193f19b50aed176a76d8c582ea3773bc603dd75fda627d9466c5"
+    },
+    {
+      "arm": "basic",
+      "seed": 990103,
+      "success": false,
+      "rgb_path": "outputs/visual_input_learning_replications_01/replica_01/basic/round_001/trials/seed_990103/camera_063.png",
+      "rgb_sha256": "29e5832fdb7a83eaca8a041b0966cfbf13e81d20ce76001f0f24649742caace1",
+      "sensor_path": "outputs/visual_input_learning_replications_01/replica_01/basic/round_001/trials/seed_990103/camera_063.npz",
+      "time": 88.6499999999748,
+      "result_sha256": "4d61e3eec7091485ba535c54448375dee10c6d416dc1fef7d896dbe905b5790e"
+    },
+    {
+      "arm": "basic",
+      "seed": 990104,
+      "success": true,
+      "rgb_path": "outputs/visual_input_learning_replications_01/replica_01/basic/round_001/trials/seed_990104/camera_087.png",
+      "rgb_sha256": "002a8d222e044020f89ad4b59fdb8505155597c5cdfc059fdb331741f8fd1022",
+      "sensor_path": "outputs/visual_input_learning_replications_01/replica_01/basic/round_001/trials/seed_990104/camera_087.npz",
+      "time": 160.0500000000361,
+      "result_sha256": "8eb85bbe4335d524dc78d50606f042102228729f0c9518a6498fe43a629b877e"
+    },
+    {
+      "arm": "basic",
+      "seed": 990105,
+      "success": false,
+      "rgb_path": "outputs/visual_input_learning_replications_01/replica_01/basic/round_001/trials/seed_990105/camera_053.png",
+      "rgb_sha256": "d89261145c38702a88cb144e18fda66e60f7c3022600025e71347acf34c95b91",
+      "sensor_path": "outputs/visual_input_learning_replications_01/replica_01/basic/round_001/trials/seed_990105/camera_053.npz",
+      "time": 63.95000000003219,
+      "result_sha256": "a53f11663e10e093dd0af57a6fac7220af84f0fbddf0b694f01092f7add976d8"
+    },
+    {
+      "arm": "symbolic",
+      "seed": 990101,
+      "success": false,
+      "rgb_path": "outputs/visual_input_learning_replications_01/replica_01/symbolic/round_001/trials/seed_990101/camera_050.png",
+      "rgb_sha256": "c19f4115d6e1ea0a13f1e90da38b587626b3233d5a05787e0c8cf88cfe2c2003",
+      "sensor_path": "outputs/visual_input_learning_replications_01/replica_01/symbolic/round_001/trials/seed_990101/camera_050.npz",
+      "time": 95.74999999995825,
+      "result_sha256": "4254f87d0ec75e23a1dc4c37b253ea81b5ef9b33faa2119f81031ae93cb64684"
+    },
+    {
+      "arm": "symbolic",
+      "seed": 990102,
+      "success": false,
+      "rgb_path": "outputs/visual_input_learning_replications_01/replica_01/symbolic/round_001/trials/seed_990102/camera_053.png",
+      "rgb_sha256": "66c2989ebf7e53d29f98e22d642836a5b1c94810a4f517d7f88a611eaaeaf09d",
+      "sensor_path": "outputs/visual_input_learning_replications_01/replica_01/symbolic/round_001/trials/seed_990102/camera_053.npz",
+      "time": 76.10000000000404,
+      "result_sha256": "bb333b8dabb3e3999c9f404004fd512068214d276552e7952050bac438b9623f"
+    },
+    {
+      "arm": "symbolic",
+      "seed": 990103,
+      "success": true,
+      "rgb_path": "outputs/visual_input_learning_replications_01/replica_01/symbolic/round_001/trials/seed_990103/camera_066.png",
+      "rgb_sha256": "dceca0495597f07b871d68463e88e97b5e5611ed57e22076ede00e18a2793570",
+      "sensor_path": "outputs/visual_input_learning_replications_01/replica_01/symbolic/round_001/trials/seed_990103/camera_066.npz",
+      "time": 119.54999999990278,
+      "result_sha256": "bccebbe208c6f8ee893e8b3c77bb2d2aa9e2b4704fc3c412bdd174b9da363b22"
+    },
+    {
+      "arm": "symbolic",
+      "seed": 990104,
+      "success": true,
+      "rgb_path": "outputs/visual_input_learning_replications_01/replica_01/symbolic/round_001/trials/seed_990104/camera_067.png",
+      "rgb_sha256": "da55fd327192beda999295306a2fb39bb57729be63b55ac5d432ba6d1386aaa0",
+      "sensor_path": "outputs/visual_input_learning_replications_01/replica_01/symbolic/round_001/trials/seed_990104/camera_067.npz",
+      "time": 122.29999999989637,
+      "result_sha256": "32f84eb155f7b2ba0814af9969f66683f8873a05fb2ccfd45d6af54bd8128d25"
+    },
+    {
+      "arm": "symbolic",
+      "seed": 990105,
+      "success": true,
+      "rgb_path": "outputs/visual_input_learning_replications_01/replica_01/symbolic/round_001/trials/seed_990105/camera_060.png",
+      "rgb_sha256": "992900b7ab0f03ab67df77974f7ed491da9c15111c22cd4dab196ad06529afc1",
+      "sensor_path": "outputs/visual_input_learning_replications_01/replica_01/symbolic/round_001/trials/seed_990105/camera_060.npz",
+      "time": 126.04999999988763,
+      "result_sha256": "6f2b2fa4f4eeb1f5b62e93bc3a85376b03a524a04a9d3012886b0a1af18bb00b"
+    }
+  ]
+}

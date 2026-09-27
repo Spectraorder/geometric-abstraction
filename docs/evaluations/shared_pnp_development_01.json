@@ -1,0 +1,228 @@
+{
+  "kind": "shared_execution_development_not_an_agent_ablation",
+  "seeds": [
+    51001,
+    51002,
+    51003,
+    51004,
+    51005
+  ],
+  "shared_primitive_sha256": "1fcaad52faad8f93fa34165ef520409376701d1e434cca1ff65b08a0003e0329",
+  "changes": [
+    "grasp_fraction 0.70 inherited from historical 3 cm controller",
+    "source transit clearance 65 mm",
+    "destination transit clearance 85 mm",
+    "carry extra clearance 25 mm",
+    "robot-only achieved-orientation IK fallback with 3 mm preview tolerance"
+  ],
+  "privileged_online_state": false,
+  "cases": {
+    "shared_pnp_development_01": {
+      "candidate_sha256": "ee90115212ffc33d80eee99b039acdfa5c49a0f7eef7443ede9f47148dcd757c",
+      "rollouts": [
+        {
+          "seed": 51001,
+          "success": false,
+          "policy_error": null,
+          "notes": [
+            "red PnP status=placement_unconfirmed"
+          ]
+        },
+        {
+          "seed": 51002,
+          "success": false,
+          "policy_error": null,
+          "notes": [
+            "red PnP status=released",
+            "green PnP status=placement_unconfirmed"
+          ]
+        },
+        {
+          "seed": 51003,
+          "success": false,
+          "policy_error": null,
+          "notes": [
+            "red PnP status=placement_unconfirmed"
+          ]
+        },
+        {
+          "seed": 51004,
+          "success": false,
+          "policy_error": null,
+          "notes": [
+            "red PnP status=placement_unconfirmed"
+          ]
+        },
+        {
+          "seed": 51005,
+          "success": true,
+          "policy_error": null,
+          "notes": [
+            "red PnP status=released",
+            "green PnP status=released",
+            "All requested pick-and-place operations returned released; task success is not certified."
+          ]
+        }
+      ],
+      "tower_successes": 1
+    },
+    "shared_pnp_table_probe_01": {
+      "candidate_sha256": "214d174774409413cc33c13115e2d0bef81ca311428debe9680a597ad965e801",
+      "rollouts": [
+        {
+          "seed": 51001,
+          "success": false,
+          "policy_error": null,
+          "notes": [
+            "TABLE_PROBE source=green target=[0.03975292106907868, -0.2379859013780005, 0.4000024549991367]",
+            "TABLE_PROBE result=released"
+          ]
+        },
+        {
+          "seed": 51002,
+          "success": false,
+          "policy_error": null,
+          "notes": [
+            "TABLE_PROBE source=green target=[0.03964386454040902, -0.2379859013780005, 0.40000245426216874]",
+            "TABLE_PROBE result=released"
+          ]
+        },
+        {
+          "seed": 51003,
+          "success": false,
+          "policy_error": null,
+          "notes": [
+            "TABLE_PROBE source=green target=[0.03957187499800962, -0.2379859013780005, 0.4000024581844997]",
+            "TABLE_PROBE result=released"
+          ]
+        },
+        {
+          "seed": 51004,
+          "success": false,
+          "policy_error": null,
+          "notes": [
+            "TABLE_PROBE source=green target=[-0.019999993521362287, -0.1783894700815193, 0.40000279795100374]",
+            "TABLE_PROBE result=released"
+          ]
+        },
+        {
+          "seed": 51005,
+          "success": false,
+          "policy_error": null,
+          "notes": [
+            "TABLE_PROBE source=green target=[-0.019999993521362287, -0.2976156377569781, 0.4000024894583858]",
+            "TABLE_PROBE result=released"
+          ]
+        }
+      ],
+      "tower_successes": 0
+    },
+    "shared_pnp_workspace_probe_01": {
+      "candidate_sha256": "70749acfdaa503dc86eeb553ed5807c5ec46b1b9a32a50ecc15c172bdbf9506f",
+      "rollouts": [
+        {
+          "seed": 51001,
+          "success": true,
+          "policy_error": null,
+          "notes": [
+            "WORKSPACE_PROBE selected=[0.039765071252665145, -0.2379859013780005, 0.4000024549601598]",
+            "WORKSPACE_PROBE base=released",
+            "WORKSPACE_PROBE red=released",
+            "WORKSPACE_PROBE green=released"
+          ]
+        },
+        {
+          "seed": 51002,
+          "success": true,
+          "policy_error": null,
+          "notes": [
+            "WORKSPACE_PROBE selected=[0.039705761619468254, -0.2379859013780005, 0.4000024540647975]",
+            "WORKSPACE_PROBE base=released",
+            "WORKSPACE_PROBE red=released",
+            "WORKSPACE_PROBE green=released"
+          ]
+        },
+        {
+          "seed": 51003,
+          "success": true,
+          "policy_error": null,
+          "notes": [
+            "WORKSPACE_PROBE selected=[-0.019999993521362287, -0.2379859013780005, 0.4000026505075258]",
+            "WORKSPACE_PROBE base=released",
+            "WORKSPACE_PROBE red=released",
+            "WORKSPACE_PROBE green=released"
+          ]
+        },
+        {
+          "seed": 51004,
+          "success": true,
+          "policy_error": null,
+          "notes": [
+            "WORKSPACE_PROBE selected=[-0.07961628647421493, -0.2379859013780005, 0.40000284359098]",
+            "WORKSPACE_PROBE base=released",
+            "WORKSPACE_PROBE red=released",
+            "WORKSPACE_PROBE green=released"
+          ]
+        },
+        {
+          "seed": 51005,
+          "success": true,
+          "policy_error": null,
+          "notes": [
+            "WORKSPACE_PROBE selected=[-0.019999993521362287, -0.29771396218980484, 0.40000248921894627]",
+            "WORKSPACE_PROBE base=released",
+            "WORKSPACE_PROBE red=released",
+            "WORKSPACE_PROBE green=released"
+          ]
+        }
+      ],
+      "tower_successes": 5
+    }
+  },
+  "table_probe_offline_metrics": {
+    "scope": "offline private diagnostic only; these metrics were not provided to the policy and are not tower success",
+    "rows": [
+      {
+        "seed": 51001,
+        "xy_error_m": 0.004106813500894752,
+        "height_above_target_m": 0.014889789580647128,
+        "linear_speed_m_s": 7.782213200627387e-13,
+        "angular_speed_rad_s": 3.4601506366709067e-10
+      },
+      {
+        "seed": 51002,
+        "xy_error_m": 0.002789771997604661,
+        "height_above_target_m": 0.014889790317614948,
+        "linear_speed_m_s": 8.020003027539372e-13,
+        "angular_speed_rad_s": 3.37931813533189e-10
+      },
+      {
+        "seed": 51003,
+        "xy_error_m": 0.003657500495163985,
+        "height_above_target_m": 0.01488978639528421,
+        "linear_speed_m_s": 6.815463317992635e-13,
+        "angular_speed_rad_s": 3.1061133523434226e-10
+      },
+      {
+        "seed": 51004,
+        "xy_error_m": 0.0018288699300761685,
+        "height_above_target_m": 0.014889446628780056,
+        "linear_speed_m_s": 1.8242273561362353e-13,
+        "angular_speed_rad_s": 2.4696323877769667e-10
+      },
+      {
+        "seed": 51005,
+        "xy_error_m": 0.0019886517469461843,
+        "height_above_target_m": 0.014889755121398007,
+        "linear_speed_m_s": 2.9859310535120755e-13,
+        "angular_speed_rad_s": 1.176328425193407e-10
+      }
+    ]
+  },
+  "limitations": [
+    "Five development seeds only; no generalization claim.",
+    "Workspace probe is manually written task planning and must not be supplied to either actor.",
+    "Table probe has no tower-building goal: its tower evaluator failures are expected; use separately labeled placement diagnostics.",
+    "No agent learning-efficiency comparison has run with the new shared primitive yet."
+  ]
+}

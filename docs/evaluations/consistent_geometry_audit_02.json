@@ -1,0 +1,491 @@
+{
+  "scope": "Offline development replay, not policy evaluation",
+  "coverage": {
+    "sequential": 507,
+    "consistent": 507,
+    "eligible": 513
+  },
+  "paired": {
+    "sequential": {
+      "count": 507,
+      "median_mm": 0.09473732124722546,
+      "p95_mm": 2.966417588812348,
+      "max_mm": 91.2709379814557
+    },
+    "consistent": {
+      "count": 507,
+      "median_mm": 0.09442271855223755,
+      "p95_mm": 2.6795920091669285,
+      "max_mm": 11.125876094093881
+    }
+  },
+  "rejected_view_events": [
+    {
+      "seed": 61001,
+      "time": 59.600000000026874,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.09121799028805087,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61001,
+      "time": 60.100000000027485,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.09213122135402875,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61001,
+      "time": 90.04999999997153,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.08713193561079406,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61001,
+      "time": 90.54999999997037,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.0879341735451481,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61002,
+      "time": 9.899999999999975,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.07961282632461038,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61002,
+      "time": 59.600000000026874,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.06201442623061481,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61002,
+      "time": 60.100000000027485,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.06367652294293445,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61002,
+      "time": 90.04999999997153,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.06202219016355099,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61002,
+      "time": 90.54999999997037,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.06368199165654378,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61003,
+      "time": 10.300000000000109,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.05347140087171158,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61003,
+      "time": 44.80000000000879,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.03309923611919074,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61003,
+      "time": 73.8000000000094,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.1753319344171976,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61003,
+      "time": 122.04999999989695,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.07113217642688337,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61003,
+      "time": 122.54999999989579,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.07266801083273784,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61003,
+      "time": 144.44999999996162,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.02305196439173206,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61003,
+      "time": 163.70000000005354,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.0,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61003,
+      "time": 164.20000000005592,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.0,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61004,
+      "time": 9.899999999999975,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.10447824244407947,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61004,
+      "time": 29.149999999994723,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.0013154080201963777,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61004,
+      "time": 29.649999999994446,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 9.028232638340838e-05,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61004,
+      "time": 63.650000000031824,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.040442305984203494,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61004,
+      "time": 64.1500000000319,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.04164603455321912,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61004,
+      "time": 92.64999999996547,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.040862771703090335,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61004,
+      "time": 93.14999999996431,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.04197117880575929,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61005,
+      "time": 9.899999999999975,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.18684703977598985,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61005,
+      "time": 33.34999999999479,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.042191520064618994,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61005,
+      "time": 33.849999999995404,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.04315999062554648,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61005,
+      "time": 67.85000000002327,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.042787310700317945,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61005,
+      "time": 68.3500000000221,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.0440641920290666,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61005,
+      "time": 110.79999999992317,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.04145704395531263,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    },
+    {
+      "seed": 61005,
+      "time": 111.29999999992201,
+      "color": "green",
+      "rejected": [
+        {
+          "view": "wrist",
+          "reason": "inconsistent_same_time_cube_geometry",
+          "shared_direction_residual_m": 0.04263929879889741,
+          "gate_m": 0.006,
+          "orientation_conflict": true
+        }
+      ],
+      "abstained": false
+    }
+  ],
+  "prototype_sha256": "08a2331e622520b2519c903871035c5c2ea08b21a31a10751e979b776fdc3c35",
+  "limitation": "The prototype was designed after inspecting one of these training trajectories; this is development evidence, not held-out confirmation."
+}

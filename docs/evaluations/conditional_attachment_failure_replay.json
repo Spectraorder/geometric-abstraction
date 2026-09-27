@@ -1,0 +1,174 @@
+{
+  "scope": "Replay conditional held-point predictions against current visual evidence.\n\nOnly action-boundary estimates, robot proprioception and RGB-D are read. No rollout\nstate, task success or contacts. A bounding-sphere check can refute an attachment\nhypothesis under its assumptions; passing it cannot recover or certify a pose.\n",
+  "script_sha256": "21a64e54f963a6ef1f93f712a3f5b6e2d0ad31b0b3b41c5c39a8fc30f2955940",
+  "prediction_source_sha256": "e6e5861eff5a6b14b70bb294b62aabdd5932c2b1eb0335754154758cc5026b8b",
+  "visual_helpers_sha256": "9e9723e2052073754fa9fdfa8aa5fe099ad70a88f4adf85231d7cba79a86c8d0",
+  "training_trials_read": 5,
+  "eligible_place_boundaries": 2,
+  "contradicted_by_current_depth": 1,
+  "poses_recovered": 0,
+  "trials": [
+    {
+      "trial": "outputs/visual_guard_threshold_development_01/trials/seed_990201",
+      "records": [],
+      "invalidations": [
+        {
+          "time": 29.15,
+          "reason": "gripper_command"
+        }
+      ],
+      "input_sha256": {
+        "outputs/visual_guard_threshold_development_01/trials/seed_990201/api_calls.json": "11089d3baf9a2ba0936478ad3758cb35bc5bba9238f28e6585708ac53adba7af",
+        "outputs/visual_guard_threshold_development_01/trials/seed_990201/geometry_records.json": "6e2654770497441b0ec0a589d04a568c5f8100838788f2e393c6e84e6c8ba836",
+        "outputs/visual_guard_threshold_development_01/trials/seed_990201/camera_000.npz": "3d3d35c740d73ecbaa29302fe2c783a7ea0e04708431b9c0a6382770c98a0ab3"
+      }
+    },
+    {
+      "trial": "outputs/visual_guard_threshold_development_01/trials/seed_990202",
+      "records": [
+        {
+          "object": "blue",
+          "from_time": 67.9,
+          "time": 80.4,
+          "step": "place",
+          "action_status": "exception: Observed object is too far from the expected tool neighborhood",
+          "kind": "conditional_prediction_not_observation",
+          "condition": "Rigid attachment without slip since a visually confirmed lift; not contact certified.",
+          "predicted_center_m": [
+            -0.013068769229635334,
+            -0.25125012250468587,
+            0.5366133522125416
+          ],
+          "current_visual_status": "current_estimate",
+          "current_visual_center_m": [
+            -0.011037,
+            -0.248412,
+            0.437266
+          ],
+          "fully_observed_visual_residual_m": 0.09940864860361442,
+          "depth_views": [
+            {
+              "status": "contradicted",
+              "points": 101,
+              "enclosing_radius_m": 0.03411694878649027,
+              "margin_m": 0.005,
+              "fraction_outside_margin": 1.0,
+              "median_excess_m": 0.060650464755316866,
+              "position_recovered": false,
+              "attachment_certified": false,
+              "view": "side",
+              "camera_path": "outputs/visual_guard_threshold_development_01/trials/seed_990202/camera_047.npz"
+            }
+          ],
+          "depth_evidence": "contradicted",
+          "pose_recovered": false
+        }
+      ],
+      "invalidations": [],
+      "input_sha256": {
+        "outputs/visual_guard_threshold_development_01/trials/seed_990202/api_calls.json": "65764269c879a6be4ecbff08e18d13585233c12b1c9c3d9e9aeef9bc7c0730aa",
+        "outputs/visual_guard_threshold_development_01/trials/seed_990202/geometry_records.json": "910845351a5c5a96a73c78bbfd31c3f905f23cbb5a0af28594cdfcabc3a24363",
+        "outputs/visual_guard_threshold_development_01/trials/seed_990202/camera_000.npz": "47258f50011299d5b99e6b33055a3eb25e279e4af65f5ded490c528167d04c8e",
+        "outputs/visual_guard_threshold_development_01/trials/seed_990202/camera_047.npz": "edf96538155c223a61ca47608dfe561a624b55323f4fa8e10c09bbf70722bd4a"
+      }
+    },
+    {
+      "trial": "outputs/visual_guard_threshold_development_01/trials/seed_990203",
+      "records": [],
+      "invalidations": [
+        {
+          "time": 58.15,
+          "reason": "gripper_command"
+        },
+        {
+          "time": 119.05,
+          "reason": "gripper_command"
+        }
+      ],
+      "input_sha256": {
+        "outputs/visual_guard_threshold_development_01/trials/seed_990203/api_calls.json": "d3ca2a7de84da3be09bb6f16e17a815de743379fb551bbb1de325c848f5724c6",
+        "outputs/visual_guard_threshold_development_01/trials/seed_990203/geometry_records.json": "342c2751f2b09ff85d6ca3c4e1f2b0a4b8536c318f719091df8906a81a06f720",
+        "outputs/visual_guard_threshold_development_01/trials/seed_990203/camera_000.npz": "c776d8aa6a3cd8eefba0dbaa158c22b5679e41bc4f9633e232723010cefeb851"
+      }
+    },
+    {
+      "trial": "outputs/visual_guard_threshold_development_01/trials/seed_990204",
+      "records": [],
+      "invalidations": [],
+      "status": "no_action_boundary_geometry",
+      "input_sha256": {
+        "outputs/visual_guard_threshold_development_01/trials/seed_990204/api_calls.json": "2c1e52d2a600848e64a41349e05423eaec668c0e1f09e3e2ccdeef3f13b156b9"
+      }
+    },
+    {
+      "trial": "outputs/visual_guard_threshold_development_01/trials/seed_990205",
+      "records": [
+        {
+          "object": "red",
+          "from_time": 69.2,
+          "time": 75.9,
+          "step": "place",
+          "action_status": "exception: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes w",
+          "kind": "conditional_prediction_not_observation",
+          "condition": "Rigid attachment without slip since a visually confirmed lift; not contact certified.",
+          "predicted_center_m": [
+            -0.07982525863988207,
+            -0.29670774742366085,
+            0.470198167140587
+          ],
+          "current_visual_status": "unavailable",
+          "current_visual_center_m": null,
+          "fully_observed_visual_residual_m": null,
+          "depth_views": [
+            {
+              "status": "not_contradicted",
+              "points": 74,
+              "enclosing_radius_m": 0.034078903481479565,
+              "margin_m": 0.005,
+              "fraction_outside_margin": 0.0,
+              "median_excess_m": -0.014399932977905313,
+              "position_recovered": false,
+              "attachment_certified": false,
+              "view": "side",
+              "camera_path": "outputs/visual_guard_threshold_development_01/trials/seed_990205/camera_042.npz"
+            },
+            {
+              "status": "not_contradicted",
+              "points": 4455,
+              "enclosing_radius_m": 0.034078903481479565,
+              "margin_m": 0.005,
+              "fraction_outside_margin": 0.0,
+              "median_excess_m": -0.01539521835493814,
+              "position_recovered": false,
+              "attachment_certified": false,
+              "view": "wrist",
+              "camera_path": "outputs/visual_guard_threshold_development_01/trials/seed_990205/camera_043.npz"
+            }
+          ],
+          "depth_evidence": "not_contradicted",
+          "pose_recovered": false
+        }
+      ],
+      "invalidations": [
+        {
+          "time": 59.45,
+          "reason": "gripper_command"
+        }
+      ],
+      "input_sha256": {
+        "outputs/visual_guard_threshold_development_01/trials/seed_990205/api_calls.json": "2d2f432bcd237f4d7fd4b6d68869a5ae56a1b5084020ce210e3550f78c446e11",
+        "outputs/visual_guard_threshold_development_01/trials/seed_990205/geometry_records.json": "b640ad876181bfe658ee2ad794c17260c6a507ac010c6cca361b4908ed9bf232",
+        "outputs/visual_guard_threshold_development_01/trials/seed_990205/camera_000.npz": "1f0fb6d4006c6629e6790da2ad562a3b3f804f674a5d6d43364488a5c27e24d2",
+        "outputs/visual_guard_threshold_development_01/trials/seed_990205/camera_042.npz": "93b2c1a179e6f13a16fd1552110dcbb0c506a8861f4173b4d52b481a3274ed87",
+        "outputs/visual_guard_threshold_development_01/trials/seed_990205/camera_043.npz": "73d3e72216e4b8903d678e171f3d25fd105fd577a05b06f28fcd978b4ec8e5bc"
+      }
+    }
+  ],
+  "limitations": [
+    "Only a conditional kinematic hypothesis; no contact or task-success labels read.",
+    "The 5 mm margin is a diagnostic tolerance, not a calibrated uncertainty bound.",
+    "Unique-color association and previously observed size are assumed; green is left unknown without robot masking.",
+    "Passing the enclosing-sphere test cannot establish a pose or exclude slip.",
+    "No memory is fused into a controller; no learning or SR improvement is claimed."
+  ]
+}

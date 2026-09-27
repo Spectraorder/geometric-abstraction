@@ -1,0 +1,1510 @@
+{
+  "schema": "shared_pnp_observer_development_v1",
+  "campaigns": {
+    "mixed_pnp_observer_development_01": {
+      "directory": "mixed_pnp_observer_development_01",
+      "manifest_sha256": "4c3e7d1970512475cd2868bc6a34a72aab2b8cb1e748a801069153dd8a92c112",
+      "candidate_sha256": "36222909dbbdf142436e4a2925329ac5b6ac1a3deae933660b63698be854f6f6",
+      "successes": 1,
+      "trials": 4,
+      "policy_errors": 2,
+      "rows": [
+        {
+          "seed": 75001,
+          "success": false,
+          "policy_error": "RuntimeError: ValueError: Occluded cuboid axes without a prior visual pose or narrow finite bounds",
+          "camera_calls": 36,
+          "observer_records": 33,
+          "wrist_observations": 0,
+          "unavailable_view_recoveries": 0,
+          "initial_image_sha256": "33e3359fdb8d9120922f66007d585cb3809c4854b23b3ac6de0ba0b4693f462f",
+          "result_sha256": "ab7858156963d4003eb3386dcb6de4b04478592c4247edc849feb4600b5a0e49",
+          "stages": [
+            {
+              "kind": "manual_development_stage",
+              "key": "left",
+              "surface_m": [
+                -0.1194105891222326,
+                -0.2667039027987506,
+                0.40000286526366646
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0014055339456611597,
+                "surface_gap_m": -0.00031465451914053366
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "right",
+              "surface_m": [
+                -0.05961825719696828,
+                -0.2667039027987506,
+                0.40000267524896327
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0018898075978228904,
+                "surface_gap_m": -6.0310146829944955e-06
+              }
+            }
+          ]
+        },
+        {
+          "seed": 75002,
+          "success": true,
+          "policy_error": null,
+          "camera_calls": 55,
+          "observer_records": 53,
+          "wrist_observations": 0,
+          "unavailable_view_recoveries": 0,
+          "initial_image_sha256": "28fd9bab6084f4705a369b89aa7de6db02e6cc42d688f8ccb594e5585ad2cec8",
+          "result_sha256": "24b2cb7eea545585fabf8b802571e906dbda274f38552cd9a8214dc00afc86cc",
+          "stages": [
+            {
+              "kind": "manual_development_stage",
+              "key": "left",
+              "surface_m": [
+                -0.008320004762102748,
+                -0.33175689297639055,
+                0.4000023638867768
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0024267367671718127,
+                "surface_gap_m": 0.0051356918609387625
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "right",
+              "surface_m": [
+                0.05147311285750768,
+                -0.33175689297639055,
+                0.40000217280028033
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0029647894412299118,
+                "surface_gap_m": 0.004973026787805479
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "beam",
+              "surface_m": [
+                0.021674704199044634,
+                -0.3296416936309091,
+                0.4298955563830824
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.002439220199263791,
+                "surface_gap_m": 0.004464120008432382
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "cap",
+              "surface_m": [
+                0.021095575438690815,
+                -0.3259457878607564,
+                0.44472112294135746
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0018356210345599493,
+                "surface_gap_m": 0.004689743672074531
+              }
+            }
+          ]
+        },
+        {
+          "seed": 75003,
+          "success": false,
+          "policy_error": "RuntimeError: ValueError: Occluded cuboid axes without a prior visual pose or narrow finite bounds",
+          "camera_calls": 34,
+          "observer_records": 31,
+          "wrist_observations": 0,
+          "unavailable_view_recoveries": 0,
+          "initial_image_sha256": "b9a834fdbd6c6ee9f12ce294ab45c64720f6b5eec16465b4f6012fc330fb6770",
+          "result_sha256": "244421901d7dbb1da834aa406b2e0f21dcad351a57446b021f88c12c533f3795",
+          "stages": [
+            {
+              "kind": "manual_development_stage",
+              "key": "left",
+              "surface_m": [
+                0.07867329629848828,
+                -0.30262856945218247,
+                0.40000257404825723
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.002185806611288658,
+                "surface_gap_m": 0.005886849362036928
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "right",
+              "surface_m": [
+                0.13846511511214654,
+                -0.30262856945218247,
+                0.40000234195194917
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0028870337236437723,
+                "surface_gap_m": 0.004872401270959947
+              }
+            }
+          ]
+        },
+        {
+          "seed": 75004,
+          "success": false,
+          "policy_error": null,
+          "camera_calls": 44,
+          "observer_records": 42,
+          "wrist_observations": 0,
+          "unavailable_view_recoveries": 0,
+          "initial_image_sha256": "4eed922089ccf82b2315df9d92512d20374a7e8729d19bcae7eb888123e0165e",
+          "result_sha256": "83eb2af9833dca4d014729b4c94c79d257849e027ac062d3f9f50c0a7d4b223c",
+          "stages": [
+            {
+              "kind": "manual_development_stage",
+              "key": "left",
+              "surface_m": [
+                0.0294805936164025,
+                -0.41042778626370763,
+                0.40000205658823024
+              ],
+              "result": {
+                "status": "placement_unconfirmed",
+                "held": true,
+                "xy_error_m": 0.043661088219231925,
+                "surface_gap_m": 0.006181211240439244
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "mixed_pnp_observer_development_02": {
+      "directory": "mixed_pnp_observer_development_02",
+      "manifest_sha256": "d5fa6944fd964d897ddaae5eda33aea812162873706ec4128babfd509fd6be81",
+      "candidate_sha256": "57413cd8b1e5a55318fb5c1367826a461cf590b439aa9aed71154e4deb231e15",
+      "successes": 3,
+      "trials": 4,
+      "policy_errors": 0,
+      "rows": [
+        {
+          "seed": 75001,
+          "success": true,
+          "policy_error": null,
+          "camera_calls": 51,
+          "observer_records": 47,
+          "wrist_observations": 2,
+          "unavailable_view_recoveries": 2,
+          "initial_image_sha256": "33e3359fdb8d9120922f66007d585cb3809c4854b23b3ac6de0ba0b4693f462f",
+          "result_sha256": "fc77fa600b0f78f1c85e07d8c3b3644e72861e03db88b4bd7740e3946a90a556",
+          "stages": [
+            {
+              "kind": "manual_development_stage",
+              "key": "left",
+              "surface_m": [
+                -0.1194105891222326,
+                -0.2667039027987506,
+                0.40000286526366646
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0014055339456611597,
+                "surface_gap_m": -0.00031465451914053366
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "right",
+              "surface_m": [
+                -0.05961825719696828,
+                -0.2667039027987506,
+                0.40000267524896327
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0018898075978228904,
+                "surface_gap_m": -6.0310146829944955e-06
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "beam",
+              "surface_m": [
+                -0.08874014718037229,
+                -0.2646748193724852,
+                0.4298966972311981
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0020024758993794187,
+                "surface_gap_m": -0.00022383595801434009
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "cap",
+              "surface_m": [
+                -0.0879235460675486,
+                -0.2632827107106767,
+                0.44472211213511575
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0016598711165738186,
+                "surface_gap_m": 0.0065069704875292955
+              }
+            }
+          ]
+        },
+        {
+          "seed": 75002,
+          "success": true,
+          "policy_error": null,
+          "camera_calls": 55,
+          "observer_records": 53,
+          "wrist_observations": 0,
+          "unavailable_view_recoveries": 0,
+          "initial_image_sha256": "28fd9bab6084f4705a369b89aa7de6db02e6cc42d688f8ccb594e5585ad2cec8",
+          "result_sha256": "509f23ec8e73e5e2aef8afd87dcb1a32fc925c98f704e2e0bfe55aab273cd40a",
+          "stages": [
+            {
+              "kind": "manual_development_stage",
+              "key": "left",
+              "surface_m": [
+                -0.008320004762102748,
+                -0.33175689297639055,
+                0.4000023638867768
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0024267367671718127,
+                "surface_gap_m": 0.0051356918609387625
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "right",
+              "surface_m": [
+                0.05147311285750768,
+                -0.33175689297639055,
+                0.40000217280028033
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0029647894412299118,
+                "surface_gap_m": 0.004973026787805479
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "beam",
+              "surface_m": [
+                0.021674704199044634,
+                -0.3296416936309091,
+                0.4298955563830824
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.002439220199263791,
+                "surface_gap_m": 0.004464120008432382
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "cap",
+              "surface_m": [
+                0.021095575438690815,
+                -0.3259457878607564,
+                0.44472112294135746
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0018356210345599493,
+                "surface_gap_m": 0.004689743672074531
+              }
+            }
+          ]
+        },
+        {
+          "seed": 75003,
+          "success": true,
+          "policy_error": null,
+          "camera_calls": 57,
+          "observer_records": 53,
+          "wrist_observations": 2,
+          "unavailable_view_recoveries": 2,
+          "initial_image_sha256": "b9a834fdbd6c6ee9f12ce294ab45c64720f6b5eec16465b4f6012fc330fb6770",
+          "result_sha256": "640c16c7235bf5d4e77b2c1da44c5ebea56d137105f54ba3c39d3bd881615ec2",
+          "stages": [
+            {
+              "kind": "manual_development_stage",
+              "key": "left",
+              "surface_m": [
+                0.07867329629848828,
+                -0.30262856945218247,
+                0.40000257404825723
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.002185806611288658,
+                "surface_gap_m": 0.005886849362036928
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "right",
+              "surface_m": [
+                0.13846511511214654,
+                -0.30262856945218247,
+                0.40000234195194917
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0028870337236437723,
+                "surface_gap_m": 0.004872401270959947
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "beam",
+              "surface_m": [
+                0.10735044354368903,
+                -0.3009252151714742,
+                0.42989560781339087
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.002070263876833116,
+                "surface_gap_m": -0.0006441624936576185
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "cap",
+              "surface_m": [
+                0.10581533042190182,
+                -0.2987439338548157,
+                0.4447214368659793
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0017833954587987838,
+                "surface_gap_m": 0.004964805130527383
+              }
+            }
+          ]
+        },
+        {
+          "seed": 75004,
+          "success": false,
+          "policy_error": null,
+          "camera_calls": 44,
+          "observer_records": 42,
+          "wrist_observations": 0,
+          "unavailable_view_recoveries": 0,
+          "initial_image_sha256": "4eed922089ccf82b2315df9d92512d20374a7e8729d19bcae7eb888123e0165e",
+          "result_sha256": "d1efb905f950e49b9d736c3c9db7e0b618945de449d61c1529656a49c75ce45f",
+          "stages": [
+            {
+              "kind": "manual_development_stage",
+              "key": "left",
+              "surface_m": [
+                0.0294805936164025,
+                -0.41042778626370763,
+                0.40000205658823024
+              ],
+              "result": {
+                "status": "placement_unconfirmed",
+                "held": true,
+                "xy_error_m": 0.043661088219231925,
+                "surface_gap_m": 0.006181211240439244
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "mixed_pnp_observer_development_03": {
+      "directory": "mixed_pnp_observer_development_03",
+      "manifest_sha256": "485a07750280bf6368c5a7ae77fbf8670fe18b4c8d20dd17ce0fe7eee9c29164",
+      "candidate_sha256": "57413cd8b1e5a55318fb5c1367826a461cf590b439aa9aed71154e4deb231e15",
+      "successes": 6,
+      "trials": 8,
+      "policy_errors": 1,
+      "rows": [
+        {
+          "seed": 75101,
+          "success": false,
+          "policy_error": null,
+          "camera_calls": 45,
+          "observer_records": 42,
+          "wrist_observations": 1,
+          "unavailable_view_recoveries": 1,
+          "initial_image_sha256": "97dd3156456f9b9b447637a18fbc3526568218434b97b747124cd53b40de2091",
+          "result_sha256": "dd5b427c00774152b3a19ab16760ca146d10c39830bd6ea9713fb2a84311dc15",
+          "stages": [
+            {
+              "kind": "manual_development_stage",
+              "key": "left",
+              "surface_m": [
+                -0.11327222134554482,
+                -0.33938517374366806,
+                0.40000269301322905
+              ],
+              "result": {
+                "status": "placement_unconfirmed",
+                "held": true,
+                "xy_error_m": 0.02541881982346744,
+                "surface_gap_m": 0.007968669090077318
+              }
+            }
+          ]
+        },
+        {
+          "seed": 75102,
+          "success": true,
+          "policy_error": null,
+          "camera_calls": 60,
+          "observer_records": 52,
+          "wrist_observations": 6,
+          "unavailable_view_recoveries": 6,
+          "initial_image_sha256": "4a9a1232d0b371359cd12940844932dd696770eadb2ede9de284500623513aae",
+          "result_sha256": "12f81aa4d35ec339fcc84cb5fd4a75778ef48c3a645e1c8dfe950d4c51978837",
+          "stages": [
+            {
+              "kind": "manual_development_stage",
+              "key": "left",
+              "surface_m": [
+                -0.05358603795668846,
+                -0.2310606738677935,
+                0.40000361557960745
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.001935597102989122,
+                "surface_gap_m": 0.0009551587964827246
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "right",
+              "surface_m": [
+                0.006202490880255256,
+                -0.2310606738677935,
+                0.4000034191714117
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0009222835654113496,
+                "surface_gap_m": 0.0010783492470209932
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "beam",
+              "surface_m": [
+                -0.023106023440631576,
+                -0.22891126477866974,
+                0.42989565745229086
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0022539265705337837,
+                "surface_gap_m": 0.0010606450996281103
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "cap",
+              "surface_m": [
+                -0.024001163642577282,
+                -0.22669009311867871,
+                0.4447228053016392
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.003707952030553701,
+                "surface_gap_m": 0.0005038771457501201
+              }
+            }
+          ]
+        },
+        {
+          "seed": 75103,
+          "success": true,
+          "policy_error": null,
+          "camera_calls": 55,
+          "observer_records": 49,
+          "wrist_observations": 4,
+          "unavailable_view_recoveries": 4,
+          "initial_image_sha256": "2729f0e77be45905472c50c6c066e174da158b779a4fa09ccbfde15824a9a409",
+          "result_sha256": "de72343a7a78b5c9097d832cadd86d47134388df83fc6bba795db83bdcdffc1d",
+          "stages": [
+            {
+              "kind": "manual_development_stage",
+              "key": "left",
+              "surface_m": [
+                -0.11327844208268881,
+                -0.2974745872116234,
+                0.40000357257564234
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.002269088550018788,
+                "surface_gap_m": 0.0055948117405968945
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "right",
+              "surface_m": [
+                -0.05348872056816267,
+                -0.2974745872116234,
+                0.40000328009578495
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.002374717100430744,
+                "surface_gap_m": 0.006171228059899392
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "beam",
+              "surface_m": [
+                -0.08228944601725714,
+                -0.29544202667400843,
+                0.429895119138123
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0019622963381987547,
+                "surface_gap_m": -0.0005160030384178116
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "cap",
+              "surface_m": [
+                -0.08191426150204181,
+                -0.2937603037884498,
+                0.44472139834679003
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.001778591751959216,
+                "surface_gap_m": 0.005510740386284296
+              }
+            }
+          ]
+        },
+        {
+          "seed": 75104,
+          "success": true,
+          "policy_error": null,
+          "camera_calls": 53,
+          "observer_records": 49,
+          "wrist_observations": 2,
+          "unavailable_view_recoveries": 2,
+          "initial_image_sha256": "c9d4c0c5132c30c7ea030a80fea8d5641023215606bb24ce4ab58e3692602f92",
+          "result_sha256": "84744d06ca836bdcf5f241f3d2fa8cc2f017216fab9931cb10b4ce9e3b18abd7",
+          "stages": [
+            {
+              "kind": "manual_development_stage",
+              "key": "left",
+              "surface_m": [
+                -0.03095409011691219,
+                -0.33869779302603675,
+                0.40000356117901903
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0027727608373024843,
+                "surface_gap_m": 0.004830668028511342
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "right",
+              "surface_m": [
+                0.028832745631062206,
+                -0.33869779302603675,
+                0.40000325242963636
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.002927409099799846,
+                "surface_gap_m": 0.004664724412976162
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "beam",
+              "surface_m": [
+                -0.0010969930289410831,
+                -0.336935129617889,
+                0.4298949902380353
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0027304420554235026,
+                "surface_gap_m": 0.004778085782180086
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "cap",
+              "surface_m": [
+                -0.002223079938578634,
+                -0.33558228393897593,
+                0.44472467321754505
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0019799219396988347,
+                "surface_gap_m": 0.0043329757805838365
+              }
+            }
+          ]
+        },
+        {
+          "seed": 75105,
+          "success": false,
+          "policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Visible cuboid extent contradicts learned dimensions'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]",
+          "camera_calls": 32,
+          "observer_records": 28,
+          "wrist_observations": 0,
+          "unavailable_view_recoveries": 0,
+          "initial_image_sha256": "17d722b5d96761380fbd82560452074f47b3350adfaeae686a03095e75b7bebe",
+          "result_sha256": "4fa39514804b2baa691cf35be8e90975dfa4bda42544ea4f30723d5d64ac9357",
+          "stages": [
+            {
+              "kind": "manual_development_stage",
+              "key": "left",
+              "surface_m": [
+                -0.03339458701245899,
+                -0.2887544227303982,
+                0.40000255917557986
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0020633873120413163,
+                "surface_gap_m": -0.00026009835486739963
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "right",
+              "surface_m": [
+                0.02639539070886473,
+                -0.2887544227303982,
+                0.40000236901786806
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.001508063309504721,
+                "surface_gap_m": -0.00018464879321294925
+              }
+            }
+          ]
+        },
+        {
+          "seed": 75106,
+          "success": true,
+          "policy_error": null,
+          "camera_calls": 56,
+          "observer_records": 49,
+          "wrist_observations": 5,
+          "unavailable_view_recoveries": 5,
+          "initial_image_sha256": "bd34fe076a56d95b039e763e9b94c42a57fd34008ee3a59d95c12fde9eb4cdff",
+          "result_sha256": "ac11bb79b36fae7b16e3872a928e9156c822e038a8978209604aca46725bf369",
+          "stages": [
+            {
+              "kind": "manual_development_stage",
+              "key": "left",
+              "surface_m": [
+                -0.11301789061008148,
+                -0.2816011661400244,
+                0.4000032321425872
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0013944225431614522,
+                "surface_gap_m": 0.006291705354178723
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "right",
+              "surface_m": [
+                -0.05322636564383594,
+                -0.2816011661400244,
+                0.40000301042062225
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0021046880035021282,
+                "surface_gap_m": -0.00020497272689284918
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "beam",
+              "surface_m": [
+                -0.08213980143604183,
+                -0.2796960798414865,
+                0.4298943415671941
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0013551798471372657,
+                "surface_gap_m": -0.0003985311333437602
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "cap",
+              "surface_m": [
+                -0.08148917730372256,
+                -0.2782675267176839,
+                0.44472276172799724
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.001580105681357327,
+                "surface_gap_m": 0.005856033533638116
+              }
+            }
+          ]
+        },
+        {
+          "seed": 75107,
+          "success": true,
+          "policy_error": null,
+          "camera_calls": 57,
+          "observer_records": 49,
+          "wrist_observations": 6,
+          "unavailable_view_recoveries": 6,
+          "initial_image_sha256": "80c71a278ec68ab4b9d847efccd6f654d62619a81fe511d787b7859b1aef01f6",
+          "result_sha256": "a083ad891c7eca44c33e70a23bc3cba22d9be5c688ab3c445fdd81caf8202aa7",
+          "stages": [
+            {
+              "kind": "manual_development_stage",
+              "key": "left",
+              "surface_m": [
+                -0.028528502074741825,
+                -0.24024034247100723,
+                0.40000266687839364
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0016124181587843873,
+                "surface_gap_m": 0.000842730864177188
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "right",
+              "surface_m": [
+                0.031261671068627594,
+                -0.24024034247100723,
+                0.40000247433315766
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0022735832303310555,
+                "surface_gap_m": 0.0008395959471713677
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "beam",
+              "surface_m": [
+                0.0013323832071877924,
+                -0.2376695085832378,
+                0.4298942147998529
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0017405430038361514,
+                "surface_gap_m": 0.000887056099183825
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "cap",
+              "surface_m": [
+                0.0009896496158175846,
+                -0.2359527631941818,
+                0.44472245666749893
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0032900638576956833,
+                "surface_gap_m": 0.0007787291048402256
+              }
+            }
+          ]
+        },
+        {
+          "seed": 75108,
+          "success": true,
+          "policy_error": null,
+          "camera_calls": 58,
+          "observer_records": 50,
+          "wrist_observations": 6,
+          "unavailable_view_recoveries": 6,
+          "initial_image_sha256": "df441be40478e5e5fc466c4144df31c8fbfe5851d4d3c12f259888a9760c7d35",
+          "result_sha256": "f39fbf8a509fbe19f823467208b1fd9ff0e706aeae564ad16a548e328a05368c",
+          "stages": [
+            {
+              "kind": "manual_development_stage",
+              "key": "left",
+              "surface_m": [
+                0.019365432735872497,
+                -0.27694718968382237,
+                0.400002533418173
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.002534109337124609,
+                "surface_gap_m": -3.525840408907799e-05
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "right",
+              "surface_m": [
+                0.07915410912449236,
+                -0.27694718968382237,
+                0.4000023458414807
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0019904298002187807,
+                "surface_gap_m": -0.00025972760907566617
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "beam",
+              "surface_m": [
+                0.048756367901292716,
+                -0.274716754643009,
+                0.4298961984717755
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0018056983500235634,
+                "surface_gap_m": -0.00013817900483914514
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "cap",
+              "surface_m": [
+                0.04789287871129277,
+                -0.2731426429826091,
+                0.44472480138805587
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.001415242862989084,
+                "surface_gap_m": 0.006476585547366409
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "mixed_pnp_basic_development_04": {
+      "directory": "mixed_pnp_basic_development_04",
+      "manifest_sha256": "6ce7953cf37c6627a7e47038530f0c902ba344a7cf27ca40f9c2ecd6564f3083",
+      "candidate_sha256": "8186c330acea08f85d37132bf2eced511146407cbd15b4f30ad3bdd9ffc3e3f1",
+      "successes": 3,
+      "trials": 8,
+      "policy_errors": 2,
+      "rows": [
+        {
+          "seed": 75101,
+          "success": false,
+          "policy_error": null,
+          "camera_calls": 57,
+          "observer_records": 0,
+          "wrist_observations": 0,
+          "unavailable_view_recoveries": 0,
+          "initial_image_sha256": "97dd3156456f9b9b447637a18fbc3526568218434b97b747124cd53b40de2091",
+          "result_sha256": "086254aa886714dbe3b803969d35f67ee6a95382a465c727ef5d46a471cbfa00",
+          "stages": [
+            {
+              "kind": "manual_development_stage",
+              "key": "left",
+              "surface_m": [
+                -0.11283314056145256,
+                -0.3397092569450077,
+                0.4000026908165711
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.003159731050138668,
+                "surface_gap_m": -0.0007431816728226126
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "right",
+              "surface_m": [
+                -0.053153755020045615,
+                -0.3397092569450077,
+                0.40000249966312984
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.003157998141255844,
+                "surface_gap_m": 0.00459876108362367
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "beam",
+              "surface_m": [
+                -0.08286590232925478,
+                -0.3392627780465985,
+                0.42980904490238603
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.00337603248814852,
+                "surface_gap_m": 0.004194503325577248
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "cap",
+              "surface_m": [
+                -0.0884895078114497,
+                -0.3388000239896084,
+                0.4446278474699674
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0031154888957063286,
+                "surface_gap_m": 0.0033252481811695267
+              }
+            }
+          ]
+        },
+        {
+          "seed": 75102,
+          "success": false,
+          "policy_error": "RuntimeError: RuntimeError: Top face occluded for red",
+          "camera_calls": 5,
+          "observer_records": 0,
+          "wrist_observations": 0,
+          "unavailable_view_recoveries": 0,
+          "initial_image_sha256": "4a9a1232d0b371359cd12940844932dd696770eadb2ede9de284500623513aae",
+          "result_sha256": "46ca05d3bdd85445059d351e70d0d35310a1238d1f98fe4053f2594a91905f40",
+          "stages": []
+        },
+        {
+          "seed": 75103,
+          "success": true,
+          "policy_error": null,
+          "camera_calls": 53,
+          "observer_records": 0,
+          "wrist_observations": 0,
+          "unavailable_view_recoveries": 0,
+          "initial_image_sha256": "2729f0e77be45905472c50c6c066e174da158b779a4fa09ccbfde15824a9a409",
+          "result_sha256": "25610a7c08a08cf7181f65e3b0d3e59b943fdfcc06aad72cc81244a441ceaea3",
+          "stages": [
+            {
+              "kind": "manual_development_stage",
+              "key": "left",
+              "surface_m": [
+                -0.11241757970995751,
+                -0.2977939391863887,
+                0.4000035675785516
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0011312787504969154,
+                "surface_gap_m": -0.0006881213725470903
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "right",
+              "surface_m": [
+                -0.052943632931417725,
+                -0.2977939391863887,
+                0.4000032766434037
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0023121566597096945,
+                "surface_gap_m": 0.006108574964574953
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "beam",
+              "surface_m": [
+                -0.08253288926214834,
+                -0.2965185996462093,
+                0.42988757342696193
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0028233812085174522,
+                "surface_gap_m": -0.0006328033494621965
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "cap",
+              "surface_m": [
+                -0.08521244514361645,
+                -0.2951896792732643,
+                0.4446284984153516
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0021532456991196153,
+                "surface_gap_m": 0.005309462840858481
+              }
+            }
+          ]
+        },
+        {
+          "seed": 75104,
+          "success": true,
+          "policy_error": null,
+          "camera_calls": 51,
+          "observer_records": 0,
+          "wrist_observations": 0,
+          "unavailable_view_recoveries": 0,
+          "initial_image_sha256": "c9d4c0c5132c30c7ea030a80fea8d5641023215606bb24ce4ab58e3692602f92",
+          "result_sha256": "fbd47a91f6d1f7967040b942f44fe1aaef0bf070a406c6073d96a633d7f6d136",
+          "stages": [
+            {
+              "kind": "manual_development_stage",
+              "key": "left",
+              "surface_m": [
+                -0.030141458312278473,
+                -0.3387940517247492,
+                0.40000355657046843
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.002190739623392866,
+                "surface_gap_m": 0.0047375393559470624
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "right",
+              "surface_m": [
+                0.02936221417456571,
+                -0.3387940517247492,
+                0.400003249283389
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.00272994598106026,
+                "surface_gap_m": 0.004764719177123344
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "beam",
+              "surface_m": [
+                -0.002078009528953803,
+                -0.3382343142991428,
+                0.4297633265644611
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0025619102933511625,
+                "surface_gap_m": 0.004893297243113048
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "cap",
+              "surface_m": [
+                -0.009345179720510665,
+                -0.33720500169511064,
+                0.444670904691472
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0020836162432623594,
+                "surface_gap_m": 0.0039042389071581307
+              }
+            }
+          ]
+        },
+        {
+          "seed": 75105,
+          "success": true,
+          "policy_error": null,
+          "camera_calls": 55,
+          "observer_records": 0,
+          "wrist_observations": 0,
+          "unavailable_view_recoveries": 0,
+          "initial_image_sha256": "17d722b5d96761380fbd82560452074f47b3350adfaeae686a03095e75b7bebe",
+          "result_sha256": "e1e3af11931f6ed6cd78a6e008cae9b1756a27700eb05a54ccb07b5fd2b17d52",
+          "stages": [
+            {
+              "kind": "manual_development_stage",
+              "key": "left",
+              "surface_m": [
+                -0.03264419118483713,
+                -0.2888360898987192,
+                0.4000025565892265
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0017789008377285592,
+                "surface_gap_m": -0.00011237532244900983
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "right",
+              "surface_m": [
+                0.02692478259039239,
+                -0.2888360898987192,
+                0.4000023671344018
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.002262745631152589,
+                "surface_gap_m": -0.0003879290110592737
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "beam",
+              "surface_m": [
+                -0.00445793287912183,
+                -0.2877523801236366,
+                0.42985105037827875
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0025362343599584277,
+                "surface_gap_m": -0.0004002342496261524
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "cap",
+              "surface_m": [
+                -0.0039938941775030075,
+                -0.2861066877721119,
+                0.44462980963473225
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.003676941135360423,
+                "surface_gap_m": -0.00013935053509811501
+              }
+            }
+          ]
+        },
+        {
+          "seed": 75106,
+          "success": false,
+          "policy_error": "RuntimeError: RuntimeError: Top face occluded for red",
+          "camera_calls": 5,
+          "observer_records": 0,
+          "wrist_observations": 0,
+          "unavailable_view_recoveries": 0,
+          "initial_image_sha256": "bd34fe076a56d95b039e763e9b94c42a57fd34008ee3a59d95c12fde9eb4cdff",
+          "result_sha256": "99f12cc3329b43190aee6f3d610fddd081bc1c72057e425b34a33bd2ebd16982",
+          "stages": []
+        },
+        {
+          "seed": 75107,
+          "success": false,
+          "policy_error": null,
+          "camera_calls": 62,
+          "observer_records": 0,
+          "wrist_observations": 0,
+          "unavailable_view_recoveries": 0,
+          "initial_image_sha256": "80c71a278ec68ab4b9d847efccd6f654d62619a81fe511d787b7859b1aef01f6",
+          "result_sha256": "24188666ae93d3a7af02bc972d606f4f7dbab990d6d3be8f54a38f9c07bd4720",
+          "stages": [
+            {
+              "kind": "manual_development_stage",
+              "key": "left",
+              "surface_m": [
+                -0.028301611367301614,
+                -0.24167881570931588,
+                0.4000026626254962
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.002658677256702352,
+                "surface_gap_m": 0.0011466891110851196
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "right",
+              "surface_m": [
+                0.031223492242289787,
+                -0.24167881570931588,
+                0.40000247093387675
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.002077196486858873,
+                "surface_gap_m": 0.0005168655204337846
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "beam",
+              "surface_m": [
+                -0.0003882560894337139,
+                -0.24019949413129157,
+                0.4298260686136801
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0011847062837366223,
+                "surface_gap_m": 0.0006228263599330486
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "cap",
+              "surface_m": [
+                -0.008485311032376073,
+                -0.23890781106880085,
+                0.4446643791475815
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.003059556362121369,
+                "surface_gap_m": 0.00044915045559962286
+              }
+            }
+          ]
+        },
+        {
+          "seed": 75108,
+          "success": false,
+          "policy_error": null,
+          "camera_calls": 51,
+          "observer_records": 0,
+          "wrist_observations": 0,
+          "unavailable_view_recoveries": 0,
+          "initial_image_sha256": "df441be40478e5e5fc466c4144df31c8fbfe5851d4d3c12f259888a9760c7d35",
+          "result_sha256": "2e0666395114dca120e9c603881a13fe721f94c12c911c33bb3949d3d7427128",
+          "stages": [
+            {
+              "kind": "manual_development_stage",
+              "key": "left",
+              "surface_m": [
+                0.02011200414504362,
+                -0.2770315715176994,
+                0.4000025308703234
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0024451400282539367,
+                "surface_gap_m": 0.00016523767841680748
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "right",
+              "surface_m": [
+                0.07967622851884999,
+                -0.2770315715176994,
+                0.4000023439978107
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.001827091395536882,
+                "surface_gap_m": -0.0007280469790409971
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "beam",
+              "surface_m": [
+                0.04675012396053929,
+                -0.27574668003727243,
+                0.4298450575018253
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0015724813924397154,
+                "surface_gap_m": -0.00040945034839900973
+              }
+            },
+            {
+              "kind": "manual_development_stage",
+              "key": "cap",
+              "surface_m": [
+                0.03757573735125504,
+                -0.27407096141334447,
+                0.4446178736539984
+              ],
+              "result": {
+                "status": "released",
+                "held": false,
+                "xy_error_m": 0.0015015357566891122,
+                "surface_gap_m": 0.006598880075382063
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "paired_new_development": {
+    "pairs": [
+      {
+        "seed": 75101,
+        "basic_success": false,
+        "mixed_success": false
+      },
+      {
+        "seed": 75102,
+        "basic_success": false,
+        "mixed_success": true
+      },
+      {
+        "seed": 75103,
+        "basic_success": true,
+        "mixed_success": true
+      },
+      {
+        "seed": 75104,
+        "basic_success": true,
+        "mixed_success": true
+      },
+      {
+        "seed": 75105,
+        "basic_success": true,
+        "mixed_success": false
+      },
+      {
+        "seed": 75106,
+        "basic_success": false,
+        "mixed_success": true
+      },
+      {
+        "seed": 75107,
+        "basic_success": false,
+        "mixed_success": true
+      },
+      {
+        "seed": 75108,
+        "basic_success": false,
+        "mixed_success": true
+      }
+    ],
+    "both_success": 2,
+    "basic_only": 1,
+    "mixed_only": 4,
+    "both_failure": 1
+  },
+  "historical_executor_sha256": "1fcaad52faad8f93fa34165ef520409376701d1e434cca1ff65b08a0003e0329",
+  "source_verification": "Campaign source hash matches the manifest and every runner-recorded result hash; temporary per-trial worker source copies are not retained.",
+  "limits": [
+    "Manual planner, no actor revisions and no test of symbolic representation or iteration efficiency.",
+    "Adaptive development variants on 75001\u201375004 are not independent replications.",
+    "75101\u201375108 were preselected new development layouts; both candidates stayed fixed across them.",
+    "The basic candidate was scored on those layouts after the mixed outcomes were visible; this is not a preregistered confirmatory study.",
+    "Mixed mode combines rigid fitting, alternate-view acquisition and robot visual masking; their individual contributions are not isolated.",
+    "All policy errors and unsuccessful partial structures remain failures. No threshold or physics relaxation.",
+    "No temporal pose prior or predicted object motion is used. Wrist selection uses the same simulation timestamp.",
+    "These scenes are now inspected development data and must not become a fresh reserved split."
+  ]
+}

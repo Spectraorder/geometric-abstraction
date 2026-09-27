@@ -1,0 +1,1763 @@
+{
+  "timestamp_utc": "2026-09-25T05:52:17.304604+00:00",
+  "summary": {
+    "target_hit": 16,
+    "correct_abstention": 0,
+    "false_abstention": 2,
+    "wrong_pixel": 2,
+    "false_positive_absent": 0,
+    "invalid_prediction": 0,
+    "out_of_bounds": 0,
+    "total": 20,
+    "point_precision": 0.8888888888888888,
+    "target_recovery_rate": 0.8,
+    "all_five_same_color_shapes_visible_in_every_scene": true
+  },
+  "scope": "Twenty new same-color RGB pointing queries; no robot actions or policy success measurement.",
+  "protocol": "All five shapes of target color plus three other-color objects; fixed seeds 2501-2520, alternating flat/upright long blocks. No post-prediction corrections.",
+  "information_boundary": "Subagents receive RGB PNG and public target description only. Segmentation is rendered exclusively after predictions freeze, for offline identity scoring.",
+  "predictions_sha256": "c370cd209e75b9040420dab363e7a4f2501312b694dbfca3b8cf41eb5fccb332",
+  "tasks_sha256": "d34e8b647cabfada9603863c3471f6e184260aa6aa906678d3feb89cf14b1c40",
+  "script_sha256": "a6bb2f049396037fe30cdf9d3a43d206af6bc273816e74af812e6e2493d7614a",
+  "cases": [
+    {
+      "task_id": "S01",
+      "seed": 2501,
+      "color": "red",
+      "shape": "cylinder",
+      "long_blocks_flat": true,
+      "evaluation_target_object": "red_cylinder",
+      "frame_path": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S01/frame.npz",
+      "image_sha256": "13b2d9d59adcbec730da5e923ce00e8f3e260c5b663b46206b4a87ee883713dc",
+      "frame_sha256": "6db7b3aa978306606225233056ab6df289fcb48de0d4afee94d0f2ba4771de63",
+      "target": "red cylinder",
+      "prediction": {
+        "task_id": "S01",
+        "status": "point",
+        "point_px": [
+          180,
+          115
+        ],
+        "reason": "Visible red upright cylinder with a rounded top and shaded curved side."
+      },
+      "outcome": "target_hit",
+      "visible_target_pixels": 91,
+      "geom_at_point": "red_cylinder/red_cylinder_geom",
+      "same_color_visible_pixels": {
+        "red_cube": 73,
+        "red_thin_prism": 116,
+        "red_prism": 66,
+        "red_cylinder": 91,
+        "red_triangular_prism": 70
+      },
+      "replay_alignment": {
+        "time": true,
+        "rgb": true,
+        "depth_m": true,
+        "valid_depth": true,
+        "intrinsics": true,
+        "camera_to_world": true
+      }
+    },
+    {
+      "task_id": "S02",
+      "seed": 2502,
+      "color": "red",
+      "shape": "thin_prism",
+      "long_blocks_flat": false,
+      "evaluation_target_object": "red_thin_prism",
+      "frame_path": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S02/frame.npz",
+      "image_sha256": "9ae454e8d647762e915f551934218289905b2b68f18d3743e4c18b8c1f4f76a5",
+      "frame_sha256": "3d355413d43ac64d0d068fb1da167ba94c9838df512c382f6f6cea6042d8aa89",
+      "target": "red slender rectangular prism (thin beam)",
+      "prediction": {
+        "task_id": "S02",
+        "status": "point",
+        "point_px": [
+          193,
+          131
+        ],
+        "reason": "Visible narrow red rectangular beam at the right of the red objects."
+      },
+      "outcome": "target_hit",
+      "visible_target_pixels": 94,
+      "geom_at_point": "red_thin_prism/red_thin_prism_geom",
+      "same_color_visible_pixels": {
+        "red_cube": 82,
+        "red_thin_prism": 94,
+        "red_prism": 126,
+        "red_cylinder": 87,
+        "red_triangular_prism": 39
+      },
+      "replay_alignment": {
+        "time": true,
+        "rgb": true,
+        "depth_m": true,
+        "valid_depth": true,
+        "intrinsics": true,
+        "camera_to_world": true
+      }
+    },
+    {
+      "task_id": "S03",
+      "seed": 2503,
+      "color": "green",
+      "shape": "prism",
+      "long_blocks_flat": true,
+      "evaluation_target_object": "green_prism",
+      "frame_path": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S03/frame.npz",
+      "image_sha256": "ea46308bd073b92fa4b9eb6c6edb0947548b6c3e3dd328f5ab1106373695f57b",
+      "frame_sha256": "d369f9bd5af3b84c85decf76760c823a403a52e969f2564c64216c34dd55ebf3",
+      "target": "green thick rectangular prism (long block)",
+      "prediction": {
+        "task_id": "S03",
+        "status": "point",
+        "point_px": [
+          147,
+          131
+        ],
+        "reason": "Visible green long block with a broad rectangular top and substantial side face."
+      },
+      "outcome": "target_hit",
+      "visible_target_pixels": 139,
+      "geom_at_point": "green_prism/green_prism_geom",
+      "same_color_visible_pixels": {
+        "green_cube": 90,
+        "green_thin_prism": 93,
+        "green_prism": 139,
+        "green_cylinder": 110,
+        "green_triangular_prism": 65
+      },
+      "replay_alignment": {
+        "time": true,
+        "rgb": true,
+        "depth_m": true,
+        "valid_depth": true,
+        "intrinsics": true,
+        "camera_to_world": true
+      }
+    },
+    {
+      "task_id": "S04",
+      "seed": 2504,
+      "color": "red",
+      "shape": "prism",
+      "long_blocks_flat": false,
+      "evaluation_target_object": "red_prism",
+      "frame_path": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S04/frame.npz",
+      "image_sha256": "15ca51d0284b42a82ae007d6759917dab25e84b501e03b7dd6281eb54d5dbb9a",
+      "frame_sha256": "76ba6c7fc60048c219b2b5607f76685141eaed960b785c76ad43c425427c6b72",
+      "target": "red thick rectangular prism (long block)",
+      "prediction": {
+        "task_id": "S04",
+        "status": "point",
+        "point_px": [
+          160,
+          147
+        ],
+        "reason": "Visible thick red upright rectangular block in the foreground."
+      },
+      "outcome": "target_hit",
+      "visible_target_pixels": 146,
+      "geom_at_point": "red_prism/red_prism_geom",
+      "same_color_visible_pixels": {
+        "red_cube": 74,
+        "red_thin_prism": 93,
+        "red_prism": 146,
+        "red_cylinder": 96,
+        "red_triangular_prism": 65
+      },
+      "replay_alignment": {
+        "time": true,
+        "rgb": true,
+        "depth_m": true,
+        "valid_depth": true,
+        "intrinsics": true,
+        "camera_to_world": true
+      }
+    },
+    {
+      "task_id": "S05",
+      "seed": 2505,
+      "color": "green",
+      "shape": "cylinder",
+      "long_blocks_flat": true,
+      "evaluation_target_object": "green_cylinder",
+      "frame_path": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S05/frame.npz",
+      "image_sha256": "25cc3f0a172ac15ce7ab66d7b3a2360b26d88f9eb78e38fe867de1957f596d8d",
+      "frame_sha256": "3e136d5136dd3022f922d0e79b908fe78d06681c0eb394906b0dde7eac1c99c4",
+      "target": "green cylinder",
+      "prediction": {
+        "task_id": "S05",
+        "status": "point",
+        "point_px": [
+          179,
+          140
+        ],
+        "reason": "Visible green upright cylinder with a rounded top and curved shaded side."
+      },
+      "outcome": "target_hit",
+      "visible_target_pixels": 105,
+      "geom_at_point": "green_cylinder/green_cylinder_geom",
+      "same_color_visible_pixels": {
+        "green_cube": 84,
+        "green_thin_prism": 59,
+        "green_prism": 118,
+        "green_cylinder": 105,
+        "green_triangular_prism": 68
+      },
+      "replay_alignment": {
+        "time": true,
+        "rgb": true,
+        "depth_m": true,
+        "valid_depth": true,
+        "intrinsics": true,
+        "camera_to_world": true
+      }
+    },
+    {
+      "task_id": "S06",
+      "seed": 2506,
+      "color": "yellow",
+      "shape": "cube",
+      "long_blocks_flat": false,
+      "evaluation_target_object": "yellow_cube",
+      "frame_path": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S06/frame.npz",
+      "image_sha256": "2142007d3b9566f8a0a601b7a39637ff8e180365b14965587750a80805842e7f",
+      "frame_sha256": "93d95cf9afc1e4fc17cc1dbb66fbdd1b6084eb1449ea0309eb28f8e8c01da557",
+      "target": "yellow cube",
+      "prediction": {
+        "task_id": "S06",
+        "status": "point",
+        "point_px": [
+          194,
+          130
+        ],
+        "reason": "Visible yellow cube at the right with a compact square top and short side faces."
+      },
+      "outcome": "target_hit",
+      "visible_target_pixels": 87,
+      "geom_at_point": "yellow_cube/yellow_cube_geom",
+      "same_color_visible_pixels": {
+        "yellow_cube": 87,
+        "yellow_thin_prism": 85,
+        "yellow_prism": 146,
+        "yellow_cylinder": 90,
+        "yellow_triangular_prism": 79
+      },
+      "replay_alignment": {
+        "time": true,
+        "rgb": true,
+        "depth_m": true,
+        "valid_depth": true,
+        "intrinsics": true,
+        "camera_to_world": true
+      }
+    },
+    {
+      "task_id": "S07",
+      "seed": 2507,
+      "color": "yellow",
+      "shape": "cylinder",
+      "long_blocks_flat": true,
+      "evaluation_target_object": "yellow_cylinder",
+      "frame_path": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S07/frame.npz",
+      "image_sha256": "6d5b2615cd5c3d7426dbec3cd6b246271bf7f2265a33afcacd7a8d62aa6f0520",
+      "frame_sha256": "3f3de78a5ed1fdce693ce5e6b58f7abc6ed0817f3dae80ab27a5338fdaf0b0b4",
+      "target": "yellow cylinder",
+      "prediction": {
+        "task_id": "S07",
+        "status": "point",
+        "point_px": [
+          151,
+          109
+        ],
+        "reason": "Visible yellow upright cylinder left of the robot with a rounded top and curved side."
+      },
+      "outcome": "target_hit",
+      "visible_target_pixels": 82,
+      "geom_at_point": "yellow_cylinder/yellow_cylinder_geom",
+      "same_color_visible_pixels": {
+        "yellow_cube": 53,
+        "yellow_thin_prism": 121,
+        "yellow_prism": 162,
+        "yellow_cylinder": 82,
+        "yellow_triangular_prism": 74
+      },
+      "replay_alignment": {
+        "time": true,
+        "rgb": true,
+        "depth_m": true,
+        "valid_depth": true,
+        "intrinsics": true,
+        "camera_to_world": true
+      }
+    },
+    {
+      "task_id": "S08",
+      "seed": 2508,
+      "color": "yellow",
+      "shape": "triangular_prism",
+      "long_blocks_flat": false,
+      "evaluation_target_object": "yellow_triangular_prism",
+      "frame_path": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S08/frame.npz",
+      "image_sha256": "29bb859444552226d6c71ffc4946b46a40965b7d0faba31e924c51b174e9c7e7",
+      "frame_sha256": "da0a3a71f6a546cf766afc42c7e8101128a8e64ea6f2b2ecda357d62daa4b104",
+      "target": "yellow triangular prism (wedge, a cube cut diagonally in half)",
+      "prediction": {
+        "task_id": "S08",
+        "status": "abstain",
+        "point_px": null,
+        "reason": "The possible yellow wedge beside the gripper is partly occluded, preventing confident shape identification."
+      },
+      "outcome": "false_abstention",
+      "visible_target_pixels": 37,
+      "geom_at_point": null,
+      "same_color_visible_pixels": {
+        "yellow_cube": 80,
+        "yellow_thin_prism": 93,
+        "yellow_prism": 145,
+        "yellow_cylinder": 91,
+        "yellow_triangular_prism": 37
+      },
+      "replay_alignment": {
+        "time": true,
+        "rgb": true,
+        "depth_m": true,
+        "valid_depth": true,
+        "intrinsics": true,
+        "camera_to_world": true
+      }
+    },
+    {
+      "task_id": "S09",
+      "seed": 2509,
+      "color": "yellow",
+      "shape": "prism",
+      "long_blocks_flat": true,
+      "evaluation_target_object": "yellow_prism",
+      "frame_path": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S09/frame.npz",
+      "image_sha256": "c5cd104a3760f4febb20db60e56b02511fd08f4ae8807ad310b56bb2b61df393",
+      "frame_sha256": "3cea57fc0eb875d948cb43af224140ae705fcea5a9a974d8bb1655379b2b3e65",
+      "target": "yellow thick rectangular prism (long block)",
+      "prediction": {
+        "task_id": "S09",
+        "status": "point",
+        "point_px": [
+          176,
+          138
+        ],
+        "reason": "The yellow long block near the lower right has a broad rectangular top and a visibly thick side."
+      },
+      "outcome": "target_hit",
+      "visible_target_pixels": 155,
+      "geom_at_point": "yellow_prism/yellow_prism_geom",
+      "same_color_visible_pixels": {
+        "yellow_cube": 80,
+        "yellow_thin_prism": 93,
+        "yellow_prism": 155,
+        "yellow_cylinder": 101,
+        "yellow_triangular_prism": 73
+      },
+      "replay_alignment": {
+        "time": true,
+        "rgb": true,
+        "depth_m": true,
+        "valid_depth": true,
+        "intrinsics": true,
+        "camera_to_world": true
+      }
+    },
+    {
+      "task_id": "S10",
+      "seed": 2510,
+      "color": "green",
+      "shape": "cube",
+      "long_blocks_flat": false,
+      "evaluation_target_object": "green_cube",
+      "frame_path": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S10/frame.npz",
+      "image_sha256": "c3e649da401ca57e16500c729359abe15bb279f001746b6ce36641ade8ae4fb5",
+      "frame_sha256": "90537881011736f2532a20e8aab5224cece07b72e0cf1cb1eb0a0bd84f76448a",
+      "target": "green cube",
+      "prediction": {
+        "task_id": "S10",
+        "status": "point",
+        "point_px": [
+          148,
+          129
+        ],
+        "reason": "The green cube left of the central shadow has a square top and two substantial upright sides."
+      },
+      "outcome": "wrong_pixel",
+      "visible_target_pixels": 53,
+      "geom_at_point": "green_prism/green_prism_geom",
+      "same_color_visible_pixels": {
+        "green_cube": 53,
+        "green_thin_prism": 89,
+        "green_prism": 132,
+        "green_cylinder": 100,
+        "green_triangular_prism": 89
+      },
+      "replay_alignment": {
+        "time": true,
+        "rgb": true,
+        "depth_m": true,
+        "valid_depth": true,
+        "intrinsics": true,
+        "camera_to_world": true
+      }
+    },
+    {
+      "task_id": "S11",
+      "seed": 2511,
+      "color": "blue",
+      "shape": "triangular_prism",
+      "long_blocks_flat": true,
+      "evaluation_target_object": "blue_triangular_prism",
+      "frame_path": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S11/frame.npz",
+      "image_sha256": "3ce0ff1f02800969913d26a3be5160739fddbe833686732a37c9a2f0ecbfbd20",
+      "frame_sha256": "dbfb921c639045036d127e3c1ee8ecdf42bf222f4d96efae1696cd33862a2705",
+      "target": "blue triangular prism (wedge, a cube cut diagonally in half)",
+      "prediction": {
+        "task_id": "S11",
+        "status": "point",
+        "point_px": [
+          137,
+          116
+        ],
+        "reason": "The blue wedge left of the red tall block has a sloping face and triangular side profile."
+      },
+      "outcome": "target_hit",
+      "visible_target_pixels": 68,
+      "geom_at_point": "blue_triangular_prism/blue_triangular_prism_geom",
+      "same_color_visible_pixels": {
+        "blue_cube": 77,
+        "blue_thin_prism": 123,
+        "blue_prism": 162,
+        "blue_cylinder": 93,
+        "blue_triangular_prism": 68
+      },
+      "replay_alignment": {
+        "time": true,
+        "rgb": true,
+        "depth_m": true,
+        "valid_depth": true,
+        "intrinsics": true,
+        "camera_to_world": true
+      }
+    },
+    {
+      "task_id": "S12",
+      "seed": 2512,
+      "color": "green",
+      "shape": "triangular_prism",
+      "long_blocks_flat": false,
+      "evaluation_target_object": "green_triangular_prism",
+      "frame_path": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S12/frame.npz",
+      "image_sha256": "416853e4909c8105f54948b0642d33fa99e010a9b498676eb7d4d1c09ce281cc",
+      "frame_sha256": "af33c2a7e649a6fc476a70dad0311dd46fc454461c430bf50b5ae500ad9f7d1e",
+      "target": "green triangular prism (wedge, a cube cut diagonally in half)",
+      "prediction": {
+        "task_id": "S12",
+        "status": "point",
+        "point_px": [
+          176,
+          139
+        ],
+        "reason": "The green wedge above the blue cube shows a sloping face and triangular side profile."
+      },
+      "outcome": "target_hit",
+      "visible_target_pixels": 82,
+      "geom_at_point": "green_triangular_prism/green_triangular_prism_geom",
+      "same_color_visible_pixels": {
+        "green_cube": 95,
+        "green_thin_prism": 50,
+        "green_prism": 118,
+        "green_cylinder": 98,
+        "green_triangular_prism": 82
+      },
+      "replay_alignment": {
+        "time": true,
+        "rgb": true,
+        "depth_m": true,
+        "valid_depth": true,
+        "intrinsics": true,
+        "camera_to_world": true
+      }
+    },
+    {
+      "task_id": "S13",
+      "seed": 2513,
+      "color": "red",
+      "shape": "triangular_prism",
+      "long_blocks_flat": true,
+      "evaluation_target_object": "red_triangular_prism",
+      "frame_path": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S13/frame.npz",
+      "image_sha256": "62175aced035e85f3af3da0962a228cbf7afa3e21837787eb37f17e0e6e36c16",
+      "frame_sha256": "446592d7787c6980acb65a7dfe3e74339ad79cf111b020b13712359d97d3894b",
+      "target": "red triangular prism (wedge, a cube cut diagonally in half)",
+      "prediction": {
+        "task_id": "S13",
+        "status": "point",
+        "point_px": [
+          146,
+          131
+        ],
+        "reason": "The red wedge left of the long red blocks has a sloping face and triangular side profile."
+      },
+      "outcome": "target_hit",
+      "visible_target_pixels": 75,
+      "geom_at_point": "red_triangular_prism/red_triangular_prism_geom",
+      "same_color_visible_pixels": {
+        "red_cube": 97,
+        "red_thin_prism": 87,
+        "red_prism": 133,
+        "red_cylinder": 26,
+        "red_triangular_prism": 75
+      },
+      "replay_alignment": {
+        "time": true,
+        "rgb": true,
+        "depth_m": true,
+        "valid_depth": true,
+        "intrinsics": true,
+        "camera_to_world": true
+      }
+    },
+    {
+      "task_id": "S14",
+      "seed": 2514,
+      "color": "blue",
+      "shape": "cube",
+      "long_blocks_flat": false,
+      "evaluation_target_object": "blue_cube",
+      "frame_path": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S14/frame.npz",
+      "image_sha256": "f9fae356f437343d91bf8db12bfea3be34162237a1110d494c1a1ac226f69eaa",
+      "frame_sha256": "0fd9f14f64555940debf2d01ca64e32e9333e9432130313dd467a04a140e8009",
+      "target": "blue cube",
+      "prediction": {
+        "task_id": "S14",
+        "status": "point",
+        "point_px": [
+          178,
+          118
+        ],
+        "reason": "The blue cube immediately right of the yellow upright piece has a square top and two upright sides."
+      },
+      "outcome": "target_hit",
+      "visible_target_pixels": 78,
+      "geom_at_point": "blue_cube/blue_cube_geom",
+      "same_color_visible_pixels": {
+        "blue_cube": 78,
+        "blue_thin_prism": 94,
+        "blue_prism": 58,
+        "blue_cylinder": 91,
+        "blue_triangular_prism": 76
+      },
+      "replay_alignment": {
+        "time": true,
+        "rgb": true,
+        "depth_m": true,
+        "valid_depth": true,
+        "intrinsics": true,
+        "camera_to_world": true
+      }
+    },
+    {
+      "task_id": "S15",
+      "seed": 2515,
+      "color": "green",
+      "shape": "thin_prism",
+      "long_blocks_flat": true,
+      "evaluation_target_object": "green_thin_prism",
+      "frame_path": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S15/frame.npz",
+      "image_sha256": "fc2859e85488c48d0fe6a5cfbf5735e35085b0b61e5cc7edd15d8a82493d4b1e",
+      "frame_sha256": "6a08d463a51d8005a632c4afcac9ca0cff5d7cd0e1b09b716079e3f7e9ecd46b",
+      "target": "green slender rectangular prism (thin beam)",
+      "prediction": {
+        "task_id": "S15",
+        "status": "point",
+        "point_px": [
+          194,
+          133
+        ],
+        "reason": "The green beam at the right has a long rectangular top and a thin side wall."
+      },
+      "outcome": "target_hit",
+      "visible_target_pixels": 117,
+      "geom_at_point": "green_thin_prism/green_thin_prism_geom",
+      "same_color_visible_pixels": {
+        "green_cube": 87,
+        "green_thin_prism": 117,
+        "green_prism": 142,
+        "green_cylinder": 37,
+        "green_triangular_prism": 70
+      },
+      "replay_alignment": {
+        "time": true,
+        "rgb": true,
+        "depth_m": true,
+        "valid_depth": true,
+        "intrinsics": true,
+        "camera_to_world": true
+      }
+    },
+    {
+      "task_id": "S16",
+      "seed": 2516,
+      "color": "blue",
+      "shape": "prism",
+      "long_blocks_flat": false,
+      "evaluation_target_object": "blue_prism",
+      "frame_path": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S16/frame.npz",
+      "image_sha256": "324cb0c1ba347c61bfb60970c369ecb29578f3d720ac713824c2d310e63ce75a",
+      "frame_sha256": "9bc4125734e735b8db65da329a761dc3b9cf68d63c99e040cd8255a4d3bcb5ea",
+      "target": "blue thick rectangular prism (long block)",
+      "prediction": {
+        "task_id": "S16",
+        "status": "point",
+        "point_px": [
+          164,
+          119
+        ],
+        "reason": "The upright blue long block left of the robot has a rectangular face and appreciable thickness."
+      },
+      "outcome": "wrong_pixel",
+      "visible_target_pixels": 148,
+      "geom_at_point": "blue_thin_prism/blue_thin_prism_geom",
+      "same_color_visible_pixels": {
+        "blue_cube": 36,
+        "blue_thin_prism": 93,
+        "blue_prism": 148,
+        "blue_cylinder": 102,
+        "blue_triangular_prism": 65
+      },
+      "replay_alignment": {
+        "time": true,
+        "rgb": true,
+        "depth_m": true,
+        "valid_depth": true,
+        "intrinsics": true,
+        "camera_to_world": true
+      }
+    },
+    {
+      "task_id": "S17",
+      "seed": 2517,
+      "color": "blue",
+      "shape": "cylinder",
+      "long_blocks_flat": true,
+      "evaluation_target_object": "blue_cylinder",
+      "frame_path": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S17/frame.npz",
+      "image_sha256": "8f261597851ee8191deda91d13b566165cd5f18a645af57bab4c70f5ff2f76ed",
+      "frame_sha256": "1f5bfa868bef9c74e8a3926707b9a8756d434b0c723eae39afe9519d88d51d6a",
+      "target": "blue cylinder",
+      "prediction": {
+        "task_id": "S17",
+        "status": "point",
+        "point_px": [
+          136,
+          114
+        ],
+        "reason": "The blue upright object at the left has a rounded top and cylindrical side."
+      },
+      "outcome": "target_hit",
+      "visible_target_pixels": 90,
+      "geom_at_point": "blue_cylinder/blue_cylinder_geom",
+      "same_color_visible_pixels": {
+        "blue_cube": 89,
+        "blue_thin_prism": 99,
+        "blue_prism": 138,
+        "blue_cylinder": 90,
+        "blue_triangular_prism": 40
+      },
+      "replay_alignment": {
+        "time": true,
+        "rgb": true,
+        "depth_m": true,
+        "valid_depth": true,
+        "intrinsics": true,
+        "camera_to_world": true
+      }
+    },
+    {
+      "task_id": "S18",
+      "seed": 2518,
+      "color": "blue",
+      "shape": "thin_prism",
+      "long_blocks_flat": false,
+      "evaluation_target_object": "blue_thin_prism",
+      "frame_path": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S18/frame.npz",
+      "image_sha256": "1966a8a6796d80b578479d3c71a96c9d6354627ebae734c572e3830d871dee7c",
+      "frame_sha256": "a5ead37ce5c416562eee3d4bf4038d14e85be089d5b3f63c945cce35425944d1",
+      "target": "blue slender rectangular prism (thin beam)",
+      "prediction": {
+        "task_id": "S18",
+        "status": "point",
+        "point_px": [
+          194,
+          129
+        ],
+        "reason": "The upright blue beam at the right has a narrow rectangular profile and thin top edge."
+      },
+      "outcome": "target_hit",
+      "visible_target_pixels": 93,
+      "geom_at_point": "blue_thin_prism/blue_thin_prism_geom",
+      "same_color_visible_pixels": {
+        "blue_cube": 71,
+        "blue_thin_prism": 93,
+        "blue_prism": 130,
+        "blue_cylinder": 91,
+        "blue_triangular_prism": 75
+      },
+      "replay_alignment": {
+        "time": true,
+        "rgb": true,
+        "depth_m": true,
+        "valid_depth": true,
+        "intrinsics": true,
+        "camera_to_world": true
+      }
+    },
+    {
+      "task_id": "S19",
+      "seed": 2519,
+      "color": "red",
+      "shape": "cube",
+      "long_blocks_flat": true,
+      "evaluation_target_object": "red_cube",
+      "frame_path": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S19/frame.npz",
+      "image_sha256": "8c97c2afd78d44255a8b589f0839f0bf4e674dae5c6dadcd99d6d60f35aa9f2e",
+      "frame_sha256": "9b6554ac042f9ea4f45bf4ccecec6d8b262a9405f49f5acfe04987a4e27a2bb1",
+      "target": "red cube",
+      "prediction": {
+        "task_id": "S19",
+        "status": "point",
+        "point_px": [
+          149,
+          130
+        ],
+        "reason": "The red object in the lower left has a square top and short cube-like sides."
+      },
+      "outcome": "target_hit",
+      "visible_target_pixels": 85,
+      "geom_at_point": "red_cube/red_cube_geom",
+      "same_color_visible_pixels": {
+        "red_cube": 85,
+        "red_thin_prism": 94,
+        "red_prism": 125,
+        "red_cylinder": 82,
+        "red_triangular_prism": 39
+      },
+      "replay_alignment": {
+        "time": true,
+        "rgb": true,
+        "depth_m": true,
+        "valid_depth": true,
+        "intrinsics": true,
+        "camera_to_world": true
+      }
+    },
+    {
+      "task_id": "S20",
+      "seed": 2520,
+      "color": "yellow",
+      "shape": "thin_prism",
+      "long_blocks_flat": false,
+      "evaluation_target_object": "yellow_thin_prism",
+      "frame_path": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S20/frame.npz",
+      "image_sha256": "3f2355dde386ad990d8c2e0a876501e3d21ac654c81d804b1bafc8a79f2aacac",
+      "frame_sha256": "154717c84c52f4e100e58bb7a3802a97dd92530104d4a1b909729eff17b6b92e",
+      "target": "yellow slender rectangular prism (thin beam)",
+      "prediction": {
+        "task_id": "S20",
+        "status": "abstain",
+        "point_px": null,
+        "reason": "A yellow object behind the robot is partly occluded; its visible portion does not establish the requested thin-beam shape unambiguously."
+      },
+      "outcome": "false_abstention",
+      "visible_target_pixels": 86,
+      "geom_at_point": null,
+      "same_color_visible_pixels": {
+        "yellow_cube": 71,
+        "yellow_thin_prism": 86,
+        "yellow_prism": 63,
+        "yellow_cylinder": 91,
+        "yellow_triangular_prism": 81
+      },
+      "replay_alignment": {
+        "time": true,
+        "rgb": true,
+        "depth_m": true,
+        "valid_depth": true,
+        "intrinsics": true,
+        "camera_to_world": true
+      }
+    }
+  ],
+  "rgbd_validation": {
+    "timestamp_utc": "2026-09-25T05:52:17.559876+00:00",
+    "scope": "Selected development images; no robot actions or full-policy evaluation.",
+    "runtime_inputs": "Subagent: RGB and public target text. Host: RGB-D and calibration.",
+    "identity_accuracy_measured": false,
+    "predictions_modified_by_validator": false,
+    "summary": {
+      "color_depth_supported": 18,
+      "abstained": 2,
+      "rejected": 0,
+      "flat_beam_fit_accepted": 1,
+      "flat_beam_fit_rejected": 0
+    },
+    "cases": [
+      {
+        "task_id": "S01",
+        "target": "red cylinder",
+        "image_size": [
+          320,
+          240
+        ],
+        "source_frame": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S01/frame.npz",
+        "source_frame_sha256": "6db7b3aa978306606225233056ab6df289fcb48de0d4afee94d0f2ba4771de63",
+        "input_png_sha256": "13b2d9d59adcbec730da5e923ce00e8f3e260c5b663b46206b4a87ee883713dc",
+        "prediction": {
+          "task_id": "S01",
+          "status": "point",
+          "point_px": [
+            180,
+            115
+          ],
+          "reason": "Visible red upright cylinder with a rounded top and shaded curved side."
+        },
+        "validation": {
+          "point_px": [
+            180.0,
+            115.0
+          ],
+          "pixel_index_uv": [
+            180,
+            115
+          ],
+          "surface_world_m": [
+            0.013229240412163612,
+            -0.20355614566933755,
+            0.4338656906736027
+          ],
+          "visible_surface_centroid_world_m": [
+            0.007079993765977545,
+            -0.20040679475304163,
+            0.4420788978189132
+          ],
+          "component_pixels": 85,
+          "complete_object_geometry": false,
+          "identity_verified": false,
+          "status": "color_depth_supported",
+          "geometry_check": "not_run"
+        }
+      },
+      {
+        "task_id": "S02",
+        "target": "red slender rectangular prism (thin beam)",
+        "image_size": [
+          320,
+          240
+        ],
+        "source_frame": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S02/frame.npz",
+        "source_frame_sha256": "3d355413d43ac64d0d068fb1da167ba94c9838df512c382f6f6cea6042d8aa89",
+        "input_png_sha256": "9ae454e8d647762e915f551934218289905b2b68f18d3743e4c18b8c1f4f76a5",
+        "prediction": {
+          "task_id": "S02",
+          "status": "point",
+          "point_px": [
+            193,
+            131
+          ],
+          "reason": "Visible narrow red rectangular beam at the right of the red objects."
+        },
+        "validation": {
+          "point_px": [
+            193.0,
+            131.0
+          ],
+          "pixel_index_uv": [
+            193,
+            131
+          ],
+          "surface_world_m": [
+            0.11183327197742743,
+            -0.209432823371753,
+            0.43265264828873873
+          ],
+          "visible_surface_centroid_world_m": [
+            0.10801614723615854,
+            -0.20113221046511992,
+            0.4395519045315232
+          ],
+          "component_pixels": 89,
+          "complete_object_geometry": false,
+          "identity_verified": false,
+          "status": "color_depth_supported",
+          "geometry_check": "not_run"
+        }
+      },
+      {
+        "task_id": "S03",
+        "target": "green thick rectangular prism (long block)",
+        "image_size": [
+          320,
+          240
+        ],
+        "source_frame": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S03/frame.npz",
+        "source_frame_sha256": "d369f9bd5af3b84c85decf76760c823a403a52e969f2564c64216c34dd55ebf3",
+        "input_png_sha256": "ea46308bd073b92fa4b9eb6c6edb0947548b6c3e3dd328f5ab1106373695f57b",
+        "prediction": {
+          "task_id": "S03",
+          "status": "point",
+          "point_px": [
+            147,
+            131
+          ],
+          "reason": "Visible green long block with a broad rectangular top and substantial side face."
+        },
+        "validation": {
+          "point_px": [
+            147.0,
+            131.0
+          ],
+          "pixel_index_uv": [
+            147,
+            131
+          ],
+          "surface_world_m": [
+            0.010874524192156843,
+            -0.36691826440330555,
+            0.4298946867413759
+          ],
+          "visible_surface_centroid_world_m": [
+            0.006725439875455059,
+            -0.3652054898183928,
+            0.4255003470146797
+          ],
+          "component_pixels": 130,
+          "complete_object_geometry": false,
+          "identity_verified": false,
+          "status": "color_depth_supported",
+          "geometry_check": "not_run"
+        }
+      },
+      {
+        "task_id": "S04",
+        "target": "red thick rectangular prism (long block)",
+        "image_size": [
+          320,
+          240
+        ],
+        "source_frame": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S04/frame.npz",
+        "source_frame_sha256": "76ba6c7fc60048c219b2b5607f76685141eaed960b785c76ad43c425427c6b72",
+        "input_png_sha256": "15ca51d0284b42a82ae007d6759917dab25e84b501e03b7dd6281eb54d5dbb9a",
+        "prediction": {
+          "task_id": "S04",
+          "status": "point",
+          "point_px": [
+            160,
+            147
+          ],
+          "reason": "Visible thick red upright rectangular block in the foreground."
+        },
+        "validation": {
+          "point_px": [
+            160.0,
+            147.0
+          ],
+          "pixel_index_uv": [
+            160,
+            147
+          ],
+          "surface_world_m": [
+            0.11465438641436093,
+            -0.36945857007869787,
+            0.4476494747696269
+          ],
+          "visible_surface_centroid_world_m": [
+            0.10565333582132261,
+            -0.3645284395253846,
+            0.4428119060225825
+          ],
+          "component_pixels": 142,
+          "complete_object_geometry": false,
+          "identity_verified": false,
+          "status": "color_depth_supported",
+          "geometry_check": "not_run"
+        }
+      },
+      {
+        "task_id": "S05",
+        "target": "green cylinder",
+        "image_size": [
+          320,
+          240
+        ],
+        "source_frame": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S05/frame.npz",
+        "source_frame_sha256": "3e136d5136dd3022f922d0e79b908fe78d06681c0eb394906b0dde7eac1c99c4",
+        "input_png_sha256": "25cc3f0a172ac15ce7ab66d7b3a2360b26d88f9eb78e38fe867de1957f596d8d",
+        "prediction": {
+          "task_id": "S05",
+          "status": "point",
+          "point_px": [
+            179,
+            140
+          ],
+          "reason": "Visible green upright cylinder with a rounded top and curved shaded side."
+        },
+        "validation": {
+          "point_px": [
+            179.0,
+            140.0
+          ],
+          "pixel_index_uv": [
+            179,
+            140
+          ],
+          "surface_world_m": [
+            0.11732763969872284,
+            -0.28297901593143543,
+            0.4312431521880783
+          ],
+          "visible_surface_centroid_world_m": [
+            0.10996757341685513,
+            -0.28016428666220666,
+            0.44311220701367265
+          ],
+          "component_pixels": 98,
+          "complete_object_geometry": false,
+          "identity_verified": false,
+          "status": "color_depth_supported",
+          "geometry_check": "not_run"
+        }
+      },
+      {
+        "task_id": "S06",
+        "target": "yellow cube",
+        "image_size": [
+          320,
+          240
+        ],
+        "source_frame": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S06/frame.npz",
+        "source_frame_sha256": "93d95cf9afc1e4fc17cc1dbb66fbdd1b6084eb1449ea0309eb28f8e8c01da557",
+        "input_png_sha256": "2142007d3b9566f8a0a601b7a39637ff8e180365b14965587750a80805842e7f",
+        "prediction": {
+          "task_id": "S06",
+          "status": "point",
+          "point_px": [
+            194,
+            130
+          ],
+          "reason": "Visible yellow cube at the right with a compact square top and short side faces."
+        },
+        "validation": {
+          "point_px": [
+            194.0,
+            130.0
+          ],
+          "pixel_index_uv": [
+            194,
+            130
+          ],
+          "surface_world_m": [
+            0.10837861660887399,
+            -0.2011343676612377,
+            0.42989277952005056
+          ],
+          "visible_surface_centroid_world_m": [
+            0.10920257069142954,
+            -0.20049509151402134,
+            0.42362420684210644
+          ],
+          "component_pixels": 80,
+          "complete_object_geometry": false,
+          "identity_verified": false,
+          "status": "color_depth_supported",
+          "geometry_check": "not_run"
+        }
+      },
+      {
+        "task_id": "S07",
+        "target": "yellow cylinder",
+        "image_size": [
+          320,
+          240
+        ],
+        "source_frame": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S07/frame.npz",
+        "source_frame_sha256": "3f3de78a5ed1fdce693ce5e6b58f7abc6ed0817f3dae80ab27a5338fdaf0b0b4",
+        "input_png_sha256": "6d5b2615cd5c3d7426dbec3cd6b246271bf7f2265a33afcacd7a8d62aa6f0520",
+        "prediction": {
+          "task_id": "S07",
+          "status": "point",
+          "point_px": [
+            151,
+            109
+          ],
+          "reason": "Visible yellow upright cylinder left of the robot with a rounded top and curved side."
+        },
+        "validation": {
+          "point_px": [
+            151.0,
+            109.0
+          ],
+          "pixel_index_uv": [
+            151,
+            109
+          ],
+          "surface_world_m": [
+            -0.0872871578744091,
+            -0.2902301902432284,
+            0.43049064412700155
+          ],
+          "visible_surface_centroid_world_m": [
+            -0.09158936539374586,
+            -0.284967673282541,
+            0.44098260687873786
+          ],
+          "component_pixels": 79,
+          "complete_object_geometry": false,
+          "identity_verified": false,
+          "status": "color_depth_supported",
+          "geometry_check": "not_run"
+        }
+      },
+      {
+        "task_id": "S08",
+        "target": "yellow triangular prism (wedge, a cube cut diagonally in half)",
+        "image_size": [
+          320,
+          240
+        ],
+        "source_frame": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S08/frame.npz",
+        "source_frame_sha256": "da0a3a71f6a546cf766afc42c7e8101128a8e64ea6f2b2ecda357d62daa4b104",
+        "input_png_sha256": "29bb859444552226d6c71ffc4946b46a40965b7d0faba31e924c51b174e9c7e7",
+        "prediction": {
+          "task_id": "S08",
+          "status": "abstain",
+          "point_px": null,
+          "reason": "The possible yellow wedge beside the gripper is partly occluded, preventing confident shape identification."
+        },
+        "validation": {
+          "status": "abstained"
+        }
+      },
+      {
+        "task_id": "S09",
+        "target": "yellow thick rectangular prism (long block)",
+        "image_size": [
+          320,
+          240
+        ],
+        "source_frame": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S09/frame.npz",
+        "source_frame_sha256": "3cea57fc0eb875d948cb43af224140ae705fcea5a9a974d8bb1655379b2b3e65",
+        "input_png_sha256": "c5cd104a3760f4febb20db60e56b02511fd08f4ae8807ad310b56bb2b61df393",
+        "prediction": {
+          "task_id": "S09",
+          "status": "point",
+          "point_px": [
+            176,
+            138
+          ],
+          "reason": "The yellow long block near the lower right has a broad rectangular top and a visibly thick side."
+        },
+        "validation": {
+          "point_px": [
+            176.0,
+            138.0
+          ],
+          "pixel_index_uv": [
+            176,
+            138
+          ],
+          "surface_world_m": [
+            0.10238625728456174,
+            -0.28679070601643525,
+            0.42989319905492074
+          ],
+          "visible_surface_centroid_world_m": [
+            0.10141733796138289,
+            -0.2882823487345868,
+            0.42511254856594444
+          ],
+          "component_pixels": 147,
+          "complete_object_geometry": false,
+          "identity_verified": false,
+          "status": "color_depth_supported",
+          "geometry_check": "not_run"
+        }
+      },
+      {
+        "task_id": "S10",
+        "target": "green cube",
+        "image_size": [
+          320,
+          240
+        ],
+        "source_frame": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S10/frame.npz",
+        "source_frame_sha256": "90537881011736f2532a20e8aab5224cece07b72e0cf1cb1eb0a0bd84f76448a",
+        "input_png_sha256": "c3e649da401ca57e16500c729359abe15bb279f001746b6ce36641ade8ae4fb5",
+        "prediction": {
+          "task_id": "S10",
+          "status": "point",
+          "point_px": [
+            148,
+            129
+          ],
+          "reason": "The green cube left of the central shadow has a square top and two substantial upright sides."
+        },
+        "validation": {
+          "point_px": [
+            148.0,
+            129.0
+          ],
+          "pixel_index_uv": [
+            148,
+            129
+          ],
+          "surface_world_m": [
+            0.013351761822921804,
+            -0.3630087547731717,
+            0.4430401064418449
+          ],
+          "visible_surface_centroid_world_m": [
+            0.0054906045745300265,
+            -0.36145303889569863,
+            0.441408245909593
+          ],
+          "component_pixels": 127,
+          "complete_object_geometry": false,
+          "identity_verified": false,
+          "status": "color_depth_supported",
+          "geometry_check": "not_run"
+        }
+      },
+      {
+        "task_id": "S11",
+        "target": "blue triangular prism (wedge, a cube cut diagonally in half)",
+        "image_size": [
+          320,
+          240
+        ],
+        "source_frame": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S11/frame.npz",
+        "source_frame_sha256": "dbfb921c639045036d127e3c1ee8ecdf42bf222f4d96efae1696cd33862a2705",
+        "input_png_sha256": "3ce0ff1f02800969913d26a3be5160739fddbe833686732a37c9a2f0ecbfbd20",
+        "prediction": {
+          "task_id": "S11",
+          "status": "point",
+          "point_px": [
+            137,
+            116
+          ],
+          "reason": "The blue wedge left of the red tall block has a sloping face and triangular side profile."
+        },
+        "validation": {
+          "point_px": [
+            137.0,
+            116.0
+          ],
+          "pixel_index_uv": [
+            137,
+            116
+          ],
+          "surface_world_m": [
+            -0.09824350495021072,
+            -0.3566971896499113,
+            0.4125606519981111
+          ],
+          "visible_surface_centroid_world_m": [
+            -0.10333947775145183,
+            -0.3590029407789934,
+            0.41701237910472205
+          ],
+          "component_pixels": 58,
+          "complete_object_geometry": false,
+          "identity_verified": false,
+          "status": "color_depth_supported",
+          "geometry_check": "not_run"
+        }
+      },
+      {
+        "task_id": "S12",
+        "target": "green triangular prism (wedge, a cube cut diagonally in half)",
+        "image_size": [
+          320,
+          240
+        ],
+        "source_frame": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S12/frame.npz",
+        "source_frame_sha256": "af33c2a7e649a6fc476a70dad0311dd46fc454461c430bf50b5ae500ad9f7d1e",
+        "input_png_sha256": "416853e4909c8105f54948b0642d33fa99e010a9b498676eb7d4d1c09ce281cc",
+        "prediction": {
+          "task_id": "S12",
+          "status": "point",
+          "point_px": [
+            176,
+            139
+          ],
+          "reason": "The green wedge above the blue cube shows a sloping face and triangular side profile."
+        },
+        "validation": {
+          "point_px": [
+            176.0,
+            139.0
+          ],
+          "pixel_index_uv": [
+            176,
+            139
+          ],
+          "surface_world_m": [
+            0.09739758359985845,
+            -0.2821237349990264,
+            0.4137894349465868
+          ],
+          "visible_surface_centroid_world_m": [
+            0.09360639224505912,
+            -0.28394335995226777,
+            0.41657810752919733
+          ],
+          "component_pixels": 71,
+          "complete_object_geometry": false,
+          "identity_verified": false,
+          "status": "color_depth_supported",
+          "geometry_check": "not_run"
+        }
+      },
+      {
+        "task_id": "S13",
+        "target": "red triangular prism (wedge, a cube cut diagonally in half)",
+        "image_size": [
+          320,
+          240
+        ],
+        "source_frame": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S13/frame.npz",
+        "source_frame_sha256": "446592d7787c6980acb65a7dfe3e74339ad79cf111b020b13712359d97d3894b",
+        "input_png_sha256": "62175aced035e85f3af3da0962a228cbf7afa3e21837787eb37f17e0e6e36c16",
+        "prediction": {
+          "task_id": "S13",
+          "status": "point",
+          "point_px": [
+            146,
+            131
+          ],
+          "reason": "The red wedge left of the long red blocks has a sloping face and triangular side profile."
+        },
+        "validation": {
+          "point_px": [
+            146.0,
+            131.0
+          ],
+          "pixel_index_uv": [
+            146,
+            131
+          ],
+          "surface_world_m": [
+            -0.0025096199788958162,
+            -0.36490908047724746,
+            0.4139378890249278
+          ],
+          "visible_surface_centroid_world_m": [
+            -0.005818746788782549,
+            -0.3660103774634949,
+            0.4167117758837902
+          ],
+          "component_pixels": 65,
+          "complete_object_geometry": false,
+          "identity_verified": false,
+          "status": "color_depth_supported",
+          "geometry_check": "not_run"
+        }
+      },
+      {
+        "task_id": "S14",
+        "target": "blue cube",
+        "image_size": [
+          320,
+          240
+        ],
+        "source_frame": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S14/frame.npz",
+        "source_frame_sha256": "0fd9f14f64555940debf2d01ca64e32e9333e9432130313dd467a04a140e8009",
+        "input_png_sha256": "f9fae356f437343d91bf8db12bfea3be34162237a1110d494c1a1ac226f69eaa",
+        "prediction": {
+          "task_id": "S14",
+          "status": "point",
+          "point_px": [
+            178,
+            118
+          ],
+          "reason": "The blue cube immediately right of the yellow upright piece has a square top and two upright sides."
+        },
+        "validation": {
+          "point_px": [
+            178.0,
+            118.0
+          ],
+          "pixel_index_uv": [
+            178,
+            118
+          ],
+          "surface_world_m": [
+            0.012515283567559321,
+            -0.21242116590942067,
+            0.41887361089921016
+          ],
+          "visible_surface_centroid_world_m": [
+            0.0030778527512676443,
+            -0.20675680948910644,
+            0.42299818540006734
+          ],
+          "component_pixels": 70,
+          "complete_object_geometry": false,
+          "identity_verified": false,
+          "status": "color_depth_supported",
+          "geometry_check": "not_run"
+        }
+      },
+      {
+        "task_id": "S15",
+        "target": "green slender rectangular prism (thin beam)",
+        "image_size": [
+          320,
+          240
+        ],
+        "source_frame": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S15/frame.npz",
+        "source_frame_sha256": "6a08d463a51d8005a632c4afcac9ca0cff5d7cd0e1b09b716079e3f7e9ecd46b",
+        "input_png_sha256": "fc2859e85488c48d0fe6a5cfbf5735e35085b0b61e5cc7edd15d8a82493d4b1e",
+        "prediction": {
+          "task_id": "S15",
+          "status": "point",
+          "point_px": [
+            194,
+            133
+          ],
+          "reason": "The green beam at the right has a long rectangular top and a thin side wall."
+        },
+        "validation": {
+          "point_px": [
+            194.0,
+            133.0
+          ],
+          "pixel_index_uv": [
+            194,
+            133
+          ],
+          "surface_world_m": [
+            0.11251957148528108,
+            -0.2020208318566022,
+            0.4148981996155182
+          ],
+          "visible_surface_centroid_world_m": [
+            0.10724578077359317,
+            -0.20302992321066185,
+            0.4137072194984335
+          ],
+          "component_pixels": 107,
+          "complete_object_geometry": false,
+          "identity_verified": false,
+          "status": "color_depth_supported",
+          "geometry_check": "flat_beam_fit_accepted",
+          "geometry": {
+            "center": [
+              0.10564465695110535,
+              -0.20050144535979936,
+              0.40744804469785983
+            ],
+            "axis_dimensions": [
+              0.05943267821924236,
+              0.02994004789274446,
+              0.01489145912855283
+            ],
+            "vertices": [
+              [
+                0.07592632253414106,
+                -0.2154666057773835,
+                0.40000050222166356
+              ],
+              [
+                0.07593031528514213,
+                -0.2154763368556656,
+                0.41489195763547093
+              ],
+              [
+                0.07592632253414106,
+                -0.18552656427712816,
+                0.4000200670579749
+              ],
+              [
+                0.07593031528514213,
+                -0.18553629535541027,
+                0.4149115224717823
+              ],
+              [
+                0.13535899861706857,
+                -0.21546659536418844,
+                0.39998456692393736
+              ],
+              [
+                0.13536299136806965,
+                -0.21547632644247056,
+                0.4148760223377448
+              ],
+              [
+                0.13535899861706857,
+                -0.1855265538639331,
+                0.40000413176024874
+              ],
+              [
+                0.13536299136806965,
+                -0.18553628494221522,
+                0.4148955871740561
+              ]
+            ],
+            "geometry_reliable": false,
+            "inferred_orientation": true,
+            "observed_face_count": 1
+          }
+        }
+      },
+      {
+        "task_id": "S16",
+        "target": "blue thick rectangular prism (long block)",
+        "image_size": [
+          320,
+          240
+        ],
+        "source_frame": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S16/frame.npz",
+        "source_frame_sha256": "9bc4125734e735b8db65da329a761dc3b9cf68d63c99e040cd8255a4d3bcb5ea",
+        "input_png_sha256": "324cb0c1ba347c61bfb60970c369ecb29578f3d720ac713824c2d310e63ce75a",
+        "prediction": {
+          "task_id": "S16",
+          "status": "point",
+          "point_px": [
+            164,
+            119
+          ],
+          "reason": "The upright blue long block left of the robot has a rectangular face and appreciable thickness."
+        },
+        "validation": {
+          "point_px": [
+            164.0,
+            119.0
+          ],
+          "pixel_index_uv": [
+            164,
+            119
+          ],
+          "surface_world_m": [
+            0.002838025275306022,
+            -0.2795004823178192,
+            0.4434829456829902
+          ],
+          "visible_surface_centroid_world_m": [
+            -0.00046716510740861896,
+            -0.2795164212903546,
+            0.43892708131106506
+          ],
+          "component_pixels": 87,
+          "complete_object_geometry": false,
+          "identity_verified": false,
+          "status": "color_depth_supported",
+          "geometry_check": "not_run"
+        }
+      },
+      {
+        "task_id": "S17",
+        "target": "blue cylinder",
+        "image_size": [
+          320,
+          240
+        ],
+        "source_frame": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S17/frame.npz",
+        "source_frame_sha256": "1f5bfa868bef9c74e8a3926707b9a8756d434b0c723eae39afe9519d88d51d6a",
+        "input_png_sha256": "8f261597851ee8191deda91d13b566165cd5f18a645af57bab4c70f5ff2f76ed",
+        "prediction": {
+          "task_id": "S17",
+          "status": "point",
+          "point_px": [
+            136,
+            114
+          ],
+          "reason": "The blue upright object at the left has a rounded top and cylindrical side."
+        },
+        "validation": {
+          "point_px": [
+            136.0,
+            114.0
+          ],
+          "pixel_index_uv": [
+            136,
+            114
+          ],
+          "surface_world_m": [
+            -0.08917982266788671,
+            -0.36400996946270203,
+            0.4383044449128759
+          ],
+          "visible_surface_centroid_world_m": [
+            -0.09611186802463008,
+            -0.3637952025244424,
+            0.44208331213619184
+          ],
+          "component_pixels": 83,
+          "complete_object_geometry": false,
+          "identity_verified": false,
+          "status": "color_depth_supported",
+          "geometry_check": "not_run"
+        }
+      },
+      {
+        "task_id": "S18",
+        "target": "blue slender rectangular prism (thin beam)",
+        "image_size": [
+          320,
+          240
+        ],
+        "source_frame": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S18/frame.npz",
+        "source_frame_sha256": "a5ead37ce5c416562eee3d4bf4038d14e85be089d5b3f63c945cce35425944d1",
+        "input_png_sha256": "1966a8a6796d80b578479d3c71a96c9d6354627ebae734c572e3830d871dee7c",
+        "prediction": {
+          "task_id": "S18",
+          "status": "point",
+          "point_px": [
+            194,
+            129
+          ],
+          "reason": "The upright blue beam at the right has a narrow rectangular profile and thin top edge."
+        },
+        "validation": {
+          "point_px": [
+            194.0,
+            129.0
+          ],
+          "pixel_index_uv": [
+            194,
+            129
+          ],
+          "surface_world_m": [
+            0.10884483869491629,
+            -0.2027991239788478,
+            0.4380838574402456
+          ],
+          "visible_surface_centroid_world_m": [
+            0.10493337688535735,
+            -0.19904825889045225,
+            0.43960073834171565
+          ],
+          "component_pixels": 88,
+          "complete_object_geometry": false,
+          "identity_verified": false,
+          "status": "color_depth_supported",
+          "geometry_check": "not_run"
+        }
+      },
+      {
+        "task_id": "S19",
+        "target": "red cube",
+        "image_size": [
+          320,
+          240
+        ],
+        "source_frame": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S19/frame.npz",
+        "source_frame_sha256": "9b6554ac042f9ea4f45bf4ccecec6d8b262a9405f49f5acfe04987a4e27a2bb1",
+        "input_png_sha256": "8c97c2afd78d44255a8b589f0839f0bf4e674dae5c6dadcd99d6d60f35aa9f2e",
+        "prediction": {
+          "task_id": "S19",
+          "status": "point",
+          "point_px": [
+            149,
+            130
+          ],
+          "reason": "The red object in the lower left has a square top and short cube-like sides."
+        },
+        "validation": {
+          "point_px": [
+            149.0,
+            130.0
+          ],
+          "pixel_index_uv": [
+            149,
+            130
+          ],
+          "surface_world_m": [
+            0.01071247751853227,
+            -0.3574003293489077,
+            0.42989287337468585
+          ],
+          "visible_surface_centroid_world_m": [
+            0.007011482025365862,
+            -0.3581617479527615,
+            0.42426888626987763
+          ],
+          "component_pixels": 77,
+          "complete_object_geometry": false,
+          "identity_verified": false,
+          "status": "color_depth_supported",
+          "geometry_check": "not_run"
+        }
+      },
+      {
+        "task_id": "S20",
+        "target": "yellow slender rectangular prism (thin beam)",
+        "image_size": [
+          320,
+          240
+        ],
+        "source_frame": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/same_color_pointing_01/S20/frame.npz",
+        "source_frame_sha256": "154717c84c52f4e100e58bb7a3802a97dd92530104d4a1b909729eff17b6b92e",
+        "input_png_sha256": "3f2355dde386ad990d8c2e0a876501e3d21ac654c81d804b1bafc8a79f2aacac",
+        "prediction": {
+          "task_id": "S20",
+          "status": "abstain",
+          "point_px": null,
+          "reason": "A yellow object behind the robot is partly occluded; its visible portion does not establish the requested thin-beam shape unambiguously."
+        },
+        "validation": {
+          "status": "abstained"
+        }
+      }
+    ]
+  },
+  "agent_batches": [
+    {
+      "tasks": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06",
+        "S07"
+      ],
+      "transforms": "Original PNGs and crop (100,80)-(220,180), 5x nearest-neighbor."
+    },
+    {
+      "tasks": [
+        "S08",
+        "S09",
+        "S10",
+        "S11",
+        "S12",
+        "S13",
+        "S14"
+      ],
+      "transforms": "RGB-only JPEG previews and crop (100,80)-(220,185), 5x."
+    },
+    {
+      "tasks": [
+        "S15",
+        "S16",
+        "S17",
+        "S18",
+        "S19",
+        "S20"
+      ],
+      "transforms": "Original RGBs and crop (110,70)-(215,175), 4x-6x."
+    }
+  ],
+  "tests": {
+    "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m unittest discover -s tests -p 'test_pointing*.py' -v",
+    "passed": 17,
+    "failed": 0
+  }
+}

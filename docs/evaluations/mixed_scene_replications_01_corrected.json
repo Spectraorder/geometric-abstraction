@@ -1,0 +1,792 @@
+{
+  "schema": "mixed_scene_replications_audit_v1",
+  "status": "in_progress",
+  "protocol_sha256": "5b8289ee1a3155d5dd9f0512b1e1b18916676c0a1225285132afaf0ed1c976e3",
+  "replicas": {
+    "replica_01": {
+      "status": "heldout",
+      "manifest_sha256": "e00a32066a4a9265bf2e1464e37f7d2e81ce8d27aa2a7211a50fa1a6c5c3aa37",
+      "schema": "mixed_scene_learning_pilot_v1",
+      "source_audit": "passed",
+      "curves": {
+        "numeric": {
+          "training": [
+            {
+              "revision": 0,
+              "successes": 2,
+              "slots_completed": 5,
+              "total_slots": 5
+            },
+            {
+              "revision": 1,
+              "successes": 1,
+              "slots_completed": 5,
+              "total_slots": 5
+            },
+            {
+              "revision": 2,
+              "successes": 0,
+              "slots_completed": 5,
+              "total_slots": 5
+            },
+            {
+              "revision": 3,
+              "successes": 1,
+              "slots_completed": 5,
+              "total_slots": 5
+            }
+          ]
+        },
+        "symbolic": {
+          "training": [
+            {
+              "revision": 0,
+              "successes": 2,
+              "slots_completed": 5,
+              "total_slots": 5
+            },
+            {
+              "revision": 1,
+              "successes": 2,
+              "slots_completed": 5,
+              "total_slots": 5
+            },
+            {
+              "revision": 2,
+              "successes": 3,
+              "slots_completed": 5,
+              "total_slots": 5
+            },
+            {
+              "revision": 3,
+              "successes": 3,
+              "slots_completed": 5,
+              "total_slots": 5
+            }
+          ]
+        }
+      },
+      "actors": [
+        {
+          "arm": "numeric",
+          "revision": 1,
+          "usage": {
+            "input_tokens": 26623,
+            "cached_input_tokens": 10624,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 7317,
+            "reasoning_output_tokens": 3624
+          },
+          "static_interface_call_counts": {
+            "snapshot": 1
+          },
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 224.8591613930039,
+          "audit": "passed",
+          "planner_characters": 13513
+        },
+        {
+          "arm": "numeric",
+          "revision": 2,
+          "usage": {
+            "input_tokens": 26904,
+            "cached_input_tokens": 10624,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 6601,
+            "reasoning_output_tokens": 2584
+          },
+          "static_interface_call_counts": {
+            "snapshot": 1
+          },
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 202.0187007140048,
+          "audit": "passed",
+          "planner_characters": 14182
+        },
+        {
+          "arm": "numeric",
+          "revision": 3,
+          "usage": {
+            "input_tokens": 27659,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 4473,
+            "reasoning_output_tokens": 1409
+          },
+          "static_interface_call_counts": {
+            "snapshot": 1
+          },
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 138.90302013000473,
+          "audit": "passed",
+          "planner_characters": 11762
+        },
+        {
+          "arm": "symbolic",
+          "revision": 1,
+          "usage": {
+            "input_tokens": 39397,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 4634,
+            "reasoning_output_tokens": 2070
+          },
+          "static_interface_call_counts": {
+            "snapshot": 1,
+            "target": 1,
+            "relation": 1
+          },
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 142.62397043599776,
+          "audit": "passed",
+          "planner_characters": 9274
+        },
+        {
+          "arm": "symbolic",
+          "revision": 2,
+          "usage": {
+            "input_tokens": 41148,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 8336,
+            "reasoning_output_tokens": 4142
+          },
+          "static_interface_call_counts": {
+            "snapshot": 1,
+            "target": 2,
+            "relation": 1
+          },
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 254.07279611800186,
+          "audit": "passed",
+          "planner_characters": 14727
+        },
+        {
+          "arm": "symbolic",
+          "revision": 3,
+          "usage": {
+            "input_tokens": 42665,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 8443,
+            "reasoning_output_tokens": 3624
+          },
+          "static_interface_call_counts": {
+            "snapshot": 1,
+            "target": 2,
+            "relation": 1
+          },
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 257.45094217899896,
+          "audit": "passed",
+          "planner_characters": 16727
+        }
+      ],
+      "valid_rollouts": 40,
+      "invalid_slots": 0,
+      "result_hashes": {
+        "numeric/revision_000/trials/seed_78001/result.json": "e89439ef874d36ef72aa55126cb67210fd7f4d6947f6ad8d743e2a04be6dfc10",
+        "numeric/revision_000/trials/seed_78002/result.json": "cf54427b11b2c801d721be871a674e42d6b577814bcfcdf378b1a3a1706ce3e8",
+        "numeric/revision_000/trials/seed_78003/result.json": "527b0d8ebffe116a4dc2275965f04516330290640cb792f488eada700d9a704b",
+        "numeric/revision_000/trials/seed_78004/result.json": "5b2cfcb763025bfe3582190dbee8e56cfd4a4aed73bd8376dd2dd953ae3a4f6f",
+        "numeric/revision_000/trials/seed_78005/result.json": "61b38358e17f72bdc21fb1b658b5a4763288195c2057abd08965a82bd4031482",
+        "numeric/round_001/trials/seed_78001/result.json": "6fb7c8c3460427b4425b855cf54af7de316f68356cd13c1f92cb7b2ae79be475",
+        "numeric/round_001/trials/seed_78002/result.json": "d22fafd298783cc3b4cff24878ce68cad6fe638132ee0000357eb90c123a9b01",
+        "numeric/round_001/trials/seed_78003/result.json": "ed2099e15d9dc1c23ef9262be5f13ead357556943954b04a5ae33cdf35d18ebc",
+        "numeric/round_001/trials/seed_78004/result.json": "96be28b0df9a8474a878823fd41de99f163f68bc3a77314f635165977e4e40e8",
+        "numeric/round_001/trials/seed_78005/result.json": "6e7983dc616ad3e79b18f41fc046a9c39ab8094ddb82c2055e42b6db7474c798",
+        "numeric/round_002/trials/seed_78001/result.json": "830c07fce5db5fb5ec3f000736f851ca6944fd39a14c45e75f84ae073ac22c66",
+        "numeric/round_002/trials/seed_78002/result.json": "415d30c67b5b74f679db10f91340e5091c4d89518c5df48f9d01ab577659e041",
+        "numeric/round_002/trials/seed_78003/result.json": "5f6c4b1b654c10a149a97fc0e1b6154263e6fb4c38082026c0af41257824e5b8",
+        "numeric/round_002/trials/seed_78004/result.json": "cb4e3e1351d35bbe552af7b23fad28291ad76b1c961cee8fcb5a8d5a4bf0cab6",
+        "numeric/round_002/trials/seed_78005/result.json": "6c6993929989e0f111d60b69d3c744897f5e0452fd681661bdc50e00164577f7",
+        "numeric/round_003/trials/seed_78001/result.json": "faa30baff2db827fa5fb7437937aea0d3aff70954c4e7abf03a045098761969d",
+        "numeric/round_003/trials/seed_78002/result.json": "71c5f4f93ccd2c7211f524dfc525744ccec385faccca027938fddcd402de53fb",
+        "numeric/round_003/trials/seed_78003/result.json": "c764c8e6b9bbf9bcd1b9b7968216091eb1e2188d0aefad3b8809b034e1a59d84",
+        "numeric/round_003/trials/seed_78004/result.json": "e40373398584c094b7b3de8134da951086c3dcac6518157f8ba72e5e1df31e25",
+        "numeric/round_003/trials/seed_78005/result.json": "3fef10a6e99e05a91e2bd86aa5df315b5a7afb669d6b1e9bff0576b919a0823b",
+        "symbolic/revision_000/trials/seed_78001/result.json": "72f6946bed27eabfd357eccef26a933ae588b0c75a54632f122dfe3a445595c5",
+        "symbolic/revision_000/trials/seed_78002/result.json": "70dd239dec6dab8d0cc30f3209daf5635e0de656d3b3a0347db5a0a19a1757b2",
+        "symbolic/revision_000/trials/seed_78003/result.json": "d649008cdf9955e0c198d2113a62b9a900ee7ad31c3c7e452c39392ad572ba8d",
+        "symbolic/revision_000/trials/seed_78004/result.json": "2cbce84df2fdf504317c9aae813b8d4c502b2e55cf22adf0be5c4012df21ef59",
+        "symbolic/revision_000/trials/seed_78005/result.json": "3d4dcffde10fe4eacd978892e3c28591e3691c7e6d628c13a8478ea31954bb35",
+        "symbolic/round_001/trials/seed_78001/result.json": "e16007a08bfd1854c65fdb6b3cb94232d9d9fabe3d6497cb55f81ccdacaba67a",
+        "symbolic/round_001/trials/seed_78002/result.json": "822561c63f0c5384c29b9320e3fea45fcd2cdac6d9ad15971b44c82276633bd7",
+        "symbolic/round_001/trials/seed_78003/result.json": "ff4bc23a3184b6344a95a6b5d23ae1f06a5bbae8b0e0f108b549876f751e0690",
+        "symbolic/round_001/trials/seed_78004/result.json": "2397717cad7253f1c5276a55832b6bbd9add2a3ff809c7e95e342e13a0d0787f",
+        "symbolic/round_001/trials/seed_78005/result.json": "d80d0b5097c981d4fba5c9b1db3818e54b177564dd958909e7bae36dba8fb039",
+        "symbolic/round_002/trials/seed_78001/result.json": "e7b8fc5fed493702e08d0da3b1a708a2651be93f09c5873b9f0449f6ea059b8c",
+        "symbolic/round_002/trials/seed_78002/result.json": "fb1602b1a880488a50b6aa90f2693e61dfa505570827d306d47f0842d0c163f8",
+        "symbolic/round_002/trials/seed_78003/result.json": "771ebf4051a17cd3f4c173c3d97f38c67a48369551abe73ff84a2ad1260d3230",
+        "symbolic/round_002/trials/seed_78004/result.json": "1df964c726a55cd0a2cc510689ea251b612dfac1d9e7b436fe195c55998c95b5",
+        "symbolic/round_002/trials/seed_78005/result.json": "7dffdee600d295a0fa14e2e0f8997b4f2af086d9c8b25da23c2d3ecc3af8556d",
+        "symbolic/round_003/trials/seed_78001/result.json": "5ab61f576dd49e1e37a750dfc4b2cdf8a3136814713222cfc56df63fca19097d",
+        "symbolic/round_003/trials/seed_78002/result.json": "81816dedb5de000d9aefae67e0954f5e21591deed6bd206da0b2a53079d98761",
+        "symbolic/round_003/trials/seed_78003/result.json": "9fe96a67097fc1741f3694685b723992834e2e1027a36608b56138c94e1c0d98",
+        "symbolic/round_003/trials/seed_78004/result.json": "d92b60ec8f3104c665fa179ac8dc4b6d791bee41ba083e4e1d0ea34bb2ccf205",
+        "symbolic/round_003/trials/seed_78005/result.json": "23487111282a3bcbd6e36533bc9c8c6d47dc62df374ae1672ea8faf6ad3739c9"
+      },
+      "limitations": [
+        "Pilot: one independent model-generation chain per arm, requiring replication.",
+        "Equal revisions and rollout slots; token usage recorded, not equalized.",
+        "Basic and numeric differ in observation implementation; only numeric versus symbolic isolates the added reasoning interface.",
+        "No development planner, inspected failure audit or reserved feedback is supplied to actors.",
+        "Earlier negative cube comparisons and development results remain separate evidence."
+      ],
+      "model_generation_accounting": {
+        "retained_completed": 6,
+        "discarded_due_to_schema_defect": 0,
+        "actual_completed": 6
+      },
+      "initial_sensor_pairing": {
+        "status": "passed",
+        "unique_seeds_checked": 5,
+        "checked": "host pre-policy RGB render plus seed, color map and scene settings"
+      }
+    },
+    "replica_02": {
+      "status": "trained",
+      "manifest_sha256": "609ba27f05f963347b5e4ecad99a1feefe4b5d7f14128136679f9d0a91441be8",
+      "schema": "mixed_scene_learning_pilot_v1",
+      "source_audit": "passed",
+      "curves": {
+        "numeric": {
+          "training": [
+            {
+              "revision": 0,
+              "successes": 1,
+              "slots_completed": 5,
+              "total_slots": 5
+            },
+            {
+              "revision": 1,
+              "successes": 1,
+              "slots_completed": 5,
+              "total_slots": 5
+            },
+            {
+              "revision": 2,
+              "successes": 0,
+              "slots_completed": 5,
+              "total_slots": 5
+            },
+            {
+              "revision": 3,
+              "successes": 2,
+              "slots_completed": 5,
+              "total_slots": 5
+            }
+          ]
+        },
+        "symbolic": {
+          "training": [
+            {
+              "revision": 0,
+              "successes": 1,
+              "slots_completed": 5,
+              "total_slots": 5
+            },
+            {
+              "revision": 1,
+              "successes": 1,
+              "slots_completed": 5,
+              "total_slots": 5
+            },
+            {
+              "revision": 2,
+              "successes": 1,
+              "slots_completed": 5,
+              "total_slots": 5
+            },
+            {
+              "revision": 3,
+              "successes": 2,
+              "slots_completed": 5,
+              "total_slots": 5
+            }
+          ]
+        }
+      },
+      "actors": [
+        {
+          "arm": "numeric",
+          "revision": 1,
+          "usage": {
+            "input_tokens": 25453,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 7419,
+            "reasoning_output_tokens": 3571
+          },
+          "static_interface_call_counts": {
+            "snapshot": 1
+          },
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 226.28377026500675,
+          "audit": "passed",
+          "planner_characters": 13906
+        },
+        {
+          "arm": "numeric",
+          "revision": 2,
+          "usage": {
+            "input_tokens": 27021,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 6077,
+            "reasoning_output_tokens": 2070
+          },
+          "static_interface_call_counts": {
+            "snapshot": 1
+          },
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 187.56362654999975,
+          "audit": "passed",
+          "planner_characters": 14447
+        },
+        {
+          "arm": "numeric",
+          "revision": 3,
+          "usage": {
+            "input_tokens": 27177,
+            "cached_input_tokens": 10624,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 8293,
+            "reasoning_output_tokens": 3106
+          },
+          "static_interface_call_counts": {
+            "snapshot": 1
+          },
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 253.21170931300003,
+          "audit": "passed",
+          "planner_characters": 18646
+        },
+        {
+          "arm": "symbolic",
+          "revision": 1,
+          "usage": {
+            "input_tokens": 34153,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 8863,
+            "reasoning_output_tokens": 4660
+          },
+          "static_interface_call_counts": {
+            "snapshot": 1
+          },
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 270.4270125129988,
+          "audit": "passed",
+          "planner_characters": 15681
+        },
+        {
+          "arm": "symbolic",
+          "revision": 2,
+          "usage": {
+            "input_tokens": 34086,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 12498,
+            "reasoning_output_tokens": 7250
+          },
+          "static_interface_call_counts": {
+            "snapshot": 1,
+            "state": 1,
+            "relation": 1
+          },
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 378.698164114001,
+          "audit": "passed",
+          "planner_characters": 18972
+        },
+        {
+          "arm": "symbolic",
+          "revision": 3,
+          "usage": {
+            "input_tokens": 35535,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 10307,
+            "reasoning_output_tokens": 4660
+          },
+          "static_interface_call_counts": {
+            "snapshot": 1,
+            "state": 1,
+            "target": 1,
+            "relation": 1
+          },
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 193.41609508600231,
+          "audit": "passed",
+          "planner_characters": 20058
+        }
+      ],
+      "valid_rollouts": 40,
+      "invalid_slots": 0,
+      "result_hashes": {
+        "numeric/revision_000/trials/seed_78101/result.json": "170c94df6531a2e21adde932a314688a64c863ba0b3ff4320f98eda0afe8d316",
+        "numeric/revision_000/trials/seed_78102/result.json": "1fd15aaf5f084daf200c4229ddc589688ec28ab5956d7f976987dc896f4de1d2",
+        "numeric/revision_000/trials/seed_78103/result.json": "e98870cf1d521c0a828f5e795bc99887fcddbc8a5dd174683839703aacabd503",
+        "numeric/revision_000/trials/seed_78104/result.json": "3031b899b82d1014e618e56cc34aef889001018ab8b4e5a2a55f40f7ad0c3652",
+        "numeric/revision_000/trials/seed_78105/result.json": "508549081462ef4734226722ea646f685d06abedf6b2711373ec72e2e12a4209",
+        "numeric/round_001/trials/seed_78101/result.json": "3aa38d2f50b1f83c0d17ce11a9c33d5159d9ffeb514255014036f49e0ec192e5",
+        "numeric/round_001/trials/seed_78102/result.json": "c3a6a9e72416980ab76c84b544f87379a28b2d14e5b3f4fce1e35196a8b9256e",
+        "numeric/round_001/trials/seed_78103/result.json": "1d3adc00e706ca31744345c2e12ca402b01d33d18995750ffe36f8affb48ba4a",
+        "numeric/round_001/trials/seed_78104/result.json": "829502a26a6df73afdcdd782d017d50e82e202ca2ec5e09405db40900e7018db",
+        "numeric/round_001/trials/seed_78105/result.json": "935c13a506d10d4ed23b18e4939dc89b163dc49523ef28c8b99971304ec2948c",
+        "numeric/round_002/trials/seed_78101/result.json": "07d4da8d6336a5b1dab3b5eb54d3a57da9e61ecb3b9d6827c8020c44ca886c3d",
+        "numeric/round_002/trials/seed_78102/result.json": "3337c62c37d8f6ca46c5b2bcc1f44a4a76df3815294ab9dad84ebe7cce38b0df",
+        "numeric/round_002/trials/seed_78103/result.json": "49670448bbc6e221bee51a595ef8cffecac4879bcabeb9813d697619b6c39aa9",
+        "numeric/round_002/trials/seed_78104/result.json": "c3b993e222bed8053ada7c2bc982ea1ef28081058b22166224cd30d1c151c366",
+        "numeric/round_002/trials/seed_78105/result.json": "4910485999f268c7f215adca592686360d765d6aa84b6750d813b8446d0865dc",
+        "numeric/round_003/trials/seed_78101/result.json": "13d0e73f14fb545355023f7bdd77c4ac0d20df8315b4ade9edafcb57c9fc5078",
+        "numeric/round_003/trials/seed_78102/result.json": "fd21b5c739a963a761a3bf1461558cddae62b595c10cf1057e604d30a1c102ad",
+        "numeric/round_003/trials/seed_78103/result.json": "0ef3bf660399e0f62d17c63c7cd859aea04960ce64e02db1c5055a384befbdaf",
+        "numeric/round_003/trials/seed_78104/result.json": "9bc0e2803c76a848290215b6fc31c95ed041e25a14a65ad3fa4350cafea38a46",
+        "numeric/round_003/trials/seed_78105/result.json": "2ca1da7fc30db8e0e56e49e2430bef0b0313aa016814eee5e87bfb9872e6f777",
+        "symbolic/revision_000/trials/seed_78101/result.json": "127de450c95020835368e6879065a2275e670c4b45a30cea832f07492d379e7a",
+        "symbolic/revision_000/trials/seed_78102/result.json": "359159589a5841447505d013b641eac489b4eeada9820c0d8db86bfddf5b8054",
+        "symbolic/revision_000/trials/seed_78103/result.json": "c60e5a257a77d4d15fa7d20082c4bd9852d3396bc567f44c431cc700108b99a3",
+        "symbolic/revision_000/trials/seed_78104/result.json": "22f37534791aa8a4658beac08fe3ce1feb65a7fcd20bd3d6de357cfacbca8e3c",
+        "symbolic/revision_000/trials/seed_78105/result.json": "4da683f91e313d0aaab5a9b53789852a6720af62f4cb88476c6452eaac1e61c7",
+        "symbolic/round_001/trials/seed_78101/result.json": "74310afac35d61e7bc30a864ef97d9ce087210eb419e029a11a643ecf63b9f54",
+        "symbolic/round_001/trials/seed_78102/result.json": "77d622825e35047d726a255cb0f18267620398f0f815ed6c52d9e4e9e8613818",
+        "symbolic/round_001/trials/seed_78103/result.json": "49ba367afb0a66832e515f868f3b7f7a8a109a1803f3d8c742668b64b4a93dbd",
+        "symbolic/round_001/trials/seed_78104/result.json": "287b33ef60046a06e348754dbbd3b45ff2b132b8872ed3a26796d77dd1a3f947",
+        "symbolic/round_001/trials/seed_78105/result.json": "2210e630dc0b86a2d0f771cc48363061c664a3703e033483d2e2b04ec0f1810c",
+        "symbolic/round_002/trials/seed_78101/result.json": "3284432ebd5e4cd034afce4e782bad4192a1f00ffc527f62aaaed3caeb239120",
+        "symbolic/round_002/trials/seed_78102/result.json": "99c27607510dc283419a4144c10d2e3c10d7701a0945654c3a4d84e75545d974",
+        "symbolic/round_002/trials/seed_78103/result.json": "0c11b27900737031fe7b72a17a7bfd1c3d5bf141a0c8e2e67222ad9251c738b8",
+        "symbolic/round_002/trials/seed_78104/result.json": "5dcdc44a941a1304c4666c4426bba5332c5b0b09c10ebed7c4246392fdd0baf7",
+        "symbolic/round_002/trials/seed_78105/result.json": "3427f794121e6a82575b87736ae41d42ae839ee9f610ef2e3df14339c170d79a",
+        "symbolic/round_003/trials/seed_78101/result.json": "9fe549206036d748241a16b6330860f637933b3de0b977c29470ae9b121bb51b",
+        "symbolic/round_003/trials/seed_78102/result.json": "ee7cd659f074ca40332ca26642a25b53eb0de8463f249b53d389a93ca8263f81",
+        "symbolic/round_003/trials/seed_78103/result.json": "2586fab9d93db5a404034b6b2c8c33ce7478c73e9714359f21ac56ba82c00bb2",
+        "symbolic/round_003/trials/seed_78104/result.json": "ff4de2dc9f61cae8aedc17c9ef5033daeaf2c655eb0ddbb88c3eb4488169704e",
+        "symbolic/round_003/trials/seed_78105/result.json": "79e1b13ac620abc93f1cadaba0772e14fddd00391e5e56bd5ce59591d081fc24"
+      },
+      "limitations": [
+        "Pilot: one independent model-generation chain per arm, requiring replication.",
+        "Equal revisions and rollout slots; token usage recorded, not equalized.",
+        "Basic and numeric differ in observation implementation; only numeric versus symbolic isolates the added reasoning interface.",
+        "No development planner, inspected failure audit or reserved feedback is supplied to actors.",
+        "Earlier negative cube comparisons and development results remain separate evidence."
+      ],
+      "model_generation_accounting": {
+        "retained_completed": 6,
+        "discarded_due_to_schema_defect": 0,
+        "actual_completed": 6
+      },
+      "initial_sensor_pairing": {
+        "status": "passed",
+        "unique_seeds_checked": 5,
+        "checked": "host pre-policy RGB render plus seed, color map and scene settings"
+      }
+    },
+    "replica_03": {
+      "status": "trained",
+      "manifest_sha256": "d17a2655f5acf0aeae98be4f3d379575971918f0b6a6909c93e3a0ee2f128dac",
+      "schema": "mixed_scene_learning_pilot_v1",
+      "source_audit": "passed",
+      "curves": {
+        "numeric": {
+          "training": [
+            {
+              "revision": 0,
+              "successes": 2,
+              "slots_completed": 5,
+              "total_slots": 5
+            },
+            {
+              "revision": 1,
+              "successes": 0,
+              "slots_completed": 5,
+              "total_slots": 5
+            },
+            {
+              "revision": 2,
+              "successes": 3,
+              "slots_completed": 5,
+              "total_slots": 5
+            },
+            {
+              "revision": 3,
+              "successes": 2,
+              "slots_completed": 5,
+              "total_slots": 5
+            }
+          ]
+        },
+        "symbolic": {
+          "training": [
+            {
+              "revision": 0,
+              "successes": 2,
+              "slots_completed": 5,
+              "total_slots": 5
+            },
+            {
+              "revision": 1,
+              "successes": 2,
+              "slots_completed": 5,
+              "total_slots": 5
+            },
+            {
+              "revision": 2,
+              "successes": 0,
+              "slots_completed": 5,
+              "total_slots": 5
+            },
+            {
+              "revision": 3,
+              "successes": 3,
+              "slots_completed": 5,
+              "total_slots": 5
+            }
+          ]
+        }
+      },
+      "actors": [
+        {
+          "arm": "numeric",
+          "revision": 1,
+          "usage": {
+            "input_tokens": 26294,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 13183,
+            "reasoning_output_tokens": 8742
+          },
+          "static_interface_call_counts": {
+            "snapshot": 1,
+            "target": 2
+          },
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 398.92167607600277,
+          "audit": "passed",
+          "planner_characters": 15591
+        },
+        {
+          "arm": "numeric",
+          "revision": 2,
+          "usage": {
+            "input_tokens": 32782,
+            "cached_input_tokens": 10624,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 7069,
+            "reasoning_output_tokens": 2543
+          },
+          "static_interface_call_counts": {
+            "snapshot": 1,
+            "target": 3
+          },
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 217.0698571949979,
+          "audit": "passed",
+          "planner_characters": 15628
+        },
+        {
+          "arm": "numeric",
+          "revision": 3,
+          "usage": {
+            "input_tokens": 32986,
+            "cached_input_tokens": 10624,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 7518,
+            "reasoning_output_tokens": 2309
+          },
+          "static_interface_call_counts": {
+            "snapshot": 1,
+            "target": 3
+          },
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 232.4049198260036,
+          "audit": "passed",
+          "planner_characters": 17803
+        },
+        {
+          "arm": "symbolic",
+          "revision": 1,
+          "usage": {
+            "input_tokens": 37534,
+            "cached_input_tokens": 10624,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 8416,
+            "reasoning_output_tokens": 4762
+          },
+          "static_interface_call_counts": {
+            "snapshot": 1,
+            "target": 1,
+            "relation": 1
+          },
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 258.1611742879977,
+          "audit": "passed",
+          "planner_characters": 13250
+        },
+        {
+          "arm": "symbolic",
+          "revision": 2,
+          "usage": {
+            "input_tokens": 42815,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 7364,
+            "reasoning_output_tokens": 3075
+          },
+          "static_interface_call_counts": {
+            "target": 1,
+            "snapshot": 1,
+            "relation": 1
+          },
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 226.02654705900204,
+          "audit": "passed",
+          "planner_characters": 15093
+        },
+        {
+          "arm": "symbolic",
+          "revision": 3,
+          "usage": {
+            "input_tokens": 34175,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 6729,
+            "reasoning_output_tokens": 2401
+          },
+          "static_interface_call_counts": {
+            "target": 1,
+            "snapshot": 1,
+            "relation": 1
+          },
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 208.14569914399908,
+          "audit": "passed",
+          "planner_characters": 15589
+        }
+      ],
+      "valid_rollouts": 40,
+      "invalid_slots": 0,
+      "result_hashes": {
+        "numeric/revision_000/trials/seed_78201/result.json": "3d4b1b51b4033448f871d5eedb1004f2779b6e13d9b643a5d2e89d5f9c17c365",
+        "numeric/revision_000/trials/seed_78202/result.json": "694daed6185c981e7bcbd936f050b59a2d08cb6a4c506e488cb4dda1256641a0",
+        "numeric/revision_000/trials/seed_78203/result.json": "108e3134bb07dee598b4688489d01cf095fb80d37e80053618b0015a1dc07c6e",
+        "numeric/revision_000/trials/seed_78204/result.json": "73b00773fb5071f38c432d2230baf0bc6fdd01088c26ed64e18630a3db6bc625",
+        "numeric/revision_000/trials/seed_78205/result.json": "2cf7811dfc4617343d1023468871fa6e5a91bdecc25e653d36ecfd2c45466600",
+        "numeric/round_001/trials/seed_78201/result.json": "3a9a3731891443136b128b6b32e8a54799dc349c205ffe26af40907c5c8e0771",
+        "numeric/round_001/trials/seed_78202/result.json": "426c0e9901954841adc52b8d9a2ca6bf19386b1be3cd989a05ff28fc0c7587f9",
+        "numeric/round_001/trials/seed_78203/result.json": "b23c9e265bca260a6bab47dd744929a29405d1c999584e8a67fba970968e0847",
+        "numeric/round_001/trials/seed_78204/result.json": "87b5c9abfdb76dcc9f7cdd717102d5ace105b15105e96a4b6f11c45d6e073dfe",
+        "numeric/round_001/trials/seed_78205/result.json": "ed66b8572876a06a4250580697930d386c3c7cda354220b4c590e6d4ae763846",
+        "numeric/round_002/trials/seed_78201/result.json": "d14df0cd5a4417c61b77e2babe33ad89ecad61adab3d5c60af940fdf81d78f5c",
+        "numeric/round_002/trials/seed_78202/result.json": "196412e122b900afad576d26e2f0dfa2b72e667ba11d0cdb22168e9f62db342e",
+        "numeric/round_002/trials/seed_78203/result.json": "c0f61df02aee2b1f0cfd48be7af6c27a564f6474ee182646e4eaa7160ff227f8",
+        "numeric/round_002/trials/seed_78204/result.json": "1e2a4e6060c8df16fe1bdffeb28cb5649f6866c11d9e2f31b5a18ce261d0a1ed",
+        "numeric/round_002/trials/seed_78205/result.json": "80a01b21addc5215e59936a6a53d45b067341f883eb095971b91e914a49ec731",
+        "numeric/round_003/trials/seed_78201/result.json": "d8ca5db1d25f1f5fa128ca8df1265ad6482b2169158f7d830184dd91354f2db2",
+        "numeric/round_003/trials/seed_78202/result.json": "ec2f86db0bf6794fb3ab08a09d861d1188bc5547adffdce9beda19c527648b19",
+        "numeric/round_003/trials/seed_78203/result.json": "7bc790018ba453e307e763f83d2639a92d3d2f99c20131ef0b1a1d9593bb1e9c",
+        "numeric/round_003/trials/seed_78204/result.json": "461eb787082574dfa89f5ee0ab30a8808208b22f822b2f30b111a316c4656365",
+        "numeric/round_003/trials/seed_78205/result.json": "56620e27a9338ead9ab10fb844bb1063aa362e01aecdcc9c7248ce55ef92dc82",
+        "symbolic/revision_000/trials/seed_78201/result.json": "c7b6e76a2642ad9045870018c6b20f083164605c31cd3b485634443a9a9c3a90",
+        "symbolic/revision_000/trials/seed_78202/result.json": "003c945a0af00204ce6a80ec0a302457af083b6964d89aa8c7a4f04a5bb4f49e",
+        "symbolic/revision_000/trials/seed_78203/result.json": "76b6dca119df99afedf544ba6bbcd6ca8bf91ba6588ef03683615934a686e483",
+        "symbolic/revision_000/trials/seed_78204/result.json": "2568bad91c7ee67533f70a5b75ff4a96ba432a906d8062a0c65ac310781bb397",
+        "symbolic/revision_000/trials/seed_78205/result.json": "ef09c5a0322c46bacf01d2c2a71e767414b5b925456f56b81c62d412adef7c72",
+        "symbolic/round_001/trials/seed_78201/result.json": "fe4fe624b58a2dabcaa92beeccb1c4a74f52002bdad03ee1f24479cd3508efff",
+        "symbolic/round_001/trials/seed_78202/result.json": "4291d386936359e2864beefec65fafaa56fc53721b61555d72a2f850dd4150fd",
+        "symbolic/round_001/trials/seed_78203/result.json": "fcf08dfdf4e4952f6d758fd84654560df47d6d5944148b6226b675e0b808eac7",
+        "symbolic/round_001/trials/seed_78204/result.json": "c24c1ce4aac5f2a8c1de7e046d68d789fc8d6b91f9fce4eb4847fa437f75e8c2",
+        "symbolic/round_001/trials/seed_78205/result.json": "4b3ef171e1717d2dd79e05d8723de978ebde87e66d59c5947c3463120a21ec09",
+        "symbolic/round_002/trials/seed_78201/result.json": "c04346ef554c61192ac1bdc74dc48041b15a0b4e624d43d103ae25c486849583",
+        "symbolic/round_002/trials/seed_78202/result.json": "a4cfecc1ea5181e306e3114f98e71b7bbe2e852bd3bae04d7a74ba207acf0ce9",
+        "symbolic/round_002/trials/seed_78203/result.json": "c2d1ba6578f8858976e86f6885164ea1a26d54ed775ab447ff1d0c0f4be7ece1",
+        "symbolic/round_002/trials/seed_78204/result.json": "d59fbfa8adb43906002120cbb1b9e71dfc00a532b1fa8fe3df16171089c6b69a",
+        "symbolic/round_002/trials/seed_78205/result.json": "b33495be4be88a1b2d73aa72135b0d13c87ecded7391e6e555c60d684cd5285e",
+        "symbolic/round_003/trials/seed_78201/result.json": "5552b5ec0f44593bbabd4dacdac2bd8e2be45213a41c2bb695f8ddd457bb351e",
+        "symbolic/round_003/trials/seed_78202/result.json": "c4adaa7a6a389777b53ba8480967b8d5be02d15eb8827a120e4820750fb8f317",
+        "symbolic/round_003/trials/seed_78203/result.json": "4bf5329143db1afa0ecdc04445941ae3b9f51ae36c2e23d15a515620725691ae",
+        "symbolic/round_003/trials/seed_78204/result.json": "74ad1dfc5dd57ec5a6864c5a88dfcabc0d38101eeb4f6f26f62efe2fb3a8ef2a",
+        "symbolic/round_003/trials/seed_78205/result.json": "b85cd8422ec4d42dd9f88efa53d48b456b233eb07ce7b51f98bdc81a6c11533e"
+      },
+      "limitations": [
+        "Pilot: one independent model-generation chain per arm, requiring replication.",
+        "Equal revisions and rollout slots; token usage recorded, not equalized.",
+        "Basic and numeric differ in observation implementation; only numeric versus symbolic isolates the added reasoning interface.",
+        "No development planner, inspected failure audit or reserved feedback is supplied to actors.",
+        "Earlier negative cube comparisons and development results remain separate evidence."
+      ],
+      "model_generation_accounting": {
+        "retained_completed": 6,
+        "discarded_due_to_schema_defect": 0,
+        "actual_completed": 6
+      },
+      "initial_sensor_pairing": {
+        "status": "passed",
+        "unique_seeds_checked": 5,
+        "checked": "host pre-policy RGB render plus seed, color map and scene settings"
+      }
+    }
+  },
+  "valid_rollouts": 120,
+  "invalid_slots": 0,
+  "completed_actor_generations": 18,
+  "study_freeze_audit": "passed",
+  "interpretation": "Independent model chains, common reserved layouts; no pooled Bernoulli confidence interval or p-value.",
+  "validator_repair": {
+    "status": "passed",
+    "retained_generations": 8,
+    "reused_valid_trials": 55,
+    "discarded_generations": [
+      {
+        "replica": "replica_02",
+        "arm": "numeric",
+        "revision": 2,
+        "usage": {
+          "input_tokens": 29070,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 6590,
+          "reasoning_output_tokens": 2018
+        }
+      },
+      {
+        "replica": "replica_02",
+        "arm": "symbolic",
+        "revision": 2,
+        "usage": {
+          "input_tokens": 34075,
+          "cached_input_tokens": 10624,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 7567,
+          "reasoning_output_tokens": 2915
+        }
+      }
+    ],
+    "not_an_independent_replication": true
+  },
+  "model_generation_accounting": {
+    "retained_completed": 18,
+    "discarded_due_to_validator_defect": 2,
+    "actual_completed": 20
+  }
+}

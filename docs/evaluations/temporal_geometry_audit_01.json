@@ -1,0 +1,124 @@
+{
+  "scope": "Private offline diagnostic; excluded from all actor inputs",
+  "groups": {
+    "instantaneous": {
+      "all": {
+        "count": 341,
+        "median_mm": 0.09581675845535598,
+        "p95_mm": 3.2386300642710113,
+        "max_mm": 3.6387971022975485
+      },
+      "fully_observed": {
+        "count": 192,
+        "median_mm": 0.0923603932673302,
+        "p95_mm": 0.09581675886669849,
+        "max_mm": 0.09726427165965244
+      },
+      "partial_or_stale": {
+        "count": 149,
+        "median_mm": 0.5351499928053144,
+        "p95_mm": 3.5799042234203724,
+        "max_mm": 3.6387971022975485
+      }
+    },
+    "memory": {
+      "all": {
+        "count": 351,
+        "median_mm": 0.09373774329833832,
+        "p95_mm": 11.883536481040375,
+        "max_mm": 142.81396387827525
+      },
+      "fully_observed": {
+        "count": 192,
+        "median_mm": 0.0923603932673302,
+        "p95_mm": 0.09581675886669849,
+        "max_mm": 0.09726427165965244
+      },
+      "partial_or_stale": {
+        "count": 159,
+        "median_mm": 0.4187572043716174,
+        "p95_mm": 29.341162510313396,
+        "max_mm": 142.81396387827525
+      }
+    },
+    "conditional_transport": {
+      "all": {
+        "count": 351,
+        "median_mm": 0.09342488500709607,
+        "p95_mm": 4.760167617430767,
+        "max_mm": 15.62437035904202
+      },
+      "fully_observed": {
+        "count": 192,
+        "median_mm": 0.0923603932673302,
+        "p95_mm": 0.09581675886669849,
+        "max_mm": 0.09726427165965244
+      },
+      "partial_or_stale": {
+        "count": 159,
+        "median_mm": 0.21129338119819877,
+        "p95_mm": 14.679434008208755,
+        "max_mm": 15.62437035904202
+      }
+    }
+  },
+  "events": {
+    "visual_lift_attachment_hypothesis": 7,
+    "conditional_prediction": 73,
+    "condition_revoked": 3
+  },
+  "limits": [
+    "Correlated frames from development rollouts, not independent accuracy trials.",
+    "No policy success or geometry-benefit claim follows from this replay.",
+    "Attachment is an explicit fallible hypothesis, not contact truth.",
+    "Open-command revocation is an offline adapter; public scene revocation API remains to be designed.",
+    "Only centers scored; ideal simulated RGB-D, not real-sensor validation."
+  ],
+  "paired_common_estimates": {
+    "instantaneous": {
+      "all": {
+        "count": 341,
+        "median_mm": 0.09581675845535598,
+        "p95_mm": 3.2386300642710113,
+        "max_mm": 3.6387971022975485
+      },
+      "partial_in_instantaneous": {
+        "count": 149,
+        "median_mm": 0.5351499928053144,
+        "p95_mm": 3.5799042234203724,
+        "max_mm": 3.6387971022975485
+      }
+    },
+    "memory": {
+      "all": {
+        "count": 341,
+        "median_mm": 0.09447816542116656,
+        "p95_mm": 12.074206422312162,
+        "max_mm": 142.81396387827525
+      },
+      "partial_in_instantaneous": {
+        "count": 149,
+        "median_mm": 0.4187572043716174,
+        "p95_mm": 50.814409926953424,
+        "max_mm": 142.81396387827525
+      }
+    },
+    "conditional_transport": {
+      "all": {
+        "count": 341,
+        "median_mm": 0.09347959638646029,
+        "p95_mm": 8.020289284486939,
+        "max_mm": 15.62437035904202
+      },
+      "partial_in_instantaneous": {
+        "count": 149,
+        "median_mm": 0.23885959895912462,
+        "p95_mm": 14.697158907378926,
+        "max_mm": 15.62437035904202
+      }
+    }
+  },
+  "input_estimates_sha256": "afa1f5b23aa6c12790c191a339f89c102d676de0e302121d33e26cc704f0cdb8",
+  "script_sha256": "556378a23fd71972f7cab8d902c9f215a8110d0a2d16a01b06a762eadf390cd7",
+  "interpretation": "Naive temporal pose retention has large hidden-axis errors during transport. Conditional encoder transport reduces those failures but does not beat fresh geometry on paired frames in this diagnostic. Extra retained states are not extra fresh observations."
+}

@@ -1,0 +1,89 @@
+{
+  "trial": "outputs/partial_anchor_logging_development_01/seed_992107",
+  "comparisons": [
+    {
+      "object": "yellow",
+      "from_time": 79.05,
+      "time": 85.75,
+      "step": "place",
+      "kind": "conditional_center_region_comparison",
+      "condition": "Fitted visual dimensions and orientations, rigid tool attachment without slip.",
+      "anchor_position_fully_observed": false,
+      "anchor_widths_m": [
+        0.0017027512792130994,
+        0.0002505400933066615,
+        0.0006867504768820476
+      ],
+      "anchor_axis_dimensions_m": [
+        0.014892088186967412,
+        0.058542346909429444,
+        0.02991084053953763
+      ],
+      "current_visual_dimensions_m": [
+        0.014892,
+        0.029911,
+        0.059214
+      ],
+      "same_time_pose_pair_count": 12,
+      "minimum_uniform_expansion_range_m": [
+        0.026578515231008064,
+        0.02658641833699043
+      ],
+      "overlap_for_any_same_time_pose_pair": false,
+      "current_constraint_display_precision_m": 1e-06,
+      "position_recovered": false,
+      "attachment_certified": false
+    },
+    {
+      "object": "yellow",
+      "from_time": 79.05,
+      "time": 86.0,
+      "step": "place_retry",
+      "kind": "conditional_center_region_comparison",
+      "condition": "Fitted visual dimensions and orientations, rigid tool attachment without slip.",
+      "anchor_position_fully_observed": false,
+      "anchor_widths_m": [
+        0.0017027512792130994,
+        0.0002505400933066615,
+        0.0006867504768820476
+      ],
+      "anchor_axis_dimensions_m": [
+        0.014892088186967412,
+        0.058542346909429444,
+        0.02991084053953763
+      ],
+      "current_visual_dimensions_m": [
+        0.014892,
+        0.029911,
+        0.059214
+      ],
+      "same_time_pose_pair_count": 12,
+      "minimum_uniform_expansion_range_m": [
+        0.026504376495722008,
+        0.02651199410171574
+      ],
+      "overlap_for_any_same_time_pose_pair": false,
+      "current_constraint_display_precision_m": 1e-06,
+      "position_recovered": false,
+      "attachment_certified": false
+    }
+  ],
+  "invalidations": [],
+  "input_sha256": {
+    "outputs/partial_anchor_logging_development_01/seed_992107/geometry_records.json": "41e4fbf6f66a39a83cba5b33844d50a47d861936121d0a95f80d3650bfefce10",
+    "outputs/partial_anchor_logging_development_01/seed_992107/api_calls.json": "364779111f67bf7922b2484e71af542b3a7588c24434f9f2d5b73d5314c91df4"
+  },
+  "scope": "Compare conditional transported center regions with current visual constraints.\n\nOffline development only. Uses visual-fit logs and public robot proprioception;\nnever reads evaluator labels, contacts or simulator object state. No pose is fused.\n",
+  "model_calls": 0,
+  "heldout_seeds_used": [],
+  "actor_feedback": false,
+  "equivalence_receipt_sha256": "c2c59675cbffe7bea65214e18d911e0f7f75aa6dcdc8ad742f3cbc7d5e00fb27",
+  "script_sha256": "53a85b3c48641723bfbb39268839c2382933da366112d3991bc194632ded8663",
+  "robot_pose_helper_sha256": "e6e5861eff5a6b14b70bb294b62aabdd5932c2b1eb0335754154758cc5026b8b",
+  "limitations": [
+    "No calibrated dimension, orientation or proprioception uncertainty.",
+    "A disjoint result cannot distinguish slip from visual-model error.",
+    "Overlapping regions would not establish a grasp or recover a pose.",
+    "A development case, not an intervention or success-rate evaluation."
+  ]
+}

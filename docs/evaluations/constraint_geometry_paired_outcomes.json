@@ -1,0 +1,1102 @@
+{
+  "scope": "Describe matched outcomes in the stopped study; never run or select policies.\n\nThis is a post-hoc descriptive analysis of one learning chain. No population\nsignificance test is justified by treating its 20 layouts as 20 learning chains.\n",
+  "new_rollouts": 0,
+  "independent_learning_chains_with_reserved_results": 1,
+  "matched_layout_count": 20,
+  "r0_to_r1": {
+    "basic": {
+      "counts": {
+        "both_success": 3,
+        "repaired": 1,
+        "regressed": 5,
+        "both_failure": 11
+      },
+      "seeds": {
+        "both_success": [
+          993003,
+          993004,
+          993007
+        ],
+        "repaired": [
+          993015
+        ],
+        "regressed": [
+          993005,
+          993006,
+          993011,
+          993013,
+          993019
+        ],
+        "both_failure": [
+          993001,
+          993002,
+          993008,
+          993009,
+          993010,
+          993012,
+          993014,
+          993016,
+          993017,
+          993018,
+          993020
+        ]
+      }
+    },
+    "symbolic": {
+      "counts": {
+        "both_success": 7,
+        "repaired": 8,
+        "regressed": 1,
+        "both_failure": 4
+      },
+      "seeds": {
+        "both_success": [
+          993003,
+          993004,
+          993005,
+          993006,
+          993007,
+          993011,
+          993019
+        ],
+        "repaired": [
+          993001,
+          993002,
+          993009,
+          993010,
+          993012,
+          993014,
+          993017,
+          993020
+        ],
+        "regressed": [
+          993013
+        ],
+        "both_failure": [
+          993008,
+          993015,
+          993016,
+          993018
+        ]
+      }
+    }
+  },
+  "r1_basic_to_symbolic": {
+    "counts": {
+      "both_success": 3,
+      "repaired": 12,
+      "regressed": 1,
+      "both_failure": 4
+    },
+    "seeds": {
+      "both_success": [
+        993003,
+        993004,
+        993007
+      ],
+      "repaired": [
+        993001,
+        993002,
+        993005,
+        993006,
+        993009,
+        993010,
+        993011,
+        993012,
+        993014,
+        993017,
+        993019,
+        993020
+      ],
+      "regressed": [
+        993015
+      ],
+      "both_failure": [
+        993008,
+        993013,
+        993016,
+        993018
+      ]
+    }
+  },
+  "full_r1_to_training_selected_r3": {
+    "counts": {
+      "both_success": 10,
+      "repaired": 3,
+      "regressed": 5,
+      "both_failure": 2
+    },
+    "seeds": {
+      "both_success": [
+        993001,
+        993003,
+        993004,
+        993005,
+        993007,
+        993009,
+        993011,
+        993014,
+        993019,
+        993020
+      ],
+      "repaired": [
+        993008,
+        993013,
+        993015
+      ],
+      "regressed": [
+        993002,
+        993006,
+        993010,
+        993012,
+        993017
+      ],
+      "both_failure": [
+        993016,
+        993018
+      ]
+    }
+  },
+  "terminal_errors_on_failed_trials": {
+    "basic_r0": {
+      "No terminal exception recorded": 3,
+      "RuntimeError: RuntimeError: Insufficient top surface for yellow": 1,
+      "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Cylinder top occluded without a prior visual pose'}, {'view': 'wrist', 'reason': 'Cylinder top occluded without a prior visual pose'}]": 4,
+      "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Insufficient curved side depth'}, {'view': 'wrist', 'reason': 'Curved surface does not constrain a cylinder center'}]": 1,
+      "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Beam top boundary is clipped or rotated'}, {'view': 'wrist', 'reason': 'Beam top boundary is clipped or rotated'}]": 2,
+      "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Curved surface does not constrain a cylinder center'}, {'view': 'wrist', 'reason': 'Curved surface does not constrain a cylinder center'}]": 1
+    },
+    "basic_r1": {
+      "No terminal exception recorded": 14,
+      "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Beam top boundary is clipped or rotated'}, {'view': 'wrist', 'reason': 'Beam top boundary is clipped or rotated'}]": 2
+    },
+    "symbolic_r0": {
+      "No terminal exception recorded": 3,
+      "RuntimeError: RuntimeError: Insufficient top surface for yellow": 1,
+      "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Cylinder top occluded without a prior visual pose'}, {'view': 'wrist', 'reason': 'Cylinder top occluded without a prior visual pose'}]": 4,
+      "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Insufficient curved side depth'}, {'view': 'wrist', 'reason': 'Curved surface does not constrain a cylinder center'}]": 1,
+      "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Beam top boundary is clipped or rotated'}, {'view': 'wrist', 'reason': 'Beam top boundary is clipped or rotated'}]": 2,
+      "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Curved surface does not constrain a cylinder center'}, {'view': 'wrist', 'reason': 'Curved surface does not constrain a cylinder center'}]": 1
+    },
+    "symbolic_r1": {
+      "No terminal exception recorded": 3,
+      "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Beam top boundary is clipped or rotated'}, {'view': 'wrist', 'reason': 'Beam top boundary is clipped or rotated'}]": 2
+    },
+    "symbolic_r3": {
+      "No terminal exception recorded": 7
+    }
+  },
+  "last_notes_on_failed_trials": {
+    "basic_r0": {
+      "right: placement_unconfirmed": 3,
+      "No policy note recorded": 3,
+      "beam: released": 6
+    },
+    "basic_r1": {
+      "beam: placement_unconfirmed": 1,
+      "right: placement_unconfirmed": 2,
+      "beam: visible lateral displacement after release": 6,
+      "cap: visible lateral displacement after release": 1,
+      "cap: place exception: A visually confirmed pick is required": 1,
+      "cap: placement_unconfirmed": 1,
+      "No policy note recorded": 2,
+      "cap: place exception: No usable current view: [{'view': 'side', 'reason': 'Cylinder top occluded without a prior visual pose'}, {'view': 'wrist', 'reason': 'Cylinder top occluded without a prior visual pose'}]": 1,
+      "Construction sequence complete; final geometry recorded": 1
+    },
+    "symbolic_r0": {
+      "right: placement_unconfirmed": 3,
+      "No policy note recorded": 3,
+      "beam: released": 6
+    },
+    "symbolic_r1": {
+      "cap: place_exception: A visually confirmed pick is required": 2,
+      "Graph placement sequence finished; releases are not success certificates": 1,
+      "No policy note recorded": 2
+    },
+    "symbolic_r3": {
+      "beam: pick exception: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'No usable visible cuboid: blue'}, {'view': 'joint_correspondence', 'reason': 'No current view establishes two independent cuboid faces'}]": 1,
+      "cap: place exception: No usable current view: [{'view': 'side', 'reason': 'Insufficient curved side depth'}, {'view': 'wrist', 'reason': 'Curved surface does not constrain a cylinder center'}]": 2,
+      "No measured clear reachable bridge site": 1,
+      "Initial session perception failed before action: No usable current view: [{'view': 'side', 'reason': 'Beam top boundary is clipped or rotated'}, {'view': 'wrist', 'reason': 'Beam top boundary is clipped or rotated'}]": 2,
+      "beam: grasp_unconfirmed": 1
+    }
+  },
+  "per_layout": [
+    {
+      "seed": 993001,
+      "basic_r0": {
+        "last_policy_note": "right: placement_unconfirmed",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 1
+      },
+      "basic_r1": {
+        "last_policy_note": "beam: placement_unconfirmed",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 2
+      },
+      "symbolic_r0": {
+        "last_policy_note": "right: placement_unconfirmed",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 1
+      },
+      "symbolic_r1": {
+        "last_policy_note": "Graph placement sequence finished; releases are not success certificates",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "symbolic_r3": {
+        "last_policy_note": "Final active-object measured drift: 2e-05 m; releases alone do not certify success",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      }
+    },
+    {
+      "seed": 993002,
+      "basic_r0": {
+        "last_policy_note": null,
+        "success": false,
+        "terminal_policy_error": "RuntimeError: RuntimeError: Insufficient top surface for yellow",
+        "offline_placed_blocks": 1
+      },
+      "basic_r1": {
+        "last_policy_note": "right: placement_unconfirmed",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 1
+      },
+      "symbolic_r0": {
+        "last_policy_note": null,
+        "success": false,
+        "terminal_policy_error": "RuntimeError: RuntimeError: Insufficient top surface for yellow",
+        "offline_placed_blocks": 1
+      },
+      "symbolic_r1": {
+        "last_policy_note": "Graph placement sequence finished; releases are not success certificates",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "symbolic_r3": {
+        "last_policy_note": "beam: pick exception: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'No usable visible cuboid: blue'}, {'view': 'joint_correspondence', 'reason': 'No current view establishes two independent cuboid faces'}]",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 2
+      }
+    },
+    {
+      "seed": 993003,
+      "basic_r0": {
+        "last_policy_note": "cap: released",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "basic_r1": {
+        "last_policy_note": "Construction sequence complete; final geometry recorded",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "symbolic_r0": {
+        "last_policy_note": "cap: released",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "symbolic_r1": {
+        "last_policy_note": "Graph placement sequence finished; releases are not success certificates",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "symbolic_r3": {
+        "last_policy_note": "Final active-object measured drift: 1e-05 m; releases alone do not certify success",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      }
+    },
+    {
+      "seed": 993004,
+      "basic_r0": {
+        "last_policy_note": "cap: released",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "basic_r1": {
+        "last_policy_note": "Construction sequence complete; final geometry recorded",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "symbolic_r0": {
+        "last_policy_note": "cap: released",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "symbolic_r1": {
+        "last_policy_note": "Graph placement sequence finished; releases are not success certificates",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "symbolic_r3": {
+        "last_policy_note": "Final active-object measured drift: 0.0 m; releases alone do not certify success",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      }
+    },
+    {
+      "seed": 993005,
+      "basic_r0": {
+        "last_policy_note": "cap: released",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "basic_r1": {
+        "last_policy_note": "beam: visible lateral displacement after release",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 3
+      },
+      "symbolic_r0": {
+        "last_policy_note": "cap: released",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "symbolic_r1": {
+        "last_policy_note": "Graph placement sequence finished; releases are not success certificates",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "symbolic_r3": {
+        "last_policy_note": "Final active-object measured drift: 1e-05 m; releases alone do not certify success",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      }
+    },
+    {
+      "seed": 993006,
+      "basic_r0": {
+        "last_policy_note": "cap: released",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "basic_r1": {
+        "last_policy_note": "cap: visible lateral displacement after release",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 3
+      },
+      "symbolic_r0": {
+        "last_policy_note": "cap: released",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "symbolic_r1": {
+        "last_policy_note": "Graph placement sequence finished; releases are not success certificates",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "symbolic_r3": {
+        "last_policy_note": "cap: place exception: No usable current view: [{'view': 'side', 'reason': 'Insufficient curved side depth'}, {'view': 'wrist', 'reason': 'Curved surface does not constrain a cylinder center'}]",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 3
+      }
+    },
+    {
+      "seed": 993007,
+      "basic_r0": {
+        "last_policy_note": "cap: released",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "basic_r1": {
+        "last_policy_note": "Construction sequence complete; final geometry recorded",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "symbolic_r0": {
+        "last_policy_note": "cap: released",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "symbolic_r1": {
+        "last_policy_note": "Graph placement sequence finished; releases are not success certificates",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "symbolic_r3": {
+        "last_policy_note": "Final active-object measured drift: 1e-05 m; releases alone do not certify success",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      }
+    },
+    {
+      "seed": 993008,
+      "basic_r0": {
+        "last_policy_note": "beam: released",
+        "success": false,
+        "terminal_policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Cylinder top occluded without a prior visual pose'}, {'view': 'wrist', 'reason': 'Cylinder top occluded without a prior visual pose'}]",
+        "offline_placed_blocks": 3
+      },
+      "basic_r1": {
+        "last_policy_note": "beam: visible lateral displacement after release",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 3
+      },
+      "symbolic_r0": {
+        "last_policy_note": "beam: released",
+        "success": false,
+        "terminal_policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Cylinder top occluded without a prior visual pose'}, {'view': 'wrist', 'reason': 'Cylinder top occluded without a prior visual pose'}]",
+        "offline_placed_blocks": 3
+      },
+      "symbolic_r1": {
+        "last_policy_note": "cap: place_exception: A visually confirmed pick is required",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 3
+      },
+      "symbolic_r3": {
+        "last_policy_note": "Final active-object measured drift: 1e-05 m; releases alone do not certify success",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      }
+    },
+    {
+      "seed": 993009,
+      "basic_r0": {
+        "last_policy_note": "beam: released",
+        "success": false,
+        "terminal_policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Cylinder top occluded without a prior visual pose'}, {'view': 'wrist', 'reason': 'Cylinder top occluded without a prior visual pose'}]",
+        "offline_placed_blocks": 3
+      },
+      "basic_r1": {
+        "last_policy_note": "beam: visible lateral displacement after release",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 3
+      },
+      "symbolic_r0": {
+        "last_policy_note": "beam: released",
+        "success": false,
+        "terminal_policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Cylinder top occluded without a prior visual pose'}, {'view': 'wrist', 'reason': 'Cylinder top occluded without a prior visual pose'}]",
+        "offline_placed_blocks": 3
+      },
+      "symbolic_r1": {
+        "last_policy_note": "Graph placement sequence finished; releases are not success certificates",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "symbolic_r3": {
+        "last_policy_note": "Final active-object measured drift: 1e-05 m; releases alone do not certify success",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      }
+    },
+    {
+      "seed": 993010,
+      "basic_r0": {
+        "last_policy_note": "beam: released",
+        "success": false,
+        "terminal_policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Insufficient curved side depth'}, {'view': 'wrist', 'reason': 'Curved surface does not constrain a cylinder center'}]",
+        "offline_placed_blocks": 3
+      },
+      "basic_r1": {
+        "last_policy_note": "cap: place exception: A visually confirmed pick is required",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 3
+      },
+      "symbolic_r0": {
+        "last_policy_note": "beam: released",
+        "success": false,
+        "terminal_policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Insufficient curved side depth'}, {'view': 'wrist', 'reason': 'Curved surface does not constrain a cylinder center'}]",
+        "offline_placed_blocks": 3
+      },
+      "symbolic_r1": {
+        "last_policy_note": "Graph placement sequence finished; releases are not success certificates",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "symbolic_r3": {
+        "last_policy_note": "cap: place exception: No usable current view: [{'view': 'side', 'reason': 'Insufficient curved side depth'}, {'view': 'wrist', 'reason': 'Curved surface does not constrain a cylinder center'}]",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 3
+      }
+    },
+    {
+      "seed": 993011,
+      "basic_r0": {
+        "last_policy_note": "cap: released",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "basic_r1": {
+        "last_policy_note": "beam: visible lateral displacement after release",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 3
+      },
+      "symbolic_r0": {
+        "last_policy_note": "cap: released",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "symbolic_r1": {
+        "last_policy_note": "Graph placement sequence finished; releases are not success certificates",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "symbolic_r3": {
+        "last_policy_note": "Final active-object measured drift: 4e-05 m; releases alone do not certify success",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      }
+    },
+    {
+      "seed": 993012,
+      "basic_r0": {
+        "last_policy_note": "right: placement_unconfirmed",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 1
+      },
+      "basic_r1": {
+        "last_policy_note": "right: placement_unconfirmed",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 1
+      },
+      "symbolic_r0": {
+        "last_policy_note": "right: placement_unconfirmed",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 1
+      },
+      "symbolic_r1": {
+        "last_policy_note": "Graph placement sequence finished; releases are not success certificates",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "symbolic_r3": {
+        "last_policy_note": "No measured clear reachable bridge site",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 1
+      }
+    },
+    {
+      "seed": 993013,
+      "basic_r0": {
+        "last_policy_note": "cap: released",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "basic_r1": {
+        "last_policy_note": "beam: visible lateral displacement after release",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 3
+      },
+      "symbolic_r0": {
+        "last_policy_note": "cap: released",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "symbolic_r1": {
+        "last_policy_note": "Graph placement sequence finished; releases are not success certificates",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 0
+      },
+      "symbolic_r3": {
+        "last_policy_note": "Final active-object measured drift: 4e-05 m; releases alone do not certify success",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      }
+    },
+    {
+      "seed": 993014,
+      "basic_r0": {
+        "last_policy_note": "beam: released",
+        "success": false,
+        "terminal_policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Cylinder top occluded without a prior visual pose'}, {'view': 'wrist', 'reason': 'Cylinder top occluded without a prior visual pose'}]",
+        "offline_placed_blocks": 3
+      },
+      "basic_r1": {
+        "last_policy_note": "cap: placement_unconfirmed",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 3
+      },
+      "symbolic_r0": {
+        "last_policy_note": "beam: released",
+        "success": false,
+        "terminal_policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Cylinder top occluded without a prior visual pose'}, {'view': 'wrist', 'reason': 'Cylinder top occluded without a prior visual pose'}]",
+        "offline_placed_blocks": 3
+      },
+      "symbolic_r1": {
+        "last_policy_note": "Graph placement sequence finished; releases are not success certificates",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "symbolic_r3": {
+        "last_policy_note": "Final active-object measured drift: 1e-05 m; releases alone do not certify success",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      }
+    },
+    {
+      "seed": 993015,
+      "basic_r0": {
+        "last_policy_note": "right: placement_unconfirmed",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 1
+      },
+      "basic_r1": {
+        "last_policy_note": "Construction sequence complete; final geometry recorded",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "symbolic_r0": {
+        "last_policy_note": "right: placement_unconfirmed",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 1
+      },
+      "symbolic_r1": {
+        "last_policy_note": "cap: place_exception: A visually confirmed pick is required",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 3
+      },
+      "symbolic_r3": {
+        "last_policy_note": "Final active-object measured drift: 1e-05 m; releases alone do not certify success",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      }
+    },
+    {
+      "seed": 993016,
+      "basic_r0": {
+        "last_policy_note": null,
+        "success": false,
+        "terminal_policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Beam top boundary is clipped or rotated'}, {'view': 'wrist', 'reason': 'Beam top boundary is clipped or rotated'}]",
+        "offline_placed_blocks": 1
+      },
+      "basic_r1": {
+        "last_policy_note": null,
+        "success": false,
+        "terminal_policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Beam top boundary is clipped or rotated'}, {'view': 'wrist', 'reason': 'Beam top boundary is clipped or rotated'}]",
+        "offline_placed_blocks": 1
+      },
+      "symbolic_r0": {
+        "last_policy_note": null,
+        "success": false,
+        "terminal_policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Beam top boundary is clipped or rotated'}, {'view': 'wrist', 'reason': 'Beam top boundary is clipped or rotated'}]",
+        "offline_placed_blocks": 1
+      },
+      "symbolic_r1": {
+        "last_policy_note": null,
+        "success": false,
+        "terminal_policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Beam top boundary is clipped or rotated'}, {'view': 'wrist', 'reason': 'Beam top boundary is clipped or rotated'}]",
+        "offline_placed_blocks": 1
+      },
+      "symbolic_r3": {
+        "last_policy_note": "Initial session perception failed before action: No usable current view: [{'view': 'side', 'reason': 'Beam top boundary is clipped or rotated'}, {'view': 'wrist', 'reason': 'Beam top boundary is clipped or rotated'}]",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 1
+      }
+    },
+    {
+      "seed": 993017,
+      "basic_r0": {
+        "last_policy_note": "beam: released",
+        "success": false,
+        "terminal_policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Cylinder top occluded without a prior visual pose'}, {'view': 'wrist', 'reason': 'Cylinder top occluded without a prior visual pose'}]",
+        "offline_placed_blocks": 3
+      },
+      "basic_r1": {
+        "last_policy_note": "cap: place exception: No usable current view: [{'view': 'side', 'reason': 'Cylinder top occluded without a prior visual pose'}, {'view': 'wrist', 'reason': 'Cylinder top occluded without a prior visual pose'}]",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 3
+      },
+      "symbolic_r0": {
+        "last_policy_note": "beam: released",
+        "success": false,
+        "terminal_policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Cylinder top occluded without a prior visual pose'}, {'view': 'wrist', 'reason': 'Cylinder top occluded without a prior visual pose'}]",
+        "offline_placed_blocks": 3
+      },
+      "symbolic_r1": {
+        "last_policy_note": "Graph placement sequence finished; releases are not success certificates",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "symbolic_r3": {
+        "last_policy_note": "beam: grasp_unconfirmed",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 0
+      }
+    },
+    {
+      "seed": 993018,
+      "basic_r0": {
+        "last_policy_note": null,
+        "success": false,
+        "terminal_policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Beam top boundary is clipped or rotated'}, {'view': 'wrist', 'reason': 'Beam top boundary is clipped or rotated'}]",
+        "offline_placed_blocks": 1
+      },
+      "basic_r1": {
+        "last_policy_note": null,
+        "success": false,
+        "terminal_policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Beam top boundary is clipped or rotated'}, {'view': 'wrist', 'reason': 'Beam top boundary is clipped or rotated'}]",
+        "offline_placed_blocks": 1
+      },
+      "symbolic_r0": {
+        "last_policy_note": null,
+        "success": false,
+        "terminal_policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Beam top boundary is clipped or rotated'}, {'view': 'wrist', 'reason': 'Beam top boundary is clipped or rotated'}]",
+        "offline_placed_blocks": 1
+      },
+      "symbolic_r1": {
+        "last_policy_note": null,
+        "success": false,
+        "terminal_policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Beam top boundary is clipped or rotated'}, {'view': 'wrist', 'reason': 'Beam top boundary is clipped or rotated'}]",
+        "offline_placed_blocks": 1
+      },
+      "symbolic_r3": {
+        "last_policy_note": "Initial session perception failed before action: No usable current view: [{'view': 'side', 'reason': 'Beam top boundary is clipped or rotated'}, {'view': 'wrist', 'reason': 'Beam top boundary is clipped or rotated'}]",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 1
+      }
+    },
+    {
+      "seed": 993019,
+      "basic_r0": {
+        "last_policy_note": "cap: released",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "basic_r1": {
+        "last_policy_note": "Construction sequence complete; final geometry recorded",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 0
+      },
+      "symbolic_r0": {
+        "last_policy_note": "cap: released",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "symbolic_r1": {
+        "last_policy_note": "Graph placement sequence finished; releases are not success certificates",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "symbolic_r3": {
+        "last_policy_note": "Final active-object measured drift: 2e-05 m; releases alone do not certify success",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      }
+    },
+    {
+      "seed": 993020,
+      "basic_r0": {
+        "last_policy_note": "beam: released",
+        "success": false,
+        "terminal_policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Curved surface does not constrain a cylinder center'}, {'view': 'wrist', 'reason': 'Curved surface does not constrain a cylinder center'}]",
+        "offline_placed_blocks": 3
+      },
+      "basic_r1": {
+        "last_policy_note": "beam: visible lateral displacement after release",
+        "success": false,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 3
+      },
+      "symbolic_r0": {
+        "last_policy_note": "beam: released",
+        "success": false,
+        "terminal_policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Curved surface does not constrain a cylinder center'}, {'view': 'wrist', 'reason': 'Curved surface does not constrain a cylinder center'}]",
+        "offline_placed_blocks": 3
+      },
+      "symbolic_r1": {
+        "last_policy_note": "Graph placement sequence finished; releases are not success certificates",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      },
+      "symbolic_r3": {
+        "last_policy_note": "Final active-object measured drift: 1e-05 m; releases alone do not certify success",
+        "success": true,
+        "terminal_policy_error": null,
+        "offline_placed_blocks": 4
+      }
+    }
+  ],
+  "limitations": [
+    "Post-hoc descriptive analysis; not a new registered causal endpoint.",
+    "Terminal exceptions are not a complete failure-cause taxonomy: policies may catch exceptions.",
+    "The user stopped evaluation after interim outcomes were visible.",
+    "No held-out feedback is supplied to an actor or used to select a revision.",
+    "The package includes supplied perception and geometry; this does not isolate symbolic reasoning."
+  ],
+  "source_sha256": {
+    "docs/evaluations/constraint_geometry_budget_limited.json": "2ebfa22d07776f8f26de46bfc7bb4716b8a0eb7980f228deb2906b3ce3558514",
+    "docs/evaluations/constraint_geometry_learning_progress.json": "c0829b7a61d619c2501f7072ebb6feada1f18c02a27e6b0cef56a6333447df8a",
+    "outputs/constraint_geometry_learning_replications_01/reserved_progress.json": "1db24c834184b12c39bf1994ac27e434aab03de5dd1f0823410c6d1d025a552a",
+    "outputs/constraint_geometry_learning_replications_01/user_budget_stop.json": "e77420104e3dcd9300c72ea5bfbd9065ff83a8275d83b9bef6906f7a685fdb4b",
+    "outputs/constraint_geometry_learning_replications_01/protocol.json": "5722738a30b26dca282e762273c80f04aab97d3e71dd04bbcbdfed7ba2f1394b",
+    "outputs/constraint_geometry_learning_replications_01/all_candidates_frozen.json": "8f5205451e7b1d943c48a039232b06476013ea1227e0b893bbb538da5c676d82",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993001/api_calls.json": "c57ff04e76c8df3e7282adbfa7d43d3b9ff11731d9702772243215b1fce208a2",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993001/result.json": "d67a73a2054ff87d192c2626ef21a38e5eb6c45fec713f8dc4e2667a12ec85ab",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993002/api_calls.json": "e0a8047f5e23aa75f6b8874753d577ac0212886c49a2fca1e21c787f688746ad",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993002/result.json": "6c10440daeab166713035ba5ee29cc7bc4bf7154d9fd574eedb29c0044d0c591",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993003/api_calls.json": "b8ea8f27142bc0c62bec05f2217df1dfad896eb24109c95a50952dc368eec11a",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993003/result.json": "7e25948ba0da5fea4319725a4aa723d13c6f17b4678b756784ff2fd92236f64f",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993004/api_calls.json": "26669649e745c19eb58b6f0da1d2bd2ca0c4b06a776b9a90dfe86340639aabff",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993004/result.json": "4085849cb2ff73ccd49d47cd8e66352162636d8b528c6368938a58e91cafb039",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993005/api_calls.json": "83772fc8d071bb7451267049ff07c7f1099f0fa3c28b84fcd01d00fa97d7cd50",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993005/result.json": "3254049b410db8ea0bca913e012e6c37bbfde9122d8c46d3f094b765ff8dd337",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993006/api_calls.json": "e642033698f2e5372ceaa489a897108a841668a068ad77688aa743bc3a1ce68a",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993006/result.json": "4e111fe0fd6790bf987ef73e752a1d38f1b9c984ecc9eb24e14969a719b06186",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993007/api_calls.json": "989661fe8abff99e7933b9f22c02511187bf670787d64ddb00967ee728c5b041",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993007/result.json": "7f9b54c88e9e5579a38b457e76c3937c1a9450623b48a63a0b241e183f5118fb",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993008/api_calls.json": "de7af42a74659818185ddf02d19d2b11d39340a932b0cd5fd5d947738d3f45bf",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993008/result.json": "ddbb12a2c63b7eb7718049ccdf6fa596266717ccad1facce67caa4650171cbbf",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993009/api_calls.json": "d28184a49fb56180340e55f4dc038ddb9bb198e5242fd16a2599c4b1e73d5abf",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993009/result.json": "f30915571cf59e84a86d4c04b796d44bb8cc2eb963969b35470269af89f4c646",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993010/api_calls.json": "8349663804e0edba77d724b6c3184eb0d9618c6db8bb36d3b4b432023a1a6561",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993010/result.json": "e32b76ad5c0024763cf9c9cb8e522b3c5a553871fefabff47aaac58d8b41f735",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993011/api_calls.json": "f66c4c8182a1386cbce4406eb435f01c78dde0da88d4282f33afce794f899bfc",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993011/result.json": "ade91181b8db475d4063e64ee405012fdb040882079c600cd4e4c75a823152bd",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993012/api_calls.json": "7c6c90f7c5fcc0e2dd25a423e5ae3e07751e1c408188987d905d01efb607569e",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993012/result.json": "90f2566c92f1e0a4f1a3f5a5e18bd9381dedec566a82abbca633d2811371608e",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993013/api_calls.json": "08e456ee0bf9531de25d40a898d7eabf163ff0fea6192f82f417380aa78cc3b2",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993013/result.json": "03f5a66630b138dfd836ebe85b06d22cf1810d8e34aa9b533854acaedf23ecfd",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993014/api_calls.json": "7e2a0b7072b1f7d533e07f6923a6c76e695d2f1663ffc49dfadfe4d23186317f",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993014/result.json": "bb9c155dc1b13baa5e5adc9f97f32d45c35727d244e08adcba9ffb7c0b0abd67",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993015/api_calls.json": "9cc3df4ba6b17cc96a6cd7394f396a38b7e1af1de074200c280acdfb02b8481b",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993015/result.json": "89b6d596fc952ff59195e6959e5efad9ffe66b5fc9bc6850365918749bde650f",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993016/api_calls.json": "062d9453fc49dcdffd3b0c8d72f74aa7bca8d27491d15128939afeb45f793a14",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993016/result.json": "7c3e0502df61e28e77304a40c568a0b7436205f3cedc580d348a424081fe0bdc",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993017/api_calls.json": "854bcb5bf32cc1b05a159f69cb234cbc22aca40449884d8b30c0f8a34ddca2c3",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993017/result.json": "2bab305916ce9071bca70bee09dda50024b45460dfcb87c0807ff2c10150eb6a",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993018/api_calls.json": "320c3a1d01f2a431d7e2ec4873307db44d8a97bf4d8640651bfc55635022d865",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993018/result.json": "b5fd315ea1d36b334302151c4b0cd93fc6521e9b59ec8694aad9c77f02fe77a4",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993019/api_calls.json": "b04de22959c695ecb69e6d99d81f088ef6a5f8a7a66b0930dae7eca8facf9eb6",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993019/result.json": "ff64d66a47aa3750c37fb1ae4ec9913eae39cb3b683eca16922c971dde05c60f",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993020/api_calls.json": "243b1acb1e5a6815a1e5076f311992cb599032c74d8efc0b75e271ee16680a58",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/heldout/seed_993020/result.json": "21eeb8e82b1aceed7b2f07df7a1fa97d87495df60777f5eb481f4ee270640954",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993001/api_calls.json": "d92949e89f141b9c382b308d567597271472c29d9d5d9a776d4a33407d1552e2",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993001/result.json": "aca8c7f50092de04ff42799f30428575cddcdbd8601c843838edc36fb0fedbd9",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993002/api_calls.json": "599daade76478b298d5a85a52a6c48717f1ab899ce84a7ba03abf8dbe0918c0c",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993002/result.json": "c66255e5b533b6f3699c0a175c8ab8ced491a6ce0c92009a0850d8fbc2ba8e0c",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993003/api_calls.json": "f993c8e7a932f71fb183aceda967042f3affc1e29168eff1793727d2d4cf1921",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993003/result.json": "120f93dc81c3ed830b34d6df5696c7a454f8d7e008418a4d0a75c0d5eb34b932",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993004/api_calls.json": "ba8d9a89c419a4e4af9d7c98506c273410bcadf7c2d71c8f342ad9bce856220e",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993004/result.json": "8df53fceff2557f9266bbd5efb9ce75380bcf3bb7514062c36964e21fd88d38c",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993005/api_calls.json": "0f140146a176933c34dc4d0455d57a6dc5ac09e98c1fb335b28847cc48e739e3",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993005/result.json": "b7d2409dec452fad19eda3d87be771e45d172dadace128461ab4140c3caad8cb",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993006/api_calls.json": "b3d8b09f4c6da908010eb03c0360c167a2dc4ca0b1e3f6671d6d27bc4a1bf9cb",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993006/result.json": "e07a2a3141125a9adec61d3932f3e6b0fdf5e1c7cc3167ec770383100281f67b",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993007/api_calls.json": "4239406796f38ede4037a7c45854e34cc860c9ad1435df0171b5c43cc02f7125",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993007/result.json": "adf6cdd93a9a21f265ef965deafb33e31d4472a871ef176038d599a377103dbc",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993008/api_calls.json": "ad68d751d625e0d33a25a51aae1a495e33f2f7f716c098e505c54764cd257ea2",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993008/result.json": "268e633392053d5296eb86d1b06cc7efd3d32bf4b122e156f4d038806a360a24",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993009/api_calls.json": "5b59039c25eff71c181b00ec7692fba475015e17af5069a462508cb05a8253af",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993009/result.json": "fc46869ab2bef8878c684da29ec27375a77a5c243444aed23f0e09655805ca81",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993010/api_calls.json": "f41c1b687202b481ae4b728c8ab886572e3b4af1b67fb80dff085b818a64dbc5",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993010/result.json": "66344ace0f8a6dab61a2b3ca5a71c03aede2be06d2718374a2c7b3359163e45a",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993011/api_calls.json": "39e0d97c6297e7f8d96120849175e82bafcb24b845d22c567bfebba209eacbc6",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993011/result.json": "635929c8762e59f0f7082b9dff8343d3d60e2adc014cdaeb23030cb156d7a412",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993012/api_calls.json": "2b649c24a95bd841ee8075771416a221e57b8ab184ed05fd511f4d0f84b3008a",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993012/result.json": "3a35f476652b0ca55049799c6b75880d2ca735abb8371e2e38eb4b7d5ed032ef",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993013/api_calls.json": "35d0abe5eca03d8cb79457cab94131b3a96b2dbc57c91bef26e221313a6bbc52",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993013/result.json": "28ebb60696b40b3826392845b5bd347514a3bf579f0a16ad1e4f9c209dc875e8",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993014/api_calls.json": "9c63e938d58645dddcd4f047d1f2fc60b2443210575f04455c7f4631dd41a22e",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993014/result.json": "0c09e7f0c1c1c08f33b50a64c6e477dc6162c76ebd8d3a4ef2ec51c2ef4344b2",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993015/api_calls.json": "29c42a70a771dde4408f93019ba02c84131e52a2d3fc33f78e12270173f0f25f",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993015/result.json": "e7e735c98e815a9db80fe53745e457d105a710d271ed3ddd98d3ee23750a40f7",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993016/api_calls.json": "4d3614ea405ba34c8117b4664dc174cbfdc9c1008dbdd7a299917d35dd94fc03",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993016/result.json": "a9d3e7e1895cd07c23f900b68fc9fa5cf1f3df2706914a53887e8fd267ad7af1",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993017/api_calls.json": "35f7c839359a0d861f6eadbdd6383226336af6488dbe770b2384649706fc4a67",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993017/result.json": "54e78d5c29c2892e6dd7f11d84c14689ff0fbb6579b11978f6a544e93dc364de",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993018/api_calls.json": "59e32ff5d5cb10264d034387a4b2b054b2551ffd9905858305457c97f42cc764",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993018/result.json": "1847e904fbb58af118b301bd6e93b3d5cfd7a91556211a9cac738fd0b8647af5",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993019/api_calls.json": "c575145947828fe87e763f4ed6f94ab8ee494bc323802e1b909a79ebd107413a",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993019/result.json": "f289559115c2147aae2a4d3ee32c2ea78d9f65ee9474b9e11b95526cc2926b2d",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993020/api_calls.json": "cc9c65a56cac24dc99ec00c783e5f0aa993ed3e64d14b85d8fec88f141d11c28",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/basic/reserved_revisions/revision_001/heldout/seed_993020/result.json": "d6294cd76259513826a030e90e60f33ae3af873a60ba2174f43a112b4bd8c11b",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993001/api_calls.json": "efd960b2611077776916b2d8b8af3863ebeb2e98f4e826d309db20295f9cb69a",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993001/result.json": "5dac275e3fc4bdf99d9a51321ed108cf35a6d765b5f255b3a8d08c6d4d84a5fe",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993002/api_calls.json": "8ffb7ceb8dde653870ffe0fbc5591d86fd655e20d470565b18546a53d4b72aa2",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993002/result.json": "9a7d8dc1247839110a97894809453c8aeee7deb97850962d3bac2d5f563e14d9",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993003/api_calls.json": "6a0bcf9f47f69f27f5de13ff8aba3c169d4ec5d23db16bb21c223a22b202445d",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993003/result.json": "a492177719e59619f9ebb453d3b20ac9150b4a4746afdb30b3e8dea821e7bca1",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993004/api_calls.json": "7178ef112d6e8b3ca3f057a008c733433b409955a8698fe804b32e7aa13a8dab",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993004/result.json": "b021f28830aaaec67770b343fd4f276fd93b584c2b548b62f4d169d5095d4c0b",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993005/api_calls.json": "41acb39130d3df5b1b6ff9258d498681707fe83ff7dbdc739314d205221ffd39",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993005/result.json": "5352a4fcd42f38821088a6901d18ecd80b9363bdc8bbd77afd2fd10f698ddc63",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993006/api_calls.json": "507118e7551d7a9f3d9389dc44c8e0f08b0c1e95a5e0ba6448fca72caead5186",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993006/result.json": "dc9e9ee74c476cb7b83c86d9845bbc47ae431e064716939a350e6c640211429e",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993007/api_calls.json": "95a5315a55c259da7ae8cb7d740c545e34129271979fa0753cc36b1229a5395a",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993007/result.json": "e93b635e9661b3d1756074d091268d51f5b8de6b93f93265ba633120772e2ae1",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993008/api_calls.json": "079124021419e02b97f8885892eaded1a37ec777af1d0b7840f6ab2d71eac912",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993008/result.json": "55656658f2c29d438a973d121c3ce04e004ea1bfe00f8de7dfbccd105f9d8a9a",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993009/api_calls.json": "23ef2f7609bf049af8d9c1bab46c60730c393c061b9b2b33eb95b9113725d61a",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993009/result.json": "2d4ea897fc5c5d4a90552c4b5619ade4fb11476fb41efa17d0f5d5949f68a647",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993010/api_calls.json": "fd4c19c32c2fcb2dbbb14e386cb524c0e74ce4936d3ccae21f6c86566691072e",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993010/result.json": "bf2bee9810cc6610f24251286d7e41b0dc3d69ae78870e613f6c72591d86d59b",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993011/api_calls.json": "3e9eaa1c1d530cbb913a7640708cfc4ad0c02fbbcf09aeb1f16caf7bc6115ccb",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993011/result.json": "d404b798e59d3efd3e413339ebc9d4cf74d06565b8005f4ab876f70d3ed33b27",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993012/api_calls.json": "6b3e3bcf2ea9da5f03b409603047b06e85df0269d5ca44aab1758c97c56cfed6",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993012/result.json": "f53f4154fa7d08d18718f91f08c2d33e38be6a785a823d3b10d001906a0211c3",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993013/api_calls.json": "a19e321f9e45c112c8b46c5aea0dcb6afff8cb27f5449b3371d606371a12ff33",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993013/result.json": "e4857322d844639dbe8aebf98b315fc0fabba7e38a7b7545990d5ae84ab8f380",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993014/api_calls.json": "6ae9dacdc7e9fb37d8ea80db6196ee22e77e9fe3728b2c67a2b3f8737922820a",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993014/result.json": "d71bab1a44b63611a533655c8da1aaf6684a8e0879c63bab4639463c28a42264",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993015/api_calls.json": "300b6e2de6d9fba59f27e52a20f0eb51c49121a7ad7a8f2c73f1e9984fdb44b3",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993015/result.json": "cdde22d17f3d18a15f511032395d7f9cf7e3b5f34146696b3bde3f41c6d03f67",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993016/api_calls.json": "c9453b0f521e18fc51103f7d09668cab5aa3065c95afeca6bf0e55a0484d929f",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993016/result.json": "a3f166572d12891967478cdc8567e610ac31f51b1a3a071bb8ea6077a497acd8",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993017/api_calls.json": "54b241ed7b95a8b1706a2cc00dadbfd68125e47d61db790caf1fd0126a8c9090",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993017/result.json": "cd139544a6cfcdda29950e47161548f135a79c7ed33fb92d4df2b4bedfe10a7f",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993018/api_calls.json": "24b0e4ecfb53a73fae9bb0cfb3c4ea14eb7f0444425233688bbcddea33f1637e",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993018/result.json": "8087df5c017606a70519e76838b6c2d15dd64ddf6462b1967092bc3ce83b8db5",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993019/api_calls.json": "6f3f817b9776037766d6e3e7a8267bb1c332848e88512df4ad6326a9c81bac50",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993019/result.json": "015c36fcc4fbd40e98ed77510378d7b93a1986309fc4f50fa5153d37072cf263",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993020/api_calls.json": "1077bb8a24a74c42b69f792ebf5864d8d9cd77e4d5ba7b3017cf4b3bb5478d25",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_000/heldout/seed_993020/result.json": "157957318b1ef3255c87ec1fbdfef84657b64c65fdff358a6d760faac5b19092",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993001/api_calls.json": "73aec760f292e353bb80ce90f02f80a4ae517517670788c0d53dfb3bdccfc66a",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993001/result.json": "a556b814adf833298dbc4aad12cb547484a8d304ef953c754575654cd58f14a7",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993002/api_calls.json": "5908cce498b1557e2ba3e1ce47b288eb4a6bf0818c9854909d61587e61f501c9",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993002/result.json": "46a3fa213aeb72be4c001c37cc4f16e69aec4ad5f1281f5395c6aa6eb60ee8ed",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993003/api_calls.json": "506676434c2d8043f258146ea1273e2d6f1abd2dd207da5e41ce9584d50541cb",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993003/result.json": "a1ccbd073bc0d317738e16c75e5701c3a81430ce56c824cfddb578b9913f1451",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993004/api_calls.json": "3de8c28ed2c65637cac48f839a56216f12c33d252c51180553c16936cd2c441d",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993004/result.json": "4a60a0505ad5ed5969f1eb2cff123d0ef1b55c8edc3e44fc139e9b2ef7f0e6ee",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993005/api_calls.json": "96631b36787a74af6bfd0b055e4bb91ffd32e4d680bb4d5a9fb984c7f8a9eb76",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993005/result.json": "31bdf93c23dff656fcfd593c673b0ad3596e4e58a9766e2dadd501e45ab7a630",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993006/api_calls.json": "e0a9d9f0f4e99e1923f22c38a520ae22a556964bb41467560b7f31ffc1c12615",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993006/result.json": "d322994b14d0d16ff583de610fcdb1b031739d2741c58b9146f6b23427abcbf0",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993007/api_calls.json": "442fb0605c1b7b35920be484e915d8e6b2db23a84ff13449d5b09a45f8d0e40b",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993007/result.json": "97b9e26b879a1a968bfb9945ca0f37cb2875ae221d5e61993cf04e6f2140140a",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993008/api_calls.json": "5c5144d60b73e0ed51031ec9749e0d32b11990f24a80ed7d855b769b5ee54acd",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993008/result.json": "cb1e49ec2c5daa78e733d1eff0ef0970f8812eceacc6e23e86fac2063088b49a",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993009/api_calls.json": "1e338acbacfde67acd6c087410590b5f1c453b715a2ea0af6c4534d76b372e5f",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993009/result.json": "47c39a3d9c848b38c608ef23ba9d072a7a8dc3d8a96b658adfd3609b09a3dce2",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993010/api_calls.json": "1ea871ae6ef45a8e68d8dc7813e4929691f6f38338bff65542324161153e49c4",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993010/result.json": "cc1aafcdc95f6d722294df8195356d1fdd86b0d411e096436abace070d044c4a",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993011/api_calls.json": "2b34f27c85ce6817b149adbdfe8284fd13ab592dc04fd03046dfce1312ab870d",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993011/result.json": "bb56bcae3add08e112e7a1059f191636b786b82b7555e1c2521e14a9139d41e1",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993012/api_calls.json": "b72464af330839e159e9ddb3dc11e143bf194fd6896776af16c9eb2cede3c08f",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993012/result.json": "b45cfe1ce196f6951e19d60cf718a7f2dcb1e87afba4f737823d74f432513326",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993013/api_calls.json": "48036c421812d2808d700452ef8e69ca434848b00a498fb97973aa7957ed833a",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993013/result.json": "49694086c832ae9a3d9cbc36aca07bb43c6961d6393e20712402b042d4755fdf",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993014/api_calls.json": "03049bf028ad1305e72fd327288d59d504de0380edf9d6127d2e82a8748af488",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993014/result.json": "c30f6bbec128327326263deaa554a9469aa324ef91396f4f66bad452fb8331a8",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993015/api_calls.json": "3d717420e9fd7d0a926bcdfabbc38199c4c17456b8d0b70720cd8f3c04835bfd",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993015/result.json": "5adb581fbaee5dd694db658b81555154ff6645dfc576f3078a6a03d0e01295c0",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993016/api_calls.json": "2f1e3a2656411558b4a70eac24c3190b8c2cba6870502b48f6828ee2ccb2de7e",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993016/result.json": "9dda751294c349517cfa21178cc48db306a377dc793f684e8785684df8c4fe55",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993017/api_calls.json": "bde6333d6df65270b3d80f042ba5efccca752a9b9b05b3a7821ac3b1b8519257",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993017/result.json": "742d9120dd91d3e25f952ea138291afcf900162972062a038bdc09cd8004f2ca",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993018/api_calls.json": "dcbf059c537c26fd92d6c0f2a5b3dac3ca6de937649b78562cf78c00b4f39d26",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993018/result.json": "4660bd80e3feed8dc183ff131e4c92579f63ee30af242182c1e3b9a023b0ebfd",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993019/api_calls.json": "f37fd7b9b97ebcfa2d3a4f4d533d0cc620a9e78ef7ea939dde2795f6a09876d4",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993019/result.json": "63c4955ffce6aa2e830848170e6d29dfb574b3498c68bde243935e42e5259ae7",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993020/api_calls.json": "3130c3bd78dbec0bcf54a7701462553c282705a104cb613f3709c431e04793c7",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/reserved_revisions/revision_001/heldout/seed_993020/result.json": "34b1e822eabede8913d6ec6abf5b13fd1ca29a18b799d8b16c8cdce19cc24278",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993001/api_calls.json": "b4ad0ad89690e045fde21b599994aca931e9fc688770fe2ec363ce642ccf5ad4",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993001/result.json": "cdb9088f18ee355c27884646febb11899fe784ea72008162a0dafafae9177adb",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993002/api_calls.json": "0361ac4cc05e2241f82bb51d963792bd7e6d851475dd3701e916098bc5b18c36",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993002/result.json": "7c2af52e8b8e65fbc995f3da9a4c901ab909dd6ee5d2b87f858148f393ac3cfc",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993003/api_calls.json": "23b696e7b721f2e0a85d4806045d5861d4dde67631f8d5c6d773168ef60e4b4a",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993003/result.json": "a397fd4483dcb4383fc675a2c6a6f08ef1ef390122f2a9026b76acb54f3eb31c",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993004/api_calls.json": "f6ce7aa875ebcababaf0712c42ad13c69820331e5478241cecbd205116b0c0a7",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993004/result.json": "6f3933a1964eff01a4f190661f9c178187a017e00c7b64e1141f08af40135324",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993005/api_calls.json": "af422ba7fd364465874ae504af230d720a90743862ffdf6133776979ecd9f17c",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993005/result.json": "4f9648cab9be5c21f76509e4aef1db3b2023e0e5976d14dfa0b1bf3ac24c378e",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993006/api_calls.json": "270b719d6c372881fe98329416260f91f370f537bc05c3b14a5b891939183469",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993006/result.json": "d79af81b355480340b1cdd6754d67122c22446e825eae97748fab1b53dd7081c",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993007/api_calls.json": "616fb61406db4044c3dfe02ef58221ca0ee712be6707d8d63415f6ed1f8fd272",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993007/result.json": "fa5d64b2596924210ce96fe41b1170e77ea00836c0ef5dc672a48280d0d1e7dd",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993008/api_calls.json": "b0370836a8092117b3c3f206d480a3175ec9efea0035cbcae6aa2c41be8ebce1",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993008/result.json": "a51e79522397aeb3c00a94fc954d2a144d15cff0796fe2ef810a27969e1fba22",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993009/api_calls.json": "63486d392c72ccf16f49bec44a81fdfa082bb0076e756080dc99057100c10cac",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993009/result.json": "a6bf3929ec017e930797e5ad34bf076374f739f5148929e382b40235d395f473",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993010/api_calls.json": "d637829635c0b039d26f8ccb434b00ae6688417c0f75b887c4131f6ade15cf80",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993010/result.json": "90ea5851bb7249db09e82c7b17c7c4bf49a251306b4cdb43426c991e9114951c",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993011/api_calls.json": "30d01dfd37cf3901ca2fd1b6a93a7fd6ee6a319111170004e781888aa8a6b8df",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993011/result.json": "ccddedc54d6243312a685cbef66fdf5a748dcd2b2c444187b2ded5537271411f",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993012/api_calls.json": "2d30efac5db5dd2ae0de362f982fa7332337546bdf1740aabbb17bb2946cd57f",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993012/result.json": "1e7db9f1d28cf3a6ce4f669718f9587d8988f54b5f721a03a13f0c8fa90c7a35",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993013/api_calls.json": "4ef36b396d41b2e6d12d2ecb7abb784bf06f30ca7fffaac292a885b811d4799f",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993013/result.json": "d8fe0f2baa1f64c0f252df058ef14f44e7851c1f133a75ef47ac1983e99d85cd",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993014/api_calls.json": "29405d1bb4c627d44d884190d7225e55e277801bc9905fd6c4a3c91b8742e941",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993014/result.json": "b8791e68806f7953992017c86017b14eb0c6000a76c83eee7ec0f65bb2a05af1",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993015/api_calls.json": "8337bdde81648e0e510e19eca55f9aa0f898147feeb29f6ea476c59f32706694",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993015/result.json": "9eeb3a6a4471b190fb76ee8c07d940ed676f8841161e6fb36d738299f76c0226",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993016/api_calls.json": "26cf49489b8c75b1cda849898acbca924ca927b22a819c20a63bc9fa603e02d5",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993016/result.json": "a0a1d438266cffff47b98bccfeff8eb430c3264e7c203b5fb23bcdb34a885a48",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993017/api_calls.json": "48b48b9f0a0f888bb229acbf810617a7ff688ce3a353e5e25e2fe3841b27e6dc",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993017/result.json": "53123ae0dbe349f420a5ec1c374f65ca8d48640dd7a76f9783973e3079a3a675",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993018/api_calls.json": "9ceb1c600ce98a343c7f1ea92eb84824d4d63be63a455fb93ef316f2923a388f",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993018/result.json": "0d653a902d95bcfe5b4944e2b3cd03b776b26a7a5036f6d92398a322f63ee858",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993019/api_calls.json": "0585c2987e1686f89fff251aa84b39d44fb7c6288e99d22d0d3802b3175c6229",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993019/result.json": "26009206788315eb76a2bf7c2004271b010d21de2d15570177f373bef86c0890",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993020/api_calls.json": "884d28e770496fdcf42efdb7ec21179270ea5335acfbd32017045c165bdb6384",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/heldout/seed_993020/result.json": "e1b52de000568218259302d5511288e1c809145fa53e7defeed3b73535075dcb"
+  },
+  "analyzer_sha256": "d97ee3390c6817c1938f1b1e9a02f128629cba040e2f1979684099b37abec428"
+}

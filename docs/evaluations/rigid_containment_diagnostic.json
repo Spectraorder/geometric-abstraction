@@ -1,0 +1,115 @@
+{
+  "schema": "rigid_containment_development_report_v1",
+  "audits": [
+    {
+      "audit": "outputs/rigid_containment_audit_01",
+      "coverage_and_accuracy": {
+        "groups": {
+          "all": {
+            "total": 122,
+            "available": 117,
+            "covered": 117,
+            "median_max_interval_width_mm": 7.035113796323378,
+            "p95_max_interval_width_mm": 8.093681360399973,
+            "largest_bound_violation_mm": 0.0,
+            "paired_current_center_p95_mm": 2.524506362385954,
+            "paired_interval_midpoint_p95_mm": 2.7815331445754485
+          },
+          "partial": {
+            "total": 48,
+            "available": 46,
+            "covered": 46,
+            "median_max_interval_width_mm": 7.035113796323378,
+            "p95_max_interval_width_mm": 8.309727993137242,
+            "largest_bound_violation_mm": 0.0,
+            "paired_current_center_p95_mm": 3.058180793130433,
+            "paired_interval_midpoint_p95_mm": 3.195960426484623
+          }
+        },
+        "tolerance_m": 0.0015,
+        "limits": [
+          "Inspected training trajectories, correlated checkpoints, ideal simulated depth; not reserved evidence.",
+          "Bounds assume correct instance association and orientation/dimensions within the explicit tolerance.",
+          "No policy execution or training input is changed by this separate prototype.",
+          "Do not interpret interval midpoint accuracy or coverage as task-success improvement."
+        ]
+      },
+      "same_relation_queries": 80,
+      "current_above": {
+        "unknown": 56,
+        "true": 11,
+        "false": 13
+      },
+      "interval_above": {
+        "unknown": 28,
+        "false": 14,
+        "true": 38
+      },
+      "transitions": {
+        "unknown -> unknown": 25,
+        "unknown -> false": 1,
+        "true -> true": 8,
+        "false -> false": 13,
+        "unknown -> true": 30,
+        "true -> unknown": 3
+      },
+      "sensor_only_sha256": "4a392e3f960f4261e364913a7390b35b51c43e1299a52f5bf2a9b145baca7c07"
+    },
+    {
+      "audit": "outputs/rigid_containment_audit_02",
+      "coverage_and_accuracy": {
+        "groups": {
+          "all": {
+            "total": 195,
+            "available": 176,
+            "covered": 176,
+            "median_max_interval_width_mm": 7.032771967159151,
+            "p95_max_interval_width_mm": 8.10884197085876,
+            "largest_bound_violation_mm": 0.0,
+            "paired_current_center_p95_mm": 2.384925564230406,
+            "paired_interval_midpoint_p95_mm": 2.9829975306000707
+          },
+          "partial": {
+            "total": 63,
+            "available": 55,
+            "covered": 55,
+            "median_max_interval_width_mm": 7.123889322679656,
+            "p95_max_interval_width_mm": 8.57191103107468,
+            "largest_bound_violation_mm": 0.0,
+            "paired_current_center_p95_mm": 2.8494847997043506,
+            "paired_interval_midpoint_p95_mm": 3.239797919690938
+          }
+        },
+        "tolerance_m": 0.0015,
+        "limits": [
+          "Inspected training trajectories, correlated checkpoints, ideal simulated depth; not reserved evidence.",
+          "Bounds assume correct instance association and orientation/dimensions within the explicit tolerance.",
+          "No policy execution or training input is changed by this separate prototype.",
+          "Do not interpret interval midpoint accuracy or coverage as task-success improvement."
+        ]
+      },
+      "same_relation_queries": 128,
+      "current_above": {
+        "unknown": 85,
+        "true": 24,
+        "false": 19
+      },
+      "interval_above": {
+        "unknown": 41,
+        "true": 54,
+        "false": 33
+      },
+      "transitions": {
+        "unknown -> unknown": 33,
+        "true -> true": 16,
+        "false -> false": 19,
+        "unknown -> true": 38,
+        "true -> unknown": 8,
+        "unknown -> false": 14
+      },
+      "sensor_only_sha256": "38cd70d02e66942e4d877580941e323cfc5b9af870920402ce3cfc6206acd0b4"
+    }
+  ],
+  "interpretation": "Information availability and conditional interval coverage only; no policy-success or improved point-estimate claim.",
+  "prototype_sha256": "52566ec50dfa423feceb2401f3c75fe30e7d632f28e51227bd01f4ba999de306"
+}

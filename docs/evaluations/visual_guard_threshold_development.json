@@ -1,0 +1,132 @@
+{
+  "status": "completed",
+  "scope": "Development-only one-line guard counterfactual on five existing training layouts.\n\nNo model calls, reserved layouts, changed libraries, or repairs to study artifacts.\nThis diagnoses a controller-contract mismatch, not an abstraction treatment effect.\n",
+  "protocol_sha256": "6afcd2d15105139dd98632b97d55d1ca9bb5abf03e684175fa96f148b46af1a4",
+  "original_successes": 0,
+  "modified_successes": 1,
+  "trials": 5,
+  "rows": [
+    {
+      "seed": 990201,
+      "original_success": false,
+      "modified_success": false,
+      "original_motion_commands": 0,
+      "modified_motion_commands": 53,
+      "original_policy_error": null,
+      "modified_policy_error": null,
+      "notes": [
+        "left: settled geometry consistent",
+        "right: settled geometry consistent",
+        "beam: settled geometry consistent",
+        "cap: No usable current view: [{'view': 'side', 'reason': 'Curved surface does not constrain a cylinder center'}, {'view': 'wrist', 'reason': 'Curved surface does not constrain a cylinder center'}]"
+      ],
+      "initial_rgb_identical": true,
+      "artifact_sha256": {
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/result.json": "2cc61199c9048ac626f90e170c75d454ebfc04b142db5c504324fd7611121385",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json": "6d5c89241e5c0f768931ec2b488090db30af8cc9fd5ff194d98808e040d1963c",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/initial.png": "b6c63d25d64215f0b7a8ac6e623d0b5fc3171593640dc2efe060d868e53d142b",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_guard_threshold_development_01/trials/seed_990201/result.json": "dd55eaf9147610c5660d3813d2d9b2439de14fa76ef8337fbe7368ec12b8fb93",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_guard_threshold_development_01/trials/seed_990201/api_calls.json": "11089d3baf9a2ba0936478ad3758cb35bc5bba9238f28e6585708ac53adba7af",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_guard_threshold_development_01/trials/seed_990201/initial.png": "b6c63d25d64215f0b7a8ac6e623d0b5fc3171593640dc2efe060d868e53d142b"
+      }
+    },
+    {
+      "seed": 990202,
+      "original_success": false,
+      "modified_success": false,
+      "original_motion_commands": 0,
+      "modified_motion_commands": 49,
+      "original_policy_error": null,
+      "modified_policy_error": null,
+      "notes": [
+        "left: settled geometry consistent",
+        "right: settled geometry consistent",
+        "beam: Observed object is too far from the expected tool neighborhood"
+      ],
+      "initial_rgb_identical": true,
+      "artifact_sha256": {
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/result.json": "b80c813b62dcfb7d3af1e86aace8bf61ecff3b0b9bf48dc499dcd8e15e7d458e",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json": "df74b24b265a3af8450d50361bc18e69f94ceda71b1bf569394995685d408318",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/initial.png": "4fc113c2c12a2e0b4cbe6f3d0a805b261f3293477ab53c53551daaa021eaa314",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_guard_threshold_development_01/trials/seed_990202/result.json": "81e995a6ee265fb5fa30d066a407c14033a5e3809ab12273631b5ff635a1640e",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_guard_threshold_development_01/trials/seed_990202/api_calls.json": "65764269c879a6be4ecbff08e18d13585233c12b1c9c3d9e9aeef9bc7c0730aa",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_guard_threshold_development_01/trials/seed_990202/initial.png": "4fc113c2c12a2e0b4cbe6f3d0a805b261f3293477ab53c53551daaa021eaa314"
+      }
+    },
+    {
+      "seed": 990203,
+      "original_success": false,
+      "modified_success": true,
+      "original_motion_commands": 0,
+      "modified_motion_commands": 70,
+      "original_policy_error": null,
+      "modified_policy_error": null,
+      "notes": [
+        "left: settled geometry consistent",
+        "right: settled geometry consistent",
+        "beam: settled geometry consistent",
+        "cap: settled geometry consistent",
+        "Construction complete; settled visual evidence is not contact certification"
+      ],
+      "initial_rgb_identical": true,
+      "artifact_sha256": {
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/result.json": "614e19057e4c33e449f122f92b19928f550a2ddcc9ebe27034d71c4c0c03fa06",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json": "3827554a9107f9cb6c3df03ad5a384a281a827368ca5487afe668f42d0e2473f",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/initial.png": "102aa3c2a8c7ed884db82d9ab3bbf5f9b7d28b2b4c722dace3534d4898610748",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_guard_threshold_development_01/trials/seed_990203/result.json": "d7ce59e7d5dcde5899625e658b652fa4dd1ae563b343be3c10c21cd4471f013c",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_guard_threshold_development_01/trials/seed_990203/api_calls.json": "d3ca2a7de84da3be09bb6f16e17a815de743379fb551bbb1de325c848f5724c6",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_guard_threshold_development_01/trials/seed_990203/initial.png": "102aa3c2a8c7ed884db82d9ab3bbf5f9b7d28b2b4c722dace3534d4898610748"
+      }
+    },
+    {
+      "seed": 990204,
+      "original_success": false,
+      "modified_success": false,
+      "original_motion_commands": 0,
+      "modified_motion_commands": 0,
+      "original_policy_error": null,
+      "modified_policy_error": null,
+      "notes": [
+        "Session initialization unavailable: No usable current view: [{'view': 'side', 'reason': 'Beam top boundary is clipped or rotated'}, {'view': 'wrist', 'reason': 'Beam top boundary is clipped or rotated'}]"
+      ],
+      "initial_rgb_identical": true,
+      "artifact_sha256": {
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990204/result.json": "3a3c6297ab34316789f1a8b1e5aaf9a8911d1bf9934220bfea79d08645e753b1",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990204/api_calls.json": "8cf4d0b12543e343d61a5566b068b5362fb321fc3b5159dbd2dc5aa32e310b62",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990204/initial.png": "9f928e0cfadfc03377eb57da5ed495d4cea0070e223c519af83d19360f080981",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_guard_threshold_development_01/trials/seed_990204/result.json": "6e52017f61c2254ed5957bb20d8c9f642e589c891b4e6520452483fd86727eb1",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_guard_threshold_development_01/trials/seed_990204/api_calls.json": "2c1e52d2a600848e64a41349e05423eaec668c0e1f09e3e2ccdeef3f13b156b9",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_guard_threshold_development_01/trials/seed_990204/initial.png": "9f928e0cfadfc03377eb57da5ed495d4cea0070e223c519af83d19360f080981"
+      }
+    },
+    {
+      "seed": 990205,
+      "original_success": false,
+      "modified_success": false,
+      "original_motion_commands": 0,
+      "modified_motion_commands": 46,
+      "original_policy_error": null,
+      "modified_policy_error": null,
+      "notes": [
+        "left: settled geometry consistent",
+        "right: settled geometry consistent",
+        "beam: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'joint_correspondence', 'reason': 'Unique cuboid correspondence still has wide hidden position intervals'}]"
+      ],
+      "initial_rgb_identical": true,
+      "artifact_sha256": {
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/result.json": "d40242593e4b9b8715588e913d6907ecbb67a112b03db00c3db59c016b34f616",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json": "26fbe9a45782c64dc99c900d8b3c273442fb5fbe74bf6e08fdbc755854ef656d",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/initial.png": "23e4dbf0e1daee1051559c94cf4d2dc3dbc904396c25d974abdbe596d82bb165",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_guard_threshold_development_01/trials/seed_990205/result.json": "f73fcb926d3fabd3db0c2324cf0c7cf151ae3d281cbec3e65704e90823eaf80a",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_guard_threshold_development_01/trials/seed_990205/api_calls.json": "2d2f432bcd237f4d7fd4b6d68869a5ae56a1b5084020ce210e3550f78c446e11",
+        "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_guard_threshold_development_01/trials/seed_990205/initial.png": "23e4dbf0e1daee1051559c94cf4d2dc3dbc904396c25d974abdbe596d82bb165"
+      }
+    }
+  ],
+  "limitations": [
+    "Post-training intervention on five inspected training layouts.",
+    "One changed numeric guard; other conservative checks remain.",
+    "No new held-out result and no abstraction-effect inference.",
+    "Original learning curves remain unchanged. No actor receives this repaired candidate."
+  ]
+}

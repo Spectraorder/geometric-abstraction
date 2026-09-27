@@ -18,6 +18,7 @@ from aspire_so100.prism import PrismEnv
 from aspire_so100.inventory_prism import InventoryPrismEnv
 from aspire_so100.inventory_tower import InventoryTowerEnv
 from aspire_so100.inventory_structure import InventoryStructureEnv
+from aspire_so100.simulation_settings import contact_settings, apply_contact_settings
 
 
 class RecordingMixin:
@@ -62,6 +63,7 @@ class RecordedInventoryStructureEnv(RecordingMixin, InventoryStructureEnv):
 
 def recorded_env_for_result(result, output_dir):
     """Reconstruct the exact sampled object identities before restoring states."""
+    physics = contact_settings(result.get('physics'))
     if result.get('task') in ('inventory_prism', 'inventory_tower', 'inventory_structure'):
         metadata = result['scene']
         if result['task'] == 'inventory_structure':
@@ -75,8 +77,10 @@ def recorded_env_for_result(result, output_dir):
         if env.scene_metadata != metadata:
             env.close()
             raise ValueError('Recorded inventory scene does not match this generator')
-        return env
-    return (RecordedPrismEnv if result.get('task') == 'prism' else RecordedTowerEnv)(output_dir)
+    else:
+        env = (RecordedPrismEnv if result.get('task') == 'prism' else RecordedTowerEnv)(output_dir)
+    apply_contact_settings(env.model, physics)
+    return env
 
 
 class RolloutPlayback:

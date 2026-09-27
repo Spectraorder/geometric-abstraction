@@ -1,0 +1,10 @@
+{
+  "trial": "outputs/mixed_pnp_observer_development_03/seed_75105",
+  "frames": {
+    "initial": 0,
+    "side": 30,
+    "wrist": 31
+  },
+  "inputs": "RGB-D and calibration; same-time robot marker exclusion from logged proprioception and model radius; no object truth",
+  "role": "Recorded regression with large cuboid rotation and unequal per-view sample density"
+}

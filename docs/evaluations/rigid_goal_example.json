@@ -1,0 +1,211 @@
+{
+  "schema": "rigid_goal_sensor_example_v1",
+  "trial": "outputs/online_geometry_v2_replications_01/replica_02/symbolic/round_001/trials/seed_71101",
+  "checkpoint": 3,
+  "time": 31.29999999999353,
+  "sensor_files": [
+    "camera_020.npz",
+    "camera_021.npz",
+    "camera_022.npz",
+    "camera_023.npz",
+    "camera_024.npz",
+    "camera_025.npz",
+    "camera_026.npz"
+  ],
+  "geometry_library_sha256": "c152d7e2fdc88102c906a53ea966c508a49d6c017250bf02d4474d38715babe6",
+  "symbolic_constraints": [
+    {
+      "predicate": "coincident",
+      "source": "red.bottom_face.center",
+      "target": "blue.top_face.center"
+    },
+    {
+      "predicate": "opposed",
+      "source": "red.bottom_face.normal",
+      "target": "blue.top_face.normal"
+    }
+  ],
+  "source_evidence": {
+    "red": {
+      "center_mm": [
+        -3.07,
+        -195.6,
+        414.94
+      ],
+      "size_mm": 29.9,
+      "status": "observed",
+      "age_s": 0.0,
+      "last_view": "wrist",
+      "observed_translation_rank": 3,
+      "orientation_observed_now": true,
+      "position_sigma_mm": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "last_update_delta_mm": [
+        0.01,
+        0.0,
+        -0.01
+      ],
+      "prediction_condition": null,
+      "prediction_contradicted": false,
+      "type": "rigid_cube",
+      "references": {
+        "center": "red.center",
+        "top_face": "red.top_face",
+        "bottom_face": "red.bottom_face"
+      }
+    },
+    "blue": {
+      "center_mm": [
+        -3.95,
+        -275.11,
+        414.94
+      ],
+      "size_mm": 29.9,
+      "status": "observed",
+      "age_s": 0.0,
+      "last_view": "wrist",
+      "observed_translation_rank": 3,
+      "orientation_observed_now": true,
+      "position_sigma_mm": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "last_update_delta_mm": [
+        -0.0,
+        0.1,
+        -0.0
+      ],
+      "prediction_condition": null,
+      "prediction_contradicted": false,
+      "target_delta_mm": [
+        0.7,
+        -2.23,
+        0.01
+      ],
+      "type": "rigid_cube",
+      "references": {
+        "center": "blue.center",
+        "top_face": "blue.top_face",
+        "bottom_face": "blue.bottom_face"
+      }
+    }
+  },
+  "desired_transform": {
+    "schema": "desired_rigid_transform_v1",
+    "kind": "desired_state",
+    "frame": "world",
+    "point_units": "m",
+    "transform": [
+      [
+        0.9999855405393627,
+        -3.55782809510845e-07,
+        0.005377612116140416,
+        -0.003144438079620482
+      ],
+      [
+        6.087290071386803e-07,
+        0.9999999988936568,
+        -4.7035262243512516e-05,
+        -0.07949056840876048
+      ],
+      [
+        -0.005377612093456594,
+        4.70378556474738e-05,
+        0.9999855394332521,
+        0.02989933109311632
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rotation": [
+      [
+        0.9999855405393627,
+        -3.55782809510845e-07,
+        0.005377612116140416
+      ],
+      [
+        6.087290071386803e-07,
+        0.9999999988936568,
+        -4.7035262243512516e-05
+      ],
+      [
+        -0.005377612093456594,
+        4.70378556474738e-05,
+        0.9999855394332521
+      ]
+    ],
+    "translation": [
+      -0.003144438079620482,
+      -0.07949056840876048,
+      0.02989933109311632
+    ],
+    "unconstrained_twist": true,
+    "representative_selection": "minimum_angle",
+    "point_residual_m": 0.0,
+    "axis_residual": 1.1102759629222426e-16,
+    "execution_or_contact_certified": false,
+    "uncertainty": "inherited_from_input_references_not_calibrated"
+  },
+  "desired_center_m": [
+    -0.003985606267728711,
+    -0.27510791395580636,
+    0.4448409360646065
+  ],
+  "desired_vertices_m": [
+    [
+      -0.01884031861506511,
+      -0.2901297038475719,
+      0.4298733579120487
+    ],
+    [
+      -0.01899026046207843,
+      -0.26023370231438486,
+      0.42987553507493803
+    ],
+    [
+      0.011055660578232814,
+      -0.28997976477973175,
+      0.42990998194349045
+    ],
+    [
+      0.010905718731219495,
+      -0.2600837632465447,
+      0.42991215910637987
+    ],
+    [
+      -0.018876931266676916,
+      -0.2901320646650679,
+      0.45976971302283315
+    ],
+    [
+      -0.019026873113690234,
+      -0.26023606313188086,
+      0.45977189018572256
+    ],
+    [
+      0.011019047926621011,
+      -0.2899821255972278,
+      0.459806337054275
+    ],
+    [
+      0.01086910607960769,
+      -0.26008612406404075,
+      0.4598085142171643
+    ]
+  ],
+  "actual_policy_used_this_prototype": false,
+  "limitations": [
+    "A counterfactual desired state computed after the rollout, not a predicted or observed outcome.",
+    "Shape is preserved, but reachability, collision, grasp and stability are not established.",
+    "Twist is not constrained by point coincidence plus a single axis; minimum-angle representative chosen.",
+    "Input-reference uncertainty remains; numerical constraint residuals are not physical accuracy."
+  ]
+}

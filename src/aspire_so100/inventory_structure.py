@@ -64,9 +64,11 @@ class InventoryStructureEnv(InventoryTowerEnv):
         shape = name.split('_', 1)[1]
         size = geom.size
         node = next(node for node in self.recipe.nodes if node.object_name == name)
-        vertical_axis = 0 if node.orientation == 'flat_x' else 2
+        # Unmarked cube faces are interchangeable, including in support graphs.
+        vertical_axis = (int(np.argmax(abs(rotation[2]))) if shape == 'cube'
+                         else 0 if node.orientation == 'flat_x' else 2)
         normal = rotation[:, vertical_axis].copy()
-        if node.orientation == 'flat_x' and normal[2] < 0:
+        if (shape == 'cube' or node.orientation == 'flat_x') and normal[2] < 0:
             normal *= -1
         horizontal_axes = [axis for axis in range(3) if axis != vertical_axis]
         dims = np.repeat(2*size[0], 2) if shape == 'cylinder' else 2*size[horizontal_axes]
@@ -110,6 +112,9 @@ class InventoryStructureEnv(InventoryTowerEnv):
             if node.orientation == 'flat_x':
                 if abs(rotation[2, 0]) < threshold or abs(rotation[0, 2]) < threshold:
                     reasons.append(name+': broad face is not flat with the long axis along X')
+            elif name.endswith('_cube'):
+                if models[name]['normal'][2] < threshold:
+                    reasons.append(name+': no cube face is upright')
             elif rotation[2, 2] < threshold:
                 reasons.append(name+': local Z axis is not upright')
             if self._objects_in_contact(name, 'robot'):

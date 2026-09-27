@@ -1,0 +1,787 @@
+{
+  "schema": "mixed_symbolic_scene_v1",
+  "coordinate_frame": "world",
+  "units": "meters",
+  "time": 123.24999999989416,
+  "objects": {
+    "blue": {
+      "status": "available",
+      "last_observed": 123.24999999989416,
+      "shape": "cube",
+      "center": [
+        -0.03246727345784855,
+        -0.28647607431204525,
+        0.4176779109019434
+      ],
+      "rotation": [
+        [
+          0.0010661958792392845,
+          0.9999994316130117,
+          -1.8733483172657016e-18
+        ],
+        [
+          -0.9999977457720758,
+          0.0010661940818018397,
+          0.0018362137529961138
+        ],
+        [
+          0.0018362127093161091,
+          -1.9577635368458488e-06,
+          0.9999983141581056
+        ]
+      ],
+      "axis_dimensions": [
+        0.02989498886066186,
+        0.02989498886066186,
+        0.02989498886066186
+      ],
+      "normal": [
+        -1.8733483172657016e-18,
+        0.0018362137529961138,
+        0.9999983141581056
+      ],
+      "top": 0.432625380133162,
+      "bottom": 0.4027029656278198,
+      "extent_z": 0.014974945274123574,
+      "constrained_axes": [
+        true,
+        false,
+        false
+      ],
+      "inferred_orientation": true,
+      "position_fully_observed": false,
+      "source": "mixed_rigid_rgbd_observation",
+      "view": "side",
+      "vertices_kind": "inferred_rigid_box_corners",
+      "change": {
+        "from_time": 90.04999999997153,
+        "to_time": 123.24999999989416,
+        "estimated_translation_m": [
+          -5.508448337494809e-05,
+          2.5495308215328638e-05,
+          -8.733152166262581e-06
+        ],
+        "both_positions_fully_observed": false,
+        "semantics": "difference_between_estimates_not_certified_physical_motion"
+      },
+      "prediction_residual": null,
+      "goal_error": {
+        "translation_to_goal_m": [
+          -0.0009273135554845949,
+          -0.0022783484198145576,
+          -0.0027278572960325875
+        ],
+        "distance_m": 0.0036731440728312295,
+        "position_fully_observed": false,
+        "desired_state_recorded_time": 0.6500000000000005,
+        "execution_certified": false
+      },
+      "references": {
+        "center": "blue.center",
+        "top_face": "blue.top_face",
+        "bottom_face": "blue.bottom_face"
+      }
+    },
+    "yellow": {
+      "status": "available",
+      "last_observed": 123.24999999989416,
+      "shape": "cube",
+      "center": [
+        0.026471971781124176,
+        -0.2867110255944048,
+        0.4148461035062002
+      ],
+      "rotation": [
+        [
+          0.9999916163797387,
+          -0.002813071909851501,
+          -0.0029755330054685317
+        ],
+        [
+          -0.002969350478462208,
+          0.0021994127399519244,
+          -0.9999931727473619
+        ],
+        [
+          0.0028195971294995765,
+          0.9999936245846914,
+          0.0021910413044892918
+        ]
+      ],
+      "axis_dimensions": [
+        0.029895366336043314,
+        0.029895366336043314,
+        0.029895366336043314
+      ],
+      "normal": [
+        -0.002813071909851501,
+        0.0021994127399519244,
+        0.9999936245846914
+      ],
+      "top": 0.4297936913765338,
+      "bottom": 0.3998236182000859,
+      "extent_z": 0.01502248530611433,
+      "constrained_axes": [
+        true,
+        true,
+        true
+      ],
+      "inferred_orientation": false,
+      "position_fully_observed": true,
+      "source": "mixed_rigid_rgbd_observation",
+      "view": "side",
+      "vertices_kind": "inferred_rigid_box_corners",
+      "change": {
+        "from_time": 90.04999999997153,
+        "to_time": 123.24999999989416,
+        "estimated_translation_m": [
+          0.0001398169264474336,
+          2.1542314904809956e-05,
+          -4.88918303155339e-05
+        ],
+        "both_positions_fully_observed": true,
+        "semantics": "difference_between_estimates_not_certified_physical_motion"
+      },
+      "prediction_residual": null,
+      "goal_error": {
+        "translation_to_goal_m": [
+          -7.658107313359905e-05,
+          -0.002043397137454994,
+          0.00010394867968949173
+        ],
+        "distance_m": 0.002047472063333404,
+        "position_fully_observed": true,
+        "desired_state_recorded_time": 29.649999999994446,
+        "execution_certified": false
+      },
+      "references": {
+        "center": "yellow.center",
+        "top_face": "yellow.top_face",
+        "bottom_face": "yellow.bottom_face"
+      }
+    },
+    "green": {
+      "status": "available",
+      "last_observed": 123.24999999989416,
+      "shape": "thin_prism",
+      "center": [
+        -0.003099617441700289,
+        -0.2820247712788219,
+        0.43711066412927296
+      ],
+      "rotation": [
+        [
+          0.00030854704701836864,
+          0.01744706166607708,
+          0.999847740827542
+        ],
+        [
+          0.004633108189207368,
+          -0.9998370820913773,
+          0.017445445924588132
+        ],
+        [
+          0.9999892194955038,
+          0.004627020015164717,
+          -0.00038933090346182067
+        ]
+      ],
+      "axis_dimensions": [
+        0.014892570710912767,
+        0.0294829837240993,
+        0.059055548756301465
+      ],
+      "normal": [
+        0.00030854704701836864,
+        0.004633108189207368,
+        0.9999892194955038
+      ],
+      "top": 0.4445568692100166,
+      "bottom": 0.4295847537955544,
+      "extent_z": 0.007525910333718577,
+      "constrained_axes": [
+        true,
+        true,
+        false
+      ],
+      "inferred_orientation": false,
+      "position_fully_observed": false,
+      "source": "mixed_rigid_rgbd_observation",
+      "view": "side",
+      "finite_center_width_m": [
+        0.0015395093067774868,
+        0.0024445707880291767,
+        1.000000000001e-06
+      ],
+      "finite_center_bounds_m": [
+        [
+          0.4355526105821407,
+          0.43709211988891816
+        ],
+        [
+          0.28369840590626644,
+          0.2861429766942956
+        ],
+        [
+          -0.008189874083030804,
+          -0.008188874083030803
+        ]
+      ],
+      "vertices_kind": "inferred_rigid_box_corners",
+      "change": {
+        "from_time": 90.54999999997037,
+        "to_time": 123.24999999989416,
+        "estimated_translation_m": [
+          -0.0004790934328528316,
+          0.0007211696178959781,
+          -0.00016470831364601146
+        ],
+        "both_positions_fully_observed": false,
+        "semantics": "difference_between_estimates_not_certified_physical_motion"
+      },
+      "prediction_residual": null,
+      "goal_error": {
+        "translation_to_goal_m": [
+          -0.000269364666579743,
+          -0.004594132449034005,
+          0.00023042209068657726
+        ],
+        "distance_m": 0.004607787389056181,
+        "position_fully_observed": false,
+        "desired_state_recorded_time": 60.100000000027485,
+        "execution_certified": false
+      },
+      "references": {
+        "center": "green.center",
+        "top_face": "green.top_face",
+        "bottom_face": "green.bottom_face"
+      }
+    },
+    "red": {
+      "status": "available",
+      "last_observed": 123.24999999989416,
+      "shape": "cylinder",
+      "center": [
+        -0.002519156581880616,
+        -0.2817114654458122,
+        0.47442885798904116
+      ],
+      "rotation": [
+        [
+          0.9999999340434704,
+          0.0,
+          0.0003631983682587935
+        ],
+        [
+          -1.7231221248133717e-06,
+          0.9999887457440375,
+          0.0047442999797136275
+        ],
+        [
+          -0.00036319428073139197,
+          -0.00474430029263121,
+          0.9999886797882503
+        ]
+      ],
+      "axis_dimensions": [
+        0.030508087686483325,
+        0.030508087686483325,
+        0.059912560570263625
+      ],
+      "normal": [
+        0.0003631983682587935,
+        0.0047442999797136275,
+        0.9999886797882503
+      ],
+      "top": 0.5043847991627369,
+      "bottom": 0.4444003352994538,
+      "extent_z": 0.030028522689587382,
+      "constrained_axes": [
+        true,
+        true,
+        true
+      ],
+      "inferred_orientation": false,
+      "position_fully_observed": true,
+      "source": "mixed_rigid_rgbd_observation",
+      "view": "side",
+      "vertices_kind": "sampled_model_rims_not_physical_vertices",
+      "change": {
+        "from_time": 123.24999999989416,
+        "to_time": 123.24999999989416,
+        "estimated_translation_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "both_positions_fully_observed": true,
+        "semantics": "difference_between_estimates_not_certified_physical_motion"
+      },
+      "prediction_residual": null,
+      "goal_error": {
+        "translation_to_goal_m": [
+          -0.00010136742696684143,
+          -0.0010344754509056808,
+          0.0002490766059488614
+        ],
+        "distance_m": 0.0010688563839016886,
+        "position_fully_observed": true,
+        "desired_state_recorded_time": 90.54999999997037,
+        "execution_certified": false
+      },
+      "references": {
+        "center": "red.center",
+        "top_face": "red.top_face",
+        "bottom_face": "red.bottom_face"
+      }
+    }
+  },
+  "desired_states": {
+    "blue": {
+      "kind": "desired_state",
+      "center": [
+        -0.033394587013333143,
+        -0.2887544227318598,
+        0.4149500536059108
+      ],
+      "rotation": null,
+      "recorded_time": 0.6500000000000005,
+      "execution_certified": false
+    },
+    "yellow": {
+      "kind": "desired_state",
+      "center": [
+        0.026395390707990577,
+        -0.2887544227318598,
+        0.4149500521858897
+      ],
+      "rotation": null,
+      "recorded_time": 29.649999999994446,
+      "execution_certified": false
+    },
+    "green": {
+      "kind": "desired_state",
+      "center": [
+        -0.003368982108280032,
+        -0.2866189037278559,
+        0.43734108621995954
+      ],
+      "rotation": null,
+      "recorded_time": 60.100000000027485,
+      "execution_certified": false
+    },
+    "red": {
+      "kind": "desired_state",
+      "center": [
+        -0.0026205240088474574,
+        -0.2827459408967179,
+        0.47467793459499
+      ],
+      "rotation": null,
+      "recorded_time": 90.54999999997037,
+      "execution_certified": false
+    }
+  },
+  "conditional_predictions": {},
+  "temporal_pose_fusion": false,
+  "contact_or_stability_certified": false,
+  "facts": [
+    {
+      "predicate": "above",
+      "arguments": [
+        "blue",
+        "yellow"
+      ],
+      "truth": "unknown",
+      "residuals": {
+        "center_z_difference_m": 0.00283180739574318
+      },
+      "semantics": "thresholds_on_current_estimated_geometry_not_physical_truth",
+      "contact_or_stability_certified": false,
+      "estimate_satisfies": true,
+      "required_geometry_observed": false
+    },
+    {
+      "predicate": "support_candidate",
+      "arguments": [
+        "blue",
+        "yellow"
+      ],
+      "truth": "unknown",
+      "residuals": {
+        "signed_surface_gap_m": -0.02694452746544515,
+        "projected_overlap_area_m2": 0.0,
+        "gap_tolerance_m": 0.004,
+        "overlap_approximation": "convex_XY_projection_with_sampled_cylinder_rims"
+      },
+      "semantics": "thresholds_on_current_estimated_geometry_not_physical_truth",
+      "contact_or_stability_certified": false,
+      "estimate_satisfies": false,
+      "required_geometry_observed": false
+    },
+    {
+      "predicate": "above",
+      "arguments": [
+        "blue",
+        "green"
+      ],
+      "truth": "unknown",
+      "residuals": {
+        "center_z_difference_m": -0.01943275322732957
+      },
+      "semantics": "thresholds_on_current_estimated_geometry_not_physical_truth",
+      "contact_or_stability_certified": false,
+      "estimate_satisfies": false,
+      "required_geometry_observed": false
+    },
+    {
+      "predicate": "support_candidate",
+      "arguments": [
+        "blue",
+        "green"
+      ],
+      "truth": "unknown",
+      "residuals": {
+        "signed_surface_gap_m": -0.04190240739281601,
+        "projected_overlap_area_m2": 0.00038520342812099024,
+        "gap_tolerance_m": 0.004,
+        "overlap_approximation": "convex_XY_projection_with_sampled_cylinder_rims"
+      },
+      "semantics": "thresholds_on_current_estimated_geometry_not_physical_truth",
+      "contact_or_stability_certified": false,
+      "estimate_satisfies": false,
+      "required_geometry_observed": false
+    },
+    {
+      "predicate": "above",
+      "arguments": [
+        "blue",
+        "red"
+      ],
+      "truth": "unknown",
+      "residuals": {
+        "center_z_difference_m": -0.05675094708709777
+      },
+      "semantics": "thresholds_on_current_estimated_geometry_not_physical_truth",
+      "contact_or_stability_certified": false,
+      "estimate_satisfies": false,
+      "required_geometry_observed": false
+    },
+    {
+      "predicate": "support_candidate",
+      "arguments": [
+        "blue",
+        "red"
+      ],
+      "truth": "unknown",
+      "residuals": {
+        "signed_surface_gap_m": -0.10173643524854484,
+        "projected_overlap_area_m2": 5.717407887493448e-07,
+        "gap_tolerance_m": 0.004,
+        "overlap_approximation": "convex_XY_projection_with_sampled_cylinder_rims"
+      },
+      "semantics": "thresholds_on_current_estimated_geometry_not_physical_truth",
+      "contact_or_stability_certified": false,
+      "estimate_satisfies": false,
+      "required_geometry_observed": false
+    },
+    {
+      "predicate": "above",
+      "arguments": [
+        "yellow",
+        "blue"
+      ],
+      "truth": "unknown",
+      "residuals": {
+        "center_z_difference_m": -0.00283180739574318
+      },
+      "semantics": "thresholds_on_current_estimated_geometry_not_physical_truth",
+      "contact_or_stability_certified": false,
+      "estimate_satisfies": false,
+      "required_geometry_observed": false
+    },
+    {
+      "predicate": "support_candidate",
+      "arguments": [
+        "yellow",
+        "blue"
+      ],
+      "truth": "unknown",
+      "residuals": {
+        "signed_surface_gap_m": -0.03277472036683978,
+        "projected_overlap_area_m2": 0.0,
+        "gap_tolerance_m": 0.004,
+        "overlap_approximation": "convex_XY_projection_with_sampled_cylinder_rims"
+      },
+      "semantics": "thresholds_on_current_estimated_geometry_not_physical_truth",
+      "contact_or_stability_certified": false,
+      "estimate_satisfies": false,
+      "required_geometry_observed": false
+    },
+    {
+      "predicate": "above",
+      "arguments": [
+        "yellow",
+        "green"
+      ],
+      "truth": "false",
+      "residuals": {
+        "center_z_difference_m": -0.02226456062307275
+      },
+      "semantics": "thresholds_on_current_estimated_geometry_not_physical_truth",
+      "contact_or_stability_certified": false,
+      "estimate_satisfies": false,
+      "required_geometry_observed": true
+    },
+    {
+      "predicate": "support_candidate",
+      "arguments": [
+        "yellow",
+        "green"
+      ],
+      "truth": "unknown",
+      "residuals": {
+        "signed_surface_gap_m": -0.04475382894503027,
+        "projected_overlap_area_m2": 0.0003660529731517165,
+        "gap_tolerance_m": 0.004,
+        "overlap_approximation": "convex_XY_projection_with_sampled_cylinder_rims"
+      },
+      "semantics": "thresholds_on_current_estimated_geometry_not_physical_truth",
+      "contact_or_stability_certified": false,
+      "estimate_satisfies": false,
+      "required_geometry_observed": false
+    },
+    {
+      "predicate": "above",
+      "arguments": [
+        "yellow",
+        "red"
+      ],
+      "truth": "false",
+      "residuals": {
+        "center_z_difference_m": -0.05958275448284095
+      },
+      "semantics": "thresholds_on_current_estimated_geometry_not_physical_truth",
+      "contact_or_stability_certified": false,
+      "estimate_satisfies": false,
+      "required_geometry_observed": true
+    },
+    {
+      "predicate": "support_candidate",
+      "arguments": [
+        "yellow",
+        "red"
+      ],
+      "truth": "false",
+      "residuals": {
+        "signed_surface_gap_m": -0.10458465518688806,
+        "projected_overlap_area_m2": 8.557057609911382e-06,
+        "gap_tolerance_m": 0.004,
+        "overlap_approximation": "convex_XY_projection_with_sampled_cylinder_rims"
+      },
+      "semantics": "thresholds_on_current_estimated_geometry_not_physical_truth",
+      "contact_or_stability_certified": false,
+      "estimate_satisfies": false,
+      "required_geometry_observed": true
+    },
+    {
+      "predicate": "above",
+      "arguments": [
+        "green",
+        "blue"
+      ],
+      "truth": "unknown",
+      "residuals": {
+        "center_z_difference_m": 0.01943275322732957
+      },
+      "semantics": "thresholds_on_current_estimated_geometry_not_physical_truth",
+      "contact_or_stability_certified": false,
+      "estimate_satisfies": true,
+      "required_geometry_observed": false
+    },
+    {
+      "predicate": "support_candidate",
+      "arguments": [
+        "green",
+        "blue"
+      ],
+      "truth": "unknown",
+      "residuals": {
+        "signed_surface_gap_m": -0.003004551414173702,
+        "projected_overlap_area_m2": 0.0003872169208918035,
+        "gap_tolerance_m": 0.004,
+        "overlap_approximation": "convex_XY_projection_with_sampled_cylinder_rims"
+      },
+      "semantics": "thresholds_on_current_estimated_geometry_not_physical_truth",
+      "contact_or_stability_certified": false,
+      "estimate_satisfies": true,
+      "required_geometry_observed": false
+    },
+    {
+      "predicate": "above",
+      "arguments": [
+        "green",
+        "yellow"
+      ],
+      "truth": "true",
+      "residuals": {
+        "center_z_difference_m": 0.02226456062307275
+      },
+      "semantics": "thresholds_on_current_estimated_geometry_not_physical_truth",
+      "contact_or_stability_certified": false,
+      "estimate_satisfies": true,
+      "required_geometry_observed": true
+    },
+    {
+      "predicate": "support_candidate",
+      "arguments": [
+        "green",
+        "yellow"
+      ],
+      "truth": "unknown",
+      "residuals": {
+        "signed_surface_gap_m": -0.00016447952438017642,
+        "projected_overlap_area_m2": 0.00037000946846286564,
+        "gap_tolerance_m": 0.004,
+        "overlap_approximation": "convex_XY_projection_with_sampled_cylinder_rims"
+      },
+      "semantics": "thresholds_on_current_estimated_geometry_not_physical_truth",
+      "contact_or_stability_certified": false,
+      "estimate_satisfies": true,
+      "required_geometry_observed": false
+    },
+    {
+      "predicate": "above",
+      "arguments": [
+        "green",
+        "red"
+      ],
+      "truth": "false",
+      "residuals": {
+        "center_z_difference_m": -0.0373181938597682
+      },
+      "semantics": "thresholds_on_current_estimated_geometry_not_physical_truth",
+      "contact_or_stability_certified": false,
+      "estimate_satisfies": false,
+      "required_geometry_observed": true
+    },
+    {
+      "predicate": "support_candidate",
+      "arguments": [
+        "green",
+        "red"
+      ],
+      "truth": "unknown",
+      "residuals": {
+        "signed_surface_gap_m": -0.07472532984927376,
+        "projected_overlap_area_m2": 0.0007196503136329671,
+        "gap_tolerance_m": 0.004,
+        "overlap_approximation": "convex_XY_projection_with_sampled_cylinder_rims"
+      },
+      "semantics": "thresholds_on_current_estimated_geometry_not_physical_truth",
+      "contact_or_stability_certified": false,
+      "estimate_satisfies": false,
+      "required_geometry_observed": false
+    },
+    {
+      "predicate": "above",
+      "arguments": [
+        "red",
+        "blue"
+      ],
+      "truth": "unknown",
+      "residuals": {
+        "center_z_difference_m": 0.05675094708709777
+      },
+      "semantics": "thresholds_on_current_estimated_geometry_not_physical_truth",
+      "contact_or_stability_certified": false,
+      "estimate_satisfies": true,
+      "required_geometry_observed": false
+    },
+    {
+      "predicate": "support_candidate",
+      "arguments": [
+        "red",
+        "blue"
+      ],
+      "truth": "unknown",
+      "residuals": {
+        "signed_surface_gap_m": 0.011811249288328444,
+        "projected_overlap_area_m2": 6.833137497709758e-07,
+        "gap_tolerance_m": 0.004,
+        "overlap_approximation": "convex_XY_projection_with_sampled_cylinder_rims"
+      },
+      "semantics": "thresholds_on_current_estimated_geometry_not_physical_truth",
+      "contact_or_stability_certified": false,
+      "estimate_satisfies": false,
+      "required_geometry_observed": false
+    },
+    {
+      "predicate": "above",
+      "arguments": [
+        "red",
+        "yellow"
+      ],
+      "truth": "true",
+      "residuals": {
+        "center_z_difference_m": 0.05958275448284095
+      },
+      "semantics": "thresholds_on_current_estimated_geometry_not_physical_truth",
+      "contact_or_stability_certified": false,
+      "estimate_satisfies": true,
+      "required_geometry_observed": true
+    },
+    {
+      "predicate": "support_candidate",
+      "arguments": [
+        "red",
+        "yellow"
+      ],
+      "truth": "false",
+      "residuals": {
+        "signed_surface_gap_m": 0.014709125172569022,
+        "projected_overlap_area_m2": 9.305073767993917e-06,
+        "gap_tolerance_m": 0.004,
+        "overlap_approximation": "convex_XY_projection_with_sampled_cylinder_rims"
+      },
+      "semantics": "thresholds_on_current_estimated_geometry_not_physical_truth",
+      "contact_or_stability_certified": false,
+      "estimate_satisfies": false,
+      "required_geometry_observed": true
+    },
+    {
+      "predicate": "above",
+      "arguments": [
+        "red",
+        "green"
+      ],
+      "truth": "true",
+      "residuals": {
+        "center_z_difference_m": 0.0373181938597682
+      },
+      "semantics": "thresholds_on_current_estimated_geometry_not_physical_truth",
+      "contact_or_stability_certified": false,
+      "estimate_satisfies": true,
+      "required_geometry_observed": true
+    },
+    {
+      "predicate": "support_candidate",
+      "arguments": [
+        "red",
+        "green"
+      ],
+      "truth": "unknown",
+      "residuals": {
+        "signed_surface_gap_m": -8.50331234720017e-05,
+        "projected_overlap_area_m2": 0.0007215331916107237,
+        "gap_tolerance_m": 0.004,
+        "overlap_approximation": "convex_XY_projection_with_sampled_cylinder_rims"
+      },
+      "semantics": "thresholds_on_current_estimated_geometry_not_physical_truth",
+      "contact_or_stability_certified": false,
+      "estimate_satisfies": true,
+      "required_geometry_observed": false
+    }
+  ],
+  "contact_state": "unknown_without_a_contact_sensor"
+}

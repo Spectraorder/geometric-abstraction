@@ -1,0 +1,57 @@
+{
+  "scope": "Development action-checkpoint integration; not a learning or held-out SR experiment.",
+  "seed": 75103,
+  "identical_physical_arrays": true,
+  "arms": {
+    "basic": {
+      "success": true,
+      "policy_error": null,
+      "camera_calls": 54,
+      "records": 12,
+      "labels": [
+        "before_pick",
+        "pick",
+        "place",
+        "settled",
+        "before_pick",
+        "pick",
+        "place",
+        "settled",
+        "before_pick",
+        "pick",
+        "place",
+        "settled"
+      ],
+      "max_record_chars": 714
+    },
+    "symbolic": {
+      "success": true,
+      "policy_error": null,
+      "camera_calls": 54,
+      "records": 12,
+      "labels": [
+        "before_pick",
+        "pick",
+        "place",
+        "settled",
+        "before_pick",
+        "pick",
+        "place",
+        "settled",
+        "before_pick",
+        "pick",
+        "place",
+        "settled"
+      ],
+      "max_record_chars": 512
+    }
+  },
+  "source_sha256": {
+    "basic/result.json": "616856f761afb4819e43b5aa17d600586fec9c6f7358b6c70ae637740e2de3e0",
+    "basic/geometry_records.json": "489735a93ab470849cf3765b90d172bc9d8f51c39bf3316229498746eecb12fc",
+    "basic/rollout.npz": "1acd5be41a3566b30d5189cd57757d46efc7a2e5fc73afe097bbf4f96f2612e6",
+    "symbolic/result.json": "bd3b0a9353091e575ae4800cebd88364810b627f4d618b9f423653b14fb886f7",
+    "symbolic/geometry_records.json": "5d27878e0ec4c20054f0b79ff07875809541b12e4303eb522f719f603f77d85a",
+    "symbolic/rollout.npz": "1acd5be41a3566b30d5189cd57757d46efc7a2e5fc73afe097bbf4f96f2612e6"
+  }
+}

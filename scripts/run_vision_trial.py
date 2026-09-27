@@ -26,6 +26,9 @@ from aspire_so100.tower_tasks import RECIPES, TowerRecipe, tower_recipe
 from aspire_so100.structure_tasks import STRUCTURE_RECIPES, structure_recipe
 from aspire_so100.tower import ORDER
 from aspire_so100.rgbd import depth_preview
+from aspire_so100.robot_geometry import robot_gripper_geometry
+from aspire_so100.pointing_exchange import PointingExchange
+from aspire_so100.simulation_settings import apply_contact_settings
 
 
 def pack(v):
@@ -143,12 +146,20 @@ def validate_source(source):
     forbidden={'open','exec','eval','compile','getattr','setattr','delattr','globals','locals','vars',
                '__import__','input','breakpoint','print','load','save','savez','savez_compressed','fromfile',
                'tofile','memmap','ctypeslib','ctypes','sys','os','subprocess'}
+    # NumPy I/O operation names can also be ordinary object variables. Reject
+    # I/O calls/imports/attributes, not an unrelated value named load or save.
+    io_names={'load','save','savez','savez_compressed','fromfile','tofile','memmap'}
+    forbidden_names=forbidden-io_names
     for n in ast.walk(tree):
+        if isinstance(n,ast.ImportFrom) and any(a.name in forbidden for a in n.names):
+            raise ValueError('Forbidden imported operation')
         if isinstance(n,(ast.Import,ast.ImportFrom)):
             names=[a.name for a in n.names] if isinstance(n,ast.Import) else [n.module or '']
             if any(x.split('.')[0] not in {'numpy','scipy','math'} for x in names):raise ValueError('Import outside numerical libraries')
         if isinstance(n,ast.Attribute) and (n.attr.startswith('_') or n.attr in forbidden):raise ValueError('Forbidden attribute')
-        if isinstance(n,ast.Name) and n.id in forbidden:raise ValueError('Forbidden name')
+        if isinstance(n,ast.Name) and n.id in forbidden_names:raise ValueError('Forbidden name: '+n.id)
+        if isinstance(n,ast.Call) and isinstance(n.func,ast.Name) and n.func.id in io_names:
+            raise ValueError('Forbidden operation: '+n.func.id)
     compile(tree,'<vision policy>','exec')
 
 
@@ -164,8 +175,22 @@ def main():
     p.add_argument('--tower-order', nargs='+', help='Explicit inventory object names, bottom to top')
     p.add_argument('--tower-levels', type=int, help='2..4 levels, for --tower-recipe random')
     p.add_argument('--object-count', type=int, help='Inventory sample size, default 6; inventory tasks only')
+    p.add_argument('--wrist-depth', action='store_true', help='Opt in to ideal wrist RGB-D; historical default is RGB only')
+    p.add_argument('--record-geometry', action='store_true', help='Save structured policy geometry diagnostics without returning evaluator state')
     p.add_argument('--sensor-blackout',action='store_true',help='Diagnostic: remove all policy RGB-D pixels; evaluation remains unchanged')
+    p.add_argument('--pointing-mailbox',type=Path,help='Optional RGB-only host mailbox; disabled by default')
+    p.add_argument('--pointing-timeout',type=float,default=240.)
+    p.add_argument('--noslip-iterations',type=int,default=0,help='Explicit contact-solver experiment, 0..100; default physics unchanged')
+    p.add_argument('--geometry-library',type=Path,help='Frozen numerical observation library for a controlled ablation')
     a=p.parse_args()
+    if not 0 <= a.noslip_iterations <= 100:
+        p.error('--noslip-iterations must be in [0,100]')
+    if a.noslip_iterations and a.task != 'inventory_tower':
+        p.error('Nondefault NoSlip experiments currently require --task inventory_tower')
+    if not np.isfinite(a.pointing_timeout) or not 0 < a.pointing_timeout <= 600:
+        p.error('--pointing-timeout must be in (0,600] seconds')
+    if a.pointing_mailbox and a.task != 'inventory_structure':
+        p.error('--pointing-mailbox requires --task inventory_structure')
     inventory = a.task in ('inventory_prism', 'inventory_tower', 'inventory_structure')
     if inventory != (a.layout == 'sampled'):
         p.error('Inventory tasks require --layout sampled; historical tasks use nominal/random_xy')
@@ -196,13 +221,20 @@ def main():
             p.error(str(error))
     a.output.mkdir(parents=True,exist_ok=False)
     validate_source(a.candidate.read_text())
+    geometry_digest = None
+    if a.geometry_library is not None:
+        validate_source(a.geometry_library.read_text())
+        geometry_digest = hashlib.sha256(a.geometry_library.read_bytes()).hexdigest()
     env=(RecordedInventoryStructureEnv(a.output, scene_seed=a.seed, object_count=a.object_count or 6,
                                       recipe=recipe.name, color_map=a.structure_color_map) if a.task == 'inventory_structure' else
          RecordedInventoryTowerEnv(a.output, scene_seed=a.seed, object_count=a.object_count or 6,
                                   recipe=recipe.name, recipe_order=recipe.order) if a.task == 'inventory_tower' else
          RecordedInventoryPrismEnv(a.output, scene_seed=a.seed, object_count=a.object_count or 6)
          if a.task=='inventory_prism' else (RecordedPrismEnv if a.task=='prism' else VisionTrialEnv)(a.output))
-    calls=[];error=None;images=[];cpu_profile=None
+    physics = apply_contact_settings(env.model, {'noslip_iterations': a.noslip_iterations})
+    calls=[];error=None;images=[];cpu_profile=None;geometry_records=[]
+    pointing = PointingExchange(a.pointing_mailbox, a.pointing_timeout) if a.pointing_mailbox else None
+    last_side_frame = None
     try:
         env.reset(a.seed, layout=a.layout);env.frames.clear();env.capture()
         start=float(env.data.time)
@@ -212,6 +244,9 @@ def main():
             shutil.copy(a.candidate,directory/'candidate.py')
             shutil.copy(Path(__file__).with_name('vision_policy_worker.py'),directory/'worker.py')
             cmd=policy_worker_command(directory,directory/'candidate.py')
+            if a.geometry_library is not None:
+                shutil.copy(a.geometry_library, directory/'geometry.py')
+                cmd.append(str(directory/'geometry.py'))
             if sys.platform == 'darwin':
                 (a.output/'sandbox.sb').write_text((directory/'policy.sb').read_text())
             else:
@@ -244,19 +279,48 @@ def main():
                                 view=params.get('view', 'side')
                                 if view not in ('side', 'wrist'):
                                     raise ValueError('camera view must be side or wrist')
-                                response=env.get_overhead_rgbd() if view=='side' else env.get_wrist_rgb()
+                                response=env.get_overhead_rgbd() if view=='side' else env.get_wrist_rgb(depth=a.wrist_depth)
                                 if a.sensor_blackout:
                                     response['rgb'][:]=0
-                                    if view=='side':
+                                    if 'depth_m' in response:
                                         response['depth_m'][:]=np.nan
                                         response['valid_depth'][:]=False
                                 i=len(images);filename=f'camera_{i:03d}.npz'
                                 np.savez_compressed(a.output/filename,**response)
                                 Image.fromarray(response['rgb']).save(a.output/f'camera_{i:03d}.png')
                                 images.append(filename)
+                                if view == 'side':
+                                    last_side_frame = response
+                            elif method=='point_target':
+                                if pointing is None:
+                                    raise ValueError('Pointing is disabled for this trial')
+                                if (last_side_frame is None or params['frame_time'] != last_side_frame['time']
+                                        or abs(float(last_side_frame['time'])-env.data.time) > 1e-9):
+                                    raise ValueError('Pointing requires the current side RGB observation')
+                                nodes = env.recipe.public_goal().get('nodes', [])
+                                if not any(all(params[k] == node[k] for k in ('color','shape','orientation')) for node in nodes):
+                                    raise ValueError('Pointing target must be a public task node')
+                                started = time.monotonic()
+                                try:
+                                    response = pointing.request(last_side_frame, params['color'], params['shape'], params['orientation'])
+                                    calls[-1]['observation'] = response
+                                finally:
+                                    # Simulation is paused while the hosted pointer answers.
+                                    deadline += time.monotonic() - started
                             elif method=='proprioception':
                                 response={'joint_angles':env.data.qpos[env.arm_qpos_addresses].copy(),'tool_position':env.data.site_xpos[env.site_id].copy(),'tool_rotation':env.data.site_xmat[env.site_id].reshape(3,3).copy(),'time':float(env.data.time)}
                                 calls[-1]['observation']={key: value.tolist() if isinstance(value,np.ndarray) else value for key,value in response.items()}
+                            elif method=='gripper_geometry':
+                                response=robot_gripper_geometry(env.model, env.data)
+                            elif method=='record_geometry':
+                                if not a.record_geometry:
+                                    raise ValueError('Geometry recording is disabled')
+                                record=params['record']
+                                encoded=json.dumps(record, allow_nan=False)
+                                if not isinstance(record, dict) or len(encoded)>131072:
+                                    raise ValueError('Geometry record must be an object of at most 128 KiB')
+                                geometry_records.append(record)
+                                (a.output/'geometry_records.json').write_text(json.dumps(geometry_records, indent=2)+'\n')
                             elif method=='task':
                                 if a.task not in ('inventory_tower', 'inventory_structure'):
                                     raise ValueError('Symbolic task descriptions require an inventory construction task')
@@ -299,11 +363,23 @@ def main():
         (a.output/'api_calls.json').write_text(json.dumps(calls,indent=2)+'\n')
         result={'seed':a.seed,'layout':a.layout,'task':a.task,'success':metrics.success,'policy_error':error,'policy_sim_seconds':policy_seconds,
                 'candidate_sha256':hashlib.sha256(a.candidate.read_bytes()).hexdigest(),'camera_calls':len(images),
-                'sensor_blackout':a.sensor_blackout,
+                'sensor_blackout':a.sensor_blackout,'wrist_depth':a.wrist_depth,
+                'geometry_record_count':len(geometry_records),'physics':physics,
                 'cpu_profile':cpu_profile,'robot_ik_cpu_seconds':getattr(env, 'robot_ik_cpu_seconds', 0.),
                 'metrics':asdict(metrics),'observation_contract':'Side RGB-D, wrist RGB, calibration + robot proprioception ONLY; evaluator results never returned to policy'}
+        if a.wrist_depth:
+            result['observation_contract'] = result['observation_contract'].replace('wrist RGB,', 'wrist RGB-D (ideal simulated depth),')
+        result['observation_contract'] += '; robot-model jaw pad geometry via gripper_geometry()'
         if inventory:
             result['scene'] = env.scene_metadata
+        if geometry_digest is not None:
+            result['geometry_library_sha256'] = geometry_digest
+        if pointing is not None:
+            result['pointing'] = {'enabled': True, 'request_count': len(pointing.records),
+                                  'host_wait_seconds': pointing.wait_seconds,
+                                  'records': pointing.records,
+                                  'inference': 'hosted RGB-only subagent; not CPU-only end-to-end'}
+            result['observation_contract'] += '; optional RGB-only pointing proposals via host RPC'
         if a.task in ('inventory_tower', 'inventory_structure'):
             result['goal'] = env.recipe.public_goal()
             result['sensor'] = {'depth_sampling': 'pixel_center', 'offscreen_samples': 0}

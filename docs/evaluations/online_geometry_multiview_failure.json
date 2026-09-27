@@ -1,0 +1,13 @@
+{
+  "source_trial": "outputs/online_geometry_pilot_01/symbolic/round_001/trials/seed_61001",
+  "frames": {
+    "initial": 0,
+    "side": 59,
+    "wrist": 60
+  },
+  "fixture_sha256": "48d5bd314d76e2771a8949183d09f91915e60825c4ba4080484f298fab5fff4a",
+  "finding": "Side fit fully observes the stacked green cube; wrist fit selects the green robot end-effector marker and constrains one inconsistent axis. Sequential same-time fusion corrupts an already constrained center.",
+  "marker_definition": "view_scene.py get_so100_spec: ee_site radius 0.004, rgba (0.1, 0.9, 0.2, 0.7).",
+  "policy_effect": "The selected first-round policy unnecessarily regrasped an already placed cube after reporting an approximately 80 mm lateral residual; private task evaluation still passed.",
+  "campaign_handling": "Frozen online pilot unchanged. Fixture supports future sensor-only consistency regression testing, not candidate repair."
+}

@@ -48,6 +48,19 @@ class InventoryTowerEnv(InventoryPrismEnv):
             extent = abs(rotation) @ geom.size
         return center-extent, center+extent
 
+    def support_frame(self, name):
+        """Private support plane; all faces of an unmarked cube are equivalent."""
+        geom = self.model.geom(f'{name}/{name}_geom')
+        rotation = self.data.geom_xmat[geom.id].reshape(3, 3)
+        cube = name.endswith('_cube') and geom.type[0] == mujoco.mjtGeom.mjGEOM_BOX
+        axis = int(np.argmax(abs(rotation[2]))) if cube else 2
+        normal = rotation[:, axis].copy()
+        if cube and normal[2] < 0:
+            normal *= -1
+        half_height = geom.size[1] if geom.type[0] == mujoco.mjtGeom.mjGEOM_CYLINDER else geom.size[axis]
+        top = self.data.geom_xpos[geom.id] + normal * half_height
+        return normal, top, [i for i in range(3) if i != axis]
+
     def support_margin(self, name, point):
         geom = self.model.geom(f'{name}/{name}_geom')
         rotation = self.data.geom_xmat[geom.id].reshape(3, 3)
@@ -56,7 +69,8 @@ class InventoryTowerEnv(InventoryPrismEnv):
             return float(geom.size[0]-np.linalg.norm(local[:2]))
         if geom.type[0] == mujoco.mjtGeom.mjGEOM_MESH:
             return -np.inf  # The upright wedge has no horizontal support face.
-        return float(np.min(geom.size[:2]-abs(local[:2])))
+        horizontal = self.support_frame(name)[2]
+        return float(np.min(geom.size[horizontal]-abs(local[horizontal])))
 
     def structure_status(self, names):
         names = list(names)
@@ -69,9 +83,10 @@ class InventoryTowerEnv(InventoryPrismEnv):
                 reasons.append(name+': translating')
             if np.linalg.norm(state['angular_velocity']) > .10:
                 reasons.append(name+': rotating')
-            up = self.data.xmat[self.model.body(f'{name}/{name}').id].reshape(3, 3)[:, 2]
+            up = self.support_frame(name)[0]
             if up[2] < math.cos(math.radians(8)):
-                reasons.append(name+': local Z axis is not upright')
+                reason = 'no cube face is upright' if name.endswith('_cube') else 'local Z axis is not upright'
+                reasons.append(name+': '+reason)
             if self._objects_in_contact(name, 'robot'):
                 reasons.append(name+': still touching robot')
             for other in self.objects:
@@ -87,12 +102,10 @@ class InventoryTowerEnv(InventoryPrismEnv):
             bodies = [self.model.body(f'{n}/{n}').id for n in names[i+1:]]
             com = np.average(self.data.xipos[bodies], axis=0, weights=self.model.body_mass[bodies])
             # Project the upper substack COM onto the lower object's top plane.
-            geom = self.model.geom(f'{lower}/{lower}_geom')
-            up = self.data.geom_xmat[geom.id].reshape(3, 3)[:, 2]
+            up, top, _ = self.support_frame(lower)
             if abs(up[2]) < .5:
                 reasons.append(lower+': support face is not horizontal')
                 continue
-            top = self.data.geom_xpos[geom.id] + up*(geom.size[1] if geom.type[0] == mujoco.mjtGeom.mjGEOM_CYLINDER else geom.size[2])
             com = com.copy()
             com[2] = top[2] - np.dot(up[:2], com[:2]-top[:2])/up[2]
             if self.support_margin(lower, com) < .003:

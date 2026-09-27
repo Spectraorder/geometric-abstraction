@@ -1,0 +1,5 @@
+{
+  "source_trial": "outputs/mixed_pnp_development_03/seed_75003",
+  "held_camera": "camera_040.npz",
+  "purpose": "Recorded RGB-D only: regression for shared mixed observer export and pre-release geometry. No object truth included."
+}

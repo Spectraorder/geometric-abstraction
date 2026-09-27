@@ -12,3 +12,6 @@ wheels/
 # Local simulator artifacts
 outputs/
 MUJOCO_LOG.TXT
+
+#apikey
+.apikey

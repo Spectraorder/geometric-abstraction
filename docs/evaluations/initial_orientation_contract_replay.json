@@ -1,0 +1,427 @@
+{
+  "scope": "Same saved R0 training side RGB-D and calibration, same sensor-fitted table, frozen numeric observer. Only descriptor orientation differs. No robot actions or reserved scenes.",
+  "limits": "Unmasked initial side frames; this isolates orientation dispatch, not a full session or side-plus-wrist replay. No simulator object truth or physical success claim.",
+  "protocol_sha256": "5b8289ee1a3155d5dd9f0512b1e1b18916676c0a1225285132afaf0ed1c976e3",
+  "auditor_sha256": "547abf5c388ac47bb5817a0b385cb1e711a36caebe304b8aa91d6392c412a982",
+  "available_counts": {
+    "public_orientation": 14,
+    "shape_color_only": 10
+  },
+  "pairs": 15,
+  "rows": [
+    {
+      "replica": "replica_01",
+      "seed": 78001,
+      "beam_color": "red",
+      "public_initial_orientation": "flat_x",
+      "cases": {
+        "public_orientation": {
+          "available": true,
+          "center": [
+            -0.0005115964971867487,
+            -0.1985169095833128,
+            0.40744809403072
+          ],
+          "height": 0.014890845827866206,
+          "position_fully_observed": false
+        },
+        "shape_color_only": {
+          "available": false,
+          "error": "No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]"
+        }
+      },
+      "camera_sha256": "6735b49a8f0fc0c9b39a3bf89cc78cbc2102ebc38233b962baeb10de80380c4e",
+      "library_sha256": "e7ff806c11806442abfca1a1e56791d19e9730eabd885b1b580571762315f14a"
+    },
+    {
+      "replica": "replica_01",
+      "seed": 78002,
+      "beam_color": "blue",
+      "public_initial_orientation": "flat_x",
+      "cases": {
+        "public_orientation": {
+          "available": true,
+          "center": [
+            -0.1000739700648449,
+            -0.3647934153278738,
+            0.4074494506901769
+          ],
+          "height": 0.014893500306880192,
+          "position_fully_observed": false
+        },
+        "shape_color_only": {
+          "available": true,
+          "center": [
+            -0.09958767397578783,
+            -0.36494896195666005,
+            0.40744797774898545
+          ],
+          "height": 0.014897237095126248,
+          "position_fully_observed": false
+        }
+      },
+      "camera_sha256": "6396731ab14bf7baaf7a6e3a09f03f33c3f3950a0a615002740852ecf8866307",
+      "library_sha256": "e7ff806c11806442abfca1a1e56791d19e9730eabd885b1b580571762315f14a"
+    },
+    {
+      "replica": "replica_01",
+      "seed": 78003,
+      "beam_color": "yellow",
+      "public_initial_orientation": "flat_x",
+      "cases": {
+        "public_orientation": {
+          "available": true,
+          "center": [
+            -0.09581522288674635,
+            -0.35828314757051943,
+            0.4074486590706044
+          ],
+          "height": 0.014892164524844542,
+          "position_fully_observed": false
+        },
+        "shape_color_only": {
+          "available": true,
+          "center": [
+            -0.09545080425399372,
+            -0.3583770070774079,
+            0.4074475767815623
+          ],
+          "height": 0.014896710810796854,
+          "position_fully_observed": false
+        }
+      },
+      "camera_sha256": "417653899b42176711e2bade97a933de40c791a24855faccb61ce4d4ed8d83d2",
+      "library_sha256": "e7ff806c11806442abfca1a1e56791d19e9730eabd885b1b580571762315f14a"
+    },
+    {
+      "replica": "replica_01",
+      "seed": 78004,
+      "beam_color": "green",
+      "public_initial_orientation": "flat_x",
+      "cases": {
+        "public_orientation": {
+          "available": true,
+          "center": [
+            0.1058814292306179,
+            -0.2763227337561734,
+            0.4074478803497284
+          ],
+          "height": 0.01489147435517374,
+          "position_fully_observed": false
+        },
+        "shape_color_only": {
+          "available": true,
+          "center": [
+            0.10623226821262793,
+            -0.27650373576840265,
+            0.4074344666353157
+          ],
+          "height": 0.014896286974348694,
+          "position_fully_observed": false
+        }
+      },
+      "camera_sha256": "6a3886dc3f022558205cf82a34b53e8cf98ed7f167da60a688822539db262d18",
+      "library_sha256": "e7ff806c11806442abfca1a1e56791d19e9730eabd885b1b580571762315f14a"
+    },
+    {
+      "replica": "replica_01",
+      "seed": 78005,
+      "beam_color": "red",
+      "public_initial_orientation": "flat_x",
+      "cases": {
+        "public_orientation": {
+          "available": true,
+          "center": [
+            -0.0002974839781853913,
+            -0.2786186993312589,
+            0.40744927581742335
+          ],
+          "height": 0.014891365001738766,
+          "position_fully_observed": false
+        },
+        "shape_color_only": {
+          "available": false,
+          "error": "No usable current view: [{'view': 'side', 'reason': 'Occluded face has insufficient consistent depth samples: red'}]"
+        }
+      },
+      "camera_sha256": "da8df95ad13ac7ae28d0993fcf237a17ab76484462d01afb49160dcdc7e23e1b",
+      "library_sha256": "e7ff806c11806442abfca1a1e56791d19e9730eabd885b1b580571762315f14a"
+    },
+    {
+      "replica": "replica_02",
+      "seed": 78101,
+      "beam_color": "red",
+      "public_initial_orientation": "flat_x",
+      "cases": {
+        "public_orientation": {
+          "available": false,
+          "error": "No usable current view: [{'view': 'side', 'reason': 'Top silhouette is not a flat thin prism'}]"
+        },
+        "shape_color_only": {
+          "available": false,
+          "error": "No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]"
+        }
+      },
+      "camera_sha256": "a90b09da6ae2676967a17f16bf0c9072fe454e87745ae2d60ec554fe198a56d6",
+      "library_sha256": "e7ff806c11806442abfca1a1e56791d19e9730eabd885b1b580571762315f14a"
+    },
+    {
+      "replica": "replica_02",
+      "seed": 78102,
+      "beam_color": "blue",
+      "public_initial_orientation": "flat_x",
+      "cases": {
+        "public_orientation": {
+          "available": true,
+          "center": [
+            0.09842897368462666,
+            -0.1994248525203629,
+            0.4074485594539313
+          ],
+          "height": 0.01489170503484244,
+          "position_fully_observed": false
+        },
+        "shape_color_only": {
+          "available": false,
+          "error": "No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]"
+        }
+      },
+      "camera_sha256": "23b0e051117ea1692d06e9500bb9caaebbc86b410063e2b118288f3f9f49c4fa",
+      "library_sha256": "e7ff806c11806442abfca1a1e56791d19e9730eabd885b1b580571762315f14a"
+    },
+    {
+      "replica": "replica_02",
+      "seed": 78103,
+      "beam_color": "yellow",
+      "public_initial_orientation": "flat_x",
+      "cases": {
+        "public_orientation": {
+          "available": true,
+          "center": [
+            0.0064195277356492355,
+            -0.27447446270003023,
+            0.40744859306248915
+          ],
+          "height": 0.014890571227515248,
+          "position_fully_observed": false
+        },
+        "shape_color_only": {
+          "available": true,
+          "center": [
+            0.006593085327847837,
+            -0.27447720633044453,
+            0.407446591241914
+          ],
+          "height": 0.014895844423465199,
+          "position_fully_observed": false
+        }
+      },
+      "camera_sha256": "df4d1a9d1a723c470113b642737b334f70ee50762b3ff45a29fa02f93eb586b3",
+      "library_sha256": "e7ff806c11806442abfca1a1e56791d19e9730eabd885b1b580571762315f14a"
+    },
+    {
+      "replica": "replica_02",
+      "seed": 78104,
+      "beam_color": "green",
+      "public_initial_orientation": "flat_x",
+      "cases": {
+        "public_orientation": {
+          "available": true,
+          "center": [
+            0.10108552357652605,
+            -0.20564766564263293,
+            0.40744897383559336
+          ],
+          "height": 0.014893286360800728,
+          "position_fully_observed": false
+        },
+        "shape_color_only": {
+          "available": false,
+          "error": "No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]"
+        }
+      },
+      "camera_sha256": "c7347244cd7c5910dfc01adde61ddbbc2c91c0d79287927f2c37db3152a8f603",
+      "library_sha256": "e7ff806c11806442abfca1a1e56791d19e9730eabd885b1b580571762315f14a"
+    },
+    {
+      "replica": "replica_02",
+      "seed": 78105,
+      "beam_color": "red",
+      "public_initial_orientation": "flat_x",
+      "cases": {
+        "public_orientation": {
+          "available": true,
+          "center": [
+            -0.10164507740042758,
+            -0.2808136205490465,
+            0.4074479856673507
+          ],
+          "height": 0.014890381837342148,
+          "position_fully_observed": false
+        },
+        "shape_color_only": {
+          "available": true,
+          "center": [
+            -0.10123912321123053,
+            -0.2810573842933954,
+            0.40744571222040826
+          ],
+          "height": 0.014895434937598706,
+          "position_fully_observed": false
+        }
+      },
+      "camera_sha256": "0faa32ed58485f61960278c30bd74f0895be4b0b1402d70a7b5749ec507b2b23",
+      "library_sha256": "e7ff806c11806442abfca1a1e56791d19e9730eabd885b1b580571762315f14a"
+    },
+    {
+      "replica": "replica_03",
+      "seed": 78201,
+      "beam_color": "red",
+      "public_initial_orientation": "flat_x",
+      "cases": {
+        "public_orientation": {
+          "available": true,
+          "center": [
+            0.10151274384829434,
+            -0.3577710944193379,
+            0.4074480224444431
+          ],
+          "height": 0.014891446342671422,
+          "position_fully_observed": false
+        },
+        "shape_color_only": {
+          "available": true,
+          "center": [
+            0.10163242566776225,
+            -0.3579408190076472,
+            0.40744531939347733
+          ],
+          "height": 0.014896345706293224,
+          "position_fully_observed": false
+        }
+      },
+      "camera_sha256": "90b6dabc9f18a02602cc816cbb8bd93af82f4247a9896b573a4946ec331679fb",
+      "library_sha256": "e7ff806c11806442abfca1a1e56791d19e9730eabd885b1b580571762315f14a"
+    },
+    {
+      "replica": "replica_03",
+      "seed": 78202,
+      "beam_color": "blue",
+      "public_initial_orientation": "flat_x",
+      "cases": {
+        "public_orientation": {
+          "available": true,
+          "center": [
+            -0.10294158960730024,
+            -0.36448754141331474,
+            0.4074480612830367
+          ],
+          "height": 0.014890927191422876,
+          "position_fully_observed": false
+        },
+        "shape_color_only": {
+          "available": true,
+          "center": [
+            -0.10256854535483782,
+            -0.3646065038400983,
+            0.40744625514574606
+          ],
+          "height": 0.014896041963970874,
+          "position_fully_observed": false
+        }
+      },
+      "camera_sha256": "86773860d25d7e623ab5bd2d7b8e24e3c25a443c0de1c6cdad9ad9dfacad3009",
+      "library_sha256": "e7ff806c11806442abfca1a1e56791d19e9730eabd885b1b580571762315f14a"
+    },
+    {
+      "replica": "replica_03",
+      "seed": 78203,
+      "beam_color": "yellow",
+      "public_initial_orientation": "flat_x",
+      "cases": {
+        "public_orientation": {
+          "available": true,
+          "center": [
+            -0.09971762123330405,
+            -0.2812886962560581,
+            0.4074494504679797
+          ],
+          "height": 0.014893319579154629,
+          "position_fully_observed": false
+        },
+        "shape_color_only": {
+          "available": true,
+          "center": [
+            -0.09924392537926578,
+            -0.28141291854667183,
+            0.4074465194698609
+          ],
+          "height": 0.014897519511349044,
+          "position_fully_observed": false
+        }
+      },
+      "camera_sha256": "d1e8be2c8d20ebd9ac05469c6e535c99f008da6862d8302130d10cf823c1db63",
+      "library_sha256": "e7ff806c11806442abfca1a1e56791d19e9730eabd885b1b580571762315f14a"
+    },
+    {
+      "replica": "replica_03",
+      "seed": 78204,
+      "beam_color": "green",
+      "public_initial_orientation": "flat_x",
+      "cases": {
+        "public_orientation": {
+          "available": true,
+          "center": [
+            0.10261488110472462,
+            -0.20546149910329425,
+            0.40744866680453923
+          ],
+          "height": 0.014891779182729492,
+          "position_fully_observed": false
+        },
+        "shape_color_only": {
+          "available": true,
+          "center": [
+            0.10292624315864986,
+            -0.20493106421391674,
+            0.40744593891932646
+          ],
+          "height": 0.014895664287327692,
+          "position_fully_observed": false
+        }
+      },
+      "camera_sha256": "ec3c8c8f36e461271da96f3fde9fdb2de93425d3c3446eddba29d4c9db74d50b",
+      "library_sha256": "e7ff806c11806442abfca1a1e56791d19e9730eabd885b1b580571762315f14a"
+    },
+    {
+      "replica": "replica_03",
+      "seed": 78205,
+      "beam_color": "red",
+      "public_initial_orientation": "flat_x",
+      "cases": {
+        "public_orientation": {
+          "available": true,
+          "center": [
+            -0.09810816783793823,
+            -0.36578562218795224,
+            0.407448915418904
+          ],
+          "height": 0.014892686962831858,
+          "position_fully_observed": false
+        },
+        "shape_color_only": {
+          "available": true,
+          "center": [
+            -0.09774109089057068,
+            -0.36584819184223166,
+            0.4074469700088742
+          ],
+          "height": 0.014896720573999378,
+          "position_fully_observed": false
+        }
+      },
+      "camera_sha256": "58b7262fad52fb4bc51ca6c79aae3e49020a498cedfeb73bfe4a8c610aee6192",
+      "library_sha256": "e7ff806c11806442abfca1a1e56791d19e9730eabd885b1b580571762315f14a"
+    }
+  ]
+}

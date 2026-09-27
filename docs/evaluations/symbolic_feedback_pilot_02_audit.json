@@ -1,0 +1,18 @@
+{
+  "shared_baseline_executed": 5,
+  "candidate_rollouts_executed": 15,
+  "candidate_validation_slots": 15,
+  "reserved_rollouts_executed": 20,
+  "arms": {
+    "raw": {
+      "exact_frozen_prefix_and_unedited_actor_code": true,
+      "frozen_before_reserved_result": true
+    },
+    "symbolic": {
+      "exact_frozen_prefix_and_unedited_actor_code": true,
+      "frozen_before_reserved_result": true
+    }
+  },
+  "invalidated_pilot_reserved_trials": 0,
+  "both_first_proposals_preserved_exactly": true
+}

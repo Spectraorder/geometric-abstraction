@@ -1,0 +1,231 @@
+{
+  "label": "final",
+  "time": 99.19999999995021,
+  "coordinate_frame": "world",
+  "units": "meters_radians",
+  "target_anchor_label": "blue_1 after withdrawal center=[-0.0206, -0.238, 0.415]",
+  "errors": {
+    "blue": {
+      "translation_to_goal_m": [
+        2.3388152663995215e-05,
+        0.00040316399563739,
+        -0.000527754646292844
+      ],
+      "center_error_m": 0.0006645398255537622,
+      "xy_error_m": 0.00040384181688297185,
+      "rotation_error_rad": 0.0003379403754576305,
+      "vertex_rms_m": 0.0006645782253035294,
+      "pose_fully_observed": false,
+      "interpretation": "visual_estimate_not_contact_or_stability_truth"
+    },
+    "red": {
+      "translation_to_goal_m": [
+        -0.0005982320119664354,
+        0.0008219893870327066,
+        4.81454258084435e-05
+      ],
+      "center_error_m": 0.0010177750608862896,
+      "xy_error_m": 0.0010166356734523012,
+      "rotation_error_rad": 0.019072660038245707,
+      "vertex_rms_m": 0.00109471529907567,
+      "pose_fully_observed": false,
+      "interpretation": "visual_estimate_not_contact_or_stability_truth"
+    },
+    "green": {
+      "translation_to_goal_m": [
+        0.0002692245754695004,
+        0.0004964004839072278,
+        0.0005499168256682396
+      ],
+      "center_error_m": 0.0007882282839464058,
+      "xy_error_m": 0.0005647081657458679,
+      "rotation_error_rad": 0.018574604343499987,
+      "vertex_rms_m": 0.0008806034230335512,
+      "pose_fully_observed": true,
+      "interpretation": "visual_estimate_not_contact_or_stability_truth"
+    }
+  },
+  "relations": {
+    "red_on_blue": {
+      "lowest_vertex_gap_m": -0.0005831537216986806,
+      "projected_center_margin_m": 0.014326108201468046,
+      "both_poses_fully_observed": false,
+      "contact_or_stability_certified": false
+    },
+    "green_on_red": {
+      "lowest_vertex_gap_m": -0.0005111085536752105,
+      "projected_center_margin_m": 0.01407981761108877,
+      "both_poses_fully_observed": false,
+      "contact_or_stability_certified": false
+    }
+  },
+  "objects": {
+    "blue": {
+      "center": [
+        -0.020661536604122843,
+        -0.23837683569798637,
+        0.4154732240023147
+      ],
+      "rotation": [
+        [
+          0.9998273655696193,
+          0.01857848698819678,
+          0.0002808546673794583
+        ],
+        [
+          0.018578435417185686,
+          -0.9998273888350437,
+          0.00018512900275071656
+        ],
+        [
+          0.0002842456054968805,
+          -0.0001798792028112553,
+          -0.9999999434239525
+        ]
+      ],
+      "height": 0.02989653746467669,
+      "selected_view": "side",
+      "observed_face_count": 2,
+      "position_fully_observed": false,
+      "inferred_orientation": false
+    },
+    "red": {
+      "center": [
+        -0.020039820152206435,
+        -0.23879573518815983,
+        0.44479260689774675
+      ],
+      "rotation": [
+        [
+          0.9999998723796859,
+          -0.0005050904487891704,
+          1.1146763227435545e-05
+        ],
+        [
+          -0.0005050901825266437,
+          -0.999999872156893,
+          -2.3876881538622762e-05
+        ],
+        [
+          1.1158821787210732e-05,
+          2.3871248370774518e-05,
+          -0.9999999996528222
+        ]
+      ],
+      "height": 0.029894028470883773,
+      "selected_view": "side",
+      "observed_face_count": 2,
+      "position_fully_observed": false,
+      "inferred_orientation": false
+    },
+    "green": {
+      "center": [
+        -0.020907180456280552,
+        -0.2384702203807926,
+        0.4741849000921026
+      ],
+      "rotation": [
+        [
+          -0.0004820593207394072,
+          0.9999998838093701,
+          2.4132812027711404e-07
+        ],
+        [
+          -0.00013118153099390162,
+          -3.0456543371819583e-07,
+          0.9999999913956568
+        ],
+        [
+          0.9999998752051016,
+          0.0004820592849336427,
+          0.0001311816625701876
+        ]
+      ],
+      "height": 0.029894100718041366,
+      "selected_view": "side",
+      "observed_face_count": 3,
+      "position_fully_observed": true,
+      "inferred_orientation": false
+    }
+  },
+  "targets": {
+    "blue": {
+      "center": [
+        -0.020638148451458848,
+        -0.23797367170234898,
+        0.41494546935602183
+      ],
+      "rotation": [
+        [
+          -0.018566479198263968,
+          -0.9998276280638613,
+          3.220818685036499e-06
+        ],
+        [
+          0.9998276280658277,
+          -0.01856647920628502,
+          -2.478611030900038e-06
+        ],
+        [
+          2.5379830510606363e-06,
+          3.174244426144348e-06,
+          0.9999999999917415
+        ]
+      ],
+      "support": "table",
+      "source": "constructed_task_goal_from_visual_geometry"
+    },
+    "red": {
+      "center": [
+        -0.02063805216417287,
+        -0.23797374580112712,
+        0.4448407523235552
+      ],
+      "rotation": [
+        [
+          -0.018566479198263968,
+          -0.9998276280638613,
+          3.220818685036499e-06
+        ],
+        [
+          0.9998276280658277,
+          -0.01856647920628502,
+          -2.478611030900038e-06
+        ],
+        [
+          2.5379830510606363e-06,
+          3.174244426144348e-06,
+          0.9999999999917415
+        ]
+      ],
+      "support": "blue",
+      "source": "constructed_task_goal_from_visual_geometry"
+    },
+    "green": {
+      "center": [
+        -0.020637955880811052,
+        -0.23797381989688537,
+        0.47473481691777086
+      ],
+      "rotation": [
+        [
+          -0.018566479198263968,
+          -0.9998276280638613,
+          3.220818685036499e-06
+        ],
+        [
+          0.9998276280658277,
+          -0.01856647920628502,
+          -2.478611030900038e-06
+        ],
+        [
+          2.5379830510606363e-06,
+          3.174244426144348e-06,
+          0.9999999999917415
+        ]
+      ],
+      "support": "red",
+      "source": "constructed_task_goal_from_visual_geometry"
+    }
+  }
+}

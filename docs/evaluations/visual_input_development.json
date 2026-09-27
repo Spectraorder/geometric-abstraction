@@ -1,0 +1,39 @@
+{
+  "scope": "Paired visual-input interface check; no model calls or learning claims.",
+  "root": "outputs/visual_input_development_01",
+  "identical_physics": true,
+  "arms": {
+    "basic": {
+      "success": true,
+      "policy_error": null,
+      "camera_calls": 51,
+      "checkpoints": 12,
+      "motion_calls": 56,
+      "no_supplied_object_geometry_in_checkpoints": true
+    },
+    "symbolic": {
+      "success": true,
+      "policy_error": null,
+      "camera_calls": 51,
+      "checkpoints": 12,
+      "motion_calls": 56
+    },
+    "basic_blackout": {
+      "success": false,
+      "policy_error": "RuntimeError: RuntimeError: Insufficient tabletop depth.",
+      "camera_calls": 1,
+      "checkpoints": 0,
+      "motion_calls": 0
+    }
+  },
+  "sha256": {
+    "basic_blackout/api_calls.json": "4c152eb8bf77d357bf995748faef47902863f7a1bc918a08ded72d85f3420ec6",
+    "basic_blackout/result.json": "f44f2d994a599265e13d7b73152539e21e5a2def067b904cb7438bd667f8560b",
+    "symbolic/api_calls.json": "a5fa785fd58458baf52cce726a0a17ae1bb9b29277f668a51ba53488bd3fa709",
+    "symbolic/result.json": "ccfeaddc3a59faa3441e0adcbef21b2a930dcaad4b28373621317425474a151d",
+    "symbolic/geometry_records.json": "3521ef5d3cec521ab55e8d43f88499669135970667c5a25450064092471f687d",
+    "basic/api_calls.json": "4887edfb2ddd2c28f590a85e3363e07a3d090dffb13df9cb08a4f81669957000",
+    "basic/result.json": "475bc88bc90ff80755e675cf30a72309fa246a954d1855910852d2787fbde079",
+    "basic/geometry_records.json": "b75f7be428785ae9119f57d1ffeb451c2181ab0cb70c24c36de86ee89ebb254a"
+  }
+}

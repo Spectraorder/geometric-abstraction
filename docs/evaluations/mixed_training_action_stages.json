@@ -1,0 +1,3649 @@
+{
+  "scope": "All registered training slots only; no reserved outcomes or simulator object states.",
+  "interpretation": "Command-phase localization, not a diagnosis of physical grasp, contact, stability or causal failure. Revisions and repeated layouts are dependent.",
+  "protocol_sha256": "5b8289ee1a3155d5dd9f0512b1e1b18916676c0a1225285132afaf0ed1c976e3",
+  "auditor_sha256": "d4596052971ac66ebf0523d9e8757405af3ed950c545af3e13f5b3743f9c1a57",
+  "counts_by_arm": {
+    "numeric": {
+      "successful_task": 15,
+      "closed_after_placement_descent": 23,
+      "after_release_opening": 6,
+      "no_actuation": 15,
+      "after_unconfirmed_grasp_reopening": 1
+    },
+    "symbolic": {
+      "successful_task": 22,
+      "closed_after_placement_descent": 19,
+      "after_release_opening": 7,
+      "no_actuation": 12
+    }
+  },
+  "total_slots": 120,
+  "rows": [
+    {
+      "replica": "replica_01",
+      "arm": "numeric",
+      "revision": 0,
+      "seed": 78001,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "right: released",
+        "beam: released",
+        "cap: released"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "e89439ef874d36ef72aa55126cb67210fd7f4d6947f6ad8d743e2a04be6dfc10",
+        "api_calls.json": "1aefe12bf1bcbafdf86263654d8c3330be1a4c4ce84906a8d4d6b0183d5da7e6"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "numeric",
+      "revision": 0,
+      "seed": 78002,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Visible cuboid extent contradicts learned dimensions'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'joint_correspondence', 'reason': 'No current view establishes two independent cuboid faces'}]",
+      "notes": [
+        "right: released"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6
+      ],
+      "worker_failures": [
+        "ValueError: No usable current view: [{'view': 'side', 'reason': 'Visible cuboid extent contradicts learned dimensions'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'joint_correspondence', 'reason': 'No current view establishes two independent cuboid faces'}]"
+      ],
+      "source_sha256": {
+        "result.json": "cf54427b11b2c801d721be871a674e42d6b577814bcfcdf378b1a3a1706ce3e8",
+        "api_calls.json": "71d0940c48316d7b7b6da48b7ace6fffff770ce6c5e38bf9d4c89a3e96116b7f"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "numeric",
+      "revision": 0,
+      "seed": 78003,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "right: released",
+        "beam: released",
+        "cap: released"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "527b0d8ebffe116a4dc2275965f04516330290640cb792f488eada700d9a704b",
+        "api_calls.json": "8ae807474f0ac66a2845096a05b20c5de25492a527ea17da5b4e11ab777f2877"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "numeric",
+      "revision": 0,
+      "seed": 78004,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "right: placement_unconfirmed"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "5b2cfcb763025bfe3582190dbee8e56cfd4a4aed73bd8376dd2dd953ae3a4f6f",
+        "api_calls.json": "f8add90d23da1c6fcbfeaa01f467d9d64ec5f313824dd410f34a93d76f2eba44"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "numeric",
+      "revision": 0,
+      "seed": 78005,
+      "category": "after_release_opening",
+      "success": false,
+      "policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Curved surface does not constrain a cylinder center'}, {'view': 'wrist', 'reason': 'Curved surface does not constrain a cylinder center'}]",
+      "notes": [
+        "right: released",
+        "beam: released"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        2.0,
+        2.0,
+        1.8
+      ],
+      "worker_failures": [
+        "ValueError: No usable current view: [{'view': 'side', 'reason': 'Curved surface does not constrain a cylinder center'}, {'view': 'wrist', 'reason': 'Curved surface does not constrain a cylinder center'}]"
+      ],
+      "source_sha256": {
+        "result.json": "61b38358e17f72bdc21fb1b658b5a4763288195c2057abd08965a82bd4031482",
+        "api_calls.json": "bf2e652dec6a4b8680cd2afe3b9671522b318ca75a85b0026d74402ee5e64132"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "numeric",
+      "revision": 1,
+      "seed": 78001,
+      "category": "no_actuation",
+      "success": false,
+      "policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]",
+      "notes": [],
+      "last_gripper_command": null,
+      "subsequent_move_durations": [],
+      "worker_failures": [
+        "ValueError: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]"
+      ],
+      "source_sha256": {
+        "result.json": "6fb7c8c3460427b4425b855cf54af7de316f68356cd13c1f92cb7b2ae79be475",
+        "api_calls.json": "70780bb5d9b393c8647cfaf3fbb0986f063d4af64dad6f7df5ff3934a2caf24d"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "numeric",
+      "revision": 1,
+      "seed": 78002,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "left: lift_visually_confirmed",
+        "left: released",
+        "beam: lift_visually_confirmed",
+        "beam: placement interrupted; executor state unconfirmed: No usable current view: [{'view': 'side', 'reason': 'Occluded face has insufficient consistent depth samples: blue'}, {'view': 'wrist', 'reason': 'No usable visible cuboid: blue'}, {'view': 'joint_correspondence', 'reason': 'No current view establishes two independent cuboid faces'}]"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "d22fafd298783cc3b4cff24878ce68cad6fe638132ee0000357eb90c123a9b01",
+        "api_calls.json": "8b161f87d0a176eb22189b964ea52c0919fbabd9097032d3827749a07f8a6c33"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "numeric",
+      "revision": 1,
+      "seed": 78003,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "left: lift_visually_confirmed",
+        "left: released",
+        "right: lift_visually_confirmed",
+        "right: released",
+        "beam: lift_visually_confirmed",
+        "beam: released",
+        "cap: lift_visually_confirmed",
+        "cap: released",
+        "Construction sequence released; final snapshot contains estimates, not a contact or success certificate."
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "ed2099e15d9dc1c23ef9262be5f13ead357556943954b04a5ae33cdf35d18ebc",
+        "api_calls.json": "a4a6ceddf227cc1896d1e6bd002ee84be8e5b2ebb5bc0936d1b95b0bd48f33bd"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "numeric",
+      "revision": 1,
+      "seed": 78004,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "right: lift_visually_confirmed",
+        "right: placement_unconfirmed",
+        "right: placement_unconfirmed",
+        "right: placement_unconfirmed"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "96be28b0df9a8474a878823fd41de99f163f68bc3a77314f635165977e4e40e8",
+        "api_calls.json": "c2098810e93e1d02d3ba50c68e5258bb0e71e0a3083aa8eaf8a417d05bb95ee0"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "numeric",
+      "revision": 1,
+      "seed": 78005,
+      "category": "no_actuation",
+      "success": false,
+      "policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Occluded face has insufficient consistent depth samples: red'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]",
+      "notes": [],
+      "last_gripper_command": null,
+      "subsequent_move_durations": [],
+      "worker_failures": [
+        "ValueError: No usable current view: [{'view': 'side', 'reason': 'Occluded face has insufficient consistent depth samples: red'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]"
+      ],
+      "source_sha256": {
+        "result.json": "6e7983dc616ad3e79b18f41fc046a9c39ab8094ddb82c2055e42b6db7474c798",
+        "api_calls.json": "30340a76e97e0ffdf777cc1d3783a568928b4970d09a4922b0b1a8e62d901592"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "numeric",
+      "revision": 2,
+      "seed": 78001,
+      "category": "no_actuation",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "Initial dimension acquisition unavailable: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]"
+      ],
+      "last_gripper_command": null,
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "830c07fce5db5fb5ec3f000736f851ca6944fd39a14c45e75f84ae073ac22c66",
+        "api_calls.json": "f5b21a8e4ade75b879474388de1b4d366552e4807baf67408448b9c2d93355a6"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "numeric",
+      "revision": 2,
+      "seed": 78002,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "left: lift_visually_confirmed",
+        "left: released",
+        "right: lift_visually_confirmed",
+        "right: released",
+        "beam: lift_visually_confirmed",
+        "beam: placement interrupted; state unknown: Observed object is too far from the expected tool neighborhood"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "415d30c67b5b74f679db10f91340e5091c4d89518c5df48f9d01ab577659e041",
+        "api_calls.json": "73f6cb9fed47998e7e13685c7e648115218fb4e428b1beffa8481b7f0a4a0df9"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "numeric",
+      "revision": 2,
+      "seed": 78003,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "left: lift_visually_confirmed",
+        "left: released",
+        "right: lift_visually_confirmed",
+        "right: placement interrupted; state unknown: Observed object is too far from the expected tool neighborhood"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "5f6c4b1b654c10a149a97fc0e1b6154263e6fb4c38082026c0af41257824e5b8",
+        "api_calls.json": "b71919df7ca46221aa539c66261498eba959cc3368d5b07374dd21880c9ef6ee"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "numeric",
+      "revision": 2,
+      "seed": 78004,
+      "category": "after_unconfirmed_grasp_reopening",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "left: lift_visually_confirmed",
+        "left: released",
+        "right: lift_visually_confirmed",
+        "right: released",
+        "beam: grasp_unconfirmed",
+        "beam: grasp_unconfirmed"
+      ],
+      "last_gripper_command": {
+        "angle": 0.8,
+        "seconds": 0.5
+      },
+      "subsequent_move_durations": [
+        1.5,
+        1.5
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "cb4e3e1351d35bbe552af7b23fad28291ad76b1c961cee8fcb5a8d5a4bf0cab6",
+        "api_calls.json": "3eb6dd25329d637d41980980bb360e6c6c785f700d6247e0b98b0c9b9ecaecf1"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "numeric",
+      "revision": 2,
+      "seed": 78005,
+      "category": "no_actuation",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "Initial dimension acquisition unavailable: No usable current view: [{'view': 'side', 'reason': 'Occluded face has insufficient consistent depth samples: red'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]"
+      ],
+      "last_gripper_command": null,
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "6c6993929989e0f111d60b69d3c744897f5e0452fd681661bdc50e00164577f7",
+        "api_calls.json": "c85c0adda81a2988bba366ca9f40d5d43e829055e5df4b9464da1c19e0ad5a84"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "numeric",
+      "revision": 3,
+      "seed": 78001,
+      "category": "no_actuation",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "Initial dimension acquisition unavailable: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]"
+      ],
+      "last_gripper_command": null,
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "faa30baff2db827fa5fb7437937aea0d3aff70954c4e7abf03a045098761969d",
+        "api_calls.json": "d159e5e10bc46d169291bd7a0b95ea32c5cfc5ead3cc29ff7dba400eccceab74"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "numeric",
+      "revision": 3,
+      "seed": 78002,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "right: lift_visually_confirmed",
+        "right: released",
+        "beam: lift_visually_confirmed",
+        "beam: placement interrupted; executor state unknown: No usable current view: [{'view': 'side', 'reason': 'Visible cuboid extent contradicts learned dimensions'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'joint_correspondence', 'reason': 'No current view establishes two independent cuboid faces'}]"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "71c5f4f93ccd2c7211f524dfc525744ccec385faccca027938fddcd402de53fb",
+        "api_calls.json": "85a49cbe58f2fa17482a353a2ff15f5121ed3ce1b103c08b26685824ac02fb14"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "numeric",
+      "revision": 3,
+      "seed": 78003,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "right: lift_visually_confirmed",
+        "right: released",
+        "beam: lift_visually_confirmed",
+        "beam: released",
+        "cap: lift_visually_confirmed",
+        "cap: released",
+        "Graph construction released; snapshots are geometric estimates, not a success certificate."
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "c764c8e6b9bbf9bcd1b9b7968216091eb1e2188d0aefad3b8809b034e1a59d84",
+        "api_calls.json": "7e045f07ecb1ebf83efda789c1ebbac6ad569e725c2f3a20a9e584d6986e9deb"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "numeric",
+      "revision": 3,
+      "seed": 78004,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "right: lift_visually_confirmed",
+        "right: placement_unconfirmed",
+        "right: placement_unconfirmed",
+        "right: placement_unconfirmed"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "e40373398584c094b7b3de8134da951086c3dcac6518157f8ba72e5e1df31e25",
+        "api_calls.json": "051066e93d1ae3170e5b80544327c9b0bf3b58ee4253c5f496c590f22fcc763a"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "numeric",
+      "revision": 3,
+      "seed": 78005,
+      "category": "no_actuation",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "Initial dimension acquisition unavailable: No usable current view: [{'view': 'side', 'reason': 'Occluded face has insufficient consistent depth samples: red'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]"
+      ],
+      "last_gripper_command": null,
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "3fef10a6e99e05a91e2bd86aa5df315b5a7afb669d6b1e9bff0576b919a0823b",
+        "api_calls.json": "d61b9baeffc459eec09b8982425ce757ee4cfcb6964281db2aaaa1a248ddbbb5"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "symbolic",
+      "revision": 0,
+      "seed": 78001,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "right: released",
+        "beam: released",
+        "cap: released"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "72f6946bed27eabfd357eccef26a933ae588b0c75a54632f122dfe3a445595c5",
+        "api_calls.json": "70d11b1f4aad913ed3e0a9b3390040412c9446ebc37e976f3b1a2a61b7e90b74"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "symbolic",
+      "revision": 0,
+      "seed": 78002,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Visible cuboid extent contradicts learned dimensions'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'joint_correspondence', 'reason': 'No current view establishes two independent cuboid faces'}]",
+      "notes": [
+        "right: released"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6
+      ],
+      "worker_failures": [
+        "ValueError: No usable current view: [{'view': 'side', 'reason': 'Visible cuboid extent contradicts learned dimensions'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'joint_correspondence', 'reason': 'No current view establishes two independent cuboid faces'}]"
+      ],
+      "source_sha256": {
+        "result.json": "70dd239dec6dab8d0cc30f3209daf5635e0de656d3b3a0347db5a0a19a1757b2",
+        "api_calls.json": "50eb0cb7fbbda92f834ceca40d74be02041722449e8b6976232f3b06feca41bb"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "symbolic",
+      "revision": 0,
+      "seed": 78003,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "right: released",
+        "beam: released",
+        "cap: released"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "d649008cdf9955e0c198d2113a62b9a900ee7ad31c3c7e452c39392ad572ba8d",
+        "api_calls.json": "8508a71b66874b9acab8ddb171c5bf8a71229ec5727964a16cd0cdc7b2091164"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "symbolic",
+      "revision": 0,
+      "seed": 78004,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "right: placement_unconfirmed"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "2cbce84df2fdf504317c9aae813b8d4c502b2e55cf22adf0be5c4012df21ef59",
+        "api_calls.json": "31e2323ad854c2515b57600c872ed4024dd8c6ce701a7325d36822b0b75a7837"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "symbolic",
+      "revision": 0,
+      "seed": 78005,
+      "category": "after_release_opening",
+      "success": false,
+      "policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Curved surface does not constrain a cylinder center'}, {'view': 'wrist', 'reason': 'Curved surface does not constrain a cylinder center'}]",
+      "notes": [
+        "right: released",
+        "beam: released"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        2.0,
+        2.0,
+        1.8
+      ],
+      "worker_failures": [
+        "ValueError: No usable current view: [{'view': 'side', 'reason': 'Curved surface does not constrain a cylinder center'}, {'view': 'wrist', 'reason': 'Curved surface does not constrain a cylinder center'}]"
+      ],
+      "source_sha256": {
+        "result.json": "3d4dcffde10fe4eacd978892e3c28591e3691c7e6d628c13a8478ea31954bb35",
+        "api_calls.json": "add24c70615a4eb66ae440b505b752c1835492a3b0cb2a42214ac1b90d6894f7"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "symbolic",
+      "revision": 1,
+      "seed": 78001,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "Preserving foundation left; worksite selected from measured source clearance and camera distance.",
+        "right: lift_visually_confirmed",
+        "right: released",
+        "beam: lift_visually_confirmed",
+        "beam: released",
+        "cap: lift_visually_confirmed",
+        "cap: released",
+        "beam on left: estimated support candidate unknown",
+        "beam on right: estimated support candidate unknown",
+        "cap on beam: estimated support candidate unknown"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "e16007a08bfd1854c65fdb6b3cb94232d9d9fabe3d6497cb55f81ccdacaba67a",
+        "api_calls.json": "9866d3247496f0f73d1bd39177741ac47aa7691faafb020be3399d822cdc9560"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "symbolic",
+      "revision": 1,
+      "seed": 78002,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "Preserving foundation right; worksite selected from measured source clearance and camera distance.",
+        "left: lift_visually_confirmed",
+        "left: released",
+        "beam: lift_visually_confirmed",
+        "beam: place interrupted; executor state not established: No usable current view: [{'view': 'side', 'reason': 'Visible cuboid extent contradicts learned dimensions'}, {'view': 'wrist', 'reason': 'No usable visible cuboid: blue'}, {'view': 'joint_correspondence', 'reason': 'No current view establishes two independent cuboid faces'}]"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "822561c63f0c5384c29b9320e3fea45fcd2cdac6d9ad15971b44c82276633bd7",
+        "api_calls.json": "9063c32108c6acc9e8258738c4a5ef76117125b8dc22589692d29b7924601ab1"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "symbolic",
+      "revision": 1,
+      "seed": 78003,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "Preserving foundation right; worksite selected from measured source clearance and camera distance.",
+        "left: lift_visually_confirmed",
+        "left: released",
+        "beam: lift_visually_confirmed",
+        "beam: released",
+        "cap: lift_visually_confirmed",
+        "cap: released",
+        "beam on left: estimated support candidate unknown",
+        "beam on right: estimated support candidate unknown",
+        "cap on beam: estimated support candidate unknown"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "ff4bc23a3184b6344a95a6b5d23ae1f06a5bbae8b0e0f108b549876f751e0690",
+        "api_calls.json": "9e209bc0952c525276b7c2197b6d6a3ed2762cba4d80b294447121641a8ebc00"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "symbolic",
+      "revision": 1,
+      "seed": 78004,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "Preserving foundation left; worksite selected from measured source clearance and camera distance.",
+        "right: lift_visually_confirmed",
+        "right: placement_unconfirmed",
+        "right: placement_unconfirmed",
+        "right: placement_unconfirmed"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "2397717cad7253f1c5276a55832b6bbd9add2a3ff809c7e95e342e13a0d0787f",
+        "api_calls.json": "cf5fdfbaaf646129f9be2fdc6d42e9ca485a03322898f89787eece4a59c51e60"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "symbolic",
+      "revision": 1,
+      "seed": 78005,
+      "category": "after_release_opening",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "Preserving foundation left; worksite selected from measured source clearance and camera distance.",
+        "right: lift_visually_confirmed",
+        "right: released",
+        "beam: lift_visually_confirmed",
+        "beam: released",
+        "cap: lift_visually_confirmed",
+        "cap: place interrupted; executor state not established: No usable current view: [{'view': 'side', 'reason': 'Curved surface does not constrain a cylinder center'}, {'view': 'wrist', 'reason': 'Curved surface does not constrain a cylinder center'}]"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        2.0,
+        2.0,
+        1.8
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "d80d0b5097c981d4fba5c9b1db3818e54b177564dd958909e7bae36dba8fb039",
+        "api_calls.json": "c0c9b8a71d1fc7f6319b8b5b83765526ee2510c2e8c18e773eee5333df08b66f"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "symbolic",
+      "revision": 2,
+      "seed": 78001,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "Selected sensor-derived worksite; anchor=None; predicted maximum IK error=0.002333077902979733",
+        "left: lift_visually_confirmed",
+        "left: released; xy_error=0.002320776001935773; gap=0.0003930787393406354",
+        "right: lift_visually_confirmed",
+        "right: released; xy_error=0.0020687783519046715; gap=-0.00013750759347297414",
+        "beam: lift_visually_confirmed",
+        "beam: released; xy_error=0.0018771209823249758; gap=0.00016813831041179172",
+        "cap: lift_visually_confirmed",
+        "cap: released; xy_error=0.00285580686152404; gap=0.00016947580501908144",
+        "beam on left: estimated support candidate unknown",
+        "beam on right: estimated support candidate unknown",
+        "cap on beam: estimated support candidate unknown"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "e7b8fc5fed493702e08d0da3b1a708a2651be93f09c5873b9f0449f6ea059b8c",
+        "api_calls.json": "a3a47d44df7e173e9ccc48005e9faebd5b040d0811e29e951d28959538c8c52c"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "symbolic",
+      "revision": 2,
+      "seed": 78002,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "Selected sensor-derived worksite; anchor=None; predicted maximum IK error=0.002288355582982453",
+        "left: lift_visually_confirmed",
+        "left: released; xy_error=0.0021077096519598873; gap=1.0610608090266815e-05",
+        "right: lift_visually_confirmed",
+        "right: released; xy_error=0.002225837568949955; gap=-0.0001953542155943011",
+        "beam: lift_visually_confirmed",
+        "beam: place interrupted; executor state unknown: No usable current view: [{'view': 'side', 'reason': 'Occluded face has insufficient consistent depth samples: blue'}, {'view': 'wrist', 'reason': 'No usable visible cuboid: blue'}, {'view': 'joint_correspondence', 'reason': 'No current view establishes two independent cuboid faces'}]"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "fb1602b1a880488a50b6aa90f2693e61dfa505570827d306d47f0842d0c163f8",
+        "api_calls.json": "c667e0d4c35f029b3c2e5edfdafe9855e39ad1bd60ccc11d2ebc683a6493031e"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "symbolic",
+      "revision": 2,
+      "seed": 78003,
+      "category": "after_release_opening",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "Selected sensor-derived worksite; anchor=None; predicted maximum IK error=0.0028635024599423984",
+        "left: lift_visually_confirmed",
+        "left: released; xy_error=0.0016390506172972803; gap=0.001259617301078042",
+        "right: lift_visually_confirmed",
+        "right: released; xy_error=0.0016469076960067624; gap=0.000846434783118466",
+        "beam: lift_visually_confirmed",
+        "beam: released; xy_error=0.0016385652195735822; gap=0.0018905358210090095",
+        "Current geometry unavailable for green: No usable current view: [{'view': 'side', 'reason': 'Insufficient visible object depth: green'}, {'view': 'wrist', 'reason': 'Insufficient visible object depth: green'}]"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        2.0,
+        2.0,
+        1.8
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "771ebf4051a17cd3f4c173c3d97f38c67a48369551abe73ff84a2ad1260d3230",
+        "api_calls.json": "07edea52f905c25b3f7bc62bd0eeb896122eb6a4a893653c542a9cb99c02107d"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "symbolic",
+      "revision": 2,
+      "seed": 78004,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "Selected sensor-derived worksite; anchor=None; predicted maximum IK error=0.002471355441197805",
+        "left: lift_visually_confirmed",
+        "left: released; xy_error=0.0011284483770947348; gap=0.0005667908281322132",
+        "right: lift_visually_confirmed",
+        "right: released; xy_error=0.001879458333566928; gap=0.0006184352184130382",
+        "beam: lift_visually_confirmed",
+        "beam: released; xy_error=0.0017937437205355182; gap=0.0006608007659525961",
+        "cap: lift_visually_confirmed",
+        "cap: released; xy_error=0.0032445177395205777; gap=0.0004837526994606045",
+        "beam on left: estimated support candidate unknown",
+        "beam on right: estimated support candidate true",
+        "cap on beam: estimated support candidate true"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "1df964c726a55cd0a2cc510689ea251b612dfac1d9e7b436fe195c55998c95b5",
+        "api_calls.json": "a0de46475ceb9882a1a81cfc667473d0b3295f5df79d6885dcda1056ecc7f295"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "symbolic",
+      "revision": 2,
+      "seed": 78005,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "Selected sensor-derived worksite; anchor=None; predicted maximum IK error=0.002660264281770973",
+        "left: lift_visually_confirmed",
+        "left: released; xy_error=0.00093545014825565; gap=0.0010510852138329585",
+        "right: lift_visually_confirmed",
+        "right: released; xy_error=0.0016201559473151253; gap=0.0006288715979433923",
+        "beam: lift_visually_confirmed",
+        "beam: released; xy_error=0.0024425174670844505; gap=0.0009527346779105716",
+        "cap: lift_visually_confirmed",
+        "cap: released; xy_error=0.0031890259125554776; gap=2.7749843958146947e-05",
+        "beam on left: estimated support candidate unknown",
+        "beam on right: estimated support candidate unknown",
+        "cap on beam: estimated support candidate unknown"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "7dffdee600d295a0fa14e2e0f8997b4f2af086d9c8b25da23c2d3ecc3af8556d",
+        "api_calls.json": "672bde83bb5978843e85197630c57d4ed5f2aee385a8edd0d07846368e9aefa3"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "symbolic",
+      "revision": 3,
+      "seed": 78001,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "Selected clear worksite with short beam transfer; anchor=None; predicted IK error=0.002379302674995619",
+        "left: lift_visually_confirmed",
+        "left: released; xy_error=0.0020910480114540502; gap=0.00035001460733263823",
+        "right: lift_visually_confirmed",
+        "right: released; xy_error=0.002189745662414137; gap=0.0004102653506908305",
+        "beam: lift_visually_confirmed",
+        "beam: released; xy_error=0.0018136871888780944; gap=0.0004635595181621821",
+        "cap: lift_visually_confirmed",
+        "cap: released; xy_error=0.0029860751297442166; gap=0.0007353726253706006",
+        "beam on left: estimated support candidate unknown",
+        "beam on right: estimated support candidate unknown",
+        "cap on beam: estimated support candidate unknown"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "5ab61f576dd49e1e37a750dfc4b2cdf8a3136814713222cfc56df63fca19097d",
+        "api_calls.json": "72d5e3acd253ed6e387f64174371f4a97432a9a9ff30cce9a38018f11991ef3b"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "symbolic",
+      "revision": 3,
+      "seed": 78002,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "Selected clear worksite with short beam transfer; anchor=None; predicted IK error=0.002442649885512025",
+        "left: lift_visually_confirmed",
+        "left: released; xy_error=0.0022372179515219933; gap=0.005404193614690078",
+        "right: lift_visually_confirmed",
+        "right: released; xy_error=0.0022420083369761733; gap=0.0064380554530076295",
+        "beam: lift_visually_confirmed",
+        "beam: place interrupted; executor state unknown: Observed object is too far from the expected tool neighborhood"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6,
+        1.3
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "81816dedb5de000d9aefae67e0954f5e21591deed6bd206da0b2a53079d98761",
+        "api_calls.json": "f8ee4e136da5ec3e663e4960553b32885126b0e7710db17ded174e997b20f450"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "symbolic",
+      "revision": 3,
+      "seed": 78003,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "Selected clear worksite with short beam transfer; anchor=None; predicted IK error=0.002287972714022445",
+        "left: lift_visually_confirmed",
+        "left: released; xy_error=0.0012223445070373912; gap=-0.0002853064742971978",
+        "right: lift_visually_confirmed",
+        "right: released; xy_error=0.0023681126666117063; gap=-4.1187487325122785e-05",
+        "beam: lift_visually_confirmed",
+        "beam: place interrupted; executor state unknown: Observed object is too far from the expected tool neighborhood"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "9fe96a67097fc1741f3694685b723992834e2e1027a36608b56138c94e1c0d98",
+        "api_calls.json": "1fd3282467d74b2b819839f6467e16062609406d44f423ab90e4773e4c4340de"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "symbolic",
+      "revision": 3,
+      "seed": 78004,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "Selected clear worksite with short beam transfer; anchor=None; predicted IK error=0.002571203772703713",
+        "left: lift_visually_confirmed",
+        "left: released; xy_error=0.0018948108112906118; gap=0.0010783794962223592",
+        "right: lift_visually_confirmed",
+        "right: released; xy_error=0.0018777308708212437; gap=0.0003396842378958209",
+        "beam: lift_visually_confirmed",
+        "beam: released; xy_error=0.0018418102938542954; gap=0.0007837051544301032",
+        "cap: lift_visually_confirmed",
+        "cap: released; xy_error=0.003043552636282114; gap=9.996950091617496e-05",
+        "beam on left: estimated support candidate unknown",
+        "beam on right: estimated support candidate unknown",
+        "cap on beam: estimated support candidate unknown"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "d92b60ec8f3104c665fa179ac8dc4b6d791bee41ba083e4e1d0ea34bb2ccf205",
+        "api_calls.json": "ed307a2791a28414587ea6664be98911bb1ada52f0a97f1ceda9d6fed1519971"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "arm": "symbolic",
+      "revision": 3,
+      "seed": 78005,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "Selected clear worksite with short beam transfer; anchor=None; predicted IK error=0.0032762979296051633",
+        "left: lift_visually_confirmed",
+        "left: released; xy_error=0.001701060770575326; gap=0.0013130256445525457",
+        "right: lift_visually_confirmed",
+        "right: released; xy_error=0.0019369247974147705; gap=0.0013706626915901965",
+        "beam: lift_visually_confirmed",
+        "beam: released; xy_error=0.0018887038369078046; gap=0.0013628598161394834",
+        "cap: lift_visually_confirmed",
+        "cap: released; xy_error=0.0037689574504961923; gap=0.0005603833791364421",
+        "beam on left: estimated support candidate unknown",
+        "beam on right: estimated support candidate true",
+        "cap on beam: estimated support candidate true"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "23487111282a3bcbd6e36533bc9c8c6d47dc62df374ae1672ea8faf6ad3739c9",
+        "api_calls.json": "f03bd07d5fc7647b1018d6f373f5e079c5b19979f5700455d072b5ae26500538"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "numeric",
+      "revision": 0,
+      "seed": 78101,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "right: released",
+        "beam: placement_unconfirmed"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "170c94df6531a2e21adde932a314688a64c863ba0b3ff4320f98eda0afe8d316",
+        "api_calls.json": "40dd1f7409d4514adddd194bc98388ab9d1a86c856a79a53eb817dc682b95e04"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "numeric",
+      "revision": 0,
+      "seed": 78102,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "right: released",
+        "beam: placement_unconfirmed"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "1fd15aaf5f084daf200c4229ddc589688ec28ab5956d7f976987dc896f4de1d2",
+        "api_calls.json": "c5cde16a913327078a344b8c55db774ef89ab9264e864231ca74f9431f043cc6"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "numeric",
+      "revision": 0,
+      "seed": 78103,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "right: released",
+        "beam: released",
+        "cap: released"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "e98870cf1d521c0a828f5e795bc99887fcddbc8a5dd174683839703aacabd503",
+        "api_calls.json": "19302511a1c08eda987909ef3821ec36d6575d0a38b29f7cc3107b520eb2550b"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "numeric",
+      "revision": 0,
+      "seed": 78104,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "right: placement_unconfirmed"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "3031b899b82d1014e618e56cc34aef889001018ab8b4e5a2a55f40f7ad0c3652",
+        "api_calls.json": "cec81a8ef0fbc0a7ccbd71b2300b6f6486c97ae4630b1fa653f6811282a05997"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "numeric",
+      "revision": 0,
+      "seed": 78105,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "right: placement_unconfirmed"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "508549081462ef4734226722ea646f685d06abedf6b2711373ec72e2e12a4209",
+        "api_calls.json": "103c52e75da95039008c89243f5858158fac96550964469e07237f137ed387c2"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "numeric",
+      "revision": 1,
+      "seed": 78101,
+      "category": "no_actuation",
+      "success": false,
+      "policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]",
+      "notes": [],
+      "last_gripper_command": null,
+      "subsequent_move_durations": [],
+      "worker_failures": [
+        "ValueError: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]"
+      ],
+      "source_sha256": {
+        "result.json": "3aa38d2f50b1f83c0d17ce11a9c33d5159d9ffeb514255014036f49e0ec192e5",
+        "api_calls.json": "95883f8ac5034eacc33cbfe52db3d9737ac17285f27a6d0bbf8eab3d49143153"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "numeric",
+      "revision": 1,
+      "seed": 78102,
+      "category": "after_release_opening",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "right: released",
+        "left: released",
+        "beam: pick exception; executor state not established: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'No usable visible cuboid: blue'}, {'view': 'joint_correspondence', 'reason': 'No current view establishes two independent cuboid faces'}]"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        2.0,
+        2.0,
+        1.8
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "c3a6a9e72416980ab76c84b544f87379a28b2d14e5b3f4fce1e35196a8b9256e",
+        "api_calls.json": "71ee2c1b9610a3b8a18f5b73fcd0196f710d69e9ac1cf9833d09cce5f320374c"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "numeric",
+      "revision": 1,
+      "seed": 78103,
+      "category": "after_release_opening",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "right: released",
+        "beam: place exception; stopping with uncertain executor state: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'joint_correspondence', 'reason': 'No current view establishes two independent cuboid faces'}]"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        2.0,
+        2.0,
+        1.8
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "1d3adc00e706ca31744345c2e12ca402b01d33d18995750ffe36f8affb48ba4a",
+        "api_calls.json": "9e9c30773bb51519ef470b4ccb237670abf9a7595b65085dc2a3001c4c61c394"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "numeric",
+      "revision": 1,
+      "seed": 78104,
+      "category": "no_actuation",
+      "success": false,
+      "policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]",
+      "notes": [],
+      "last_gripper_command": null,
+      "subsequent_move_durations": [],
+      "worker_failures": [
+        "ValueError: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]"
+      ],
+      "source_sha256": {
+        "result.json": "829502a26a6df73afdcdd782d017d50e82e202ca2ec5e09405db40900e7018db",
+        "api_calls.json": "2702c19b065f8d7f5bd90f28d21a6d3efbe8735692a9b95e0797b8a91389b62d"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "numeric",
+      "revision": 1,
+      "seed": 78105,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "left: released",
+        "beam: released",
+        "cap: released",
+        "Construction sequence finished; recorded current estimates without certifying contact or task success"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "935c13a506d10d4ed23b18e4939dc89b163dc49523ef28c8b99971304ec2948c",
+        "api_calls.json": "5328bb49c5c0cdb323a5499b46c59d04dd20780fd2c2904cf712656e95df03a9"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "numeric",
+      "revision": 2,
+      "seed": 78101,
+      "category": "no_actuation",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "Initial dimension acquisition unavailable: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]"
+      ],
+      "last_gripper_command": null,
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "07d4da8d6336a5b1dab3b5eb54d3a57da9e61ecb3b9d6827c8020c44ca886c3d",
+        "api_calls.json": "50513643fa18220ad584ff8b50a98a2481647656fba210fcd6989bbc5627f6cb"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "numeric",
+      "revision": 2,
+      "seed": 78102,
+      "category": "after_release_opening",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "left: released",
+        "beam: pick exception; executor state unknown: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'No usable visible cuboid: blue'}, {'view': 'joint_correspondence', 'reason': 'No current view establishes two independent cuboid faces'}]"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        2.0,
+        2.0,
+        1.8
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "3337c62c37d8f6ca46c5b2bcc1f44a4a76df3815294ab9dad84ebe7cce38b0df",
+        "api_calls.json": "eda695c952a39c10263b450494611176257fd0d99f0d5f79b8ae22039fa65791"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "numeric",
+      "revision": 2,
+      "seed": 78103,
+      "category": "after_release_opening",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "right: released",
+        "beam: place exception; executor state unknown: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'joint_correspondence', 'reason': 'No current view establishes two independent cuboid faces'}]"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        2.0,
+        2.0,
+        1.8
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "49670448bbc6e221bee51a595ef8cffecac4879bcabeb9813d697619b6c39aa9",
+        "api_calls.json": "83724b35ba6e15a2b01cbd06357412e5a2946f464e71b306137f4a293ada9c66"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "numeric",
+      "revision": 2,
+      "seed": 78104,
+      "category": "no_actuation",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "Initial dimension acquisition unavailable: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]"
+      ],
+      "last_gripper_command": null,
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "c3b993e222bed8053ada7c2bc982ea1ef28081058b22166224cd30d1c151c366",
+        "api_calls.json": "df8a54a9f2f57bf2b222c6f074e384ac0bb63994b2cb2280030e5702acba3b69"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "numeric",
+      "revision": 2,
+      "seed": 78105,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "left: released",
+        "beam: released",
+        "cap: placement_unconfirmed",
+        "cap: placement_unconfirmed",
+        "cap: placement_unconfirmed"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "4910485999f268c7f215adca592686360d765d6aa84b6750d813b8446d0865dc",
+        "api_calls.json": "5ba7dfbcdffaf3d414c43157fac24b00059ee196cb0a98e0356856641986e633"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "numeric",
+      "revision": 3,
+      "seed": 78101,
+      "category": "no_actuation",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "Session initialization unavailable: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]"
+      ],
+      "last_gripper_command": null,
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "13d0e73f14fb545355023f7bdd77c4ac0d20df8315b4ade9edafcb57c9fc5078",
+        "api_calls.json": "778b6907182f5897aad8dd4d084b099b697bae2fc786beb3fc3266acaf5184fb"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "numeric",
+      "revision": 3,
+      "seed": 78102,
+      "category": "after_release_opening",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "beam_stage: place exception; executor state unknown: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'No usable visible cuboid: blue'}, {'view': 'joint_correspondence', 'reason': 'No current view establishes two independent cuboid faces'}]"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        2.0,
+        2.0,
+        1.8
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "fd21b5c739a963a761a3bf1461558cddae62b595c10cf1057e604d30a1c102ad",
+        "api_calls.json": "8169f77b0d93779de66c7e0482fc8860eaea68037a20a207b839718ce27294c2"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "numeric",
+      "revision": 3,
+      "seed": 78103,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "right: released",
+        "beam: released",
+        "cap: released",
+        "Construction sequence finished; recorded estimates do not certify contact or success"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "0ef3bf660399e0f62d17c63c7cd859aea04960ce64e02db1c5055a384befbdaf",
+        "api_calls.json": "f7e45100cb9a0a48e5328dce2cb4942ed7821e143686aecae45ccee3207e5001"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "numeric",
+      "revision": 3,
+      "seed": 78104,
+      "category": "no_actuation",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "Session initialization unavailable: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]"
+      ],
+      "last_gripper_command": null,
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "9bc0e2803c76a848290215b6fc31c95ed041e25a14a65ad3fa4350cafea38a46",
+        "api_calls.json": "f83813949c0e4989f686c229cea7c6a0d64bf1efbb2828b36d92886486b77d1c"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "numeric",
+      "revision": 3,
+      "seed": 78105,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "left: released",
+        "beam: placement_unconfirmed",
+        "beam: released",
+        "cap: released",
+        "Construction sequence finished; recorded estimates do not certify contact or success"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "2ca1da7fc30db8e0e56e49e2430bef0b0313aa016814eee5e87bfb9872e6f777",
+        "api_calls.json": "fa6d61c9e5d84f84eafa3b41998d14abb4564f149c31851b00b36d0f31f502c8"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "symbolic",
+      "revision": 0,
+      "seed": 78101,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "right: released",
+        "beam: placement_unconfirmed"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "127de450c95020835368e6879065a2275e670c4b45a30cea832f07492d379e7a",
+        "api_calls.json": "26e3917ba88dade52fb2d7ccf4c558c2e5d50fb5ce5aebc28274aa1052f335c9"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "symbolic",
+      "revision": 0,
+      "seed": 78102,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "right: released",
+        "beam: placement_unconfirmed"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "359159589a5841447505d013b641eac489b4eeada9820c0d8db86bfddf5b8054",
+        "api_calls.json": "87fdcef6591384639457c9e0b46e48da81ccfc1f3ce6a29f2922b7e1e31d24ba"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "symbolic",
+      "revision": 0,
+      "seed": 78103,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "right: released",
+        "beam: released",
+        "cap: released"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "c60e5a257a77d4d15fa7d20082c4bd9852d3396bc567f44c431cc700108b99a3",
+        "api_calls.json": "1e21f0ccb03fe952d32d588f4583e001a71f81508f72f7195064c23f123b6e92"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "symbolic",
+      "revision": 0,
+      "seed": 78104,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "right: placement_unconfirmed"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "22f37534791aa8a4658beac08fe3ce1feb65a7fcd20bd3d6de357cfacbca8e3c",
+        "api_calls.json": "b2caa85b9f03c10075eea987fb7766906b18fea8b86a67d2fb956967f1cb39aa"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "symbolic",
+      "revision": 0,
+      "seed": 78105,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "right: placement_unconfirmed"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "4da683f91e313d0aaab5a9b53789852a6720af62f4cb88476c6452eaac1e61c7",
+        "api_calls.json": "457f18c4fd79e41f10a0a58f38b14584bf4e079e903d5e21ef8c5e7d2cbab961"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "symbolic",
+      "revision": 1,
+      "seed": 78101,
+      "category": "no_actuation",
+      "success": false,
+      "policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]",
+      "notes": [],
+      "last_gripper_command": null,
+      "subsequent_move_durations": [],
+      "worker_failures": [
+        "ValueError: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]"
+      ],
+      "source_sha256": {
+        "result.json": "74310afac35d61e7bc30a864ef97d9ce087210eb419e029a11a643ecf63b9f54",
+        "api_calls.json": "0ef84ffc1c63dfa6925e8f95a9503995a10d2ded03259c3b0e5cc7a68aa40f89"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "symbolic",
+      "revision": 1,
+      "seed": 78102,
+      "category": "after_release_opening",
+      "success": false,
+      "policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'No usable visible cuboid: blue'}, {'view': 'joint_correspondence', 'reason': 'No current view establishes two independent cuboid faces'}]",
+      "notes": [
+        "left: lift_visually_confirmed",
+        "left: released, xy=0.0020300890454414125, gap=-0.00025708793808348895"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        2.0,
+        2.0,
+        1.8
+      ],
+      "worker_failures": [
+        "ValueError: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'No usable visible cuboid: blue'}, {'view': 'joint_correspondence', 'reason': 'No current view establishes two independent cuboid faces'}]"
+      ],
+      "source_sha256": {
+        "result.json": "77d622825e35047d726a255cb0f18267620398f0f815ed6c52d9e4e9e8613818",
+        "api_calls.json": "c9c60b4077dae66aafd0295ed4b6007e2b684eae5115437a3e66945dbef25cd9"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "symbolic",
+      "revision": 1,
+      "seed": 78103,
+      "category": "after_release_opening",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "left: lift_visually_confirmed",
+        "left: released, xy=0.0013653932134152546, gap=0.0009943595842789033",
+        "right: lift_visually_confirmed",
+        "right: released, xy=0.00170565842628582, gap=0.0008112960172531603",
+        "beam: lift_visually_confirmed",
+        "beam: released, xy=0.0017328718567788427, gap=0.0009651356443147741",
+        "cap: lift_visually_confirmed",
+        "cap: released, xy=0.003319664545742629, gap=0.0008465505512749161",
+        "Construction sequence finished; releases and visual estimates do not certify physical success."
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        2.0,
+        2.0,
+        1.8
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "49ba367afb0a66832e515f868f3b7f7a8a109a1803f3d8c742668b64b4a93dbd",
+        "api_calls.json": "65deee04e65032871f92d17de2c63c339e44fdeeec7312a622b53676c25b411c"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "symbolic",
+      "revision": 1,
+      "seed": 78104,
+      "category": "no_actuation",
+      "success": false,
+      "policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]",
+      "notes": [],
+      "last_gripper_command": null,
+      "subsequent_move_durations": [],
+      "worker_failures": [
+        "ValueError: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]"
+      ],
+      "source_sha256": {
+        "result.json": "287b33ef60046a06e348754dbbd3b45ff2b132b8872ed3a26796d77dd1a3f947",
+        "api_calls.json": "d0d8dba47a2c7cfaa19b7da4117eacdbf90dd0813a4a34dd81fe5d2ade7b7622"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "symbolic",
+      "revision": 1,
+      "seed": 78105,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "right: lift_visually_confirmed",
+        "right: released, xy=0.0021976849861461423, gap=4.1310464935440105e-05",
+        "left: lift_visually_confirmed",
+        "left: released, xy=0.0018918376591200204, gap=8.8545528445505e-05",
+        "beam: lift_visually_confirmed",
+        "beam: released, xy=0.0018772555134435134, gap=0.00013226818125666728",
+        "cap: lift_visually_confirmed",
+        "cap: released, xy=0.002914548072320652, gap=0.00022873395734601676",
+        "Construction sequence finished; releases and visual estimates do not certify physical success."
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "2210e630dc0b86a2d0f771cc48363061c664a3703e033483d2e2b04ec0f1810c",
+        "api_calls.json": "4b197428e118b6b41fde9f589e6eb761a205df17aac3220223f19308504e68e0"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "symbolic",
+      "revision": 2,
+      "seed": 78101,
+      "category": "no_actuation",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "Session initialization unavailable: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]"
+      ],
+      "last_gripper_command": null,
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "3284432ebd5e4cd034afce4e782bad4192a1f00ffc527f62aaaed3caeb239120",
+        "api_calls.json": "1aece9e0e94ae6236394d0dc6cff99488018d5140102e78e88c0192985cd6a43"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "symbolic",
+      "revision": 2,
+      "seed": 78102,
+      "category": "after_release_opening",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "left: lift_visually_confirmed",
+        "left: released, xy=0.002029985089324193, gap=-0.0002572872257986525",
+        "beam: current pick geometry unavailable"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        2.0,
+        2.0,
+        1.8
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "99c27607510dc283419a4144c10d2e3c10d7701a0945654c3a4d84e75545d974",
+        "api_calls.json": "0ec44fd78c406c956e4be98734162b05efc86bb1801e776cff5396dff8d19772"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "symbolic",
+      "revision": 2,
+      "seed": 78103,
+      "category": "no_actuation",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "No clear workspace with accurate default-orientation IK"
+      ],
+      "last_gripper_command": null,
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "0c11b27900737031fe7b72a17a7bfd1c3d5bf141a0c8e2e67222ad9251c738b8",
+        "api_calls.json": "0907eba3c8ba6cbd5b9774e93c25fb2d5b7c7c23131f76be0af221d3692e9a4c"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "symbolic",
+      "revision": 2,
+      "seed": 78104,
+      "category": "no_actuation",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "Session initialization unavailable: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]"
+      ],
+      "last_gripper_command": null,
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "5dcdc44a941a1304c4666c4426bba5332c5b0b09c10ebed7c4246392fdd0baf7",
+        "api_calls.json": "d3b22be93ed87b28fc30271c2eb9e1637d3b72eae344deceb579db46234b7e72"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "symbolic",
+      "revision": 2,
+      "seed": 78105,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "right: lift_visually_confirmed",
+        "right: released, xy=0.00212578685868203, gap=1.799952133385574e-05",
+        "left: lift_visually_confirmed",
+        "left: released, xy=0.0018449111595910202, gap=-2.118164149161883e-05",
+        "beam: lift_visually_confirmed",
+        "beam: released, xy=0.0019270929184986183, gap=4.509050571427364e-05",
+        "cap: lift_visually_confirmed",
+        "cap: released, xy=0.002896012555113941, gap=9.580042988749371e-05",
+        "Construction finished; visual support estimates and releases do not certify physical success."
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "3427f794121e6a82575b87736ae41d42ae839ee9f610ef2e3df14339c170d79a",
+        "api_calls.json": "8392c6a3771ed98ce519dc06b7d545be9031fe23aae5925740e168801f2e7c93"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "symbolic",
+      "revision": 3,
+      "seed": 78101,
+      "category": "no_actuation",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "Initial observation unavailable: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]",
+        "Initial observation unavailable: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]",
+        "Initial observation unavailable: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]"
+      ],
+      "last_gripper_command": null,
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "9fe549206036d748241a16b6330860f637933b3de0b977c29470ae9b121bb51b",
+        "api_calls.json": "8850ae877bb57fe9e012f41f7ffc6a4f0e283949b82a86d250d634672cda7601"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "symbolic",
+      "revision": 3,
+      "seed": 78102,
+      "category": "after_release_opening",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "left: lift_visually_confirmed",
+        "left: released, xy=0.0020300890454414125, gap=-0.00025708793808348895",
+        "Relocating cylinder to expose an unavailable source",
+        "cap: lift_visually_confirmed",
+        "cap: released, xy=0.0014957731286098313, gap=0.0012429395231504659",
+        "beam: source remains unavailable"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        2.0,
+        2.0,
+        1.8
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "ee7cd659f074ca40332ca26642a25b53eb0de8463f249b53d389a93ca8263f81",
+        "api_calls.json": "e4e343a933e0baae4f229a96318aedcb1c291d3055e2c65169adb1317fd14631"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "symbolic",
+      "revision": 3,
+      "seed": 78103,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "left: lift_visually_confirmed",
+        "left: released, xy=0.0013640244532996814, gap=0.0012796392966497039",
+        "right: lift_visually_confirmed",
+        "right: released, xy=0.0011279697616492267, gap=0.001377852035960081",
+        "beam: lift_visually_confirmed",
+        "beam: released, xy=0.001895209189530661, gap=0.0013600003399839578",
+        "cap: lift_visually_confirmed",
+        "cap: released, xy=0.003459047162363011, gap=0.0010851693317502353",
+        "beam on left: visual support unknown",
+        "beam on right: visual support unknown",
+        "cap on beam: visual support unknown"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "2586fab9d93db5a404034b6b2c8c33ce7478c73e9714359f21ac56ba82c00bb2",
+        "api_calls.json": "ba76b5a130102b05e3b71b49bbc27862a817d5186d39b9656b11e565cba2a0e8"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "symbolic",
+      "revision": 3,
+      "seed": 78104,
+      "category": "no_actuation",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "Initial observation unavailable: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]",
+        "Initial observation unavailable: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]",
+        "Initial observation unavailable: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}]"
+      ],
+      "last_gripper_command": null,
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "ff4de2dc9f61cae8aedc17c9ef5033daeaf2c655eb0ddbb88c3eb4488169704e",
+        "api_calls.json": "43efb0d00ebf21abbd6be4740ad482677c51d59969787d2a7d0673f212a25c4d"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "arm": "symbolic",
+      "revision": 3,
+      "seed": 78105,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "left: lift_visually_confirmed",
+        "left: released, xy=0.0023120080809764056, gap=-0.00025529629278131516",
+        "right: lift_visually_confirmed",
+        "right: released, xy=0.0016657435132384547, gap=-0.0004240982940733051",
+        "beam: lift_visually_confirmed",
+        "beam: released, xy=0.002031796396132758, gap=-0.00041047535848537375",
+        "cap: lift_visually_confirmed",
+        "cap: released, xy=0.002803610459755166, gap=-0.0005013694976414018",
+        "beam on left: visual support unknown",
+        "beam on right: visual support unknown",
+        "cap on beam: visual support unknown"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "79e1b13ac620abc93f1cadaba0772e14fddd00391e5e56bd5ce59591d081fc24",
+        "api_calls.json": "5b44d4d2904e6c1f38c83bb421a8cc552b76596d153601e139153459706fffcc"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "numeric",
+      "revision": 0,
+      "seed": 78201,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Cylinder top occluded without a prior visual pose'}, {'view': 'wrist', 'reason': 'Cylinder top occluded without a prior visual pose'}]",
+      "notes": [
+        "right: released",
+        "beam: released"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6
+      ],
+      "worker_failures": [
+        "ValueError: No usable current view: [{'view': 'side', 'reason': 'Cylinder top occluded without a prior visual pose'}, {'view': 'wrist', 'reason': 'Cylinder top occluded without a prior visual pose'}]"
+      ],
+      "source_sha256": {
+        "result.json": "3d4b1b51b4033448f871d5eedb1004f2779b6e13d9b643a5d2e89d5f9c17c365",
+        "api_calls.json": "f4bad5d4bae0523995014f92cc16f00736f49838d7db5fc3b9034658fc539acf"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "numeric",
+      "revision": 0,
+      "seed": 78202,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'No usable visible cuboid: blue'}, {'view': 'joint_correspondence', 'reason': 'Two independent current face directions are required'}]",
+      "notes": [
+        "right: released"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6
+      ],
+      "worker_failures": [
+        "ValueError: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'No usable visible cuboid: blue'}, {'view': 'joint_correspondence', 'reason': 'Two independent current face directions are required'}]"
+      ],
+      "source_sha256": {
+        "result.json": "694daed6185c981e7bcbd936f050b59a2d08cb6a4c506e488cb4dda1256641a0",
+        "api_calls.json": "074c850966ebf13d67039f063605ccdfdc85b39581abdc2288d4c5039606acce"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "numeric",
+      "revision": 0,
+      "seed": 78203,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "right: released",
+        "beam: released",
+        "cap: released"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "108e3134bb07dee598b4688489d01cf095fb80d37e80053618b0015a1dc07c6e",
+        "api_calls.json": "565db41cd1f0fd163aa6d00d2e4cf491d4552fedce07025aeba4340151f42dbb"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "numeric",
+      "revision": 0,
+      "seed": 78204,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "right: released",
+        "beam: released",
+        "cap: released"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "73b00773fb5071f38c432d2230baf0bc6fdd01088c26ed64e18630a3db6bc625",
+        "api_calls.json": "9624a037e90d796147c526506eddee6266863bf47fec8ef0b777b3ab7c4fa503"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "numeric",
+      "revision": 0,
+      "seed": 78205,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Occluded face has insufficient consistent depth samples: red'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'joint_correspondence', 'reason': 'No current view establishes two independent cuboid faces'}]",
+      "notes": [
+        "right: released"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6
+      ],
+      "worker_failures": [
+        "ValueError: No usable current view: [{'view': 'side', 'reason': 'Occluded face has insufficient consistent depth samples: red'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'joint_correspondence', 'reason': 'No current view establishes two independent cuboid faces'}]"
+      ],
+      "source_sha256": {
+        "result.json": "2cf7811dfc4617343d1023468871fa6e5a91bdecc25e653d36ecfd2c45466600",
+        "api_calls.json": "844caf2e660153da44cef0fcf89a7ff3285f77e75cf9cdaef6a341208947bd2f"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "numeric",
+      "revision": 1,
+      "seed": 78201,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "left: lift_visually_confirmed",
+        "left: released",
+        "right: lift_visually_confirmed",
+        "right: placement_unconfirmed",
+        "right: placement_unconfirmed",
+        "right: table recovery released",
+        "right: lift_visually_confirmed",
+        "right: placement_unconfirmed",
+        "right: placement_unconfirmed"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "3a9a3731891443136b128b6b32e8a54799dc349c205ffe26af40907c5c8e0771",
+        "api_calls.json": "22e6ec2e967bc622583928c1c55281ab380768ecd8fe78799d7234839924e6cc"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "numeric",
+      "revision": 1,
+      "seed": 78202,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "left: lift_visually_confirmed",
+        "left: released",
+        "right: lift_visually_confirmed",
+        "right: released",
+        "beam: lift_visually_confirmed",
+        "beam: place interrupted; executor held state unknown: Observed object is too far from the expected tool neighborhood"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "426c0e9901954841adc52b8d9a2ca6bf19386b1be3cd989a05ff28fc0c7587f9",
+        "api_calls.json": "0e2448cce455fc502b84784e16270c3789f79f016de324363cbc1a726d767831"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "numeric",
+      "revision": 1,
+      "seed": 78203,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "left: lift_visually_confirmed",
+        "left: released",
+        "right: lift_visually_confirmed",
+        "right: placement_unconfirmed",
+        "right: placement_unconfirmed",
+        "right: table recovery released",
+        "right: lift_visually_confirmed",
+        "right: placement_unconfirmed",
+        "right: placement_unconfirmed"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "b23c9e265bca260a6bab47dd744929a29405d1c999584e8a67fba970968e0847",
+        "api_calls.json": "f3a345ebc93c699d0a95ab0bb926ac10dab1ca9741375439205f5651c112b4f4"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "numeric",
+      "revision": 1,
+      "seed": 78204,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "left: lift_visually_confirmed",
+        "left: released",
+        "right: lift_visually_confirmed",
+        "right: placement_unconfirmed",
+        "right: placement_unconfirmed",
+        "right: table recovery released",
+        "right: lift_visually_confirmed",
+        "right: placement_unconfirmed",
+        "right: placement_unconfirmed"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "87b5c9abfdb76dcc9f7cdd717102d5ace105b15105e96a4b6f11c45d6e073dfe",
+        "api_calls.json": "6aaa1dd569c8300f74c1b940815e320a36911a1da84c07478a01e882ea8fa347"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "numeric",
+      "revision": 1,
+      "seed": 78205,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "left: lift_visually_confirmed",
+        "left: released",
+        "right: lift_visually_confirmed",
+        "right: placement_unconfirmed",
+        "right: placement_unconfirmed",
+        "right: table recovery released",
+        "right: lift_visually_confirmed",
+        "right: placement_unconfirmed",
+        "right: placement_unconfirmed"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "ed66b8572876a06a4250580697930d386c3c7cda354220b4c590e6d4ae763846",
+        "api_calls.json": "e019135a79814b4ab0ef42c61b411ad122a19cd1468a71a6ce684984ebd3fbcd"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "numeric",
+      "revision": 2,
+      "seed": 78201,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "left: lift_visually_confirmed",
+        "left: released",
+        "right: existing foundation preserved",
+        "beam: lift_visually_confirmed",
+        "beam: released",
+        "cap: lift_visually_confirmed",
+        "cap: released",
+        "Construction sequence completed; refreshed estimates recorded, physical success unverified"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "d14df0cd5a4417c61b77e2babe33ad89ecad61adab3d5c60af940fdf81d78f5c",
+        "api_calls.json": "9258b95ceb24cd8ae78f681b835bc338bdb1ab2e1a78ddfcf16d4a28f67b21c3"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "numeric",
+      "revision": 2,
+      "seed": 78202,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "left: lift_visually_confirmed",
+        "left: released",
+        "right: existing foundation preserved",
+        "beam: lift_visually_confirmed",
+        "beam: place interrupted; held state unknown: Observed object is too far from the expected tool neighborhood"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "196412e122b900afad576d26e2f0dfa2b72e667ba11d0cdb22168e9f62db342e",
+        "api_calls.json": "8d724432c25811a6677a086565703a6917310992784daf01a944d77a60387781"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "numeric",
+      "revision": 2,
+      "seed": 78203,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "left: lift_visually_confirmed",
+        "left: released",
+        "right: lift_visually_confirmed",
+        "right: released",
+        "beam: lift_visually_confirmed",
+        "beam: released",
+        "cap: lift_visually_confirmed",
+        "cap: released",
+        "Construction sequence completed; refreshed estimates recorded, physical success unverified"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "c0f61df02aee2b1f0cfd48be7af6c27a564f6474ee182646e4eaa7160ff227f8",
+        "api_calls.json": "522e6f6e3ea5daf00de50ad57ddda7e9915d832273ab2aaf12093edf0e5c7209"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "numeric",
+      "revision": 2,
+      "seed": 78204,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "left: lift_visually_confirmed",
+        "left: released",
+        "right: lift_visually_confirmed",
+        "right: released",
+        "beam: lift_visually_confirmed",
+        "beam: released",
+        "cap: lift_visually_confirmed",
+        "cap: released",
+        "Construction sequence completed; refreshed estimates recorded, physical success unverified"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "1e2a4e6060c8df16fe1bdffeb28cb5649f6866c11d9e2f31b5a18ce261d0a1ed",
+        "api_calls.json": "337d77d6ee806c572ce83842e005241030893400450d903497f0c38dd4c67ae3"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "numeric",
+      "revision": 2,
+      "seed": 78205,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "left: existing foundation preserved",
+        "right: lift_visually_confirmed",
+        "right: released",
+        "beam: lift_visually_confirmed",
+        "beam: place interrupted; held state unknown: No usable current view: [{'view': 'side', 'reason': 'Occluded face has insufficient consistent depth samples: red'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'joint_correspondence', 'reason': 'No current view establishes two independent cuboid faces'}]"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "80a01b21addc5215e59936a6a53d45b067341f883eb095971b91e914a49ec731",
+        "api_calls.json": "81e2c34d8c45ee14e43014a00606b4094891690074f0e63e2d65ee7da114b5d3"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "numeric",
+      "revision": 3,
+      "seed": 78201,
+      "category": "no_actuation",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "Planning unavailable: No measured site passed source clearance and IK checks"
+      ],
+      "last_gripper_command": null,
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "d8ca5db1d25f1f5fa128ca8df1265ad6482b2169158f7d830184dd91354f2db2",
+        "api_calls.json": "e507fd9e8944a889ca062619fe568c2b4d025671eb97f9758b9c7d358dc8642c"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "numeric",
+      "revision": 3,
+      "seed": 78202,
+      "category": "no_actuation",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "Planning unavailable: No measured site passed source clearance and IK checks"
+      ],
+      "last_gripper_command": null,
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "ec2f86db0bf6794fb3ab08a09d861d1188bc5547adffdce9beda19c527648b19",
+        "api_calls.json": "06b7c453b2a8d19c3f813d58a68d324736bad1c5d1c18ebbf7733fdb139c7d1d"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "numeric",
+      "revision": 3,
+      "seed": 78203,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "left: lift_visually_confirmed",
+        "left: released",
+        "right: lift_visually_confirmed",
+        "right: released",
+        "beam: lift_visually_confirmed",
+        "beam: released",
+        "cap: lift_visually_confirmed",
+        "cap: released",
+        "Construction sequence completed; physical success remains unverified"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "7bc790018ba453e307e763f83d2639a92d3d2f99c20131ef0b1a1d9593bb1e9c",
+        "api_calls.json": "1674ac7b873d9b7a31ef5842d675d31c472e5c2b747053a086a7f068bbe0c556"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "numeric",
+      "revision": 3,
+      "seed": 78204,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "left: lift_visually_confirmed",
+        "left: released",
+        "right: lift_visually_confirmed",
+        "right: released",
+        "beam: lift_visually_confirmed",
+        "beam: released",
+        "cap: lift_visually_confirmed",
+        "cap: released",
+        "Construction sequence completed; physical success remains unverified"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "461eb787082574dfa89f5ee0ab30a8808208b22f822b2f30b111a316c4656365",
+        "api_calls.json": "0e9bacdb4bc1db184bab78c063e91cba854f783ad19275614bdea0102cf76882"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "numeric",
+      "revision": 3,
+      "seed": 78205,
+      "category": "no_actuation",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "Planning unavailable: No measured site passed source clearance and IK checks"
+      ],
+      "last_gripper_command": null,
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "56620e27a9338ead9ab10fb844bb1063aa362e01aecdcc9c7248ce55ef92dc82",
+        "api_calls.json": "36e44a560a9b2ad6138876aac47b3e4e7d48d95e605c843211f4825c0a9c3045"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "symbolic",
+      "revision": 0,
+      "seed": 78201,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Cylinder top occluded without a prior visual pose'}, {'view': 'wrist', 'reason': 'Cylinder top occluded without a prior visual pose'}]",
+      "notes": [
+        "right: released",
+        "beam: released"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6
+      ],
+      "worker_failures": [
+        "ValueError: No usable current view: [{'view': 'side', 'reason': 'Cylinder top occluded without a prior visual pose'}, {'view': 'wrist', 'reason': 'Cylinder top occluded without a prior visual pose'}]"
+      ],
+      "source_sha256": {
+        "result.json": "c7b6e76a2642ad9045870018c6b20f083164605c31cd3b485634443a9a9c3a90",
+        "api_calls.json": "509a52bcb0b967e9edf0740640c02fc5c43532c5946bd00f576166017db386d1"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "symbolic",
+      "revision": 0,
+      "seed": 78202,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'No usable visible cuboid: blue'}, {'view': 'joint_correspondence', 'reason': 'Two independent current face directions are required'}]",
+      "notes": [
+        "right: released"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6
+      ],
+      "worker_failures": [
+        "ValueError: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'No usable visible cuboid: blue'}, {'view': 'joint_correspondence', 'reason': 'Two independent current face directions are required'}]"
+      ],
+      "source_sha256": {
+        "result.json": "003c945a0af00204ce6a80ec0a302457af083b6964d89aa8c7a4f04a5bb4f49e",
+        "api_calls.json": "1bf123911cd6dc385c500fd0082bbb8a3c1f100be2b24e3519c95e73766428cb"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "symbolic",
+      "revision": 0,
+      "seed": 78203,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "right: released",
+        "beam: released",
+        "cap: released"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "76b6dca119df99afedf544ba6bbcd6ca8bf91ba6588ef03683615934a686e483",
+        "api_calls.json": "2e67ae9c3ba352416dc4434dad5f91e87583f4a5950b6c00e6303add2566baba"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "symbolic",
+      "revision": 0,
+      "seed": 78204,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "right: released",
+        "beam: released",
+        "cap: released"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "2568bad91c7ee67533f70a5b75ff4a96ba432a906d8062a0c65ac310781bb397",
+        "api_calls.json": "afee1f0593b9a91234f7ddedc47c1d50730b653ada94606900188c25578ce503"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "symbolic",
+      "revision": 0,
+      "seed": 78205,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Occluded face has insufficient consistent depth samples: red'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'joint_correspondence', 'reason': 'No current view establishes two independent cuboid faces'}]",
+      "notes": [
+        "right: released"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6
+      ],
+      "worker_failures": [
+        "ValueError: No usable current view: [{'view': 'side', 'reason': 'Occluded face has insufficient consistent depth samples: red'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'joint_correspondence', 'reason': 'No current view establishes two independent cuboid faces'}]"
+      ],
+      "source_sha256": {
+        "result.json": "ef09c5a0322c46bacf01d2c2a71e767414b5b925456f56b81c62d412adef7c72",
+        "api_calls.json": "33d03739cac7f549fcfde8771e2928f3640d024e973b170106702f4fb790b64a"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "symbolic",
+      "revision": 1,
+      "seed": 78201,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "left: lift_visually_confirmed",
+        "left: released",
+        "right: lift_visually_confirmed",
+        "right: placement_unconfirmed",
+        "right: retrying the same destination with the explicitly retained object",
+        "right: placement_unconfirmed"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.5,
+        2.0,
+        1.6,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3,
+        1.3
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "fe4fe624b58a2dabcaa92beeccb1c4a74f52002bdad03ee1f24479cd3508efff",
+        "api_calls.json": "4ba341ac6e9bfd07b2d62c360f5505b01533d5eee90e11b9c24ff268214d72d0"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "symbolic",
+      "revision": 1,
+      "seed": 78202,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "left: preserving the current foundation at the selected worksite",
+        "right: lift_visually_confirmed",
+        "right: released",
+        "beam: lift_visually_confirmed",
+        "beam_place_state_unknown: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'No usable visible cuboid: blue'}, {'view': 'joint_correspondence', 'reason': 'Two independent current face directions are required'}]"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "4291d386936359e2864beefec65fafaa56fc53721b61555d72a2f850dd4150fd",
+        "api_calls.json": "c82699a0bcbea1be90c99891faf29e433b1e6b882c520f24ecd605801b45fc76"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "symbolic",
+      "revision": 1,
+      "seed": 78203,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "left: preserving the current foundation at the selected worksite",
+        "right: lift_visually_confirmed",
+        "right: released",
+        "beam: lift_visually_confirmed",
+        "beam: released",
+        "cap: lift_visually_confirmed",
+        "cap: released",
+        "beam over left: support_candidate=unknown",
+        "beam over right: support_candidate=unknown",
+        "cap over beam: support_candidate=unknown"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "fcf08dfdf4e4952f6d758fd84654560df47d6d5944148b6226b675e0b808eac7",
+        "api_calls.json": "5a1b8eb4ebaf12a262c9a2b697c50c70f9861044130d44d85c9ad159ebaf061c"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "symbolic",
+      "revision": 1,
+      "seed": 78204,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "left: preserving the current foundation at the selected worksite",
+        "right: lift_visually_confirmed",
+        "right: released",
+        "beam: lift_visually_confirmed",
+        "beam: released",
+        "cap: lift_visually_confirmed",
+        "cap: released",
+        "beam over left: support_candidate=unknown",
+        "beam over right: support_candidate=unknown",
+        "cap over beam: support_candidate=unknown"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "c24c1ce4aac5f2a8c1de7e046d68d789fc8d6b91f9fce4eb4847fa437f75e8c2",
+        "api_calls.json": "6f44c6fc9bcef4e6c89b58ef11970ad49f53486bb96c742d6e7447c4fc599797"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "symbolic",
+      "revision": 1,
+      "seed": 78205,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "left: lift_visually_confirmed",
+        "left: released",
+        "right: lift_visually_confirmed",
+        "right: released",
+        "beam: lift_visually_confirmed",
+        "beam_place_state_unknown: No usable current view: [{'view': 'side', 'reason': 'Visible cuboid extent contradicts learned dimensions'}, {'view': 'wrist', 'reason': 'No usable visible cuboid: red'}, {'view': 'joint_correspondence', 'reason': 'No current view establishes two independent cuboid faces'}]"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "4b3ef171e1717d2dd79e05d8723de978ebde87e66d59c5947c3463120a21ec09",
+        "api_calls.json": "cf8a4e3783178c4c787044e3695141bb45ee854a15baa8ba8b93e1b0c8834ecf"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "symbolic",
+      "revision": 2,
+      "seed": 78201,
+      "category": "no_actuation",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "No clear workspace passed nominal IK checks"
+      ],
+      "last_gripper_command": null,
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "c04346ef554c61192ac1bdc74dc48041b15a0b4e624d43d103ae25c486849583",
+        "api_calls.json": "cea89294d36119bbade7cb7d58f91cdceefb24e0ea63a13f0dcda194bcab2d9f"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "symbolic",
+      "revision": 2,
+      "seed": 78202,
+      "category": "no_actuation",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "No clear workspace passed nominal IK checks"
+      ],
+      "last_gripper_command": null,
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "a4cfecc1ea5181e306e3114f98e71b7bbe2e852bd3bae04d7a74ba207acf0ce9",
+        "api_calls.json": "382b8f41a69c77d485ccef040a3fcd8c170f18a5fde45595d7a48c457880f0d7"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "symbolic",
+      "revision": 2,
+      "seed": 78203,
+      "category": "no_actuation",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "No clear workspace passed nominal IK checks"
+      ],
+      "last_gripper_command": null,
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "c2d1ba6578f8858976e86f6885164ea1a26d54ed775ab447ff1d0c0f4be7ece1",
+        "api_calls.json": "5b456e43e513d6384da0b8a7bb9eedf1054da8965d66ecb8f337d1751e4ac35c"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "symbolic",
+      "revision": 2,
+      "seed": 78204,
+      "category": "no_actuation",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "No clear workspace passed nominal IK checks"
+      ],
+      "last_gripper_command": null,
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "d59fbfa8adb43906002120cbb1b9e71dfc00a532b1fa8fe3df16171089c6b69a",
+        "api_calls.json": "9ec5d7557fffd941818a4deaa781ef6215c8069828376459253265cb46a7dea7"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "symbolic",
+      "revision": 2,
+      "seed": 78205,
+      "category": "no_actuation",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "No clear workspace passed nominal IK checks"
+      ],
+      "last_gripper_command": null,
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "b33495be4be88a1b2d73aa72135b0d13c87ecded7391e6e555c60d684cd5285e",
+        "api_calls.json": "36aa07c69f6f4deff3ce090ee9f98720bfbe1854394995cdb7a215707dd48efd"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "symbolic",
+      "revision": 3,
+      "seed": 78201,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "right: preserving current foundation",
+        "left: lift_visually_confirmed",
+        "left: released",
+        "beam: lift_visually_confirmed",
+        "beam: released",
+        "beam over left: unknown",
+        "beam over right: unknown",
+        "cap: lift_visually_confirmed",
+        "cap: released",
+        "cap over beam: unknown"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "5552b5ec0f44593bbabd4dacdac2bd8e2be45213a41c2bb695f8ddd457bb351e",
+        "api_calls.json": "f51aebcc732e6ede1474a2e58ba08439d60b55b47722f47a8509d43565d5aa98"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "symbolic",
+      "revision": 3,
+      "seed": 78202,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "right: preserving current foundation",
+        "left: lift_visually_confirmed",
+        "left: released",
+        "beam: lift_visually_confirmed",
+        "beam_place_state_unknown: Observed object is too far from the expected tool neighborhood"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "c4adaa7a6a389777b53ba8480967b8d5be02d15eb8827a120e4820750fb8f317",
+        "api_calls.json": "a65dac120d12a4c671eba58757cfac338b0032caf710f9ea4ebd93eca7f6dddd"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "symbolic",
+      "revision": 3,
+      "seed": 78203,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "right: preserving current foundation",
+        "left: lift_visually_confirmed",
+        "left: released",
+        "beam: lift_visually_confirmed",
+        "beam: released",
+        "beam over left: unknown",
+        "beam over right: unknown",
+        "cap: lift_visually_confirmed",
+        "cap: released",
+        "cap over beam: unknown"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "4bf5329143db1afa0ecdc04445941ae3b9f51ae36c2e23d15a515620725691ae",
+        "api_calls.json": "42aa16f3d53329a9f67efacf682299b12789356ecbe37d070227cb982c6bfb46"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "symbolic",
+      "revision": 3,
+      "seed": 78204,
+      "category": "successful_task",
+      "success": true,
+      "policy_error": null,
+      "notes": [
+        "left: preserving current foundation",
+        "right: lift_visually_confirmed",
+        "right: released",
+        "beam: lift_visually_confirmed",
+        "beam: released",
+        "beam over left: unknown",
+        "beam over right: unknown",
+        "cap: lift_visually_confirmed",
+        "cap: released",
+        "cap over beam: unknown"
+      ],
+      "last_gripper_command": {
+        "angle": 1.4,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "74ad1dfc5dd57ec5a6864c5a88dfcabc0d38101eeb4f6f26f62efe2fb3a8ef2a",
+        "api_calls.json": "4f4ad2a946eed066ace57428a2cb6f00ea4276bbcf15019ffac9dfad47a2471b"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "arm": "symbolic",
+      "revision": 3,
+      "seed": 78205,
+      "category": "closed_after_placement_descent",
+      "success": false,
+      "policy_error": null,
+      "notes": [
+        "left: preserving current foundation",
+        "right: lift_visually_confirmed",
+        "right: released",
+        "beam: lift_visually_confirmed",
+        "beam_place_state_unknown: No usable current view: [{'view': 'side', 'reason': 'Occluded face has insufficient consistent depth samples: red'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'joint_correspondence', 'reason': 'No current view establishes two independent cuboid faces'}]"
+      ],
+      "last_gripper_command": {
+        "angle": -0.174,
+        "seconds": 1.0
+      },
+      "subsequent_move_durations": [
+        1.7,
+        1.5,
+        2.0,
+        1.6
+      ],
+      "worker_failures": [],
+      "source_sha256": {
+        "result.json": "b85cd8422ec4d42dd9f88efa53d48b456b233eb07ce7b51f98bdc81a6c11533e",
+        "api_calls.json": "32ff92db503f2a4c74d8525ecdb7e99e9852109dd916acdc0c8ac1554f7e7a98"
+      }
+    }
+  ]
+}

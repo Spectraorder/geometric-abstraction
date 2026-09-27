@@ -1,0 +1,9 @@
+Geometry state t=63.90000000003213; world frame; distances mm.
+Uncertainty is heuristic. Remembered/predicted positions are not new observations.
+blue: p=[-99.2, -284.52, 414.65] size=29.9 status=observed age_s=0.0 measured_rank=3/3 sigma~[1.0, 1.0, 1.0] delta=[0.07, 0.0, 0.0]
+green: p=[-103.82, -279.86, 474.15] size=29.9 status=observed age_s=0.0 measured_rank=3/3 sigma~[1.0, 1.0, 1.0] delta=[-0.0, -0.0, -0.0]
+red: p=[-101.79, -282.89, 444.38] size=29.9 status=observed age_s=0.0 measured_rank=3/3 sigma~[1.0, 1.0, 1.0] delta=[0.0, 0.0, 0.0]
+green above blue: gap=29.53 center_margin=10.39 fresh_full_poses=True
+green above red: gap=-0.13 center_margin=11.99 fresh_full_poses=True
+red above blue: gap=-0.23 center_margin=12.69 fresh_full_poses=True
+Relations are geometry estimates; contact and task success are not certified.

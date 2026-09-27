@@ -20,45 +20,41 @@ class OverheadRGBD:
             model.vis.quality.offsamples = samples
 
     def capture(self, data):
+        return self._capture(data, self.camera_id, depth=True)
+
+    def _capture(self, data, camera_id, *, depth):
         mujoco.mj_forward(self.model, data)
         self.renderer.disable_depth_rendering()
-        self.renderer.update_scene(data, camera=self.camera_id)
+        self.renderer.update_scene(data, camera=camera_id)
         rgb = self.renderer.render().copy()
-        try:
-            self.renderer.enable_depth_rendering()
-            self.renderer.update_scene(data, camera=self.camera_id)
-            depth = self.renderer.render().copy()
-        finally:
-            self.renderer.disable_depth_rendering()
-        focal = .5 * self.height / np.tan(np.deg2rad(self.model.cam_fovy[self.camera_id]) / 2)
+        depth_pixels = None
+        if depth:
+            try:
+                self.renderer.enable_depth_rendering()
+                self.renderer.update_scene(data, camera=camera_id)
+                depth_pixels = self.renderer.render().copy()
+            finally:
+                self.renderer.disable_depth_rendering()
+        focal = .5 * self.height / np.tan(np.deg2rad(self.model.cam_fovy[camera_id]) / 2)
         K = np.array([[focal, 0., (self.width - 1) / 2],
                       [0., focal, (self.height - 1) / 2], [0., 0., 1.]])
         # Pixel coordinates: right, down; camera coordinates: right, down, forward.
         pose = np.eye(4)
-        pose[:3, :3] = data.cam_xmat[self.camera_id].reshape(3, 3) @ np.diag([1., -1., -1.])
-        pose[:3, 3] = data.cam_xpos[self.camera_id]
+        pose[:3, :3] = data.cam_xmat[camera_id].reshape(3, 3) @ np.diag([1., -1., -1.])
+        pose[:3, 3] = data.cam_xpos[camera_id]
         far = self.model.vis.map.zfar * self.model.stat.extent
-        return {"rgb": rgb, "depth_m": depth,
-                "valid_depth": np.isfinite(depth) & (depth > 0) & (depth < far * .999),
-                "intrinsics": K, "camera_to_world": pose, "time": float(data.time)}
+        frame = {"rgb": rgb, "intrinsics": K, "camera_to_world": pose, "time": float(data.time)}
+        if depth_pixels is not None:
+            frame.update(depth_m=depth_pixels, valid_depth=np.isfinite(depth_pixels)
+                         & (depth_pixels > 0) & (depth_pixels < far * .999))
+        return frame
 
     def close(self):
         self.renderer.close()
 
-    def capture_wrist(self, data):
-        """RGB and robot-camera calibration only; the wrist has no depth sensor."""
-        camera_id = self.model.camera("robot/wrist_camera").id
-        mujoco.mj_forward(self.model, data)
-        self.renderer.disable_depth_rendering()
-        self.renderer.update_scene(data, camera=camera_id)
-        focal = .5 * self.height / np.tan(np.deg2rad(self.model.cam_fovy[camera_id]) / 2)
-        pose = np.eye(4)
-        pose[:3, :3] = data.cam_xmat[camera_id].reshape(3, 3) @ np.diag([1., -1., -1.])
-        pose[:3, 3] = data.cam_xpos[camera_id]
-        return {"rgb": self.renderer.render().copy(),
-                "intrinsics": np.array([[focal, 0., (self.width - 1) / 2],
-                                        [0., focal, (self.height - 1) / 2], [0., 0., 1.]]),
-                "camera_to_world": pose, "time": float(data.time)}
+    def capture_wrist(self, data, *, depth=False):
+        """Robot-mounted RGB, with ideal metric depth explicitly enabled."""
+        return self._capture(data, self.model.camera("robot/wrist_camera").id, depth=depth)
 
 
 def depth_preview(depth, near=.25, far=1.0):

@@ -1,0 +1,1033 @@
+{
+  "schema": "sensor_symbolic_illustration_v1",
+  "trial": "outputs/online_geometry_v2_replications_01/replica_02/symbolic/round_001/trials/seed_71101",
+  "checkpoint": -1,
+  "time": 94.0999999999621,
+  "library_sha256": "c152d7e2fdc88102c906a53ea966c508a49d6c017250bf02d4474d38715babe6",
+  "sensor_files": [
+    "camera_061.npz",
+    "camera_062.npz"
+  ],
+  "runtime_record": {
+    "schema": "symbolic_metric_state_v1",
+    "time": 94.0999999999621,
+    "frame": "world",
+    "units": "mm",
+    "uncertainty": "heuristic_not_calibrated",
+    "objects": {
+      "blue": {
+        "center_mm": [
+          -3.9,
+          -275.65,
+          417.12
+        ],
+        "size_mm": 29.9,
+        "status": "observed",
+        "age_s": 0.0,
+        "last_view": "wrist",
+        "observed_translation_rank": 2,
+        "orientation_observed_now": true,
+        "position_sigma_mm": [
+          1.19,
+          1.0,
+          29.99
+        ],
+        "last_update_delta_mm": [
+          0.15,
+          0.1,
+          0.0
+        ],
+        "prediction_condition": null,
+        "prediction_contradicted": false,
+        "target_delta_mm": [
+          0.66,
+          -1.68,
+          -2.17
+        ],
+        "type": "rigid_cube",
+        "references": {
+          "center": "blue.center",
+          "top_face": "blue.top_face",
+          "bottom_face": "blue.bottom_face"
+        }
+      },
+      "green": {
+        "center_mm": [
+          -4.89,
+          -272.52,
+          474.17
+        ],
+        "size_mm": 29.9,
+        "status": "observed",
+        "age_s": 0.0,
+        "last_view": "wrist",
+        "observed_translation_rank": 3,
+        "orientation_observed_now": true,
+        "position_sigma_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "last_update_delta_mm": [
+          0.0,
+          0.1,
+          -0.0
+        ],
+        "prediction_condition": null,
+        "prediction_contradicted": false,
+        "target_delta_mm": [
+          -0.21,
+          -1.59,
+          0.36
+        ],
+        "type": "rigid_cube",
+        "references": {
+          "center": "green.center",
+          "top_face": "green.top_face",
+          "bottom_face": "green.bottom_face"
+        }
+      },
+      "red": {
+        "center_mm": [
+          -5.46,
+          -274.43,
+          442.08
+        ],
+        "size_mm": 29.9,
+        "status": "observed",
+        "age_s": 0.0,
+        "last_view": "side",
+        "observed_translation_rank": 2,
+        "orientation_observed_now": true,
+        "position_sigma_mm": [
+          1.0,
+          1.01,
+          30.0
+        ],
+        "last_update_delta_mm": [
+          -0.0,
+          -0.1,
+          0.0
+        ],
+        "prediction_condition": null,
+        "prediction_contradicted": false,
+        "target_delta_mm": [
+          1.5,
+          -0.68,
+          2.76
+        ],
+        "type": "rigid_cube",
+        "references": {
+          "center": "red.center",
+          "top_face": "red.top_face",
+          "bottom_face": "red.bottom_face"
+        }
+      }
+    },
+    "relations": [
+      {
+        "upper": "green",
+        "lower": "blue",
+        "gap_mm": 26.85,
+        "center_margin_mm": 11.89,
+        "fresh_full_poses": false,
+        "contact_confirmed": false
+      },
+      {
+        "upper": "green",
+        "lower": "red",
+        "gap_mm": 2.17,
+        "center_margin_mm": 13.16,
+        "fresh_full_poses": false,
+        "contact_confirmed": false
+      },
+      {
+        "upper": "red",
+        "lower": "blue",
+        "gap_mm": -5.24,
+        "center_margin_mm": 13.73,
+        "fresh_full_poses": false,
+        "contact_confirmed": false
+      }
+    ],
+    "recent_events": [
+      {
+        "time": 94.0999999999621,
+        "object": "blue",
+        "kind": "observed",
+        "view": "side",
+        "measured_rank": 2,
+        "delta_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "prediction_residual_mm": null,
+        "sequence": 1
+      },
+      {
+        "time": 94.0999999999621,
+        "object": "blue",
+        "kind": "observed",
+        "view": "wrist",
+        "measured_rank": 2,
+        "delta_mm": [
+          0.15,
+          0.1,
+          0.0
+        ],
+        "prediction_residual_mm": null,
+        "sequence": 2
+      },
+      {
+        "time": 94.0999999999621,
+        "object": "red",
+        "kind": "observed",
+        "view": "wrist",
+        "measured_rank": 2,
+        "delta_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "prediction_residual_mm": null,
+        "sequence": 3
+      },
+      {
+        "time": 94.0999999999621,
+        "object": "red",
+        "kind": "observed",
+        "view": "side",
+        "measured_rank": 2,
+        "delta_mm": [
+          -0.0,
+          -0.1,
+          0.0
+        ],
+        "prediction_residual_mm": null,
+        "sequence": 4
+      },
+      {
+        "time": 94.0999999999621,
+        "object": "green",
+        "kind": "observed",
+        "view": "side",
+        "measured_rank": 3,
+        "delta_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "prediction_residual_mm": null,
+        "sequence": 5
+      },
+      {
+        "time": 94.0999999999621,
+        "object": "green",
+        "kind": "observed",
+        "view": "wrist",
+        "measured_rank": 3,
+        "delta_mm": [
+          0.0,
+          0.1,
+          -0.0
+        ],
+        "prediction_residual_mm": null,
+        "sequence": 6
+      }
+    ],
+    "task_success_certified": false,
+    "facts": [
+      {
+        "predicate": "above",
+        "args": [
+          "blue",
+          "green"
+        ],
+        "truth": "unknown",
+        "residuals": {
+          "center_z_difference_mm": -57.06,
+          "band_mm": 60.01
+        },
+        "required_directions_observed": false,
+        "evidence": "visual_geometry_with_heuristic_translation_bands",
+        "contact_or_stability_certified": false
+      },
+      {
+        "predicate": "support_candidate",
+        "args": [
+          "blue",
+          "green"
+        ],
+        "truth": "unknown",
+        "residuals": {
+          "gap_mm": -87.29,
+          "center_margin_mm": 12.07,
+          "gap_tolerance_mm": 4.0,
+          "minimum_margin_mm": 3.0
+        },
+        "required_directions_observed": false,
+        "evidence": "visual_geometry_with_heuristic_translation_bands",
+        "contact_or_stability_certified": false
+      },
+      {
+        "predicate": "above",
+        "args": [
+          "blue",
+          "red"
+        ],
+        "truth": "unknown",
+        "residuals": {
+          "center_z_difference_mm": -24.96,
+          "band_mm": 84.83
+        },
+        "required_directions_observed": false,
+        "evidence": "visual_geometry_with_heuristic_translation_bands",
+        "contact_or_stability_certified": false
+      },
+      {
+        "predicate": "support_candidate",
+        "args": [
+          "blue",
+          "red"
+        ],
+        "truth": "unknown",
+        "residuals": {
+          "gap_mm": -55.19,
+          "center_margin_mm": 13.44,
+          "gap_tolerance_mm": 4.0,
+          "minimum_margin_mm": 3.0
+        },
+        "required_directions_observed": false,
+        "evidence": "visual_geometry_with_heuristic_translation_bands",
+        "contact_or_stability_certified": false
+      },
+      {
+        "predicate": "above",
+        "args": [
+          "green",
+          "blue"
+        ],
+        "truth": "unknown",
+        "residuals": {
+          "center_z_difference_mm": 57.06,
+          "band_mm": 60.01
+        },
+        "required_directions_observed": false,
+        "evidence": "visual_geometry_with_heuristic_translation_bands",
+        "contact_or_stability_certified": false
+      },
+      {
+        "predicate": "support_candidate",
+        "args": [
+          "green",
+          "blue"
+        ],
+        "truth": "unknown",
+        "residuals": {
+          "gap_mm": 26.85,
+          "center_margin_mm": 11.89,
+          "gap_tolerance_mm": 4.0,
+          "minimum_margin_mm": 3.0
+        },
+        "required_directions_observed": false,
+        "evidence": "visual_geometry_with_heuristic_translation_bands",
+        "contact_or_stability_certified": false
+      },
+      {
+        "predicate": "above",
+        "args": [
+          "green",
+          "red"
+        ],
+        "truth": "unknown",
+        "residuals": {
+          "center_z_difference_mm": 32.1,
+          "band_mm": 60.03
+        },
+        "required_directions_observed": false,
+        "evidence": "visual_geometry_with_heuristic_translation_bands",
+        "contact_or_stability_certified": false
+      },
+      {
+        "predicate": "support_candidate",
+        "args": [
+          "green",
+          "red"
+        ],
+        "truth": "unknown",
+        "residuals": {
+          "gap_mm": 2.17,
+          "center_margin_mm": 13.16,
+          "gap_tolerance_mm": 4.0,
+          "minimum_margin_mm": 3.0
+        },
+        "required_directions_observed": false,
+        "evidence": "visual_geometry_with_heuristic_translation_bands",
+        "contact_or_stability_certified": false
+      },
+      {
+        "predicate": "above",
+        "args": [
+          "red",
+          "blue"
+        ],
+        "truth": "unknown",
+        "residuals": {
+          "center_z_difference_mm": 24.96,
+          "band_mm": 84.83
+        },
+        "required_directions_observed": false,
+        "evidence": "visual_geometry_with_heuristic_translation_bands",
+        "contact_or_stability_certified": false
+      },
+      {
+        "predicate": "support_candidate",
+        "args": [
+          "red",
+          "blue"
+        ],
+        "truth": "unknown",
+        "residuals": {
+          "gap_mm": -5.24,
+          "center_margin_mm": 13.73,
+          "gap_tolerance_mm": 4.0,
+          "minimum_margin_mm": 3.0
+        },
+        "required_directions_observed": false,
+        "evidence": "visual_geometry_with_heuristic_translation_bands",
+        "contact_or_stability_certified": false
+      },
+      {
+        "predicate": "above",
+        "args": [
+          "red",
+          "green"
+        ],
+        "truth": "unknown",
+        "residuals": {
+          "center_z_difference_mm": -32.1,
+          "band_mm": 60.03
+        },
+        "required_directions_observed": false,
+        "evidence": "visual_geometry_with_heuristic_translation_bands",
+        "contact_or_stability_certified": false
+      },
+      {
+        "predicate": "support_candidate",
+        "args": [
+          "red",
+          "green"
+        ],
+        "truth": "unknown",
+        "residuals": {
+          "gap_mm": -62.03,
+          "center_margin_mm": 13.19,
+          "gap_tolerance_mm": 4.0,
+          "minimum_margin_mm": 3.0
+        },
+        "required_directions_observed": false,
+        "evidence": "visual_geometry_with_heuristic_translation_bands",
+        "contact_or_stability_certified": false
+      }
+    ],
+    "truth_semantics": "true/false/unknown about estimated geometry; not simulator truth",
+    "contact_state": "unknown_without_a_contact_sensor",
+    "memory_enabled": false,
+    "unavailable": {},
+    "observation_warnings": {},
+    "fusion": "same_time_consistency_gated_v2",
+    "rejected_views": []
+  },
+  "replayed_geometry": {
+    "schema": "symbolic_metric_state_v1",
+    "time": 94.0999999999621,
+    "frame": "world",
+    "units": "mm",
+    "uncertainty": "heuristic_not_calibrated",
+    "objects": {
+      "blue": {
+        "center_mm": [
+          -3.9,
+          -275.65,
+          417.12
+        ],
+        "size_mm": 29.9,
+        "status": "observed",
+        "age_s": 0.0,
+        "last_view": "wrist",
+        "observed_translation_rank": 2,
+        "orientation_observed_now": true,
+        "position_sigma_mm": [
+          1.19,
+          1.0,
+          29.99
+        ],
+        "last_update_delta_mm": [
+          0.15,
+          0.1,
+          0.0
+        ],
+        "prediction_condition": null,
+        "prediction_contradicted": false,
+        "landmarks_mm": {
+          "center": [
+            -3.9,
+            -275.65,
+            417.12
+          ],
+          "top_center": [
+            -4.23,
+            -275.64,
+            432.06
+          ],
+          "bottom_center": [
+            -3.58,
+            -275.67,
+            402.17
+          ],
+          "corner_0": [
+            -19.45,
+            -260.97,
+            431.72
+          ],
+          "corner_1": [
+            -18.81,
+            -261.01,
+            401.83
+          ],
+          "corner_2": [
+            -18.89,
+            -290.87,
+            431.77
+          ],
+          "corner_3": [
+            -18.24,
+            -290.9,
+            401.88
+          ],
+          "corner_4": [
+            10.43,
+            -260.41,
+            432.36
+          ],
+          "corner_5": [
+            11.08,
+            -260.44,
+            402.47
+          ],
+          "corner_6": [
+            11.0,
+            -290.3,
+            432.41
+          ],
+          "corner_7": [
+            11.64,
+            -290.34,
+            402.52
+          ]
+        },
+        "landmark_semantics": "inferred_rigid_landmarks_not_measured_individual_points",
+        "type": "rigid_cube",
+        "references": {
+          "center": "blue.center",
+          "top_face": "blue.top_face",
+          "bottom_face": "blue.bottom_face"
+        }
+      },
+      "green": {
+        "center_mm": [
+          -4.89,
+          -272.52,
+          474.17
+        ],
+        "size_mm": 29.9,
+        "status": "observed",
+        "age_s": 0.0,
+        "last_view": "wrist",
+        "observed_translation_rank": 3,
+        "orientation_observed_now": true,
+        "position_sigma_mm": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "last_update_delta_mm": [
+          0.0,
+          0.1,
+          -0.0
+        ],
+        "prediction_condition": null,
+        "prediction_contradicted": false,
+        "landmarks_mm": {
+          "center": [
+            -4.89,
+            -272.52,
+            474.17
+          ],
+          "top_center": [
+            -4.93,
+            -272.46,
+            489.12
+          ],
+          "bottom_center": [
+            -4.85,
+            -272.59,
+            459.23
+          ],
+          "corner_0": [
+            -19.79,
+            -287.54,
+            459.25
+          ],
+          "corner_1": [
+            -19.8,
+            -257.64,
+            459.12
+          ],
+          "corner_2": [
+            10.1,
+            -287.54,
+            459.33
+          ],
+          "corner_3": [
+            10.1,
+            -257.64,
+            459.2
+          ],
+          "corner_4": [
+            -19.88,
+            -287.41,
+            489.15
+          ],
+          "corner_5": [
+            -19.88,
+            -257.51,
+            489.01
+          ],
+          "corner_6": [
+            10.02,
+            -287.4,
+            489.23
+          ],
+          "corner_7": [
+            10.01,
+            -257.51,
+            489.1
+          ]
+        },
+        "landmark_semantics": "inferred_rigid_landmarks_not_measured_individual_points",
+        "type": "rigid_cube",
+        "references": {
+          "center": "green.center",
+          "top_face": "green.top_face",
+          "bottom_face": "green.bottom_face"
+        }
+      },
+      "red": {
+        "center_mm": [
+          -5.46,
+          -274.43,
+          442.08
+        ],
+        "size_mm": 29.9,
+        "status": "observed",
+        "age_s": 0.0,
+        "last_view": "side",
+        "observed_translation_rank": 2,
+        "orientation_observed_now": true,
+        "position_sigma_mm": [
+          1.0,
+          1.01,
+          30.0
+        ],
+        "last_update_delta_mm": [
+          -0.0,
+          -0.1,
+          0.0
+        ],
+        "prediction_condition": null,
+        "prediction_contradicted": false,
+        "landmarks_mm": {
+          "center": [
+            -5.46,
+            -274.43,
+            442.08
+          ],
+          "top_center": [
+            -5.48,
+            -274.37,
+            457.03
+          ],
+          "bottom_center": [
+            -5.43,
+            -274.48,
+            427.13
+          ],
+          "corner_0": [
+            -20.41,
+            -289.33,
+            457.06
+          ],
+          "corner_1": [
+            -20.37,
+            -289.44,
+            427.16
+          ],
+          "corner_2": [
+            9.48,
+            -289.31,
+            457.1
+          ],
+          "corner_3": [
+            9.53,
+            -289.41,
+            427.21
+          ],
+          "corner_4": [
+            -20.44,
+            -259.44,
+            456.95
+          ],
+          "corner_5": [
+            -20.39,
+            -259.54,
+            427.05
+          ],
+          "corner_6": [
+            9.46,
+            -259.41,
+            457.0
+          ],
+          "corner_7": [
+            9.5,
+            -259.52,
+            427.1
+          ]
+        },
+        "landmark_semantics": "inferred_rigid_landmarks_not_measured_individual_points",
+        "type": "rigid_cube",
+        "references": {
+          "center": "red.center",
+          "top_face": "red.top_face",
+          "bottom_face": "red.bottom_face"
+        }
+      }
+    },
+    "relations": [
+      {
+        "upper": "green",
+        "lower": "blue",
+        "gap_mm": 26.85,
+        "center_margin_mm": 11.89,
+        "fresh_full_poses": false,
+        "contact_confirmed": false
+      },
+      {
+        "upper": "green",
+        "lower": "red",
+        "gap_mm": 2.17,
+        "center_margin_mm": 13.16,
+        "fresh_full_poses": false,
+        "contact_confirmed": false
+      },
+      {
+        "upper": "red",
+        "lower": "blue",
+        "gap_mm": -5.24,
+        "center_margin_mm": 13.73,
+        "fresh_full_poses": false,
+        "contact_confirmed": false
+      }
+    ],
+    "recent_events": [
+      {
+        "time": 94.0999999999621,
+        "object": "blue",
+        "kind": "observed",
+        "view": "side",
+        "measured_rank": 2,
+        "delta_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "prediction_residual_mm": null,
+        "sequence": 1
+      },
+      {
+        "time": 94.0999999999621,
+        "object": "blue",
+        "kind": "observed",
+        "view": "wrist",
+        "measured_rank": 2,
+        "delta_mm": [
+          0.15,
+          0.1,
+          0.0
+        ],
+        "prediction_residual_mm": null,
+        "sequence": 2
+      },
+      {
+        "time": 94.0999999999621,
+        "object": "red",
+        "kind": "observed",
+        "view": "wrist",
+        "measured_rank": 2,
+        "delta_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "prediction_residual_mm": null,
+        "sequence": 3
+      },
+      {
+        "time": 94.0999999999621,
+        "object": "red",
+        "kind": "observed",
+        "view": "side",
+        "measured_rank": 2,
+        "delta_mm": [
+          -0.0,
+          -0.1,
+          0.0
+        ],
+        "prediction_residual_mm": null,
+        "sequence": 4
+      },
+      {
+        "time": 94.0999999999621,
+        "object": "green",
+        "kind": "observed",
+        "view": "side",
+        "measured_rank": 3,
+        "delta_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "prediction_residual_mm": null,
+        "sequence": 5
+      },
+      {
+        "time": 94.0999999999621,
+        "object": "green",
+        "kind": "observed",
+        "view": "wrist",
+        "measured_rank": 3,
+        "delta_mm": [
+          0.0,
+          0.1,
+          -0.0
+        ],
+        "prediction_residual_mm": null,
+        "sequence": 6
+      }
+    ],
+    "task_success_certified": false,
+    "facts": [
+      {
+        "predicate": "above",
+        "args": [
+          "blue",
+          "green"
+        ],
+        "truth": "unknown",
+        "residuals": {
+          "center_z_difference_mm": -57.06,
+          "band_mm": 60.01
+        },
+        "required_directions_observed": false,
+        "evidence": "visual_geometry_with_heuristic_translation_bands",
+        "contact_or_stability_certified": false
+      },
+      {
+        "predicate": "support_candidate",
+        "args": [
+          "blue",
+          "green"
+        ],
+        "truth": "unknown",
+        "residuals": {
+          "gap_mm": -87.29,
+          "center_margin_mm": 12.07,
+          "gap_tolerance_mm": 4.0,
+          "minimum_margin_mm": 3.0
+        },
+        "required_directions_observed": false,
+        "evidence": "visual_geometry_with_heuristic_translation_bands",
+        "contact_or_stability_certified": false
+      },
+      {
+        "predicate": "above",
+        "args": [
+          "blue",
+          "red"
+        ],
+        "truth": "unknown",
+        "residuals": {
+          "center_z_difference_mm": -24.96,
+          "band_mm": 84.83
+        },
+        "required_directions_observed": false,
+        "evidence": "visual_geometry_with_heuristic_translation_bands",
+        "contact_or_stability_certified": false
+      },
+      {
+        "predicate": "support_candidate",
+        "args": [
+          "blue",
+          "red"
+        ],
+        "truth": "unknown",
+        "residuals": {
+          "gap_mm": -55.19,
+          "center_margin_mm": 13.44,
+          "gap_tolerance_mm": 4.0,
+          "minimum_margin_mm": 3.0
+        },
+        "required_directions_observed": false,
+        "evidence": "visual_geometry_with_heuristic_translation_bands",
+        "contact_or_stability_certified": false
+      },
+      {
+        "predicate": "above",
+        "args": [
+          "green",
+          "blue"
+        ],
+        "truth": "unknown",
+        "residuals": {
+          "center_z_difference_mm": 57.06,
+          "band_mm": 60.01
+        },
+        "required_directions_observed": false,
+        "evidence": "visual_geometry_with_heuristic_translation_bands",
+        "contact_or_stability_certified": false
+      },
+      {
+        "predicate": "support_candidate",
+        "args": [
+          "green",
+          "blue"
+        ],
+        "truth": "unknown",
+        "residuals": {
+          "gap_mm": 26.85,
+          "center_margin_mm": 11.89,
+          "gap_tolerance_mm": 4.0,
+          "minimum_margin_mm": 3.0
+        },
+        "required_directions_observed": false,
+        "evidence": "visual_geometry_with_heuristic_translation_bands",
+        "contact_or_stability_certified": false
+      },
+      {
+        "predicate": "above",
+        "args": [
+          "green",
+          "red"
+        ],
+        "truth": "unknown",
+        "residuals": {
+          "center_z_difference_mm": 32.1,
+          "band_mm": 60.03
+        },
+        "required_directions_observed": false,
+        "evidence": "visual_geometry_with_heuristic_translation_bands",
+        "contact_or_stability_certified": false
+      },
+      {
+        "predicate": "support_candidate",
+        "args": [
+          "green",
+          "red"
+        ],
+        "truth": "unknown",
+        "residuals": {
+          "gap_mm": 2.17,
+          "center_margin_mm": 13.16,
+          "gap_tolerance_mm": 4.0,
+          "minimum_margin_mm": 3.0
+        },
+        "required_directions_observed": false,
+        "evidence": "visual_geometry_with_heuristic_translation_bands",
+        "contact_or_stability_certified": false
+      },
+      {
+        "predicate": "above",
+        "args": [
+          "red",
+          "blue"
+        ],
+        "truth": "unknown",
+        "residuals": {
+          "center_z_difference_mm": 24.96,
+          "band_mm": 84.83
+        },
+        "required_directions_observed": false,
+        "evidence": "visual_geometry_with_heuristic_translation_bands",
+        "contact_or_stability_certified": false
+      },
+      {
+        "predicate": "support_candidate",
+        "args": [
+          "red",
+          "blue"
+        ],
+        "truth": "unknown",
+        "residuals": {
+          "gap_mm": -5.24,
+          "center_margin_mm": 13.73,
+          "gap_tolerance_mm": 4.0,
+          "minimum_margin_mm": 3.0
+        },
+        "required_directions_observed": false,
+        "evidence": "visual_geometry_with_heuristic_translation_bands",
+        "contact_or_stability_certified": false
+      },
+      {
+        "predicate": "above",
+        "args": [
+          "red",
+          "green"
+        ],
+        "truth": "unknown",
+        "residuals": {
+          "center_z_difference_mm": -32.1,
+          "band_mm": 60.03
+        },
+        "required_directions_observed": false,
+        "evidence": "visual_geometry_with_heuristic_translation_bands",
+        "contact_or_stability_certified": false
+      },
+      {
+        "predicate": "support_candidate",
+        "args": [
+          "red",
+          "green"
+        ],
+        "truth": "unknown",
+        "residuals": {
+          "gap_mm": -62.03,
+          "center_margin_mm": 13.19,
+          "gap_tolerance_mm": 4.0,
+          "minimum_margin_mm": 3.0
+        },
+        "required_directions_observed": false,
+        "evidence": "visual_geometry_with_heuristic_translation_bands",
+        "contact_or_stability_certified": false
+      }
+    ],
+    "truth_semantics": "true/false/unknown about estimated geometry; not simulator truth",
+    "contact_state": "unknown_without_a_contact_sensor",
+    "memory_enabled": false,
+    "unavailable": {},
+    "observation_warnings": {},
+    "fusion": "same_time_consistency_gated_v2",
+    "rejected_views": []
+  },
+  "note": "Recorded runtime checkpoint, with inferred corners replayed from its frozen RGB-D library. Desired deltas come from the recorded planner. No private result or physics trajectory is read."
+}

@@ -1,0 +1,924 @@
+{
+  "schema": "visual_input_replications_audit_v1",
+  "status": "in_progress",
+  "protocol_sha256": "5722738a30b26dca282e762273c80f04aab97d3e71dd04bbcbdfed7ba2f1394b",
+  "replicas": {
+    "replica_01": {
+      "status": "heldout_curves",
+      "manifest_sha256": "50092954ffa46298d5f5652826c5d70d76f1b4d209ac1d29efcf926e6f3436a6",
+      "schema": "visual_input_geometry_pilot_v1",
+      "source_audit": "passed",
+      "curves": {
+        "basic": {
+          "training": [
+            {
+              "revision": 0,
+              "successes": 3,
+              "slots_completed": 8,
+              "total_slots": 8
+            },
+            {
+              "revision": 1,
+              "successes": 0,
+              "slots_completed": 8,
+              "total_slots": 8
+            },
+            {
+              "revision": 2,
+              "successes": 2,
+              "slots_completed": 8,
+              "total_slots": 8
+            },
+            {
+              "revision": 3,
+              "successes": 0,
+              "slots_completed": 8,
+              "total_slots": 8
+            }
+          ]
+        },
+        "symbolic": {
+          "training": [
+            {
+              "revision": 0,
+              "successes": 3,
+              "slots_completed": 8,
+              "total_slots": 8
+            },
+            {
+              "revision": 1,
+              "successes": 2,
+              "slots_completed": 8,
+              "total_slots": 8
+            },
+            {
+              "revision": 2,
+              "successes": 0,
+              "slots_completed": 8,
+              "total_slots": 8
+            },
+            {
+              "revision": 3,
+              "successes": 4,
+              "slots_completed": 8,
+              "total_slots": 8
+            }
+          ]
+        }
+      },
+      "actors": [
+        {
+          "arm": "basic",
+          "revision": 1,
+          "usage": {
+            "input_tokens": 21202,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 8454,
+            "reasoning_output_tokens": 3106
+          },
+          "static_interface_call_counts": {},
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 257.34432852399914,
+          "audit": "passed",
+          "planner_characters": 18185
+        },
+        {
+          "arm": "basic",
+          "revision": 2,
+          "usage": {
+            "input_tokens": 26712,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 10336,
+            "reasoning_output_tokens": 4660
+          },
+          "static_interface_call_counts": {},
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 314.04150724800274,
+          "audit": "passed",
+          "planner_characters": 18674
+        },
+        {
+          "arm": "basic",
+          "revision": 3,
+          "usage": {
+            "input_tokens": 27745,
+            "cached_input_tokens": 10624,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 7629,
+            "reasoning_output_tokens": 2070
+          },
+          "static_interface_call_counts": {},
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 232.56527593899955,
+          "audit": "passed",
+          "planner_characters": 18304
+        },
+        {
+          "arm": "symbolic",
+          "revision": 1,
+          "usage": {
+            "input_tokens": 23099,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 9619,
+            "reasoning_output_tokens": 5178
+          },
+          "static_interface_call_counts": {},
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 291.91247796300013,
+          "audit": "passed",
+          "planner_characters": 15851
+        },
+        {
+          "arm": "symbolic",
+          "revision": 2,
+          "usage": {
+            "input_tokens": 28136,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 8166,
+            "reasoning_output_tokens": 2982
+          },
+          "static_interface_call_counts": {},
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 248.5140594129989,
+          "audit": "passed",
+          "planner_characters": 18081
+        },
+        {
+          "arm": "symbolic",
+          "revision": 3,
+          "usage": {
+            "input_tokens": 29149,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 7806,
+            "reasoning_output_tokens": 2588
+          },
+          "static_interface_call_counts": {},
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 238.00823534299707,
+          "audit": "passed",
+          "planner_characters": 18462
+        }
+      ],
+      "valid_rollouts": 64,
+      "invalid_slots": 0,
+      "result_hashes": {
+        "basic/revision_000/trials/seed_992101/result.json": "565f70521645ed76ddb0b3e99b94dff63c8ccf94ed712b16dd058902d2121f0e",
+        "basic/revision_000/trials/seed_992102/result.json": "f0a6a89fd20e3f521ca711a1acf725eb8064cb65321a7b230cb0b0f6688161cc",
+        "basic/revision_000/trials/seed_992103/result.json": "4d965572adb57dbcb9f50f00416ec27d6ace7d5ad97055b2f41e0a46b94910e0",
+        "basic/revision_000/trials/seed_992104/result.json": "39ee2f8f5c01580771b82c429447eef2a1334fe80694ce51a0515d06e1999e90",
+        "basic/revision_000/trials/seed_992105/result.json": "924b7d2913d1f25a2853848c0d568fb0036d01ddba122e6d8f8b1cf6edb7863e",
+        "basic/revision_000/trials/seed_992106/result.json": "c4cd0a4cd99822c8840a38e2a147825eb0c33e453c3789675ab664ff9e4ed439",
+        "basic/revision_000/trials/seed_992107/result.json": "b630c4de1b647b890b4d4807baec89db77cde7ceb97f2243270b94e5610912ea",
+        "basic/revision_000/trials/seed_992108/result.json": "ff777ad653d0876776ef7af6c7752c6e05cf4bb3caada733cf438a709ad1b0f0",
+        "basic/round_001/trials/seed_992101/result.json": "88c4b7f9e1c2cc807991dd8ba0536901d5b474b5af14574d2daa290a910774c2",
+        "basic/round_001/trials/seed_992102/result.json": "3ecfded2b1c77ba3dbf0523007cca12f65f54b8442c3321d111a801be7d9ff43",
+        "basic/round_001/trials/seed_992103/result.json": "ed21a632204515f833bdc27f6e3f6c2071f24aa86a81f8a1805067fde2334231",
+        "basic/round_001/trials/seed_992104/result.json": "d242a8ae14ba5fb709913c4dd14f427a1a25b4ea6c61eaadaa6c6e3246ec4fdb",
+        "basic/round_001/trials/seed_992105/result.json": "ffb2d7fa950edca0a3edd1d4714a8fcc08703f0a34a28bade6e19d5c37ecb75d",
+        "basic/round_001/trials/seed_992106/result.json": "02421d91056aa06583e6949750e5d88538a7b145548cc7c479e379ddc48612de",
+        "basic/round_001/trials/seed_992107/result.json": "41678ff61bfaf81fdfac01e7fe979c2f4bd6f70ee06b69d55ca1458b89e1520b",
+        "basic/round_001/trials/seed_992108/result.json": "b0df66dc407a1a10508d358c7a59f0356b17f84e42c8e492730e8f9b3cf3473e",
+        "basic/round_002/trials/seed_992101/result.json": "3ad88ca7e82898e01f1bd5586177c41288f5f8384cc26ad90f1874166ae0a786",
+        "basic/round_002/trials/seed_992102/result.json": "c3748ee12c12a369248faed672246f633ca91c5c1bb7c564ab4ab9ddde3d98c8",
+        "basic/round_002/trials/seed_992103/result.json": "a2c377f79e1fffeead939e9541ba311530dd37ea0a313767d223809cc863f6c6",
+        "basic/round_002/trials/seed_992104/result.json": "307715f80d1a0206fcc73136a6ebda63850e13c16275612a9261e2bb79a8f4b6",
+        "basic/round_002/trials/seed_992105/result.json": "7c69fb4712ce243195c72a8180b84b0e6a8ee8c16c1a3da83aec12ad0bd59ce9",
+        "basic/round_002/trials/seed_992106/result.json": "28ebaf9bdc18cca28c8ec48f686a749d5b0857f739bd8329c80a75248fbff8e0",
+        "basic/round_002/trials/seed_992107/result.json": "af070af707c83b11690c257ca938d64cae4d5b9a3c2ef7b3c8f75a32a6ab068b",
+        "basic/round_002/trials/seed_992108/result.json": "61e8dcb6ac8b9f571ba3f67e991d880174639e22fe875f1839b75127f6f98c6d",
+        "basic/round_003/trials/seed_992101/result.json": "9dc10cd86a1c3e8c0367b61b16dfa0f1d97305c30a67cebb5db074140ebf1fc3",
+        "basic/round_003/trials/seed_992102/result.json": "d4e079365568c8c109591e0e31a3a2d09c0d0597be8af5e83c0d2362a42afc16",
+        "basic/round_003/trials/seed_992103/result.json": "5b39b4f694f07ee5a41dc87a924493d0402be9915adf4e25629f2ba01202ed63",
+        "basic/round_003/trials/seed_992104/result.json": "f031ff897e804de5e78e1e044556e73cd0e057f0acd0d251d65f1b78460bc22f",
+        "basic/round_003/trials/seed_992105/result.json": "9f50090d3e61258b9413e69f1d48aa31b2db57ec5dda0ffb68e4fc477c460de6",
+        "basic/round_003/trials/seed_992106/result.json": "136a83ea3c7abde1f9c14402a5754e71bd3ebf9de94fec162070e584d55a94f8",
+        "basic/round_003/trials/seed_992107/result.json": "f00b2311bba43dc0833425c1318b2133a055729fa6b14f2dbaaa7b661fc96374",
+        "basic/round_003/trials/seed_992108/result.json": "dd2621802e5b7dd9a42aa1900ace3eee838ef8a3af8175229d23089d94bed8d5",
+        "symbolic/revision_000/trials/seed_992101/result.json": "072603e845110c586b9e162a00345d7379df828dd2c1e8a5cb11333c5a8c23db",
+        "symbolic/revision_000/trials/seed_992102/result.json": "22838a5f2d9cd68f060329cd2ba211e712cb3c264d2da0067a29c708508df5ee",
+        "symbolic/revision_000/trials/seed_992103/result.json": "5b0a1cb3fea44f55b74c710160b71d68ffba59faa7fd8c2aacc106b72b544b01",
+        "symbolic/revision_000/trials/seed_992104/result.json": "ea6c69707d61b5a8dd028af3bef58c53a12945371f6d1688aebae39e155065de",
+        "symbolic/revision_000/trials/seed_992105/result.json": "a9a723d11c9b04212c0dc7fdc6b27646fd0e91a5909690ce5506cce588bffb04",
+        "symbolic/revision_000/trials/seed_992106/result.json": "a76bfa63e27479ac56b930f3cd11e810c6f08c0b7b8cea82dc06212fb5c17ae1",
+        "symbolic/revision_000/trials/seed_992107/result.json": "0839e07ae795220e8cc5656111d02a91aa0ad932b2559c9127c96d5df00a8f9e",
+        "symbolic/revision_000/trials/seed_992108/result.json": "92376cb5981b8a08bb0ae15ccab336061a73f634218c233053706dbb3aa52a3c",
+        "symbolic/round_001/trials/seed_992101/result.json": "f993cd2b1665738aba27e2ab3d6577cc61bf599a05b1d74b2c827746442795b2",
+        "symbolic/round_001/trials/seed_992102/result.json": "b4a3364e6f48b09912a0dc99430b7aef8495ee3f40077ef252ef7b65295da13d",
+        "symbolic/round_001/trials/seed_992103/result.json": "451d1cd0890347368f2a758003ff24721ebcefaa44a51135f5e29b501af5151b",
+        "symbolic/round_001/trials/seed_992104/result.json": "413f6ef6338f26f1ca4902e57f6839aec367d93878df1aec5ac0cbb321fd590e",
+        "symbolic/round_001/trials/seed_992105/result.json": "f171fc80bc4d1b501ebc1bb35d0825682bb09dc89917cb1fa1c5c4976dac09a6",
+        "symbolic/round_001/trials/seed_992106/result.json": "9acd8de82c6be4e028208c2c3b59222737e54356dd030ed9c52b1722836f31c9",
+        "symbolic/round_001/trials/seed_992107/result.json": "2740200b17f077b5019d7e887de9203417efccc922fbcc952edd02d04c9df892",
+        "symbolic/round_001/trials/seed_992108/result.json": "af2fb91bef7a5976778a72a5b6bbdbbfe30104d60e1c0f16302d7b9651b57165",
+        "symbolic/round_002/trials/seed_992101/result.json": "6e3157635b62646a05f4fd9843700f157966d383a267bfb91b44be54c8b97f5a",
+        "symbolic/round_002/trials/seed_992102/result.json": "6ae2a8971f575802a3af3079d55882bb9a355b29bdb886ca6a53b37abb7f1bbc",
+        "symbolic/round_002/trials/seed_992103/result.json": "c904ebc8bb80bad5a1a5e98484e8d87d4380ee46fbb867b4adffd92f8ebf2e1d",
+        "symbolic/round_002/trials/seed_992104/result.json": "cadb77912bbbfe1eb9240aaf31ab6ba4d003d27d3bfc821cf4eb5ef5f03d4253",
+        "symbolic/round_002/trials/seed_992105/result.json": "50c83d20c58dd1cc32f4b65458cb548804b5a4c99771eb0d24c788141db66388",
+        "symbolic/round_002/trials/seed_992106/result.json": "09e685cf08d1b27cbcb5fd2f59b7ae536d7ae8cf11eab3442e4f8b6106712cbf",
+        "symbolic/round_002/trials/seed_992107/result.json": "2446c12345629081f992835d71f802d974e841b43d157cd85d2560ef2753207d",
+        "symbolic/round_002/trials/seed_992108/result.json": "f61e8d1f65d2bb6877be0c5aa6f99e6614b114d8c95a5bb5d388926d1f9bba62",
+        "symbolic/round_003/trials/seed_992101/result.json": "78d67982c1688b7c1a275aac3639e01ef1f3e1339cf67795d99cde3491c26f62",
+        "symbolic/round_003/trials/seed_992102/result.json": "5fb55444f976bc4759a97d0d3429b62aeea22f26606839e6030a50a9914e39f1",
+        "symbolic/round_003/trials/seed_992103/result.json": "e4e5b6408504698beb5a763d85d8aab698b2865288e4a99a8dbc9a59e5a68742",
+        "symbolic/round_003/trials/seed_992104/result.json": "68c429c64645eeaa1f75a26cf37d298cdfe498520a651da10c8b2a49d04c9305",
+        "symbolic/round_003/trials/seed_992105/result.json": "47731c46d156603561c8219d9fa2be17cc2c858861022d5bd5f02d667a6b39d0",
+        "symbolic/round_003/trials/seed_992106/result.json": "130fbc34fa3e3fca307b51f40802d59fa6f7add364cdaea05142936e69b1458a",
+        "symbolic/round_003/trials/seed_992107/result.json": "dabe1a79b340e5c7554b054565621993f88b0a16741cc03609940166325aed68",
+        "symbolic/round_003/trials/seed_992108/result.json": "4362106c6133b2f38d3fd4331072d2d723e172601b65bf92e42abcb2561631b1"
+      },
+      "limitations": [
+        "One isolated actor chain per arm within each replica.",
+        "Treatment includes supplied perception and geometry, not solely text representation.",
+        "The shared hidden actuator uses RGB-D estimates in both arms; this is high-level planning, not pixels-to-torques.",
+        "Same revisions and rollout slots; tokens recorded, not equalized. Rollout duration is not an objective.",
+        "No prior evolved policy, inspected diagnosis or reserved outcome enters actor feedback."
+      ],
+      "model_generation_accounting": {
+        "retained_completed": 6,
+        "discarded_due_to_schema_defect": 0,
+        "actual_completed": 6
+      },
+      "initial_sensor_pairing": {
+        "status": "passed",
+        "unique_seeds_checked": 8,
+        "checked": "host pre-policy RGB render plus seed, color map and scene settings"
+      },
+      "arm_labels": {
+        "basic": "Visual Base",
+        "symbolic": "Full geometry"
+      },
+      "contrasts": [
+        "Visual Base versus supplied full geometry package, including target-only partial constraints. Identical hidden RGB-D actuator. Not a pure symbolic or partial-constraint ablation."
+      ],
+      "identical_library_except_projection": true,
+      "exact_actor_contexts_verified": 6,
+      "starter_parity_audit": "passed",
+      "auditor_sha256": "1fe05bc5405ea56580bf390cf33266899a305bbb9feae52bfb6ca123555b0850",
+      "experiment_variant": "partial_constraints_all_training_checkpoints_v1",
+      "variant_auditor_sha256": "1b1f8deb69156a88088af9905c3a56e05eab864dd54a4464473e40d040999b3a"
+    },
+    "replica_02": {
+      "status": "trained",
+      "manifest_sha256": "ab438c691b08da6e53835c1259807c5f4594abde8f0e3591afae96e442e78b37",
+      "schema": "visual_input_geometry_pilot_v1",
+      "source_audit": "passed",
+      "curves": {
+        "basic": {
+          "training": [
+            {
+              "revision": 0,
+              "successes": 1,
+              "slots_completed": 8,
+              "total_slots": 8
+            },
+            {
+              "revision": 1,
+              "successes": 0,
+              "slots_completed": 8,
+              "total_slots": 8
+            },
+            {
+              "revision": 2,
+              "successes": 3,
+              "slots_completed": 8,
+              "total_slots": 8
+            },
+            {
+              "revision": 3,
+              "successes": 0,
+              "slots_completed": 8,
+              "total_slots": 8
+            }
+          ]
+        },
+        "symbolic": {
+          "training": [
+            {
+              "revision": 0,
+              "successes": 1,
+              "slots_completed": 8,
+              "total_slots": 8
+            },
+            {
+              "revision": 1,
+              "successes": 5,
+              "slots_completed": 8,
+              "total_slots": 8
+            },
+            {
+              "revision": 2,
+              "successes": 5,
+              "slots_completed": 8,
+              "total_slots": 8
+            },
+            {
+              "revision": 3,
+              "successes": 5,
+              "slots_completed": 8,
+              "total_slots": 8
+            }
+          ]
+        }
+      },
+      "actors": [
+        {
+          "arm": "basic",
+          "revision": 1,
+          "usage": {
+            "input_tokens": 21086,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 8119,
+            "reasoning_output_tokens": 3258
+          },
+          "static_interface_call_counts": {},
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 247.7857962199996,
+          "audit": "passed",
+          "planner_characters": 16202
+        },
+        {
+          "arm": "basic",
+          "revision": 2,
+          "usage": {
+            "input_tokens": 26067,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 7657,
+            "reasoning_output_tokens": 2723
+          },
+          "static_interface_call_counts": {},
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 233.71858491699822,
+          "audit": "passed",
+          "planner_characters": 16425
+        },
+        {
+          "arm": "basic",
+          "revision": 3,
+          "usage": {
+            "input_tokens": 26812,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 11571,
+            "reasoning_output_tokens": 5696
+          },
+          "static_interface_call_counts": {},
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 350.78268658900197,
+          "audit": "passed",
+          "planner_characters": 19457
+        },
+        {
+          "arm": "symbolic",
+          "revision": 1,
+          "usage": {
+            "input_tokens": 22783,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 9945,
+            "reasoning_output_tokens": 4660
+          },
+          "static_interface_call_counts": {},
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 303.8794533820037,
+          "audit": "passed",
+          "planner_characters": 18010
+        },
+        {
+          "arm": "symbolic",
+          "revision": 2,
+          "usage": {
+            "input_tokens": 28108,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 7807,
+            "reasoning_output_tokens": 2003
+          },
+          "static_interface_call_counts": {},
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 239.53926260699518,
+          "audit": "passed",
+          "planner_characters": 19582
+        },
+        {
+          "arm": "symbolic",
+          "revision": 3,
+          "usage": {
+            "input_tokens": 29379,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 10628,
+            "reasoning_output_tokens": 4426
+          },
+          "static_interface_call_counts": {},
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 323.7404004659984,
+          "audit": "passed",
+          "planner_characters": 20920
+        }
+      ],
+      "valid_rollouts": 64,
+      "invalid_slots": 0,
+      "result_hashes": {
+        "basic/revision_000/trials/seed_992201/result.json": "6d2015d22f69f9582384d2420a0e078c68fca92cf4d055c824a46605798b8d9d",
+        "basic/revision_000/trials/seed_992202/result.json": "62902031b08a193a0d32accb33e43dd324ab3000c28f37f976055df71a6f9058",
+        "basic/revision_000/trials/seed_992203/result.json": "1432fcad2fc125b2318d7d8bf39912b68414c4b730b744fa01d70603d080826c",
+        "basic/revision_000/trials/seed_992204/result.json": "3a16f1d986733fde8a6a3e2ddde01778085aeb2eb55dbc110ea4ff4b038c0a39",
+        "basic/revision_000/trials/seed_992205/result.json": "95723198be35723b321b3aaa43ea88bc080195f3f15c3ea5e1ac7f98f0c4f11a",
+        "basic/revision_000/trials/seed_992206/result.json": "bf096647034b218db218a5c4dc391ac087c48fda484ec8aebc4d92d9e5cfb5aa",
+        "basic/revision_000/trials/seed_992207/result.json": "821287883419db70fb7ee4a08bdaa0a5d564e57fa13809dc98adfcda0d3a591b",
+        "basic/revision_000/trials/seed_992208/result.json": "8d1597afd8cb472fd53d0437e49bcdd813713c0a876a8d78c4454d964365644d",
+        "basic/round_001/trials/seed_992201/result.json": "d5d6b9e3c72d27093fd5ffb3a9911d6faf7641d67978be52e7422e6083f37379",
+        "basic/round_001/trials/seed_992202/result.json": "2e600347cba8c3b23771b22ff84943e94611cbb3de1e1c41e0c67f03753952e0",
+        "basic/round_001/trials/seed_992203/result.json": "8b8ce954b0356d92b49fcf7e3573d7be6cefd92177a71072fec3ac6dec46f14c",
+        "basic/round_001/trials/seed_992204/result.json": "eed54e65bef80a083cd980d1d7b18318e4d2f16e3ca2457bba79f7b9465fc341",
+        "basic/round_001/trials/seed_992205/result.json": "1f2485667cd2b993a502777a0296448cbe2c775218d9c32ad3e0b7021052993e",
+        "basic/round_001/trials/seed_992206/result.json": "822247483266fafe41940921b71aad826e07c7f712e6b97b0eec176eee2ec95d",
+        "basic/round_001/trials/seed_992207/result.json": "6524a544cf0b25a565161f922a89316f785571dde52aef1baeb2376ad0aaa335",
+        "basic/round_001/trials/seed_992208/result.json": "7015541dd4af38b1af49d99e7ded85ddcfe838d383dda6ef233227ef47920d06",
+        "basic/round_002/trials/seed_992201/result.json": "87fd7d9278044d799eca36deefaa7413f0b6cd01eb949219e45b650040627418",
+        "basic/round_002/trials/seed_992202/result.json": "d3669e0588d78eafd2e92bf4fc254fe9e773ca1aa102320844a661c5cbcd51e9",
+        "basic/round_002/trials/seed_992203/result.json": "1e8e06b3195af475177843d9043c543642d5c5534dae52452c5d86f3d8bfd797",
+        "basic/round_002/trials/seed_992204/result.json": "37729d3c508a4a80b29033fc3f954fc3a0e96d3566dd54a41d061809c8c64b13",
+        "basic/round_002/trials/seed_992205/result.json": "4170a63db58906d566c138b2a6e30f523a1e6e2cea4729bf52d72886939e01b3",
+        "basic/round_002/trials/seed_992206/result.json": "d49c102dcf6afc41b0aede23b3ac21c25578ac52139490cc0812113da314cf0f",
+        "basic/round_002/trials/seed_992207/result.json": "065b90107f0cf83c567ae1084e2e792ede9b9e58b10b1b113cbce45c56029274",
+        "basic/round_002/trials/seed_992208/result.json": "b7f86471457d327ea1ec0e384b635ddc4e862474042e1ae5225f180a275c72c8",
+        "basic/round_003/trials/seed_992201/result.json": "e70b1c7d1b21312a91fa1717124b085f8d2cfb093cf0bbd941f1a2b7e4316dcb",
+        "basic/round_003/trials/seed_992202/result.json": "c9c42b5c96e97f233df66bbfdbd22ebdfc973a4e30f4d2d622675811768d30e1",
+        "basic/round_003/trials/seed_992203/result.json": "2057d0d62e7cd8f0cc27bc0804d2f250127af07ab95cc84e733d42dcce8b2a3b",
+        "basic/round_003/trials/seed_992204/result.json": "072c08948fe7e7c90fc71efe463543716fd60d89f61da894843987e6e808a622",
+        "basic/round_003/trials/seed_992205/result.json": "29cd552a8226cf820c67f2d43783537a328588bcbf0829b7efdd0d5c24a10961",
+        "basic/round_003/trials/seed_992206/result.json": "8fd825ed4d1f8491cc9d86b5c2cc30252b290ac0c0e01b03aa134371d70ed1ec",
+        "basic/round_003/trials/seed_992207/result.json": "53cd6e8017a3e1f77f52981d9c07a07d3d3af50f78763c60777359826cedb077",
+        "basic/round_003/trials/seed_992208/result.json": "c36dc709750c71e7ef21830cdaa31517397d933353490060ff8154e0e07d725a",
+        "symbolic/revision_000/trials/seed_992201/result.json": "c42261676e6a4c35b61569df0e6b2595474c162a5c67781096fff5deda07d86b",
+        "symbolic/revision_000/trials/seed_992202/result.json": "5806539054641b8fff796a51ec62fbd8f22d965ee6c14f80fcd96403888bc1cd",
+        "symbolic/revision_000/trials/seed_992203/result.json": "bfed23cf90038fe9aad6f6379aad69f4d9b59a3b8991957f932eda91ebdad651",
+        "symbolic/revision_000/trials/seed_992204/result.json": "02960395c51bfb3ccd1f858fd4b6fcfb12052520f4c1b70059743f03e935ad58",
+        "symbolic/revision_000/trials/seed_992205/result.json": "d052836db81569b4d3ad833720d9505cda254df2c049076b90550494808683dc",
+        "symbolic/revision_000/trials/seed_992206/result.json": "8c3cae1d1c49b4ea731620817b4da5fca42b083b8d975ea472bd55c634f1df59",
+        "symbolic/revision_000/trials/seed_992207/result.json": "7c35ce2c0e1e819d5b70093ddf3c4a9c9521168b3ed61014654799fba27c3dfa",
+        "symbolic/revision_000/trials/seed_992208/result.json": "9c41bb4bc273189995f26bc59acbe8ab235f28758defad5a22618c3c32b9dda4",
+        "symbolic/round_001/trials/seed_992201/result.json": "c1a6a5fc44271e3a0d077588d7c39c4cf6421cd40d44c8aafa51674a684e2e5d",
+        "symbolic/round_001/trials/seed_992202/result.json": "6134e7c90633406d08425005abbff43a7df8330d124e9a646cfe06df115e120b",
+        "symbolic/round_001/trials/seed_992203/result.json": "09c79d9f4eee324238c187699864aab7c4a6e645fce324a2188b6196aacc2f70",
+        "symbolic/round_001/trials/seed_992204/result.json": "221179e4f128a17d9bacb810f7f1ecb5b4955b77b922e43c59daa31794f45ff9",
+        "symbolic/round_001/trials/seed_992205/result.json": "e7da6406377e94b843f38b5eb9e0018bff1db72f1758c71db8e45bfdcc3bfb74",
+        "symbolic/round_001/trials/seed_992206/result.json": "fd200a7d376806b5830da89ddc5ea7bb93981bb916baafd6603016a9ed1710dc",
+        "symbolic/round_001/trials/seed_992207/result.json": "ca37f908c626ec02923d214f49cdf1bdc738c0dd3d284794f9efc298e2b0b24e",
+        "symbolic/round_001/trials/seed_992208/result.json": "6bf3a2beaf3d1eb98e879337baa192a678b9ec49ebe1ff7f7f9029281128bccb",
+        "symbolic/round_002/trials/seed_992201/result.json": "a96cdb17ff1c50c843c3bd0a9c1035881fc9131cfca9411aa582f8894bc5a47a",
+        "symbolic/round_002/trials/seed_992202/result.json": "8cb9d04961d97d802ee43570ba67a43d871fab8c9b93491dd302c5b99ab6ef57",
+        "symbolic/round_002/trials/seed_992203/result.json": "6c8820326b22b88527f5ecca9e3626089fe45035bec574dcdd6c2c3d1fd17d89",
+        "symbolic/round_002/trials/seed_992204/result.json": "c7d6f15f291f305b65cf51b3662d771524edc8eb9c89565fb6bfe5bdffbf7d33",
+        "symbolic/round_002/trials/seed_992205/result.json": "1915df6b3f36b788f384274313ebdd7589eb02533a3d050a73019e8618e16f5a",
+        "symbolic/round_002/trials/seed_992206/result.json": "1f5d374d578722c043471b3897935836c710a538793fc5a29645c091ab2bdaf1",
+        "symbolic/round_002/trials/seed_992207/result.json": "7a87939c634c26e50d8f2847d711f23d6a677ed772a66407de5f7302288531ec",
+        "symbolic/round_002/trials/seed_992208/result.json": "ea56e80084e594b752c05ab3df659b503efcce071461210a363e282e6099ca41",
+        "symbolic/round_003/trials/seed_992201/result.json": "c6c10d59f10f1823832c3e17c562341e6a418e2515a1c1df063ead7b40731578",
+        "symbolic/round_003/trials/seed_992202/result.json": "8720cc813e4f7f7ad20fc520a5d142828140536b235f7359a5c4a271e4f9fa08",
+        "symbolic/round_003/trials/seed_992203/result.json": "211ab635c822c1b28320e23a613c6d091cffc3a6fdcebf9a298bb9a081bd8520",
+        "symbolic/round_003/trials/seed_992204/result.json": "018efa4b6414f110098c3fce22e1a05385b5e08f349b88d9cbe8049390c0c1f0",
+        "symbolic/round_003/trials/seed_992205/result.json": "a8d255cde19a22239835a2410868cb5f5997083fd4d06c74afc45c4c24403ccc",
+        "symbolic/round_003/trials/seed_992206/result.json": "c2c11e0e42b1cec88fee46d34b9e637b04d1db47e2bfa61cc1c7da77830bf407",
+        "symbolic/round_003/trials/seed_992207/result.json": "48fa01683633e9904048efea8a8f69eef70957f7010eebe09e87e897997c9bb3",
+        "symbolic/round_003/trials/seed_992208/result.json": "f7ce5342b72be2ab14a74bc4142d8f5c559ced51ffb0d425dd66be8b608ef7be"
+      },
+      "limitations": [
+        "One isolated actor chain per arm within each replica.",
+        "Treatment includes supplied perception and geometry, not solely text representation.",
+        "The shared hidden actuator uses RGB-D estimates in both arms; this is high-level planning, not pixels-to-torques.",
+        "Same revisions and rollout slots; tokens recorded, not equalized. Rollout duration is not an objective.",
+        "No prior evolved policy, inspected diagnosis or reserved outcome enters actor feedback."
+      ],
+      "model_generation_accounting": {
+        "retained_completed": 6,
+        "discarded_due_to_schema_defect": 0,
+        "actual_completed": 6
+      },
+      "initial_sensor_pairing": {
+        "status": "passed",
+        "unique_seeds_checked": 8,
+        "checked": "host pre-policy RGB render plus seed, color map and scene settings"
+      },
+      "arm_labels": {
+        "basic": "Visual Base",
+        "symbolic": "Full geometry"
+      },
+      "contrasts": [
+        "Visual Base versus supplied full geometry package, including target-only partial constraints. Identical hidden RGB-D actuator. Not a pure symbolic or partial-constraint ablation."
+      ],
+      "identical_library_except_projection": true,
+      "exact_actor_contexts_verified": 6,
+      "starter_parity_audit": "passed",
+      "auditor_sha256": "1fe05bc5405ea56580bf390cf33266899a305bbb9feae52bfb6ca123555b0850",
+      "experiment_variant": "partial_constraints_all_training_checkpoints_v1",
+      "variant_auditor_sha256": "1b1f8deb69156a88088af9905c3a56e05eab864dd54a4464473e40d040999b3a"
+    },
+    "replica_03": {
+      "status": "trained",
+      "manifest_sha256": "18e25101a6202ae93387cdec2810f0810713cf78c710f27d49768f3cdf62a314",
+      "schema": "visual_input_geometry_pilot_v1",
+      "source_audit": "passed",
+      "curves": {
+        "basic": {
+          "training": [
+            {
+              "revision": 0,
+              "successes": 3,
+              "slots_completed": 8,
+              "total_slots": 8
+            },
+            {
+              "revision": 1,
+              "successes": 3,
+              "slots_completed": 8,
+              "total_slots": 8
+            },
+            {
+              "revision": 2,
+              "successes": 3,
+              "slots_completed": 8,
+              "total_slots": 8
+            },
+            {
+              "revision": 3,
+              "successes": 0,
+              "slots_completed": 8,
+              "total_slots": 8
+            }
+          ]
+        },
+        "symbolic": {
+          "training": [
+            {
+              "revision": 0,
+              "successes": 3,
+              "slots_completed": 8,
+              "total_slots": 8
+            },
+            {
+              "revision": 1,
+              "successes": 4,
+              "slots_completed": 8,
+              "total_slots": 8
+            },
+            {
+              "revision": 2,
+              "successes": 3,
+              "slots_completed": 8,
+              "total_slots": 8
+            },
+            {
+              "revision": 3,
+              "successes": 3,
+              "slots_completed": 8,
+              "total_slots": 8
+            }
+          ]
+        }
+      },
+      "actors": [
+        {
+          "arm": "basic",
+          "revision": 1,
+          "usage": {
+            "input_tokens": 21187,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 8681,
+            "reasoning_output_tokens": 3624
+          },
+          "static_interface_call_counts": {},
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 264.5431400870002,
+          "audit": "passed",
+          "planner_characters": 16778
+        },
+        {
+          "arm": "basic",
+          "revision": 2,
+          "usage": {
+            "input_tokens": 26478,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 8531,
+            "reasoning_output_tokens": 3106
+          },
+          "static_interface_call_counts": {},
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 260.2912424919996,
+          "audit": "passed",
+          "planner_characters": 18019
+        },
+        {
+          "arm": "basic",
+          "revision": 3,
+          "usage": {
+            "input_tokens": 27560,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 7694,
+            "reasoning_output_tokens": 2070
+          },
+          "static_interface_call_counts": {},
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 235.63764165499742,
+          "audit": "passed",
+          "planner_characters": 18673
+        },
+        {
+          "arm": "symbolic",
+          "revision": 1,
+          "usage": {
+            "input_tokens": 22656,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 8837,
+            "reasoning_output_tokens": 3624
+          },
+          "static_interface_call_counts": {},
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 270.12236150899844,
+          "audit": "passed",
+          "planner_characters": 17727
+        },
+        {
+          "arm": "symbolic",
+          "revision": 2,
+          "usage": {
+            "input_tokens": 28288,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 8465,
+            "reasoning_output_tokens": 2462
+          },
+          "static_interface_call_counts": {},
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 258.40514715899917,
+          "audit": "passed",
+          "planner_characters": 20352
+        },
+        {
+          "arm": "symbolic",
+          "revision": 3,
+          "usage": {
+            "input_tokens": 29919,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 8819,
+            "reasoning_output_tokens": 3106
+          },
+          "static_interface_call_counts": {},
+          "source_syntax_error": null,
+          "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+          "wall_seconds": 268.6531645270006,
+          "audit": "passed",
+          "planner_characters": 19396
+        }
+      ],
+      "valid_rollouts": 64,
+      "invalid_slots": 0,
+      "result_hashes": {
+        "basic/revision_000/trials/seed_992301/result.json": "fbbd3de4d2e92cf6ce5226885ff77d8ac5f796baa49028f6cda326f8bee2616f",
+        "basic/revision_000/trials/seed_992302/result.json": "8fee52381a9af62f7c9d3c46887b008dab133c3a1591d6ba818aefae98a88f9e",
+        "basic/revision_000/trials/seed_992303/result.json": "09fd1d3b11d54e485a94d7233babf801d3ed09e13b657a6faf597a3a7985737e",
+        "basic/revision_000/trials/seed_992304/result.json": "af95ff0ca4c083649e3d30d640bca8edd09f0471999a827f6babea935d88de83",
+        "basic/revision_000/trials/seed_992305/result.json": "ad90eb7d830cbc8b3b21a54de25d36a52669136c25716e52c90fcd518496d7ce",
+        "basic/revision_000/trials/seed_992306/result.json": "6d965c28dc880a6c04d3c6e190e85ffa24256151c9b1a6f1d048b56c14cd1554",
+        "basic/revision_000/trials/seed_992307/result.json": "10c62a91daa7e2907b7f3ed80b76f26911b791fb3f395b07cb509b6d0c1698fc",
+        "basic/revision_000/trials/seed_992308/result.json": "0f315e164f56eb5eccb1b17ace3a6e0bf5fa602ad55e1963aaa92aacabbfc5fc",
+        "basic/round_001/trials/seed_992301/result.json": "ad26832ed5cac6ba2d1475b6aaea9b1784af8289633e0d9460cb046cdd4b10fe",
+        "basic/round_001/trials/seed_992302/result.json": "bd4e0be0266ece07f8970cccbd9b4de8772eed49b71ba07598836c154f047ba6",
+        "basic/round_001/trials/seed_992303/result.json": "2493621d8ecb8a8df5e90cdb4beed44efdc868853d116749c97141807ca34803",
+        "basic/round_001/trials/seed_992304/result.json": "756ba821c33256a01ef12d10beced8dce8b63898ca5f1cbed884b2ea03358ca9",
+        "basic/round_001/trials/seed_992305/result.json": "d0b868750cb0e0ff4e925a0918b6dad21dca3ce13690501a4f5408e36512e860",
+        "basic/round_001/trials/seed_992306/result.json": "babca3735753c69c6e35ac645d97c40b96e9ab5265beeb09411f50ca25017f1b",
+        "basic/round_001/trials/seed_992307/result.json": "bcd7ddea94301b85e4c3b9a75a7c10305ebff805efdb41207c14c41ed10c66c5",
+        "basic/round_001/trials/seed_992308/result.json": "5c4743482f2478220ffd71719ece3a0b42a5d93f18edc736277cf02746250efa",
+        "basic/round_002/trials/seed_992301/result.json": "28aaba10bf7ea5785e2ed1a6b5163fe81dffacc2cfe42989e11a30c24b48e541",
+        "basic/round_002/trials/seed_992302/result.json": "718b5d165c7f19c432f3da875e63d5d88069fe5b538dbb4e55db9b3c468bbb85",
+        "basic/round_002/trials/seed_992303/result.json": "541d42a69d423680c0d1b8d0b752fb24873020a98bbecb672d3b67d5c52e1449",
+        "basic/round_002/trials/seed_992304/result.json": "d7c0d06d6a2112e0b8ea2fbbf473122f8f6d62848784e25a03b7fe88f3ef6e86",
+        "basic/round_002/trials/seed_992305/result.json": "0e2a8e5b8633eee21e692de9de3b392e4e31fa5dc5fc0419aab065d05ba7f637",
+        "basic/round_002/trials/seed_992306/result.json": "0971aa66e960c5c0cad045e1089b539c2031172f6de22c223680797bea77ba0b",
+        "basic/round_002/trials/seed_992307/result.json": "fd2dcc154e3c3802c27dba5c81f6df6756f6b05e7663f57546116856ecfb8271",
+        "basic/round_002/trials/seed_992308/result.json": "6e623c2510f8ff873299963feef971476ae7f6383855d192ca6fb4a16977168b",
+        "basic/round_003/trials/seed_992301/result.json": "2ad1ebe0ef4424d895a23547c06f4f66ebd99eb020bdf09c62a0df3a56a6c44b",
+        "basic/round_003/trials/seed_992302/result.json": "139b98b69c7ce808c6e3fa7aac2a0adfbe50d12993e12e73cae39e60ad40e49b",
+        "basic/round_003/trials/seed_992303/result.json": "e74c51e57beba2b42cb52ec13844b81f1a0074118794a46d16394e61507845b4",
+        "basic/round_003/trials/seed_992304/result.json": "d1aebe38d391ef60e970dc7cd40e3b62f2f631be2995760e69cf19868785c4aa",
+        "basic/round_003/trials/seed_992305/result.json": "9d9ac5db7c95e2a03fa2f1f8a410e6487f6f06bf2eb4405b82e4689da67b3428",
+        "basic/round_003/trials/seed_992306/result.json": "9c09503242fb5796ef16d78049afbc69bc1b5bf4ba52d10c9f2fc7242ac3ed97",
+        "basic/round_003/trials/seed_992307/result.json": "5a1e5b22cf3f9b3023ff62991c20ca02182ceef3b5c6ed41509a150f9cefbb67",
+        "basic/round_003/trials/seed_992308/result.json": "80f0e4df89f315cd37fc49e6ee29aadca85818cc762c25a2acc0e47331f44a1f",
+        "symbolic/revision_000/trials/seed_992301/result.json": "9c18eebe72239b65fea35d5d2505477c2fec39b3bed50c3f2d1971eeda82093a",
+        "symbolic/revision_000/trials/seed_992302/result.json": "ae6e8354102bddfc7db1eacd12c695d083e71e875cfcd6df84075eb20204165f",
+        "symbolic/revision_000/trials/seed_992303/result.json": "8ba4882d5b183e4c04701a02059c48c06a46cace0d7da409dcfe8e2bb5c3d706",
+        "symbolic/revision_000/trials/seed_992304/result.json": "07db4cb1403be61d392f0abe0d49a6a633a64e49f89595c80c109f5717668fa0",
+        "symbolic/revision_000/trials/seed_992305/result.json": "e5496bb94bcc5bd0067822730ead6b5f045f7ea1c9dc99770ac9c44538ecb9f3",
+        "symbolic/revision_000/trials/seed_992306/result.json": "b18ec967c905dd1b0a607ded7ea802a36e64bebdf437eaeeb15a4032ae9bbe25",
+        "symbolic/revision_000/trials/seed_992307/result.json": "f3b3a2fc03e4a0e75e12044772a52d866f47ab20b2daeb57bcd79d53e2f14b73",
+        "symbolic/revision_000/trials/seed_992308/result.json": "24404da2134bf2ee7a8e639fd56ddd7ea6f55a0fbc3438f1efeac6e210af51ec",
+        "symbolic/round_001/trials/seed_992301/result.json": "b88bbfc30878eaef75c37ef0580a82e03744e6189f5f3886d5c49953689c5dd4",
+        "symbolic/round_001/trials/seed_992302/result.json": "9716e8d875748c79c82e0d690ff7ac7eaadb1a4828ffa0fab55055610ea699ca",
+        "symbolic/round_001/trials/seed_992303/result.json": "a5a86b96e027dfc9f5a2526acda06f46b38a80d32505bdc07dbc88b83851b436",
+        "symbolic/round_001/trials/seed_992304/result.json": "4b4076750b8c6b2a0dcc09b2ffa979458eadc9a239e7e4aaa536a5bdd39d676a",
+        "symbolic/round_001/trials/seed_992305/result.json": "9587354845fa9c82e38c1f108654e81b21d693225bd1cbb60ecaf303cad9c8ab",
+        "symbolic/round_001/trials/seed_992306/result.json": "5a6cca4f54e31811b0074b72d719b3a46449e56dd499ad07fd2213e63a6b5e2e",
+        "symbolic/round_001/trials/seed_992307/result.json": "9089f2507dc714e4f2ed01ef78b907093e7e1fd12fef0d0ebf4cff98ccf45745",
+        "symbolic/round_001/trials/seed_992308/result.json": "594ea7875c8d377d0ecdbb6ad82a0d8c1384488a305a3c660a7071829164dbf2",
+        "symbolic/round_002/trials/seed_992301/result.json": "089a8326efc27bd564bea24fa40303de5a34b896437fe515a23da390db644181",
+        "symbolic/round_002/trials/seed_992302/result.json": "2a06af1f6d51ef624a3c41debf786d6ba61a24ca43ac66a7c4c1e909e04ac4bb",
+        "symbolic/round_002/trials/seed_992303/result.json": "ba709d4f81b18faf25d599f51b73ca402852288384f98ed1b55a83b894de9d58",
+        "symbolic/round_002/trials/seed_992304/result.json": "41e572f5d14ce80f023e8f7fcf597b03a5e7c67e3138f029225214d0450449e1",
+        "symbolic/round_002/trials/seed_992305/result.json": "572bf78f21bd3143c1e47d3fc55d0a0dd2383b8b7a7808db5eb0f5eda421a5d9",
+        "symbolic/round_002/trials/seed_992306/result.json": "d610227a258d08c9aa8bd0efdc0a39c7e4b9143d2694ffab6745e67fe8f73711",
+        "symbolic/round_002/trials/seed_992307/result.json": "7ce801fad474e45a84eaf82d3c22abe2fb1930297e030dbe99c8ba00cfe62f21",
+        "symbolic/round_002/trials/seed_992308/result.json": "38a2e587b15359199c2295887187cf627723d4fb13cb889c3dd0879fde1de72d",
+        "symbolic/round_003/trials/seed_992301/result.json": "04af57b35c6f9ab7c10b5f2be7e34645538ed9bf8bc6f53e0280d611a54fd5a2",
+        "symbolic/round_003/trials/seed_992302/result.json": "0e12e27d682766cd62411ceeeab65e495164d6df5528e6a194b685a1b8eaf797",
+        "symbolic/round_003/trials/seed_992303/result.json": "6b05bddf880a5b41002e5307e658213488b332223750aaf0b0434ce8ca46ae43",
+        "symbolic/round_003/trials/seed_992304/result.json": "b6a17b79cd3ca90b6d9d323ff8bacf828ccfe77ff0e52dc26530ea08eb7e3c07",
+        "symbolic/round_003/trials/seed_992305/result.json": "d0fcb505399143f46dddbfbc1894ccfee8d1ae4c8b4155d95c42dedf14077e9b",
+        "symbolic/round_003/trials/seed_992306/result.json": "3970ad49e530838fa37578f530426353804d41df045a884763781838a0c5db73",
+        "symbolic/round_003/trials/seed_992307/result.json": "32db628244687a9a72342038b79853b6627f980294b0edc4e33576ac4877db33",
+        "symbolic/round_003/trials/seed_992308/result.json": "9f9fe6c194cdf717676af3f103a8aabe7ba66555bee6a4ef035bff51ee7b4e13"
+      },
+      "limitations": [
+        "One isolated actor chain per arm within each replica.",
+        "Treatment includes supplied perception and geometry, not solely text representation.",
+        "The shared hidden actuator uses RGB-D estimates in both arms; this is high-level planning, not pixels-to-torques.",
+        "Same revisions and rollout slots; tokens recorded, not equalized. Rollout duration is not an objective.",
+        "No prior evolved policy, inspected diagnosis or reserved outcome enters actor feedback."
+      ],
+      "model_generation_accounting": {
+        "retained_completed": 6,
+        "discarded_due_to_schema_defect": 0,
+        "actual_completed": 6
+      },
+      "initial_sensor_pairing": {
+        "status": "passed",
+        "unique_seeds_checked": 8,
+        "checked": "host pre-policy RGB render plus seed, color map and scene settings"
+      },
+      "arm_labels": {
+        "basic": "Visual Base",
+        "symbolic": "Full geometry"
+      },
+      "contrasts": [
+        "Visual Base versus supplied full geometry package, including target-only partial constraints. Identical hidden RGB-D actuator. Not a pure symbolic or partial-constraint ablation."
+      ],
+      "identical_library_except_projection": true,
+      "exact_actor_contexts_verified": 6,
+      "starter_parity_audit": "passed",
+      "auditor_sha256": "1fe05bc5405ea56580bf390cf33266899a305bbb9feae52bfb6ca123555b0850",
+      "experiment_variant": "partial_constraints_all_training_checkpoints_v1",
+      "variant_auditor_sha256": "1b1f8deb69156a88088af9905c3a56e05eab864dd54a4464473e40d040999b3a"
+    }
+  },
+  "valid_rollouts": 192,
+  "invalid_slots": 0,
+  "completed_actor_generations": 18,
+  "model_invocation_attempts": [
+    {
+      "path": "replica_01/symbolic/round_002/invocation.json",
+      "sha256": "09e1724d05c8d71f99ca8ede91f8920d333efb73d4830198f86e27340dfb6d2c",
+      "completed": true
+    },
+    {
+      "path": "replica_01/symbolic/round_003/invocation.json",
+      "sha256": "2a4a420515b593d4e13bef2de6ac58d3a845f7363a31b7bc56b9fb423e567e22",
+      "completed": true
+    },
+    {
+      "path": "replica_01/symbolic/round_001/invocation.json",
+      "sha256": "36ff68123386f7fec7056784329e5f2be9b3abe750cb91f0de132fd48ce7ccb8",
+      "completed": true
+    },
+    {
+      "path": "replica_01/basic/round_002/invocation.json",
+      "sha256": "07d26b2214487c70d476d6c988fbd029e1d6008f5acbb770a32341cc2683f639",
+      "completed": true
+    },
+    {
+      "path": "replica_01/basic/round_003/invocation.json",
+      "sha256": "efd09411caa23a333455f4a6b6d9408208f2171cb8164734b1d2fde902374c46",
+      "completed": true
+    },
+    {
+      "path": "replica_01/basic/round_001/invocation.json",
+      "sha256": "cd518bb716687afd320f467115b363a0ff8d7cd7732773b2ea5a5648760b993d",
+      "completed": true
+    },
+    {
+      "path": "replica_02/symbolic/round_002/invocation.json",
+      "sha256": "5326229af769e97c00349c287ccb5da679a2d9775f26eda4ca2382fd8f1480a3",
+      "completed": true
+    },
+    {
+      "path": "replica_02/symbolic/round_003/invocation.json",
+      "sha256": "53826369c0e2d14689b487993282341f8611ac7c7428cf6bef6dab6075273530",
+      "completed": true
+    },
+    {
+      "path": "replica_02/symbolic/round_001/invocation.json",
+      "sha256": "394338d9f5d6652a4f758ae6c217df852aaebbfe81a0cb68ceacd0e52fe43886",
+      "completed": true
+    },
+    {
+      "path": "replica_02/basic/round_002/invocation.json",
+      "sha256": "99e1e86f8fa5a8c46558f9693890c6e3a3dd67159ec894a722942c59e8cbbbad",
+      "completed": true
+    },
+    {
+      "path": "replica_02/basic/round_003/invocation.json",
+      "sha256": "a6ad07faa97ee860b5585c9c9b7a3bf1cb0922072d6a85cbd49f2f87375194d3",
+      "completed": true
+    },
+    {
+      "path": "replica_02/basic/round_001/invocation.json",
+      "sha256": "cdaa4a14b417e637add45df924771f4d3ff01fc09abf82e1224647c54bdfbd0a",
+      "completed": true
+    },
+    {
+      "path": "replica_03/symbolic/round_002/invocation.json",
+      "sha256": "5c7484c18bd7e48c8aa16470de10c96e5c23fd17a0d315eb6a1ae76b3094b111",
+      "completed": true
+    },
+    {
+      "path": "replica_03/symbolic/round_003/invocation.json",
+      "sha256": "dadb32321030b12cd703d21266d9ea836673b235add76c9e1300853c3f0fe22e",
+      "completed": true
+    },
+    {
+      "path": "replica_03/symbolic/round_001/invocation.json",
+      "sha256": "fe8e27e461d7c344bae521d34d0e1054cff35e9005c83a30eaa2c2e611bff866",
+      "completed": true
+    },
+    {
+      "path": "replica_03/basic/round_002/invocation.json",
+      "sha256": "6bea6a0a3471baeba2b95468f27ad337c4ccd34634b19fc68dcb5b98ef5f5dd9",
+      "completed": true
+    },
+    {
+      "path": "replica_03/basic/round_003/invocation.json",
+      "sha256": "e16f2706a9c5a5e2ddb269c83c6f429792f944eb990e28bde37df8e1d8e2330f",
+      "completed": true
+    },
+    {
+      "path": "replica_03/basic/round_001/invocation.json",
+      "sha256": "23e5a519f9f9507b9d3cba32b664000c491390b39c43e76a00df2e4d26d83414",
+      "completed": true
+    },
+    {
+      "path": "interrupted_actor_attempts/batch_001/replica_01/basic/round_003/invocation.json",
+      "sha256": "7b52b1696dc4a26f0a7a2bf8e1463cdfb372bf75ff063f9d78397211770d30db",
+      "completed": false,
+      "infrastructure_failure": "pre_response_usage_limit",
+      "original_stage": "replica_01/basic/round_003",
+      "receipt_sha256": "a51c7587d6949ed56f40d475cbc11b06bfd6c6591c1ca1d35fd55ad28743e61a",
+      "exact_context_verified": true
+    },
+    {
+      "path": "interrupted_actor_attempts/batch_001/replica_01/symbolic/round_003/invocation.json",
+      "sha256": "5e030de358a21e65fdc01a6baf00286f0f1767bd3e89c9f9c546a5c1a95fcfec",
+      "completed": false,
+      "infrastructure_failure": "pre_response_usage_limit",
+      "original_stage": "replica_01/symbolic/round_003",
+      "receipt_sha256": "a51c7587d6949ed56f40d475cbc11b06bfd6c6591c1ca1d35fd55ad28743e61a",
+      "exact_context_verified": true
+    }
+  ],
+  "study_freeze_audit": "passed",
+  "interpretation": "Three independent chain pairs with common test layouts. Correlated policy revisions and test episodes are not additional actor replications. No pooled Bernoulli confidence interval or p-value.",
+  "auditor_sha256": "b30a5e031a5c29551f68b1c42c76ee9bfcb3dbbd63698414704a744e97f96c01",
+  "interrupted_actor_attempts": 2,
+  "experiment_variant": "partial_constraints_all_training_checkpoints_v1",
+  "variant_auditor_sha256": "388b017429e9128f874af652425399f41a2789e8924704954c5aa4ce251acd52"
+}

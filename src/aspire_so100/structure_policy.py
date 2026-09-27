@@ -13,8 +13,9 @@ from aspire_so100.column_geometry import ColumnGeometryConflict, column_size_unc
 from aspire_so100.instance_geometry import InstanceTracker, inventory_color_mask as color_mask
 from aspire_so100.beam_geometry import select_structure_nodes, flat_beam_aligned, estimate_flat_beam_geometry
 from aspire_so100.structure_geometry import convex_polygon, model_footprint, support_equilibrium
+from aspire_so100.pointing_recovery import PointingRecovery
 
-def run(api):
+def run(api, pointing=False):
 
     def tool():
         return np.asarray(api.proprioception()['tool_position'], dtype=float)
@@ -37,6 +38,7 @@ def run(api):
     last_frame = [None]
     last_robot = [None]
     tracker = ColumnTracker()
+    recovery = PointingRecovery(api, tracker) if pointing else None
     visual_models = {}
     grasp_anchors = {}
     warm_grasps = {}
@@ -95,6 +97,8 @@ def run(api):
                 surface_models[name] = fresh
             tracker.surface_models = surface_models
             tracker.update(s, predicted_grasps(robot))
+            if recovery is not None:
+                recovery.apply_frame(s)
             for name in grasp_anchors:
                 if tracker.tracks[name]['visible']:
                     remember_grasp(name, robot)
@@ -299,13 +303,35 @@ def run(api):
             side = geometry['side_m']
             estimate.update(center=geometry['centroid'], top=geometry['top_center'][2], normal=geometry['top_normal'], bottom=geometry['bottom_z'], extent_z=(geometry['top_z'] - geometry['bottom_z']) / 2, dims=np.array([side, side]), vertices=geometry['vertices'], top_vertices=geometry['top_vertices'])
             return estimate
+        geometric_locate = locate
+
+        def locate(name, model=None, near=None):
+            try:
+                return geometric_locate(name, model, near)
+            except (ValueError, RuntimeError) as error:
+                if recovery is None or name not in node_for_id:
+                    raise
+                api.note('POINTING trigger: ' + str(error))
+                if not recovery.reassociate(last_frame[0], node_for_id[name], name):
+                    raise
+                return geometric_locate(name, model, near)
+
         initial_tool = tool()
         scan = initial_tool.copy()
         scan[2] += 0.05
         move(scan, 1.0)
         capture()
         try:
-            level_ids = select_structure_nodes(tracker, levels, last_frame[0])
+            try:
+                level_ids = select_structure_nodes(tracker, levels, last_frame[0])
+            except ValueError as error:
+                if recovery is None:
+                    raise
+                api.note('POINTING trigger: ' + str(error))
+                affected = [node for node in levels if node['color'] in str(error)]
+                if len(affected) != 1 or not recovery.reassociate(last_frame[0], affected[0]):
+                    raise
+                level_ids = select_structure_nodes(tracker, levels, last_frame[0])
             if len(set(level_ids)) != len(level_ids):
                 raise ValueError('Each tower level must resolve to a distinct instance')
             base_id = level_ids[0]
@@ -318,6 +344,8 @@ def run(api):
         api.note('STRUCTURE construction_order=' + str(level_ids))
         active_support = [[]]
         node_for_id = dict(zip(level_ids, levels))
+        if recovery is not None:
+            recovery.protected = set(level_ids)
         id_for_key = dict(zip(node_keys, level_ids))
         parents = {name: [id_for_key[key] for key in node['supports']] for name, node in node_for_id.items()}
         blocks = {name: locate(name) for name in level_ids}

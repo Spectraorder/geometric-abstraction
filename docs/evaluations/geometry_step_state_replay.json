@@ -1,0 +1,3652 @@
+{
+  "kind": "training_checkpoint_projection",
+  "live_policy_integration": false,
+  "semantics": "Estimated geometry and changes; no certified contact or stability.",
+  "sources": [
+    {
+      "seed": 910001,
+      "path": "outputs/shared_observer_learning_pilot_01/symbolic/round_001/trials/seed_910001/geometry_records.json",
+      "sha256": "0d4854ff1653f12a9620c4d08cb9b5f3b2fd97091b4c0b602272763541026f95",
+      "public_node_identities": {
+        "left": "yellow",
+        "right": "green",
+        "beam": "red",
+        "cap": "blue"
+      }
+    },
+    {
+      "seed": 910002,
+      "path": "outputs/shared_observer_learning_pilot_01/symbolic/round_001/trials/seed_910002/geometry_records.json",
+      "sha256": "4c7da611e768e6bd3ef8482ff5c0b740a5dd08029496fd55b290922a35f8a6b1",
+      "public_node_identities": {
+        "left": "green",
+        "right": "red",
+        "beam": "blue",
+        "cap": "yellow"
+      }
+    },
+    {
+      "seed": 910003,
+      "path": "outputs/shared_observer_learning_pilot_01/symbolic/round_001/trials/seed_910003/geometry_records.json",
+      "sha256": "dc478ee2cfd639d91b55ed57df7995310f15464b9706d362dbcf9a1760377c0b",
+      "public_node_identities": {
+        "left": "red",
+        "right": "blue",
+        "beam": "yellow",
+        "cap": "green"
+      }
+    },
+    {
+      "seed": 910004,
+      "path": "outputs/shared_observer_learning_pilot_01/symbolic/round_001/trials/seed_910004/geometry_records.json",
+      "sha256": "6282fc398bd4b827a09af33c70fd8c14d2f06e9e77fb209157e50e2ba0c1d88f",
+      "public_node_identities": {
+        "left": "blue",
+        "right": "yellow",
+        "beam": "green",
+        "cap": "red"
+      }
+    },
+    {
+      "seed": 910005,
+      "path": "outputs/shared_observer_learning_pilot_01/symbolic/round_001/trials/seed_910005/geometry_records.json",
+      "sha256": "e0c92c01abcfc609139ce77511f97aa134b3b000d12d92bf8e42246b83ec9899",
+      "public_node_identities": {
+        "left": "yellow",
+        "right": "green",
+        "beam": "red",
+        "cap": "blue"
+      }
+    }
+  ],
+  "checkpoints": 64,
+  "median_global_chars": 16152.5,
+  "median_focused_chars": 562.0,
+  "aggregate_char_reduction": 0.9652753144498654,
+  "records": [
+    {
+      "seed": 910001,
+      "source_label": "right_pick_0",
+      "global_chars": 9625,
+      "focused_chars": 567,
+      "record": {
+        "object": "green",
+        "step": "right_pick_0",
+        "time": 9.9,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.055749,
+            -0.284726,
+            0.414952
+          ]
+        },
+        "remaining_translation_m": [
+          -0.043133,
+          0.071099,
+          -0.049084
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            0.098882,
+            -0.355825,
+            0.464036
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029896,
+            0.029896,
+            0.029896
+          ],
+          "normal": [
+            -0.051809,
+            0.254831,
+            0.965597
+          ]
+        },
+        "estimated_change": {
+          "since": 0.65,
+          "center_delta_m": [
+            0.001404,
+            0.009176,
+            0.04909
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910001,
+      "source_label": "right_place_0",
+      "global_chars": 15868,
+      "focused_chars": 560,
+      "record": {
+        "object": "green",
+        "step": "right_place_0",
+        "time": 33.35,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.055749,
+            -0.284726,
+            0.414952
+          ]
+        },
+        "remaining_translation_m": [
+          0.000771,
+          -0.00199,
+          5e-06
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            0.054978,
+            -0.282736,
+            0.414948
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029896,
+            0.029896,
+            0.029896
+          ],
+          "normal": [
+            8.1e-05,
+            0.000168,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 9.9,
+          "center_delta_m": [
+            -0.043904,
+            0.073089,
+            -0.049089
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910001,
+      "source_label": "right_settled",
+      "global_chars": 15880,
+      "focused_chars": 545,
+      "record": {
+        "object": "green",
+        "step": "right_settled",
+        "time": 33.75,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.055749,
+            -0.284726,
+            0.414952
+          ]
+        },
+        "remaining_translation_m": [
+          0.000771,
+          -0.00199,
+          5e-06
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            0.054978,
+            -0.282736,
+            0.414948
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029896,
+            0.029896,
+            0.029896
+          ],
+          "normal": [
+            8.1e-05,
+            0.000168,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 33.35,
+          "center_delta_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910001,
+      "source_label": "right_ready",
+      "global_chars": 15821,
+      "focused_chars": 543,
+      "record": {
+        "object": "green",
+        "step": "right_ready",
+        "time": 33.75,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.055749,
+            -0.284726,
+            0.414952
+          ]
+        },
+        "remaining_translation_m": [
+          0.000771,
+          -0.00199,
+          5e-06
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            0.054978,
+            -0.282736,
+            0.414948
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029896,
+            0.029896,
+            0.029896
+          ],
+          "normal": [
+            8.1e-05,
+            0.000168,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 33.75,
+          "center_delta_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910001,
+      "source_label": "beam_pick_0",
+      "global_chars": 16610,
+      "focused_chars": 572,
+      "record": {
+        "object": "red",
+        "step": "beam_pick_0",
+        "time": 43.0,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.025468,
+            -0.283731,
+            0.437345
+          ]
+        },
+        "remaining_translation_m": [
+          0.028059,
+          0.058145,
+          -0.015024
+        ],
+        "geometry": {
+          "shape": "thin_prism",
+          "center_m": [
+            -0.002591,
+            -0.341875,
+            0.452369
+          ],
+          "position_fully_observed": false,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.014891,
+            0.05978,
+            0.029801
+          ],
+          "normal": [
+            0.000829,
+            0.12575,
+            0.992062
+          ]
+        },
+        "estimated_change": {
+          "since": 33.75,
+          "center_delta_m": [
+            0.000158,
+            0.012226,
+            0.044921
+          ],
+          "both_positions_fully_observed": false
+        }
+      }
+    },
+    {
+      "seed": 910001,
+      "source_label": "beam_place_0",
+      "global_chars": 16605,
+      "focused_chars": 567,
+      "record": {
+        "object": "red",
+        "step": "beam_place_0",
+        "time": 65.0,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.025468,
+            -0.283731,
+            0.437345
+          ]
+        },
+        "remaining_translation_m": [
+          -0.000309,
+          -0.002192,
+          7e-05
+        ],
+        "geometry": {
+          "shape": "thin_prism",
+          "center_m": [
+            0.025777,
+            -0.281539,
+            0.437274
+          ],
+          "position_fully_observed": false,
+          "orientation_inferred": true,
+          "dimensions_m": [
+            0.05978,
+            0.029801,
+            0.014891
+          ],
+          "normal": [
+            -0.000207,
+            -0.000131,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 43.0,
+          "center_delta_m": [
+            0.028367,
+            0.060337,
+            -0.015095
+          ],
+          "both_positions_fully_observed": false
+        }
+      }
+    },
+    {
+      "seed": 910001,
+      "source_label": "beam_settled",
+      "global_chars": 16635,
+      "focused_chars": 561,
+      "record": {
+        "object": "red",
+        "step": "beam_settled",
+        "time": 65.4,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.025468,
+            -0.283731,
+            0.437345
+          ]
+        },
+        "remaining_translation_m": [
+          -0.000308,
+          -0.002197,
+          7.1e-05
+        ],
+        "geometry": {
+          "shape": "thin_prism",
+          "center_m": [
+            0.025776,
+            -0.281534,
+            0.437273
+          ],
+          "position_fully_observed": false,
+          "orientation_inferred": true,
+          "dimensions_m": [
+            0.05978,
+            0.029801,
+            0.014891
+          ],
+          "normal": [
+            -0.000189,
+            -0.000192,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 65.0,
+          "center_delta_m": [
+            -1e-06,
+            5e-06,
+            -1e-06
+          ],
+          "both_positions_fully_observed": false
+        }
+      }
+    },
+    {
+      "seed": 910001,
+      "source_label": "beam_ready",
+      "global_chars": 16409,
+      "focused_chars": 551,
+      "record": {
+        "object": "red",
+        "step": "beam_ready",
+        "time": 65.4,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.025468,
+            -0.283731,
+            0.437345
+          ]
+        },
+        "remaining_translation_m": [
+          -0.000308,
+          -0.002197,
+          7.1e-05
+        ],
+        "geometry": {
+          "shape": "thin_prism",
+          "center_m": [
+            0.025776,
+            -0.281534,
+            0.437273
+          ],
+          "position_fully_observed": false,
+          "orientation_inferred": true,
+          "dimensions_m": [
+            0.05978,
+            0.029801,
+            0.014891
+          ],
+          "normal": [
+            -0.000189,
+            -0.000192,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 65.4,
+          "center_delta_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "both_positions_fully_observed": false
+        }
+      }
+    },
+    {
+      "seed": 910001,
+      "source_label": "cap_pick_0",
+      "global_chars": 16977,
+      "focused_chars": 568,
+      "record": {
+        "object": "blue",
+        "step": "cap_pick_0",
+        "time": 74.65,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.025776,
+            -0.281534,
+            0.474676
+          ]
+        },
+        "remaining_translation_m": [
+          -0.071527,
+          -0.083516,
+          -0.013589
+        ],
+        "geometry": {
+          "shape": "cylinder",
+          "center_m": [
+            0.097303,
+            -0.198018,
+            0.488265
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.02993,
+            0.02993,
+            0.059911
+          ],
+          "normal": [
+            -0.015536,
+            0.3038,
+            0.952609
+          ]
+        },
+        "estimated_change": {
+          "since": 65.4,
+          "center_delta_m": [
+            0.002216,
+            0.003278,
+            0.058306
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910001,
+      "source_label": "cap_place_0",
+      "global_chars": 17422,
+      "focused_chars": 571,
+      "record": {
+        "object": "blue",
+        "step": "cap_place_0",
+        "time": 95.2,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.025776,
+            -0.281534,
+            0.474676
+          ]
+        },
+        "remaining_translation_m": [
+          0.000132,
+          0.005488,
+          0.000239
+        ],
+        "geometry": {
+          "shape": "cylinder",
+          "center_m": [
+            0.025645,
+            -0.287022,
+            0.474437
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.02993,
+            0.02993,
+            0.059911
+          ],
+          "normal": [
+            0.000112,
+            -0.001991,
+            0.999998
+          ]
+        },
+        "estimated_change": {
+          "since": 74.65,
+          "center_delta_m": [
+            -0.071659,
+            -0.089005,
+            -0.013828
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910001,
+      "source_label": "cap_settled",
+      "global_chars": 17462,
+      "focused_chars": 557,
+      "record": {
+        "object": "blue",
+        "step": "cap_settled",
+        "time": 95.6,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.025776,
+            -0.281534,
+            0.474676
+          ]
+        },
+        "remaining_translation_m": [
+          0.000131,
+          0.005497,
+          0.00024
+        ],
+        "geometry": {
+          "shape": "cylinder",
+          "center_m": [
+            0.025645,
+            -0.287031,
+            0.474436
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.02993,
+            0.02993,
+            0.059911
+          ],
+          "normal": [
+            0.000263,
+            -0.001948,
+            0.999998
+          ]
+        },
+        "estimated_change": {
+          "since": 95.2,
+          "center_delta_m": [
+            0.0,
+            -9e-06,
+            -1e-06
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910001,
+      "source_label": "cap_ready",
+      "global_chars": 17233,
+      "focused_chars": 549,
+      "record": {
+        "object": "blue",
+        "step": "cap_ready",
+        "time": 95.6,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.025776,
+            -0.281534,
+            0.474676
+          ]
+        },
+        "remaining_translation_m": [
+          0.000131,
+          0.005497,
+          0.00024
+        ],
+        "geometry": {
+          "shape": "cylinder",
+          "center_m": [
+            0.025645,
+            -0.287031,
+            0.474436
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.02993,
+            0.02993,
+            0.059911
+          ],
+          "normal": [
+            0.000263,
+            -0.001948,
+            0.999998
+          ]
+        },
+        "estimated_change": {
+          "since": 95.6,
+          "center_delta_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910002,
+      "source_label": "left_pick_0",
+      "global_chars": 15421,
+      "focused_chars": 563,
+      "record": {
+        "object": "green",
+        "step": "left_pick_0",
+        "time": 9.9,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.027551,
+            -0.28931,
+            0.414954
+          ]
+        },
+        "remaining_translation_m": [
+          -0.128204,
+          0.06247,
+          -0.049441
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            0.100653,
+            -0.35178,
+            0.464394
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029895,
+            0.029895,
+            0.029895
+          ],
+          "normal": [
+            -0.050511,
+            0.25049,
+            0.966801
+          ]
+        },
+        "estimated_change": {
+          "since": 0.65,
+          "center_delta_m": [
+            0.00137,
+            0.009479,
+            0.049449
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910002,
+      "source_label": "left_place_0",
+      "global_chars": 15444,
+      "focused_chars": 559,
+      "record": {
+        "object": "green",
+        "step": "left_place_0",
+        "time": 33.35,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.027551,
+            -0.28931,
+            0.414954
+          ]
+        },
+        "remaining_translation_m": [
+          4.3e-05,
+          -0.002091,
+          6e-06
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            -0.027594,
+            -0.28722,
+            0.414948
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029895,
+            0.029895,
+            0.029895
+          ],
+          "normal": [
+            4.7e-05,
+            -0.000144,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 9.9,
+          "center_delta_m": [
+            -0.128247,
+            0.06456,
+            -0.049447
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910002,
+      "source_label": "left_settled",
+      "global_chars": 15436,
+      "focused_chars": 545,
+      "record": {
+        "object": "green",
+        "step": "left_settled",
+        "time": 33.75,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.027551,
+            -0.28931,
+            0.414954
+          ]
+        },
+        "remaining_translation_m": [
+          4.3e-05,
+          -0.002091,
+          6e-06
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            -0.027594,
+            -0.28722,
+            0.414948
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029895,
+            0.029895,
+            0.029895
+          ],
+          "normal": [
+            4.7e-05,
+            -0.000144,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 33.35,
+          "center_delta_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910002,
+      "source_label": "left_ready",
+      "global_chars": 15381,
+      "focused_chars": 543,
+      "record": {
+        "object": "green",
+        "step": "left_ready",
+        "time": 33.75,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.027551,
+            -0.28931,
+            0.414954
+          ]
+        },
+        "remaining_translation_m": [
+          4.3e-05,
+          -0.002091,
+          6e-06
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            -0.027594,
+            -0.28722,
+            0.414948
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029895,
+            0.029895,
+            0.029895
+          ],
+          "normal": [
+            4.7e-05,
+            -0.000144,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 33.75,
+          "center_delta_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910002,
+      "source_label": "right_pick_0",
+      "global_chars": 15872,
+      "focused_chars": 568,
+      "record": {
+        "object": "red",
+        "step": "right_pick_0",
+        "time": 43.0,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.03224,
+            -0.28931,
+            0.414955
+          ]
+        },
+        "remaining_translation_m": [
+          -0.068037,
+          -0.020127,
+          -0.05513
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            0.100277,
+            -0.269183,
+            0.470085
+          ],
+          "position_fully_observed": false,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029896,
+            0.029896,
+            0.029896
+          ],
+          "normal": [
+            -0.019145,
+            0.034674,
+            0.999215
+          ]
+        },
+        "estimated_change": {
+          "since": 33.75,
+          "center_delta_m": [
+            0.000679,
+            0.013275,
+            0.055139
+          ],
+          "both_positions_fully_observed": false
+        }
+      }
+    },
+    {
+      "seed": 910002,
+      "source_label": "right_place_0",
+      "global_chars": 15876,
+      "focused_chars": 562,
+      "record": {
+        "object": "red",
+        "step": "right_place_0",
+        "time": 62.25,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.03224,
+            -0.28931,
+            0.414955
+          ]
+        },
+        "remaining_translation_m": [
+          0.000241,
+          -0.001905,
+          8e-06
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            0.031999,
+            -0.287405,
+            0.414946
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029896,
+            0.029896,
+            0.029896
+          ],
+          "normal": [
+            -1.1e-05,
+            -0.000234,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 43.0,
+          "center_delta_m": [
+            -0.068278,
+            -0.018222,
+            -0.055139
+          ],
+          "both_positions_fully_observed": false
+        }
+      }
+    },
+    {
+      "seed": 910002,
+      "source_label": "right_settled",
+      "global_chars": 15889,
+      "focused_chars": 544,
+      "record": {
+        "object": "red",
+        "step": "right_settled",
+        "time": 62.65,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.03224,
+            -0.28931,
+            0.414955
+          ]
+        },
+        "remaining_translation_m": [
+          0.000241,
+          -0.001905,
+          8e-06
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            0.031999,
+            -0.287405,
+            0.414946
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029896,
+            0.029896,
+            0.029896
+          ],
+          "normal": [
+            -1.1e-05,
+            -0.000234,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 62.25,
+          "center_delta_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910002,
+      "source_label": "right_ready",
+      "global_chars": 15829,
+      "focused_chars": 542,
+      "record": {
+        "object": "red",
+        "step": "right_ready",
+        "time": 62.65,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.03224,
+            -0.28931,
+            0.414955
+          ]
+        },
+        "remaining_translation_m": [
+          0.000241,
+          -0.001905,
+          8e-06
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            0.031999,
+            -0.287405,
+            0.414946
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029896,
+            0.029896,
+            0.029896
+          ],
+          "normal": [
+            -1.1e-05,
+            -0.000234,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 62.65,
+          "center_delta_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910002,
+      "source_label": "beam_pick_0",
+      "global_chars": 16725,
+      "focused_chars": 573,
+      "record": {
+        "object": "blue",
+        "step": "beam_pick_0",
+        "time": 71.9,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.002202,
+            -0.287313,
+            0.437343
+          ]
+        },
+        "remaining_translation_m": [
+          0.004455,
+          0.065545,
+          -0.011061
+        ],
+        "geometry": {
+          "shape": "thin_prism",
+          "center_m": [
+            -0.002253,
+            -0.352858,
+            0.448404
+          ],
+          "position_fully_observed": false,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.014892,
+            0.059564,
+            0.029233
+          ],
+          "normal": [
+            0.001522,
+            0.058975,
+            0.998258
+          ]
+        },
+        "estimated_change": {
+          "since": 62.65,
+          "center_delta_m": [
+            0.0003,
+            0.010952,
+            0.040954
+          ],
+          "both_positions_fully_observed": false
+        }
+      }
+    },
+    {
+      "seed": 910002,
+      "source_label": "beam_place_0",
+      "global_chars": 16579,
+      "focused_chars": 569,
+      "record": {
+        "object": "blue",
+        "step": "beam_place_0",
+        "time": 96.65,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.002202,
+            -0.287313,
+            0.437343
+          ]
+        },
+        "remaining_translation_m": [
+          0.000121,
+          -0.001747,
+          6.6e-05
+        ],
+        "geometry": {
+          "shape": "thin_prism",
+          "center_m": [
+            0.002081,
+            -0.285566,
+            0.437277
+          ],
+          "position_fully_observed": false,
+          "orientation_inferred": true,
+          "dimensions_m": [
+            0.059564,
+            0.029233,
+            0.014892
+          ],
+          "normal": [
+            -7.8e-05,
+            0.000879,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 71.9,
+          "center_delta_m": [
+            0.004334,
+            0.067292,
+            -0.011127
+          ],
+          "both_positions_fully_observed": false
+        }
+      }
+    },
+    {
+      "seed": 910002,
+      "source_label": "beam_settled",
+      "global_chars": 16627,
+      "focused_chars": 560,
+      "record": {
+        "object": "blue",
+        "step": "beam_settled",
+        "time": 97.05,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.002202,
+            -0.287313,
+            0.437343
+          ]
+        },
+        "remaining_translation_m": [
+          0.000122,
+          -0.001746,
+          6.5e-05
+        ],
+        "geometry": {
+          "shape": "thin_prism",
+          "center_m": [
+            0.002081,
+            -0.285566,
+            0.437277
+          ],
+          "position_fully_observed": false,
+          "orientation_inferred": true,
+          "dimensions_m": [
+            0.059564,
+            0.029233,
+            0.014892
+          ],
+          "normal": [
+            -5.7e-05,
+            0.000944,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 96.65,
+          "center_delta_m": [
+            -1e-06,
+            -1e-06,
+            0.0
+          ],
+          "both_positions_fully_observed": false
+        }
+      }
+    },
+    {
+      "seed": 910002,
+      "source_label": "beam_ready",
+      "global_chars": 16404,
+      "focused_chars": 552,
+      "record": {
+        "object": "blue",
+        "step": "beam_ready",
+        "time": 97.05,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.002202,
+            -0.287313,
+            0.437343
+          ]
+        },
+        "remaining_translation_m": [
+          0.000122,
+          -0.001746,
+          6.5e-05
+        ],
+        "geometry": {
+          "shape": "thin_prism",
+          "center_m": [
+            0.002081,
+            -0.285566,
+            0.437277
+          ],
+          "position_fully_observed": false,
+          "orientation_inferred": true,
+          "dimensions_m": [
+            0.059564,
+            0.029233,
+            0.014892
+          ],
+          "normal": [
+            -5.7e-05,
+            0.000944,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 97.05,
+          "center_delta_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "both_positions_fully_observed": false
+        }
+      }
+    },
+    {
+      "seed": 910002,
+      "source_label": "cap_pick_0",
+      "global_chars": 16957,
+      "focused_chars": 574,
+      "record": {
+        "object": "yellow",
+        "step": "cap_pick_0",
+        "time": 106.3,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.002081,
+            -0.285566,
+            0.474681
+          ]
+        },
+        "remaining_translation_m": [
+          0.101794,
+          0.067241,
+          -0.011903
+        ],
+        "geometry": {
+          "shape": "cylinder",
+          "center_m": [
+            -0.099713,
+            -0.352807,
+            0.486584
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029689,
+            0.029689,
+            0.059911
+          ],
+          "normal": [
+            -0.005157,
+            0.37635,
+            0.926463
+          ]
+        },
+        "estimated_change": {
+          "since": 97.05,
+          "center_delta_m": [
+            -0.002139,
+            0.002204,
+            0.056625
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910002,
+      "source_label": "cap_place_0",
+      "global_chars": 17367,
+      "focused_chars": 574,
+      "record": {
+        "object": "yellow",
+        "step": "cap_place_0",
+        "time": 129.75,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.002081,
+            -0.285566,
+            0.474681
+          ]
+        },
+        "remaining_translation_m": [
+          -0.00011,
+          0.000292,
+          0.000239
+        ],
+        "geometry": {
+          "shape": "cylinder",
+          "center_m": [
+            0.002191,
+            -0.285858,
+            0.474442
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029689,
+            0.029689,
+            0.059911
+          ],
+          "normal": [
+            -7.3e-05,
+            0.001573,
+            0.999999
+          ]
+        },
+        "estimated_change": {
+          "since": 106.3,
+          "center_delta_m": [
+            0.101904,
+            0.066949,
+            -0.012143
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910002,
+      "source_label": "cap_settled",
+      "global_chars": 17424,
+      "focused_chars": 562,
+      "record": {
+        "object": "yellow",
+        "step": "cap_settled",
+        "time": 130.15,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.002081,
+            -0.285566,
+            0.474681
+          ]
+        },
+        "remaining_translation_m": [
+          -0.000107,
+          0.000285,
+          0.00024
+        ],
+        "geometry": {
+          "shape": "cylinder",
+          "center_m": [
+            0.002188,
+            -0.285852,
+            0.474441
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029689,
+            0.029689,
+            0.059911
+          ],
+          "normal": [
+            4e-05,
+            0.001628,
+            0.999999
+          ]
+        },
+        "estimated_change": {
+          "since": 129.75,
+          "center_delta_m": [
+            -3e-06,
+            6e-06,
+            -0.0
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910002,
+      "source_label": "cap_ready",
+      "global_chars": 17201,
+      "focused_chars": 554,
+      "record": {
+        "object": "yellow",
+        "step": "cap_ready",
+        "time": 130.15,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.002081,
+            -0.285566,
+            0.474681
+          ]
+        },
+        "remaining_translation_m": [
+          -0.000107,
+          0.000285,
+          0.00024
+        ],
+        "geometry": {
+          "shape": "cylinder",
+          "center_m": [
+            0.002188,
+            -0.285852,
+            0.474441
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029689,
+            0.029689,
+            0.059911
+          ],
+          "normal": [
+            4e-05,
+            0.001628,
+            0.999999
+          ]
+        },
+        "estimated_change": {
+          "since": 130.15,
+          "center_delta_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910003,
+      "source_label": "left_pick_0",
+      "global_chars": 15478,
+      "focused_chars": 568,
+      "record": {
+        "object": "red",
+        "step": "left_pick_0",
+        "time": 9.9,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.064197,
+            -0.248641,
+            0.414953
+          ]
+        },
+        "remaining_translation_m": [
+          0.039262,
+          0.018187,
+          -0.054908
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            -0.103459,
+            -0.266828,
+            0.469861
+          ],
+          "position_fully_observed": false,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029896,
+            0.029896,
+            0.029896
+          ],
+          "normal": [
+            0.015609,
+            0.033626,
+            0.999313
+          ]
+        },
+        "estimated_change": {
+          "since": 0.65,
+          "center_delta_m": [
+            -0.000722,
+            0.013172,
+            0.054917
+          ],
+          "both_positions_fully_observed": false
+        }
+      }
+    },
+    {
+      "seed": 910003,
+      "source_label": "left_place_0",
+      "global_chars": 15486,
+      "focused_chars": 560,
+      "record": {
+        "object": "red",
+        "step": "left_place_0",
+        "time": 30.6,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.064197,
+            -0.248641,
+            0.414953
+          ]
+        },
+        "remaining_translation_m": [
+          -0.000684,
+          -0.001971,
+          7e-06
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            -0.063514,
+            -0.24667,
+            0.414946
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029896,
+            0.029896,
+            0.029896
+          ],
+          "normal": [
+            -0.00014,
+            0.000285,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 9.9,
+          "center_delta_m": [
+            0.039945,
+            0.020158,
+            -0.054916
+          ],
+          "both_positions_fully_observed": false
+        }
+      }
+    },
+    {
+      "seed": 910003,
+      "source_label": "left_settled",
+      "global_chars": 15457,
+      "focused_chars": 544,
+      "record": {
+        "object": "red",
+        "step": "left_settled",
+        "time": 31.0,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.064197,
+            -0.248641,
+            0.414953
+          ]
+        },
+        "remaining_translation_m": [
+          -0.000684,
+          -0.001971,
+          7e-06
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            -0.063514,
+            -0.24667,
+            0.414946
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029896,
+            0.029896,
+            0.029896
+          ],
+          "normal": [
+            -0.00014,
+            0.000285,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 30.6,
+          "center_delta_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910003,
+      "source_label": "left_ready",
+      "global_chars": 15406,
+      "focused_chars": 542,
+      "record": {
+        "object": "red",
+        "step": "left_ready",
+        "time": 31.0,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.064197,
+            -0.248641,
+            0.414953
+          ]
+        },
+        "remaining_translation_m": [
+          -0.000684,
+          -0.001971,
+          7e-06
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            -0.063514,
+            -0.24667,
+            0.414946
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029896,
+            0.029896,
+            0.029896
+          ],
+          "normal": [
+            -0.00014,
+            0.000285,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 31.0,
+          "center_delta_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910003,
+      "source_label": "right_pick_0",
+      "global_chars": 15862,
+      "focused_chars": 574,
+      "record": {
+        "object": "blue",
+        "step": "right_pick_0",
+        "time": 40.25,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.004406,
+            -0.248641,
+            0.414961
+          ]
+        },
+        "remaining_translation_m": [
+          0.089918,
+          -0.064407,
+          -0.056944
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            -0.094324,
+            -0.184234,
+            0.471905
+          ],
+          "position_fully_observed": false,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029895,
+            0.029895,
+            0.029895
+          ],
+          "normal": [
+            -0.009809,
+            -0.012899,
+            0.999869
+          ]
+        },
+        "estimated_change": {
+          "since": 31.0,
+          "center_delta_m": [
+            -0.000119,
+            0.013929,
+            0.05696
+          ],
+          "both_positions_fully_observed": false
+        }
+      }
+    },
+    {
+      "seed": 910003,
+      "source_label": "right_place_0",
+      "global_chars": 15889,
+      "focused_chars": 566,
+      "record": {
+        "object": "blue",
+        "step": "right_place_0",
+        "time": 59.5,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.004406,
+            -0.248641,
+            0.414961
+          ]
+        },
+        "remaining_translation_m": [
+          0.000115,
+          -0.002253,
+          1.3e-05
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            -0.004521,
+            -0.246389,
+            0.414947
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029895,
+            0.029895,
+            0.029895
+          ],
+          "normal": [
+            0.00013,
+            0.000525,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 40.25,
+          "center_delta_m": [
+            0.089803,
+            -0.062154,
+            -0.056958
+          ],
+          "both_positions_fully_observed": false
+        }
+      }
+    },
+    {
+      "seed": 910003,
+      "source_label": "right_settled",
+      "global_chars": 15879,
+      "focused_chars": 547,
+      "record": {
+        "object": "blue",
+        "step": "right_settled",
+        "time": 59.9,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.004406,
+            -0.248641,
+            0.414961
+          ]
+        },
+        "remaining_translation_m": [
+          0.000115,
+          -0.002253,
+          1.3e-05
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            -0.004521,
+            -0.246389,
+            0.414947
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029895,
+            0.029895,
+            0.029895
+          ],
+          "normal": [
+            0.00013,
+            0.000525,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 59.5,
+          "center_delta_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910003,
+      "source_label": "right_ready",
+      "global_chars": 15823,
+      "focused_chars": 545,
+      "record": {
+        "object": "blue",
+        "step": "right_ready",
+        "time": 59.9,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.004406,
+            -0.248641,
+            0.414961
+          ]
+        },
+        "remaining_translation_m": [
+          0.000115,
+          -0.002253,
+          1.3e-05
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            -0.004521,
+            -0.246389,
+            0.414947
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029895,
+            0.029895,
+            0.029895
+          ],
+          "normal": [
+            0.00013,
+            0.000525,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 59.9,
+          "center_delta_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910003,
+      "source_label": "beam_pick_0",
+      "global_chars": 16645,
+      "focused_chars": 576,
+      "record": {
+        "object": "yellow",
+        "step": "beam_pick_0",
+        "time": 69.15,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.034017,
+            -0.246529,
+            0.437368
+          ]
+        },
+        "remaining_translation_m": [
+          0.05878,
+          0.100988,
+          -0.007496
+        ],
+        "geometry": {
+          "shape": "thin_prism",
+          "center_m": [
+            -0.092798,
+            -0.347517,
+            0.444864
+          ],
+          "position_fully_observed": false,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.02958,
+            0.059669,
+            0.014891
+          ],
+          "normal": [
+            0.515196,
+            0.354171,
+            0.780472
+          ]
+        },
+        "estimated_change": {
+          "since": 59.9,
+          "center_delta_m": [
+            0.004006,
+            0.009564,
+            0.037415
+          ],
+          "both_positions_fully_observed": false
+        }
+      }
+    },
+    {
+      "seed": 910003,
+      "source_label": "beam_place_0",
+      "global_chars": 16556,
+      "focused_chars": 573,
+      "record": {
+        "object": "yellow",
+        "step": "beam_place_0",
+        "time": 89.85,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.034017,
+            -0.246529,
+            0.437368
+          ]
+        },
+        "remaining_translation_m": [
+          -0.002501,
+          -0.001642,
+          9.2e-05
+        ],
+        "geometry": {
+          "shape": "thin_prism",
+          "center_m": [
+            -0.031516,
+            -0.244887,
+            0.437276
+          ],
+          "position_fully_observed": false,
+          "orientation_inferred": true,
+          "dimensions_m": [
+            0.059669,
+            0.02958,
+            0.014891
+          ],
+          "normal": [
+            0.000174,
+            0.000751,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 69.15,
+          "center_delta_m": [
+            0.061282,
+            0.10263,
+            -0.007588
+          ],
+          "both_positions_fully_observed": false
+        }
+      }
+    },
+    {
+      "seed": 910003,
+      "source_label": "beam_settled",
+      "global_chars": 16637,
+      "focused_chars": 566,
+      "record": {
+        "object": "yellow",
+        "step": "beam_settled",
+        "time": 90.25,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.034017,
+            -0.246529,
+            0.437368
+          ]
+        },
+        "remaining_translation_m": [
+          -0.002477,
+          -0.001699,
+          9.1e-05
+        ],
+        "geometry": {
+          "shape": "thin_prism",
+          "center_m": [
+            -0.031541,
+            -0.24483,
+            0.437277
+          ],
+          "position_fully_observed": false,
+          "orientation_inferred": true,
+          "dimensions_m": [
+            0.059669,
+            0.02958,
+            0.014891
+          ],
+          "normal": [
+            0.000188,
+            0.000737,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 89.85,
+          "center_delta_m": [
+            -2.5e-05,
+            5.7e-05,
+            0.0
+          ],
+          "both_positions_fully_observed": false
+        }
+      }
+    },
+    {
+      "seed": 910003,
+      "source_label": "beam_ready",
+      "global_chars": 16419,
+      "focused_chars": 555,
+      "record": {
+        "object": "yellow",
+        "step": "beam_ready",
+        "time": 90.25,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.034017,
+            -0.246529,
+            0.437368
+          ]
+        },
+        "remaining_translation_m": [
+          -0.002477,
+          -0.001699,
+          9.1e-05
+        ],
+        "geometry": {
+          "shape": "thin_prism",
+          "center_m": [
+            -0.031541,
+            -0.24483,
+            0.437277
+          ],
+          "position_fully_observed": false,
+          "orientation_inferred": true,
+          "dimensions_m": [
+            0.059669,
+            0.02958,
+            0.014891
+          ],
+          "normal": [
+            0.000188,
+            0.000737,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 90.25,
+          "center_delta_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "both_positions_fully_observed": false
+        }
+      }
+    },
+    {
+      "seed": 910003,
+      "source_label": "cap_pick_0",
+      "global_chars": 17273,
+      "focused_chars": 569,
+      "record": {
+        "object": "green",
+        "step": "cap_pick_0",
+        "time": 99.5,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.031541,
+            -0.24483,
+            0.474679
+          ]
+        },
+        "remaining_translation_m": [
+          -0.13291,
+          -0.04625,
+          -0.013578
+        ],
+        "geometry": {
+          "shape": "cylinder",
+          "center_m": [
+            0.10137,
+            -0.19858,
+            0.488257
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029721,
+            0.029721,
+            0.059912
+          ],
+          "normal": [
+            -0.019911,
+            0.305369,
+            0.952026
+          ]
+        },
+        "estimated_change": {
+          "since": 90.25,
+          "center_delta_m": [
+            0.002235,
+            0.003363,
+            0.058298
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910003,
+      "source_label": "cap_place_0",
+      "global_chars": 17391,
+      "focused_chars": 576,
+      "record": {
+        "object": "green",
+        "step": "cap_place_0",
+        "time": 120.2,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.031541,
+            -0.24483,
+            0.474679
+          ]
+        },
+        "remaining_translation_m": [
+          -0.000368,
+          0.003496,
+          0.000241
+        ],
+        "geometry": {
+          "shape": "cylinder",
+          "center_m": [
+            -0.031172,
+            -0.248326,
+            0.474438
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029721,
+            0.029721,
+            0.059912
+          ],
+          "normal": [
+            0.000255,
+            -0.001055,
+            0.999999
+          ]
+        },
+        "estimated_change": {
+          "since": 99.5,
+          "center_delta_m": [
+            -0.132542,
+            -0.049746,
+            -0.013819
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910003,
+      "source_label": "cap_settled",
+      "global_chars": 17471,
+      "focused_chars": 563,
+      "record": {
+        "object": "green",
+        "step": "cap_settled",
+        "time": 120.6,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.031541,
+            -0.24483,
+            0.474679
+          ]
+        },
+        "remaining_translation_m": [
+          -0.000371,
+          0.003499,
+          0.00024
+        ],
+        "geometry": {
+          "shape": "cylinder",
+          "center_m": [
+            -0.031169,
+            -0.248329,
+            0.474438
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029721,
+            0.029721,
+            0.059912
+          ],
+          "normal": [
+            0.000478,
+            -0.001003,
+            0.999999
+          ]
+        },
+        "estimated_change": {
+          "since": 120.2,
+          "center_delta_m": [
+            3e-06,
+            -3e-06,
+            0.0
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910003,
+      "source_label": "cap_ready",
+      "global_chars": 17244,
+      "focused_chars": 556,
+      "record": {
+        "object": "green",
+        "step": "cap_ready",
+        "time": 120.6,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.031541,
+            -0.24483,
+            0.474679
+          ]
+        },
+        "remaining_translation_m": [
+          -0.000371,
+          0.003499,
+          0.00024
+        ],
+        "geometry": {
+          "shape": "cylinder",
+          "center_m": [
+            -0.031169,
+            -0.248329,
+            0.474438
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029721,
+            0.029721,
+            0.059912
+          ],
+          "normal": [
+            0.000478,
+            -0.001003,
+            0.999999
+          ]
+        },
+        "estimated_change": {
+          "since": 120.6,
+          "center_delta_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910004,
+      "source_label": "left_pick_0",
+      "global_chars": 15453,
+      "focused_chars": 572,
+      "record": {
+        "object": "blue",
+        "step": "left_pick_0",
+        "time": 9.9,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.039346,
+            -0.248696,
+            0.414958
+          ]
+        },
+        "remaining_translation_m": [
+          0.064548,
+          -0.062064,
+          -0.057126
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            -0.103894,
+            -0.186632,
+            0.472083
+          ],
+          "position_fully_observed": false,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029896,
+            0.029896,
+            0.029896
+          ],
+          "normal": [
+            -0.016551,
+            -0.012979,
+            0.999779
+          ]
+        },
+        "estimated_change": {
+          "since": 0.65,
+          "center_delta_m": [
+            -0.000927,
+            0.013456,
+            0.057136
+          ],
+          "both_positions_fully_observed": false
+        }
+      }
+    },
+    {
+      "seed": 910004,
+      "source_label": "left_place_0",
+      "global_chars": 15447,
+      "focused_chars": 562,
+      "record": {
+        "object": "blue",
+        "step": "left_place_0",
+        "time": 29.15,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.039346,
+            -0.248696,
+            0.414958
+          ]
+        },
+        "remaining_translation_m": [
+          -0.000297,
+          -0.002186,
+          1.1e-05
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            -0.039049,
+            -0.24651,
+            0.414946
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029896,
+            0.029896,
+            0.029896
+          ],
+          "normal": [
+            7e-06,
+            0.000139,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 9.9,
+          "center_delta_m": [
+            0.064845,
+            -0.059878,
+            -0.057137
+          ],
+          "both_positions_fully_observed": false
+        }
+      }
+    },
+    {
+      "seed": 910004,
+      "source_label": "left_settled",
+      "global_chars": 15430,
+      "focused_chars": 546,
+      "record": {
+        "object": "blue",
+        "step": "left_settled",
+        "time": 29.55,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.039346,
+            -0.248696,
+            0.414958
+          ]
+        },
+        "remaining_translation_m": [
+          -0.000297,
+          -0.002186,
+          1.1e-05
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            -0.039049,
+            -0.24651,
+            0.414946
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029896,
+            0.029896,
+            0.029896
+          ],
+          "normal": [
+            7e-06,
+            0.000139,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 29.15,
+          "center_delta_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910004,
+      "source_label": "left_ready",
+      "global_chars": 15365,
+      "focused_chars": 544,
+      "record": {
+        "object": "blue",
+        "step": "left_ready",
+        "time": 29.55,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.039346,
+            -0.248696,
+            0.414958
+          ]
+        },
+        "remaining_translation_m": [
+          -0.000297,
+          -0.002186,
+          1.1e-05
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            -0.039049,
+            -0.24651,
+            0.414946
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029896,
+            0.029896,
+            0.029896
+          ],
+          "normal": [
+            7e-06,
+            0.000139,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 29.55,
+          "center_delta_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910004,
+      "source_label": "right_pick_0",
+      "global_chars": 15930,
+      "focused_chars": 567,
+      "record": {
+        "object": "yellow",
+        "step": "right_pick_0",
+        "time": 38.8,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.020446,
+            -0.248696,
+            0.41496
+          ]
+        },
+        "remaining_translation_m": [
+          0.01534,
+          0.104187,
+          -0.051257
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            0.005106,
+            -0.352883,
+            0.466216
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029895,
+            0.029895,
+            0.029895
+          ],
+          "normal": [
+            -0.002545,
+            0.219838,
+            0.975533
+          ]
+        },
+        "estimated_change": {
+          "since": 29.55,
+          "center_delta_m": [
+            0.000211,
+            0.010373,
+            0.05127
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910004,
+      "source_label": "right_place_0",
+      "global_chars": 15936,
+      "focused_chars": 558,
+      "record": {
+        "object": "yellow",
+        "step": "right_place_0",
+        "time": 59.5,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.020446,
+            -0.248696,
+            0.41496
+          ]
+        },
+        "remaining_translation_m": [
+          0.000225,
+          -0.002938,
+          1.2e-05
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            0.020222,
+            -0.245759,
+            0.414948
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029895,
+            0.029895,
+            0.029895
+          ],
+          "normal": [
+            0.000169,
+            0.0,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 38.8,
+          "center_delta_m": [
+            0.015116,
+            0.107124,
+            -0.051269
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910004,
+      "source_label": "right_settled",
+      "global_chars": 15865,
+      "focused_chars": 542,
+      "record": {
+        "object": "yellow",
+        "step": "right_settled",
+        "time": 59.9,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.020446,
+            -0.248696,
+            0.41496
+          ]
+        },
+        "remaining_translation_m": [
+          0.000225,
+          -0.002938,
+          1.2e-05
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            0.020222,
+            -0.245759,
+            0.414948
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029895,
+            0.029895,
+            0.029895
+          ],
+          "normal": [
+            0.000169,
+            0.0,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 59.5,
+          "center_delta_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910004,
+      "source_label": "right_ready",
+      "global_chars": 15807,
+      "focused_chars": 540,
+      "record": {
+        "object": "yellow",
+        "step": "right_ready",
+        "time": 59.9,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.020446,
+            -0.248696,
+            0.41496
+          ]
+        },
+        "remaining_translation_m": [
+          0.000225,
+          -0.002938,
+          1.2e-05
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            0.020222,
+            -0.245759,
+            0.414948
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029895,
+            0.029895,
+            0.029895
+          ],
+          "normal": [
+            0.000169,
+            0.0,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 59.9,
+          "center_delta_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910004,
+      "source_label": "beam_pick_0",
+      "global_chars": 10681,
+      "focused_chars": 576,
+      "record": {
+        "object": "green",
+        "step": "beam_pick_0",
+        "time": 69.15,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.009414,
+            -0.246134,
+            0.437352
+          ]
+        },
+        "remaining_translation_m": [
+          -0.107875,
+          0.019048,
+          -0.020574
+        ],
+        "geometry": {
+          "shape": "thin_prism",
+          "center_m": [
+            0.098462,
+            -0.265183,
+            0.457927
+          ],
+          "position_fully_observed": false,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.014893,
+            0.059129,
+            0.029842
+          ],
+          "normal": [
+            0.0205,
+            -0.02032,
+            0.999583
+          ]
+        },
+        "estimated_change": {
+          "since": 59.9,
+          "center_delta_m": [
+            -0.001242,
+            0.014213,
+            0.050478
+          ],
+          "both_positions_fully_observed": false
+        }
+      }
+    },
+    {
+      "seed": 910004,
+      "source_label": "beam_place_0",
+      "global_chars": 16559,
+      "focused_chars": 572,
+      "record": {
+        "object": "green",
+        "step": "beam_place_0",
+        "time": 89.85,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.009414,
+            -0.246134,
+            0.437352
+          ]
+        },
+        "remaining_translation_m": [
+          1.9e-05,
+          -0.001897,
+          7.6e-05
+        ],
+        "geometry": {
+          "shape": "thin_prism",
+          "center_m": [
+            -0.009433,
+            -0.244238,
+            0.437277
+          ],
+          "position_fully_observed": false,
+          "orientation_inferred": true,
+          "dimensions_m": [
+            0.059129,
+            0.029842,
+            0.014893
+          ],
+          "normal": [
+            0.000266,
+            0.000198,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 69.15,
+          "center_delta_m": [
+            -0.107894,
+            0.020945,
+            -0.02065
+          ],
+          "both_positions_fully_observed": false
+        }
+      }
+    },
+    {
+      "seed": 910004,
+      "source_label": "beam_settled",
+      "global_chars": 16614,
+      "focused_chars": 560,
+      "record": {
+        "object": "green",
+        "step": "beam_settled",
+        "time": 90.25,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.009414,
+            -0.246134,
+            0.437352
+          ]
+        },
+        "remaining_translation_m": [
+          1.9e-05,
+          -0.001897,
+          7.6e-05
+        ],
+        "geometry": {
+          "shape": "thin_prism",
+          "center_m": [
+            -0.009433,
+            -0.244238,
+            0.437276
+          ],
+          "position_fully_observed": false,
+          "orientation_inferred": true,
+          "dimensions_m": [
+            0.059129,
+            0.029842,
+            0.014893
+          ],
+          "normal": [
+            0.000268,
+            0.000148,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 89.85,
+          "center_delta_m": [
+            -0.0,
+            0.0,
+            -1e-06
+          ],
+          "both_positions_fully_observed": false
+        }
+      }
+    },
+    {
+      "seed": 910004,
+      "source_label": "beam_ready",
+      "global_chars": 16396,
+      "focused_chars": 554,
+      "record": {
+        "object": "green",
+        "step": "beam_ready",
+        "time": 90.25,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.009414,
+            -0.246134,
+            0.437352
+          ]
+        },
+        "remaining_translation_m": [
+          1.9e-05,
+          -0.001897,
+          7.6e-05
+        ],
+        "geometry": {
+          "shape": "thin_prism",
+          "center_m": [
+            -0.009433,
+            -0.244238,
+            0.437276
+          ],
+          "position_fully_observed": false,
+          "orientation_inferred": true,
+          "dimensions_m": [
+            0.059129,
+            0.029842,
+            0.014893
+          ],
+          "normal": [
+            0.000268,
+            0.000148,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 90.25,
+          "center_delta_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "both_positions_fully_observed": false
+        }
+      }
+    },
+    {
+      "seed": 910004,
+      "source_label": "cap_pick_0",
+      "global_chars": 16960,
+      "focused_chars": 569,
+      "record": {
+        "object": "red",
+        "step": "cap_pick_0",
+        "time": 99.5,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.009433,
+            -0.244238,
+            0.47468
+          ]
+        },
+        "remaining_translation_m": [
+          -0.012202,
+          -0.047502,
+          -0.011898
+        ],
+        "geometry": {
+          "shape": "cylinder",
+          "center_m": [
+            0.002769,
+            -0.196736,
+            0.486577
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029871,
+            0.029871,
+            0.059912
+          ],
+          "normal": [
+            0.000585,
+            0.384065,
+            0.923306
+          ]
+        },
+        "estimated_change": {
+          "since": 90.25,
+          "center_delta_m": [
+            -1e-06,
+            -0.001851,
+            0.056618
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910004,
+      "source_label": "cap_place_0",
+      "global_chars": 17111,
+      "focused_chars": 565,
+      "record": {
+        "object": "red",
+        "step": "cap_place_0",
+        "time": 120.2,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.009433,
+            -0.244238,
+            0.47468
+          ]
+        },
+        "remaining_translation_m": [
+          0.000107,
+          0.003358,
+          0.000239
+        ],
+        "geometry": {
+          "shape": "cylinder",
+          "center_m": [
+            -0.00954,
+            -0.247595,
+            0.474441
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029871,
+            0.029871,
+            0.059912
+          ],
+          "normal": [
+            5.6e-05,
+            -0.000667,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 99.5,
+          "center_delta_m": [
+            -0.012309,
+            -0.05086,
+            -0.012136
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910004,
+      "source_label": "cap_settled",
+      "global_chars": 17170,
+      "focused_chars": 555,
+      "record": {
+        "object": "red",
+        "step": "cap_settled",
+        "time": 120.6,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.009433,
+            -0.244238,
+            0.47468
+          ]
+        },
+        "remaining_translation_m": [
+          0.000106,
+          0.003359,
+          0.000238
+        ],
+        "geometry": {
+          "shape": "cylinder",
+          "center_m": [
+            -0.009539,
+            -0.247597,
+            0.474441
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029871,
+            0.029871,
+            0.059912
+          ],
+          "normal": [
+            7.7e-05,
+            -0.000555,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 120.2,
+          "center_delta_m": [
+            1e-06,
+            -1e-06,
+            0.0
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910004,
+      "source_label": "cap_ready",
+      "global_chars": 16940,
+      "focused_chars": 548,
+      "record": {
+        "object": "red",
+        "step": "cap_ready",
+        "time": 120.6,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            -0.009433,
+            -0.244238,
+            0.47468
+          ]
+        },
+        "remaining_translation_m": [
+          0.000106,
+          0.003359,
+          0.000238
+        ],
+        "geometry": {
+          "shape": "cylinder",
+          "center_m": [
+            -0.009539,
+            -0.247597,
+            0.474441
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029871,
+            0.029871,
+            0.059912
+          ],
+          "normal": [
+            7.7e-05,
+            -0.000555,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 120.6,
+          "center_delta_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910005,
+      "source_label": "right_pick_0",
+      "global_chars": 15808,
+      "focused_chars": 566,
+      "record": {
+        "object": "green",
+        "step": "right_pick_0",
+        "time": 9.9,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.15402,
+            -0.356305,
+            0.414952
+          ]
+        },
+        "remaining_translation_m": [
+          0.054088,
+          -0.084824,
+          -0.054683
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            0.099933,
+            -0.271481,
+            0.469634
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029895,
+            0.029895,
+            0.029895
+          ],
+          "normal": [
+            -0.019999,
+            0.045381,
+            0.99877
+          ]
+        },
+        "estimated_change": {
+          "since": 0.65,
+          "center_delta_m": [
+            0.000755,
+            0.013388,
+            0.054688
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910005,
+      "source_label": "right_place_0",
+      "global_chars": 16172,
+      "focused_chars": 570,
+      "record": {
+        "object": "green",
+        "step": "right_place_0",
+        "time": 29.5,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.15402,
+            -0.356305,
+            0.414952
+          ]
+        },
+        "remaining_translation_m": [
+          0.016387,
+          -0.032608,
+          -0.010401
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            0.137633,
+            -0.323697,
+            0.425353
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029895,
+            0.029895,
+            0.029895
+          ],
+          "normal": [
+            -0.085314,
+            0.170723,
+            0.981619
+          ]
+        },
+        "estimated_change": {
+          "since": 9.9,
+          "center_delta_m": [
+            0.037701,
+            -0.052216,
+            -0.044281
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910005,
+      "source_label": "right_place_1",
+      "global_chars": 16133,
+      "focused_chars": 566,
+      "record": {
+        "object": "green",
+        "step": "right_place_1",
+        "time": 49.35,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.15402,
+            -0.356305,
+            0.414952
+          ]
+        },
+        "remaining_translation_m": [
+          0.016333,
+          -0.032625,
+          -0.010369
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            0.137687,
+            -0.323681,
+            0.42532
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029895,
+            0.029895,
+            0.029895
+          ],
+          "normal": [
+            -0.08299,
+            0.170981,
+            0.981773
+          ]
+        },
+        "estimated_change": {
+          "since": 29.5,
+          "center_delta_m": [
+            5.4e-05,
+            1.6e-05,
+            -3.3e-05
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    },
+    {
+      "seed": 910005,
+      "source_label": "right_place_2",
+      "global_chars": 16130,
+      "focused_chars": 562,
+      "record": {
+        "object": "green",
+        "step": "right_place_2",
+        "time": 69.2,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "goal": {
+          "reference": "center",
+          "point_m": [
+            0.15402,
+            -0.356305,
+            0.414952
+          ]
+        },
+        "remaining_translation_m": [
+          0.016328,
+          -0.032623,
+          -0.010334
+        ],
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            0.137692,
+            -0.323683,
+            0.425286
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029895,
+            0.029895,
+            0.029895
+          ],
+          "normal": [
+            -0.080546,
+            0.171,
+            0.981973
+          ]
+        },
+        "estimated_change": {
+          "since": 49.35,
+          "center_delta_m": [
+            5e-06,
+            -2e-06,
+            -3.4e-05
+          ],
+          "both_positions_fully_observed": true
+        }
+      }
+    }
+  ]
+}

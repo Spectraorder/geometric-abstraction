@@ -1,0 +1,185 @@
+{
+  "status": "withdrawn_validator_defect",
+  "manifest_sha256": "09a0f2a653a2d375dd969be08047b23352161cabbfbc6fd9f6a22842ebd79867",
+  "schema": "geometry_step_abstraction_pilot_v1",
+  "source_audit": "passed",
+  "curves": {
+    "basic": {
+      "training": [
+        {
+          "revision": 0,
+          "successes": 3,
+          "slots_completed": 5,
+          "total_slots": 5
+        },
+        {
+          "revision": 1,
+          "successes": 4,
+          "slots_completed": 5,
+          "total_slots": 5
+        },
+        {
+          "revision": 2,
+          "successes": 0,
+          "slots_completed": 5,
+          "total_slots": 5
+        }
+      ]
+    },
+    "symbolic": {
+      "training": [
+        {
+          "revision": 0,
+          "successes": 3,
+          "slots_completed": 5,
+          "total_slots": 5
+        },
+        {
+          "revision": 1,
+          "successes": 4,
+          "slots_completed": 5,
+          "total_slots": 5
+        },
+        {
+          "revision": 2,
+          "successes": 4,
+          "slots_completed": 5,
+          "total_slots": 5
+        }
+      ]
+    }
+  },
+  "actors": [
+    {
+      "arm": "basic",
+      "revision": 1,
+      "usage": {
+        "input_tokens": 21483,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5209,
+        "reasoning_output_tokens": 2070
+      },
+      "static_interface_call_counts": {},
+      "source_syntax_error": null,
+      "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+      "wall_seconds": 161.4021997739983,
+      "audit": "passed",
+      "planner_characters": 12356
+    },
+    {
+      "arm": "basic",
+      "revision": 2,
+      "usage": {
+        "input_tokens": 25648,
+        "cached_input_tokens": 10624,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 6206,
+        "reasoning_output_tokens": 1531
+      },
+      "static_interface_call_counts": {},
+      "source_syntax_error": null,
+      "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+      "wall_seconds": 191.70604941600322,
+      "audit": "passed",
+      "planner_characters": 17177
+    },
+    {
+      "arm": "symbolic",
+      "revision": 1,
+      "usage": {
+        "input_tokens": 21110,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 6853,
+        "reasoning_output_tokens": 3624
+      },
+      "static_interface_call_counts": {},
+      "source_syntax_error": null,
+      "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+      "wall_seconds": 209.26455814899964,
+      "audit": "passed",
+      "planner_characters": 12112
+    },
+    {
+      "arm": "symbolic",
+      "revision": 2,
+      "usage": {
+        "input_tokens": 24773,
+        "cached_input_tokens": 10624,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5788,
+        "reasoning_output_tokens": 1552
+      },
+      "static_interface_call_counts": {},
+      "source_syntax_error": null,
+      "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+      "wall_seconds": 178.1593836539978,
+      "audit": "passed",
+      "planner_characters": 15712
+    }
+  ],
+  "valid_rollouts": 25,
+  "invalid_slots": 5,
+  "result_hashes": {
+    "basic/revision_000/trials/seed_930001/result.json": "e8eb5541a32c5a0eca37dff32f4d66ad169ba04d4bbf43d099bf3358b357c4f7",
+    "basic/revision_000/trials/seed_930002/result.json": "d5a7b81a9b87529d316241c92730a1e2a6cc5beb84961315bee7a3137f132186",
+    "basic/revision_000/trials/seed_930003/result.json": "6d26de54d80708a9241bed846f9903488963e93f02d23d0668cc3099861604e1",
+    "basic/revision_000/trials/seed_930004/result.json": "252f3c9da0f88887dacba0775a2814cfce806830c32a7c34083258580f7825cb",
+    "basic/revision_000/trials/seed_930005/result.json": "b7e13ab4bed027440036a877407acebfe7146a0841572acd3e39d26fea8ee14e",
+    "basic/round_001/trials/seed_930001/result.json": "22cddb24e9e34b5d1de6af065ae96e611f1e9403964ba43220276ca1b6e91ba7",
+    "basic/round_001/trials/seed_930002/result.json": "ba925d5b9274f42da2e5c85145696b9ef4a0f5e72321f729c4b61b408a0874d6",
+    "basic/round_001/trials/seed_930003/result.json": "a01bb16c6eefdca8cb3d538e11cff911ac310e440ed4f0c9539732037890fe77",
+    "basic/round_001/trials/seed_930004/result.json": "101ad63e44dc330bfa797151e68844c639221f467f57647d5a0bc7e365e68732",
+    "basic/round_001/trials/seed_930005/result.json": "e96f5ad5a2d10df803c1df6d372c9d7642cfd5e76b53a36008678233cbd75080",
+    "basic/round_002/trials/seed_930001/result.json": "48fd005c0ec1a3dd8efc0c6306870677568a77c269669381dc87ef415d998036",
+    "basic/round_002/trials/seed_930002/result.json": "68cf05055517d21f57af32766900e4dd7b4e2c65075c591dc5d6dd0ef7e7d8c7",
+    "basic/round_002/trials/seed_930003/result.json": "ed7fcd439022606c871c98e0480f25c49e5a501ef33ea5de665643f15b06412d",
+    "basic/round_002/trials/seed_930004/result.json": "539f0aafbe66262844d930e8c120affd1fc955918f19fd309e15c39dc71f11da",
+    "basic/round_002/trials/seed_930005/result.json": "aa5b1256b6412f531c8facd82daf7a777fc33de29352434945983e929eee1a76",
+    "symbolic/revision_000/trials/seed_930001/result.json": "516f6b1c3208d9995a87bd3a049d2982aa3cd069a67860ea022c1332eb4a47ca",
+    "symbolic/revision_000/trials/seed_930002/result.json": "b33c47f02debea197654f6d6abbdd3483c1133370bb0eb51d8c71e921dae7a02",
+    "symbolic/revision_000/trials/seed_930003/result.json": "ded9cee76b0f04f7f0454ca2a6ed71a0cba0930aa898d549ee1061af6baf1259",
+    "symbolic/revision_000/trials/seed_930004/result.json": "54af41c9e9653ca3d043b18739a2fbd26a2dd7d4a43f754776c3b765a9428e68",
+    "symbolic/revision_000/trials/seed_930005/result.json": "c431d9751dd003762e3d5446ed2712ee50ecfe49ff40f03747354024e732be12",
+    "symbolic/round_001/trials/seed_930001/result.json": "1cea310ae56b889299946475691743371d04441dbd45ffc267cc07a6dc56f8f4",
+    "symbolic/round_001/trials/seed_930002/result.json": "2b5e54783fb814e387834c918b1c30a22b8fc0085b8b593996420993c9df6790",
+    "symbolic/round_001/trials/seed_930003/result.json": "6b843865b387cd72c0e7ed1fe73e5ded12bba7d1993be09e360dccf585a3be42",
+    "symbolic/round_001/trials/seed_930004/result.json": "afcbf0aae3bc773f7aaa80264608e803e261cbdd4955848e70d1a6761723efa2",
+    "symbolic/round_001/trials/seed_930005/result.json": "09728c47242791ff8bbe08d8644bfdf1995185f6ab5fd467399105c2434e2eca",
+    "symbolic/round_002/trials/seed_930001/result.json": "db3622b32359654d17d3c8a38a79b97e4a8b8cb1f53b2eefd31fafc2d5686eac",
+    "symbolic/round_002/trials/seed_930002/result.json": "dcec0b89d8c686b97ad8da585252c5c0206e78949874ba832b89eec5c980c39e",
+    "symbolic/round_002/trials/seed_930003/result.json": "11385fa01eddd157854d2ea83b8ab0b0123175164c0033b631445bb78c6f04e7",
+    "symbolic/round_002/trials/seed_930004/result.json": "83dfeb848ce7e76854a291c8719690130a1b6b801053d9eb2eb1f637c9b28616",
+    "symbolic/round_002/trials/seed_930005/result.json": "355251d743fe923e128e606089b5dab2cb631740e1126b1edc794b4bed9a0471"
+  },
+  "limitations": [
+    "One actor chain per arm; replication required.",
+    "Base has basic geometry; this compares a supplied abstraction package, not geometry versus none.",
+    "Same revisions and rollout slots; input/output tokens recorded, not equalized.",
+    "No prior evolved policy, inspected failure diagnosis or reserved outcome enters actor context.",
+    "Character reduction and development parity are not success-rate evidence."
+  ],
+  "model_generation_accounting": {
+    "retained_completed": 4,
+    "discarded_due_to_schema_defect": 0,
+    "actual_completed": 4
+  },
+  "initial_sensor_pairing": {
+    "status": "passed",
+    "unique_seeds_checked": 5,
+    "checked": "host pre-policy RGB render plus seed, color map and scene settings"
+  },
+  "arm_labels": {
+    "basic": "Base",
+    "symbolic": "Full geometry"
+  },
+  "contrasts": [
+    "Shared observer and executor: current surface measurements versus rigid references, alignment and compact per-step abstraction."
+  ],
+  "identical_library_except_projection": true,
+  "starter_parity_audit": "passed",
+  "exact_actor_contexts_verified": 6,
+  "auditor_sha256": "4bfc474f364ff671cef5f0c7487e270a8fb5a22f2d92e531ac923e960c293bff",
+  "protocol_phase_at_withdrawal": "proposing"
+}

@@ -1,0 +1,30 @@
+{
+  "matching_frozen_source_files": 56,
+  "first_round_images_identical": true,
+  "selected_candidates_unedited": true,
+  "both_candidates_frozen_before_reserved_results": true,
+  "actual_rollout_records": 75,
+  "validation_failures": 0,
+  "source_snapshot_complete_for_manifest": true,
+  "scene_builder_supplement": {
+    "file": "view_scene.py",
+    "sha256": "baafbdce362e5245e80a837dd5b264e4fb4f469f53a19c85ab7804bb479aa954",
+    "matches_git_HEAD": true,
+    "git_HEAD": "94f5a3134aa1a4d8695749e5f2b47578569f7f7a",
+    "note": "Supplemental scene-builder provenance recorded during the pilot. This file was not in the original recursive source manifest; it was not modified during this work. Include it prospectively in future manifests."
+  },
+  "runtime_geometry_records": {
+    "raw": {
+      "records": 231,
+      "schemas": {
+        "None": 231
+      }
+    },
+    "symbolic": {
+      "records": 494,
+      "schemas": {
+        "symbolic_metric_state_v1": 494
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "scope": "Unchanged conditional attachment diagnostic applied to completed training records only. No actor feedback, success labels, contacts, or rollout state.",
+  "rows": [
+    {
+      "revision": 1,
+      "lift_checkpoints": 20,
+      "fully_observed_lift_checkpoints": 9,
+      "partial_or_missing_lift_checkpoints": 11,
+      "training_trials": 8,
+      "eligible_place_boundaries": 3,
+      "distinct_trials_with_predictions": 1,
+      "depth_contradictions": 0,
+      "poses_recovered": 0
+    },
+    {
+      "revision": 2,
+      "lift_checkpoints": 19,
+      "fully_observed_lift_checkpoints": 11,
+      "partial_or_missing_lift_checkpoints": 8,
+      "training_trials": 8,
+      "eligible_place_boundaries": 2,
+      "distinct_trials_with_predictions": 1,
+      "depth_contradictions": 0,
+      "poses_recovered": 0
+    }
+  ],
+  "source_sha256": {
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/round_001/trials/seed_992101/geometry_records.json": "42c681d907114975db03a8af989232c0183b79ff16d53c7c749f1be619dfdaef",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/round_001/trials/seed_992103/geometry_records.json": "10d0e86aced28b8089c30910c5d6cf3d0175fa178eeff5fbca2768970b1bd149",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/round_001/trials/seed_992104/geometry_records.json": "cad018370468b956db326c29d306a50c11a82c26b6ab5a6bda8fa0d379fbab41",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/round_001/trials/seed_992106/geometry_records.json": "21452436f151dcced1caecb86ecde8786ca403f0197bc5009de1195866385ed0",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/round_001/trials/seed_992107/geometry_records.json": "dac00712ea7ad96517f1f3a09e2430d04509d015ae8713f24765f2c545cca6b7",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/round_001/trials/seed_992108/geometry_records.json": "21a283e0d217c32e4bbfa6f311c1ad0a8ffc14388a9930b44ecb088901079f23",
+    "outputs/constraint_geometry_learning_replications_01/diagnostics/attachment_round_001.json": "8f937649004deb670cec189d123f9b2e180f212afe89c517372c0db2b8c4be54",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/round_002/trials/seed_992101/geometry_records.json": "ce1f20a75373aae5069af4a366739c9c1b8dc3cf4a8e6c20fe53351665e664fe",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/round_002/trials/seed_992103/geometry_records.json": "e0628c8911380d33cf7c76c1eb9a407b70c482abcf01a47c7adea94d7507e23b",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/round_002/trials/seed_992104/geometry_records.json": "7e788f4c638985308f22ee5af36fced491552d20a38aacfcdf65bdfd800faa5b",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/round_002/trials/seed_992106/geometry_records.json": "ebddfab3473cd8cb2e5cf17b29d781ef38a8adfb1da755bfbd863e2a434e1346",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/round_002/trials/seed_992107/geometry_records.json": "7b6639182b31edf4d4c69c62b10af926e242e94acd1d4862dd52533fc9d4b65a",
+    "outputs/constraint_geometry_learning_replications_01/replica_01/symbolic/round_002/trials/seed_992108/geometry_records.json": "1b3cb6c871f31fd22c0d6e8bbc6b0f5f4b370b7909ca4dd3c4b33b719d789f73",
+    "outputs/constraint_geometry_learning_replications_01/diagnostics/attachment_round_002.json": "1ebdee37bb13d4d9a26439115e4a263224df4da181290f703e3f23520f12b0ae"
+  },
+  "limitations": [
+    "Repeated retry boundaries are not independent examples.",
+    "Released actions intentionally invalidate transport anchors.",
+    "Green raw-depth evidence remains unknown without robot-marker masking.",
+    "A fully observed lift is necessary but not sufficient for an eligible later prediction; same-target and same-time robot data are also required.",
+    "No pose recovery or learning benefit is established."
+  ]
+}

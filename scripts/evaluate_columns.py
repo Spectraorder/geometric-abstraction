@@ -102,6 +102,8 @@ def validate_sensor(result, expected, path):
 def validate_column_result(result, trial, digest, path):
     """Verify cache provenance and strict whole-column success before counting."""
     validate_sensor(result, trial['sensor'], path)
+    if result.get('physics', {'noslip_iterations': 0}) != {'noslip_iterations': 0}:
+        raise RuntimeError(f'Trial contact settings differ from the default-physics benchmark: {path}')
     if result.get('candidate_sha256') != digest:
         raise RuntimeError(f'Trial candidate hash differs from the frozen experiment: {path}')
     scene = result.get('scene', {})

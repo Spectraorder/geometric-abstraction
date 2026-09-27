@@ -1,0 +1,658 @@
+{
+  "manifest": {
+    "version": 2,
+    "purpose": "pilot; one campaign per arm, not confirmatory evidence",
+    "arms": [
+      "raw",
+      "geometry"
+    ],
+    "rounds": 3,
+    "train_seeds": [
+      3101,
+      3102,
+      3103
+    ],
+    "heldout_seeds": [
+      3201,
+      3202,
+      3203,
+      3204,
+      3205
+    ],
+    "model": "gpt-6-astra",
+    "model_timeout_s": 900,
+    "reasoning_effort": "high",
+    "max_prompt_characters": 60000,
+    "max_candidate_characters": 24000,
+    "task": "inventory_tower",
+    "layout": "sampled",
+    "recipe": "cube_triple",
+    "object_count": 3,
+    "physics": {
+      "noslip_iterations": 0
+    },
+    "sensor": {
+      "depth_sampling": "pixel_center",
+      "offscreen_samples": 0
+    },
+    "geometry_sha256": "0732b4ebbec85be5306a3be35214d159ab8ceff424be18e15677836d78d86f78",
+    "source_sha256": {
+      "assets/trs_so_arm100/scene.xml": "d4c7e337b9b5efb9ff081300f4af48ed23c5acacccdaaa95d5a295b6ac5238f8",
+      "assets/trs_so_arm100/so_arm100.xml": "1901fe7e86d2458e2011390bf52014c1f6f4fcea79abef1788b3108ea9781955",
+      "scripts/run_geometry_ablation.py": "c6755f9ce9beb31b7d88f704b88d30c10a4674ee19c2fdad0f6e0fb602771dc6",
+      "scripts/run_vision_trial.py": "8047fbc54d73b5e9274144427ae8f22610edd871935ac9f2068c40197c2bf6cf",
+      "scripts/vision_policy_worker.py": "3471671807935f10613b96794d8c94881cdb1bfca53ab342e9bfbb4a3067d502",
+      "src/aspire_so100/__init__.py": "83d5bbad65515626aef24b0f00deeb293f0fdf48d45a8e08c11243044b7775b8",
+      "src/aspire_so100/agent_loop.py": "a4634a2f463576e1fadab69aca2497bb3838465749929353bb8391b6409aa244",
+      "src/aspire_so100/beam_geometry.py": "68526c9e998787d1a6a74a4e3549b75e4b922e92cd5c371af828c5702e2b417c",
+      "src/aspire_so100/block_catalog.py": "2dad0d946f6afabc73b8747a57ab182dc433517ce29a9ff3c2143a2a66c120f9",
+      "src/aspire_so100/camera_view.py": "7a6c7d4f30ca6d2187a217993d351e84932d2c290bc600790bc68e5dfc491624",
+      "src/aspire_so100/column_geometry.py": "4489258802b24544553ed108c4082321e88839f7d0d83fc7052495fdcccf6643",
+      "src/aspire_so100/column_grasp.py": "982a921a49be7509cdbf211b825673a16a9bd8316e450f46714c61a61e0aea7d",
+      "src/aspire_so100/column_policy.py": "90af3ec4cd3a30a9885919eafb643b2b3cac208ede246f6ed12e2836e59d2f6e",
+      "src/aspire_so100/column_tracking.py": "381169874daf0cb8823735f32c14cb37323f39eb2553aa4aac8ff7706eaf71c1",
+      "src/aspire_so100/column_wrist.py": "c5da7ee9e738e2744aca73488b2227152704e7face9c1736ade744d05f7a2385",
+      "src/aspire_so100/context.py": "9bc0a58a34ea139b218507c9bc3de0ecb345e554325f72c11400ba22190c8086",
+      "src/aspire_so100/cube_alignment.py": "609baff8f9e00866bbef6c6883724edd68238dd49cb780b55864f1cf72c15d02",
+      "src/aspire_so100/cube_alignment_policy.py": "71116ac5d4eeb2c9a40ffb9fd271edc1116e8fae5b7782729e2ce3be24b84a4c",
+      "src/aspire_so100/cube_geometry.py": "e736fbdb3a90bcfa216783514093a98827938fb7f019a7ebd94d088e8f254cdd",
+      "src/aspire_so100/cuboid_geometry.py": "bcb1d1270ec44fde854cc2b822a158699645c60c5e357583b69593e5883222ef",
+      "src/aspire_so100/gripper_geometry.py": "cce8a1fc444788f58ffd215c4d7b55cbfaae6f5cad42fee82ca71db64128f7a1",
+      "src/aspire_so100/instance_geometry.py": "9e9723e2052073754fa9fdfa8aa5fe099ad70a88f4adf85231d7cba79a86c8d0",
+      "src/aspire_so100/inventory_policy.py": "9eff928e7b707e11ddc8d4537f32f16ce4e45c5462981c9b9ef94dac87df9f1d",
+      "src/aspire_so100/inventory_prism.py": "7fef6e20ba8d3d5448514b459cfb716c0547eb462f27c43eacae69510c8bb045",
+      "src/aspire_so100/inventory_structure.py": "140c875e6f4d64a80144b34c70a38c7569ab65ced4ff9d8b15a6d7494725072c",
+      "src/aspire_so100/inventory_tower.py": "96b5b67f13206bb72167d3081095c8f1d77980e6af19e5f35c3a3792ef5bf88c",
+      "src/aspire_so100/layouts.py": "04e29d37d1e146fee791aa4156bbcd85fc7278fb471735aa3b8ffaf8da031103",
+      "src/aspire_so100/pipeline.py": "7f7c10df78a7e50a834f9c64f30521d5b63e13f701c7d0d9bd26cda9cb3ab538",
+      "src/aspire_so100/playback.py": "397f83040f56735fc6fc3e3374172f0b7a5c77b2e9706c515c070efbaeebebb2",
+      "src/aspire_so100/pointing_exchange.py": "e91fb488b4bc203ece9377202227702e1f83c05eb80ce261c4fd419ab8eff867",
+      "src/aspire_so100/pointing_geometry.py": "eefab49a4ea32cc21249102f7df20ff4b3f3e31766cc0279556f78fd0a1787b3",
+      "src/aspire_so100/pointing_recovery.py": "f480ed82830b6b2eb7b814c83dbd24bfc5fb49671b2efe4e20d83c91e5439c72",
+      "src/aspire_so100/prism.py": "718cb3e3b655f2dec99859c4ae67a4e78de541f7ca098eceeeba3905c721c161",
+      "src/aspire_so100/prism_layouts.py": "635c61f95a5e89189598792192d23e7a1de7b8d72b8219c266e729ed3b91e2d1",
+      "src/aspire_so100/rgbd.py": "20ffe8493885de4fc1595c70dd944337de8c6ee8d06184271f87dcd4632a17fe",
+      "src/aspire_so100/simulation_settings.py": "43787bcec5156abb2d78e6abf08c7e4683e6002a06ca2e04f11013620185fee9",
+      "src/aspire_so100/skill_report.py": "314be5766ff3bcabc5c2b678ab316cd089c3096680f0eecc5bab17e4c4164174",
+      "src/aspire_so100/stacking_env.py": "2c55432b0e8a73367fbec3b228892ca3bbe5b817e25464f99a31ceecc4858f0d",
+      "src/aspire_so100/structure_geometry.py": "85f84217ffd1d135fe508139a4be1a3a3c9594366ace38dfd9f37702e0132058",
+      "src/aspire_so100/structure_policy.py": "16c758f61e11b01e1a3a8574ee81a178160f8009ec9870ac64fceb45f0b9724e",
+      "src/aspire_so100/structure_tasks.py": "5e7638f24be7b2c31259bf15d1402851eebf69fa0b536353b5a7087eeb7dcb02",
+      "src/aspire_so100/tower.py": "f6c35d550bba9a45043a00fc3249b72f8ff4afead77907a7554496d1b0c1538c",
+      "src/aspire_so100/tower_tasks.py": "8b84e63fc86bbe1042ce0077da25c7eb6032bd576763169295d4300ffec34fcc"
+    },
+    "budget": "fixed revisions and rollout slots; tokens measured, not equalized",
+    "feedback": "own latest source + all own reduced feedback; latest two sensor outcomes",
+    "selection": "highest training success count, earliest revision on ties",
+    "initial_policy": "empty run(api), no prior controller",
+    "heldout_feedback_to_actor": false
+  },
+  "overview": {
+    "raw": {
+      "train_successes_by_revision": [
+        0,
+        1,
+        0
+      ],
+      "train_trials_per_revision": [
+        3,
+        3,
+        3
+      ],
+      "heldout_successes": 1,
+      "heldout_trials": 5,
+      "frozen_revision": 2,
+      "total_generation_wall_seconds": 875.0534527270001,
+      "total_model_usage": {
+        "input_tokens": 51215,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 28772,
+        "reasoning_output_tokens": 11685
+      }
+    },
+    "geometry": {
+      "train_successes_by_revision": [
+        0,
+        0,
+        0
+      ],
+      "train_trials_per_revision": [
+        3,
+        3,
+        3
+      ],
+      "heldout_successes": 0,
+      "heldout_trials": 5,
+      "frozen_revision": 1,
+      "total_generation_wall_seconds": 766.3811021869999,
+      "total_model_usage": {
+        "input_tokens": 52492,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 25178,
+        "reasoning_output_tokens": 7534
+      }
+    }
+  },
+  "status": "completed",
+  "manifest_sha256": "cbbf8ec03a84ff485314c82f03751f180be185da260a69c135a8207d6725c080",
+  "curves": {
+    "raw": [
+      {
+        "revision": 1,
+        "successes": 0,
+        "trials": 3,
+        "cumulative_rollout_slots": 3,
+        "generation": {
+          "usage": {
+            "input_tokens": 13427,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 10403,
+            "reasoning_output_tokens": 5696
+          },
+          "wall_seconds": 315.734180593,
+          "audit": "passed",
+          "source_budget_exceeded": false,
+          "candidate_sha256": "48a0595a246318f78918f4180f5adb5882a2698d3458d4911edb95ff4f6ad77f"
+        },
+        "results": [
+          {
+            "seed": 3101,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.173186483,
+              "rpc_cpu_seconds": 0.02990656800000001,
+              "compute_interval_count": 249,
+              "compute_interval_cpu_p50_ms": 0.005943000000008247,
+              "compute_interval_cpu_p95_ms": 5.031992200000012,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            }
+          },
+          {
+            "seed": 3102,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.17393306800000002,
+              "rpc_cpu_seconds": 0.03685121699999999,
+              "compute_interval_count": 350,
+              "compute_interval_cpu_p50_ms": 0.016477000000000852,
+              "compute_interval_cpu_p95_ms": 2.8760136500000337,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            }
+          },
+          {
+            "seed": 3103,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.17051090199999983,
+              "rpc_cpu_seconds": 0.03016077000000017,
+              "compute_interval_count": 241,
+              "compute_interval_cpu_p50_ms": 0.006468000000009466,
+              "compute_interval_cpu_p95_ms": 4.925252999999991,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            }
+          }
+        ]
+      },
+      {
+        "revision": 2,
+        "successes": 1,
+        "trials": 3,
+        "cumulative_rollout_slots": 6,
+        "generation": {
+          "usage": {
+            "input_tokens": 18331,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 8730,
+            "reasoning_output_tokens": 3403
+          },
+          "wall_seconds": 266.22282599300024,
+          "audit": "passed",
+          "source_budget_exceeded": false,
+          "candidate_sha256": "074ef1670d1fed0c8643ab7c3db282ee8f62b2d7107a2c94af18c467069c72de"
+        },
+        "results": [
+          {
+            "seed": 3101,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.2350471329999998,
+              "rpc_cpu_seconds": 0.05040020700000018,
+              "compute_interval_count": 602,
+              "compute_interval_cpu_p50_ms": 0.016341000000003048,
+              "compute_interval_cpu_p95_ms": 2.5335845000000035,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            }
+          },
+          {
+            "seed": 3102,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.215816027,
+              "rpc_cpu_seconds": 0.05886598400000001,
+              "compute_interval_count": 677,
+              "compute_interval_cpu_p50_ms": 0.020571000000024764,
+              "compute_interval_cpu_p95_ms": 0.07847419999998889,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            }
+          },
+          {
+            "seed": 3103,
+            "success": true,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.19572054,
+              "rpc_cpu_seconds": 0.03607726300000001,
+              "compute_interval_count": 370,
+              "compute_interval_cpu_p50_ms": 0.01557350000000457,
+              "compute_interval_cpu_p95_ms": 2.7170600000000027,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            }
+          }
+        ]
+      },
+      {
+        "revision": 3,
+        "successes": 0,
+        "trials": 3,
+        "cumulative_rollout_slots": 9,
+        "generation": {
+          "usage": {
+            "input_tokens": 19457,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 9639,
+            "reasoning_output_tokens": 2586
+          },
+          "wall_seconds": 293.0964461409999,
+          "audit": "passed",
+          "source_budget_exceeded": true,
+          "candidate_sha256": "fc7f6c614490a147c9ac30adad469eb5e202695399e69c3117c68bd6803dd52f"
+        },
+        "results": [
+          {
+            "seed": 3101,
+            "success": false,
+            "policy_error": "RuntimeError: ValueError: Candidate exceeded the declared size budget",
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 4.6416999999999986e-05,
+              "rpc_cpu_seconds": 0.0,
+              "compute_interval_count": 1,
+              "compute_interval_cpu_p50_ms": 0.04663099999999837,
+              "compute_interval_cpu_p95_ms": 0.04663099999999837,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            }
+          },
+          {
+            "seed": 3102,
+            "success": false,
+            "policy_error": "RuntimeError: ValueError: Candidate exceeded the declared size budget",
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 4.371300000000078e-05,
+              "rpc_cpu_seconds": 0.0,
+              "compute_interval_count": 1,
+              "compute_interval_cpu_p50_ms": 0.043951000000000406,
+              "compute_interval_cpu_p95_ms": 0.043951000000000406,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            }
+          },
+          {
+            "seed": 3103,
+            "success": false,
+            "policy_error": "RuntimeError: ValueError: Candidate exceeded the declared size budget",
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 4.6939000000002784e-05,
+              "rpc_cpu_seconds": 0.0,
+              "compute_interval_count": 1,
+              "compute_interval_cpu_p50_ms": 0.04694799999999805,
+              "compute_interval_cpu_p95_ms": 0.04694799999999805,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            }
+          }
+        ]
+      }
+    ],
+    "geometry": [
+      {
+        "revision": 1,
+        "successes": 0,
+        "trials": 3,
+        "cumulative_rollout_slots": 3,
+        "generation": {
+          "usage": {
+            "input_tokens": 13848,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 9119,
+            "reasoning_output_tokens": 4142
+          },
+          "wall_seconds": 277.13059846400006,
+          "audit": "passed",
+          "source_budget_exceeded": false,
+          "candidate_sha256": "73e64c7261ab33450f9969b719a8e46f2f6ce16a28af92c3871e793b3502ac41"
+        },
+        "results": [
+          {
+            "seed": 3101,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.27944008899999995,
+              "rpc_cpu_seconds": 0.005162913000000019,
+              "compute_interval_count": 23,
+              "compute_interval_cpu_p50_ms": 0.010763999999996443,
+              "compute_interval_cpu_p95_ms": 58.81045110000001,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            }
+          },
+          {
+            "seed": 3102,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.280861185,
+              "rpc_cpu_seconds": 0.005153294999999947,
+              "compute_interval_count": 23,
+              "compute_interval_cpu_p50_ms": 0.01537600000001138,
+              "compute_interval_cpu_p95_ms": 60.30660599999999,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            }
+          },
+          {
+            "seed": 3103,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.26687259500000016,
+              "rpc_cpu_seconds": 0.004881942999999916,
+              "compute_interval_count": 23,
+              "compute_interval_cpu_p50_ms": 0.0095620000000185,
+              "compute_interval_cpu_p95_ms": 55.93986529999997,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            }
+          }
+        ]
+      },
+      {
+        "revision": 2,
+        "successes": 0,
+        "trials": 3,
+        "cumulative_rollout_slots": 6,
+        "generation": {
+          "usage": {
+            "input_tokens": 18710,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 8212,
+            "reasoning_output_tokens": 2070
+          },
+          "wall_seconds": 250.14904317599985,
+          "audit": "passed",
+          "source_budget_exceeded": false,
+          "candidate_sha256": "0b1a3ae3b15ad28c5a38f7b070c648ead2572de5f6bbd7bf03ce8eab5df03ea7"
+        },
+        "results": [
+          {
+            "seed": 3101,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.23722425800000005,
+              "rpc_cpu_seconds": 0.003498053999999945,
+              "compute_interval_count": 11,
+              "compute_interval_cpu_p50_ms": 0.026865000000014794,
+              "compute_interval_cpu_p95_ms": 93.21594599999999,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            }
+          },
+          {
+            "seed": 3102,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.23596173300000003,
+              "rpc_cpu_seconds": 0.0035662849999999746,
+              "compute_interval_count": 11,
+              "compute_interval_cpu_p50_ms": 0.01753600000001243,
+              "compute_interval_cpu_p95_ms": 91.9523025,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            }
+          },
+          {
+            "seed": 3103,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.23149036700000009,
+              "rpc_cpu_seconds": 0.0035663459999999425,
+              "compute_interval_count": 11,
+              "compute_interval_cpu_p50_ms": 0.026388000000016065,
+              "compute_interval_cpu_p95_ms": 93.4659385,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            }
+          }
+        ]
+      },
+      {
+        "revision": 3,
+        "successes": 0,
+        "trials": 3,
+        "cumulative_rollout_slots": 9,
+        "generation": {
+          "usage": {
+            "input_tokens": 19934,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 7847,
+            "reasoning_output_tokens": 1322
+          },
+          "wall_seconds": 239.101460547,
+          "audit": "passed",
+          "source_budget_exceeded": true,
+          "candidate_sha256": "fc7f6c614490a147c9ac30adad469eb5e202695399e69c3117c68bd6803dd52f"
+        },
+        "results": [
+          {
+            "seed": 3101,
+            "success": false,
+            "policy_error": "RuntimeError: ValueError: Candidate exceeded the declared size budget",
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.12041773800000001,
+              "rpc_cpu_seconds": 0.0,
+              "compute_interval_count": 1,
+              "compute_interval_cpu_p50_ms": 120.41730399999999,
+              "compute_interval_cpu_p95_ms": 120.41730399999999,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            }
+          },
+          {
+            "seed": 3102,
+            "success": false,
+            "policy_error": "RuntimeError: ValueError: Candidate exceeded the declared size budget",
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.12192483800000001,
+              "rpc_cpu_seconds": 0.0,
+              "compute_interval_count": 1,
+              "compute_interval_cpu_p50_ms": 121.924011,
+              "compute_interval_cpu_p95_ms": 121.924011,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            }
+          },
+          {
+            "seed": 3103,
+            "success": false,
+            "policy_error": "RuntimeError: ValueError: Candidate exceeded the declared size budget",
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.1211544,
+              "rpc_cpu_seconds": 0.0,
+              "compute_interval_count": 1,
+              "compute_interval_cpu_p50_ms": 121.153764,
+              "compute_interval_cpu_p95_ms": 121.153764,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "frozen": {
+    "raw": {
+      "revision": 2,
+      "candidate_sha256": "074ef1670d1fed0c8643ab7c3db282ee8f62b2d7107a2c94af18c467069c72de"
+    },
+    "geometry": {
+      "revision": 1,
+      "candidate_sha256": "73e64c7261ab33450f9969b719a8e46f2f6ce16a28af92c3871e793b3502ac41"
+    }
+  },
+  "heldout": {
+    "raw": [
+      {
+        "seed": 3201,
+        "success": false,
+        "policy_error": null,
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.15515156500000007,
+          "rpc_cpu_seconds": 0.023212383999999947,
+          "compute_interval_count": 264,
+          "compute_interval_cpu_p50_ms": 0.017258000000006102,
+          "compute_interval_cpu_p95_ms": 2.2839391000000044,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        }
+      },
+      {
+        "seed": 3202,
+        "success": false,
+        "policy_error": null,
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.1561670800000001,
+          "rpc_cpu_seconds": 0.026831121999999902,
+          "compute_interval_count": 264,
+          "compute_interval_cpu_p50_ms": 0.01626649999998675,
+          "compute_interval_cpu_p95_ms": 2.552909099999989,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        }
+      },
+      {
+        "seed": 3203,
+        "success": false,
+        "policy_error": null,
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.15611155500000007,
+          "rpc_cpu_seconds": 0.023095431999999916,
+          "compute_interval_count": 264,
+          "compute_interval_cpu_p50_ms": 0.017131000000017438,
+          "compute_interval_cpu_p95_ms": 2.2352439499999823,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        }
+      },
+      {
+        "seed": 3204,
+        "success": false,
+        "policy_error": null,
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.263607121,
+          "rpc_cpu_seconds": 0.05890535899999999,
+          "compute_interval_count": 574,
+          "compute_interval_cpu_p50_ms": 0.009908000000002914,
+          "compute_interval_cpu_p95_ms": 2.7386579999999885,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        }
+      },
+      {
+        "seed": 3205,
+        "success": true,
+        "policy_error": null,
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.19973608099999948,
+          "rpc_cpu_seconds": 0.03768216900000049,
+          "compute_interval_count": 445,
+          "compute_interval_cpu_p50_ms": 0.023545999999985412,
+          "compute_interval_cpu_p95_ms": 2.545012399999989,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        }
+      }
+    ],
+    "geometry": [
+      {
+        "seed": 3201,
+        "success": false,
+        "policy_error": null,
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.2885959029999998,
+          "rpc_cpu_seconds": 0.0050455500000001485,
+          "compute_interval_count": 23,
+          "compute_interval_cpu_p50_ms": 0.015086999999996964,
+          "compute_interval_cpu_p95_ms": 59.38830879999998,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        }
+      },
+      {
+        "seed": 3202,
+        "success": false,
+        "policy_error": null,
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.280314917,
+          "rpc_cpu_seconds": 0.005390749999999972,
+          "compute_interval_count": 23,
+          "compute_interval_cpu_p50_ms": 0.015908000000008915,
+          "compute_interval_cpu_p95_ms": 57.873344,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        }
+      },
+      {
+        "seed": 3203,
+        "success": false,
+        "policy_error": null,
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.2653514510000002,
+          "rpc_cpu_seconds": 0.0052920699999998155,
+          "compute_interval_count": 23,
+          "compute_interval_cpu_p50_ms": 0.011318000000010153,
+          "compute_interval_cpu_p95_ms": 55.79341269999998,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        }
+      },
+      {
+        "seed": 3204,
+        "success": false,
+        "policy_error": null,
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.280968737,
+          "rpc_cpu_seconds": 0.005266734999999995,
+          "compute_interval_count": 23,
+          "compute_interval_cpu_p50_ms": 0.011124000000001244,
+          "compute_interval_cpu_p95_ms": 59.39301119999997,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        }
+      },
+      {
+        "seed": 3205,
+        "success": false,
+        "policy_error": null,
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.270325771,
+          "rpc_cpu_seconds": 0.005026379000000053,
+          "compute_interval_count": 23,
+          "compute_interval_cpu_p50_ms": 0.011612999999993656,
+          "compute_interval_cpu_p95_ms": 56.69226589999998,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        }
+      }
+    ]
+  },
+  "limitations": [
+    "Single campaign per arm; no statistical efficacy claim.",
+    "Fixed revision/rollout budget; tokens and elapsed time are measured, not matched.",
+    "CPU intervals exclude RPC/rendering/IK; no realtime or VLM-latency claim.",
+    "Ideal side RGB-D, unique colors, three cubes, fixed order, no distractors."
+  ]
+}

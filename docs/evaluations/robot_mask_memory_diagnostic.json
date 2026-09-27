@@ -1,0 +1,138 @@
+{
+  "schema": "robot_mask_memory_development_report_v1",
+  "comparisons": [
+    {
+      "original": "outputs/bounded_memory_audit_01",
+      "masked": "outputs/bounded_memory_robot_mask_01",
+      "matched_groups": {
+        "all": {
+          "original_instantaneous": {
+            "count": 122,
+            "median_mm": 0.0934946170290268,
+            "p95_mm": 2.689075422474975,
+            "max_mm": 80.09052130453748
+          },
+          "robot_mask_instantaneous": {
+            "count": 122,
+            "median_mm": 0.09315865844272939,
+            "p95_mm": 2.689075422474975,
+            "max_mm": 4.737419795314337
+          },
+          "robot_mask_bounded_memory": {
+            "count": 122,
+            "median_mm": 0.09315865844272939,
+            "p95_mm": 0.3056827057038269,
+            "max_mm": 4.737419795314337
+          }
+        },
+        "original_partial": {
+          "original_instantaneous": {
+            "count": 48,
+            "median_mm": 1.057520938708551,
+            "p95_mm": 3.273541164243462,
+            "max_mm": 80.09052130453748
+          },
+          "robot_mask_instantaneous": {
+            "count": 48,
+            "median_mm": 1.057520938708551,
+            "p95_mm": 3.273541164243462,
+            "max_mm": 4.737419795314337
+          },
+          "robot_mask_bounded_memory": {
+            "count": 48,
+            "median_mm": 0.17154749964190566,
+            "p95_mm": 0.3098696771492534,
+            "max_mm": 4.737419795314337
+          }
+        }
+      },
+      "coverage": {
+        "original": 122,
+        "masked": 122,
+        "matched": 122,
+        "new_only": 0,
+        "lost": []
+      },
+      "sensor_only_sha256": {
+        "outputs/bounded_memory_audit_01": "daad3831cbd26e4d726eda609ec200e33d9d0d17c1a01eb88515043b71f62941",
+        "outputs/bounded_memory_robot_mask_01": "95eff75f77fa606d3e3be4545344f4520a736f99de21f54b9e1e179aa270b36c"
+      }
+    },
+    {
+      "original": "outputs/bounded_memory_audit_02",
+      "masked": "outputs/bounded_memory_robot_mask_02",
+      "matched_groups": {
+        "all": {
+          "original_instantaneous": {
+            "count": 193,
+            "median_mm": 0.09321057052089578,
+            "p95_mm": 2.3979580954296473,
+            "max_mm": 73.71541139722363
+          },
+          "robot_mask_instantaneous": {
+            "count": 193,
+            "median_mm": 0.09321057048854901,
+            "p95_mm": 2.3979580954296473,
+            "max_mm": 2.9852014066866404
+          },
+          "robot_mask_bounded_memory": {
+            "count": 193,
+            "median_mm": 0.0929390825471559,
+            "p95_mm": 0.6186269448283174,
+            "max_mm": 2.488279489322554
+          }
+        },
+        "original_partial": {
+          "original_instantaneous": {
+            "count": 61,
+            "median_mm": 0.5593797224383248,
+            "p95_mm": 2.93433023873969,
+            "max_mm": 73.71541139722363
+          },
+          "robot_mask_instantaneous": {
+            "count": 61,
+            "median_mm": 0.5593797224383248,
+            "p95_mm": 2.8131224686892056,
+            "max_mm": 2.9852014066866404
+          },
+          "robot_mask_bounded_memory": {
+            "count": 61,
+            "median_mm": 0.16107034462880157,
+            "p95_mm": 2.3813435017391433,
+            "max_mm": 2.488279489322554
+          }
+        }
+      },
+      "coverage": {
+        "original": 195,
+        "masked": 193,
+        "matched": 193,
+        "new_only": 0,
+        "lost": [
+          {
+            "trial": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/online_geometry_v2_replications_01/replica_01/symbolic/round_001/trials/seed_71005",
+            "time": 47.75000000001239,
+            "color": "green",
+            "original_center_error_mm": 151.3285168100457
+          },
+          {
+            "trial": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/online_geometry_v2_replications_01/replica_01/symbolic/round_001/trials/seed_71005",
+            "time": 79.94999999999507,
+            "color": "green",
+            "original_center_error_mm": 155.0015121726583
+          }
+        ]
+      },
+      "sensor_only_sha256": {
+        "outputs/bounded_memory_audit_02": "fb6e397062b60dca3fc701f3cb3dc2e2fabd0a5196a16a2e92b457af551808a2",
+        "outputs/bounded_memory_robot_mask_02": "1ec5ff78e27ecde2c6962ed61a0ae798a69ac52ccdadba0ea5893c093ea2ae1a"
+      }
+    }
+  ],
+  "limits": [
+    "Robot radius comes from its model and centers from same-time encoder-derived proprioception; no object truth is used by the mask.",
+    "Private physics is used only after all sensor-only estimates are saved, for scoring.",
+    "Already inspected development trajectories, not a held-out policy-success or real-sensor result.",
+    "This masks one known robot visual sphere, not full robot meshes or arbitrary same-color objects."
+  ]
+}

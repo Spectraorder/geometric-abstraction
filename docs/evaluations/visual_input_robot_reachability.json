@@ -1,0 +1,2075 @@
+{
+  "scope": "Replay no-motion training IK requests using only robot CAD and proprioception.\n\nThis diagnostic never reads object poses, trial success, contacts, or rollout.npz.\nIt does not alter actor policies or infer collision-free task feasibility.\n",
+  "requests": 119,
+  "robot_only_model_nq": 6,
+  "actor_guard_rejects": 24,
+  "shared_position_test_passes": 119,
+  "guard_rejects_but_shared_position_test_passes": 24,
+  "relaxed_orientation_needed": 0,
+  "max_robot_pose_replay_error_m": 0.0,
+  "inputs": [
+    {
+      "path": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "sha256": "6d5c89241e5c0f768931ec2b488090db30af8cc9fd5ff194d98808e040d1963c"
+    },
+    {
+      "path": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "sha256": "df74b24b265a3af8450d50361bc18e69f94ceda71b1bf569394995685d408318"
+    },
+    {
+      "path": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "sha256": "3827554a9107f9cb6c3df03ad5a384a281a827368ca5487afe668f42d0e2473f"
+    },
+    {
+      "path": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990204/api_calls.json",
+      "sha256": "8cf4d0b12543e343d61a5566b068b5362fb321fc3b5159dbd2dc5aa32e310b62"
+    },
+    {
+      "path": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "sha256": "26fbe9a45782c64dc99c900d8b3c273442fb5fbe74bf6e08fdbc755854ef656d"
+    }
+  ],
+  "skipped": [
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990204/api_calls.json",
+      "reason": "No IK requests recorded"
+    }
+  ],
+  "records": [
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 17,
+      "target_m": [
+        -0.10099150744455108,
+        -0.3282933206573142,
+        0.4387859503019793
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.00045200159412536826,
+      "relaxed_error_m": 1.998565694603034e-05,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 18,
+      "target_m": [
+        -0.04135271255954741,
+        -0.3282933206573142,
+        0.4388542028168786
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 5.1877948257946686e-14,
+      "relaxed_error_m": 4.293584130612625e-14,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 19,
+      "target_m": [
+        -0.07117211000204925,
+        -0.3282933206573142,
+        0.45068195585168785
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.00026772517373429845,
+      "relaxed_error_m": 9.852875593885203e-06,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 20,
+      "target_m": [
+        -0.07117211000204925,
+        -0.3282933206573142,
+        0.5196045848863242
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.001664036270326112,
+      "relaxed_error_m": 5.615107174266083e-05,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 21,
+      "target_m": [
+        -0.07117211000204925,
+        -0.3282933206573142,
+        0.5896045848863243
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0035281431790130375,
+      "relaxed_error_m": 0.00012960856376141743,
+      "actor_2p5mm_guard_passes": false,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 22,
+      "target_m": [
+        -0.13081090488705294,
+        -0.3282933206573142,
+        0.43878604588918335
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0011060328211597915,
+      "relaxed_error_m": 6.0905242753506275e-05,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 23,
+      "target_m": [
+        -0.07117211000204925,
+        -0.3282933206573142,
+        0.43885429840408263
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 8.129109632798962e-05,
+      "relaxed_error_m": 3.1160011432820174e-06,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 24,
+      "target_m": [
+        -0.10099150744455108,
+        -0.3282933206573142,
+        0.4506820514388919
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0006204952935908752,
+      "relaxed_error_m": 2.5900545252955036e-05,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 25,
+      "target_m": [
+        -0.10099150744455108,
+        -0.3282933206573142,
+        0.5196046804735283
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.001965113581254425,
+      "relaxed_error_m": 7.249752023014852e-05,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 26,
+      "target_m": [
+        -0.10099150744455108,
+        -0.3282933206573142,
+        0.5896046804735282
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.003908104615300723,
+      "relaxed_error_m": 0.00016234922436873588,
+      "actor_2p5mm_guard_passes": false,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 27,
+      "target_m": [
+        -0.10099150744455108,
+        -0.20901573088730685,
+        0.43878624194650345
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 7.161003190865092e-14,
+      "relaxed_error_m": 6.294049240526614e-14,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 28,
+      "target_m": [
+        -0.04135271255954741,
+        -0.20901573088730685,
+        0.43885449446140273
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 3.932071831677078e-14,
+      "relaxed_error_m": 5.357347384315374e-16,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 29,
+      "target_m": [
+        -0.07117211000204925,
+        -0.20901573088730685,
+        0.450682247496212
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 5.539830726537564e-14,
+      "relaxed_error_m": 3.0813689532136643e-16,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 30,
+      "target_m": [
+        -0.07117211000204925,
+        -0.20901573088730685,
+        0.5196048765308484
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0006858523291060571,
+      "relaxed_error_m": 3.762742052208962e-05,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 31,
+      "target_m": [
+        -0.07117211000204925,
+        -0.20901573088730685,
+        0.5896048765308484
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.003660213987250916,
+      "relaxed_error_m": 0.00016319784960452686,
+      "actor_2p5mm_guard_passes": false,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 32,
+      "target_m": [
+        -0.13081090488705294,
+        -0.20901573088730685,
+        0.4387863375337075
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 6.133472291049126e-14,
+      "relaxed_error_m": 5.180889528010311e-14,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 33,
+      "target_m": [
+        -0.07117211000204925,
+        -0.20901573088730685,
+        0.4388545900486068
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 5.4255777174745366e-14,
+      "relaxed_error_m": 9.05040333547567e-16,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 34,
+      "target_m": [
+        -0.10099150744455108,
+        -0.20901573088730685,
+        0.45068234308341604
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 5.6671110063797607e-14,
+      "relaxed_error_m": 1.5708895689205417e-15,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 35,
+      "target_m": [
+        -0.10099150744455108,
+        -0.20901573088730685,
+        0.5196049721180525
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.000594928339023804,
+      "relaxed_error_m": 2.7214391076413072e-05,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 36,
+      "target_m": [
+        -0.10099150744455108,
+        -0.20901573088730685,
+        0.5896049721180525
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.003292677319638877,
+      "relaxed_error_m": 0.00012987804670967922,
+      "actor_2p5mm_guard_passes": false,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 37,
+      "target_m": [
+        -0.07117211000204925,
+        -0.3282933206573142,
+        0.43878585471477527
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 8.026411657517977e-05,
+      "relaxed_error_m": 3.0774609739750433e-06,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 38,
+      "target_m": [
+        -0.01153331511704557,
+        -0.3282933206573142,
+        0.43885410722967455
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 4.341374552339541e-14,
+      "relaxed_error_m": 5.109528687476662e-14,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 39,
+      "target_m": [
+        -0.04135271255954741,
+        -0.3282933206573142,
+        0.4506818602644838
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 6.8042615528404e-05,
+      "relaxed_error_m": 2.3517659034858257e-06,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 40,
+      "target_m": [
+        -0.04135271255954741,
+        -0.3282933206573142,
+        0.5196044892991202
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0014969666520832797,
+      "relaxed_error_m": 4.8372827109536416e-05,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 41,
+      "target_m": [
+        -0.04135271255954741,
+        -0.3282933206573142,
+        0.5896044892991201
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0033319040738354405,
+      "relaxed_error_m": 0.0001150970559718813,
+      "actor_2p5mm_guard_passes": false,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 42,
+      "target_m": [
+        -0.07117211000204925,
+        -0.20901573088730685,
+        0.4387861463592994
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 5.449420645227247e-14,
+      "relaxed_error_m": 8.751813177181079e-16,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 43,
+      "target_m": [
+        -0.01153331511704557,
+        -0.20901573088730685,
+        0.4388543988741987
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 1.4767773494164603e-14,
+      "relaxed_error_m": 1.0621809302517216e-14,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 44,
+      "target_m": [
+        -0.04135271255954741,
+        -0.20901573088730685,
+        0.45068215190900796
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 3.796999485661464e-10,
+      "relaxed_error_m": 3.8029527356487955e-10,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 45,
+      "target_m": [
+        -0.04135271255954741,
+        -0.20901573088730685,
+        0.5196047809436444
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0008489718069685664,
+      "relaxed_error_m": 5.4657473955896856e-05,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990201/api_calls.json",
+      "call_index": 46,
+      "target_m": [
+        -0.04135271255954741,
+        -0.20901573088730685,
+        0.5896047809436444
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.004024592587615551,
+      "relaxed_error_m": 0.00019907045014774127,
+      "actor_2p5mm_guard_passes": false,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 18,
+      "target_m": [
+        -0.041815020880506266,
+        -0.25720105421962325,
+        0.4388255684374882
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 5.708845788644752e-11,
+      "relaxed_error_m": 5.689362652718697e-11,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 19,
+      "target_m": [
+        0.017888641575349633,
+        -0.25720105421962325,
+        0.4388694176695583
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 4.319347972564539e-11,
+      "relaxed_error_m": 4.292200633437618e-11,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 20,
+      "target_m": [
+        -0.011963189652578319,
+        -0.25720105421962325,
+        0.45072658683674705
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 6.912044799517447e-12,
+      "relaxed_error_m": 6.8611291310106935e-12,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 21,
+      "target_m": [
+        -0.011963189652578319,
+        -0.25720105421962325,
+        0.5195599354350805
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0005792880977057839,
+      "relaxed_error_m": 2.1616696362838826e-05,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 22,
+      "target_m": [
+        -0.011963189652578319,
+        -0.25720105421962325,
+        0.5895599354350805
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0029066723571161968,
+      "relaxed_error_m": 9.877342960882009e-05,
+      "actor_2p5mm_guard_passes": false,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 23,
+      "target_m": [
+        -0.011963189652578317,
+        -0.25720105421962325,
+        0.4388254426750336
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 6.918222106746354e-11,
+      "relaxed_error_m": 6.980979996149071e-11,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 24,
+      "target_m": [
+        0.04774047280327758,
+        -0.25720105421962325,
+        0.43886929190710366
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 4.702278330681112e-12,
+      "relaxed_error_m": 4.706326331410754e-12,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 25,
+      "target_m": [
+        0.017888641575349633,
+        -0.25720105421962325,
+        0.45072646107429243
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 6.005864749266073e-12,
+      "relaxed_error_m": 5.9818803203034225e-12,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 26,
+      "target_m": [
+        0.017888641575349633,
+        -0.25720105421962325,
+        0.5195598096726259
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0005811091189302963,
+      "relaxed_error_m": 2.1613754485368887e-05,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 27,
+      "target_m": [
+        0.017888641575349633,
+        -0.25720105421962325,
+        0.589559809672626
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.002902690218539757,
+      "relaxed_error_m": 9.842509978821009e-05,
+      "actor_2p5mm_guard_passes": false,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 28,
+      "target_m": [
+        -0.07166685210843421,
+        -0.25720105421962325,
+        0.43882569419994283
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 3.772907122754008e-12,
+      "relaxed_error_m": 3.800030210720415e-12,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 29,
+      "target_m": [
+        -0.011963189652578317,
+        -0.25720105421962325,
+        0.4388695434320129
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 6.895837609497243e-11,
+      "relaxed_error_m": 6.94400006099773e-11,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 30,
+      "target_m": [
+        -0.041815020880506266,
+        -0.25720105421962325,
+        0.45072671259920166
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 5.7647377636581044e-12,
+      "relaxed_error_m": 5.651697779576703e-12,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 31,
+      "target_m": [
+        -0.041815020880506266,
+        -0.25720105421962325,
+        0.5195600611975352
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0005977017319040441,
+      "relaxed_error_m": 2.168205123596604e-05,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 32,
+      "target_m": [
+        -0.041815020880506266,
+        -0.25720105421962325,
+        0.5895600611975351
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.002874108451359426,
+      "relaxed_error_m": 9.586841275885492e-05,
+      "actor_2p5mm_guard_passes": false,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 33,
+      "target_m": [
+        0.017888641575349633,
+        -0.25720105421962325,
+        0.438825316912579
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 4.359661684200677e-11,
+      "relaxed_error_m": 4.325313829196837e-11,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 34,
+      "target_m": [
+        0.07759230403120554,
+        -0.25720105421962325,
+        0.4388691661446491
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 3.746880375983389e-14,
+      "relaxed_error_m": 1.2435744645795158e-14,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 35,
+      "target_m": [
+        0.04774047280327758,
+        -0.25720105421962325,
+        0.4507263353118378
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 6.22941170819648e-13,
+      "relaxed_error_m": 6.376132510990855e-13,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 36,
+      "target_m": [
+        0.04774047280327758,
+        -0.25720105421962325,
+        0.5195596839101713
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.000604633461616748,
+      "relaxed_error_m": 2.174127311156179e-05,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 37,
+      "target_m": [
+        0.04774047280327758,
+        -0.25720105421962325,
+        0.5895596839101713
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0028650183785151086,
+      "relaxed_error_m": 9.502775175843305e-05,
+      "actor_2p5mm_guard_passes": false,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 38,
+      "target_m": [
+        -0.020261067992497342,
+        -0.2840789152028239,
+        0.43882536657687105
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 1.4190051605892405e-14,
+      "relaxed_error_m": 1.1252383546672258e-14,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 39,
+      "target_m": [
+        0.03944259446335856,
+        -0.2840789152028239,
+        0.4388692158089411
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 5.065370687536633e-14,
+      "relaxed_error_m": 3.915934082224243e-14,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 40,
+      "target_m": [
+        0.009590763235430608,
+        -0.2840789152028239,
+        0.4507263849761299
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 3.829852461443899e-10,
+      "relaxed_error_m": 3.8306101919644425e-10,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 41,
+      "target_m": [
+        0.009590763235430608,
+        -0.2840789152028239,
+        0.5195597335744634
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.000753349231642162,
+      "relaxed_error_m": 2.3896634674695197e-05,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 42,
+      "target_m": [
+        0.009590763235430608,
+        -0.2840789152028239,
+        0.5895597335744633
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0027623095994804125,
+      "relaxed_error_m": 8.465530167805783e-05,
+      "actor_2p5mm_guard_passes": false,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 43,
+      "target_m": [
+        -0.041815020880506266,
+        -0.2870528854475512,
+        0.43882544509318433
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 3.722187996218276e-12,
+      "relaxed_error_m": 3.727435440297968e-12,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 44,
+      "target_m": [
+        0.017888641575349633,
+        -0.2870528854475512,
+        0.4388692943252544
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 2.99929151992984e-14,
+      "relaxed_error_m": 3.1673642867240294e-14,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 45,
+      "target_m": [
+        -0.011963189652578319,
+        -0.2870528854475512,
+        0.45072646349244316
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 9.078815644547533e-15,
+      "relaxed_error_m": 8.297751600547366e-15,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 46,
+      "target_m": [
+        -0.011963189652578319,
+        -0.2870528854475512,
+        0.5195598120907766
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0007836862809847752,
+      "relaxed_error_m": 2.4578789125169022e-05,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990202/api_calls.json",
+      "call_index": 47,
+      "target_m": [
+        -0.011963189652578319,
+        -0.2870528854475512,
+        0.5895598120907766
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.00276578267034637,
+      "relaxed_error_m": 8.431734337721506e-05,
+      "actor_2p5mm_guard_passes": false,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 17,
+      "target_m": [
+        -0.029621334706027996,
+        -0.25835480452903076,
+        0.438818608760485
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 4.833376208599376e-11,
+      "relaxed_error_m": 4.8538178087739096e-11,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 18,
+      "target_m": [
+        0.03007174366505185,
+        -0.25835480452903076,
+        0.4387643547032808
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 1.7372655354018153e-11,
+      "relaxed_error_m": 1.733941116459394e-11,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 19,
+      "target_m": [
+        0.0002252044795119268,
+        -0.25835480452903076,
+        0.4506402261346192
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 5.379729118791554e-12,
+      "relaxed_error_m": 5.3065661715090295e-12,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 20,
+      "target_m": [
+        0.0002252044795119268,
+        -0.25835480452903076,
+        0.5194576829118516
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0005779771462407806,
+      "relaxed_error_m": 2.1422062703725505e-05,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 21,
+      "target_m": [
+        0.0002252044795119268,
+        -0.25835480452903076,
+        0.5894576829118516
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0028939653380746478,
+      "relaxed_error_m": 9.789701932383802e-05,
+      "actor_2p5mm_guard_passes": false,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 22,
+      "target_m": [
+        0.00022520447951192638,
+        -0.25835480452903076,
+        0.43881850244061144
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 4.928400348221982e-11,
+      "relaxed_error_m": 4.95211109352673e-11,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 23,
+      "target_m": [
+        0.05991828285059177,
+        -0.25835480452903076,
+        0.4387642483834073
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 6.794000773352945e-13,
+      "relaxed_error_m": 6.97385115025668e-13,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 24,
+      "target_m": [
+        0.03007174366505185,
+        -0.25835480452903076,
+        0.45064011981474567
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 2.3937996996500133e-12,
+      "relaxed_error_m": 2.477099060954991e-12,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 25,
+      "target_m": [
+        0.03007174366505185,
+        -0.25835480452903076,
+        0.5194575765919781
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0005883581917722455,
+      "relaxed_error_m": 2.1460730289730372e-05,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 26,
+      "target_m": [
+        0.03007174366505185,
+        -0.25835480452903076,
+        0.5894575765919781
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0028755909357437285,
+      "relaxed_error_m": 9.62600537763198e-05,
+      "actor_2p5mm_guard_passes": false,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 27,
+      "target_m": [
+        -0.05946787389156792,
+        -0.25835480452903076,
+        0.4388187150803585
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 1.2287781973348287e-11,
+      "relaxed_error_m": 1.2164069075896028e-11,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 28,
+      "target_m": [
+        0.00022520447951192638,
+        -0.25835480452903076,
+        0.4387644610231543
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 4.9771239981820346e-11,
+      "relaxed_error_m": 4.945729984680091e-11,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 29,
+      "target_m": [
+        -0.029621334706027996,
+        -0.25835480452903076,
+        0.45064033245449275
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 4.738151519087886e-12,
+      "relaxed_error_m": 4.664070579135598e-12,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 30,
+      "target_m": [
+        -0.029621334706027996,
+        -0.25835480452903076,
+        0.5194577892317251
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0005880385629286829,
+      "relaxed_error_m": 2.1459177308867034e-05,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 31,
+      "target_m": [
+        -0.029621334706027996,
+        -0.25835480452903076,
+        0.5894577892317252
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0028761071676094256,
+      "relaxed_error_m": 9.630632319295208e-05,
+      "actor_2p5mm_guard_passes": false,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 32,
+      "target_m": [
+        -0.003081532287709101,
+        -0.28396476979439667,
+        0.43881845207619574
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 2.594297517652192e-15,
+      "relaxed_error_m": 2.2129204528428835e-15,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 33,
+      "target_m": [
+        0.05661154608337074,
+        -0.28396476979439667,
+        0.4387641980189915
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 9.656845939212985e-13,
+      "relaxed_error_m": 9.9712353874255e-13,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 34,
+      "target_m": [
+        0.02676500689783082,
+        -0.28396476979439667,
+        0.45064006945032997
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 1.2505177201542602e-14,
+      "relaxed_error_m": 1.5519600592517933e-15,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 35,
+      "target_m": [
+        0.02676500689783082,
+        -0.28396476979439667,
+        0.5194575262275624
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0007637715743818873,
+      "relaxed_error_m": 2.4132252280349435e-05,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 36,
+      "target_m": [
+        0.02676500689783082,
+        -0.28396476979439667,
+        0.5894575262275623
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0027632746917502435,
+      "relaxed_error_m": 8.456491389569575e-05,
+      "actor_2p5mm_guard_passes": false,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 37,
+      "target_m": [
+        0.030071743665051852,
+        -0.25835480452903076,
+        0.4388183961207379
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 1.7321927619499826e-11,
+      "relaxed_error_m": 1.7147255865088874e-11,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 38,
+      "target_m": [
+        0.0897648220361317,
+        -0.25835480452903076,
+        0.43876414206353376
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 4.011851406431189e-12,
+      "relaxed_error_m": 4.004217893400823e-12,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 39,
+      "target_m": [
+        0.059918282850591774,
+        -0.25835480452903076,
+        0.45064001349487215
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 4.6970325655235585e-14,
+      "relaxed_error_m": 3.8614784974119704e-14,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 40,
+      "target_m": [
+        0.059918282850591774,
+        -0.25835480452903076,
+        0.5194574702721045
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0006261731946145705,
+      "relaxed_error_m": 2.1898837427106845e-05,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 41,
+      "target_m": [
+        0.059918282850591774,
+        -0.25835480452903076,
+        0.5894574702721045
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.002834894550607025,
+      "relaxed_error_m": 9.237302074377908e-05,
+      "actor_2p5mm_guard_passes": false,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 42,
+      "target_m": [
+        -0.029621334706027996,
+        -0.2882013437145707,
+        0.4388185363365155
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 7.252332449266783e-13,
+      "relaxed_error_m": 7.038902380199312e-13,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 43,
+      "target_m": [
+        0.03007174366505185,
+        -0.2882013437145707,
+        0.43876428227931136
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 2.0147962228457683e-13,
+      "relaxed_error_m": 1.8257179816798276e-13,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 44,
+      "target_m": [
+        0.0002252044795119268,
+        -0.2882013437145707,
+        0.45064015371064975
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 6.915427252576109e-15,
+      "relaxed_error_m": 1.1207107492752402e-14,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 45,
+      "target_m": [
+        0.0002252044795119268,
+        -0.2882013437145707,
+        0.5194576104878822
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0007890003603107995,
+      "relaxed_error_m": 2.4670413172540305e-05,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990203/api_calls.json",
+      "call_index": 46,
+      "target_m": [
+        0.0002252044795119268,
+        -0.2882013437145707,
+        0.5894576104878821
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0027640154600027476,
+      "relaxed_error_m": 8.415046268208722e-05,
+      "actor_2p5mm_guard_passes": false,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "call_index": 17,
+      "target_m": [
+        -0.11133189078146191,
+        -0.3031370270469721,
+        0.4387827736814851
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 2.703760965765957e-12,
+      "relaxed_error_m": 2.7097644636423006e-12,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "call_index": 18,
+      "target_m": [
+        -0.05170025488551136,
+        -0.3031370270469721,
+        0.4388747547722793
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 9.491347054875068e-12,
+      "relaxed_error_m": 9.492736139701788e-12,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "call_index": 19,
+      "target_m": [
+        -0.08151607283348664,
+        -0.3031370270469721,
+        0.4507179314227621
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 1.4963190490979666e-10,
+      "relaxed_error_m": 1.4912459743381036e-10,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "call_index": 20,
+      "target_m": [
+        -0.08151607283348664,
+        -0.3031370270469721,
+        0.5194953965667175
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0011916758540841104,
+      "relaxed_error_m": 3.663808024560259e-05,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "call_index": 21,
+      "target_m": [
+        -0.08151607283348664,
+        -0.3031370270469721,
+        0.5894953965667176
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0030292121626125023,
+      "relaxed_error_m": 9.587419750357813e-05,
+      "actor_2p5mm_guard_passes": false,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "call_index": 22,
+      "target_m": [
+        -0.1411477087294372,
+        -0.3031370270469721,
+        0.43878293634535287
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.00023507665384095593,
+      "relaxed_error_m": 9.583840646839144e-06,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "call_index": 23,
+      "target_m": [
+        -0.08151607283348664,
+        -0.3031370270469721,
+        0.438874917436147
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 4.077383204412572e-12,
+      "relaxed_error_m": 4.148475476692801e-12,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "call_index": 24,
+      "target_m": [
+        -0.11133189078146191,
+        -0.3031370270469721,
+        0.4507180940866299
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 5.793185285282171e-13,
+      "relaxed_error_m": 5.939922499655208e-13,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "call_index": 25,
+      "target_m": [
+        -0.11133189078146191,
+        -0.3031370270469721,
+        0.5194955592305853
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0014225929931140165,
+      "relaxed_error_m": 4.548949564684024e-05,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "call_index": 26,
+      "target_m": [
+        -0.11133189078146191,
+        -0.3031370270469721,
+        0.5894955592305853
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0032620952796317926,
+      "relaxed_error_m": 0.00011012892982145362,
+      "actor_2p5mm_guard_passes": false,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "call_index": 27,
+      "target_m": [
+        -0.08151607283348664,
+        -0.3031370270469721,
+        0.43878261101761734
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 3.991483157700471e-12,
+      "relaxed_error_m": 4.097477795689615e-12,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "call_index": 28,
+      "target_m": [
+        -0.021884436937536077,
+        -0.3031370270469721,
+        0.4388745921084115
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 1.366871925697585e-14,
+      "relaxed_error_m": 5.065422253934292e-15,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "call_index": 29,
+      "target_m": [
+        -0.05170025488551135,
+        -0.3031370270469721,
+        0.4507177687588944
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 7.789242261525871e-11,
+      "relaxed_error_m": 7.777256793851696e-11,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "call_index": 30,
+      "target_m": [
+        -0.05170025488551135,
+        -0.3031370270469721,
+        0.5194952339028498
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0010538486716236465,
+      "relaxed_error_m": 3.200583920649258e-05,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "call_index": 31,
+      "target_m": [
+        -0.05170025488551135,
+        -0.3031370270469721,
+        0.5894952339028499
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0029088079647332974,
+      "relaxed_error_m": 8.948973392847115e-05,
+      "actor_2p5mm_guard_passes": false,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "call_index": 32,
+      "target_m": [
+        -0.09394386647198578,
+        -0.28138671157980805,
+        0.4387827560503984
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 8.355659982238103e-13,
+      "relaxed_error_m": 8.125348800331723e-13,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "call_index": 33,
+      "target_m": [
+        -0.03431223057603523,
+        -0.28138671157980805,
+        0.4388747371411925
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 1.777124424222397e-14,
+      "relaxed_error_m": 1.0259815769955288e-14,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "call_index": 34,
+      "target_m": [
+        -0.06412804852401051,
+        -0.28138671157980805,
+        0.4507179137916754
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 1.0635957864131711e-11,
+      "relaxed_error_m": 1.057757825764346e-11,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "call_index": 35,
+      "target_m": [
+        -0.06412804852401051,
+        -0.28138671157980805,
+        0.5194953789356308
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0008221765161898465,
+      "relaxed_error_m": 2.5681090143106887e-05,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "call_index": 36,
+      "target_m": [
+        -0.06412804852401051,
+        -0.28138671157980805,
+        0.5894953789356308
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.002788823708422998,
+      "relaxed_error_m": 8.515496082119549e-05,
+      "actor_2p5mm_guard_passes": false,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "call_index": 37,
+      "target_m": [
+        -0.05170025488551135,
+        -0.3329528449949474,
+        0.43878234248319253
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 8.542794118944869e-05,
+      "relaxed_error_m": 3.2783827003904896e-06,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "call_index": 38,
+      "target_m": [
+        0.0079313810104392,
+        -0.3329528449949474,
+        0.4388743235739867
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 3.846234237141576e-11,
+      "relaxed_error_m": 3.852660551089122e-11,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "call_index": 39,
+      "target_m": [
+        -0.021884436937536077,
+        -0.3329528449949474,
+        0.4507175002244696
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.00014015105462722197,
+      "relaxed_error_m": 4.943086781079879e-06,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "call_index": 40,
+      "target_m": [
+        -0.021884436937536077,
+        -0.3329528449949474,
+        0.519494965368425
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0015511696980366905,
+      "relaxed_error_m": 5.0795796473228534e-05,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "call_index": 41,
+      "target_m": [
+        -0.021884436937536077,
+        -0.3329528449949474,
+        0.5894949653684249
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0033921970531607002,
+      "relaxed_error_m": 0.00011955604337100136,
+      "actor_2p5mm_guard_passes": false,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "call_index": 42,
+      "target_m": [
+        -0.05170025488551135,
+        -0.36276866294292265,
+        0.4387822366126355
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.00154443082855781,
+      "relaxed_error_m": 8.56651788159743e-05,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "call_index": 43,
+      "target_m": [
+        0.0079313810104392,
+        -0.36276866294292265,
+        0.43887421770342966
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.0013121329709864392,
+      "relaxed_error_m": 7.246168426342568e-05,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "call_index": 44,
+      "target_m": [
+        -0.021884436937536077,
+        -0.36276866294292265,
+        0.4507173943539125
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.001515248089885653,
+      "relaxed_error_m": 8.353530424765338e-05,
+      "actor_2p5mm_guard_passes": true,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    },
+    {
+      "source": "outputs/visual_input_learning_replications_01/replica_02/symbolic/round_003/trials/seed_990205/api_calls.json",
+      "call_index": 45,
+      "target_m": [
+        -0.021884436937536077,
+        -0.36276866294292265,
+        0.5194948594978679
+      ],
+      "time": 0.6500000000000005,
+      "robot_pose_replay_error_m": 0.0,
+      "robot_rotation_replay_error": 0.0,
+      "default_error_m": 0.002756581815037727,
+      "relaxed_error_m": 0.0001338797829904257,
+      "actor_2p5mm_guard_passes": false,
+      "shared_move_position_test_passes": true,
+      "relaxed_orientation_needed": false
+    }
+  ],
+  "source_sha256": {
+    "/home/pcmachine/Documents/agentic_policy/aspire_so100/scripts/replay_robot_reachability.py": "02b755b7694a114b7eedc8e5b7f19282e51ed8a24b5be7c9df35e27ff8173fd0",
+    "/home/pcmachine/Documents/agentic_policy/aspire_so100/scripts/run_vision_trial.py": "63575f8a15c6c324cd8468e0e4845036f3095e5ca9388a17dd41942d11f17246",
+    "/home/pcmachine/Documents/agentic_policy/aspire_so100/assets/trs_so_arm100/so_arm100.xml": "1901fe7e86d2458e2011390bf52014c1f6f4fcea79abef1788b3108ea9781955",
+    "/home/pcmachine/Documents/agentic_policy/aspire_so100/view_scene.py": "baafbdce362e5245e80a837dd5b264e4fb4f469f53a19c85ab7804bb479aa954"
+  },
+  "limitations": [
+    "Pointwise kinematic checks from recorded robot joints; not collision, grasp or task feasibility.",
+    "Alternative orientation changes are not validated against held-object orientation constraints.",
+    "A guard/executor mismatch does not prove successful execution or an abstraction benefit.",
+    "Post-training diagnostic only; never supplied to frozen actors."
+  ]
+}

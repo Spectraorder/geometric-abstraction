@@ -1,0 +1,603 @@
+{
+  "status": "completed",
+  "manifest_sha256": "0d142d680d038f421347de30a092e5987211905edbf41362a1f01bcc8529570c",
+  "schema": "shared_observer_abstraction_pilot_v1",
+  "source_audit": "passed",
+  "curves": {
+    "basic": {
+      "training": [
+        {
+          "revision": 0,
+          "successes": 2,
+          "slots_completed": 5,
+          "total_slots": 5
+        },
+        {
+          "revision": 1,
+          "successes": 5,
+          "slots_completed": 5,
+          "total_slots": 5
+        },
+        {
+          "revision": 2,
+          "successes": 5,
+          "slots_completed": 5,
+          "total_slots": 5
+        },
+        {
+          "revision": 3,
+          "successes": 5,
+          "slots_completed": 5,
+          "total_slots": 5
+        }
+      ],
+      "reserved": [
+        {
+          "revision": 0,
+          "successes": 9,
+          "trials": 20,
+          "sr": 0.45,
+          "wilson95": [
+            0.2581978582556243,
+            0.6579146575496577
+          ]
+        },
+        {
+          "revision": 1,
+          "successes": 14,
+          "trials": 20,
+          "sr": 0.7,
+          "wilson95": [
+            0.4810271816464765,
+            0.8545227551323956
+          ]
+        },
+        {
+          "revision": 2,
+          "successes": 14,
+          "trials": 20,
+          "sr": 0.7,
+          "wilson95": [
+            0.4810271816464765,
+            0.8545227551323956
+          ]
+        },
+        {
+          "revision": 3,
+          "successes": 14,
+          "trials": 20,
+          "sr": 0.7,
+          "wilson95": [
+            0.4810271816464765,
+            0.8545227551323956
+          ]
+        }
+      ],
+      "selected_revision": 1,
+      "first_training_revision_at_80_percent": 1,
+      "first_reserved_revision_at_80_percent": null,
+      "mean_reserved_sr_over_revisions": 0.6375,
+      "selected_reserved": {
+        "revision": 1,
+        "successes": 14,
+        "trials": 20,
+        "sr": 0.7,
+        "wilson95": [
+          0.4810271816464765,
+          0.8545227551323956
+        ]
+      }
+    },
+    "symbolic": {
+      "training": [
+        {
+          "revision": 0,
+          "successes": 2,
+          "slots_completed": 5,
+          "total_slots": 5
+        },
+        {
+          "revision": 1,
+          "successes": 4,
+          "slots_completed": 5,
+          "total_slots": 5
+        },
+        {
+          "revision": 2,
+          "successes": 3,
+          "slots_completed": 5,
+          "total_slots": 5
+        },
+        {
+          "revision": 3,
+          "successes": 0,
+          "slots_completed": 5,
+          "total_slots": 5
+        }
+      ],
+      "reserved": [
+        {
+          "revision": 0,
+          "successes": 9,
+          "trials": 20,
+          "sr": 0.45,
+          "wilson95": [
+            0.2581978582556243,
+            0.6579146575496577
+          ]
+        },
+        {
+          "revision": 1,
+          "successes": 15,
+          "trials": 20,
+          "sr": 0.75,
+          "wilson95": [
+            0.531299122381256,
+            0.8881382985923343
+          ]
+        },
+        {
+          "revision": 2,
+          "successes": 15,
+          "trials": 20,
+          "sr": 0.75,
+          "wilson95": [
+            0.531299122381256,
+            0.8881382985923343
+          ]
+        },
+        {
+          "revision": 3,
+          "successes": 0,
+          "trials": 20,
+          "sr": 0.0,
+          "wilson95": [
+            0.0,
+            0.16112515805281938
+          ]
+        }
+      ],
+      "selected_revision": 1,
+      "first_training_revision_at_80_percent": 1,
+      "first_reserved_revision_at_80_percent": null,
+      "mean_reserved_sr_over_revisions": 0.4875,
+      "selected_reserved": {
+        "revision": 1,
+        "successes": 15,
+        "trials": 20,
+        "sr": 0.75,
+        "wilson95": [
+          0.531299122381256,
+          0.8881382985923343
+        ]
+      }
+    }
+  },
+  "actors": [
+    {
+      "arm": "basic",
+      "revision": 1,
+      "usage": {
+        "input_tokens": 22306,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5500,
+        "reasoning_output_tokens": 2070
+      },
+      "static_interface_call_counts": {
+        "snapshot": 1
+      },
+      "source_syntax_error": null,
+      "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+      "wall_seconds": 169.33334622900293,
+      "audit": "passed",
+      "planner_characters": 12273
+    },
+    {
+      "arm": "basic",
+      "revision": 2,
+      "usage": {
+        "input_tokens": 25821,
+        "cached_input_tokens": 10624,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4827,
+        "reasoning_output_tokens": 989
+      },
+      "static_interface_call_counts": {
+        "snapshot": 1
+      },
+      "source_syntax_error": null,
+      "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+      "wall_seconds": 149.15165352099575,
+      "audit": "passed",
+      "planner_characters": 13871
+    },
+    {
+      "arm": "basic",
+      "revision": 3,
+      "usage": {
+        "input_tokens": 26680,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5111,
+        "reasoning_output_tokens": 1264
+      },
+      "static_interface_call_counts": {
+        "snapshot": 1
+      },
+      "source_syntax_error": null,
+      "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+      "wall_seconds": 157.61733983900194,
+      "audit": "passed",
+      "planner_characters": 13827
+    },
+    {
+      "arm": "symbolic",
+      "revision": 1,
+      "usage": {
+        "input_tokens": 39362,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 7021,
+        "reasoning_output_tokens": 3624
+      },
+      "static_interface_call_counts": {
+        "snapshot": 1,
+        "target": 1,
+        "relation": 1
+      },
+      "source_syntax_error": null,
+      "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+      "wall_seconds": 214.8287008920015,
+      "audit": "passed",
+      "planner_characters": 11882
+    },
+    {
+      "arm": "symbolic",
+      "revision": 2,
+      "usage": {
+        "input_tokens": 44065,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 7343,
+        "reasoning_output_tokens": 3106
+      },
+      "static_interface_call_counts": {
+        "snapshot": 1,
+        "target": 1,
+        "relation": 1
+      },
+      "source_syntax_error": null,
+      "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+      "wall_seconds": 226.0321235349984,
+      "audit": "passed",
+      "planner_characters": 15140
+    },
+    {
+      "arm": "symbolic",
+      "revision": 3,
+      "usage": {
+        "input_tokens": 45431,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 9326,
+        "reasoning_output_tokens": 3791
+      },
+      "static_interface_call_counts": {
+        "snapshot": 1,
+        "target": 1,
+        "relation": 1
+      },
+      "source_syntax_error": null,
+      "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+      "wall_seconds": 283.5051482400013,
+      "audit": "passed",
+      "planner_characters": 20361
+    }
+  ],
+  "valid_rollouts": 200,
+  "invalid_slots": 0,
+  "result_hashes": {
+    "basic/revision_000/trials/seed_910001/result.json": "2a392ebef570f68d8bdfc593304a306601f90fd51dc117984254c6dcd3649fa3",
+    "basic/revision_000/trials/seed_910002/result.json": "25e24c3d2ef3338897934cbcc801407c7e92d89bb7ed01ec9fcc9fc1d7231381",
+    "basic/revision_000/trials/seed_910003/result.json": "20adcdc3f0053a198f9faf321b8d929b2cc6bd474648b4fdf640ad41f4ffc811",
+    "basic/revision_000/trials/seed_910004/result.json": "f1b1b0f6672e28c22ae04ff176329e79066547d10d5c4d0287b5a7c9292e5ad5",
+    "basic/revision_000/trials/seed_910005/result.json": "0547db17d05e8be0073a8362f7d14abe22e7902e5d55e3c47867097886f7e635",
+    "basic/round_001/trials/seed_910001/result.json": "de105f827b96b61e804ff1f2335121d69725cd2e5a56706f34a1d2728b8d2c0d",
+    "basic/round_001/trials/seed_910002/result.json": "6888934226de4031006b2bcebc8b34745d7437205e3702bdc6a859d7387eb6e7",
+    "basic/round_001/trials/seed_910003/result.json": "accd341b506445cf701219083092825d94c57157b50ef70f227aed3c7c65f599",
+    "basic/round_001/trials/seed_910004/result.json": "da903003978efd70415322bad74273f69b3a0937698294a6508acdbf0bb457b5",
+    "basic/round_001/trials/seed_910005/result.json": "2b1d5809e0d86583323b85b1bf6aff91da105efda0afc8f77247d638cd64b283",
+    "basic/round_002/trials/seed_910001/result.json": "3289a604346def05952bf9ad58c4729bf7d10d03da3a3b403a2967642150d162",
+    "basic/round_002/trials/seed_910002/result.json": "4465ec1c3f6f363c6d4f521c968aa6bd4a88e948bd7eb1898e966e5f870fdbf2",
+    "basic/round_002/trials/seed_910003/result.json": "9096ba8d97e579186e525be0656a79ef0192109f01df424239f038fcc4d1e683",
+    "basic/round_002/trials/seed_910004/result.json": "97881d37eac03e97a9993094b1c5f4caaea2bd82e495686c5732942a3352393f",
+    "basic/round_002/trials/seed_910005/result.json": "ce00b672a911538389d51b7ea421ad4e697b2b15ee09927191f371730865ebae",
+    "basic/round_003/trials/seed_910001/result.json": "79ac80160f012a56d9b9ae9a682a3243485fd8158af27d2ad80472d6d538386d",
+    "basic/round_003/trials/seed_910002/result.json": "5486b3c3969791a260875296cc5eb8c53f2fa4f6e393d38dcd78ae4e98412d1e",
+    "basic/round_003/trials/seed_910003/result.json": "7c9d63a10df67cc77ce5614df3a5029952f741c72380e2c8aea56203769b5f1a",
+    "basic/round_003/trials/seed_910004/result.json": "780cc540091b3ee7e0d5f10b09d2ee0a68cc28787fd964149ffc18a018af2151",
+    "basic/round_003/trials/seed_910005/result.json": "d4fdab1565b60f4972a26d6c8fa4fab91efe7a88604c60aa23944cf3ff9f7e14",
+    "symbolic/revision_000/trials/seed_910001/result.json": "3101a0d41956ffa3123acbcc262360c82ef11684be62e26757f3f0249b8917ec",
+    "symbolic/revision_000/trials/seed_910002/result.json": "fc39e31d5782d7ce87118a1f865f3d1c5feba753a6426f0c21fae4a451d802c1",
+    "symbolic/revision_000/trials/seed_910003/result.json": "c6841322a5f3226df5a1078deef273027af0a51899a044e2585932fe278b9475",
+    "symbolic/revision_000/trials/seed_910004/result.json": "9358e902dd33f2d71104eaf4e75d0d236c873fa18f2b9215ba6ac0755b49d488",
+    "symbolic/revision_000/trials/seed_910005/result.json": "9892185ccf9d302bbadb0fb685205069de6b102805b403082c1fa26e3d614977",
+    "symbolic/round_001/trials/seed_910001/result.json": "3e921f5ff54bf4ca12d14e545a8acee7f9b0e37bd84330afa43561ab66d931e5",
+    "symbolic/round_001/trials/seed_910002/result.json": "de177bba7d962d80ddaa8c9ec6e2e4c9a56f4e5640b2abd7cb2df5f4716d2a48",
+    "symbolic/round_001/trials/seed_910003/result.json": "d429229d4b70705866096b7f9c51a09a215b2c932c7910db0b54033117a3b783",
+    "symbolic/round_001/trials/seed_910004/result.json": "1ad125af9c6216d5a99b1543578315f71b47407db8bd5ddf6933ed5bf79c3f66",
+    "symbolic/round_001/trials/seed_910005/result.json": "41d4ab64b6620f9ed8e02e2be2e3fc0b4a4a3b94a3fd871006fd016483201910",
+    "symbolic/round_002/trials/seed_910001/result.json": "03873a0e8223780ec67a586859dd04a811fe04142568b510c85fa9e4be2a4651",
+    "symbolic/round_002/trials/seed_910002/result.json": "46a883fbd41818b387182824ed501551566b8d9a6e895e95f39cea9f9de78676",
+    "symbolic/round_002/trials/seed_910003/result.json": "99c3daa307867d745e58d8ee6e5adda5c9eb06ad6677e4bb696a30185475187c",
+    "symbolic/round_002/trials/seed_910004/result.json": "b925e6282f5e7d105e751b078106b1bae45cf9b10df296a7f1608e7044787ce0",
+    "symbolic/round_002/trials/seed_910005/result.json": "895b5589236e7a08cb4ece3eb3520a7ed269e6e2a3f133a873a235c31aa545f0",
+    "symbolic/round_003/trials/seed_910001/result.json": "51e73fa64dff1424a1759064ca3a6cff84664589aada39710974822a820dc30f",
+    "symbolic/round_003/trials/seed_910002/result.json": "f0a043a56d946b96f0b42f901e1f3612d468ff8a4a85275983ce486d5a7b5482",
+    "symbolic/round_003/trials/seed_910003/result.json": "4364b9c69f61da05d4f47eb09a8b2a101da1f6634015356030f67cdbe3bf5dd1",
+    "symbolic/round_003/trials/seed_910004/result.json": "9a521081751931cc303856e6be079a983eeae6fbc3c5899b7d990bcaee2968c6",
+    "symbolic/round_003/trials/seed_910005/result.json": "6bbc25e73b4df0258f8087bd5fc18001912d78442b4d43b5097dfbd6a265b019",
+    "basic/reserved_revisions/revision_000/heldout/seed_920001/result.json": "a9db75d75f6875362a9fd2c06d742402eea8369749431ea49fd26dc6bd5e4ac8",
+    "basic/reserved_revisions/revision_000/heldout/seed_920002/result.json": "8469763f0c5501ca6cca833fb6e7afdf4ac2878d5f4b5fec49d964d0fc9d55fb",
+    "basic/reserved_revisions/revision_000/heldout/seed_920003/result.json": "bdf1b012726c60544ec20fe74e9e1c92958967f1b53b378014361d4f91346f2e",
+    "basic/reserved_revisions/revision_000/heldout/seed_920004/result.json": "98e6e43c6b1fd2e1b16ca6843ad0917ba8f8d7ffbc37a8c3c3741e7e57535778",
+    "basic/reserved_revisions/revision_000/heldout/seed_920005/result.json": "950cab044130357306c1746e9906445f2f49bf80145fa5b45fc9e78e023e6e6c",
+    "basic/reserved_revisions/revision_000/heldout/seed_920006/result.json": "53d1aad91a3c804b2dbe2db222cef3e1c49d337cf1c790bb8c75c2158c55d8d7",
+    "basic/reserved_revisions/revision_000/heldout/seed_920007/result.json": "2ab489f85d416c6b80afd7a2b2ce0c1ca85f8c6270b407bfed0db98869523ca4",
+    "basic/reserved_revisions/revision_000/heldout/seed_920008/result.json": "ba4987e9659009bd277ae414c9d24f703af47f353e2dc200f56962eafe8ce847",
+    "basic/reserved_revisions/revision_000/heldout/seed_920009/result.json": "a719f5333a974d0ff9bd2fa9930763e13cb3d6beef344d5f83e07479e4e0d738",
+    "basic/reserved_revisions/revision_000/heldout/seed_920010/result.json": "160614974546626fe3e2dceb5c4fac63c98f362f796cf1c7dbed218544915b72",
+    "basic/reserved_revisions/revision_000/heldout/seed_920011/result.json": "e7a3bf3cc66ebc9af05b3017a7426fa9ac5dc0951b0646d7db01d65598b656c8",
+    "basic/reserved_revisions/revision_000/heldout/seed_920012/result.json": "bf20d1bb0d3d69ac56365852b45a2a7626dfd912c169e8c6ed8104b26658df61",
+    "basic/reserved_revisions/revision_000/heldout/seed_920013/result.json": "00d43a1011433b32554a7de1f879d57ff7442656c12246d8ad4c8fcbda3abaae",
+    "basic/reserved_revisions/revision_000/heldout/seed_920014/result.json": "3d794d0844b7ca9896e5598c0c9aa77e75cca0f2dfc51c184551f4fda91a3e62",
+    "basic/reserved_revisions/revision_000/heldout/seed_920015/result.json": "d441bce7a5cdf2bcb7504173a2d71c09adbec7108feef9224f06326e4ea7903c",
+    "basic/reserved_revisions/revision_000/heldout/seed_920016/result.json": "3b377ccb520809c5067e2d5899ecb26f9c7dc51a250acff2b67cf24bce47efce",
+    "basic/reserved_revisions/revision_000/heldout/seed_920017/result.json": "143aa6b75a4e28c6d787828bd02bbb13d2eefbb37a297cfd299a19c68cf1ac58",
+    "basic/reserved_revisions/revision_000/heldout/seed_920018/result.json": "ff21a717ce1c39a0d67425b3920daed97f9a59499f92da83bf139a4a0e2f288a",
+    "basic/reserved_revisions/revision_000/heldout/seed_920019/result.json": "be4d88eacc2475c584266c75ee9e3eb49962bce3d1064b7f57b1e880864831b8",
+    "basic/reserved_revisions/revision_000/heldout/seed_920020/result.json": "6f8243733b2f9f581b2e9cd7961791a5feb1df777e9e2254659e626e4037fcd5",
+    "basic/heldout/seed_920001/result.json": "a9e0a3ffa4d0c0ba2e49521bf644cef471bd746ae9dff59e77b0c8d4175b2a26",
+    "basic/heldout/seed_920002/result.json": "fbb8cce27756df0022fab5e78213853a0a1c96bfd9a7af0575524cb840cfe0ac",
+    "basic/heldout/seed_920003/result.json": "dc62b1deae0bcd3eb9ef27a8930a8eed362317b6d88dfacacf76989a640e68fb",
+    "basic/heldout/seed_920004/result.json": "3284d559cef33436176e62b4dc714a94004415ee4a257c148b0b888040a0d5a6",
+    "basic/heldout/seed_920005/result.json": "e879ba3b1ca851f92f65d74384883d2f561ddcd1a13901cdebe482cf9a80a563",
+    "basic/heldout/seed_920006/result.json": "228feab55fbf90036d8aff398c82c723584f19b2296781357282b0d28531159f",
+    "basic/heldout/seed_920007/result.json": "50367a042536dc53ef303c5f3023c104945cbca4ecbdd45cdefbf95e3214f71a",
+    "basic/heldout/seed_920008/result.json": "c906300506ff8199e9fec144f51f10d7b6acbde1730ef7663d1bcafe11ea3635",
+    "basic/heldout/seed_920009/result.json": "2d4bbaec6c5d8374b1043af1ed18d14eb03ff90408b6d037b918bd601d262db7",
+    "basic/heldout/seed_920010/result.json": "b1ab40ac675a111cf0a8e46c922ef31bc66bce1aa971689fbadae4be82e6181e",
+    "basic/heldout/seed_920011/result.json": "fa43dcd9624e5508c257122730beb48bb7b6e8c7cfd0302cdfbf75200fe52e0c",
+    "basic/heldout/seed_920012/result.json": "6990def0baaa1ce71205186dd10558ddc126ad08d5a7b44347423f176fcdae84",
+    "basic/heldout/seed_920013/result.json": "458fa752b54a83349fd727ce0a9732dac4b631dd3a0d565dccb66495d771dff1",
+    "basic/heldout/seed_920014/result.json": "86f138b571d0a1ed33cb65adf72acf499eeb9c6cbc27facc5a359e1271841d4c",
+    "basic/heldout/seed_920015/result.json": "c71a93b7850385dd84934dfc5070ec4d2ca528c6e2fd9546f97882b113cbe1cd",
+    "basic/heldout/seed_920016/result.json": "6c77ae5222f4716049f8d4e67a6552d480709aaf7c63065c66ea1d9849ba9b6d",
+    "basic/heldout/seed_920017/result.json": "0048e01fefe7f01349a3a1d0f30cbf4a695670b35bad4685ee0cdd1f3325631b",
+    "basic/heldout/seed_920018/result.json": "131b65c9cd5a1685f7c5fb3e045be124b6981080d5ff51c93601fbd3e1486f38",
+    "basic/heldout/seed_920019/result.json": "ebbb820f15351a167df14a4d339b34ad7b0625a41b17798632990372611c8e6d",
+    "basic/heldout/seed_920020/result.json": "ae26f856c2404af433d84a866d76693d74d63f4964bdfef6103d89ed2a174274",
+    "basic/reserved_revisions/revision_002/heldout/seed_920001/result.json": "c27dcc744203879a63002471937d3ace34c0c969f292b227b1f5f5e3abcc172b",
+    "basic/reserved_revisions/revision_002/heldout/seed_920002/result.json": "ffce0574c44f80517adc7f6641b4963258381a92d5cc1d4fc3314710daeef06b",
+    "basic/reserved_revisions/revision_002/heldout/seed_920003/result.json": "ef895344701c5df6480c05fb0c06c395f26e604ff03fbeb9992b5e9994c14ae9",
+    "basic/reserved_revisions/revision_002/heldout/seed_920004/result.json": "417c8a5f51b5582b950bc4ab9513eab07fd8ce6f5bac74b04aa3ca409735fd6c",
+    "basic/reserved_revisions/revision_002/heldout/seed_920005/result.json": "d6836f26f3cfa90f2ac5ae5213fe6aee650896ca926607db9b0c207293894f76",
+    "basic/reserved_revisions/revision_002/heldout/seed_920006/result.json": "3dbf9b7a4fa92a198eed525e830306c3d939f17a4e1ce46e07684f10fc4c4fc8",
+    "basic/reserved_revisions/revision_002/heldout/seed_920007/result.json": "9961b4ab15bbe164c6dfed13ff6f2acf9d44b6e292e8d974823760e536c11565",
+    "basic/reserved_revisions/revision_002/heldout/seed_920008/result.json": "c241034f12bdda2761208c5550434bb4a789b477c678903ea12e16007355edac",
+    "basic/reserved_revisions/revision_002/heldout/seed_920009/result.json": "75aa1225e415ab810ee33f29dc225c61fce45bdf281f73efa58d6ae5614cda39",
+    "basic/reserved_revisions/revision_002/heldout/seed_920010/result.json": "dbb99bd349c840054611334650e49a9dbb06106adfba79e6a821774b3b39617d",
+    "basic/reserved_revisions/revision_002/heldout/seed_920011/result.json": "d7f87da52bd304ef97345ebfd1dd24791210b4ce6d43ac911e37da45e44a59fb",
+    "basic/reserved_revisions/revision_002/heldout/seed_920012/result.json": "a036daa1326352cf93cdd38e553d72b4e7ccba64f69da01562c1c44320c3d13f",
+    "basic/reserved_revisions/revision_002/heldout/seed_920013/result.json": "8d5244adb784de81b39a1a2015c3ff99e24fa15dd99f745916dce9abe35e88ca",
+    "basic/reserved_revisions/revision_002/heldout/seed_920014/result.json": "50f2988312091cbba042ec3506856622824366baee71610cde4fbb4918316b24",
+    "basic/reserved_revisions/revision_002/heldout/seed_920015/result.json": "08e80ae778e072f4c0c0ee172aaac1537c5cfeadb0ab3ce4732f31eb2c34c894",
+    "basic/reserved_revisions/revision_002/heldout/seed_920016/result.json": "1781a7bc68fd5eb9b81f798bc242ad48ad99f30602474499c08a0499aaf64cbb",
+    "basic/reserved_revisions/revision_002/heldout/seed_920017/result.json": "3ac15ddb69450dba89bcc3995f8546ea5c52e603d9c2cb9597603d1aa9baa9df",
+    "basic/reserved_revisions/revision_002/heldout/seed_920018/result.json": "957288eb1d0f632e215a4bf29acdee9345b3c0a82af636bff7f5f89ad2412a5f",
+    "basic/reserved_revisions/revision_002/heldout/seed_920019/result.json": "5caee838a9330d62eac64785668430b35b61abeb7a984f45bb1cdc014a30b78c",
+    "basic/reserved_revisions/revision_002/heldout/seed_920020/result.json": "c2e078e8ab3f7d13bb7f8b55bf03b3ecd1b383954b02ccc660c136aeb156d642",
+    "basic/reserved_revisions/revision_003/heldout/seed_920001/result.json": "833dd9a4c007e86d73f11ef4a18a2180a8a8d1ea7d5e8e5b62e345122e6e2818",
+    "basic/reserved_revisions/revision_003/heldout/seed_920002/result.json": "9e245872d1a4cd7871ba3cc559f2fd7335276d1dd6d157e4389f00a86d524d55",
+    "basic/reserved_revisions/revision_003/heldout/seed_920003/result.json": "ceb9d66260ce2dddf3aeef75865ffe27defdd08b1d4bbf054cf3b8d7d7c5fd69",
+    "basic/reserved_revisions/revision_003/heldout/seed_920004/result.json": "3a3f892f053f08f5505c6bf8ca696658c975f87c49547b7dbb67bf60fec00584",
+    "basic/reserved_revisions/revision_003/heldout/seed_920005/result.json": "564ee51f925e60c0e9d86c6c3366070876fe7e53aa1bdca908ad64d511977d18",
+    "basic/reserved_revisions/revision_003/heldout/seed_920006/result.json": "e1d4748756424f286296f8e8052daf7b7e3083a62ea9da3edc4f005d32971448",
+    "basic/reserved_revisions/revision_003/heldout/seed_920007/result.json": "0518870302bc88d6fe8e9063fe279463abe43b20ed8468f1d40249139f7d4ef4",
+    "basic/reserved_revisions/revision_003/heldout/seed_920008/result.json": "4550b28a3f3d2e04fe577038b81bc404baf2336d158b5ed0ac1cfee0cfc71e4a",
+    "basic/reserved_revisions/revision_003/heldout/seed_920009/result.json": "5c3c0302caf5b5e5151415b49a887b3c979f123fc7f72b485cb2d32055894cfb",
+    "basic/reserved_revisions/revision_003/heldout/seed_920010/result.json": "d1d76949565c82dfb9b12a9f54c58c1f657d7dda161c13fbdbcc0fc42789b094",
+    "basic/reserved_revisions/revision_003/heldout/seed_920011/result.json": "d0b4cc463b62d39d1799406c3fd7273f3059a5a8a92c15aa5485245c4abb8764",
+    "basic/reserved_revisions/revision_003/heldout/seed_920012/result.json": "06cb4477c37cb976f58e488a2de830fdc44fd97765737065208819f86be382c3",
+    "basic/reserved_revisions/revision_003/heldout/seed_920013/result.json": "c05d7456a8f32215dcbcd33563cba8e3950a08333372efc79acc1af3699d1766",
+    "basic/reserved_revisions/revision_003/heldout/seed_920014/result.json": "45bf5426873f3439497f433b48ffa3258aef2838763dd1cfb372c85c47dd3647",
+    "basic/reserved_revisions/revision_003/heldout/seed_920015/result.json": "eb2462bf03d0b0693e7395826de4d25850d8bd4d15fef63ee6ac3934c64c402f",
+    "basic/reserved_revisions/revision_003/heldout/seed_920016/result.json": "c24b7fdb32a18a8f7dc9b3bae79dcbe68adc6c0d7c737384c4f848036be98784",
+    "basic/reserved_revisions/revision_003/heldout/seed_920017/result.json": "4f47070450f634fccc5d3eacf276b6ef9e93955751011fc6b07627e74904b1b4",
+    "basic/reserved_revisions/revision_003/heldout/seed_920018/result.json": "1d9c636a9a7046482de2bb1301e5c65b311318f06dad9b17562a4b8a6488b8a6",
+    "basic/reserved_revisions/revision_003/heldout/seed_920019/result.json": "2a2dfe4493c425b7d2a2f0c2b738c4ab91d128d761de8edc5617d9e4f3db1832",
+    "basic/reserved_revisions/revision_003/heldout/seed_920020/result.json": "9d7ef1a620495514b280ede2053e4cac004e20e33dca5673935238f0b59617be",
+    "symbolic/reserved_revisions/revision_000/heldout/seed_920001/result.json": "ba2554ed17ffde1844f2597a3c8955fffd0adc586e25a380a2330227c14537df",
+    "symbolic/reserved_revisions/revision_000/heldout/seed_920002/result.json": "507d6b4bea96067f9a88d540d837cd7c9122c7399ec02d8b598178bd169bd998",
+    "symbolic/reserved_revisions/revision_000/heldout/seed_920003/result.json": "6bc10cac704ee1416607c3610778ddd16c314a57302959a30d5ef75163b30f20",
+    "symbolic/reserved_revisions/revision_000/heldout/seed_920004/result.json": "21757139a8163d01b17dc3a6676466bac9aaa7ade5f70d383926f479cd29bc9b",
+    "symbolic/reserved_revisions/revision_000/heldout/seed_920005/result.json": "bf5906fca70c486e4d15ac1dd01ddbf6144949d9a22218fc9efc04b7610f3a99",
+    "symbolic/reserved_revisions/revision_000/heldout/seed_920006/result.json": "2751fb8b20bc260bf36a02a511711a750a16eed8ccfba42bfadf5614c948ea54",
+    "symbolic/reserved_revisions/revision_000/heldout/seed_920007/result.json": "f374392f6e28ec5b87eb20dbd9f6d08ed55a53d0f7319eb27c0b68462ffbd543",
+    "symbolic/reserved_revisions/revision_000/heldout/seed_920008/result.json": "1790d641f935c8c2d31bc8936160a3b56db8d500acf158ec13d6cb614111e599",
+    "symbolic/reserved_revisions/revision_000/heldout/seed_920009/result.json": "9ca6e96a658c79699a0ee89ffd505a24d293eb140acf578456464e1858b26134",
+    "symbolic/reserved_revisions/revision_000/heldout/seed_920010/result.json": "adaf207add6b9af747d38c4b4ae7da2e54e533df0e24587862ead8547e78dbfc",
+    "symbolic/reserved_revisions/revision_000/heldout/seed_920011/result.json": "3670f1d0d2668326d6c60e3184f4c8bbf509c39f2dc73a34da5910a45b0ea2c2",
+    "symbolic/reserved_revisions/revision_000/heldout/seed_920012/result.json": "c6226f26f884a0a8d9d6a4c32ea42c904a8fc115d02ce1d7ed1cefa251aa8a96",
+    "symbolic/reserved_revisions/revision_000/heldout/seed_920013/result.json": "27e0c0b97c071b74c4fa3f1350cc120871faee6245dd0ecf7bd5aa7c43d7535d",
+    "symbolic/reserved_revisions/revision_000/heldout/seed_920014/result.json": "9c52e22c7bf85ae5ae5382368a66d3e78112f704a1092a4030eefd156d95c823",
+    "symbolic/reserved_revisions/revision_000/heldout/seed_920015/result.json": "7d444bdcd7b20e0379c3038d8ec182eb282abe77c36ab8894924df13cd2ae830",
+    "symbolic/reserved_revisions/revision_000/heldout/seed_920016/result.json": "b69d6e292df3f33d01cce6bf341e8eb3bc94eb2fc327d383974de4eb84f41aa8",
+    "symbolic/reserved_revisions/revision_000/heldout/seed_920017/result.json": "11f2f215ad4362fbee1ff45324da522735f7b87bc743763c33b178236340ea1b",
+    "symbolic/reserved_revisions/revision_000/heldout/seed_920018/result.json": "1b68d2c4d78a5944f66277ff66d45877e1f79e27bad9dc5ca9648fa3caa0a552",
+    "symbolic/reserved_revisions/revision_000/heldout/seed_920019/result.json": "7e61f4bd957c80b455e871532bae7c840dea83915a43d583425fe3e90c47804b",
+    "symbolic/reserved_revisions/revision_000/heldout/seed_920020/result.json": "ad9de2e88b789fc74acaff1f18f36c1401b3bbb40e2d502cf4b49d8bc67e1c2e",
+    "symbolic/heldout/seed_920001/result.json": "e632585ff4b8c291be11fbcf25dd00060c9777c964de2675dcb67061390cdda5",
+    "symbolic/heldout/seed_920002/result.json": "afc2531f6fbd3253288f778446a0c039dc59740d94b797304ef248bdfae6f582",
+    "symbolic/heldout/seed_920003/result.json": "6cd1d380ffe9c9524e81d97eccf1c8e1a3e0b8c20b01ed0092b02dea3a098ffc",
+    "symbolic/heldout/seed_920004/result.json": "28768f6da2286fe8f85cb99f2aeda2768d4260b4648f49ff4a6af9c09c4bf017",
+    "symbolic/heldout/seed_920005/result.json": "782a68a1cf8949c84a954d4fe2147cd0be1e34fe4e08863dcb3aaf2be7b7896b",
+    "symbolic/heldout/seed_920006/result.json": "1bf2a0aa0a7373a6815f0e6c1bb65eba8c4cf8005d5204e8cf414b973efba443",
+    "symbolic/heldout/seed_920007/result.json": "740ebe13e398c877a3db56a2777cad146a1ac4b47283f80b5a820052f3bbd04a",
+    "symbolic/heldout/seed_920008/result.json": "efb46b69f98649123ab09f5f2b4aba5287deb43f12f1d4ee32cd103ff13c09e0",
+    "symbolic/heldout/seed_920009/result.json": "7e89fda6caefbb3d09f9c03c057b33bd0accbf1ddece783ed5b1ea33d3f6ef2c",
+    "symbolic/heldout/seed_920010/result.json": "4511474343a09dbdae72cd445d7317cb80777a3fa7ca3fe258b4d10050772823",
+    "symbolic/heldout/seed_920011/result.json": "948e99621abbe2db95845ea203268e911fcfe191d5ab30a0909cf527281e857f",
+    "symbolic/heldout/seed_920012/result.json": "d0f6d6ef376244b4546f0ada04a213af39d56d2d3972fe45ced6678b54b90db8",
+    "symbolic/heldout/seed_920013/result.json": "9218a24679e781e5b9cebd2601f636d47ebcd5d5ba8335ac87d53023f9e06730",
+    "symbolic/heldout/seed_920014/result.json": "eeb357c40b750866d8c6e9be75a6561fd7a84bda4d25a6ff77fdd5a7c6926354",
+    "symbolic/heldout/seed_920015/result.json": "3245d80d23a265ff593162fdcc0305dc68f0f44099a932db4d3b4dac2046c52b",
+    "symbolic/heldout/seed_920016/result.json": "7adbe68c51ce2d1e52be320278cc7be5c2620ac0bff2c7d63d6823d94205a984",
+    "symbolic/heldout/seed_920017/result.json": "da18b5aa5f4fba806eb860968725c00a59cf102880ee4280d6ead2f24838bc68",
+    "symbolic/heldout/seed_920018/result.json": "b3f64b1b14a6c417d32d906cd6cb828bc88a14d0612295ed0ae8f7a082f0564c",
+    "symbolic/heldout/seed_920019/result.json": "8936206597c1f79e015ab2fc37d2b5e5943dfd713d8cc210fe7f95dc770cb3aa",
+    "symbolic/heldout/seed_920020/result.json": "f5c70d05680ccf63bc63349ab4fccd67a26914ac3811f8ab446e223cdebedb26",
+    "symbolic/reserved_revisions/revision_002/heldout/seed_920001/result.json": "53959d272f06b0147657df505ee567d1ae32521c093c04416384f66cd9b71a3d",
+    "symbolic/reserved_revisions/revision_002/heldout/seed_920002/result.json": "8ee156ec7709f2161eefa006e56c5afcdd8591065ae7674dbcb5ebd7018815d3",
+    "symbolic/reserved_revisions/revision_002/heldout/seed_920003/result.json": "e497875fc07a914f20b5bb589e47268a1c1efe03371926f41de858895d021847",
+    "symbolic/reserved_revisions/revision_002/heldout/seed_920004/result.json": "3e5d1d7804764e0801eec8868be2dd2451ea44cc587a469ccb2d686788cce051",
+    "symbolic/reserved_revisions/revision_002/heldout/seed_920005/result.json": "2297dbb1d968e430ec4e29ec318d9b43eab012522f027f42c70bcbff72c8428e",
+    "symbolic/reserved_revisions/revision_002/heldout/seed_920006/result.json": "f136ebc8daadd4eda888b39075de9b74d8b6ebd53d6a43cf34f85d263e75531d",
+    "symbolic/reserved_revisions/revision_002/heldout/seed_920007/result.json": "1d8ab1097a80d668abbe0ef6e2123d3118e46ef91e638130d8a970a255953597",
+    "symbolic/reserved_revisions/revision_002/heldout/seed_920008/result.json": "c97e4318ca25303a11ef52c82dc849067acbeac7cbb938963df6b0e54b34b162",
+    "symbolic/reserved_revisions/revision_002/heldout/seed_920009/result.json": "66563f247b53d6b490f5e274db844c9cee23c87361e866791c11061f06c9ad26",
+    "symbolic/reserved_revisions/revision_002/heldout/seed_920010/result.json": "af77a579fffef0213cec83589c42f66c2c431dc642201ca0705e1a37e9273bf1",
+    "symbolic/reserved_revisions/revision_002/heldout/seed_920011/result.json": "4eca0ac648d00c99065d1ad40822df84aaa06ccb13784de83878206b3b5f2fab",
+    "symbolic/reserved_revisions/revision_002/heldout/seed_920012/result.json": "26b2bbde65960bd8fb8468bb703f639355c0beb1f9615ab36b1bd7e702330625",
+    "symbolic/reserved_revisions/revision_002/heldout/seed_920013/result.json": "d0bc9f91007817317ac3d3070426041c93de7197cf8a4e40117dc40faa8cd68e",
+    "symbolic/reserved_revisions/revision_002/heldout/seed_920014/result.json": "82548d79e52f8e891a4dab473549851d3e961e80788289e4362fab014beb0c1e",
+    "symbolic/reserved_revisions/revision_002/heldout/seed_920015/result.json": "4a3272686e5369fd55654917d4e1b1cb7a0328924004b0b7ff1662a2e730a1cf",
+    "symbolic/reserved_revisions/revision_002/heldout/seed_920016/result.json": "a69df350cd2dcbc19b2befc5eee9c86c7084b433421ea7ec1f5a798e4f991580",
+    "symbolic/reserved_revisions/revision_002/heldout/seed_920017/result.json": "2b44034925a09ee38454e20fab6021ceeafb583867e756e558a01aba08372768",
+    "symbolic/reserved_revisions/revision_002/heldout/seed_920018/result.json": "34588207bf810493780658ce4db9df09ea1a47eb945f1b8a9af59aff65d3fa0d",
+    "symbolic/reserved_revisions/revision_002/heldout/seed_920019/result.json": "440558730a106a8524a5149453002eb52e120a7347c79dfe4110366dfd2d8b8e",
+    "symbolic/reserved_revisions/revision_002/heldout/seed_920020/result.json": "61e7eed2824788beb0463c4eb96dcd14d7c8c3a000f27f879c58218fe09694bb",
+    "symbolic/reserved_revisions/revision_003/heldout/seed_920001/result.json": "174e2e07de163902ccca5e1e4be221ac248da0ee018fbeb111ed5d18ac4cbcc0",
+    "symbolic/reserved_revisions/revision_003/heldout/seed_920002/result.json": "0c8bb0875afd1008b6eb01e54cd7c5afd1c828127308c3dfa8c3a0512cf5dc3f",
+    "symbolic/reserved_revisions/revision_003/heldout/seed_920003/result.json": "b6664fe4ce0ca0cd1854035360261c0a0c591610c312a91c4fe1dab7ad46f0d9",
+    "symbolic/reserved_revisions/revision_003/heldout/seed_920004/result.json": "619f00c0ae495963c6ba1419e66ee65e511e485ed2a967c635891077a6ef3394",
+    "symbolic/reserved_revisions/revision_003/heldout/seed_920005/result.json": "aaa33bf9883ed3eec62e831051fb4a13c412a8e67e8ae4e249efa68a8c8f16af",
+    "symbolic/reserved_revisions/revision_003/heldout/seed_920006/result.json": "78c20105f82ceb9f678a698ef25b1a23707f141d0dfe26535ef68480646698cd",
+    "symbolic/reserved_revisions/revision_003/heldout/seed_920007/result.json": "da299d55e6114cfc03a9baee286b6a6ca9c8d7d5c9cebf4c49afaf0fb9ef0701",
+    "symbolic/reserved_revisions/revision_003/heldout/seed_920008/result.json": "c397b841e649537c9ca3ac62ab54cd25a57e76d4391ce442140ead8b3cafb7e2",
+    "symbolic/reserved_revisions/revision_003/heldout/seed_920009/result.json": "95e20e619cfc02de5edb6ce8fde910a87d19ab75efb13ce92b78a9de00ba226a",
+    "symbolic/reserved_revisions/revision_003/heldout/seed_920010/result.json": "8f21951a7487b2973bd49688710c643d6a2643595b7dfd25f98f52316acfc3e4",
+    "symbolic/reserved_revisions/revision_003/heldout/seed_920011/result.json": "fb9f192e6f3e794a881a43ad5c70e8b9f8bee347ce2647b2d8b109e2ad8f7545",
+    "symbolic/reserved_revisions/revision_003/heldout/seed_920012/result.json": "a01160f52fd959a1df1f86d1711f160c3650795850977def123589fd9e47ff72",
+    "symbolic/reserved_revisions/revision_003/heldout/seed_920013/result.json": "f481ce303f9795c854af08c79a1a81fc1845a86797e83499ecadb8da3cebc97d",
+    "symbolic/reserved_revisions/revision_003/heldout/seed_920014/result.json": "f6eb33690474463162d34355ac0ce97d2c2a20486113b2c9ec96c7f8a931a945",
+    "symbolic/reserved_revisions/revision_003/heldout/seed_920015/result.json": "b17ec6310eb06e65ac0997c6f450fd2c5c5f68c57c50eb9c2892c9eeb00f9413",
+    "symbolic/reserved_revisions/revision_003/heldout/seed_920016/result.json": "cb5039d4d76b600146ca1e522994c0560f06d1ee4a05113b6312eeb06261b7e6",
+    "symbolic/reserved_revisions/revision_003/heldout/seed_920017/result.json": "fd4abe9258e8315073a288af14d53e1960bb6a50bd37f5d4ad59b92f45eb04dd",
+    "symbolic/reserved_revisions/revision_003/heldout/seed_920018/result.json": "05a3d733c66be8d58682c0f06fa8649cb92e2d2736cdb3c960c4db4b946046cc",
+    "symbolic/reserved_revisions/revision_003/heldout/seed_920019/result.json": "1abe32113f19fcd3860dcaf4097e876df8e69c2fb3c98a1e44e8f6d64a246758",
+    "symbolic/reserved_revisions/revision_003/heldout/seed_920020/result.json": "66ee4d082ad9e110999ca68528d0825efdfc407e53fdf22ae488411a77ebf06d"
+  },
+  "limitations": [
+    "One independent actor chain per arm; replication required.",
+    "The baseline has basic geometry; this is richer state versus surface information, not geometry versus none.",
+    "The treatment is a package of rigid fields, history, goals and symbolic operators; no single-component attribution.",
+    "Equal revision/rollout budgets; token counts recorded, not equalized.",
+    "No earlier candidate, development solution, failure audit or reserved outcome enters actor context."
+  ],
+  "comparisons": {},
+  "global_freeze_audit": "passed",
+  "model_generation_accounting": {
+    "retained_completed": 6,
+    "discarded_due_to_schema_defect": 0,
+    "actual_completed": 6
+  },
+  "initial_sensor_pairing": {
+    "status": "passed",
+    "unique_seeds_checked": 25,
+    "checked": "host pre-policy RGB render plus seed, color map and scene settings"
+  },
+  "arm_labels": {
+    "basic": "shared surface",
+    "symbolic": "rigid metric and symbolic state"
+  },
+  "contrasts": [
+    "Identical mixed observer and execution; projected surface state versus supplied rigid metric/symbolic state package."
+  ],
+  "identical_library_except_projection": true,
+  "starter_parity_audit": "passed",
+  "exact_actor_contexts_verified": 6,
+  "auditor_sha256": "93314ab0817b1be2c175a3b51384c46f660a7be4bc8d7a38c98f9519794a1538",
+  "selected_surface_vs_rigid_symbolic": {
+    "both_success": 13,
+    "first_only": 1,
+    "second_only": 2,
+    "neither": 4,
+    "second_minus_first_sr": 0.05,
+    "exact_mcnemar_p_unadjusted": 1.0,
+    "scope": "Conditional on these policies, exploratory seed-level comparison; not independent actor replication."
+  },
+  "retained_budget_secondary": {
+    "basic": [
+      {
+        "budget": 0,
+        "selected_revision": 0,
+        "reserved_successes": 9,
+        "reserved_trials": 20,
+        "reserved_sr": 0.45
+      },
+      {
+        "budget": 1,
+        "selected_revision": 1,
+        "reserved_successes": 14,
+        "reserved_trials": 20,
+        "reserved_sr": 0.7
+      },
+      {
+        "budget": 2,
+        "selected_revision": 1,
+        "reserved_successes": 14,
+        "reserved_trials": 20,
+        "reserved_sr": 0.7
+      },
+      {
+        "budget": 3,
+        "selected_revision": 1,
+        "reserved_successes": 14,
+        "reserved_trials": 20,
+        "reserved_sr": 0.7
+      }
+    ],
+    "symbolic": [
+      {
+        "budget": 0,
+        "selected_revision": 0,
+        "reserved_successes": 9,
+        "reserved_trials": 20,
+        "reserved_sr": 0.45
+      },
+      {
+        "budget": 1,
+        "selected_revision": 1,
+        "reserved_successes": 15,
+        "reserved_trials": 20,
+        "reserved_sr": 0.75
+      },
+      {
+        "budget": 2,
+        "selected_revision": 1,
+        "reserved_successes": 15,
+        "reserved_trials": 20,
+        "reserved_sr": 0.75
+      },
+      {
+        "budget": 3,
+        "selected_revision": 1,
+        "reserved_successes": 15,
+        "reserved_trials": 20,
+        "reserved_sr": 0.75
+      }
+    ]
+  }
+}

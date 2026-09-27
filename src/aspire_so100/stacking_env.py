@@ -111,11 +111,11 @@ class StackingEnv:
             self._overhead_rgbd = OverheadRGBD(self.model, pixel_aligned=getattr(self, 'pixel_aligned_rgbd', False))
         return self._overhead_rgbd.capture(self.data)
 
-    def get_wrist_rgb(self):
+    def get_wrist_rgb(self, *, depth=False):
         if self._overhead_rgbd is None:
             from aspire_so100.rgbd import OverheadRGBD
             self._overhead_rgbd = OverheadRGBD(self.model, pixel_aligned=getattr(self, 'pixel_aligned_rgbd', False))
-        return self._overhead_rgbd.capture_wrist(self.data)
+        return self._overhead_rgbd.capture_wrist(self.data, depth=depth)
 
     def _set_freejoint_pose(
         self, object_name: str, position: tuple[float, float, float], yaw: float

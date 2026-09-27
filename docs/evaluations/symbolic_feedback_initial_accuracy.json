@@ -1,0 +1,540 @@
+{
+  "scope": "PRIVATE OFFLINE diagnostic; never policy input",
+  "groups": {
+    "all": {
+      "count": 30,
+      "median_center_error_mm": 0.09791486303440958,
+      "p95_center_error_mm": 2.530853444933228,
+      "max_center_error_mm": 2.762481672087436
+    },
+    "fully_observed": {
+      "count": 20,
+      "median_center_error_mm": 0.09583277245763376,
+      "p95_center_error_mm": 0.10344890217551748,
+      "max_center_error_mm": 0.15092475517800902
+    },
+    "partial": {
+      "count": 10,
+      "median_center_error_mm": 1.7163001942318505,
+      "p95_center_error_mm": 2.7365889681957443,
+      "max_center_error_mm": 2.762481672087436
+    }
+  },
+  "rows": [
+    {
+      "seed": 52001,
+      "time": 0.6500000000000005,
+      "color": "blue",
+      "camera_index": 0,
+      "sensor_sha256": "c44ab49ab858ab85f1f9630ba038b9f623ed936270363087a5bf10aa8b7d854d",
+      "observed_translation_rank": 3,
+      "center_error_mm": 0.09758300765667118,
+      "xy_error_mm": 0.07865592675473246,
+      "z_error_mm": 0.05775542026231051,
+      "residual_xyz_mm": [
+        0.055158350700778236,
+        -0.0560741576986743,
+        0.05775542026231051
+      ],
+      "state_time_mismatch_s": 0.0
+    },
+    {
+      "seed": 52001,
+      "time": 0.6500000000000005,
+      "color": "green",
+      "camera_index": 0,
+      "sensor_sha256": "c44ab49ab858ab85f1f9630ba038b9f623ed936270363087a5bf10aa8b7d854d",
+      "observed_translation_rank": 3,
+      "center_error_mm": 0.09644805439804334,
+      "xy_error_mm": 0.07724337270919636,
+      "z_error_mm": 0.05775542026231051,
+      "residual_xyz_mm": [
+        0.05268822937350581,
+        -0.056484414779447434,
+        0.05775542026231051
+      ],
+      "state_time_mismatch_s": 0.0
+    },
+    {
+      "seed": 52001,
+      "time": 0.6500000000000005,
+      "color": "red",
+      "camera_index": 0,
+      "sensor_sha256": "c44ab49ab858ab85f1f9630ba038b9f623ed936270363087a5bf10aa8b7d854d",
+      "observed_translation_rank": 3,
+      "center_error_mm": 0.09753590666295608,
+      "xy_error_mm": 0.07859748417658656,
+      "z_error_mm": 0.05775542026231051,
+      "residual_xyz_mm": [
+        0.055979550354013696,
+        -0.05517113793507633,
+        0.05775542026231051
+      ],
+      "state_time_mismatch_s": 0.0
+    },
+    {
+      "seed": 52001,
+      "time": 60.550000000028035,
+      "color": "blue",
+      "camera_index": 27,
+      "sensor_sha256": "a2c4288d93646abc2705206af6df3d0269bac3859ed00fa7a49d240d2a99b6d4",
+      "observed_translation_rank": 2,
+      "center_error_mm": 2.2948527157910585,
+      "xy_error_mm": 0.07555789873760864,
+      "z_error_mm": 2.2936085086849403,
+      "residual_xyz_mm": [
+        0.046824774512036704,
+        -0.0592995493535966,
+        2.2936085086849403
+      ],
+      "state_time_mismatch_s": 0.0
+    },
+    {
+      "seed": 52001,
+      "time": 60.550000000028035,
+      "color": "green",
+      "camera_index": 27,
+      "sensor_sha256": "a2c4288d93646abc2705206af6df3d0269bac3859ed00fa7a49d240d2a99b6d4",
+      "observed_translation_rank": 3,
+      "center_error_mm": 0.08638429922862573,
+      "xy_error_mm": 0.06914340292625637,
+      "z_error_mm": 0.051782593455698134,
+      "residual_xyz_mm": [
+        0.04838304288969342,
+        -0.049395256138183186,
+        0.051782593455698134
+      ],
+      "state_time_mismatch_s": 0.0
+    },
+    {
+      "seed": 52001,
+      "time": 60.550000000028035,
+      "color": "red",
+      "camera_index": 27,
+      "sensor_sha256": "a2c4288d93646abc2705206af6df3d0269bac3859ed00fa7a49d240d2a99b6d4",
+      "observed_translation_rank": 2,
+      "center_error_mm": 0.2895927183688375,
+      "xy_error_mm": 0.0823320214349253,
+      "z_error_mm": 0.2776425413705397,
+      "residual_xyz_mm": [
+        0.05812851672158015,
+        -0.05830640871559467,
+        -0.2776425413705397
+      ],
+      "state_time_mismatch_s": 0.0
+    },
+    {
+      "seed": 52002,
+      "time": 0.6500000000000005,
+      "color": "blue",
+      "camera_index": 0,
+      "sensor_sha256": "5020ea295ba12250502487443760e7a1ed7efdc878d08a1b9cf91bbb0da0b1da",
+      "observed_translation_rank": 3,
+      "center_error_mm": 0.09984208932555558,
+      "xy_error_mm": 0.0814417229140943,
+      "z_error_mm": 0.05775542026231051,
+      "residual_xyz_mm": [
+        0.05205058897340109,
+        -0.06263777150201122,
+        0.05775542026231051
+      ],
+      "state_time_mismatch_s": 0.0
+    },
+    {
+      "seed": 52002,
+      "time": 0.6500000000000005,
+      "color": "green",
+      "camera_index": 0,
+      "sensor_sha256": "5020ea295ba12250502487443760e7a1ed7efdc878d08a1b9cf91bbb0da0b1da",
+      "observed_translation_rank": 3,
+      "center_error_mm": 0.09409863108294375,
+      "xy_error_mm": 0.07428905573506668,
+      "z_error_mm": 0.05775542026231051,
+      "residual_xyz_mm": [
+        0.04830682908796802,
+        -0.05643858667147583,
+        0.05775542026231051
+      ],
+      "state_time_mismatch_s": 0.0
+    },
+    {
+      "seed": 52002,
+      "time": 0.6500000000000005,
+      "color": "red",
+      "camera_index": 0,
+      "sensor_sha256": "5020ea295ba12250502487443760e7a1ed7efdc878d08a1b9cf91bbb0da0b1da",
+      "observed_translation_rank": 2,
+      "center_error_mm": 0.34593052064279,
+      "xy_error_mm": 0.3410751186212733,
+      "z_error_mm": 0.05775542026231051,
+      "residual_xyz_mm": [
+        0.05441846417140539,
+        -0.3367059062442195,
+        0.05775542026231051
+      ],
+      "state_time_mismatch_s": 0.0
+    },
+    {
+      "seed": 52002,
+      "time": 61.850000000029624,
+      "color": "blue",
+      "camera_index": 27,
+      "sensor_sha256": "e38339b2485e2e1e85fdb87e47c3fa10fb6c89cee0fc7e186b1181df1f8e3a87",
+      "observed_translation_rank": 2,
+      "center_error_mm": 2.034551028282087,
+      "xy_error_mm": 0.08251421541679264,
+      "z_error_mm": 2.032877096859977,
+      "residual_xyz_mm": [
+        0.06055957123095368,
+        -0.056045821237376,
+        2.032877096859977
+      ],
+      "state_time_mismatch_s": 0.0
+    },
+    {
+      "seed": 52002,
+      "time": 61.850000000029624,
+      "color": "green",
+      "camera_index": 27,
+      "sensor_sha256": "e38339b2485e2e1e85fdb87e47c3fa10fb6c89cee0fc7e186b1181df1f8e3a87",
+      "observed_translation_rank": 3,
+      "center_error_mm": 0.09530927541957687,
+      "xy_error_mm": 0.07623624243470793,
+      "z_error_mm": 0.05720046608587381,
+      "residual_xyz_mm": [
+        0.050381199823192446,
+        -0.057216250881538144,
+        0.05720046608587381
+      ],
+      "state_time_mismatch_s": 0.0
+    },
+    {
+      "seed": 52002,
+      "time": 61.850000000029624,
+      "color": "red",
+      "camera_index": 27,
+      "sensor_sha256": "e38339b2485e2e1e85fdb87e47c3fa10fb6c89cee0fc7e186b1181df1f8e3a87",
+      "observed_translation_rank": 2,
+      "center_error_mm": 0.4695900679800951,
+      "xy_error_mm": 0.07804488297521271,
+      "z_error_mm": 0.4630592059196488,
+      "residual_xyz_mm": [
+        0.05043108471117819,
+        -0.05956265149796991,
+        -0.4630592059196488
+      ],
+      "state_time_mismatch_s": 0.0
+    },
+    {
+      "seed": 52003,
+      "time": 0.6500000000000005,
+      "color": "blue",
+      "camera_index": 0,
+      "sensor_sha256": "97f45b699cfb5c7ac7fb0c2fb3471b86be8102f3cafa1d974f7841302702ec08",
+      "observed_translation_rank": 3,
+      "center_error_mm": 0.09323565529351557,
+      "xy_error_mm": 0.07319288796280107,
+      "z_error_mm": 0.05775542026231051,
+      "residual_xyz_mm": [
+        0.05315075885997089,
+        -0.050320926868892,
+        0.05775542026231051
+      ],
+      "state_time_mismatch_s": 0.0
+    },
+    {
+      "seed": 52003,
+      "time": 0.6500000000000005,
+      "color": "green",
+      "camera_index": 0,
+      "sensor_sha256": "97f45b699cfb5c7ac7fb0c2fb3471b86be8102f3cafa1d974f7841302702ec08",
+      "observed_translation_rank": 3,
+      "center_error_mm": 0.09941821439361319,
+      "xy_error_mm": 0.08092152237531329,
+      "z_error_mm": 0.05775542026231051,
+      "residual_xyz_mm": [
+        0.05398716244813784,
+        -0.06028000559336988,
+        0.05775542026231051
+      ],
+      "state_time_mismatch_s": 0.0
+    },
+    {
+      "seed": 52003,
+      "time": 0.6500000000000005,
+      "color": "red",
+      "camera_index": 0,
+      "sensor_sha256": "97f45b699cfb5c7ac7fb0c2fb3471b86be8102f3cafa1d974f7841302702ec08",
+      "observed_translation_rank": 3,
+      "center_error_mm": 0.15092475517800902,
+      "xy_error_mm": 0.1431701839110057,
+      "z_error_mm": 0.0477554202623196,
+      "residual_xyz_mm": [
+        0.05156875187658283,
+        -0.13356034363164326,
+        0.0477554202623196
+      ],
+      "state_time_mismatch_s": 0.0
+    },
+    {
+      "seed": 52003,
+      "time": 66.05000000002747,
+      "color": "blue",
+      "camera_index": 29,
+      "sensor_sha256": "f379382976e6cdb88a303e10114bd3a869c0882be70cd33f7be82f73e2d2b216",
+      "observed_translation_rank": 2,
+      "center_error_mm": 2.762481672087436,
+      "xy_error_mm": 0.05516430716785146,
+      "z_error_mm": 2.7619308260406683,
+      "residual_xyz_mm": [
+        0.031423572834910374,
+        -0.045339385258273524,
+        2.7619308260406683
+      ],
+      "state_time_mismatch_s": 0.0
+    },
+    {
+      "seed": 52003,
+      "time": 66.05000000002747,
+      "color": "green",
+      "camera_index": 29,
+      "sensor_sha256": "f379382976e6cdb88a303e10114bd3a869c0882be70cd33f7be82f73e2d2b216",
+      "observed_translation_rank": 3,
+      "center_error_mm": 0.09421527271552639,
+      "xy_error_mm": 0.0746657883116432,
+      "z_error_mm": 0.057459008594491934,
+      "residual_xyz_mm": [
+        0.05137576992586901,
+        -0.05418034891658863,
+        0.057459008594491934
+      ],
+      "state_time_mismatch_s": 0.0
+    },
+    {
+      "seed": 52003,
+      "time": 66.05000000002747,
+      "color": "red",
+      "camera_index": 29,
+      "sensor_sha256": "f379382976e6cdb88a303e10114bd3a869c0882be70cd33f7be82f73e2d2b216",
+      "observed_translation_rank": 2,
+      "center_error_mm": 0.37318359983191474,
+      "xy_error_mm": 0.0721383249766327,
+      "z_error_mm": 0.3661448637535045,
+      "residual_xyz_mm": [
+        0.04927830423454793,
+        -0.05268383682118838,
+        0.3661448637535045
+      ],
+      "state_time_mismatch_s": 0.0
+    },
+    {
+      "seed": 52004,
+      "time": 0.6500000000000005,
+      "color": "blue",
+      "camera_index": 0,
+      "sensor_sha256": "93bbd856bd5b74cc9f2fd9b1478c39eabb816d2ae3be53f68d69755995138486",
+      "observed_translation_rank": 1,
+      "center_error_mm": 2.7049423301058986,
+      "xy_error_mm": 1.5907354369321214,
+      "z_error_mm": 2.187755420262306,
+      "residual_xyz_mm": [
+        1.5896467012798752,
+        -0.05884382228950358,
+        2.187755420262306
+      ],
+      "state_time_mismatch_s": 0.0
+    },
+    {
+      "seed": 52004,
+      "time": 0.6500000000000005,
+      "color": "green",
+      "camera_index": 0,
+      "sensor_sha256": "93bbd856bd5b74cc9f2fd9b1478c39eabb816d2ae3be53f68d69755995138486",
+      "observed_translation_rank": 3,
+      "center_error_mm": 0.09353917341038065,
+      "xy_error_mm": 0.07357913014314013,
+      "z_error_mm": 0.05775542026231051,
+      "residual_xyz_mm": [
+        0.056825999095906354,
+        -0.046740712653672745,
+        0.05775542026231051
+      ],
+      "state_time_mismatch_s": 0.0
+    },
+    {
+      "seed": 52004,
+      "time": 0.6500000000000005,
+      "color": "red",
+      "camera_index": 0,
+      "sensor_sha256": "93bbd856bd5b74cc9f2fd9b1478c39eabb816d2ae3be53f68d69755995138486",
+      "observed_translation_rank": 3,
+      "center_error_mm": 0.09485723477935618,
+      "xy_error_mm": 0.07524763398479577,
+      "z_error_mm": 0.05775542026231051,
+      "residual_xyz_mm": [
+        0.05666596345874453,
+        -0.049509342609269424,
+        0.05775542026231051
+      ],
+      "state_time_mismatch_s": 0.0
+    },
+    {
+      "seed": 52004,
+      "time": 60.550000000028035,
+      "color": "blue",
+      "camera_index": 27,
+      "sensor_sha256": "35c9a6b542c65f8f08025287e24cfe979badfd16b669072a2beddf6dff541903",
+      "observed_translation_rank": 2,
+      "center_error_mm": 1.3980493601816142,
+      "xy_error_mm": 1.396855871212407,
+      "z_error_mm": 0.05775542021012825,
+      "residual_xyz_mm": [
+        0.05431454467934316,
+        -1.395799503932011,
+        0.05775542021012825
+      ],
+      "state_time_mismatch_s": 0.0
+    },
+    {
+      "seed": 52004,
+      "time": 60.550000000028035,
+      "color": "green",
+      "camera_index": 27,
+      "sensor_sha256": "35c9a6b542c65f8f08025287e24cfe979badfd16b669072a2beddf6dff541903",
+      "observed_translation_rank": 3,
+      "center_error_mm": 0.09370909627419026,
+      "xy_error_mm": 0.07379502802229503,
+      "z_error_mm": 0.057755420210696684,
+      "residual_xyz_mm": [
+        0.050228803459773985,
+        -0.05406268087887156,
+        0.057755420210696684
+      ],
+      "state_time_mismatch_s": 0.0
+    },
+    {
+      "seed": 52004,
+      "time": 60.550000000028035,
+      "color": "red",
+      "camera_index": 27,
+      "sensor_sha256": "35c9a6b542c65f8f08025287e24cfe979badfd16b669072a2beddf6dff541903",
+      "observed_translation_rank": 3,
+      "center_error_mm": 0.09731176551454274,
+      "xy_error_mm": 0.0783191620398349,
+      "z_error_mm": 0.05775542022126956,
+      "residual_xyz_mm": [
+        0.054402154946956216,
+        -0.056340897044236726,
+        0.05775542022126956
+      ],
+      "state_time_mismatch_s": 0.0
+    },
+    {
+      "seed": 52005,
+      "time": 0.6500000000000005,
+      "color": "blue",
+      "camera_index": 0,
+      "sensor_sha256": "8266ffa29f3ab7d559025a23ec202330f16946b55d440b7e05ffda16c162b0a2",
+      "observed_translation_rank": 3,
+      "center_error_mm": 0.09635626949569065,
+      "xy_error_mm": 0.07712873719600274,
+      "z_error_mm": 0.05775542026231051,
+      "residual_xyz_mm": [
+        0.05017599878628687,
+        -0.058576541782940694,
+        0.05775542026231051
+      ],
+      "state_time_mismatch_s": 0.0
+    },
+    {
+      "seed": 52005,
+      "time": 0.6500000000000005,
+      "color": "green",
+      "camera_index": 0,
+      "sensor_sha256": "8266ffa29f3ab7d559025a23ec202330f16946b55d440b7e05ffda16c162b0a2",
+      "observed_translation_rank": 3,
+      "center_error_mm": 0.09824671841214799,
+      "xy_error_mm": 0.07947785294709332,
+      "z_error_mm": 0.05775542026231051,
+      "residual_xyz_mm": [
+        0.05562951005208561,
+        -0.05676342766645348,
+        0.05775542026231051
+      ],
+      "state_time_mismatch_s": 0.0
+    },
+    {
+      "seed": 52005,
+      "time": 0.6500000000000005,
+      "color": "red",
+      "camera_index": 0,
+      "sensor_sha256": "8266ffa29f3ab7d559025a23ec202330f16946b55d440b7e05ffda16c162b0a2",
+      "observed_translation_rank": 3,
+      "center_error_mm": 0.10095017307012316,
+      "xy_error_mm": 0.08279643031684224,
+      "z_error_mm": 0.05775542026231051,
+      "residual_xyz_mm": [
+        0.05762672795473023,
+        -0.05945089653187097,
+        0.05775542026231051
+      ],
+      "state_time_mismatch_s": 0.0
+    },
+    {
+      "seed": 52005,
+      "time": 63.50000000003164,
+      "color": "blue",
+      "camera_index": 31,
+      "sensor_sha256": "68053197890b3e4d8803b4ae08579f7713b3bd51f460cde909d7ff28ad623191",
+      "observed_translation_rank": 2,
+      "center_error_mm": 2.3180781408332995,
+      "xy_error_mm": 0.07191398015369094,
+      "z_error_mm": 2.3169623748493677,
+      "residual_xyz_mm": [
+        0.05282188564648038,
+        -0.04880029649802964,
+        2.3169623748493677
+      ],
+      "state_time_mismatch_s": 0.0
+    },
+    {
+      "seed": 52005,
+      "time": 63.50000000003164,
+      "color": "green",
+      "camera_index": 31,
+      "sensor_sha256": "68053197890b3e4d8803b4ae08579f7713b3bd51f460cde909d7ff28ad623191",
+      "observed_translation_rank": 3,
+      "center_error_mm": 0.09355135944070489,
+      "xy_error_mm": 0.06369314925590733,
+      "z_error_mm": 0.06852035895315112,
+      "residual_xyz_mm": [
+        0.048534688852811314,
+        -0.0412456208596268,
+        0.06852035895315112
+      ],
+      "state_time_mismatch_s": 0.0
+    },
+    {
+      "seed": 52005,
+      "time": 63.50000000003164,
+      "color": "red",
+      "camera_index": 31,
+      "sensor_sha256": "68053197890b3e4d8803b4ae08579f7713b3bd51f460cde909d7ff28ad623191",
+      "observed_translation_rank": 3,
+      "center_error_mm": 0.08891190364684741,
+      "xy_error_mm": 0.07337974090382555,
+      "z_error_mm": 0.050206973967704016,
+      "residual_xyz_mm": [
+        0.05080995856019399,
+        -0.05294274724855086,
+        0.050206973967704016
+      ],
+      "state_time_mismatch_s": 0.0
+    }
+  ],
+  "limits": [
+    "Initial/final side observations only; not all motion or occlusion frames.",
+    "This evaluates instantaneous center estimates, not vertex accuracy or memory benefit.",
+    "Reported center positions were rounded to 0.01 mm by the actor packet."
+  ]
+}

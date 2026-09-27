@@ -1,0 +1,465 @@
+{
+  "kind": "sensor_only_temporal_replay_not_a_policy_success_experiment",
+  "trial": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101",
+  "frame_count": 107,
+  "colors": [
+    "blue",
+    "red",
+    "green"
+  ],
+  "counts": {
+    "instantaneous_fits": 305,
+    "instantaneous_full_translation": 100,
+    "remembered_object_records": 0,
+    "conditional_prediction_records": 0,
+    "fresh_full_translation_records": 210
+  },
+  "observed_sim_seconds": 63.25000000003213,
+  "text_characters_median": 837.0,
+  "fit_and_packet_cpu_ms_median": 20.613793999999963,
+  "timing_scope": "offline CPU fits plus state and text; excludes acquisition, IO and agent reasoning",
+  "prediction_mode": "disabled; camera-only replay has no assumed grasp attachment",
+  "limitations": [
+    "No private truth read; no position accuracy or SR claim.",
+    "Memory assumes unobserved coordinates persist; moving occluded objects can invalidate them.",
+    "Heuristic covariance is not calibrated uncertainty."
+  ],
+  "input_sha256": [
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_000.npz",
+      "sha256": "f4069d39df66b4053d6b7fa2b792f0d86b3c95ca378dd259e6c147e1b4cf84df"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_001.npz",
+      "sha256": "f4069d39df66b4053d6b7fa2b792f0d86b3c95ca378dd259e6c147e1b4cf84df"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_002.npz",
+      "sha256": "25904903c6e0657f9b95e32c6b10d0fca288005d86276530db1c562f1303514e"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_003.npz",
+      "sha256": "366e44ef9efd1f511e7436f278721fce89acd3de0715ffdaf61cfd3c76d226c2"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_004.npz",
+      "sha256": "25904903c6e0657f9b95e32c6b10d0fca288005d86276530db1c562f1303514e"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_005.npz",
+      "sha256": "366e44ef9efd1f511e7436f278721fce89acd3de0715ffdaf61cfd3c76d226c2"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_006.npz",
+      "sha256": "25904903c6e0657f9b95e32c6b10d0fca288005d86276530db1c562f1303514e"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_007.npz",
+      "sha256": "366e44ef9efd1f511e7436f278721fce89acd3de0715ffdaf61cfd3c76d226c2"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_008.npz",
+      "sha256": "25904903c6e0657f9b95e32c6b10d0fca288005d86276530db1c562f1303514e"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_009.npz",
+      "sha256": "479cc961bf9568e89b4c9fc530945a9d4d8265672a56a319bc95253792dea180"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_010.npz",
+      "sha256": "a340bd555fb8247c93f58de8269dfce626843298901dea485119a9291595b9e9"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_011.npz",
+      "sha256": "370e9383cb44a5c0de5f7f8d8e842bcc8fa38b633ee436cddd68c91a52b959cb"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_012.npz",
+      "sha256": "da9c886035263430a94fdaa45bede065cdb3f45dd5073b7ef71b885c35b093cb"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_013.npz",
+      "sha256": "370e9383cb44a5c0de5f7f8d8e842bcc8fa38b633ee436cddd68c91a52b959cb"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_014.npz",
+      "sha256": "da9c886035263430a94fdaa45bede065cdb3f45dd5073b7ef71b885c35b093cb"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_015.npz",
+      "sha256": "370e9383cb44a5c0de5f7f8d8e842bcc8fa38b633ee436cddd68c91a52b959cb"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_016.npz",
+      "sha256": "da9c886035263430a94fdaa45bede065cdb3f45dd5073b7ef71b885c35b093cb"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_017.npz",
+      "sha256": "0784d53179acb22ac0e9e37720171d2440c8c4dc377a416fddeb55f4a585fe70"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_018.npz",
+      "sha256": "7c0e68aa280e6fc8ebe597d253ac7f76ada2a21532d33bf85cf9faa2c5c778a3"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_019.npz",
+      "sha256": "0784d53179acb22ac0e9e37720171d2440c8c4dc377a416fddeb55f4a585fe70"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_020.npz",
+      "sha256": "7c0e68aa280e6fc8ebe597d253ac7f76ada2a21532d33bf85cf9faa2c5c778a3"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_021.npz",
+      "sha256": "47b3d482b87420aba97ad6958b1549bfe55faa09f156d799c20e0cef068bf319"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_022.npz",
+      "sha256": "4c9eb2dc5202f95a237f3cf1e8acf45132b6bc92ccedc793ea78ee818bda19ea"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_023.npz",
+      "sha256": "47b3d482b87420aba97ad6958b1549bfe55faa09f156d799c20e0cef068bf319"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_024.npz",
+      "sha256": "4c9eb2dc5202f95a237f3cf1e8acf45132b6bc92ccedc793ea78ee818bda19ea"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_025.npz",
+      "sha256": "50efbed0764da56186892785fcd819f6a8bb4640106a6c315ce16cc427149202"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_026.npz",
+      "sha256": "de0e83f1d68386bc88d5deaa9b78bf6f308e90609310921cbbe7a773afac948f"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_027.npz",
+      "sha256": "50efbed0764da56186892785fcd819f6a8bb4640106a6c315ce16cc427149202"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_028.npz",
+      "sha256": "de0e83f1d68386bc88d5deaa9b78bf6f308e90609310921cbbe7a773afac948f"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_029.npz",
+      "sha256": "50efbed0764da56186892785fcd819f6a8bb4640106a6c315ce16cc427149202"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_030.npz",
+      "sha256": "de0e83f1d68386bc88d5deaa9b78bf6f308e90609310921cbbe7a773afac948f"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_031.npz",
+      "sha256": "50efbed0764da56186892785fcd819f6a8bb4640106a6c315ce16cc427149202"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_032.npz",
+      "sha256": "de0e83f1d68386bc88d5deaa9b78bf6f308e90609310921cbbe7a773afac948f"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_033.npz",
+      "sha256": "ea85596d078690763265ce448b3d50fe3c76a6d760a0fecefd8024e9336d73d6"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_034.npz",
+      "sha256": "5f40bd12cc51a56302aea97c30cfd99d0d2461ea817a7e07e5db21fdd2bb904d"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_035.npz",
+      "sha256": "ea85596d078690763265ce448b3d50fe3c76a6d760a0fecefd8024e9336d73d6"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_036.npz",
+      "sha256": "5f40bd12cc51a56302aea97c30cfd99d0d2461ea817a7e07e5db21fdd2bb904d"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_037.npz",
+      "sha256": "974f210cb631a36a63dfe1cea21a31a4523c01a1382b9651d8df66da6ada01e2"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_038.npz",
+      "sha256": "e9d44267cc94a4c8df1b5cc01a9b49c8f093f59ec13aa11f17ef667d8f231bce"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_039.npz",
+      "sha256": "974f210cb631a36a63dfe1cea21a31a4523c01a1382b9651d8df66da6ada01e2"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_040.npz",
+      "sha256": "e9d44267cc94a4c8df1b5cc01a9b49c8f093f59ec13aa11f17ef667d8f231bce"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_041.npz",
+      "sha256": "974f210cb631a36a63dfe1cea21a31a4523c01a1382b9651d8df66da6ada01e2"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_042.npz",
+      "sha256": "e9d44267cc94a4c8df1b5cc01a9b49c8f093f59ec13aa11f17ef667d8f231bce"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_043.npz",
+      "sha256": "d4a747f7c3931e08fb15c95421a2b481a0157a54e4e28a571f1c43c3a5e3290b"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_044.npz",
+      "sha256": "9e0be2c1e5654e563863148765570af55007fcab5db60862db7dd65b0ba52619"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_045.npz",
+      "sha256": "d4a747f7c3931e08fb15c95421a2b481a0157a54e4e28a571f1c43c3a5e3290b"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_046.npz",
+      "sha256": "9e0be2c1e5654e563863148765570af55007fcab5db60862db7dd65b0ba52619"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_047.npz",
+      "sha256": "38425df1a135eef8a7bc3c45165c1d80141239888b270a7ecb441299f77e0267"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_048.npz",
+      "sha256": "86a900ec2bcef59f03c768638b1d6b24a0e5aaadf86b440bde673b90dfa5ea74"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_049.npz",
+      "sha256": "38425df1a135eef8a7bc3c45165c1d80141239888b270a7ecb441299f77e0267"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_050.npz",
+      "sha256": "86a900ec2bcef59f03c768638b1d6b24a0e5aaadf86b440bde673b90dfa5ea74"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_051.npz",
+      "sha256": "38425df1a135eef8a7bc3c45165c1d80141239888b270a7ecb441299f77e0267"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_052.npz",
+      "sha256": "86a900ec2bcef59f03c768638b1d6b24a0e5aaadf86b440bde673b90dfa5ea74"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_053.npz",
+      "sha256": "a9ef23bb0963dcc40592c451d8b94fd757ee3d17eba8220d9b7de3e3070b302b"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_054.npz",
+      "sha256": "753d1ee514cee480780fd693f4f5de477d0c5e5a49c4b880a0c949c2807e5730"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_055.npz",
+      "sha256": "a27c76a3314e6df0bcea0ffdaf6f6391fd86e77ee05d696d043935a825d8a447"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_056.npz",
+      "sha256": "4ce3ebae8a6201cac9b7e275cea0ca661cc696ee9ffc776dfc517720b61a96d5"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_057.npz",
+      "sha256": "a27c76a3314e6df0bcea0ffdaf6f6391fd86e77ee05d696d043935a825d8a447"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_058.npz",
+      "sha256": "4ce3ebae8a6201cac9b7e275cea0ca661cc696ee9ffc776dfc517720b61a96d5"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_059.npz",
+      "sha256": "a27c76a3314e6df0bcea0ffdaf6f6391fd86e77ee05d696d043935a825d8a447"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_060.npz",
+      "sha256": "4ce3ebae8a6201cac9b7e275cea0ca661cc696ee9ffc776dfc517720b61a96d5"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_061.npz",
+      "sha256": "fd7aef0d3e4f5bc8b4fad9bbfe69178ffb0a4dc4473ff3fe046bb8a771e04d75"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_062.npz",
+      "sha256": "d4603cb4ebdba4f5096cddd2938c8b256778369be3647f132df24538d269efc7"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_063.npz",
+      "sha256": "fd7aef0d3e4f5bc8b4fad9bbfe69178ffb0a4dc4473ff3fe046bb8a771e04d75"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_064.npz",
+      "sha256": "d4603cb4ebdba4f5096cddd2938c8b256778369be3647f132df24538d269efc7"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_065.npz",
+      "sha256": "462c80bc405a21e0eaad7491fec934dd0e5c50cae3c69354cd281cb164a040ab"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_066.npz",
+      "sha256": "240a943cc7500a934699ddbeea9622faa74eb45a6af53310fcc72d988caea159"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_067.npz",
+      "sha256": "462c80bc405a21e0eaad7491fec934dd0e5c50cae3c69354cd281cb164a040ab"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_068.npz",
+      "sha256": "240a943cc7500a934699ddbeea9622faa74eb45a6af53310fcc72d988caea159"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_069.npz",
+      "sha256": "a9fed9ad163d711ad1f34ddd7eaf8447326e11f54e684c95d39fe3d2d5c7cd45"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_070.npz",
+      "sha256": "c6f532a10706d888e71766207f906d3ef21d0e58b09cef5496fd7c21aef1d755"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_071.npz",
+      "sha256": "a9fed9ad163d711ad1f34ddd7eaf8447326e11f54e684c95d39fe3d2d5c7cd45"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_072.npz",
+      "sha256": "c6f532a10706d888e71766207f906d3ef21d0e58b09cef5496fd7c21aef1d755"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_073.npz",
+      "sha256": "a9fed9ad163d711ad1f34ddd7eaf8447326e11f54e684c95d39fe3d2d5c7cd45"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_074.npz",
+      "sha256": "c6f532a10706d888e71766207f906d3ef21d0e58b09cef5496fd7c21aef1d755"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_075.npz",
+      "sha256": "a9fed9ad163d711ad1f34ddd7eaf8447326e11f54e684c95d39fe3d2d5c7cd45"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_076.npz",
+      "sha256": "c6f532a10706d888e71766207f906d3ef21d0e58b09cef5496fd7c21aef1d755"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_077.npz",
+      "sha256": "32a5581a12d08565f0f3b61e8886d963ded2a85000243df0bcdbb98a399992ad"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_078.npz",
+      "sha256": "e96311f601e08e8de4c524fdd01dd7282109b6e5fa08251dedadefbdde15a008"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_079.npz",
+      "sha256": "32a5581a12d08565f0f3b61e8886d963ded2a85000243df0bcdbb98a399992ad"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_080.npz",
+      "sha256": "e96311f601e08e8de4c524fdd01dd7282109b6e5fa08251dedadefbdde15a008"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_081.npz",
+      "sha256": "c9778bdc9b0c14cf93c93cfeb47f28637907b929434cfece274de1ff56c98389"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_082.npz",
+      "sha256": "7d4328e2173f8a567d8904edba9313864da0800c36c88fa1641b470bb6481320"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_083.npz",
+      "sha256": "c9778bdc9b0c14cf93c93cfeb47f28637907b929434cfece274de1ff56c98389"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_084.npz",
+      "sha256": "7d4328e2173f8a567d8904edba9313864da0800c36c88fa1641b470bb6481320"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_085.npz",
+      "sha256": "c9778bdc9b0c14cf93c93cfeb47f28637907b929434cfece274de1ff56c98389"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_086.npz",
+      "sha256": "7d4328e2173f8a567d8904edba9313864da0800c36c88fa1641b470bb6481320"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_087.npz",
+      "sha256": "9afce510f3965a823f9822ab60b89afdcf80546a3a2bfb07898395e1f3ae10d4"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_088.npz",
+      "sha256": "dc56d4b3e5c5309e079df23a1afb77e223850e342d421bf6789cae14e459e230"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_089.npz",
+      "sha256": "9afce510f3965a823f9822ab60b89afdcf80546a3a2bfb07898395e1f3ae10d4"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_090.npz",
+      "sha256": "dc56d4b3e5c5309e079df23a1afb77e223850e342d421bf6789cae14e459e230"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_091.npz",
+      "sha256": "92ef5c9a5dbff245b057fff712c8a8fdc22c7065830b4fd73ad131dbb747b861"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_092.npz",
+      "sha256": "ce98186e1f940e4b30db0dec24e20c326deda5410a36e551bb9b437b5843d84e"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_093.npz",
+      "sha256": "92ef5c9a5dbff245b057fff712c8a8fdc22c7065830b4fd73ad131dbb747b861"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_094.npz",
+      "sha256": "ce98186e1f940e4b30db0dec24e20c326deda5410a36e551bb9b437b5843d84e"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_095.npz",
+      "sha256": "92ef5c9a5dbff245b057fff712c8a8fdc22c7065830b4fd73ad131dbb747b861"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_096.npz",
+      "sha256": "ce98186e1f940e4b30db0dec24e20c326deda5410a36e551bb9b437b5843d84e"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_097.npz",
+      "sha256": "92ef5c9a5dbff245b057fff712c8a8fdc22c7065830b4fd73ad131dbb747b861"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_098.npz",
+      "sha256": "ce98186e1f940e4b30db0dec24e20c326deda5410a36e551bb9b437b5843d84e"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_099.npz",
+      "sha256": "92ef5c9a5dbff245b057fff712c8a8fdc22c7065830b4fd73ad131dbb747b861"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_100.npz",
+      "sha256": "ce98186e1f940e4b30db0dec24e20c326deda5410a36e551bb9b437b5843d84e"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_101.npz",
+      "sha256": "d763c398438b574cfc79dbfdc3c059b4f42d9907ff94a2e9b36c071e754cb396"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_102.npz",
+      "sha256": "b7a76ebacf53ee02185fcb465765d0b245323ca0f9a37f64e6be85e5a2295841"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_103.npz",
+      "sha256": "d763c398438b574cfc79dbfdc3c059b4f42d9907ff94a2e9b36c071e754cb396"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_104.npz",
+      "sha256": "b7a76ebacf53ee02185fcb465765d0b245323ca0f9a37f64e6be85e5a2295841"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_105.npz",
+      "sha256": "d763c398438b574cfc79dbfdc3c059b4f42d9907ff94a2e9b36c071e754cb396"
+    },
+    {
+      "path": "outputs/generic_pnp_geometry_ablation_01/raw/round_003/trials/seed_4101/camera_106.npz",
+      "sha256": "b7a76ebacf53ee02185fcb465765d0b245323ca0f9a37f64e6be85e5a2295841"
+    }
+  ],
+  "source_sha256": {
+    "/home/pcmachine/Documents/agentic_policy/aspire_so100/scripts/replay_geometric_state.py": "cb21061a3304f398371a64fe7302b49290c528d0fb58b57df3c706eebe116968",
+    "src/aspire_so100/geometric_state.py": "93f336f05bf31474af0ba200a1390d586315245f63a523a0cc72f5dcbc5e9ccd",
+    "src/aspire_so100/symbolic_geometry.py": "d4d8994dbbf94f1fe6d4c4df4fccbfa130e8f8aa4f6d827036a9aaef3b9909fd",
+    "src/aspire_so100/ablation_geometry.py": "4fd96db40e9c583fadd6314484198eea84b879764c6ebc172513bdf1c3291f96",
+    "src/aspire_so100/cube_geometry.py": "e736fbdb3a90bcfa216783514093a98827938fb7f019a7ebd94d088e8f254cdd",
+    "src/aspire_so100/rigid_state.py": "24de11555c4e491498fa0df307437b98d62cc143b4598cb8acdc17cc3de2c7f0"
+  }
+}

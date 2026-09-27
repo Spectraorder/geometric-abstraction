@@ -43,8 +43,15 @@ class API:
         return unpack(result['result'])
     def camera(self, view='side'):
         return self.call('camera', view=view)
+    def gripper_geometry(self):
+        return self.call('gripper_geometry')
+    def record_geometry(self, record):
+        return self.call('record_geometry', record=record)
     def task(self):
         return self.call('task')
+    def point_target(self, color, shape, orientation, frame_time):
+        return self.call('point_target', color=color, shape=shape,
+                         orientation=orientation, frame_time=float(frame_time))
     def proprioception(self):
         return self.call('proprioception')
     def move_tool(self, position, seconds=1.5, orientation=None):
@@ -83,6 +90,10 @@ def profile():
 
 
 try:
+    if len(sys.argv) == 3:
+        geometry_namespace = {}
+        exec(compile(open(sys.argv[2]).read(), sys.argv[2], 'exec'), geometry_namespace)
+        namespace['geometry'] = geometry_namespace['GEOMETRY']
     exec(compile(open(sys.argv[1]).read(),sys.argv[1],'exec'),namespace)
     namespace['run'](api)
     print(json.dumps({'method':'done','params':{'cpu_profile': profile()}}),flush=True)

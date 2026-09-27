@@ -1,0 +1,451 @@
+{
+  "scope": "Offline replay of five already inspected pilot training sensor-state records only; no private poses, outcome labels, reserved records, or new policy execution.",
+  "prototype_sha256": "4c197fd1b4622a7dd4025af6639dcfc9421d65826dcac995e91a017860da2ec8",
+  "inputs_sha256": {
+    "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76001/geometry_records.json": "5b12d4f1f6999b4b485b7a30b5fcd075cb21a4db4d90d3ae2aa04afb6ae7e4d6",
+    "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76002/geometry_records.json": "ed5bbd5107aa9b349af69a9740aafd84083608f8a34f48f9ee388a35f19621b6",
+    "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76003/geometry_records.json": "0331451c648ba7ee0a2a04a4a194982cd808102ee8735afe68d8112adf9415e9",
+    "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76004/geometry_records.json": "2ddb752ce0806fb6c040bd1ac174f743abba702a427bd0f45f1935737fb519ae",
+    "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76005/geometry_records.json": "e7a0bec7a61e1c4b4adb17060447cc27f94fc249e2732d78949cf723aad72e1e"
+  },
+  "checkpoint_pairs": 30,
+  "available_object_pairs": 118,
+  "estimated_changes_above_10mm": 15,
+  "conditional_effects_in_replay": false,
+  "not_demonstrated": [
+    "Physical prediction accuracy",
+    "Policy learning benefit",
+    "Reasoning acceleration"
+  ],
+  "pairs": [
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76001/geometry_records.json",
+      "from_label": "0:initial",
+      "to_label": "1:right_place_0",
+      "available_object_pairs": 4,
+      "estimated_changes_above_10mm": 1
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76001/geometry_records.json",
+      "from_label": "1:right_place_0",
+      "to_label": "2:right_settled",
+      "available_object_pairs": 4,
+      "estimated_changes_above_10mm": 0
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76001/geometry_records.json",
+      "from_label": "3:foundations_ready",
+      "to_label": "4:beam_place_0",
+      "available_object_pairs": 4,
+      "estimated_changes_above_10mm": 1
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76001/geometry_records.json",
+      "from_label": "4:beam_place_0",
+      "to_label": "5:beam_settled",
+      "available_object_pairs": 4,
+      "estimated_changes_above_10mm": 0
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76001/geometry_records.json",
+      "from_label": "5:beam_settled",
+      "to_label": "6:cap_place_0",
+      "available_object_pairs": 4,
+      "estimated_changes_above_10mm": 1
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76001/geometry_records.json",
+      "from_label": "6:cap_place_0",
+      "to_label": "7:cap_settled",
+      "available_object_pairs": 4,
+      "estimated_changes_above_10mm": 0
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76002/geometry_records.json",
+      "from_label": "0:initial",
+      "to_label": "1:right_place_0",
+      "available_object_pairs": 4,
+      "estimated_changes_above_10mm": 1
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76002/geometry_records.json",
+      "from_label": "1:right_place_0",
+      "to_label": "2:right_settled",
+      "available_object_pairs": 4,
+      "estimated_changes_above_10mm": 0
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76002/geometry_records.json",
+      "from_label": "3:foundations_ready",
+      "to_label": "4:beam_place_0",
+      "available_object_pairs": 4,
+      "estimated_changes_above_10mm": 1
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76002/geometry_records.json",
+      "from_label": "4:beam_place_0",
+      "to_label": "5:beam_settled",
+      "available_object_pairs": 4,
+      "estimated_changes_above_10mm": 0
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76002/geometry_records.json",
+      "from_label": "5:beam_settled",
+      "to_label": "6:cap_place_0",
+      "available_object_pairs": 4,
+      "estimated_changes_above_10mm": 1
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76002/geometry_records.json",
+      "from_label": "6:cap_place_0",
+      "to_label": "7:cap_settled",
+      "available_object_pairs": 4,
+      "estimated_changes_above_10mm": 0
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76003/geometry_records.json",
+      "from_label": "0:initial",
+      "to_label": "1:right_place_0",
+      "available_object_pairs": 4,
+      "estimated_changes_above_10mm": 1
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76003/geometry_records.json",
+      "from_label": "1:right_place_0",
+      "to_label": "2:right_settled",
+      "available_object_pairs": 4,
+      "estimated_changes_above_10mm": 0
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76003/geometry_records.json",
+      "from_label": "3:foundations_ready",
+      "to_label": "4:beam_place_0",
+      "available_object_pairs": 4,
+      "estimated_changes_above_10mm": 1
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76003/geometry_records.json",
+      "from_label": "4:beam_place_0",
+      "to_label": "5:beam_settled",
+      "available_object_pairs": 4,
+      "estimated_changes_above_10mm": 0
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76003/geometry_records.json",
+      "from_label": "5:beam_settled",
+      "to_label": "6:cap_place_0",
+      "available_object_pairs": 4,
+      "estimated_changes_above_10mm": 1
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76003/geometry_records.json",
+      "from_label": "6:cap_place_0",
+      "to_label": "7:cap_settled",
+      "available_object_pairs": 4,
+      "estimated_changes_above_10mm": 0
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76004/geometry_records.json",
+      "from_label": "0:initial",
+      "to_label": "1:left_place_0",
+      "available_object_pairs": 4,
+      "estimated_changes_above_10mm": 1
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76004/geometry_records.json",
+      "from_label": "1:left_place_0",
+      "to_label": "2:left_settled",
+      "available_object_pairs": 4,
+      "estimated_changes_above_10mm": 0
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76004/geometry_records.json",
+      "from_label": "3:foundations_ready",
+      "to_label": "4:beam_place_0",
+      "available_object_pairs": 4,
+      "estimated_changes_above_10mm": 1
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76004/geometry_records.json",
+      "from_label": "4:beam_place_0",
+      "to_label": "5:beam_settled",
+      "available_object_pairs": 4,
+      "estimated_changes_above_10mm": 0
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76004/geometry_records.json",
+      "from_label": "5:beam_settled",
+      "to_label": "6:cap_place_0",
+      "available_object_pairs": 4,
+      "estimated_changes_above_10mm": 1
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76004/geometry_records.json",
+      "from_label": "6:cap_place_0",
+      "to_label": "7:cap_settled",
+      "available_object_pairs": 4,
+      "estimated_changes_above_10mm": 0
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76005/geometry_records.json",
+      "from_label": "0:initial",
+      "to_label": "1:left_place_0",
+      "available_object_pairs": 4,
+      "estimated_changes_above_10mm": 1
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76005/geometry_records.json",
+      "from_label": "1:left_place_0",
+      "to_label": "2:left_settled",
+      "available_object_pairs": 4,
+      "estimated_changes_above_10mm": 0
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76005/geometry_records.json",
+      "from_label": "3:foundations_ready",
+      "to_label": "4:beam_place_0",
+      "available_object_pairs": 4,
+      "estimated_changes_above_10mm": 1
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76005/geometry_records.json",
+      "from_label": "4:beam_place_0",
+      "to_label": "5:beam_settled",
+      "available_object_pairs": 4,
+      "estimated_changes_above_10mm": 0
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76005/geometry_records.json",
+      "from_label": "5:beam_settled",
+      "to_label": "6:cap_place_0",
+      "available_object_pairs": 3,
+      "estimated_changes_above_10mm": 1
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76005/geometry_records.json",
+      "from_label": "6:cap_place_0",
+      "to_label": "7:cap_settled",
+      "available_object_pairs": 3,
+      "estimated_changes_above_10mm": 0
+    }
+  ],
+  "example": {
+    "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76001/geometry_records.json",
+    "to_label": "1:right_place_0",
+    "packet": {
+      "schema": "reasoning_checkpoint_prototype_v1",
+      "episode": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76001",
+      "checkpoint": "0:initial",
+      "current_estimates": {
+        "coordinate_frame": "world",
+        "units": "meters",
+        "time": 29.149999999994723,
+        "objects": {
+          "yellow": {
+            "status": "available",
+            "center": [
+              -0.10040646514624821,
+              -0.27582146224708254,
+              0.4149489175129044
+            ],
+            "position_fully_observed": true,
+            "translation_projector": [
+              [
+                0.9999999999999997,
+                -1.162714981838768e-16,
+                1.4513006740322835e-16
+              ],
+              [
+                -1.162714981838768e-16,
+                0.9999999999999996,
+                -1.5991548468404214e-16
+              ],
+              [
+                1.4513006740322835e-16,
+                -1.5991548468404214e-16,
+                1.0000000000000002
+              ]
+            ],
+            "observable_rank": 3
+          },
+          "green": {
+            "status": "available",
+            "center": [
+              -0.040142719072883304,
+              -0.27377956386197067,
+              0.41494786132123096
+            ],
+            "position_fully_observed": true,
+            "translation_projector": [
+              [
+                0.9999999999999979,
+                -4.6618598383265e-16,
+                2.507820666454718e-16
+              ],
+              [
+                -4.6618598383265e-16,
+                0.9999999999999989,
+                -7.29059585082975e-17
+              ],
+              [
+                2.507820666454718e-16,
+                -7.29059585082975e-17,
+                0.9999999999999993
+              ]
+            ],
+            "observable_rank": 3
+          },
+          "red": {
+            "status": "available",
+            "center": [
+              -0.0970189507264761,
+              -0.19780974537090865,
+              0.4074521411954065
+            ],
+            "position_fully_observed": false,
+            "translation_projector": [
+              [
+                1.8726371594688847e-10,
+                4.375490493126887e-10,
+                1.368443333574217e-05
+              ],
+              [
+                4.375490493126887e-10,
+                1.0223505903767086e-09,
+                3.197421756884848e-05
+              ],
+              [
+                1.368443333574217e-05,
+                3.197421756884848e-05,
+                0.9999999987903856
+              ]
+            ],
+            "observable_rank": 1
+          },
+          "blue": {
+            "status": "available",
+            "center": [
+              0.09781941825385525,
+              -0.35685259940451547,
+              0.42995800224422287
+            ],
+            "position_fully_observed": true,
+            "translation_projector": [
+              [
+                1.0,
+                1.7946676917364078e-24,
+                1.4175600873331352e-20
+              ],
+              [
+                1.7946676917364078e-24,
+                1.0,
+                -4.6533034321186534e-21
+              ],
+              [
+                1.4175600873331352e-20,
+                -4.6533034321186534e-21,
+                1.0
+              ]
+            ],
+            "observable_rank": 3
+          }
+        }
+      },
+      "checkpoint_changes": {
+        "kind": "checkpoint_estimate_difference",
+        "coordinate_frame": "world",
+        "units": "meters",
+        "from_time": 0.6500000000000005,
+        "to_time": 29.149999999994723,
+        "objects": {
+          "blue": {
+            "status": "estimated_change",
+            "from_center_m": [
+              0.09781978191246539,
+              -0.3568525122097654,
+              0.42995843378772614
+            ],
+            "to_center_m": [
+              0.09781941825385525,
+              -0.35685259940451547,
+              0.42995800224422287
+            ],
+            "estimated_translation_m": [
+              -3.636586101418704e-07,
+              -8.719475008689415e-08,
+              -4.315435032653525e-07
+            ],
+            "estimated_distance_m": 5.710344161112937e-07,
+            "both_estimates_fully_observed": true
+          },
+          "green": {
+            "status": "estimated_change",
+            "from_center_m": [
+              -0.000878210293473986,
+              -0.20567471295611792,
+              0.4149485917574562
+            ],
+            "to_center_m": [
+              -0.040142719072883304,
+              -0.27377956386197067,
+              0.41494786132123096
+            ],
+            "estimated_translation_m": [
+              -0.03926450877940932,
+              -0.06810485090585275,
+              -7.304362252269492e-07
+            ],
+            "estimated_distance_m": 0.07861280027533862,
+            "both_estimates_fully_observed": true
+          },
+          "red": {
+            "status": "estimated_change",
+            "from_center_m": [
+              -0.09665309040218607,
+              -0.19818848783262952,
+              0.4074486480187809
+            ],
+            "to_center_m": [
+              -0.0970189507264761,
+              -0.19780974537090865,
+              0.4074521411954065
+            ],
+            "estimated_translation_m": [
+              -0.000365860324290021,
+              0.0003787424617208712,
+              3.493176625624095e-06
+            ],
+            "estimated_distance_m": 0.0005266040557030707,
+            "both_estimates_fully_observed": false
+          },
+          "yellow": {
+            "status": "estimated_change",
+            "from_center_m": [
+              -0.10040646514624821,
+              -0.27582146224708254,
+              0.4149489175129044
+            ],
+            "to_center_m": [
+              -0.10040646514624821,
+              -0.27582146224708254,
+              0.4149489175129044
+            ],
+            "estimated_translation_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "estimated_distance_m": 0.0,
+            "both_estimates_fully_observed": true
+          }
+        },
+        "semantics": "difference_between_estimates_not_certified_physical_motion",
+        "poses_fused_or_predicted": false
+      },
+      "conditional_effects": {},
+      "temporal_pose_fusion": false,
+      "contact_or_stability_certified": false,
+      "semantics": "Current estimates, checkpoint differences and unverified expectations remain separate."
+    }
+  }
+}

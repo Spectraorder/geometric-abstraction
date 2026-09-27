@@ -1,0 +1,159 @@
+{
+  "scope": "Descriptive training-only R0 onset audit; no reserved data, no simulator poses, no causal attribution beyond recorded API calls.",
+  "arm": "numeric",
+  "trial_count": 15,
+  "failures_before_first_actuation": 0,
+  "successes": 5,
+  "trials": [
+    {
+      "replica": "replica_01",
+      "seed": 78001,
+      "success": true,
+      "policy_error": null,
+      "actuation_calls": 56,
+      "planner_checkpoints": 4,
+      "failed_before_first_actuation": false,
+      "source": "outputs/mixed_scene_replications_01_corrected/replica_01/numeric/revision_000/trials/seed_78001/result.json"
+    },
+    {
+      "replica": "replica_01",
+      "seed": 78002,
+      "success": false,
+      "policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Visible cuboid extent contradicts learned dimensions'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'joint_correspondence', 'reason': 'No current view establishes two independent cuboid faces'}]",
+      "actuation_calls": 30,
+      "planner_checkpoints": 2,
+      "failed_before_first_actuation": false,
+      "source": "outputs/mixed_scene_replications_01_corrected/replica_01/numeric/revision_000/trials/seed_78002/result.json"
+    },
+    {
+      "replica": "replica_01",
+      "seed": 78003,
+      "success": true,
+      "policy_error": null,
+      "actuation_calls": 53,
+      "planner_checkpoints": 4,
+      "failed_before_first_actuation": false,
+      "source": "outputs/mixed_scene_replications_01_corrected/replica_01/numeric/revision_000/trials/seed_78003/result.json"
+    },
+    {
+      "replica": "replica_01",
+      "seed": 78004,
+      "success": false,
+      "policy_error": null,
+      "actuation_calls": 20,
+      "planner_checkpoints": 2,
+      "failed_before_first_actuation": false,
+      "source": "outputs/mixed_scene_replications_01_corrected/replica_01/numeric/revision_000/trials/seed_78004/result.json"
+    },
+    {
+      "replica": "replica_01",
+      "seed": 78005,
+      "success": false,
+      "policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Curved surface does not constrain a cylinder center'}, {'view': 'wrist', 'reason': 'Curved surface does not constrain a cylinder center'}]",
+      "actuation_calls": 56,
+      "planner_checkpoints": 3,
+      "failed_before_first_actuation": false,
+      "source": "outputs/mixed_scene_replications_01_corrected/replica_01/numeric/revision_000/trials/seed_78005/result.json"
+    },
+    {
+      "replica": "replica_02",
+      "seed": 78101,
+      "success": false,
+      "policy_error": null,
+      "actuation_calls": 41,
+      "planner_checkpoints": 3,
+      "failed_before_first_actuation": false,
+      "source": "outputs/mixed_scene_replications_01_corrected/replica_02/numeric/revision_000/trials/seed_78101/result.json"
+    },
+    {
+      "replica": "replica_02",
+      "seed": 78102,
+      "success": false,
+      "policy_error": null,
+      "actuation_calls": 42,
+      "planner_checkpoints": 3,
+      "failed_before_first_actuation": false,
+      "source": "outputs/mixed_scene_replications_01_corrected/replica_02/numeric/revision_000/trials/seed_78102/result.json"
+    },
+    {
+      "replica": "replica_02",
+      "seed": 78103,
+      "success": true,
+      "policy_error": null,
+      "actuation_calls": 56,
+      "planner_checkpoints": 4,
+      "failed_before_first_actuation": false,
+      "source": "outputs/mixed_scene_replications_01_corrected/replica_02/numeric/revision_000/trials/seed_78103/result.json"
+    },
+    {
+      "replica": "replica_02",
+      "seed": 78104,
+      "success": false,
+      "policy_error": null,
+      "actuation_calls": 20,
+      "planner_checkpoints": 2,
+      "failed_before_first_actuation": false,
+      "source": "outputs/mixed_scene_replications_01_corrected/replica_02/numeric/revision_000/trials/seed_78104/result.json"
+    },
+    {
+      "replica": "replica_02",
+      "seed": 78105,
+      "success": false,
+      "policy_error": null,
+      "actuation_calls": 20,
+      "planner_checkpoints": 2,
+      "failed_before_first_actuation": false,
+      "source": "outputs/mixed_scene_replications_01_corrected/replica_02/numeric/revision_000/trials/seed_78105/result.json"
+    },
+    {
+      "replica": "replica_03",
+      "seed": 78201,
+      "success": false,
+      "policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Cylinder top occluded without a prior visual pose'}, {'view': 'wrist', 'reason': 'Cylinder top occluded without a prior visual pose'}]",
+      "actuation_calls": 52,
+      "planner_checkpoints": 3,
+      "failed_before_first_actuation": false,
+      "source": "outputs/mixed_scene_replications_01_corrected/replica_03/numeric/revision_000/trials/seed_78201/result.json"
+    },
+    {
+      "replica": "replica_03",
+      "seed": 78202,
+      "success": false,
+      "policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'wrist', 'reason': 'No usable visible cuboid: blue'}, {'view': 'joint_correspondence', 'reason': 'Two independent current face directions are required'}]",
+      "actuation_calls": 27,
+      "planner_checkpoints": 2,
+      "failed_before_first_actuation": false,
+      "source": "outputs/mixed_scene_replications_01_corrected/replica_03/numeric/revision_000/trials/seed_78202/result.json"
+    },
+    {
+      "replica": "replica_03",
+      "seed": 78203,
+      "success": true,
+      "policy_error": null,
+      "actuation_calls": 56,
+      "planner_checkpoints": 4,
+      "failed_before_first_actuation": false,
+      "source": "outputs/mixed_scene_replications_01_corrected/replica_03/numeric/revision_000/trials/seed_78203/result.json"
+    },
+    {
+      "replica": "replica_03",
+      "seed": 78204,
+      "success": true,
+      "policy_error": null,
+      "actuation_calls": 56,
+      "planner_checkpoints": 4,
+      "failed_before_first_actuation": false,
+      "source": "outputs/mixed_scene_replications_01_corrected/replica_03/numeric/revision_000/trials/seed_78204/result.json"
+    },
+    {
+      "replica": "replica_03",
+      "seed": 78205,
+      "success": false,
+      "policy_error": "RuntimeError: ValueError: No usable current view: [{'view': 'side', 'reason': 'Occluded face has insufficient consistent depth samples: red'}, {'view': 'wrist', 'reason': 'Occluded cuboid axes without a prior visual pose or narrow finite bounds'}, {'view': 'joint_correspondence', 'reason': 'No current view establishes two independent cuboid faces'}]",
+      "actuation_calls": 27,
+      "planner_checkpoints": 2,
+      "failed_before_first_actuation": false,
+      "source": "outputs/mixed_scene_replications_01_corrected/replica_03/numeric/revision_000/trials/seed_78205/result.json"
+    }
+  ]
+}

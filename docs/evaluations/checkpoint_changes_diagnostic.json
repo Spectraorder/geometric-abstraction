@@ -1,0 +1,478 @@
+{
+  "scope": "Offline sensor-derived training checkpoints; no physical truth, success labels or reserved data read.",
+  "thresholds_m": {
+    "large_checkpoint_change": 0.01,
+    "small_internal_change": 0.001
+  },
+  "source_sha256": {
+    "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76001/geometry_records.json": "5b12d4f1f6999b4b485b7a30b5fcd075cb21a4db4d90d3ae2aa04afb6ae7e4d6",
+    "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76002/geometry_records.json": "ed5bbd5107aa9b349af69a9740aafd84083608f8a34f48f9ee388a35f19621b6",
+    "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76003/geometry_records.json": "0331451c648ba7ee0a2a04a4a194982cd808102ee8735afe68d8112adf9415e9",
+    "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76004/geometry_records.json": "2ddb752ce0806fb6c040bd1ac174f743abba702a427bd0f45f1935737fb519ae",
+    "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76005/geometry_records.json": "e7a0bec7a61e1c4b4adb17060447cc27f94fc249e2732d78949cf723aad72e1e"
+  },
+  "checkpoint_pairs": 30,
+  "available_object_pairs": 118,
+  "large_estimate_changes": 15,
+  "large_changes_with_small_internal_delta": 15,
+  "fully_observed_large_changes": 9,
+  "fully_observed_large_changes_with_small_internal_delta": 9,
+  "events": [
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76001/geometry_records.json",
+      "from_label": "initial",
+      "to_label": "right_place_0",
+      "object": "green",
+      "status": "estimated_change",
+      "from_center_m": [
+        -0.000878210293473986,
+        -0.20567471295611792,
+        0.4149485917574562
+      ],
+      "to_center_m": [
+        -0.040142719072883304,
+        -0.27377956386197067,
+        0.41494786132123096
+      ],
+      "estimated_translation_m": [
+        -0.03926450877940932,
+        -0.06810485090585275,
+        -7.304362252269492e-07
+      ],
+      "estimated_distance_m": 0.07861280027533862,
+      "both_estimates_fully_observed": true,
+      "checkpoint_from_time": 0.6500000000000005,
+      "checkpoint_to_time": 29.149999999994723,
+      "internal_from_time": 29.149999999994723,
+      "internal_to_time": 29.149999999994723,
+      "internal_estimated_distance_m": 0.0,
+      "small_internal_change": true
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76001/geometry_records.json",
+      "from_label": "foundations_ready",
+      "to_label": "beam_place_0",
+      "object": "red",
+      "status": "estimated_change",
+      "from_center_m": [
+        -0.0970189507264761,
+        -0.19780974537090865,
+        0.4074521411954065
+      ],
+      "to_center_m": [
+        -0.0696969088121862,
+        -0.2727577923444818,
+        0.43727858160090555
+      ],
+      "estimated_translation_m": [
+        0.0273220419142899,
+        -0.07494804697357313,
+        0.029826440405499033
+      ],
+      "estimated_distance_m": 0.08516642687574678,
+      "both_estimates_fully_observed": false,
+      "checkpoint_from_time": 29.49999999999453,
+      "checkpoint_to_time": 58.00000000002492,
+      "internal_from_time": 58.00000000002492,
+      "internal_to_time": 58.00000000002492,
+      "internal_estimated_distance_m": 0.0,
+      "small_internal_change": true
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76001/geometry_records.json",
+      "from_label": "beam_settled",
+      "to_label": "cap_place_0",
+      "object": "blue",
+      "status": "estimated_change",
+      "from_center_m": [
+        0.09781999767412472,
+        -0.3568533512713275,
+        0.4299584529714123
+      ],
+      "to_center_m": [
+        -0.06883369896209826,
+        -0.27381081006138486,
+        0.4744399512643746
+      ],
+      "estimated_translation_m": [
+        -0.16665369663622298,
+        0.08304254120994264,
+        0.04448149829296233
+      ],
+      "estimated_distance_m": 0.1914369920979487,
+      "both_estimates_fully_observed": true,
+      "checkpoint_from_time": 58.35000000002535,
+      "checkpoint_to_time": 91.0499999999692,
+      "internal_from_time": 91.0499999999692,
+      "internal_to_time": 91.0499999999692,
+      "internal_estimated_distance_m": 0.0,
+      "small_internal_change": true
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76002/geometry_records.json",
+      "from_label": "initial",
+      "to_label": "right_place_0",
+      "object": "red",
+      "status": "estimated_change",
+      "from_center_m": [
+        0.10560680556444317,
+        -0.3545006631884868,
+        0.41494599504781554
+      ],
+      "to_center_m": [
+        -0.039834648957425764,
+        -0.19862137251261852,
+        0.4149461856171517
+      ],
+      "estimated_translation_m": [
+        -0.14544145452186893,
+        0.15587929067586825,
+        1.9056933614480798e-07
+      ],
+      "estimated_distance_m": 0.213193738076626,
+      "both_estimates_fully_observed": true,
+      "checkpoint_from_time": 0.6500000000000005,
+      "checkpoint_to_time": 30.59999999999392,
+      "internal_from_time": 30.59999999999392,
+      "internal_to_time": 30.59999999999392,
+      "internal_estimated_distance_m": 0.0,
+      "small_internal_change": true
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76002/geometry_records.json",
+      "from_label": "foundations_ready",
+      "to_label": "beam_place_0",
+      "object": "blue",
+      "status": "estimated_change",
+      "from_center_m": [
+        0.09419615399456675,
+        -0.278465489945585,
+        0.40744827309089166
+      ],
+      "to_center_m": [
+        -0.06844750427761435,
+        -0.1980029614150485,
+        0.4372776672050561
+      ],
+      "estimated_translation_m": [
+        -0.1626436582721811,
+        0.08046252853053651,
+        0.029829394114164465
+      ],
+      "estimated_distance_m": 0.1838939118810179,
+      "both_estimates_fully_observed": false,
+      "checkpoint_from_time": 30.949999999993725,
+      "checkpoint_to_time": 60.90000000002846,
+      "internal_from_time": 60.90000000002846,
+      "internal_to_time": 60.90000000002846,
+      "internal_estimated_distance_m": 0.0,
+      "small_internal_change": true
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76002/geometry_records.json",
+      "from_label": "beam_settled",
+      "to_label": "cap_place_0",
+      "object": "yellow",
+      "status": "estimated_change",
+      "from_center_m": [
+        0.00447254810833447,
+        -0.27623723637791536,
+        0.4299577965968705
+      ],
+      "to_center_m": [
+        -0.06807170046736451,
+        -0.19892871466318351,
+        0.4744417086631727
+      ],
+      "estimated_translation_m": [
+        -0.07254424857569898,
+        0.07730852171473185,
+        0.0444839120663022
+      ],
+      "estimated_distance_m": 0.11496996983496376,
+      "both_estimates_fully_observed": true,
+      "checkpoint_from_time": 61.25000000002889,
+      "checkpoint_to_time": 91.19999999996885,
+      "internal_from_time": 91.19999999996885,
+      "internal_to_time": 91.19999999996885,
+      "internal_estimated_distance_m": 0.0,
+      "small_internal_change": true
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76003/geometry_records.json",
+      "from_label": "initial",
+      "to_label": "right_place_0",
+      "object": "blue",
+      "status": "estimated_change",
+      "from_center_m": [
+        0.09972205508670112,
+        -0.202868057685995,
+        0.4149477502209594
+      ],
+      "to_center_m": [
+        0.05691898387514459,
+        -0.20189338371537782,
+        0.414947007149572
+      ],
+      "estimated_translation_m": [
+        -0.042803071211556534,
+        0.0009746739706171792,
+        -7.430713874212458e-07
+      ],
+      "estimated_distance_m": 0.0428141669899431,
+      "both_estimates_fully_observed": true,
+      "checkpoint_from_time": 0.6500000000000005,
+      "checkpoint_to_time": 30.59999999999392,
+      "internal_from_time": 30.59999999999392,
+      "internal_to_time": 30.59999999999392,
+      "internal_estimated_distance_m": 0.0,
+      "small_internal_change": true
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76003/geometry_records.json",
+      "from_label": "foundations_ready",
+      "to_label": "beam_place_0",
+      "object": "yellow",
+      "status": "estimated_change",
+      "from_center_m": [
+        -0.10018137327317332,
+        -0.20379107018494794,
+        0.40745097565849825
+      ],
+      "to_center_m": [
+        0.02707013618871795,
+        -0.20202597402637332,
+        0.43727950810126537
+      ],
+      "estimated_translation_m": [
+        0.12725150946189126,
+        0.0017650961585746194,
+        0.02982853244276712
+      ],
+      "estimated_distance_m": 0.13071267563808808,
+      "both_estimates_fully_observed": false,
+      "checkpoint_from_time": 30.949999999993725,
+      "checkpoint_to_time": 60.90000000002846,
+      "internal_from_time": 60.90000000002846,
+      "internal_to_time": 60.90000000002846,
+      "internal_estimated_distance_m": 0.0,
+      "small_internal_change": true
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76003/geometry_records.json",
+      "from_label": "beam_settled",
+      "to_label": "cap_place_0",
+      "object": "green",
+      "status": "estimated_change",
+      "from_center_m": [
+        0.10208783113730162,
+        -0.27865157597159496,
+        0.42995797277100684
+      ],
+      "to_center_m": [
+        0.027027926109922763,
+        -0.20232739842160227,
+        0.4744428750178759
+      ],
+      "estimated_translation_m": [
+        -0.07505990502737886,
+        0.07632417754999268,
+        0.044484902246869074
+      ],
+      "estimated_distance_m": 0.11592357805604275,
+      "both_estimates_fully_observed": true,
+      "checkpoint_from_time": 61.25000000002889,
+      "checkpoint_to_time": 91.19999999996885,
+      "internal_from_time": 91.19999999996885,
+      "internal_to_time": 91.19999999996885,
+      "internal_estimated_distance_m": 0.0,
+      "small_internal_change": true
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76004/geometry_records.json",
+      "from_label": "initial",
+      "to_label": "left_place_0",
+      "object": "blue",
+      "status": "estimated_change",
+      "from_center_m": [
+        -0.10281019948770817,
+        -0.35702611380481286,
+        0.4149473229865606
+      ],
+      "to_center_m": [
+        0.04485056114372538,
+        -0.19859934668045598,
+        0.4149471396893189
+      ],
+      "estimated_translation_m": [
+        0.14766076063143355,
+        0.15842676712435688,
+        -1.832972417181722e-07
+      ],
+      "estimated_distance_m": 0.2165704060386883,
+      "both_estimates_fully_observed": false,
+      "checkpoint_from_time": 0.6500000000000005,
+      "checkpoint_to_time": 30.59999999999392,
+      "internal_from_time": 30.59999999999392,
+      "internal_to_time": 30.59999999999392,
+      "internal_estimated_distance_m": 0.0,
+      "small_internal_change": true
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76004/geometry_records.json",
+      "from_label": "foundations_ready",
+      "to_label": "beam_place_0",
+      "object": "green",
+      "status": "estimated_change",
+      "from_center_m": [
+        0.004295600201758277,
+        -0.2853550254420943,
+        0.40744954215215107
+      ],
+      "to_center_m": [
+        0.073035672360593,
+        -0.19801616003199168,
+        0.43727832618349505
+      ],
+      "estimated_translation_m": [
+        0.06874007215883472,
+        0.0873388654101026,
+        0.02982878403134398
+      ],
+      "estimated_distance_m": 0.11507837020185151,
+      "both_estimates_fully_observed": false,
+      "checkpoint_from_time": 30.949999999993725,
+      "checkpoint_to_time": 60.90000000002846,
+      "internal_from_time": 60.90000000002846,
+      "internal_to_time": 60.90000000002846,
+      "internal_estimated_distance_m": 0.0,
+      "small_internal_change": true
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76004/geometry_records.json",
+      "from_label": "beam_settled",
+      "to_label": "cap_place_0",
+      "object": "red",
+      "status": "estimated_change",
+      "from_center_m": [
+        -0.004579058509978001,
+        -0.3640232712267637,
+        0.4299598538658565
+      ],
+      "to_center_m": [
+        0.06941709148987774,
+        -0.19674434188922835,
+        0.4744337189712757
+      ],
+      "estimated_translation_m": [
+        0.07399614999985574,
+        0.16727892933753535,
+        0.044473865105419175
+      ],
+      "estimated_distance_m": 0.18824344634682058,
+      "both_estimates_fully_observed": true,
+      "checkpoint_from_time": 61.25000000002889,
+      "checkpoint_to_time": 92.64999999996547,
+      "internal_from_time": 92.64999999996547,
+      "internal_to_time": 92.64999999996547,
+      "internal_estimated_distance_m": 0.0,
+      "small_internal_change": true
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76005/geometry_records.json",
+      "from_label": "initial",
+      "to_label": "left_place_0",
+      "object": "yellow",
+      "status": "estimated_change",
+      "from_center_m": [
+        0.10013134114390497,
+        -0.2858014985039489,
+        0.41494621294333334
+      ],
+      "to_center_m": [
+        0.036032078599346574,
+        -0.20111216878253063,
+        0.4149492016818736
+      ],
+      "estimated_translation_m": [
+        -0.06409926254455839,
+        0.0846893297214183,
+        2.988738540266045e-06
+      ],
+      "estimated_distance_m": 0.10621204280283798,
+      "both_estimates_fully_observed": true,
+      "checkpoint_from_time": 0.6500000000000005,
+      "checkpoint_to_time": 30.59999999999392,
+      "internal_from_time": 30.59999999999392,
+      "internal_to_time": 30.59999999999392,
+      "internal_estimated_distance_m": 0.0,
+      "small_internal_change": true
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76005/geometry_records.json",
+      "from_label": "foundations_ready",
+      "to_label": "beam_place_0",
+      "object": "red",
+      "status": "estimated_change",
+      "from_center_m": [
+        0.006551583615685463,
+        -0.27866772302820925,
+        0.4074476030933354
+      ],
+      "to_center_m": [
+        0.0654005308254011,
+        -0.20115374444556042,
+        0.4372780485326875
+      ],
+      "estimated_translation_m": [
+        0.05884894720971563,
+        0.07751397858264883,
+        0.029830445439352093
+      ],
+      "estimated_distance_m": 0.1017913107220523,
+      "both_estimates_fully_observed": false,
+      "checkpoint_from_time": 30.949999999993725,
+      "checkpoint_to_time": 60.90000000002846,
+      "internal_from_time": 60.90000000002846,
+      "internal_to_time": 60.90000000002846,
+      "internal_estimated_distance_m": 0.0,
+      "small_internal_change": true
+    },
+    {
+      "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76005/geometry_records.json",
+      "from_label": "beam_settled",
+      "to_label": "cap_place_0",
+      "object": "blue",
+      "status": "estimated_change",
+      "from_center_m": [
+        -0.09572489361384193,
+        -0.2844399446291053,
+        0.4299599044680701
+      ],
+      "to_center_m": [
+        0.06492084755188031,
+        -0.20298112823212566,
+        0.4744390681737033
+      ],
+      "estimated_translation_m": [
+        0.16064574116572222,
+        0.08145881639697966,
+        0.04447916370563321
+      ],
+      "estimated_distance_m": 0.18552894363800376,
+      "both_estimates_fully_observed": true,
+      "checkpoint_from_time": 61.25000000002889,
+      "checkpoint_to_time": 89.74999999997223,
+      "internal_from_time": 89.74999999997223,
+      "internal_to_time": 89.74999999997223,
+      "internal_estimated_distance_m": 0.0,
+      "small_internal_change": true
+    }
+  ],
+  "interpretation": "Internal successive-observation deltas and caller-checkpoint deltas answer different questions. Zero internal change does not imply zero change across an action.",
+  "not_demonstrated": [
+    "Certified physical displacement",
+    "Improved perception accuracy",
+    "Improved policy success or learning speed"
+  ]
+}

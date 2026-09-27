@@ -1,0 +1,66 @@
+{
+  "scope": "Plot retained learning evidence without inventing missing test scores.",
+  "report_sha256": "2ebfa22d07776f8f26de46bfc7bb4716b8a0eb7980f228deb2906b3ce3558514",
+  "audit_sha256": "c0829b7a61d619c2501f7072ebb6feada1f18c02a27e6b0cef56a6333447df8a",
+  "renderer_sha256": "f486fbfa121696688a4468bbdb039cb2d02f4048ac77613ebefa0b4e7261fa10",
+  "figure_sha256": "1d7a76cc0de5eb9a76691fa0166b5221032d4c8a124473df13eb09e30d0fef9e",
+  "displayed_complete_reserved_batches": [
+    {
+      "replica": "replica_01",
+      "arm": "basic",
+      "revision": 0,
+      "selected_from_training": true,
+      "completed_slots": 20,
+      "planned_slots": 20,
+      "batch_complete": true,
+      "successes": 8,
+      "sr": 0.4
+    },
+    {
+      "replica": "replica_01",
+      "arm": "basic",
+      "revision": 1,
+      "selected_from_training": false,
+      "completed_slots": 20,
+      "planned_slots": 20,
+      "batch_complete": true,
+      "successes": 4,
+      "sr": 0.2
+    },
+    {
+      "replica": "replica_01",
+      "arm": "symbolic",
+      "revision": 0,
+      "selected_from_training": false,
+      "completed_slots": 20,
+      "planned_slots": 20,
+      "batch_complete": true,
+      "successes": 8,
+      "sr": 0.4
+    },
+    {
+      "replica": "replica_01",
+      "arm": "symbolic",
+      "revision": 1,
+      "selected_from_training": false,
+      "completed_slots": 20,
+      "planned_slots": 20,
+      "batch_complete": true,
+      "successes": 15,
+      "sr": 0.75
+    },
+    {
+      "replica": "replica_01",
+      "arm": "symbolic",
+      "revision": 3,
+      "selected_from_training": true,
+      "completed_slots": 20,
+      "planned_slots": 20,
+      "batch_complete": true,
+      "successes": 13,
+      "sr": 0.65
+    }
+  ],
+  "partial_or_unexecuted_scores_plotted": false,
+  "missing_revisions_connected": false
+}

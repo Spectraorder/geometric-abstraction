@@ -1,0 +1,1428 @@
+{
+  "manifest": {
+    "version": 4,
+    "purpose": "pilot; one campaign per arm, not confirmatory evidence",
+    "arms": [
+      "raw",
+      "geometry"
+    ],
+    "rounds": 3,
+    "train_seeds": [
+      4101,
+      4102,
+      4103,
+      4104,
+      4105
+    ],
+    "heldout_seeds": [
+      4201,
+      4202,
+      4203,
+      4204,
+      4205,
+      4206,
+      4207,
+      4208,
+      4209,
+      4210
+    ],
+    "model": "gpt-6-astra",
+    "model_timeout_s": 900,
+    "reasoning_effort": "high",
+    "max_prompt_characters": 100000,
+    "max_candidate_characters": 48000,
+    "target_candidate_characters": 18000,
+    "generation_concurrency": 2,
+    "geometry_interface": "cube_current_target_error_v1",
+    "task": "inventory_tower",
+    "layout": "sampled",
+    "recipe": "cube_triple",
+    "object_count": 3,
+    "physics": {
+      "noslip_iterations": 0
+    },
+    "sensor": {
+      "depth_sampling": "pixel_center",
+      "offscreen_samples": 0
+    },
+    "geometry_sha256": "e13893eef9900b12fb1489f1df5f407bf2a9f40ba10a4c43995f72bfa1ada995",
+    "source_sha256": {
+      "assets/trs_so_arm100/scene.xml": "d4c7e337b9b5efb9ff081300f4af48ed23c5acacccdaaa95d5a295b6ac5238f8",
+      "assets/trs_so_arm100/so_arm100.xml": "1901fe7e86d2458e2011390bf52014c1f6f4fcea79abef1788b3108ea9781955",
+      "scripts/run_geometry_ablation.py": "d6b4adadb33a2e413f199e2f29e2da63c49bca5f5ebaf20e0fd664f6ff1e773e",
+      "scripts/run_vision_trial.py": "3f6b92f2e9a7a917b502a6d38fa5abf1193182d8c204679240061f74cde5b34b",
+      "scripts/summarize_geometry_ablation.py": "ac07431a8772678626852a94551e87b25d53c532d4235ae15436c3fe8e0bd11d",
+      "scripts/vision_policy_worker.py": "84f9bb697c9dd89588258678bff7aa452194f19f6d2ff610756ae61f6461acb2",
+      "src/aspire_so100/__init__.py": "83d5bbad65515626aef24b0f00deeb293f0fdf48d45a8e08c11243044b7775b8",
+      "src/aspire_so100/ablation_geometry.py": "4fd96db40e9c583fadd6314484198eea84b879764c6ebc172513bdf1c3291f96",
+      "src/aspire_so100/agent_loop.py": "a4634a2f463576e1fadab69aca2497bb3838465749929353bb8391b6409aa244",
+      "src/aspire_so100/beam_geometry.py": "68526c9e998787d1a6a74a4e3549b75e4b922e92cd5c371af828c5702e2b417c",
+      "src/aspire_so100/block_catalog.py": "2dad0d946f6afabc73b8747a57ab182dc433517ce29a9ff3c2143a2a66c120f9",
+      "src/aspire_so100/camera_view.py": "7a6c7d4f30ca6d2187a217993d351e84932d2c290bc600790bc68e5dfc491624",
+      "src/aspire_so100/column_geometry.py": "4489258802b24544553ed108c4082321e88839f7d0d83fc7052495fdcccf6643",
+      "src/aspire_so100/column_grasp.py": "982a921a49be7509cdbf211b825673a16a9bd8316e450f46714c61a61e0aea7d",
+      "src/aspire_so100/column_policy.py": "90af3ec4cd3a30a9885919eafb643b2b3cac208ede246f6ed12e2836e59d2f6e",
+      "src/aspire_so100/column_tracking.py": "381169874daf0cb8823735f32c14cb37323f39eb2553aa4aac8ff7706eaf71c1",
+      "src/aspire_so100/column_wrist.py": "c5da7ee9e738e2744aca73488b2227152704e7face9c1736ade744d05f7a2385",
+      "src/aspire_so100/context.py": "9bc0a58a34ea139b218507c9bc3de0ecb345e554325f72c11400ba22190c8086",
+      "src/aspire_so100/cube_alignment.py": "609baff8f9e00866bbef6c6883724edd68238dd49cb780b55864f1cf72c15d02",
+      "src/aspire_so100/cube_alignment_policy.py": "71116ac5d4eeb2c9a40ffb9fd271edc1116e8fae5b7782729e2ce3be24b84a4c",
+      "src/aspire_so100/cube_geometry.py": "e736fbdb3a90bcfa216783514093a98827938fb7f019a7ebd94d088e8f254cdd",
+      "src/aspire_so100/cuboid_geometry.py": "bcb1d1270ec44fde854cc2b822a158699645c60c5e357583b69593e5883222ef",
+      "src/aspire_so100/gripper_geometry.py": "cce8a1fc444788f58ffd215c4d7b55cbfaae6f5cad42fee82ca71db64128f7a1",
+      "src/aspire_so100/instance_geometry.py": "9e9723e2052073754fa9fdfa8aa5fe099ad70a88f4adf85231d7cba79a86c8d0",
+      "src/aspire_so100/inventory_policy.py": "9eff928e7b707e11ddc8d4537f32f16ce4e45c5462981c9b9ef94dac87df9f1d",
+      "src/aspire_so100/inventory_prism.py": "7fef6e20ba8d3d5448514b459cfb716c0547eb462f27c43eacae69510c8bb045",
+      "src/aspire_so100/inventory_structure.py": "140c875e6f4d64a80144b34c70a38c7569ab65ced4ff9d8b15a6d7494725072c",
+      "src/aspire_so100/inventory_tower.py": "96b5b67f13206bb72167d3081095c8f1d77980e6af19e5f35c3a3792ef5bf88c",
+      "src/aspire_so100/layouts.py": "04e29d37d1e146fee791aa4156bbcd85fc7278fb471735aa3b8ffaf8da031103",
+      "src/aspire_so100/mixed_rigid_state.py": "f2027812fb7852cfdb49339ded16128373d736c0f4afc9ca790035d0653a67e6",
+      "src/aspire_so100/mixed_state_demo.py": "ba0d4d04689d19dfc72ee7bbab7bd2c7d54ec1414874124893df14373699ffd8",
+      "src/aspire_so100/pipeline.py": "7f7c10df78a7e50a834f9c64f30521d5b63e13f701c7d0d9bd26cda9cb3ab538",
+      "src/aspire_so100/playback.py": "397f83040f56735fc6fc3e3374172f0b7a5c77b2e9706c515c070efbaeebebb2",
+      "src/aspire_so100/pointing_exchange.py": "e91fb488b4bc203ece9377202227702e1f83c05eb80ce261c4fd419ab8eff867",
+      "src/aspire_so100/pointing_geometry.py": "eefab49a4ea32cc21249102f7df20ff4b3f3e31766cc0279556f78fd0a1787b3",
+      "src/aspire_so100/pointing_recovery.py": "f480ed82830b6b2eb7b814c83dbd24bfc5fb49671b2efe4e20d83c91e5439c72",
+      "src/aspire_so100/prism.py": "718cb3e3b655f2dec99859c4ae67a4e78de541f7ca098eceeeba3905c721c161",
+      "src/aspire_so100/prism_layouts.py": "635c61f95a5e89189598792192d23e7a1de7b8d72b8219c266e729ed3b91e2d1",
+      "src/aspire_so100/rgbd.py": "9aa490a947d688c145e8c56ce239ff40eefc3bbd1130d8fc7f58209ff7b95f73",
+      "src/aspire_so100/rigid_state.py": "ebb39b33fd1dab647f78c0c7b120e4e155dd4606413382e01b1537183cb5afbb",
+      "src/aspire_so100/rigid_state_demo.py": "5eb8e2d1579807ce6dad5b406dfa2f5b8a3f047e3c354a2328bd79baf5599693",
+      "src/aspire_so100/robot_geometry.py": "49476839da934b0fcc3e5e00fdbf1147cb09fa1a0692511b9cec0fe08378cd68",
+      "src/aspire_so100/simulation_settings.py": "43787bcec5156abb2d78e6abf08c7e4683e6002a06ca2e04f11013620185fee9",
+      "src/aspire_so100/skill_report.py": "314be5766ff3bcabc5c2b678ab316cd089c3096680f0eecc5bab17e4c4164174",
+      "src/aspire_so100/stacking_env.py": "f5e577e9a5414bdd62f4eac17dcb16efd7e7ca659a921ad5a454070c1cd0b592",
+      "src/aspire_so100/structure_geometry.py": "85f84217ffd1d135fe508139a4be1a3a3c9594366ace38dfd9f37702e0132058",
+      "src/aspire_so100/structure_policy.py": "16c758f61e11b01e1a3a8574ee81a178160f8009ec9870ac64fceb45f0b9724e",
+      "src/aspire_so100/structure_tasks.py": "5e7638f24be7b2c31259bf15d1402851eebf69fa0b536353b5a7087eeb7dcb02",
+      "src/aspire_so100/tower.py": "f6c35d550bba9a45043a00fc3249b72f8ff4afead77907a7554496d1b0c1538c",
+      "src/aspire_so100/tower_tasks.py": "8b84e63fc86bbe1042ce0077da25c7eb6032bd576763169295d4300ffec34fcc"
+    },
+    "budget": "fixed revisions and rollout slots; tokens measured, not equalized",
+    "feedback": "own latest source + all own reduced feedback; latest two sensor outcomes",
+    "selection": "highest training success count including base revision zero, earliest revision on ties",
+    "initial_policy": "shared frozen RGB-D base, byte-identical in both arms",
+    "heldout_feedback_to_actor": false,
+    "base_policy_sha256": "706604db3c8b01f193a88899ab5dae5f47c8508a51f84f72537b9fd9a2be4db5",
+    "base_policy_source": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/generic_pnp_geometry_starter_01/stack_policy.py",
+    "wrist_depth": true,
+    "baseline_revision": 0,
+    "baseline_accounting": "one shared execution per training seed; included in both curves; no model call"
+  },
+  "overview": {
+    "raw": {
+      "revision_numbers": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "train_successes_by_revision": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "train_trials_per_revision": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "candidate_validation_failures_by_revision": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "proposed_policy_rollouts_by_revision": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "heldout_successes": 0,
+      "heldout_trials": 10,
+      "frozen_revision": 0,
+      "total_generation_wall_seconds": 1204.261095798,
+      "total_model_usage": {
+        "input_tokens": 61583,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 39693,
+        "reasoning_output_tokens": 17049
+      },
+      "heldout_host_trial_wall_seconds_median": 2.9207285845000115,
+      "heldout_camera_calls_median": 8.0,
+      "heldout_policy_compute_cpu_seconds_median": 0.15310251200000002,
+      "timing_scope": "host trial includes private evaluation and IO; CPU compute excludes RPC; neither measures online VLM checks"
+    },
+    "geometry": {
+      "revision_numbers": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "train_successes_by_revision": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "train_trials_per_revision": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "candidate_validation_failures_by_revision": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "proposed_policy_rollouts_by_revision": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "heldout_successes": 0,
+      "heldout_trials": 10,
+      "frozen_revision": 0,
+      "total_generation_wall_seconds": 942.048444973,
+      "total_model_usage": {
+        "input_tokens": 63038,
+        "cached_input_tokens": 10624,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 30994,
+        "reasoning_output_tokens": 9134
+      },
+      "heldout_host_trial_wall_seconds_median": 2.9712932239999645,
+      "heldout_camera_calls_median": 8.0,
+      "heldout_policy_compute_cpu_seconds_median": 0.1907293565,
+      "timing_scope": "host trial includes private evaluation and IO; CPU compute excludes RPC; neither measures online VLM checks"
+    }
+  },
+  "status": "completed",
+  "manifest_sha256": "fbe06dac94a4a8df6c6f368a0c597f3a0902c950de9e7378b462ac72ad9ab9ba",
+  "curves": {
+    "raw": [
+      {
+        "revision": 0,
+        "successes": 0,
+        "trials": 5,
+        "cumulative_rollout_slots": 5,
+        "executed_rollouts": 5,
+        "candidate_validation_failures": 0,
+        "results": [
+          {
+            "seed": 4101,
+            "success": false,
+            "policy_error": "RuntimeError: RuntimeError: RuntimeError: Requested tool position is unreachable within 5 mm",
+            "rollout_executed": true,
+            "failure_stage": "policy_execution",
+            "camera_calls": 17,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.22953857900000002,
+              "rpc_cpu_seconds": 0.025713300999999966,
+              "compute_interval_count": 60,
+              "compute_interval_cpu_p50_ms": 0.008116999999974173,
+              "compute_interval_cpu_p95_ms": 9.53559035000002,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "host_trial_wall_seconds": 3.4215836000000053
+          },
+          {
+            "seed": 4102,
+            "success": false,
+            "policy_error": "RuntimeError: RuntimeError: RuntimeError: Requested tool position is unreachable within 5 mm",
+            "rollout_executed": true,
+            "failure_stage": "policy_execution",
+            "camera_calls": 8,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.14726822600000003,
+              "rpc_cpu_seconds": 0.011989963999999964,
+              "compute_interval_count": 23,
+              "compute_interval_cpu_p50_ms": 0.018262999999990592,
+              "compute_interval_cpu_p95_ms": 10.687940799999994,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "host_trial_wall_seconds": 2.870439637000004
+          },
+          {
+            "seed": 4103,
+            "success": false,
+            "policy_error": "RuntimeError: RuntimeError: RuntimeError: Requested tool position is unreachable within 5 mm",
+            "rollout_executed": true,
+            "failure_stage": "policy_execution",
+            "camera_calls": 18,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.236213615,
+              "rpc_cpu_seconds": 0.027430107000000023,
+              "compute_interval_count": 64,
+              "compute_interval_cpu_p50_ms": 0.006733499999994619,
+              "compute_interval_cpu_p95_ms": 9.191144750000001,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "host_trial_wall_seconds": 3.4220876790000005
+          },
+          {
+            "seed": 4104,
+            "success": false,
+            "policy_error": null,
+            "rollout_executed": true,
+            "failure_stage": "task_evaluation",
+            "camera_calls": 27,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.3164048680000001,
+              "rpc_cpu_seconds": 0.04050097799999991,
+              "compute_interval_count": 107,
+              "compute_interval_cpu_p50_ms": 0.006719000000043884,
+              "compute_interval_cpu_p95_ms": 9.162851699999967,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "host_trial_wall_seconds": 4.024007404999992
+          },
+          {
+            "seed": 4105,
+            "success": false,
+            "policy_error": "RuntimeError: RuntimeError: RuntimeError: Requested tool position is unreachable within 5 mm",
+            "rollout_executed": true,
+            "failure_stage": "policy_execution",
+            "camera_calls": 18,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.23714409700000016,
+              "rpc_cpu_seconds": 0.02733780599999984,
+              "compute_interval_count": 64,
+              "compute_interval_cpu_p50_ms": 0.007782999999983442,
+              "compute_interval_cpu_p95_ms": 9.085719349999982,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "host_trial_wall_seconds": 3.3707605719999947
+          }
+        ],
+        "generation": {
+          "usage": {},
+          "wall_seconds": 0.0,
+          "audit": "shared_frozen_base_no_generation",
+          "candidate_sha256": "706604db3c8b01f193a88899ab5dae5f47c8508a51f84f72537b9fd9a2be4db5"
+        }
+      },
+      {
+        "revision": 1,
+        "successes": 0,
+        "trials": 5,
+        "cumulative_rollout_slots": 10,
+        "executed_rollouts": 5,
+        "candidate_validation_failures": 0,
+        "generation": {
+          "usage": {
+            "input_tokens": 17787,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 15556,
+            "reasoning_output_tokens": 8531
+          },
+          "wall_seconds": 470.62310167100003,
+          "audit": "passed",
+          "source_budget_exceeded": false,
+          "candidate_sha256": "17023c49a71e34f4125d2f9dc868e3ecbc0fb9317788e28d6689bba8e0bc4140"
+        },
+        "results": [
+          {
+            "seed": 4101,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.17706398600000012,
+              "rpc_cpu_seconds": 0.017647408999999892,
+              "compute_interval_count": 66,
+              "compute_interval_cpu_p50_ms": 0.01100800000000679,
+              "compute_interval_cpu_p95_ms": 9.27750749999999,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 11,
+            "host_trial_wall_seconds": 2.9208467040000414,
+            "rollout_executed": true,
+            "failure_stage": "task_evaluation"
+          },
+          {
+            "seed": 4102,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.16655722699999986,
+              "rpc_cpu_seconds": 0.01760299900000012,
+              "compute_interval_count": 66,
+              "compute_interval_cpu_p50_ms": 0.016156499999989138,
+              "compute_interval_cpu_p95_ms": 8.912599500000006,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 11,
+            "host_trial_wall_seconds": 2.86862346099997,
+            "rollout_executed": true,
+            "failure_stage": "task_evaluation"
+          },
+          {
+            "seed": 4103,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.1420618450000001,
+              "rpc_cpu_seconds": 0.014467113999999892,
+              "compute_interval_count": 63,
+              "compute_interval_cpu_p50_ms": 0.009607999999994288,
+              "compute_interval_cpu_p95_ms": 9.068045900000001,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 9,
+            "host_trial_wall_seconds": 2.818689422000034,
+            "rollout_executed": true,
+            "failure_stage": "task_evaluation"
+          },
+          {
+            "seed": 4104,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.14828654199999997,
+              "rpc_cpu_seconds": 0.014642361000000007,
+              "compute_interval_count": 63,
+              "compute_interval_cpu_p50_ms": 0.010350999999991783,
+              "compute_interval_cpu_p95_ms": 8.898230500000002,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 9,
+            "host_trial_wall_seconds": 2.8211148999999978,
+            "rollout_executed": true,
+            "failure_stage": "task_evaluation"
+          },
+          {
+            "seed": 4105,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.17083928399999998,
+              "rpc_cpu_seconds": 0.01771141700000005,
+              "compute_interval_count": 66,
+              "compute_interval_cpu_p50_ms": 0.010184499999996155,
+              "compute_interval_cpu_p95_ms": 9.285989000000008,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 11,
+            "host_trial_wall_seconds": 2.870695957999942,
+            "rollout_executed": true,
+            "failure_stage": "task_evaluation"
+          }
+        ]
+      },
+      {
+        "revision": 2,
+        "successes": 0,
+        "trials": 5,
+        "cumulative_rollout_slots": 15,
+        "executed_rollouts": 5,
+        "candidate_validation_failures": 0,
+        "generation": {
+          "usage": {
+            "input_tokens": 21382,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 9341,
+            "reasoning_output_tokens": 2049
+          },
+          "wall_seconds": 284.7208824009999,
+          "audit": "passed",
+          "source_budget_exceeded": false,
+          "candidate_sha256": "7ff8b12b41f2f691eab675b1481ed6e45783bdb979c8edee504496ee17e8bb8c"
+        },
+        "results": [
+          {
+            "seed": 4101,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.27788828799999993,
+              "rpc_cpu_seconds": 0.03742958600000007,
+              "compute_interval_count": 164,
+              "compute_interval_cpu_p50_ms": 0.009575499999997517,
+              "compute_interval_cpu_p95_ms": 8.82431285000001,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 23,
+            "host_trial_wall_seconds": 3.4731315590000804,
+            "rollout_executed": true,
+            "failure_stage": "task_evaluation"
+          },
+          {
+            "seed": 4102,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.16830601599999997,
+              "rpc_cpu_seconds": 0.018179321000000026,
+              "compute_interval_count": 102,
+              "compute_interval_cpu_p50_ms": 0.005659499999990936,
+              "compute_interval_cpu_p95_ms": 8.439097749999995,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 11,
+            "host_trial_wall_seconds": 2.9714907569999696,
+            "rollout_executed": true,
+            "failure_stage": "task_evaluation"
+          },
+          {
+            "seed": 4103,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.163962618,
+              "rpc_cpu_seconds": 0.018671292000000006,
+              "compute_interval_count": 92,
+              "compute_interval_cpu_p50_ms": 0.007340000000008451,
+              "compute_interval_cpu_p95_ms": 9.298473700000004,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 11,
+            "host_trial_wall_seconds": 2.919038969999974,
+            "rollout_executed": true,
+            "failure_stage": "task_evaluation"
+          },
+          {
+            "seed": 4104,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.16438159000000005,
+              "rpc_cpu_seconds": 0.019703523999999972,
+              "compute_interval_count": 112,
+              "compute_interval_cpu_p50_ms": 0.01610150000000421,
+              "compute_interval_cpu_p95_ms": 8.497911249999989,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 11,
+            "host_trial_wall_seconds": 3.020836192000047,
+            "rollout_executed": true,
+            "failure_stage": "task_evaluation"
+          },
+          {
+            "seed": 4105,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.5715977660000002,
+              "rpc_cpu_seconds": 0.08892670699999976,
+              "compute_interval_count": 313,
+              "compute_interval_cpu_p50_ms": 0.020222000000069684,
+              "compute_interval_cpu_p95_ms": 9.014172599999991,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 57,
+            "host_trial_wall_seconds": 4.674231319,
+            "rollout_executed": true,
+            "failure_stage": "task_evaluation"
+          }
+        ]
+      },
+      {
+        "revision": 3,
+        "successes": 0,
+        "trials": 5,
+        "cumulative_rollout_slots": 20,
+        "executed_rollouts": 5,
+        "candidate_validation_failures": 0,
+        "generation": {
+          "usage": {
+            "input_tokens": 22414,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 14796,
+            "reasoning_output_tokens": 6469
+          },
+          "wall_seconds": 448.91711172600003,
+          "audit": "passed",
+          "source_budget_exceeded": false,
+          "candidate_sha256": "fccd2274206ee7c0930b70db32ece4937ef80416faeb92fdbaf1682077eda828"
+        },
+        "results": [
+          {
+            "seed": 4101,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.9957440680000005,
+              "rpc_cpu_seconds": 0.14948889699999962,
+              "compute_interval_count": 462,
+              "compute_interval_cpu_p50_ms": 0.0190780000000057,
+              "compute_interval_cpu_p95_ms": 8.85209205000001,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 107,
+            "host_trial_wall_seconds": 6.076927507999926,
+            "rollout_executed": true,
+            "failure_stage": "task_evaluation"
+          },
+          {
+            "seed": 4102,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.24677601700000035,
+              "rpc_cpu_seconds": 0.03351172999999967,
+              "compute_interval_count": 142,
+              "compute_interval_cpu_p50_ms": 0.019012499999998544,
+              "compute_interval_cpu_p95_ms": 8.541349650000038,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 21,
+            "host_trial_wall_seconds": 3.320216637000158,
+            "rollout_executed": true,
+            "failure_stage": "task_evaluation"
+          },
+          {
+            "seed": 4103,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.20547661199999995,
+              "rpc_cpu_seconds": 0.028342031000000045,
+              "compute_interval_count": 150,
+              "compute_interval_cpu_p50_ms": 0.007349499999989573,
+              "compute_interval_cpu_p95_ms": 8.489870799999986,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 17,
+            "host_trial_wall_seconds": 3.219034157999886,
+            "rollout_executed": true,
+            "failure_stage": "task_evaluation"
+          },
+          {
+            "seed": 4104,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.211842011,
+              "rpc_cpu_seconds": 0.028605718000000016,
+              "compute_interval_count": 150,
+              "compute_interval_cpu_p50_ms": 0.00776449999999318,
+              "compute_interval_cpu_p95_ms": 8.577109099999987,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 17,
+            "host_trial_wall_seconds": 3.271077701999957,
+            "rollout_executed": true,
+            "failure_stage": "task_evaluation"
+          },
+          {
+            "seed": 4105,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.506474531,
+              "rpc_cpu_seconds": 0.07903405400000009,
+              "compute_interval_count": 271,
+              "compute_interval_cpu_p50_ms": 0.0162400000000007,
+              "compute_interval_cpu_p95_ms": 8.676034499999998,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 51,
+            "host_trial_wall_seconds": 4.270760912000014,
+            "rollout_executed": true,
+            "failure_stage": "task_evaluation"
+          }
+        ]
+      }
+    ],
+    "geometry": [
+      {
+        "revision": 0,
+        "successes": 0,
+        "trials": 5,
+        "cumulative_rollout_slots": 5,
+        "executed_rollouts": 5,
+        "candidate_validation_failures": 0,
+        "results": [
+          {
+            "seed": 4101,
+            "success": false,
+            "policy_error": "RuntimeError: RuntimeError: RuntimeError: Requested tool position is unreachable within 5 mm",
+            "rollout_executed": true,
+            "failure_stage": "policy_execution",
+            "camera_calls": 17,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.22953857900000002,
+              "rpc_cpu_seconds": 0.025713300999999966,
+              "compute_interval_count": 60,
+              "compute_interval_cpu_p50_ms": 0.008116999999974173,
+              "compute_interval_cpu_p95_ms": 9.53559035000002,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "host_trial_wall_seconds": 3.4215836000000053
+          },
+          {
+            "seed": 4102,
+            "success": false,
+            "policy_error": "RuntimeError: RuntimeError: RuntimeError: Requested tool position is unreachable within 5 mm",
+            "rollout_executed": true,
+            "failure_stage": "policy_execution",
+            "camera_calls": 8,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.14726822600000003,
+              "rpc_cpu_seconds": 0.011989963999999964,
+              "compute_interval_count": 23,
+              "compute_interval_cpu_p50_ms": 0.018262999999990592,
+              "compute_interval_cpu_p95_ms": 10.687940799999994,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "host_trial_wall_seconds": 2.870439637000004
+          },
+          {
+            "seed": 4103,
+            "success": false,
+            "policy_error": "RuntimeError: RuntimeError: RuntimeError: Requested tool position is unreachable within 5 mm",
+            "rollout_executed": true,
+            "failure_stage": "policy_execution",
+            "camera_calls": 18,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.236213615,
+              "rpc_cpu_seconds": 0.027430107000000023,
+              "compute_interval_count": 64,
+              "compute_interval_cpu_p50_ms": 0.006733499999994619,
+              "compute_interval_cpu_p95_ms": 9.191144750000001,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "host_trial_wall_seconds": 3.4220876790000005
+          },
+          {
+            "seed": 4104,
+            "success": false,
+            "policy_error": null,
+            "rollout_executed": true,
+            "failure_stage": "task_evaluation",
+            "camera_calls": 27,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.3164048680000001,
+              "rpc_cpu_seconds": 0.04050097799999991,
+              "compute_interval_count": 107,
+              "compute_interval_cpu_p50_ms": 0.006719000000043884,
+              "compute_interval_cpu_p95_ms": 9.162851699999967,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "host_trial_wall_seconds": 4.024007404999992
+          },
+          {
+            "seed": 4105,
+            "success": false,
+            "policy_error": "RuntimeError: RuntimeError: RuntimeError: Requested tool position is unreachable within 5 mm",
+            "rollout_executed": true,
+            "failure_stage": "policy_execution",
+            "camera_calls": 18,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.23714409700000016,
+              "rpc_cpu_seconds": 0.02733780599999984,
+              "compute_interval_count": 64,
+              "compute_interval_cpu_p50_ms": 0.007782999999983442,
+              "compute_interval_cpu_p95_ms": 9.085719349999982,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "host_trial_wall_seconds": 3.3707605719999947
+          }
+        ],
+        "generation": {
+          "usage": {},
+          "wall_seconds": 0.0,
+          "audit": "shared_frozen_base_no_generation",
+          "candidate_sha256": "706604db3c8b01f193a88899ab5dae5f47c8508a51f84f72537b9fd9a2be4db5"
+        }
+      },
+      {
+        "revision": 1,
+        "successes": 0,
+        "trials": 5,
+        "cumulative_rollout_slots": 10,
+        "executed_rollouts": 5,
+        "candidate_validation_failures": 0,
+        "generation": {
+          "usage": {
+            "input_tokens": 18643,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 10571,
+            "reasoning_output_tokens": 4069
+          },
+          "wall_seconds": 320.5603544,
+          "audit": "passed",
+          "source_budget_exceeded": false,
+          "candidate_sha256": "8ce8068e9d8f5033a58a29bee6e4d5bd4f3fecaa6647b96e0be35a27665f2986"
+        },
+        "results": [
+          {
+            "seed": 4101,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.25185355499999995,
+              "rpc_cpu_seconds": 0.01921758100000004,
+              "compute_interval_count": 55,
+              "compute_interval_cpu_p50_ms": 0.011368000000011591,
+              "compute_interval_cpu_p95_ms": 16.8218961,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 13,
+            "host_trial_wall_seconds": 2.9707202760000655,
+            "rollout_executed": true,
+            "failure_stage": "task_evaluation"
+          },
+          {
+            "seed": 4102,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.15836478899999998,
+              "rpc_cpu_seconds": 0.009988458000000006,
+              "compute_interval_count": 11,
+              "compute_interval_cpu_p50_ms": 0.042559999999997045,
+              "compute_interval_cpu_p95_ms": 66.9562125,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 7,
+            "host_trial_wall_seconds": 2.719164448000015,
+            "rollout_executed": true,
+            "failure_stage": "task_evaluation"
+          },
+          {
+            "seed": 4103,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.18577165400000006,
+              "rpc_cpu_seconds": 0.009895588999999927,
+              "compute_interval_count": 13,
+              "compute_interval_cpu_p50_ms": 4.433330000000013,
+              "compute_interval_cpu_p95_ms": 58.37471219999986,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 7,
+            "host_trial_wall_seconds": 2.71986129600009,
+            "rollout_executed": true,
+            "failure_stage": "task_evaluation"
+          },
+          {
+            "seed": 4104,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.22425746600000007,
+              "rpc_cpu_seconds": 0.016308474999999906,
+              "compute_interval_count": 58,
+              "compute_interval_cpu_p50_ms": 0.011103499999998157,
+              "compute_interval_cpu_p95_ms": 14.712711700000021,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 11,
+            "host_trial_wall_seconds": 2.920160440000018,
+            "rollout_executed": true,
+            "failure_stage": "task_evaluation"
+          },
+          {
+            "seed": 4105,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.24429760700000022,
+              "rpc_cpu_seconds": 0.019341964999999822,
+              "compute_interval_count": 55,
+              "compute_interval_cpu_p50_ms": 0.010300000000018628,
+              "compute_interval_cpu_p95_ms": 15.319938400000009,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 13,
+            "host_trial_wall_seconds": 3.0210899429999927,
+            "rollout_executed": true,
+            "failure_stage": "task_evaluation"
+          }
+        ]
+      },
+      {
+        "revision": 2,
+        "successes": 0,
+        "trials": 5,
+        "cumulative_rollout_slots": 15,
+        "executed_rollouts": 5,
+        "candidate_validation_failures": 0,
+        "generation": {
+          "usage": {
+            "input_tokens": 21247,
+            "cached_input_tokens": 10624,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 10288,
+            "reasoning_output_tokens": 2588
+          },
+          "wall_seconds": 313.324478183,
+          "audit": "passed",
+          "source_budget_exceeded": false,
+          "candidate_sha256": "40048e8bc69ae6c28264741f6c949b146135d4281e988436138b4870803f5750"
+        },
+        "results": [
+          {
+            "seed": 4101,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.42266524600000044,
+              "rpc_cpu_seconds": 0.06692221199999951,
+              "compute_interval_count": 557,
+              "compute_interval_cpu_p50_ms": 0.006636999999976023,
+              "compute_interval_cpu_p95_ms": 0.06839140000003391,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 37,
+            "host_trial_wall_seconds": 5.123954163000008,
+            "rollout_executed": true,
+            "failure_stage": "task_evaluation"
+          },
+          {
+            "seed": 4102,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.20826910499999998,
+              "rpc_cpu_seconds": 0.012699746000000012,
+              "compute_interval_count": 45,
+              "compute_interval_cpu_p50_ms": 0.0137959999999826,
+              "compute_interval_cpu_p95_ms": 14.148599399999991,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 9,
+            "host_trial_wall_seconds": 2.869677247000027,
+            "rollout_executed": true,
+            "failure_stage": "task_evaluation"
+          },
+          {
+            "seed": 4103,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.2287572719999998,
+              "rpc_cpu_seconds": 0.018467634000000205,
+              "compute_interval_count": 51,
+              "compute_interval_cpu_p50_ms": 0.010717999999965144,
+              "compute_interval_cpu_p95_ms": 13.981842000000007,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 13,
+            "host_trial_wall_seconds": 2.9194645499999297,
+            "rollout_executed": true,
+            "failure_stage": "task_evaluation"
+          },
+          {
+            "seed": 4104,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.42608164000000043,
+              "rpc_cpu_seconds": 0.07488994899999951,
+              "compute_interval_count": 710,
+              "compute_interval_cpu_p50_ms": 0.009612499999978041,
+              "compute_interval_cpu_p95_ms": 0.057855349999985636,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 37,
+            "host_trial_wall_seconds": 5.624629079999977,
+            "rollout_executed": true,
+            "failure_stage": "task_evaluation"
+          },
+          {
+            "seed": 4105,
+            "success": false,
+            "policy_error": null,
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.423250362,
+              "rpc_cpu_seconds": 0.06737255300000003,
+              "compute_interval_count": 477,
+              "compute_interval_cpu_p50_ms": 0.005762000000020251,
+              "compute_interval_cpu_p95_ms": 0.0755996000000314,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 37,
+            "host_trial_wall_seconds": 4.872758464999947,
+            "rollout_executed": true,
+            "failure_stage": "task_evaluation"
+          }
+        ]
+      },
+      {
+        "revision": 3,
+        "successes": 0,
+        "trials": 5,
+        "cumulative_rollout_slots": 20,
+        "executed_rollouts": 5,
+        "candidate_validation_failures": 0,
+        "generation": {
+          "usage": {
+            "input_tokens": 23148,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 10135,
+            "reasoning_output_tokens": 2477
+          },
+          "wall_seconds": 308.1636123899999,
+          "audit": "passed",
+          "source_budget_exceeded": false,
+          "candidate_sha256": "59637df2f6ed2b1abf2fe40cc5dbdda9b05f797d4e235e8fba42c079f9489d16"
+        },
+        "results": [
+          {
+            "seed": 4101,
+            "success": false,
+            "policy_error": "RuntimeError: IndexError: only integers, slices (`:`), ellipsis (`...`), numpy.newaxis (`None`) and integer or boolean arrays are valid indices",
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.19050252199999998,
+              "rpc_cpu_seconds": 0.006859867000000047,
+              "compute_interval_count": 11,
+              "compute_interval_cpu_p50_ms": 0.018002999999988667,
+              "compute_interval_cpu_p95_ms": 85.8607155,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 5,
+            "host_trial_wall_seconds": 2.719997784000043,
+            "rollout_executed": true,
+            "failure_stage": "policy_execution"
+          },
+          {
+            "seed": 4102,
+            "success": false,
+            "policy_error": "RuntimeError: IndexError: only integers, slices (`:`), ellipsis (`...`), numpy.newaxis (`None`) and integer or boolean arrays are valid indices",
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.1935254669999999,
+              "rpc_cpu_seconds": 0.010318429000000101,
+              "compute_interval_count": 43,
+              "compute_interval_cpu_p50_ms": 0.020069999999983157,
+              "compute_interval_cpu_p95_ms": 13.983613999999996,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 7,
+            "host_trial_wall_seconds": 2.869414931999927,
+            "rollout_executed": true,
+            "failure_stage": "policy_execution"
+          },
+          {
+            "seed": 4103,
+            "success": false,
+            "policy_error": "RuntimeError: IndexError: only integers, slices (`:`), ellipsis (`...`), numpy.newaxis (`None`) and integer or boolean arrays are valid indices",
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.179234864,
+              "rpc_cpu_seconds": 0.00717393600000002,
+              "compute_interval_count": 11,
+              "compute_interval_cpu_p50_ms": 0.01574900000000934,
+              "compute_interval_cpu_p95_ms": 80.32769799999998,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 5,
+            "host_trial_wall_seconds": 2.719907241000101,
+            "rollout_executed": true,
+            "failure_stage": "policy_execution"
+          },
+          {
+            "seed": 4104,
+            "success": false,
+            "policy_error": "RuntimeError: IndexError: only integers, slices (`:`), ellipsis (`...`), numpy.newaxis (`None`) and integer or boolean arrays are valid indices",
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.18577619899999998,
+              "rpc_cpu_seconds": 0.007304915000000023,
+              "compute_interval_count": 11,
+              "compute_interval_cpu_p50_ms": 0.017978000000001826,
+              "compute_interval_cpu_p95_ms": 83.5688695,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 5,
+            "host_trial_wall_seconds": 2.7693060639999203,
+            "rollout_executed": true,
+            "failure_stage": "policy_execution"
+          },
+          {
+            "seed": 4105,
+            "success": false,
+            "policy_error": "RuntimeError: IndexError: only integers, slices (`:`), ellipsis (`...`), numpy.newaxis (`None`) and integer or boolean arrays are valid indices",
+            "cpu_profile": {
+              "policy_compute_cpu_seconds": 0.18576965399999995,
+              "rpc_cpu_seconds": 0.007276715000000045,
+              "compute_interval_count": 11,
+              "compute_interval_cpu_p50_ms": 0.017932999999997756,
+              "compute_interval_cpu_p95_ms": 83.4381725,
+              "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+            },
+            "camera_calls": 5,
+            "host_trial_wall_seconds": 2.7211035810000794,
+            "rollout_executed": true,
+            "failure_stage": "policy_execution"
+          }
+        ]
+      }
+    ]
+  },
+  "frozen": {
+    "raw": {
+      "revision": 0,
+      "candidate_sha256": "706604db3c8b01f193a88899ab5dae5f47c8508a51f84f72537b9fd9a2be4db5"
+    },
+    "geometry": {
+      "revision": 0,
+      "candidate_sha256": "706604db3c8b01f193a88899ab5dae5f47c8508a51f84f72537b9fd9a2be4db5"
+    }
+  },
+  "heldout": {
+    "raw": [
+      {
+        "seed": 4201,
+        "success": false,
+        "policy_error": null,
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.3276964849999997,
+          "rpc_cpu_seconds": 0.04262391900000029,
+          "compute_interval_count": 111,
+          "compute_interval_cpu_p50_ms": 0.004428999999972483,
+          "compute_interval_cpu_p95_ms": 9.244951499999987,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "camera_calls": 28,
+        "host_trial_wall_seconds": 4.122885406000023,
+        "rollout_executed": true,
+        "failure_stage": "task_evaluation"
+      },
+      {
+        "seed": 4202,
+        "success": false,
+        "policy_error": null,
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.31808667700000026,
+          "rpc_cpu_seconds": 0.04157992199999977,
+          "compute_interval_count": 107,
+          "compute_interval_cpu_p50_ms": 0.005627000000008042,
+          "compute_interval_cpu_p95_ms": 9.31276399999999,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "camera_calls": 27,
+        "host_trial_wall_seconds": 4.073286633999942,
+        "rollout_executed": true,
+        "failure_stage": "task_evaluation"
+      },
+      {
+        "seed": 4203,
+        "success": false,
+        "policy_error": "RuntimeError: RuntimeError: RuntimeError: Requested tool position is unreachable within 5 mm",
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.14914063100000002,
+          "rpc_cpu_seconds": 0.012375870999999997,
+          "compute_interval_count": 23,
+          "compute_interval_cpu_p50_ms": 0.009750000000002812,
+          "compute_interval_cpu_p95_ms": 11.18370849999998,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "camera_calls": 8,
+        "host_trial_wall_seconds": 2.9205302620000566,
+        "rollout_executed": true,
+        "failure_stage": "policy_execution"
+      },
+      {
+        "seed": 4204,
+        "success": false,
+        "policy_error": "RuntimeError: RuntimeError: RuntimeError: Requested tool position is unreachable within 5 mm",
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.23287716700000016,
+          "rpc_cpu_seconds": 0.02574614399999986,
+          "compute_interval_count": 60,
+          "compute_interval_cpu_p50_ms": 0.008216499999977311,
+          "compute_interval_cpu_p95_ms": 9.826502550000024,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "camera_calls": 17,
+        "host_trial_wall_seconds": 3.3707629890000135,
+        "rollout_executed": true,
+        "failure_stage": "policy_execution"
+      },
+      {
+        "seed": 4205,
+        "success": false,
+        "policy_error": "RuntimeError: RuntimeError: RuntimeError: Requested tool position is unreachable within 5 mm",
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.13172076899999996,
+          "rpc_cpu_seconds": 0.009306869000000065,
+          "compute_interval_count": 12,
+          "compute_interval_cpu_p50_ms": 7.0891474999999895,
+          "compute_interval_cpu_p95_ms": 41.246521449999946,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "camera_calls": 6,
+        "host_trial_wall_seconds": 2.720708817999821,
+        "rollout_executed": true,
+        "failure_stage": "policy_execution"
+      },
+      {
+        "seed": 4206,
+        "success": false,
+        "policy_error": "RuntimeError: RuntimeError: RuntimeError: Requested tool position is unreachable within 5 mm",
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.131935566,
+          "rpc_cpu_seconds": 0.008908635999999956,
+          "compute_interval_count": 12,
+          "compute_interval_cpu_p50_ms": 6.922408999999997,
+          "compute_interval_cpu_p95_ms": 41.67428404999996,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "camera_calls": 6,
+        "host_trial_wall_seconds": 2.7187258870001187,
+        "rollout_executed": true,
+        "failure_stage": "policy_execution"
+      },
+      {
+        "seed": 4207,
+        "success": false,
+        "policy_error": "RuntimeError: RuntimeError: RuntimeError: Requested tool position is unreachable within 5 mm",
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.13351292400000003,
+          "rpc_cpu_seconds": 0.009254931999999966,
+          "compute_interval_count": 12,
+          "compute_interval_cpu_p50_ms": 7.083023499999993,
+          "compute_interval_cpu_p95_ms": 41.62552334999997,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "camera_calls": 6,
+        "host_trial_wall_seconds": 2.6699274579998473,
+        "rollout_executed": true,
+        "failure_stage": "policy_execution"
+      },
+      {
+        "seed": 4208,
+        "success": false,
+        "policy_error": "RuntimeError: RuntimeError: RuntimeError: Requested tool position is unreachable within 5 mm",
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.15570960600000006,
+          "rpc_cpu_seconds": 0.01279670499999995,
+          "compute_interval_count": 23,
+          "compute_interval_cpu_p50_ms": 0.02813100000001456,
+          "compute_interval_cpu_p95_ms": 12.306530799999992,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "camera_calls": 8,
+        "host_trial_wall_seconds": 2.9209269069999664,
+        "rollout_executed": true,
+        "failure_stage": "policy_execution"
+      },
+      {
+        "seed": 4209,
+        "success": false,
+        "policy_error": "RuntimeError: RuntimeError: RuntimeError: Requested tool position is unreachable within 5 mm",
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.15049541800000002,
+          "rpc_cpu_seconds": 0.012388914000000001,
+          "compute_interval_count": 23,
+          "compute_interval_cpu_p50_ms": 0.010366999999983362,
+          "compute_interval_cpu_p95_ms": 11.229714399999999,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "camera_calls": 8,
+        "host_trial_wall_seconds": 2.8702954130001217,
+        "rollout_executed": true,
+        "failure_stage": "policy_execution"
+      },
+      {
+        "seed": 4210,
+        "success": false,
+        "policy_error": "RuntimeError: RuntimeError: RuntimeError: Requested tool position is unreachable within 5 mm",
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.24280145699999978,
+          "rpc_cpu_seconds": 0.027708748000000213,
+          "compute_interval_count": 64,
+          "compute_interval_cpu_p50_ms": 0.007355499999972537,
+          "compute_interval_cpu_p95_ms": 9.835911449999987,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "camera_calls": 18,
+        "host_trial_wall_seconds": 3.471717088000105,
+        "rollout_executed": true,
+        "failure_stage": "policy_execution"
+      }
+    ],
+    "geometry": [
+      {
+        "seed": 4201,
+        "success": false,
+        "policy_error": null,
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.3711233410000001,
+          "rpc_cpu_seconds": 0.05154694299999987,
+          "compute_interval_count": 111,
+          "compute_interval_cpu_p50_ms": 0.006355000000013433,
+          "compute_interval_cpu_p95_ms": 9.306906500000018,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "camera_calls": 28,
+        "host_trial_wall_seconds": 4.122583388000066,
+        "rollout_executed": true,
+        "failure_stage": "task_evaluation"
+      },
+      {
+        "seed": 4202,
+        "success": false,
+        "policy_error": null,
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.36360472399999993,
+          "rpc_cpu_seconds": 0.04940698300000007,
+          "compute_interval_count": 107,
+          "compute_interval_cpu_p50_ms": 0.004810999999993459,
+          "compute_interval_cpu_p95_ms": 9.295783300000014,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "camera_calls": 27,
+        "host_trial_wall_seconds": 4.120459020999988,
+        "rollout_executed": true,
+        "failure_stage": "task_evaluation"
+      },
+      {
+        "seed": 4203,
+        "success": false,
+        "policy_error": "RuntimeError: RuntimeError: RuntimeError: Requested tool position is unreachable within 5 mm",
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.18826340400000002,
+          "rpc_cpu_seconds": 0.01369502899999997,
+          "compute_interval_count": 23,
+          "compute_interval_cpu_p50_ms": 0.007868999999993687,
+          "compute_interval_cpu_p95_ms": 10.471683400000005,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "camera_calls": 8,
+        "host_trial_wall_seconds": 2.919752408000022,
+        "rollout_executed": true,
+        "failure_stage": "policy_execution"
+      },
+      {
+        "seed": 4204,
+        "success": false,
+        "policy_error": "RuntimeError: RuntimeError: RuntimeError: Requested tool position is unreachable within 5 mm",
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.26891409599999994,
+          "rpc_cpu_seconds": 0.030090474000000006,
+          "compute_interval_count": 60,
+          "compute_interval_cpu_p50_ms": 0.006788499999965669,
+          "compute_interval_cpu_p95_ms": 9.446964149999985,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "camera_calls": 17,
+        "host_trial_wall_seconds": 3.419164430999899,
+        "rollout_executed": true,
+        "failure_stage": "policy_execution"
+      },
+      {
+        "seed": 4205,
+        "success": false,
+        "policy_error": "RuntimeError: RuntimeError: RuntimeError: Requested tool position is unreachable within 5 mm",
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.17414546799999997,
+          "rpc_cpu_seconds": 0.01027975200000003,
+          "compute_interval_count": 12,
+          "compute_interval_cpu_p50_ms": 7.232371999999987,
+          "compute_interval_cpu_p95_ms": 60.04134464999993,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "camera_calls": 6,
+        "host_trial_wall_seconds": 2.770077707999917,
+        "rollout_executed": true,
+        "failure_stage": "policy_execution"
+      },
+      {
+        "seed": 4206,
+        "success": false,
+        "policy_error": "RuntimeError: RuntimeError: RuntimeError: Requested tool position is unreachable within 5 mm",
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.17420962700000003,
+          "rpc_cpu_seconds": 0.010515055999999967,
+          "compute_interval_count": 12,
+          "compute_interval_cpu_p50_ms": 7.208016000000011,
+          "compute_interval_cpu_p95_ms": 59.91931114999992,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "camera_calls": 6,
+        "host_trial_wall_seconds": 2.7695228360000783,
+        "rollout_executed": true,
+        "failure_stage": "policy_execution"
+      },
+      {
+        "seed": 4207,
+        "success": false,
+        "policy_error": "RuntimeError: RuntimeError: RuntimeError: Requested tool position is unreachable within 5 mm",
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.170857795,
+          "rpc_cpu_seconds": 0.010163439999999996,
+          "compute_interval_count": 12,
+          "compute_interval_cpu_p50_ms": 6.939414999999991,
+          "compute_interval_cpu_p95_ms": 59.21230664999993,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "camera_calls": 6,
+        "host_trial_wall_seconds": 2.770607322999922,
+        "rollout_executed": true,
+        "failure_stage": "policy_execution"
+      },
+      {
+        "seed": 4208,
+        "success": false,
+        "policy_error": "RuntimeError: RuntimeError: RuntimeError: Requested tool position is unreachable within 5 mm",
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.19319530899999998,
+          "rpc_cpu_seconds": 0.015066326000000019,
+          "compute_interval_count": 23,
+          "compute_interval_cpu_p50_ms": 0.02370700000001169,
+          "compute_interval_cpu_p95_ms": 11.551228999999985,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "camera_calls": 8,
+        "host_trial_wall_seconds": 2.9711377139999513,
+        "rollout_executed": true,
+        "failure_stage": "policy_execution"
+      },
+      {
+        "seed": 4209,
+        "success": false,
+        "policy_error": "RuntimeError: RuntimeError: RuntimeError: Requested tool position is unreachable within 5 mm",
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.18769490800000008,
+          "rpc_cpu_seconds": 0.013744343999999936,
+          "compute_interval_count": 23,
+          "compute_interval_cpu_p50_ms": 0.008172000000000734,
+          "compute_interval_cpu_p95_ms": 10.55415420000001,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "camera_calls": 8,
+        "host_trial_wall_seconds": 2.9714487339999778,
+        "rollout_executed": true,
+        "failure_stage": "policy_execution"
+      },
+      {
+        "seed": 4210,
+        "success": false,
+        "policy_error": "RuntimeError: RuntimeError: RuntimeError: Requested tool position is unreachable within 5 mm",
+        "cpu_profile": {
+          "policy_compute_cpu_seconds": 0.286730987,
+          "rpc_cpu_seconds": 0.03280377599999998,
+          "compute_interval_count": 64,
+          "compute_interval_cpu_p50_ms": 0.009275500000002768,
+          "compute_interval_cpu_p95_ms": 10.576657650000005,
+          "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+        },
+        "camera_calls": 18,
+        "host_trial_wall_seconds": 3.522610794000002,
+        "rollout_executed": true,
+        "failure_stage": "policy_execution"
+      }
+    ]
+  },
+  "limitations": [
+    "Single campaign per arm; no statistical efficacy claim.",
+    "Fixed revision/rollout budget; tokens and elapsed time are measured, not matched.",
+    "CPU intervals exclude RPC/rendering/IK; no realtime or VLM-latency claim.",
+    "Ideal side RGB-D, unique colors, three cubes, fixed order, no distractors."
+  ]
+}

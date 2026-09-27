@@ -1,0 +1,724 @@
+{
+  "purpose": "Development-only fixed-executor bridge diagnostic; not a policy comparison",
+  "seeds": [
+    75001,
+    75002,
+    75003,
+    75004
+  ],
+  "original_successes": 1,
+  "original_trials": 4,
+  "completed_release_observations": 12,
+  "limits": [
+    "Only completed releases are scored; seed 75004 has none and remains a failed physical trial.",
+    "Recorded basic-estimator release residuals reproduce within 1e-10 m.",
+    "Mixed estimates are counterfactual sensor-only fits from the same frame; the executed policy did not use them.",
+    "The post-release interval includes gripper opening, waiting and retreat; this audit does not isolate a particular contact mechanism.",
+    "Corrected evaluator final-state checks are not new full five-second success evaluations. Original results remain unchanged.",
+    "Development data, unique colors and ideal simulated depth; no held-out policy or real-camera claim."
+  ],
+  "trials": [
+    {
+      "trial": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/mixed_pnp_development_03/seed_75001",
+      "rows": [
+        {
+          "key": "left",
+          "color": "blue",
+          "shape": "cube",
+          "time": 18.35000000000071,
+          "post_release_time": 29.149999999994723,
+          "camera": "camera_014.npz",
+          "target_surface_m": [
+            -0.11869628296416616,
+            -0.26915152559885397,
+            0.40000285710374006
+          ],
+          "logged_xy_error_m": 0.0018036473866970826,
+          "basic_center_m": [
+            -0.11736636020178699,
+            -0.2679331457969675,
+            0.414861892626257
+          ],
+          "mixed_center_m": [
+            -0.11827085445459856,
+            -0.2685659022182962,
+            0.41492332916222063
+          ],
+          "mixed_constrained_axes": [
+            true,
+            true,
+            false
+          ],
+          "mixed_inferred_orientation": false,
+          "true_center_before_m": [
+            -0.11832817826398553,
+            -0.26799760249001847,
+            0.4148763741452086
+          ],
+          "true_center_after_m": [
+            -0.11826780430992372,
+            -0.268102862859805,
+            0.41489224457978385
+          ],
+          "true_release_xy_error_mm": 1.2112141063410922,
+          "true_post_release_xy_error_mm": 1.1328228005346206,
+          "post_release_xy_movement_mm": 0.12134562116803266,
+          "basic_center_error_mm": 0.9640842102438838,
+          "basic_xy_bias_mm": [
+            0.9618180621985412,
+            0.064456693050996
+          ],
+          "mixed_center_error_mm": 0.5731102633051969,
+          "mixed_xy_bias_mm": [
+            0.057323809386972124,
+            -0.5682997282777102
+          ]
+        },
+        {
+          "key": "right",
+          "color": "yellow",
+          "shape": "cube",
+          "time": 47.3500000000119,
+          "post_release_time": 58.1500000000251,
+          "camera": "camera_024.npz",
+          "target_surface_m": [
+            -0.05928231001595345,
+            -0.26915152559885397,
+            0.400002668291428
+          ],
+          "logged_xy_error_m": 0.002085747398982616,
+          "basic_center_m": [
+            -0.05909094283826758,
+            -0.2670745757160529,
+            0.4152103205168089
+          ],
+          "mixed_center_m": [
+            -0.05983133624330945,
+            -0.26772927122560536,
+            0.41516043210603926
+          ],
+          "mixed_constrained_axes": [
+            true,
+            true,
+            false
+          ],
+          "mixed_inferred_orientation": false,
+          "true_center_before_m": [
+            -0.059882078610451604,
+            -0.26746974584779654,
+            0.4151092447026715
+          ],
+          "true_center_after_m": [
+            -0.05983260027473548,
+            -0.2676129426542342,
+            0.41489224457978385
+          ],
+          "true_release_xy_error_mm": 1.785526672445161,
+          "true_post_release_xy_error_mm": 1.6340308584556373,
+          "post_release_xy_movement_mm": 0.15150389790094468,
+          "basic_center_error_mm": 0.89009637863268,
+          "basic_xy_bias_mm": [
+            0.7911357721840234,
+            0.39517013174361626
+          ],
+          "mixed_center_error_mm": 0.2693480273058126,
+          "mixed_xy_bias_mm": [
+            0.05074236714215641,
+            -0.25952537780882245
+          ]
+        },
+        {
+          "key": "beam",
+          "color": "green",
+          "shape": "thin_prism",
+          "time": 81.84999999999064,
+          "post_release_time": 92.64999999996547,
+          "camera": "camera_038.npz",
+          "target_surface_m": [
+            -0.08869990689716943,
+            -0.268419220500229,
+            0.4297503804644019
+          ],
+          "logged_xy_error_m": 0.0024159977975155298,
+          "basic_center_m": [
+            -0.08803412376755942,
+            -0.2660967696004409,
+            0.44446011919734235
+          ],
+          "mixed_center_m": [
+            -0.0925105781640922,
+            -0.26679010772778616,
+            0.444507567786243
+          ],
+          "mixed_constrained_axes": [
+            true,
+            true,
+            false
+          ],
+          "mixed_inferred_orientation": false,
+          "true_center_before_m": [
+            -0.09263585027509216,
+            -0.26643132904417577,
+            0.44445849925035213
+          ],
+          "true_center_after_m": [
+            -0.09269779754944138,
+            -0.26659745779110267,
+            0.4372220084686639
+          ],
+          "true_release_xy_error_mm": 4.409462860175054,
+          "true_post_release_xy_error_mm": 4.393398347052847,
+          "post_release_xy_movement_mm": 0.1773026377547668,
+          "basic_center_error_mm": 4.61387250536357,
+          "basic_xy_bias_mm": [
+            4.601726507532739,
+            0.3345594437348942
+          ],
+          "mixed_center_error_mm": 0.3831748515000299,
+          "mixed_xy_bias_mm": [
+            0.12527211099996882,
+            -0.35877868361039456
+          ]
+        },
+        {
+          "key": "cap",
+          "color": "red",
+          "shape": "cylinder",
+          "time": 112.29999999991968,
+          "post_release_time": 123.09999999989451,
+          "camera": "camera_050.npz",
+          "target_surface_m": [
+            -0.09213007623911,
+            -0.26685552467764506,
+            0.4446234669936145
+          ],
+          "logged_xy_error_m": 0.002495429775565398,
+          "basic_center_m": [
+            -0.09036243356521224,
+            -0.2650941022007265,
+            0.4760674058961758
+          ],
+          "mixed_center_m": [
+            -0.09310179574157906,
+            -0.2665232936022408,
+            0.4763799819621663
+          ],
+          "mixed_constrained_axes": [
+            true,
+            true,
+            true
+          ],
+          "mixed_inferred_orientation": false,
+          "true_center_before_m": [
+            -0.09321893708162578,
+            -0.2664412423132265,
+            0.4763146800524951
+          ],
+          "true_center_after_m": [
+            -0.09324122960747046,
+            -0.2728674065786264,
+            0.4743846777166929
+          ],
+          "true_release_xy_error_mm": 1.1650097904448622,
+          "true_post_release_xy_error_mm": 6.113704752387526,
+          "post_release_xy_movement_mm": 6.426202931950635,
+          "basic_center_error_mm": 3.1678925692600295,
+          "basic_xy_bias_mm": [
+            2.8565035164135333,
+            1.3471401125000337
+          ],
+          "mixed_center_error_mm": 0.15722228526373008,
+          "mixed_xy_bias_mm": [
+            0.11714134004671417,
+            -0.08205128901428438
+          ]
+        }
+      ],
+      "initial_model_errors": {},
+      "corrected_final_status": {
+        "stable": true,
+        "reasons": []
+      },
+      "original_success": true
+    },
+    {
+      "trial": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/mixed_pnp_development_03/seed_75002",
+      "rows": [
+        {
+          "key": "left",
+          "color": "blue",
+          "shape": "cube",
+          "time": 19.649999999999988,
+          "post_release_time": 30.449999999994002,
+          "camera": "camera_014.npz",
+          "target_surface_m": [
+            -0.00799344562398227,
+            -0.3317223782027282,
+            0.4000023629272884
+          ],
+          "logged_xy_error_m": 0.0036058651161697524,
+          "basic_center_m": [
+            -0.00861825280775011,
+            -0.3281710574316457,
+            0.4204583431665401
+          ],
+          "mixed_center_m": [
+            -0.008895038971043186,
+            -0.329760860144953,
+            0.42055770725297154
+          ],
+          "mixed_constrained_axes": [
+            true,
+            true,
+            false
+          ],
+          "mixed_inferred_orientation": false,
+          "true_center_before_m": [
+            -0.008946165109573781,
+            -0.3291597985520868,
+            0.42047890413706474
+          ],
+          "true_center_after_m": [
+            -0.008810771843206111,
+            -0.32963203826979326,
+            0.4148922445797841
+          ],
+          "true_release_xy_error_mm": 2.733951148815038,
+          "true_post_release_xy_error_mm": 2.2444471889205193,
+          "post_release_xy_movement_mm": 0.4912653942190112,
+          "basic_center_error_mm": 1.0419012594518577,
+          "basic_xy_bias_mm": [
+            0.3279123018236716,
+            0.9887411204411167
+          ],
+          "mixed_center_error_mm": 0.608357503065816,
+          "mixed_xy_bias_mm": [
+            0.05112613853059528,
+            -0.6010615928661589
+          ]
+        },
+        {
+          "key": "right",
+          "color": "yellow",
+          "shape": "cube",
+          "time": 54.15000000002021,
+          "post_release_time": 64.95000000003003,
+          "camera": "camera_026.npz",
+          "target_surface_m": [
+            0.051709422679617784,
+            -0.3317223782027282,
+            0.4000021721292102
+          ],
+          "logged_xy_error_m": 0.002988282131685709,
+          "basic_center_m": [
+            0.05137252570378538,
+            -0.32875314757405905,
+            0.4212372967794561
+          ],
+          "mixed_center_m": [
+            0.04817187807464857,
+            -0.32972517792634054,
+            0.4211297255622399
+          ],
+          "mixed_constrained_axes": [
+            true,
+            true,
+            false
+          ],
+          "mixed_inferred_orientation": false,
+          "true_center_before_m": [
+            0.048121642512499084,
+            -0.32939941770166525,
+            0.4210550877331445
+          ],
+          "true_center_after_m": [
+            0.048555378706173886,
+            -0.3307824798429494,
+            0.41489224457978385
+          ],
+          "true_release_xy_error_mm": 4.274144594777876,
+          "true_post_release_xy_error_mm": 3.291109586922421,
+          "post_release_xy_movement_mm": 1.4494785173837452,
+          "basic_center_error_mm": 3.3195039897222145,
+          "basic_xy_bias_mm": [
+            3.250883191286295,
+            0.6462701276062077
+          ],
+          "mixed_center_error_mm": 0.337955827316295,
+          "mixed_xy_bias_mm": [
+            0.05023556214948932,
+            -0.32576022467528665
+          ]
+        },
+        {
+          "key": "beam",
+          "color": "green",
+          "shape": "thin_prism",
+          "time": 88.6499999999748,
+          "post_release_time": 99.44999999994963,
+          "camera": "camera_040.npz",
+          "target_surface_m": [
+            0.020339827001943502,
+            -0.3304507565855511,
+            0.42984466458820575
+          ],
+          "logged_xy_error_m": 0.0026934454653350596,
+          "basic_center_m": [
+            0.019495294990045087,
+            -0.3278931377406853,
+            0.44321009756646523
+          ],
+          "mixed_center_m": [
+            0.013134490827561176,
+            -0.3282867915465104,
+            0.4431684090307361
+          ],
+          "mixed_constrained_axes": [
+            true,
+            true,
+            false
+          ],
+          "mixed_inferred_orientation": false,
+          "true_center_before_m": [
+            0.012569211219753422,
+            -0.3280812547017853,
+            0.44313649992297943
+          ],
+          "true_center_after_m": [
+            0.012741006967535452,
+            -0.32714707719330033,
+            0.437217702939209
+          ],
+          "true_release_xy_error_mm": 8.123854307629562,
+          "true_post_release_xy_error_mm": 8.285913555070662,
+          "post_release_xy_movement_mm": 0.9498428271641305,
+          "basic_center_error_mm": 6.929028863937411,
+          "basic_xy_bias_mm": [
+            6.926083770291665,
+            0.18811696109999332
+          ],
+          "mixed_center_error_mm": 0.6023326495390052,
+          "mixed_xy_bias_mm": [
+            0.5652796078077539,
+            -0.20553684472512934
+          ]
+        },
+        {
+          "key": "cap",
+          "color": "red",
+          "shape": "cylinder",
+          "time": 123.14999999989439,
+          "post_release_time": 133.94999999991148,
+          "camera": "camera_053.npz",
+          "target_surface_m": [
+            0.013451172551943022,
+            -0.32753774927035273,
+            0.4446933331148184
+          ],
+          "logged_xy_error_m": 0.0021483668120801298,
+          "basic_center_m": [
+            0.013680802368132619,
+            -0.3254016897892605,
+            0.482355516552462
+          ],
+          "mixed_center_m": [
+            0.012569709671548848,
+            -0.3259968637720986,
+            0.4826150803986613
+          ],
+          "mixed_constrained_axes": [
+            true,
+            true,
+            true
+          ],
+          "mixed_inferred_orientation": false,
+          "true_center_before_m": [
+            0.012613944414329954,
+            -0.32597769176624036,
+            0.48255503343369116
+          ],
+          "true_center_after_m": [
+            0.011789633200875142,
+            -0.33598772758691,
+            0.4743696168525911
+          ],
+          "true_release_xy_error_mm": 1.770516978328181,
+          "true_post_release_xy_error_mm": 8.611785329734756,
+          "post_release_xy_movement_mm": 10.043918862063562,
+          "basic_center_error_mm": 1.2287274543087843,
+          "basic_xy_bias_mm": [
+            1.0668579538026646,
+            0.5760019769798785
+          ],
+          "mixed_center_error_mm": 0.07700594963808464,
+          "mixed_xy_bias_mm": [
+            -0.044234742781106354,
+            -0.019172005858214547
+          ]
+        }
+      ],
+      "initial_model_errors": {},
+      "corrected_final_status": {
+        "stable": false,
+        "reasons": [
+          "red_cylinder: incorrect relative XY position"
+        ]
+      },
+      "original_success": false
+    },
+    {
+      "trial": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/mixed_pnp_development_03/seed_75003",
+      "rows": [
+        {
+          "key": "left",
+          "color": "blue",
+          "shape": "cube",
+          "time": 23.84999999999766,
+          "post_release_time": 34.64999999999638,
+          "camera": "camera_016.npz",
+          "target_surface_m": [
+            0.07910037802750229,
+            -0.30277950916781865,
+            0.40000257202888667
+          ],
+          "logged_xy_error_m": 0.002251796662602895,
+          "basic_center_m": [
+            0.07844073128690314,
+            -0.3006264986273599,
+            0.42236051986487655
+          ],
+          "mixed_center_m": [
+            0.07545272845752084,
+            -0.30096018759120874,
+            0.4225521386163586
+          ],
+          "mixed_constrained_axes": [
+            true,
+            true,
+            false
+          ],
+          "mixed_inferred_orientation": false,
+          "true_center_before_m": [
+            0.07539772547665897,
+            -0.30063284494826104,
+            0.4225090549735894
+          ],
+          "true_center_after_m": [
+            0.07459792283508229,
+            -0.30090107247967113,
+            0.41489224457978413
+          ],
+          "true_release_xy_error_mm": 4.27993027791288,
+          "true_post_release_xy_error_mm": 4.878588643360746,
+          "post_release_xy_movement_mm": 0.8435818123213611,
+          "basic_center_error_mm": 3.0466354090191152,
+          "basic_xy_bias_mm": [
+            3.043005810244165,
+            0.00634632090112941
+          ],
+          "mixed_center_error_mm": 0.33471590053348155,
+          "mixed_xy_bias_mm": [
+            0.055002980861862394,
+            -0.3273426429477033
+          ]
+        },
+        {
+          "key": "right",
+          "color": "yellow",
+          "shape": "cube",
+          "time": 58.35000000002535,
+          "post_release_time": 69.15000000002024,
+          "camera": "camera_028.npz",
+          "target_surface_m": [
+            0.13864351915847323,
+            -0.30277950916781865,
+            0.4000023408978808
+          ],
+          "logged_xy_error_m": 0.002681077301488895,
+          "basic_center_m": [
+            0.1374915345589969,
+            -0.3003585368468021,
+            0.42050060873529416
+          ],
+          "mixed_center_m": [
+            0.13263450147887385,
+            -0.2999594315252506,
+            0.4204171814503675
+          ],
+          "mixed_constrained_axes": [
+            true,
+            true,
+            false
+          ],
+          "mixed_inferred_orientation": false,
+          "true_center_before_m": [
+            0.132579996332393,
+            -0.299513302994219,
+            0.42033915011552525
+          ],
+          "true_center_after_m": [
+            0.13276453628511403,
+            -0.3001907988528477,
+            0.41489224457978385
+          ],
+          "true_release_xy_error_mm": 6.887264466452278,
+          "true_post_release_xy_error_mm": 6.423695254297766,
+          "post_release_xy_movement_mm": 0.7021792026322854,
+          "basic_center_error_mm": 4.98635106093037,
+          "basic_xy_bias_mm": [
+            4.911538226603895,
+            -0.8452338525830605
+          ],
+          "mixed_center_error_mm": 0.4561692300129099,
+          "mixed_xy_bias_mm": [
+            0.05450514648083771,
+            -0.44612853103159766
+          ]
+        },
+        {
+          "key": "beam",
+          "color": "green",
+          "shape": "thin_prism",
+          "time": 87.34999999997783,
+          "post_release_time": 98.14999999995266,
+          "camera": "camera_040.npz",
+          "target_surface_m": [
+            0.1039197484151266,
+            -0.30089416089626747,
+            0.42984180832144886
+          ],
+          "logged_xy_error_m": 0.0020151326537757885,
+          "basic_center_m": [
+            0.10415914830214835,
+            -0.2988932992552719,
+            0.43728528313276605
+          ],
+          "mixed_center_m": [
+            0.0925787009626732,
+            -0.2989749564179017,
+            0.437317304906475
+          ],
+          "mixed_constrained_axes": [
+            true,
+            false,
+            false
+          ],
+          "mixed_inferred_orientation": false,
+          "true_center_before_m": [
+            0.09193057131987521,
+            -0.29854633592956686,
+            0.43726224747144515
+          ],
+          "true_center_after_m": [
+            0.09253284001601503,
+            -0.2996675179665399,
+            0.4372135740803165
+          ],
+          "true_release_xy_error_mm": 12.21690015902411,
+          "true_post_release_xy_error_mm": 11.45278724882325,
+          "post_release_xy_movement_mm": 1.2727044992381207,
+          "basic_center_error_mm": 12.233519902401651,
+          "basic_xy_bias_mm": [
+            12.228576982273143,
+            -0.34696332570505195
+          ],
+          "mixed_center_error_mm": 0.7789858009270377,
+          "mixed_xy_bias_mm": [
+            0.6481296427979927,
+            -0.4286204883348632
+          ]
+        },
+        {
+          "key": "cap",
+          "color": "red",
+          "shape": "cylinder",
+          "time": 121.84999999989742,
+          "post_release_time": 132.64999999990528,
+          "camera": "camera_053.npz",
+          "target_surface_m": [
+            0.09283159714808653,
+            -0.2999290820305471,
+            0.44467304780964867
+          ],
+          "logged_xy_error_m": 0.0018210853842445917,
+          "basic_center_m": [
+            0.09207695244007941,
+            -0.2982717156433574,
+            0.48256573890748805
+          ],
+          "mixed_center_m": [
+            0.0909993336079781,
+            -0.2983072300357147,
+            0.48273454004119043
+          ],
+          "mixed_constrained_axes": [
+            true,
+            true,
+            true
+          ],
+          "mixed_inferred_orientation": false,
+          "true_center_before_m": [
+            0.09100347137521218,
+            -0.2983196845283751,
+            0.482690561781081
+          ],
+          "true_center_after_m": [
+            0.09028199793956669,
+            -0.3072477504313672,
+            0.4743568538327567
+          ],
+          "true_release_xy_error_mm": 2.435611660639858,
+          "true_post_release_xy_error_mm": 7.750055695622325,
+          "post_release_xy_movement_mm": 8.95716945728462,
+          "basic_center_error_mm": 1.0817778701426224,
+          "basic_xy_bias_mm": [
+            1.0734810648672237,
+            0.0479688850176796
+          ],
+          "mixed_center_error_mm": 0.04589469323750445,
+          "mixed_xy_bias_mm": [
+            -0.004137767234083101,
+            0.012454492660407546
+          ]
+        }
+      ],
+      "initial_model_errors": {},
+      "corrected_final_status": {
+        "stable": false,
+        "reasons": [
+          "blue_cube: incorrect relative XY position",
+          "green_thin_prism: incorrect relative XY position",
+          "red_cylinder: incorrect relative XY position"
+        ]
+      },
+      "original_success": false
+    },
+    {
+      "trial": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/mixed_pnp_development_03/seed_75004",
+      "rows": [],
+      "initial_model_errors": {},
+      "corrected_final_status": {
+        "stable": false,
+        "reasons": [
+          "blue_cube: incorrect relative XY position",
+          "blue_cube: no cube face is upright",
+          "blue_cube: still touching robot",
+          "blue_cube: missing table support",
+          "yellow_cube: incorrect relative XY position",
+          "green_thin_prism: incorrect relative XY position",
+          "green_thin_prism: upper object touches table",
+          "green_thin_prism: missing required support blue_cube",
+          "green_thin_prism: incorrect support height on blue_cube",
+          "green_thin_prism: missing required support yellow_cube",
+          "green_thin_prism: incorrect support height on yellow_cube",
+          "red_cylinder: incorrect relative XY position",
+          "red_cylinder: upper object touches table",
+          "red_cylinder: missing required support green_thin_prism",
+          "red_cylinder: incorrect support height on green_thin_prism",
+          "structure: No support patch with requested margin"
+        ]
+      },
+      "original_success": false
+    }
+  ]
+}

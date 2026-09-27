@@ -1,0 +1,46 @@
+{
+  "purpose": "Interface parity integration on inspected development layouts, not agent-learning evidence",
+  "manifest": {
+    "purpose": "paired live interface integration, not agent learning or success-rate inference",
+    "seeds": [
+      75103,
+      75105
+    ],
+    "arms": [
+      "numeric",
+      "symbolic"
+    ],
+    "same_planner": true,
+    "same_sensing_and_execution": true,
+    "temporal_prediction_enabled": false,
+    "candidate_sha256": {
+      "numeric": "24808abf716c5abbb73154f6d0dacb9499f8d6b98059884f72a2e63c75702a3b",
+      "symbolic": "530c59309eef878309494e4dce851d3a04d17ba585ff8e0aaf5dc7ebed48b3bd"
+    }
+  },
+  "comparisons": [
+    {
+      "seed": 75103,
+      "numeric_success": true,
+      "symbolic_success": true,
+      "identical_physical_trajectory": true,
+      "identical_numeric_states": true,
+      "state_checkpoints": 5,
+      "camera_calls_per_arm": 82
+    },
+    {
+      "seed": 75105,
+      "numeric_success": true,
+      "symbolic_success": true,
+      "identical_physical_trajectory": true,
+      "identical_numeric_states": true,
+      "state_checkpoints": 5,
+      "camera_calls_per_arm": 79
+    }
+  ],
+  "limitations": [
+    "The same manual planner is used; symbolic queries do not select different actions in this check.",
+    "Sources and packets are the archived integration version; later text or guard changes do not rewrite them.",
+    "Conditional prediction is disabled, and no reserved scenes or actor revisions are included."
+  ]
+}

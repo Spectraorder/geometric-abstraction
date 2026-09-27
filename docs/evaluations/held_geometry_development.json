@@ -1,0 +1,674 @@
+{
+  "scope": "Small visual/robot-only held-point probe, separate from policy learning.\n\nSix development trials: two layouts, cube/beam/cylinder targets, five prescribed\nrobot offsets. These do not attempt the bridge task and are not task-SR trials.\n",
+  "planned_motion_checks": 30,
+  "recorded_motion_checks": 15,
+  "fully_observed_pairs": 10,
+  "fully_observed_shapes": [
+    "cube",
+    "cylinder"
+  ],
+  "median_visual_residual_m": 0.00018714167658778736,
+  "max_visual_residual_m": 0.0006804270302664063,
+  "trials": [
+    {
+      "target_key": "left",
+      "seed": 960001,
+      "recorded_motion_checks": 5,
+      "visual_observations": 5,
+      "notes": []
+    },
+    {
+      "target_key": "left",
+      "seed": 960002,
+      "recorded_motion_checks": 0,
+      "visual_observations": 0,
+      "notes": []
+    },
+    {
+      "target_key": "beam",
+      "seed": 960001,
+      "recorded_motion_checks": 5,
+      "visual_observations": 5,
+      "notes": []
+    },
+    {
+      "target_key": "beam",
+      "seed": 960002,
+      "recorded_motion_checks": 0,
+      "visual_observations": 0,
+      "notes": []
+    },
+    {
+      "target_key": "cap",
+      "seed": 960001,
+      "recorded_motion_checks": 5,
+      "visual_observations": 5,
+      "notes": []
+    },
+    {
+      "target_key": "cap",
+      "seed": 960002,
+      "recorded_motion_checks": 0,
+      "visual_observations": 0,
+      "notes": []
+    }
+  ],
+  "records": [
+    {
+      "kind": "held_prediction_probe",
+      "object": "blue",
+      "shape": "cube",
+      "step": 0,
+      "from_time": 9.899999999999975,
+      "time": 11.100000000000376,
+      "condition": "Rigid attachment without slip after confirmed lift; not contact certified.",
+      "predicted_center_m": [
+        0.019588576561916312,
+        -0.35137145484581706,
+        0.4603702077511845
+      ],
+      "source_position_fully_observed": true,
+      "from_tool_position_m": [
+        0.005161330838033775,
+        -0.3607384384720552,
+        0.48740920381262376
+      ],
+      "to_tool_position_m": [
+        0.01902819146192078,
+        -0.35938182602942204,
+        0.48142516085122167
+      ],
+      "visual_observation_available": true,
+      "later_visual_center_m": [
+        0.01960109794012346,
+        -0.3512745289077366,
+        0.4603359027632053
+      ],
+      "visual_residual_m": [
+        1.2521378207147604e-05,
+        9.692593808047212e-05,
+        -3.4304987979183466e-05
+      ],
+      "visual_residual_norm_m": 0.00010357728797973941,
+      "later_position_fully_observed": true,
+      "target_key": "left",
+      "seed": 960001
+    },
+    {
+      "kind": "held_prediction_probe",
+      "object": "blue",
+      "shape": "cube",
+      "step": 1,
+      "from_time": 11.100000000000376,
+      "time": 12.300000000000777,
+      "condition": "Rigid attachment without slip after confirmed lift; not contact certified.",
+      "predicted_center_m": [
+        -0.008144170600267559,
+        -0.35133118118166357,
+        0.45971533188070635
+      ],
+      "source_position_fully_observed": true,
+      "from_tool_position_m": [
+        0.01902819146192078,
+        -0.35938182602942204,
+        0.48142516085122167
+      ],
+      "to_tool_position_m": [
+        -0.008305403968318312,
+        -0.35951084319979254,
+        0.48078380188270753
+      ],
+      "visual_observation_available": true,
+      "later_visual_center_m": [
+        -0.008176539065741052,
+        -0.3513212723117551,
+        0.45972226697599916
+      ],
+      "visual_residual_m": [
+        -3.2368465473492716e-05,
+        9.908869908481499e-06,
+        6.935095292814886e-06
+      ],
+      "visual_residual_norm_m": 3.4554287819203036e-05,
+      "later_position_fully_observed": true,
+      "target_key": "left",
+      "seed": 960001
+    },
+    {
+      "kind": "held_prediction_probe",
+      "object": "blue",
+      "shape": "cube",
+      "step": 2,
+      "from_time": 12.300000000000777,
+      "time": 13.500000000001178,
+      "condition": "Rigid attachment without slip after confirmed lift; not contact certified.",
+      "predicted_center_m": [
+        0.0044513166720879915,
+        -0.33513829614681184,
+        0.4608050848366304
+      ],
+      "source_position_fully_observed": true,
+      "from_tool_position_m": [
+        -0.008305403968318312,
+        -0.35951084319979254,
+        0.48078380188270753
+      ],
+      "to_tool_position_m": [
+        0.0041469993492725225,
+        -0.34486576202922514,
+        0.4812001266015624
+      ],
+      "visual_observation_available": true,
+      "later_visual_center_m": [
+        0.004495172399138328,
+        -0.3351254274090383,
+        0.4608058053494856
+      ],
+      "visual_residual_m": [
+        4.3855727050336364e-05,
+        1.2868737773563677e-05,
+        7.205128552123519e-07
+      ],
+      "visual_residual_norm_m": 4.571048398095207e-05,
+      "later_position_fully_observed": true,
+      "target_key": "left",
+      "seed": 960001
+    },
+    {
+      "kind": "held_prediction_probe",
+      "object": "blue",
+      "shape": "cube",
+      "step": 3,
+      "from_time": 13.500000000001178,
+      "time": 14.700000000001578,
+      "condition": "Rigid attachment without slip after confirmed lift; not contact certified.",
+      "predicted_center_m": [
+        0.005511024590290262,
+        -0.3667997588295368,
+        0.4590490730748677
+      ],
+      "source_position_fully_observed": true,
+      "from_tool_position_m": [
+        0.0041469993492725225,
+        -0.34486576202922514,
+        0.4812001266015624
+      ],
+      "to_tool_position_m": [
+        0.00510720129457319,
+        -0.37320117615400566,
+        0.4807235388192085
+      ],
+      "visual_observation_available": true,
+      "later_visual_center_m": [
+        0.005495872173740207,
+        -0.366838603994131,
+        0.4590202604433208
+      ],
+      "visual_residual_m": [
+        -1.5152416550054913e-05,
+        -3.884516459418119e-05,
+        -2.8812631546915046e-05
+      ],
+      "visual_residual_norm_m": 5.068244544527908e-05,
+      "later_position_fully_observed": true,
+      "target_key": "left",
+      "seed": 960001
+    },
+    {
+      "kind": "held_prediction_probe",
+      "object": "blue",
+      "shape": "cube",
+      "step": 4,
+      "from_time": 14.700000000001578,
+      "time": 15.90000000000198,
+      "condition": "Rigid attachment without slip after confirmed lift; not contact certified.",
+      "predicted_center_m": [
+        0.00532936337557414,
+        -0.3535657594231257,
+        0.4786696885672228
+      ],
+      "source_position_fully_observed": true,
+      "from_tool_position_m": [
+        0.00510720129457319,
+        -0.37320117615400566,
+        0.4807235388192085
+      ],
+      "to_tool_position_m": [
+        0.004949081370724623,
+        -0.3604014366339918,
+        0.5002287837353608
+      ],
+      "visual_observation_available": true,
+      "later_visual_center_m": [
+        0.005331539162582412,
+        -0.3535358049874046,
+        0.47868715873402184
+      ],
+      "visual_residual_m": [
+        2.1757870082720135e-06,
+        2.995443572106904e-05,
+        1.7470166799038456e-05
+      ],
+      "visual_residual_norm_m": 3.4744913245815537e-05,
+      "later_position_fully_observed": true,
+      "target_key": "left",
+      "seed": 960001
+    },
+    {
+      "kind": "held_prediction_probe",
+      "object": "green",
+      "shape": "thin_prism",
+      "step": 0,
+      "from_time": 9.899999999999975,
+      "time": 11.100000000000376,
+      "condition": "Rigid attachment without slip after confirmed lift; not contact certified.",
+      "predicted_center_m": [
+        0.10818756514420487,
+        -0.18350520521305447,
+        0.4576996155278574
+      ],
+      "source_position_fully_observed": false,
+      "from_tool_position_m": [
+        0.09513719083194654,
+        -0.1979460175458004,
+        0.474226812733226
+      ],
+      "to_tool_position_m": [
+        0.10812328065302548,
+        -0.19663036829186875,
+        0.47198201629582487
+      ],
+      "visual_observation_available": true,
+      "later_visual_center_m": [
+        0.10827739616324288,
+        -0.18381339740460145,
+        0.4576913811601136
+      ],
+      "visual_residual_m": [
+        8.983101903800583e-05,
+        -0.0003081921915469854,
+        -8.234367743775728e-06
+      ],
+      "visual_residual_norm_m": 0.0003211227860555523,
+      "later_position_fully_observed": false,
+      "target_key": "beam",
+      "seed": 960001
+    },
+    {
+      "kind": "held_prediction_probe",
+      "object": "green",
+      "shape": "thin_prism",
+      "step": 1,
+      "from_time": 11.100000000000376,
+      "time": 12.300000000000777,
+      "condition": "Rigid attachment without slip after confirmed lift; not contact certified.",
+      "predicted_center_m": [
+        0.08070391319354073,
+        -0.1837767306657461,
+        0.4577997259382951
+      ],
+      "source_position_fully_observed": false,
+      "from_tool_position_m": [
+        0.10812328065302548,
+        -0.19663036829186875,
+        0.47198201629582487
+      ],
+      "to_tool_position_m": [
+        0.08052945401434994,
+        -0.19659093683601403,
+        0.47209260637291134
+      ],
+      "visual_observation_available": true,
+      "later_visual_center_m": [
+        0.08058222096041288,
+        -0.18393382481299414,
+        0.4578190886321801
+      ],
+      "visual_residual_m": [
+        -0.00012169223312784305,
+        -0.0001570941472480436,
+        1.936269388502776e-05
+      ],
+      "visual_residual_norm_m": 0.00019965591555903521,
+      "later_position_fully_observed": false,
+      "target_key": "beam",
+      "seed": 960001
+    },
+    {
+      "kind": "held_prediction_probe",
+      "object": "green",
+      "shape": "thin_prism",
+      "step": 2,
+      "from_time": 12.300000000000777,
+      "time": 13.500000000001178,
+      "condition": "Rigid attachment without slip after confirmed lift; not contact certified.",
+      "predicted_center_m": [
+        0.09388219540069333,
+        -0.17019017460593677,
+        0.45795777875298044
+      ],
+      "source_position_fully_observed": false,
+      "from_tool_position_m": [
+        0.08052945401434994,
+        -0.19659093683601403,
+        0.47209260637291134
+      ],
+      "to_tool_position_m": [
+        0.09379539610073932,
+        -0.18279621946035088,
+        0.4722762520242083
+      ],
+      "visual_observation_available": true,
+      "later_visual_center_m": [
+        0.0939242249974589,
+        -0.1697124871104275,
+        0.4579566771771763
+      ],
+      "visual_residual_m": [
+        4.20295967655665e-05,
+        0.0004776874955092769,
+        -1.1015758041299506e-06
+      ],
+      "visual_residual_norm_m": 0.00047953419465086514,
+      "later_position_fully_observed": false,
+      "target_key": "beam",
+      "seed": 960001
+    },
+    {
+      "kind": "held_prediction_probe",
+      "object": "green",
+      "shape": "thin_prism",
+      "step": 3,
+      "from_time": 13.500000000001178,
+      "time": 14.700000000001578,
+      "condition": "Rigid attachment without slip after confirmed lift; not contact certified.",
+      "predicted_center_m": [
+        0.09468656887827419,
+        -0.19724788338435065,
+        0.45772274250441924
+      ],
+      "source_position_fully_observed": false,
+      "from_tool_position_m": [
+        0.09379539610073932,
+        -0.18279621946035088,
+        0.4722762520242083
+      ],
+      "to_tool_position_m": [
+        0.09459280820339344,
+        -0.21037815827530945,
+        0.4719999258089971
+      ],
+      "visual_observation_available": true,
+      "later_visual_center_m": [
+        0.0947963344363918,
+        -0.19751354706613067,
+        0.4577439860013239
+      ],
+      "visual_residual_m": [
+        0.00010976555811760547,
+        -0.00026566368178002064,
+        2.1243496904632675e-05
+      ],
+      "visual_residual_norm_m": 0.000288230733487119,
+      "later_position_fully_observed": false,
+      "target_key": "beam",
+      "seed": 960001
+    },
+    {
+      "kind": "held_prediction_probe",
+      "object": "green",
+      "shape": "thin_prism",
+      "step": 4,
+      "from_time": 14.700000000001578,
+      "time": 15.90000000000198,
+      "condition": "Rigid attachment without slip after confirmed lift; not contact certified.",
+      "predicted_center_m": [
+        0.09424289587831637,
+        -0.18453676654901,
+        0.4766276152157273
+      ],
+      "source_position_fully_observed": false,
+      "from_tool_position_m": [
+        0.09459280820339344,
+        -0.21037815827530945,
+        0.4719999258089971
+      ],
+      "to_tool_position_m": [
+        0.0940516689223107,
+        -0.19742501745200203,
+        0.49086235740530243
+      ],
+      "visual_observation_available": true,
+      "later_visual_center_m": [
+        0.09417012905683948,
+        -0.18468896568960785,
+        0.4766565009882225
+      ],
+      "visual_residual_m": [
+        -7.27668214768884e-05,
+        -0.00015219914059785844,
+        2.8885772495212958e-05
+      ],
+      "visual_residual_norm_m": 0.00017115483212349348,
+      "later_position_fully_observed": true,
+      "target_key": "beam",
+      "seed": 960001
+    },
+    {
+      "kind": "held_prediction_probe",
+      "object": "red",
+      "shape": "cylinder",
+      "step": 0,
+      "from_time": 9.899999999999975,
+      "time": 11.100000000000376,
+      "condition": "Rigid attachment without slip after confirmed lift; not contact certified.",
+      "predicted_center_m": [
+        -0.09080064060211812,
+        -0.36207861295984356,
+        0.4785249821434957
+      ],
+      "source_position_fully_observed": true,
+      "from_tool_position_m": [
+        -0.10392569198267117,
+        -0.3621636311099924,
+        0.5216017709989983
+      ],
+      "to_tool_position_m": [
+        -0.0898009929038748,
+        -0.3614364359079404,
+        0.515671627555657
+      ],
+      "visual_observation_available": true,
+      "later_visual_center_m": [
+        -0.09128542556102308,
+        -0.3623369293392009,
+        0.4785683071776353
+      ],
+      "visual_residual_m": [
+        -0.00048478495890495743,
+        -0.0002583163793573595,
+        4.3325034139618523e-05
+      ],
+      "visual_residual_norm_m": 0.0005510180276615055,
+      "later_position_fully_observed": true,
+      "target_key": "cap",
+      "seed": 960001
+    },
+    {
+      "kind": "held_prediction_probe",
+      "object": "red",
+      "shape": "cylinder",
+      "step": 1,
+      "from_time": 11.100000000000376,
+      "time": 12.300000000000777,
+      "condition": "Rigid attachment without slip after confirmed lift; not contact certified.",
+      "predicted_center_m": [
+        -0.12032475067169245,
+        -0.3637604944978329,
+        0.47786747710671684
+      ],
+      "source_position_fully_observed": true,
+      "from_tool_position_m": [
+        -0.0898009929038748,
+        -0.3614364359079404,
+        0.515671627555657
+      ],
+      "to_tool_position_m": [
+        -0.11704050637116363,
+        -0.36148568447583596,
+        0.5147959185921862
+      ],
+      "visual_observation_available": true,
+      "later_visual_center_m": [
+        -0.11969714563768867,
+        -0.3640173282780286,
+        0.47792341702234664
+      ],
+      "visual_residual_m": [
+        0.0006276050340037753,
+        -0.0002568337801956977,
+        5.593991562979905e-05
+      ],
+      "visual_residual_norm_m": 0.0006804270302664063,
+      "later_position_fully_observed": true,
+      "target_key": "cap",
+      "seed": 960001
+    },
+    {
+      "kind": "held_prediction_probe",
+      "object": "red",
+      "shape": "cylinder",
+      "step": 2,
+      "from_time": 12.300000000000777,
+      "time": 13.500000000001178,
+      "condition": "Rigid attachment without slip after confirmed lift; not contact certified.",
+      "predicted_center_m": [
+        -0.10578004609566306,
+        -0.34578735213718853,
+        0.4778094901674504
+      ],
+      "source_position_fully_observed": true,
+      "from_tool_position_m": [
+        -0.11704050637116363,
+        -0.36148568447583596,
+        0.5147959185921862
+      ],
+      "to_tool_position_m": [
+        -0.1047344615275812,
+        -0.34689325724179615,
+        0.5148328888682995
+      ],
+      "visual_observation_available": true,
+      "later_visual_center_m": [
+        -0.10624155349875389,
+        -0.34603271345856873,
+        0.4778525234774541
+      ],
+      "visual_residual_m": [
+        -0.0004615074030908245,
+        -0.0002453613213801997,
+        4.303331000371502e-05
+      ],
+      "visual_residual_norm_m": 0.0005244455423654112,
+      "later_position_fully_observed": true,
+      "target_key": "cap",
+      "seed": 960001
+    },
+    {
+      "kind": "held_prediction_probe",
+      "object": "red",
+      "shape": "cylinder",
+      "step": 3,
+      "from_time": 13.500000000001178,
+      "time": 14.700000000001578,
+      "condition": "Rigid attachment without slip after confirmed lift; not contact certified.",
+      "predicted_center_m": [
+        -0.10710320726773646,
+        -0.3798716670117241,
+        0.477338267687395
+      ],
+      "source_position_fully_observed": true,
+      "from_tool_position_m": [
+        -0.1047344615275812,
+        -0.34689325724179615,
+        0.5148328888682995
+      ],
+      "to_tool_position_m": [
+        -0.10425032953997829,
+        -0.3750794073832691,
+        0.5139368280767983
+      ],
+      "visual_observation_available": true,
+      "later_visual_center_m": [
+        -0.10652398757266521,
+        -0.3801276805139566,
+        0.47738690067341727
+      ],
+      "visual_residual_m": [
+        0.0005792196950712564,
+        -0.0002560135022325327,
+        4.863298602225674e-05
+      ],
+      "visual_residual_norm_m": 0.000635140563822881,
+      "later_position_fully_observed": true,
+      "target_key": "cap",
+      "seed": 960001
+    },
+    {
+      "kind": "held_prediction_probe",
+      "object": "red",
+      "shape": "cylinder",
+      "step": 4,
+      "from_time": 14.700000000001578,
+      "time": 15.90000000000198,
+      "condition": "Rigid attachment without slip after confirmed lift; not contact certified.",
+      "predicted_center_m": [
+        -0.10554517963853402,
+        -0.3671146025114845,
+        0.4964362242373231
+      ],
+      "source_position_fully_observed": true,
+      "from_tool_position_m": [
+        -0.10425032953997829,
+        -0.3750794073832691,
+        0.5139368280767983
+      ],
+      "to_tool_position_m": [
+        -0.10322468920492332,
+        -0.3624978082518475,
+        0.5330402173331009
+      ],
+      "visual_observation_available": true,
+      "later_visual_center_m": [
+        -0.1055320203546587,
+        -0.3673384766437648,
+        0.4965878454095829
+      ],
+      "visual_residual_m": [
+        1.3159283875324723e-05,
+        -0.0002238741322803106,
+        0.0001516211722598082
+      ],
+      "visual_residual_norm_m": 0.0002707060651958353,
+      "later_position_fully_observed": true,
+      "target_key": "cap",
+      "seed": 960001
+    }
+  ],
+  "limitations": [
+    "Agreement with visual estimates, not simulator truth or certified attachment.",
+    "Two development layouts per shape; no generalization or task-SR claim.",
+    "Prescribed offsets and no injected disturbances; no live policy change."
+  ],
+  "artifact_sha256": {
+    "left/seed_960001/api_calls.json": "b707102b064749e7d1edefee2213f96a1862f081a3a7e9f782dfa6bb45b6cd5a",
+    "left/seed_960001/geometry_records.json": "1572343ff9661e882f8de4ba02729e3e0c451aa8d299d47d551db33624b1aa3d",
+    "left/seed_960002/api_calls.json": "da69bef171180632cfa8e1b1746f7dbbb71f72fd1ea20ebe447eeb66fd86bcd9",
+    "beam/seed_960001/api_calls.json": "e198056125dc6c37e8869e6936ca5955aa557bc0ea282e399de61fb1ecf8055b",
+    "beam/seed_960001/geometry_records.json": "8911ec1d6968973a9bbbfa044521778f717ac0b2ecae29cde571e10c8d74619d",
+    "beam/seed_960002/api_calls.json": "849fa1a0966538a9120fe4056f4995dd1a1299d6295e0b6c4fe8c91c2aaf4514",
+    "cap/seed_960001/api_calls.json": "85f49b31451bb4ef8a58d0d3fba94cc5b647a88acb10e5657a551074d021eb22",
+    "cap/seed_960001/geometry_records.json": "4d05d9902dc62a8cfb80650ff9c4cc923a44f9997aef8e9c38e65d84ce2e1801",
+    "cap/seed_960002/api_calls.json": "d199b6ca033a132c5c3387ce423358a52fd861d1c4de8bd327267ac8680626f1"
+  }
+}

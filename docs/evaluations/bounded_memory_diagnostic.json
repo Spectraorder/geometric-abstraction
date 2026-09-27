@@ -1,0 +1,177 @@
+{
+  "schema": "bounded_memory_development_report_v1",
+  "audits": [
+    {
+      "groups": {
+        "instantaneous": {
+          "all": {
+            "count": 122,
+            "median_mm": 0.0934946170290268,
+            "p95_mm": 2.689075422474975,
+            "max_mm": 80.09052130453748,
+            "memory_used": 0,
+            "memory_rejected": 0
+          },
+          "partial": {
+            "count": 48,
+            "median_mm": 1.057520938708551,
+            "p95_mm": 3.273541164243462,
+            "max_mm": 80.09052130453748,
+            "memory_used": 0,
+            "memory_rejected": 0
+          }
+        },
+        "static_memory": {
+          "all": {
+            "count": 122,
+            "median_mm": 0.09500013358219753,
+            "p95_mm": 14.201164875232736,
+            "max_mm": 80.08992977255404,
+            "memory_used": 41,
+            "memory_rejected": 0
+          },
+          "partial": {
+            "count": 48,
+            "median_mm": 0.24735935069965356,
+            "p95_mm": 15.18797231095126,
+            "max_mm": 80.08992977255404,
+            "memory_used": 41,
+            "memory_rejected": 0
+          }
+        },
+        "bounded_static_memory": {
+          "all": {
+            "count": 122,
+            "median_mm": 0.0934946170290268,
+            "p95_mm": 0.3086129210304734,
+            "max_mm": 80.09052130453748,
+            "memory_used": 31,
+            "memory_rejected": 10
+          },
+          "partial": {
+            "count": 48,
+            "median_mm": 0.21650853915937726,
+            "p95_mm": 0.5701125706289127,
+            "max_mm": 80.09052130453748,
+            "memory_used": 31,
+            "memory_rejected": 10
+          }
+        }
+      },
+      "limits": [
+        "Identical correlated development checkpoints, no policy-success comparison.",
+        "Static retention is explicitly conditional; bounds can reject large stale errors but do not prove absence of motion.",
+        "Only previously fully observed centers anchor memory; no output is invented for an unavailable current pose.",
+        "Ideal simulated depth, unique colors, measured cube dimensions; no calibrated real-sensor guarantee."
+      ],
+      "audit": "outputs/bounded_memory_audit_01",
+      "sensor_only_sha256": "daad3831cbd26e4d726eda609ec200e33d9d0d17c1a01eb88515043b71f62941",
+      "large_current_errors": [
+        {
+          "trial": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/online_geometry_v2_replications_01/replica_02/symbolic/round_001/trials/seed_71102",
+          "time": 9.899999999999975,
+          "color": "green",
+          "observed_rank": 2,
+          "bounds_available": false,
+          "reason": "orientation_not_observed",
+          "current_center_error_mm": 80.09052130453748
+        }
+      ]
+    },
+    {
+      "groups": {
+        "instantaneous": {
+          "all": {
+            "count": 195,
+            "median_mm": 0.09321057060547329,
+            "p95_mm": 2.446636366454808,
+            "max_mm": 155.0015121726583,
+            "memory_used": 0,
+            "memory_rejected": 0
+          },
+          "partial": {
+            "count": 63,
+            "median_mm": 0.5593797243111658,
+            "p95_mm": 2.980687544114113,
+            "max_mm": 155.0015121726583,
+            "memory_used": 0,
+            "memory_rejected": 0
+          }
+        },
+        "static_memory": {
+          "all": {
+            "count": 195,
+            "median_mm": 0.09355961766231272,
+            "p95_mm": 61.56911689200726,
+            "max_mm": 149.6630833068617,
+            "memory_used": 57,
+            "memory_rejected": 0
+          },
+          "partial": {
+            "count": 63,
+            "median_mm": 0.30330085443142163,
+            "p95_mm": 149.17683421169698,
+            "max_mm": 149.6630833068617,
+            "memory_used": 57,
+            "memory_rejected": 0
+          }
+        },
+        "bounded_static_memory": {
+          "all": {
+            "count": 195,
+            "median_mm": 0.09321056990221296,
+            "p95_mm": 0.8486227689582293,
+            "max_mm": 155.0015121726583,
+            "memory_used": 28,
+            "memory_rejected": 17
+          },
+          "partial": {
+            "count": 63,
+            "median_mm": 0.16420037359158893,
+            "p95_mm": 2.4106008863953368,
+            "max_mm": 155.0015121726583,
+            "memory_used": 28,
+            "memory_rejected": 17
+          }
+        }
+      },
+      "limits": [
+        "Identical correlated development checkpoints, no policy-success comparison.",
+        "Static retention is explicitly conditional; bounds can reject large stale errors but do not prove absence of motion.",
+        "Only previously fully observed centers anchor memory; no output is invented for an unavailable current pose.",
+        "Ideal simulated depth, unique colors, measured cube dimensions; no calibrated real-sensor guarantee."
+      ],
+      "audit": "outputs/bounded_memory_audit_02",
+      "sensor_only_sha256": "fb6e397062b60dca3fc701f3cb3dc2e2fabd0a5196a16a2e92b457af551808a2",
+      "large_current_errors": [
+        {
+          "trial": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/online_geometry_v2_replications_01/replica_01/symbolic/round_001/trials/seed_71005",
+          "time": 9.899999999999975,
+          "color": "green",
+          "observed_rank": 2,
+          "bounds_available": false,
+          "reason": "orientation_not_observed",
+          "current_center_error_mm": 73.71541139722363
+        },
+        {
+          "trial": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/online_geometry_v2_replications_01/replica_01/symbolic/round_001/trials/seed_71005",
+          "time": 47.75000000001239,
+          "color": "green",
+          "observed_rank": 1,
+          "bounds_available": false,
+          "reason": "orientation_not_observed",
+          "current_center_error_mm": 151.3285168100457
+        },
+        {
+          "trial": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/online_geometry_v2_replications_01/replica_01/symbolic/round_001/trials/seed_71005",
+          "time": 79.94999999999507,
+          "color": "green",
+          "observed_rank": 1,
+          "bounds_available": false,
+          "reason": "orientation_not_observed",
+          "current_center_error_mm": 155.0015121726583
+        }
+      ]
+    }
+  ]
+}

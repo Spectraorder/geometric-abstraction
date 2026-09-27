@@ -1,0 +1,108 @@
+{
+  "scope": "Sensor-only metamorphic checks on recorded RGB-D and a frozen geometry library.\n\nTranslation and scale are synthetic calibration/depth transformations, not new\nphysical rollouts. They test sensor dependence, not absolute pose accuracy or SR.\n",
+  "passed": true,
+  "translation_m": [
+    0.031,
+    -0.017,
+    0.012
+  ],
+  "scale": 1.15,
+  "residual_tolerance_m": 0.001,
+  "records": [
+    {
+      "color": "blue",
+      "shape": "cube",
+      "translation_center_residual_m": 3.802013668944583e-16,
+      "translation_dimension_residual_m": 4.2665734604135324e-16,
+      "scale_center_residual_m": 2.107414300263627e-07,
+      "scale_dimension_residual_m": 6.049596335146838e-09,
+      "original_visual_dimensions_m": [
+        0.029895909406829135,
+        0.029895909406829135,
+        0.029895909406829135
+      ],
+      "scaled_visual_dimensions_m": [
+        0.03438029232511743,
+        0.03438029232511743,
+        0.03438029232511743
+      ],
+      "blackout_rejected": true,
+      "blackout_reason": "Too few colored depth samples to measure cube dimensions",
+      "passed": true
+    },
+    {
+      "color": "yellow",
+      "shape": "cube",
+      "translation_center_residual_m": 2.6315246258181503e-16,
+      "translation_dimension_residual_m": 5.768888059150692e-16,
+      "scale_center_residual_m": 0.00016760460877999133,
+      "scale_dimension_residual_m": 4.2307105788865e-09,
+      "original_visual_dimensions_m": [
+        0.029896259992935194,
+        0.029896259992935194,
+        0.029896259992935194
+      ],
+      "scaled_visual_dimensions_m": [
+        0.03438070143447736,
+        0.03438070143447736,
+        0.03438070143447736
+      ],
+      "blackout_rejected": true,
+      "blackout_reason": "Too few colored depth samples to measure cube dimensions",
+      "passed": true
+    },
+    {
+      "color": "green",
+      "shape": "thin_prism",
+      "translation_center_residual_m": 1.6858085223970173e-16,
+      "translation_dimension_residual_m": 5.552849575635886e-16,
+      "scale_center_residual_m": 2.9266720642769926e-08,
+      "scale_dimension_residual_m": 5.411619063955254e-08,
+      "original_visual_dimensions_m": [
+        0.05850396182413903,
+        0.0297795046128127,
+        0.014893085107326565
+      ],
+      "scaled_visual_dimensions_m": [
+        0.06727960049448192,
+        0.03424642821789009,
+        0.01712701700048852
+      ],
+      "blackout_rejected": true,
+      "blackout_reason": "Too little flat beam surface evidence",
+      "passed": true
+    },
+    {
+      "color": "red",
+      "shape": "cylinder",
+      "translation_center_residual_m": 4.0182799843329005e-14,
+      "translation_dimension_residual_m": 1.0231152632314845e-13,
+      "scale_center_residual_m": 1.3551816084955216e-07,
+      "scale_dimension_residual_m": 2.7798705181979704e-07,
+      "original_visual_dimensions_m": [
+        0.029880109154160932,
+        0.029880109154160932,
+        0.05991317462522401
+      ],
+      "scaled_visual_dimensions_m": [
+        0.03436232206619926,
+        0.03436232206619926,
+        0.0689001461594587
+      ],
+      "blackout_rejected": true,
+      "blackout_reason": "Insufficient visible object depth: red",
+      "passed": true
+    }
+  ],
+  "source_sha256": {
+    "/home/pcmachine/Documents/agentic_policy/aspire_so100/scripts/check_visual_geometry_dependence.py": "961cdea80a162c69544e6cf487ce7b3c0cea4bfe4ea4914fdcddbdf5f0908f47",
+    "outputs/visual_input_learning_replications_01/replica_01/symbolic_library.py": "61865a2e31c0c295cf4bdd3c303386050427046f9ae984612e757b2399ed62d1",
+    "tests/fixtures/mixed_bridge_release_rgbd.npz": "29e818b59e4c96bed31cc9b715e8d2401655655ac56eb6cc836107f23bec08ab"
+  },
+  "limitations": [
+    "One recorded initial scene, four uniquely colored objects.",
+    "Shape labels, initial on-table orientation assumptions and estimator shape/range priors remain.",
+    "This checks dependence on transformed visual data, not absence of every possible information leak.",
+    "No simulator object state or task outcomes are read. No actor feedback is changed."
+  ]
+}

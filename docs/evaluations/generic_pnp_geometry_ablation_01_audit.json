@@ -1,0 +1,61 @@
+{
+  "scope": "Post-hoc diagnostic only; no policy, selection, evaluator or frozen score was modified.",
+  "runtime_truth_boundary": "Private traces read only by the offline audit after training; not passed to any actor or runtime policy.",
+  "cube_axis_case": {
+    "arm": "raw",
+    "revision": 3,
+    "seed": 4101,
+    "official_success": false,
+    "stability_check": {
+      "stable": false,
+      "reasons": [
+        "green_cube: local Z axis is not upright"
+      ],
+      "blocks": [
+        "blue_cube",
+        "red_cube",
+        "green_cube"
+      ],
+      "duration_s": 5.0,
+      "time": 69.70000000001896
+    },
+    "green_cube_orientation": {
+      "before": {
+        "local_z_world_z": 0.006465201318402947,
+        "nearest_face_tilt_degrees": 0.5506730554066218
+      },
+      "after": {
+        "local_z_world_z": 0.008378258173917963,
+        "nearest_face_tilt_degrees": 0.7065059351504878
+      }
+    },
+    "interpretation": "Only recorded stability rejection is the cube local Z axis. Uniform cubes have equivalent faces. This is not a newly evaluated success or a corrected learning curve."
+  },
+  "geometry_anchor_contract": {
+    "arm": "geometry",
+    "revision": 3,
+    "affected_seeds": [
+      4101,
+      4102,
+      4103,
+      4104,
+      4105
+    ],
+    "candidate_call": "geometry.targets(initial, colors, c.plane, anchor=c.anchor)",
+    "candidate_anchor_type": "numpy XYZ array",
+    "implementation_requires": "observation dict with rotation, center, position_fully_observed and inferred_orientation",
+    "contract_issue": "Frozen actor contract describes a visual base anchor but omits its required dictionary schema.",
+    "reproduction": {
+      "type": "IndexError",
+      "message": "only integers, slices (`:`), ellipsis (`...`), numpy.newaxis (`None`) and integer or boolean arrays are valid indices"
+    }
+  },
+  "accounting": {
+    "shared_baseline_rollouts": 5,
+    "candidate_training_rollouts": 30,
+    "reserved_rollouts": 20,
+    "total_executed": 55,
+    "candidate_validation_failures": 0
+  },
+  "frozen_policies_identical": true
+}

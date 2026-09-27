@@ -1,0 +1,266 @@
+{
+  "status": "passed",
+  "purpose": "Offline starter equivalence across numeric and symbolic interfaces; no evolved policies or reserved layouts.",
+  "protocol_sha256": "5b8289ee1a3155d5dd9f0512b1e1b18916676c0a1225285132afaf0ed1c976e3",
+  "auditor_sha256": "b7a844966a7511224874657593a2b4bd86cba9e39bedc84a97eccfd9235275bd",
+  "projection": "Remove only symbolic schema, facts, contact_state and object reference names; compare all remaining state exactly.",
+  "pairs": [
+    {
+      "replica": "replica_01",
+      "seed": 78001,
+      "identical_physical_arrays": true,
+      "identical_numeric_checkpoints": true,
+      "checkpoint_count": 4,
+      "source_sha256": {
+        "outputs/mixed_scene_replications_01_corrected/replica_01/numeric/revision_000/trials/seed_78001/result.json": "e89439ef874d36ef72aa55126cb67210fd7f4d6947f6ad8d743e2a04be6dfc10",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/numeric/revision_000/trials/seed_78001/initial.png": "9eda201bd12cca622a4727a9fc417e083e234df48f3d57e8e041cf78b4af66b1",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/numeric/revision_000/trials/seed_78001/rollout.npz": "6040c7cc8eec952b3d8bda8998143ae01f183f506f00addf8c6653b672ed7246",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/numeric/revision_000/trials/seed_78001/geometry_records.json": "a8d8cd5e00c021867a49afaa046e33f9f4e236f458d26b5c5016d75025efd9f8",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/symbolic/revision_000/trials/seed_78001/result.json": "72f6946bed27eabfd357eccef26a933ae588b0c75a54632f122dfe3a445595c5",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/symbolic/revision_000/trials/seed_78001/initial.png": "9eda201bd12cca622a4727a9fc417e083e234df48f3d57e8e041cf78b4af66b1",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/symbolic/revision_000/trials/seed_78001/rollout.npz": "6040c7cc8eec952b3d8bda8998143ae01f183f506f00addf8c6653b672ed7246",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/symbolic/revision_000/trials/seed_78001/geometry_records.json": "5591b8036396d2e51f4c0ddf639d02489bf8832d7d2fbeb6e048d552fce1705e"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "seed": 78002,
+      "identical_physical_arrays": true,
+      "identical_numeric_checkpoints": true,
+      "checkpoint_count": 2,
+      "source_sha256": {
+        "outputs/mixed_scene_replications_01_corrected/replica_01/numeric/revision_000/trials/seed_78002/result.json": "cf54427b11b2c801d721be871a674e42d6b577814bcfcdf378b1a3a1706ce3e8",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/numeric/revision_000/trials/seed_78002/initial.png": "a9220b08bbb8762a624e275205ce8f7eed6451d3f32f6cc638a746b5e7660458",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/numeric/revision_000/trials/seed_78002/rollout.npz": "ecaff92064498a49f7244e2824442db88a89cdd9367551b93ab4718c19470fd5",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/numeric/revision_000/trials/seed_78002/geometry_records.json": "bed623c8b3503ae4c1618007519b3e17e677e2dc7023a0d8141adf14a5a943df",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/symbolic/revision_000/trials/seed_78002/result.json": "70dd239dec6dab8d0cc30f3209daf5635e0de656d3b3a0347db5a0a19a1757b2",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/symbolic/revision_000/trials/seed_78002/initial.png": "a9220b08bbb8762a624e275205ce8f7eed6451d3f32f6cc638a746b5e7660458",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/symbolic/revision_000/trials/seed_78002/rollout.npz": "ecaff92064498a49f7244e2824442db88a89cdd9367551b93ab4718c19470fd5",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/symbolic/revision_000/trials/seed_78002/geometry_records.json": "baa6b373437cf710c18b92b20bc129d5f77f3b5e027096163a404bfe02255afa"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "seed": 78003,
+      "identical_physical_arrays": true,
+      "identical_numeric_checkpoints": true,
+      "checkpoint_count": 4,
+      "source_sha256": {
+        "outputs/mixed_scene_replications_01_corrected/replica_01/numeric/revision_000/trials/seed_78003/result.json": "527b0d8ebffe116a4dc2275965f04516330290640cb792f488eada700d9a704b",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/numeric/revision_000/trials/seed_78003/initial.png": "c6afdf7bc61143bc137170b8bbe98ec0e8cdc8bd90938e4ebda115f7ee50837d",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/numeric/revision_000/trials/seed_78003/rollout.npz": "2f491ff24b10ae0046a433b703395362eed6770d38edd396afefd78cd3ec4ad6",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/numeric/revision_000/trials/seed_78003/geometry_records.json": "d878a3a82a76a2713de96ab8da452beffd339bd0cdaa489341b84181f50be428",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/symbolic/revision_000/trials/seed_78003/result.json": "d649008cdf9955e0c198d2113a62b9a900ee7ad31c3c7e452c39392ad572ba8d",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/symbolic/revision_000/trials/seed_78003/initial.png": "c6afdf7bc61143bc137170b8bbe98ec0e8cdc8bd90938e4ebda115f7ee50837d",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/symbolic/revision_000/trials/seed_78003/rollout.npz": "2f491ff24b10ae0046a433b703395362eed6770d38edd396afefd78cd3ec4ad6",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/symbolic/revision_000/trials/seed_78003/geometry_records.json": "95d41e01fbd85a7df96a6f2fe76cf3279ad406599b728993d701e0f2031d6827"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "seed": 78004,
+      "identical_physical_arrays": true,
+      "identical_numeric_checkpoints": true,
+      "checkpoint_count": 2,
+      "source_sha256": {
+        "outputs/mixed_scene_replications_01_corrected/replica_01/numeric/revision_000/trials/seed_78004/result.json": "5b2cfcb763025bfe3582190dbee8e56cfd4a4aed73bd8376dd2dd953ae3a4f6f",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/numeric/revision_000/trials/seed_78004/initial.png": "1253c5d2254d0365748850f5e732e961bc6ac131aec1e625abe7931510636b05",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/numeric/revision_000/trials/seed_78004/rollout.npz": "0ac150ae55d013a2683edcc5ff0939511cfafeae1d6d974d7996d67eb9f5a374",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/numeric/revision_000/trials/seed_78004/geometry_records.json": "1cb7ef28b42b23b1b5b397c69a23ed8aa58ccb78b32a622dfeac6e4eb86f309a",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/symbolic/revision_000/trials/seed_78004/result.json": "2cbce84df2fdf504317c9aae813b8d4c502b2e55cf22adf0be5c4012df21ef59",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/symbolic/revision_000/trials/seed_78004/initial.png": "1253c5d2254d0365748850f5e732e961bc6ac131aec1e625abe7931510636b05",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/symbolic/revision_000/trials/seed_78004/rollout.npz": "0ac150ae55d013a2683edcc5ff0939511cfafeae1d6d974d7996d67eb9f5a374",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/symbolic/revision_000/trials/seed_78004/geometry_records.json": "4ea4b38022a5042354b619c03b85e375267efc087c60f140863cc95439032ea8"
+      }
+    },
+    {
+      "replica": "replica_01",
+      "seed": 78005,
+      "identical_physical_arrays": true,
+      "identical_numeric_checkpoints": true,
+      "checkpoint_count": 3,
+      "source_sha256": {
+        "outputs/mixed_scene_replications_01_corrected/replica_01/numeric/revision_000/trials/seed_78005/result.json": "61b38358e17f72bdc21fb1b658b5a4763288195c2057abd08965a82bd4031482",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/numeric/revision_000/trials/seed_78005/initial.png": "25e47ab104d9631b39881ee0db81abd24d910f20e965e927b27e31243c0be14b",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/numeric/revision_000/trials/seed_78005/rollout.npz": "ca7dc8bd0aa09867b1b9fd55574072ae395aecba24fb3282ae2affed3ec5cc74",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/numeric/revision_000/trials/seed_78005/geometry_records.json": "c3ed16b1e871d0d9d2fafd1afc881a059be488725ae522ee947483e78551b509",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/symbolic/revision_000/trials/seed_78005/result.json": "3d4dcffde10fe4eacd978892e3c28591e3691c7e6d628c13a8478ea31954bb35",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/symbolic/revision_000/trials/seed_78005/initial.png": "25e47ab104d9631b39881ee0db81abd24d910f20e965e927b27e31243c0be14b",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/symbolic/revision_000/trials/seed_78005/rollout.npz": "ca7dc8bd0aa09867b1b9fd55574072ae395aecba24fb3282ae2affed3ec5cc74",
+        "outputs/mixed_scene_replications_01_corrected/replica_01/symbolic/revision_000/trials/seed_78005/geometry_records.json": "070dbafcde2dd80b003f56364c6cf1255b0f6b556eda63b3dae1e7b1f25fafd2"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "seed": 78101,
+      "identical_physical_arrays": true,
+      "identical_numeric_checkpoints": true,
+      "checkpoint_count": 3,
+      "source_sha256": {
+        "outputs/mixed_scene_replications_01_corrected/replica_02/numeric/revision_000/trials/seed_78101/result.json": "170c94df6531a2e21adde932a314688a64c863ba0b3ff4320f98eda0afe8d316",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/numeric/revision_000/trials/seed_78101/initial.png": "7595ab2151142d33f2e5940c4468a5e5d336124d011e7cf298c3ce41b5fb1d75",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/numeric/revision_000/trials/seed_78101/rollout.npz": "952a2b8fa127c90dbb250c52ebc9f19f2f3ffe5ecf4903eee91a7d8d8405b417",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/numeric/revision_000/trials/seed_78101/geometry_records.json": "aa4a2e555c48bc81a488359133686158c4522fda0cf15e1bd8e9e106d038726f",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/symbolic/revision_000/trials/seed_78101/result.json": "127de450c95020835368e6879065a2275e670c4b45a30cea832f07492d379e7a",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/symbolic/revision_000/trials/seed_78101/initial.png": "7595ab2151142d33f2e5940c4468a5e5d336124d011e7cf298c3ce41b5fb1d75",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/symbolic/revision_000/trials/seed_78101/rollout.npz": "952a2b8fa127c90dbb250c52ebc9f19f2f3ffe5ecf4903eee91a7d8d8405b417",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/symbolic/revision_000/trials/seed_78101/geometry_records.json": "98662765c65702714f615e276d80eadef7158b12d86205a510c2f475cfbe185b"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "seed": 78102,
+      "identical_physical_arrays": true,
+      "identical_numeric_checkpoints": true,
+      "checkpoint_count": 3,
+      "source_sha256": {
+        "outputs/mixed_scene_replications_01_corrected/replica_02/numeric/revision_000/trials/seed_78102/result.json": "1fd15aaf5f084daf200c4229ddc589688ec28ab5956d7f976987dc896f4de1d2",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/numeric/revision_000/trials/seed_78102/initial.png": "8a3591f76a7702060622f3d78dc6b5fea57f97f0c70afadd672ee529c7db4f26",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/numeric/revision_000/trials/seed_78102/rollout.npz": "0d5507f8b68a62ade52384ad768cbde70f725271f0e95d9d91b5ef0c66548430",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/numeric/revision_000/trials/seed_78102/geometry_records.json": "7765e73c0fb4c4c0bbbf6b42cf1f52fd4c195793d99f668a3b51ae9dea12030e",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/symbolic/revision_000/trials/seed_78102/result.json": "359159589a5841447505d013b641eac489b4eeada9820c0d8db86bfddf5b8054",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/symbolic/revision_000/trials/seed_78102/initial.png": "8a3591f76a7702060622f3d78dc6b5fea57f97f0c70afadd672ee529c7db4f26",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/symbolic/revision_000/trials/seed_78102/rollout.npz": "0d5507f8b68a62ade52384ad768cbde70f725271f0e95d9d91b5ef0c66548430",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/symbolic/revision_000/trials/seed_78102/geometry_records.json": "ee04d7819a87e364db44d60dad2d7955627be28205d074983da10b031d53a69a"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "seed": 78103,
+      "identical_physical_arrays": true,
+      "identical_numeric_checkpoints": true,
+      "checkpoint_count": 4,
+      "source_sha256": {
+        "outputs/mixed_scene_replications_01_corrected/replica_02/numeric/revision_000/trials/seed_78103/result.json": "e98870cf1d521c0a828f5e795bc99887fcddbc8a5dd174683839703aacabd503",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/numeric/revision_000/trials/seed_78103/initial.png": "1ea51e21f885d06a3e0fad7c6fbfa167d54ca912a22b4bfe42312ebac395488f",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/numeric/revision_000/trials/seed_78103/rollout.npz": "7bbaa0f15202e6a251630c1312f9e7683a280fa48f9dc7221e9e8a075a71c896",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/numeric/revision_000/trials/seed_78103/geometry_records.json": "3a9bfbe9524daebfd24b4a5bf4c9dbe6de95ddbc57a0866c4fe0984454e9080f",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/symbolic/revision_000/trials/seed_78103/result.json": "c60e5a257a77d4d15fa7d20082c4bd9852d3396bc567f44c431cc700108b99a3",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/symbolic/revision_000/trials/seed_78103/initial.png": "1ea51e21f885d06a3e0fad7c6fbfa167d54ca912a22b4bfe42312ebac395488f",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/symbolic/revision_000/trials/seed_78103/rollout.npz": "7bbaa0f15202e6a251630c1312f9e7683a280fa48f9dc7221e9e8a075a71c896",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/symbolic/revision_000/trials/seed_78103/geometry_records.json": "1e1328cd62342db225b1b83e54fbcb246c233f9235ed530cd6df8174577283b2"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "seed": 78104,
+      "identical_physical_arrays": true,
+      "identical_numeric_checkpoints": true,
+      "checkpoint_count": 2,
+      "source_sha256": {
+        "outputs/mixed_scene_replications_01_corrected/replica_02/numeric/revision_000/trials/seed_78104/result.json": "3031b899b82d1014e618e56cc34aef889001018ab8b4e5a2a55f40f7ad0c3652",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/numeric/revision_000/trials/seed_78104/initial.png": "529a3237483cf8302a78fce0d7022af97a38ac8cbd11463fade8de1d9efcd0ce",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/numeric/revision_000/trials/seed_78104/rollout.npz": "6d9a841e78490a77758589f4e8ab210e3485de4c2b5de8b754c8b205cf1bdf6f",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/numeric/revision_000/trials/seed_78104/geometry_records.json": "746326201da14de2ee2629d60b6c589ee456b4dcc99ac0723c7868f882b1bfc8",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/symbolic/revision_000/trials/seed_78104/result.json": "22f37534791aa8a4658beac08fe3ce1feb65a7fcd20bd3d6de357cfacbca8e3c",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/symbolic/revision_000/trials/seed_78104/initial.png": "529a3237483cf8302a78fce0d7022af97a38ac8cbd11463fade8de1d9efcd0ce",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/symbolic/revision_000/trials/seed_78104/rollout.npz": "6d9a841e78490a77758589f4e8ab210e3485de4c2b5de8b754c8b205cf1bdf6f",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/symbolic/revision_000/trials/seed_78104/geometry_records.json": "0ce71808210f0ed64b954451a0288c98ceb532c55f1befbbeab720168a693f55"
+      }
+    },
+    {
+      "replica": "replica_02",
+      "seed": 78105,
+      "identical_physical_arrays": true,
+      "identical_numeric_checkpoints": true,
+      "checkpoint_count": 2,
+      "source_sha256": {
+        "outputs/mixed_scene_replications_01_corrected/replica_02/numeric/revision_000/trials/seed_78105/result.json": "508549081462ef4734226722ea646f685d06abedf6b2711373ec72e2e12a4209",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/numeric/revision_000/trials/seed_78105/initial.png": "6c0aa88ab6936cf372f1275a06bc2fe1ed6c92f52e0bc4f77a7a246304f7ef51",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/numeric/revision_000/trials/seed_78105/rollout.npz": "3b7681b56ee925032fbda546342472503fa9264bc330423aefd1ee3961b0528c",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/numeric/revision_000/trials/seed_78105/geometry_records.json": "c3461a431e36cac57f90d1499fa658457c89cd9a554f6f5dbe2961bcda5dac7c",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/symbolic/revision_000/trials/seed_78105/result.json": "4da683f91e313d0aaab5a9b53789852a6720af62f4cb88476c6452eaac1e61c7",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/symbolic/revision_000/trials/seed_78105/initial.png": "6c0aa88ab6936cf372f1275a06bc2fe1ed6c92f52e0bc4f77a7a246304f7ef51",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/symbolic/revision_000/trials/seed_78105/rollout.npz": "3b7681b56ee925032fbda546342472503fa9264bc330423aefd1ee3961b0528c",
+        "outputs/mixed_scene_replications_01_corrected/replica_02/symbolic/revision_000/trials/seed_78105/geometry_records.json": "0f9ff2bf1a8442917bcf34c2d09db74d6ced8e3d9173c08fec393b9dc02bcac4"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "seed": 78201,
+      "identical_physical_arrays": true,
+      "identical_numeric_checkpoints": true,
+      "checkpoint_count": 3,
+      "source_sha256": {
+        "outputs/mixed_scene_replications_01_corrected/replica_03/numeric/revision_000/trials/seed_78201/result.json": "3d4b1b51b4033448f871d5eedb1004f2779b6e13d9b643a5d2e89d5f9c17c365",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/numeric/revision_000/trials/seed_78201/initial.png": "a8b3b1e9e898936d252de708b22182b7a01b8954683e88bbd0221b22a776a570",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/numeric/revision_000/trials/seed_78201/rollout.npz": "78c6fd632139d2da14bbdb7d213a8eef2fdf9d0e2380d7325ed520c8e466623c",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/numeric/revision_000/trials/seed_78201/geometry_records.json": "70295b34241a9bcc9126dbf37a0f94ce67a77a5390e66459dd6c1c05b3ccb980",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/symbolic/revision_000/trials/seed_78201/result.json": "c7b6e76a2642ad9045870018c6b20f083164605c31cd3b485634443a9a9c3a90",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/symbolic/revision_000/trials/seed_78201/initial.png": "a8b3b1e9e898936d252de708b22182b7a01b8954683e88bbd0221b22a776a570",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/symbolic/revision_000/trials/seed_78201/rollout.npz": "78c6fd632139d2da14bbdb7d213a8eef2fdf9d0e2380d7325ed520c8e466623c",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/symbolic/revision_000/trials/seed_78201/geometry_records.json": "09350420cfc6bf4ad3a690d2563aed87a59c131982d2adb700680a8badb59d9c"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "seed": 78202,
+      "identical_physical_arrays": true,
+      "identical_numeric_checkpoints": true,
+      "checkpoint_count": 2,
+      "source_sha256": {
+        "outputs/mixed_scene_replications_01_corrected/replica_03/numeric/revision_000/trials/seed_78202/result.json": "694daed6185c981e7bcbd936f050b59a2d08cb6a4c506e488cb4dda1256641a0",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/numeric/revision_000/trials/seed_78202/initial.png": "b98cfc708886d601ab7f769132742d1aa25496d601ff053e7eeb7fddc2442cfc",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/numeric/revision_000/trials/seed_78202/rollout.npz": "11a0218d63e30bcdc18d7819fc3857a46f4206764ad8f507089cbd315e7cae56",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/numeric/revision_000/trials/seed_78202/geometry_records.json": "d7bda2e12432ae748ae6ceb5a80e0c8de266c1b129a8a6c8d95012033e08cda2",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/symbolic/revision_000/trials/seed_78202/result.json": "003c945a0af00204ce6a80ec0a302457af083b6964d89aa8c7a4f04a5bb4f49e",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/symbolic/revision_000/trials/seed_78202/initial.png": "b98cfc708886d601ab7f769132742d1aa25496d601ff053e7eeb7fddc2442cfc",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/symbolic/revision_000/trials/seed_78202/rollout.npz": "11a0218d63e30bcdc18d7819fc3857a46f4206764ad8f507089cbd315e7cae56",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/symbolic/revision_000/trials/seed_78202/geometry_records.json": "5f05fc04c98db7f28e7b356b26641bbea15d4951ee4828649435ab7df6e0c025"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "seed": 78203,
+      "identical_physical_arrays": true,
+      "identical_numeric_checkpoints": true,
+      "checkpoint_count": 4,
+      "source_sha256": {
+        "outputs/mixed_scene_replications_01_corrected/replica_03/numeric/revision_000/trials/seed_78203/result.json": "108e3134bb07dee598b4688489d01cf095fb80d37e80053618b0015a1dc07c6e",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/numeric/revision_000/trials/seed_78203/initial.png": "4ae376cee37993713f78c08b5ad3d294256d7c9d762f59eda972b127b0864fb6",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/numeric/revision_000/trials/seed_78203/rollout.npz": "d435924bc1e88ee1a31f5203ecff3668852ce781b0e8209894ffc9ba0dc7eabb",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/numeric/revision_000/trials/seed_78203/geometry_records.json": "9ef903492d6d92d97204f1ade267ba9cf91cb3da82c78afefb2b838afa8927d1",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/symbolic/revision_000/trials/seed_78203/result.json": "76b6dca119df99afedf544ba6bbcd6ca8bf91ba6588ef03683615934a686e483",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/symbolic/revision_000/trials/seed_78203/initial.png": "4ae376cee37993713f78c08b5ad3d294256d7c9d762f59eda972b127b0864fb6",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/symbolic/revision_000/trials/seed_78203/rollout.npz": "d435924bc1e88ee1a31f5203ecff3668852ce781b0e8209894ffc9ba0dc7eabb",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/symbolic/revision_000/trials/seed_78203/geometry_records.json": "a70f549db8dcf0b6b88b681c26f665034099d75d299a339afed7f63625b0b35e"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "seed": 78204,
+      "identical_physical_arrays": true,
+      "identical_numeric_checkpoints": true,
+      "checkpoint_count": 4,
+      "source_sha256": {
+        "outputs/mixed_scene_replications_01_corrected/replica_03/numeric/revision_000/trials/seed_78204/result.json": "73b00773fb5071f38c432d2230baf0bc6fdd01088c26ed64e18630a3db6bc625",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/numeric/revision_000/trials/seed_78204/initial.png": "07b932b35dccffc3aa06385ef03bc754ba7312437525b0f97ba7e1e5d7ed9859",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/numeric/revision_000/trials/seed_78204/rollout.npz": "65561a7668f5cb349e0464f1c26345c2c7e40b11bfcb2fff06f35dad1a6df736",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/numeric/revision_000/trials/seed_78204/geometry_records.json": "5505fc1af7fd178dacdb8eebd174573e755ab2eb5df309dfc4bfdd617a68ea1c",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/symbolic/revision_000/trials/seed_78204/result.json": "2568bad91c7ee67533f70a5b75ff4a96ba432a906d8062a0c65ac310781bb397",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/symbolic/revision_000/trials/seed_78204/initial.png": "07b932b35dccffc3aa06385ef03bc754ba7312437525b0f97ba7e1e5d7ed9859",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/symbolic/revision_000/trials/seed_78204/rollout.npz": "65561a7668f5cb349e0464f1c26345c2c7e40b11bfcb2fff06f35dad1a6df736",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/symbolic/revision_000/trials/seed_78204/geometry_records.json": "f92f32b6c29c47056a21d416a21bff9f7e0e6fdd6a73ae617193a20740b37f17"
+      }
+    },
+    {
+      "replica": "replica_03",
+      "seed": 78205,
+      "identical_physical_arrays": true,
+      "identical_numeric_checkpoints": true,
+      "checkpoint_count": 2,
+      "source_sha256": {
+        "outputs/mixed_scene_replications_01_corrected/replica_03/numeric/revision_000/trials/seed_78205/result.json": "2cf7811dfc4617343d1023468871fa6e5a91bdecc25e653d36ecfd2c45466600",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/numeric/revision_000/trials/seed_78205/initial.png": "c32dd34a5d9fdc08331cee95ce7e8345e8d9ce639fa81f3ea7fbeb4192d991b7",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/numeric/revision_000/trials/seed_78205/rollout.npz": "53c611b7b4560d3c20315459157f91ad1caa98f492db0f72618ea86055f80609",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/numeric/revision_000/trials/seed_78205/geometry_records.json": "61230ddcc40102264ac6a103b17e96cd303e6028cc477389b9a5f774d088837a",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/symbolic/revision_000/trials/seed_78205/result.json": "ef09c5a0322c46bacf01d2c2a71e767414b5b925456f56b81c62d412adef7c72",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/symbolic/revision_000/trials/seed_78205/initial.png": "c32dd34a5d9fdc08331cee95ce7e8345e8d9ce639fa81f3ea7fbeb4192d991b7",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/symbolic/revision_000/trials/seed_78205/rollout.npz": "53c611b7b4560d3c20315459157f91ad1caa98f492db0f72618ea86055f80609",
+        "outputs/mixed_scene_replications_01_corrected/replica_03/symbolic/revision_000/trials/seed_78205/geometry_records.json": "be4e6046e4d21be1227671d0f2a26481abdb0757735162be13483e980108477d"
+      }
+    }
+  ],
+  "pair_count": 15,
+  "not_demonstrated": "Policy learning advantage. Physical arrays used in this audit are never supplied to actors."
+}

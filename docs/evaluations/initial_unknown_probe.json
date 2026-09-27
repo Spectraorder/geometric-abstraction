@@ -1,0 +1,40 @@
+{
+  "scope": "Development-only availability and conditional-prediction evidence; no policy-learning SR attribution.",
+  "original_root": "outputs/held_geometry_development_01",
+  "modified_root": "outputs/held_geometry_development_unknown_01",
+  "original_motion_checks": 15,
+  "modified_motion_checks": 25,
+  "planned_checks_per_root": 30,
+  "modified_fully_observed_pairs": 15,
+  "remaining_unavailable_probe": {
+    "target_key": "beam",
+    "seed": 960002
+  },
+  "unchanged_first_layout": [
+    {
+      "target_key": "left",
+      "seed": 960001,
+      "identical_trajectory_file_sha256": "4c25bbb044f026ec87b40b6ce8441a648307c4c87058a30605d685c67e44aa6f"
+    },
+    {
+      "target_key": "beam",
+      "seed": 960001,
+      "identical_trajectory_file_sha256": "4819f10f4389afecbd68a1de1b4d3309224f5845a2d86dd9f471fd73e71dde0a"
+    },
+    {
+      "target_key": "cap",
+      "seed": 960001,
+      "identical_trajectory_file_sha256": "edab31129793417c6f99fcd3b77c1736fa77c2dff55b304afacc59d5ef99b7ba"
+    }
+  ],
+  "artifact_sha256": {
+    "outputs/held_geometry_development_01/manifest.json": "bd6f0cd8ec132fee6f95e74a0a13a68c04128ca3c1635bf725c90ac04092bbb7",
+    "outputs/held_geometry_development_01/summary.json": "e79770c21c9c97f1a9f3ed27069e2194e9d03ddb72f2e173f9fed6bd170cef08",
+    "outputs/held_geometry_development_01/geometry_library.py": "7948cbde0c5216743cd440184d788bdc2c409b48e22ad9f8f43ed1702f5a3a00",
+    "outputs/held_geometry_development_01/driver_snapshot.py": "00529f44cdc19e8da3c8f9384067a06b721465ea198d62d8aaefa2fae31dbcfe",
+    "outputs/held_geometry_development_unknown_01/manifest.json": "82cf4710204e3b56b11d3d8df07988fd3ceef8130bf3321d2df4e62d5337a65b",
+    "outputs/held_geometry_development_unknown_01/summary.json": "470308e9b08b7d54eda5248cb522c4aed473ec43c7b34d9df021cc7b109a6e70",
+    "outputs/held_geometry_development_unknown_01/geometry_library.py": "09e139d3101c346d0c9fade82ab88501e16e32bdf24c4027ebd99550d2fc8272",
+    "outputs/held_geometry_development_unknown_01/driver_snapshot.py": "4ee8a8eab2ff6cb065af74603b1a0b8a09871c4a6c87a58ae49160c4936f78cf"
+  }
+}

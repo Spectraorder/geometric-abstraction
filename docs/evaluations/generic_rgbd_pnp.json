@@ -1,0 +1,62 @@
+{
+  "purpose": "functional_smoke_not_success_rate_evaluation",
+  "historical_source": "policies/stack_three_blocks_cubes_4cm.py",
+  "historical_sha256": "4cc3b4ccd976a91ceecc98d016064468313e9c0c968614cdca77133109bd7c8b",
+  "base_sha256": "28fda453f02a200afdfe591eff82eb55fd6ea7a4c44f62c28accf527d9859083",
+  "adapter_sha256": "8d1ed1d131ad455a80f70cf0c119acb3f3ced1bd74d0f03646c5526f5079f935",
+  "tested_bundle_sha256": "f67e8c41729fd66125a82657e9b0458432b02a5dddb551cd87362d5b47febab2",
+  "current_bundle_ast_identical_to_tested": true,
+  "tests_passed": 5,
+  "trials": {
+    "two_blocks": {
+      "seed": 3901,
+      "success": true,
+      "policy_error": null,
+      "policy_sim_seconds": 29.949999999993917,
+      "candidate_sha256": "f67e8c41729fd66125a82657e9b0458432b02a5dddb551cd87362d5b47febab2",
+      "physics": {
+        "noslip_iterations": 0
+      },
+      "goal": {
+        "kind": "single_column",
+        "levels": [
+          {
+            "color": "blue",
+            "shape": "cube"
+          },
+          {
+            "color": "red",
+            "shape": "cube"
+          }
+        ]
+      }
+    },
+    "three_blocks": {
+      "seed": 3902,
+      "success": false,
+      "policy_error": "RuntimeError: RuntimeError: RuntimeError: Requested tool position is unreachable within 5 mm",
+      "policy_sim_seconds": 2.0999999999999184,
+      "candidate_sha256": "f67e8c41729fd66125a82657e9b0458432b02a5dddb551cd87362d5b47febab2",
+      "physics": {
+        "noslip_iterations": 0
+      },
+      "goal": {
+        "kind": "single_column",
+        "levels": [
+          {
+            "color": "blue",
+            "shape": "cube"
+          },
+          {
+            "color": "red",
+            "shape": "cube"
+          },
+          {
+            "color": "green",
+            "shape": "cube"
+          }
+        ]
+      }
+    }
+  }
+}

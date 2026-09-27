@@ -1,4 +1,4 @@
-"""The wrist RPC exposes RGB/calibration, never a synthetic depth channel."""
+"""Historical RGB and opt-in RGB-D wrist contracts through the isolated worker."""
 import json
 import os
 from pathlib import Path
@@ -14,10 +14,23 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class WristSensorTests(unittest.TestCase):
     def test_camera_contract_and_blackout_through_isolated_worker(self):
+        self.check_contract(False)
+        self.check_contract(True)
+
+    def check_contract(self, wrist_depth):
         source = '''import numpy as np
 def run(api):
     wrist = api.camera('wrist')
-    assert set(wrist) == {'rgb', 'intrinsics', 'camera_to_world', 'time'}
+    expected = {'rgb', 'intrinsics', 'camera_to_world', 'time'}
+    if 'depth_m' in wrist:
+        expected |= {'depth_m', 'valid_depth'}
+    assert set(wrist) == expected
+    if 'depth_m' in wrist:
+        assert not np.any(wrist['valid_depth'])
+        assert np.isnan(wrist['depth_m']).all()
+    pads = api.gripper_geometry()
+    assert len(pads['pads']) == 8 and not pads['contact_observed']
+    assert pads['coverage'] == 'finger_pad_boxes_only'
     assert wrist['rgb'].shape == (240, 320, 3)
     assert np.isfinite(wrist['intrinsics']).all()
     assert np.isfinite(wrist['camera_to_world']).all()
@@ -58,14 +71,14 @@ def run(api):
             result = subprocess.run([
                 sys.executable, str(ROOT / 'scripts/run_vision_trial.py'),
                 '--candidate', str(candidate), '--output', str(output),
-                '--sensor-blackout'], capture_output=True, text=True, timeout=90,
+                '--sensor-blackout'] + (['--wrist-depth'] if wrist_depth else []), capture_output=True, text=True, timeout=90,
                 env=worker_env)
             self.assertEqual(result.returncode, 0, result.stderr)
             metrics = json.loads((output / 'result.json').read_text())
             self.assertIsNone(metrics['policy_error'])
             self.assertFalse(metrics['success'])
             with np.load(output / 'camera_000.npz') as wrist:
-                self.assertNotIn('depth_m', wrist.files)
+                self.assertEqual('depth_m' in wrist.files, wrist_depth)
             calls = json.loads((output / 'api_calls.json').read_text())
             self.assertTrue(any(c['params'].get('text') == 'invalid view rejected' for c in calls))
             self.assertTrue(any(c['params'].get('text') == 'reflection rejected' for c in calls))

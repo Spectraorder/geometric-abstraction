@@ -1,0 +1,73 @@
+{
+  "scope": "Actual training RGB-D and a stored active-object record; no simulator state.",
+  "source_trial": "outputs/visual_input_learning_replications_01/replica_01/symbolic/round_002/trials/seed_990101",
+  "record_index": 12,
+  "record": {
+    "object": "red",
+    "step": "place",
+    "time": 88.6,
+    "frame": "world",
+    "units": "meters",
+    "status": "current_estimate",
+    "action_status": "released",
+    "geometry": {
+      "shape": "thin_prism",
+      "center_m": [
+        -0.024947,
+        -0.284743,
+        0.43728
+      ],
+      "position_fully_observed": false,
+      "orientation_inferred": true,
+      "dimensions_m": [
+        0.058623,
+        0.029301,
+        0.014891
+      ],
+      "normal": [
+        -0.000132,
+        0.000536,
+        1.0
+      ]
+    },
+    "estimated_change": {
+      "since": 67.9,
+      "center_delta_m": [
+        0.071053,
+        0.068824,
+        -0.007351
+      ],
+      "both_positions_fully_observed": false
+    },
+    "placement_goal": {
+      "reference": "center_xy_min_z",
+      "point_m": [
+        -0.024358,
+        -0.286164,
+        0.429895
+      ],
+      "remaining_translation_m": [
+        0.000589,
+        -0.001421,
+        7.3e-05
+      ]
+    }
+  },
+  "sensor_path": "outputs/visual_input_learning_replications_01/replica_01/symbolic/round_002/trials/seed_990101/camera_046.npz",
+  "visual_sample_count": 107,
+  "time": 88.59999999997491,
+  "local_crop_radius_m": 0.05,
+  "sample_coordinates": "World RGB-D pixels, plotted relative to the stored estimated center.",
+  "limitations": [
+    "Illustrative local pixel crop; not an exact replay of observer masks or face fitting.",
+    "Stored position is only partially observed; this is not ground-truth geometry accuracy.",
+    "One training checkpoint, not evidence of policy generalization."
+  ],
+  "image": "docs/media/visual_input_abstraction_example.png",
+  "sha256": {
+    "outputs/visual_input_learning_replications_01/replica_01/symbolic/round_002/trials/seed_990101/camera_046.npz": "10dcf4d2158148537fb6bd3db181ca08f9d61d3c95f1d5f1c15eec6f44c4f3e3",
+    "outputs/visual_input_learning_replications_01/replica_01/symbolic/round_002/trials/seed_990101/geometry_records.json": "3fedf06553bd65efbd6f0f025be1e4af3385aacadb410eb73e3f919b848b52f2",
+    "docs/media/visual_input_abstraction_example.png": "8624c2492afa7eac3af1339e6270923cfc371a6eb5ff7ab5496503b180cc4c66",
+    "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/visual_input_learning_replications_01/abstraction_example_renderer.py": "0d54db70ebe71f3ac4a850e6ad2513f889a5cd3935b22900f59dfa71a39dd184"
+  }
+}

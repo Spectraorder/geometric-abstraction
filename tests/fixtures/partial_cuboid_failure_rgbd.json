@@ -1,0 +1,59 @@
+{
+  "kind": "observer_input",
+  "object": "red",
+  "time": 75.90000000000451,
+  "descriptor": {
+    "shape": "thin_prism",
+    "orientation": "flat_x"
+  },
+  "visual_model": {
+    "height": 0.014893243488705687,
+    "dims": [
+      0.060681561773156534,
+      0.0330240734568234
+    ],
+    "initial_dims_m": [
+      0.05810663700127025,
+      0.029920480948577466
+    ],
+    "dims_upper_m": [
+      0.0705416055763751,
+      0.04186443868891654
+    ],
+    "dimension_pixel_footprint_m": [
+      0.006217484287552422,
+      0.0059719788701695364
+    ],
+    "dimension_refinement_count": 2
+  },
+  "table_plane": [
+    -3.232207211642994e-06,
+    2.4696970440385435e-06,
+    0.4000031843258056
+  ],
+  "robot_geometry": {
+    "source": "robot_model_and_joint_encoders",
+    "coordinate_frame": "world",
+    "units": "meters",
+    "time": 75.90000000000451,
+    "visual_spheres": [
+      {
+        "name": "robot/ee_site",
+        "center_m": [
+          -0.07432977231549075,
+          -0.3073513866239579,
+          0.491616585486926
+        ],
+        "radius_m": 0.004
+      }
+    ]
+  },
+  "provenance": {
+    "source": "logged RGB-D observer input; robot visual spheres from public model and encoders",
+    "sha256": {
+      "outputs/observer_input_logging_development_01/seed_990205/camera_042.npz": "93b2c1a179e6f13a16fd1552110dcbb0c506a8861f4173b4d52b481a3274ed87",
+      "outputs/observer_input_logging_development_01/seed_990205/camera_043.npz": "73d3e72216e4b8903d678e171f3d25fd105fd577a05b06f28fcd978b4ec8e5bc",
+      "outputs/observer_input_logging_development_01/seed_990205/geometry_records.json": "47f8c822b99c7f23bfd375beec0138b0fb695270dfd187ddf8d0ecdb8c8125af"
+    }
+  }
+}

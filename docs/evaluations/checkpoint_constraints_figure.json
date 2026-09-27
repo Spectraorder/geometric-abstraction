@@ -1,0 +1,120 @@
+{
+  "source": "Recorded pilot training sensors and fitted state only; no physics arrays, private poses, outcome labels, or reserved data.",
+  "selection": "First rank-3 and first rank-0 large changes in the declared training replay.",
+  "diagnostic_sha256": "c8d0a1bf35cc187ce1c70f564b7d0e84422edd96ccdb95dd66537b4b87432753",
+  "examples": [
+    {
+      "event": {
+        "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76001/geometry_records.json",
+        "from_label": "0:initial",
+        "to_label": "1:right_place_0",
+        "object": "green",
+        "estimated_distance_m": 0.07861280027533862,
+        "joint_constraint_rank": 3,
+        "jointly_constrained_distance_m": 0.07861280027533862,
+        "both_estimates_fully_observed": true
+      },
+      "change": {
+        "status": "estimated_change",
+        "from_center_m": [
+          -0.000878210293473986,
+          -0.20567471295611792,
+          0.4149485917574562
+        ],
+        "to_center_m": [
+          -0.040142719072883304,
+          -0.27377956386197067,
+          0.41494786132123096
+        ],
+        "estimated_translation_m": [
+          -0.03926450877940932,
+          -0.06810485090585275,
+          -7.304362252269492e-07
+        ],
+        "estimated_distance_m": 0.07861280027533862,
+        "both_estimates_fully_observed": true,
+        "jointly_constrained_translation_m": [
+          -0.03926450877940932,
+          -0.06810485090585275,
+          -7.304362252209614e-07
+        ],
+        "joint_constraint_rank": 3
+      },
+      "sensor_frames": [
+        {
+          "camera": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76001/camera_019.npz",
+          "camera_sha256": "443ec5112bcfdfea971ed8bad466e1a1837e76406aaa8b35ba92626c87c61257",
+          "image_sha256": "b89a518ae4520444184458a2af3222ed7c17f550abfb4349d7bacb242c77b18c",
+          "projected_center_uv": [
+            177.4330844367388,
+            116.06243815127806
+          ]
+        },
+        {
+          "camera": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76001/camera_033.npz",
+          "camera_sha256": "7eb05124d56c773f344c0c76f49586ef6a77148b13f39b926b8cd2cd0fcb70a2",
+          "image_sha256": "0f6d55b1a1736324603f756dbc89a93d6e61e73a674686dbeb338aab7e83aec3",
+          "projected_center_uv": [
+            159.71676129613803,
+            116.53268569583895
+          ]
+        }
+      ]
+    },
+    {
+      "event": {
+        "source": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76001/geometry_records.json",
+        "from_label": "3:foundations_ready",
+        "to_label": "4:beam_place_0",
+        "object": "red",
+        "estimated_distance_m": 0.08516642687574678,
+        "joint_constraint_rank": 0,
+        "jointly_constrained_distance_m": null,
+        "both_estimates_fully_observed": false
+      },
+      "change": {
+        "status": "estimated_change",
+        "from_center_m": [
+          -0.0970189507264761,
+          -0.19780974537090865,
+          0.4074521411954065
+        ],
+        "to_center_m": [
+          -0.0696969088121862,
+          -0.2727577923444818,
+          0.43727858160090555
+        ],
+        "estimated_translation_m": [
+          0.0273220419142899,
+          -0.07494804697357313,
+          0.029826440405499033
+        ],
+        "estimated_distance_m": 0.08516642687574678,
+        "both_estimates_fully_observed": false,
+        "jointly_constrained_translation_m": null,
+        "joint_constraint_rank": 0
+      },
+      "sensor_frames": [
+        {
+          "camera": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76001/camera_047.npz",
+          "camera_sha256": "2c1c1b7f4455bdc88b789a742413981160e17a47f0aad1ac63df8145a1c60752",
+          "image_sha256": "87bf7fb8dd8d80e2f97f1c938aacb152e2dc9d523fa78d3a5aa26fdfd22fad61",
+          "projected_center_uv": [
+            166.94602301821513,
+            103.66299545512285
+          ]
+        },
+        {
+          "camera": "outputs/mixed_scene_learning_pilot_01_schema_corrected/symbolic/round_002/trials/seed_76001/camera_068.npz",
+          "camera_sha256": "d2be6e1b736217858955db7158bc85be337d4150427f498f6ec0e9747bc40e4f",
+          "image_sha256": "25f23f27e769c31fd98651fdca9b48c2893209944bf547599bfd9d8f11e7092c",
+          "projected_center_uv": [
+            156.3730779846375,
+            108.8557096814491
+          ]
+        }
+      ]
+    }
+  ],
+  "renderer_sha256": "b027bad5a5e6907e22baa55b6ffd8be0f8fd73cb4b01cafd89bd326aac32dfa9"
+}

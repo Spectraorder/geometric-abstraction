@@ -1,0 +1,7 @@
+{
+  "audit": "docs/evaluations/visual_input_learning_replications_01.json",
+  "audit_sha256": "6b0b0b4a8741084804012ba84b7cf88f6044208093bcf48d7f460b69420e5ab6",
+  "renderer_sha256": "8da40126ed84b0b065cf07bdc934c2362408ca075ca1c60a936f90e565546749",
+  "figure_sha256": "65297018985f6800cc2b466f102068c4f168aa94640ebd26811a36b139ceff8c",
+  "source": "Completed independent audit; no simulator object state used"
+}

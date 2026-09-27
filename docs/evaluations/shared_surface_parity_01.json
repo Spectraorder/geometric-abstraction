@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "scope": "Development starter parity only; not a learning or generalization experiment.",
+  "pairs": [
+    {
+      "seed": 75103,
+      "success": true,
+      "identical_physical_arrays": true,
+      "identical_actions": true,
+      "camera_calls_per_arm": 67,
+      "source_sha256": {
+        "surface/seed_75103/result.json": "83c33b86696405fc3a9e0d334ba23f89260a9f9d6fc44b041ee81380730d46a2",
+        "surface/seed_75103/rollout.npz": "1acd5be41a3566b30d5189cd57757d46efc7a2e5fc73afe097bbf4f96f2612e6",
+        "surface/seed_75103/api_calls.json": "b6a7f2c5c450bad1795c89a6f228034954fef44d99b134cfde8825f420ec71fa",
+        "numeric/seed_75103/result.json": "9774bce0926ce41e51f2a7f6a820ce36530a1c0badd839fa9d59c80ba455bc53",
+        "numeric/seed_75103/rollout.npz": "1acd5be41a3566b30d5189cd57757d46efc7a2e5fc73afe097bbf4f96f2612e6",
+        "numeric/seed_75103/api_calls.json": "a439d36d8664f1d1396459824fc5398f4fe57d5de4ef6f4d75efc77c47ced585"
+      }
+    },
+    {
+      "seed": 75105,
+      "success": true,
+      "identical_physical_arrays": true,
+      "identical_actions": true,
+      "camera_calls_per_arm": 63,
+      "source_sha256": {
+        "surface/seed_75105/result.json": "7a780fa0474889016d4045668bd2b235200dfa227233c30c240058050f62c3f6",
+        "surface/seed_75105/rollout.npz": "6077ad7abeabb6c6b3e216974b8f0908b705feb66b65a4fcd89f67212389d037",
+        "surface/seed_75105/api_calls.json": "9be823f9749d6b35dcfb568bcbe9c3774bdff059d3dc9df571ef02b68b470b14",
+        "numeric/seed_75105/result.json": "70ddb6ee6eb5a20f97be7b06b863e671ecc5588d20da24e93f89d664a136429f",
+        "numeric/seed_75105/rollout.npz": "6077ad7abeabb6c6b3e216974b8f0908b705feb66b65a4fcd89f67212389d037",
+        "numeric/seed_75105/api_calls.json": "db48569dd4bff8fd5b412118fac4afe549f37d77ecd459bfe08d33c5d98f879b"
+      }
+    }
+  ],
+  "limits": "Two development layouts, one unchanged starter; no actor evolution or held-out success inference. Physical arrays are offline audit evidence only."
+}

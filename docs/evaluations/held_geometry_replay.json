@@ -1,0 +1,361 @@
+{
+  "scope": "Offline training only, policy-visible estimated centers and robot proprioception. No object truth, success labels or physical prediction certification.",
+  "script_sha256": "e6e5861eff5a6b14b70bb294b62aabdd5932c2b1eb0335754154758cc5026b8b",
+  "input_sha256": {
+    "basic/revision_000/trials/seed_930001/geometry_records.json": "40db77ea5a2b2f46f738fdf04e6ca3f865be7eb364a21d93283d8ca85163d0c1",
+    "basic/revision_000/trials/seed_930001/api_calls.json": "93f3b16d2b7f2f94900efc448507a44ae0a77517f59143b573ff2df2af7ac67f",
+    "basic/revision_000/trials/seed_930002/geometry_records.json": "619e428b31ef4e010877183e29c9f0f488d7572825167ee3c7d2e43f8cef2eef",
+    "basic/revision_000/trials/seed_930002/api_calls.json": "942bc5f79875e2076163f62730078769084f792326512df79ffb5abccb09d1d8",
+    "basic/revision_000/trials/seed_930003/geometry_records.json": "4a41081bf52a27edb39d361af892a66b6e5fa5a5d2a9a358066b5226a52b5d6a",
+    "basic/revision_000/trials/seed_930003/api_calls.json": "9dd1bacbcf91a76c264828981a202f6a8e44581f6e8dca2e472a41a27e25c85d",
+    "basic/revision_000/trials/seed_930004/geometry_records.json": "ffe8b0a452c92053d0ae57044928214221278701f859a3bec2d5394afb112ff3",
+    "basic/revision_000/trials/seed_930004/api_calls.json": "161c303eeb73e3930ae84d16f4f678dc3242a85f1f9c3c2ca8dac22a1379a48b",
+    "basic/revision_000/trials/seed_930005/geometry_records.json": "2942a67c1ff54560c469de8fbd4a2b496f61dbcf8b73004077c41bca4175c643",
+    "basic/revision_000/trials/seed_930005/api_calls.json": "edabc16653def64824326d9682729491dec830612aaea6aa4cc11d29534aaaea",
+    "basic/round_001/trials/seed_930001/geometry_records.json": "50780a66dc770aad28be61ae0474e690b27b4f6144d0ede44c4b47d564848eec",
+    "basic/round_001/trials/seed_930001/api_calls.json": "7071195b923d889040e8babc3ec4de03f6b1892e99980b03cf51edc5ccf623d3",
+    "basic/round_001/trials/seed_930002/geometry_records.json": "f2d698f605146ac88ebe78dd47d4a25d8d9ad26d6a19c11268c2f45a1980e37c",
+    "basic/round_001/trials/seed_930002/api_calls.json": "62cf54729d5f4b68e16ce5cae241940d90f3114798cc9f4967969a6cf386535b",
+    "basic/round_001/trials/seed_930003/geometry_records.json": "bffa869e87e7e87ec726f1f6e8c2445cc0899615ec276a5299d7b71987a53c83",
+    "basic/round_001/trials/seed_930003/api_calls.json": "d777726033ffadbb0d9678ba9e6e1004aadc9af9d3d243281d778e6d34289029",
+    "basic/round_001/trials/seed_930004/geometry_records.json": "3a9a810342203c9a6fd44cef0752470a2ca7b239422189e03c64110280507183",
+    "basic/round_001/trials/seed_930004/api_calls.json": "74aa174668b8c819239eace7aa4169c00c26de8bfe54d36d87a7cab1a88a05e8",
+    "basic/round_001/trials/seed_930005/geometry_records.json": "b02b767c6d618cb7964affdd788f996fb316db38b32ef696662cc69ebfda9b8e",
+    "basic/round_001/trials/seed_930005/api_calls.json": "8c4b9fbf4e160322b20397c5f56952890eae809a8c8dc33abd06cac7db1198bd",
+    "basic/round_002/trials/seed_930001/geometry_records.json": "156503c2f4ccc91ae232ec0338ca0832fcb32e1987a19fffc03ebee8f74e5d2a",
+    "basic/round_002/trials/seed_930001/api_calls.json": "f461a74d702750ead00d0a8fbec7b624e5a58990b6d2c5aa6a1dce0c03caef09",
+    "basic/round_002/trials/seed_930002/geometry_records.json": "372de2665093c80a54a2cf7ae2b589a02ed229f3177bc101fd7eeac142844484",
+    "basic/round_002/trials/seed_930002/api_calls.json": "9bb4bf9cd415689884288ffdaa31da1c10a199bc02816c665f8e6f5b4b9d2286",
+    "basic/round_002/trials/seed_930003/geometry_records.json": "4153475daa770b7452340172b84b243ca07da068101c6b94ac1659fd4b50993a",
+    "basic/round_002/trials/seed_930003/api_calls.json": "2027e5cfe389e2e33d0c8d17fb518b9dcb3dd4aa1a3add01331937ef6e3e9e72",
+    "basic/round_002/trials/seed_930004/geometry_records.json": "6c627e68b34a7642c9fa8b33aec008a060f40617b93a18ac56a8524bd610262f",
+    "basic/round_002/trials/seed_930004/api_calls.json": "74d050975a28991085a5cc5416b4809525cbf0b20e18d50e75874b784fe5840f",
+    "basic/round_002/trials/seed_930005/geometry_records.json": "d20c48f638a0a3b1fe35fc89517e1444d217511a5975d5fee9453593625b698e",
+    "basic/round_002/trials/seed_930005/api_calls.json": "b8c81ccf48fef9ab5d6dcaabbd9b8a260187ce77d425f8219a868010bdef6549",
+    "basic/round_003/trials/seed_930001/geometry_records.json": "ba7bacfa872f714de98989f822b76b25cb1ca6ba45b3b97f49d1bf1069614891",
+    "basic/round_003/trials/seed_930001/api_calls.json": "61a608be5e02846031579ba47e5b320a2368cf6946e54aa759796771dc527f33",
+    "basic/round_003/trials/seed_930002/geometry_records.json": "66a09d1df3b2fa4d5a5143909b3fa9fea9dc18aad3d6572b61cf2140da5e2168",
+    "basic/round_003/trials/seed_930002/api_calls.json": "1d3c5e5a0004c8de818692ac42a3c0d488041bb9bf1b5a754169264bddcfe746",
+    "basic/round_003/trials/seed_930003/geometry_records.json": "a07069701126a4d9fa5277be3d497a359ecae5b711155fa095613d482e506daa",
+    "basic/round_003/trials/seed_930003/api_calls.json": "f546c1fb2baa47b82480aeb8dfaf712759327f5cb9c604c29c1b60975b78c9a0",
+    "basic/round_003/trials/seed_930004/geometry_records.json": "b7ff6640f9df5048a029d764cba94d84afea52ba667bd1c84697368a25fdebac",
+    "basic/round_003/trials/seed_930004/api_calls.json": "a52705f8ff08c710967420c68dc13637556d953113ec13e565a6d3147c510222",
+    "basic/round_003/trials/seed_930005/geometry_records.json": "ed5c07c4984459e313965974386f9578a2356d95a8416519cd3495dbeb1611c2",
+    "basic/round_003/trials/seed_930005/api_calls.json": "3bf92cd71c709499610116ce5897b06eb7896cca11d232c1b5d0de3c2c4a6945",
+    "symbolic/revision_000/trials/seed_930001/geometry_records.json": "9e74c605ebbc6b8309e12a9a8568dc4f2d45c0187ff1cf5e5a5d50b4360eebfc",
+    "symbolic/revision_000/trials/seed_930001/api_calls.json": "688f69b4d7b8810ce4948931d2b29e04b7fde1a4675b48ae9a3a0afe7ecb24e8",
+    "symbolic/revision_000/trials/seed_930002/geometry_records.json": "d1041b8282207f3801641f1113cfd5355cd6da92658da1bb8d3acb1b44afc657",
+    "symbolic/revision_000/trials/seed_930002/api_calls.json": "3a7f4cc9dbd6f86c5fb3193f3cd1bcaf549da156c03ae38fca0f888beada369b",
+    "symbolic/revision_000/trials/seed_930003/geometry_records.json": "a54028e6478645e6f5422185af3d6548e429c23c2152fde177e85b1526f985e9",
+    "symbolic/revision_000/trials/seed_930003/api_calls.json": "611a97310dd069e93eacf4b2c60ecdc1764a8cefc250bb8f15e0e4a29f81887c",
+    "symbolic/revision_000/trials/seed_930004/geometry_records.json": "cd1863752b9864bd0501789d89f4d33f6ede13799682d7f3bddd76f23d4f8e4e",
+    "symbolic/revision_000/trials/seed_930004/api_calls.json": "a6985c044aac688fa87c762137013d2acee439b09cb96c3576916dc537093e77",
+    "symbolic/revision_000/trials/seed_930005/geometry_records.json": "a709cf37349a9c9540cd2c309c8d3d86919a05ec7f4ca6d759a395abc20dadf6",
+    "symbolic/revision_000/trials/seed_930005/api_calls.json": "547f72783d6415b9d11b42eaa57140dae97eeeb74d92ec294166e0fa46c4ac8b",
+    "symbolic/round_001/trials/seed_930001/geometry_records.json": "606487bbbb85aa37ebf440f82cb980fae9d5d68c29f9cf39bae76ff9274a66dd",
+    "symbolic/round_001/trials/seed_930001/api_calls.json": "0d606e60d3de6d55c12d7b5fa8cc4eb765648461d3c96521c98848b788569116",
+    "symbolic/round_001/trials/seed_930002/geometry_records.json": "cacfce64e037ee764be6c2da757b3c35b4fe0a13a3eb2a172e825641d414b7cd",
+    "symbolic/round_001/trials/seed_930002/api_calls.json": "f7e41290d7ffebfd21687b10d3030cae7d80b0e182902385fea4031fda94bf11",
+    "symbolic/round_001/trials/seed_930003/geometry_records.json": "c163278c5b35b38a95bcf27e8cae7a802c42f7c5eba1ab60f064769624453540",
+    "symbolic/round_001/trials/seed_930003/api_calls.json": "74a8b664e2a1f85c8edcf5e4b1c89cec8783b07fcee78aee07ad402feff448f8",
+    "symbolic/round_001/trials/seed_930004/geometry_records.json": "865a827a53b1950807e7532b94284c47beb2b8837c020637f504605abd84f39c",
+    "symbolic/round_001/trials/seed_930004/api_calls.json": "d30c72cfa288b8a5b0b730b3ff0c9614144efe3b67de0489bbe23e5235aaf711",
+    "symbolic/round_001/trials/seed_930005/geometry_records.json": "40d018501efaceff2f201240e0732ed15ed4fe4d9a4fbffa8848caa66a40a81d",
+    "symbolic/round_001/trials/seed_930005/api_calls.json": "49bbbe5d1d812326294899ad4e40c2b213258aaff2f93a94932b6b6371afdb93",
+    "symbolic/round_002/trials/seed_930001/geometry_records.json": "1a2aaae4b5c9acaa5f46f62e7724f5c8e14387cfcc6efa3a5f010d4b030917ea",
+    "symbolic/round_002/trials/seed_930001/api_calls.json": "0acfa08917bb00094c67fa2f0afbecbc01c5facce3727d6b4d06087362f5bb01",
+    "symbolic/round_002/trials/seed_930002/geometry_records.json": "3ca889bfa8a3172b6200240298795c89e2ae8b40b72c8e2fc3efceb0fddf2d78",
+    "symbolic/round_002/trials/seed_930002/api_calls.json": "54aadb1c71e807697d3f295f309b11e731647ff0c67bd7f6dd59d38a05e034f3",
+    "symbolic/round_002/trials/seed_930003/geometry_records.json": "8e336981919f7937f1776ba089981433446b68aa48c56f7f45dd9117021b93cd",
+    "symbolic/round_002/trials/seed_930003/api_calls.json": "fcf023fd2c15235a646bb1a41ccfb9e956828d781a116cf65519fdc7567b72a1",
+    "symbolic/round_002/trials/seed_930004/geometry_records.json": "4edf8ef437f6542ff3448fe4d380bffa58152150bf66d7b89ea6a7b604c409b8",
+    "symbolic/round_002/trials/seed_930004/api_calls.json": "1b747a6a308637a8c67691eabf9f4114b64b0bd3dd9b08696f0c270db0bd19c2",
+    "symbolic/round_002/trials/seed_930005/geometry_records.json": "84fe53c42c841ef2bfb0f8ef1db1440b13b8d242007ea6c38eaadaaa9e111086",
+    "symbolic/round_002/trials/seed_930005/api_calls.json": "e0f0152acf16d6f1030e6e164108b1feea61271af56bb09ebcb275c3e95c492b",
+    "symbolic/round_003/trials/seed_930001/geometry_records.json": "3d46a96fb3848002c3cd87e3082314e3405337a99302f25f9c634134c544b8c9",
+    "symbolic/round_003/trials/seed_930001/api_calls.json": "51ebd0278edc05f20ec82d4798dd15a221cf2ff72d274992985b001464e3a93d",
+    "symbolic/round_003/trials/seed_930002/geometry_records.json": "c915f154e4b215df7f4c6ba96b1be7c39bb4eea344d426ec10d3a8a4eae1554d",
+    "symbolic/round_003/trials/seed_930002/api_calls.json": "2c3a11a2550ac1eb63f4a260637e17ed8552fda97e0bb8887a09a23c15f2060f",
+    "symbolic/round_003/trials/seed_930003/geometry_records.json": "f713a7bdaeb5dca34724e0796b8fb053d1085fd323d219c877c5c0dcef119ad4",
+    "symbolic/round_003/trials/seed_930003/api_calls.json": "1d84a837bd37468b9506e45a99cdeb758fed49008ae637c913a3e34e296f70f3",
+    "symbolic/round_003/trials/seed_930004/geometry_records.json": "f18b66a08648c006d0abc9aa38940d8112e7351e5a90d4c4a428e009ee31afe3",
+    "symbolic/round_003/trials/seed_930004/api_calls.json": "36cb6a501d0f1de1bea3b359cc061206ec1aebe6ecf4a35058347c61b5cad50c",
+    "symbolic/round_003/trials/seed_930005/geometry_records.json": "72b1cf1d07bbb2e2c1d7522cc8a391651abb01f91f0df34b6f15db9e1873b5ed",
+    "symbolic/round_003/trials/seed_930005/api_calls.json": "a74f989c11145b49f5f5ef9792e9552fd48f9dd2b38d916e257b665bf9483988"
+  },
+  "training_trials_read": 40,
+  "eligible_pairs": 9,
+  "fully_observed_pairs": 6,
+  "fully_observed_trial_count": 2,
+  "fully_observed_distinct_seed_count": 1,
+  "first_pair_per_trial_residuals_m": [
+    0.002256162996935162,
+    0.001125737705962279
+  ],
+  "first_pair_per_trial_visual_changes_m": [
+    0.07787910867163472,
+    0.04938262744123689
+  ],
+  "median_visual_residual_m": 0.0002556401023102396,
+  "max_visual_residual_m": 0.002256162996935162,
+  "limits": [
+    "Condition not verified; visual estimates may share bias.",
+    "Only explicit held checkpoints can be scored; no accuracy claim during unobserved intervals.",
+    "Repeated retries and related policy versions are not independent physical replications.",
+    "No live state fusion, controller change or SR benefit tested."
+  ],
+  "pairs": [
+    {
+      "object": "green",
+      "from_time": 9.899999999999975,
+      "to_time": 29.49999999999453,
+      "prediction_kind": "conditional_rigid_attachment",
+      "condition": "Object remains attached to tool without slip; not verified by contact sensing.",
+      "predicted_center_m": [
+        -0.036448546826408385,
+        -0.33860689139406164,
+        0.42424206178562474
+      ],
+      "later_visual_center_m": [
+        -0.0363903937244428,
+        -0.3384158611482477,
+        0.4242165972997281
+      ],
+      "visual_residual_m": [
+        5.815310196558704e-05,
+        0.00019103024581396122,
+        -2.5464485896631306e-05
+      ],
+      "visual_residual_norm_m": 0.00020130270272885595,
+      "visual_center_change_m": 0.09313204468876086,
+      "both_visual_positions_fully_observed": false,
+      "fresh_robot_poses": true,
+      "intervening_gripper_commands": false,
+      "trial": "basic/revision_000/trials/seed_930001"
+    },
+    {
+      "object": "red",
+      "from_time": 9.899999999999975,
+      "to_time": 25.299999999996857,
+      "prediction_kind": "conditional_rigid_attachment",
+      "condition": "Object remains attached to tool without slip; not verified by contact sensing.",
+      "predicted_center_m": [
+        0.16062776404902526,
+        -0.3255336404261025,
+        0.4383768509290264
+      ],
+      "later_visual_center_m": [
+        0.15865108738877493,
+        -0.326569944632724,
+        0.438707145405062
+      ],
+      "visual_residual_m": [
+        -0.001976676660250337,
+        -0.0010363042066214856,
+        0.0003302944760356086
+      ],
+      "visual_residual_norm_m": 0.002256162996935162,
+      "visual_center_change_m": 0.07787910867163472,
+      "both_visual_positions_fully_observed": true,
+      "fresh_robot_poses": true,
+      "intervening_gripper_commands": false,
+      "trial": "basic/round_003/trials/seed_930004"
+    },
+    {
+      "object": "red",
+      "from_time": 25.299999999996857,
+      "to_time": 45.10000000000915,
+      "prediction_kind": "conditional_rigid_attachment",
+      "condition": "Object remains attached to tool without slip; not verified by contact sensing.",
+      "predicted_center_m": [
+        0.1584901697264778,
+        -0.3269869394702683,
+        0.43881155102639396
+      ],
+      "later_visual_center_m": [
+        0.15870979717726771,
+        -0.32702922658182343,
+        0.43868265870824125
+      ],
+      "visual_residual_m": [
+        0.00021962745078990542,
+        -4.228711155512821e-05,
+        -0.00012889231815271796
+      ],
+      "visual_residual_norm_m": 0.0002581426865571242,
+      "visual_center_change_m": 0.0004636662014365979,
+      "both_visual_positions_fully_observed": true,
+      "fresh_robot_poses": true,
+      "intervening_gripper_commands": false,
+      "trial": "basic/round_003/trials/seed_930004"
+    },
+    {
+      "object": "red",
+      "from_time": 45.10000000000915,
+      "to_time": 64.90000000003015,
+      "prediction_kind": "conditional_rigid_attachment",
+      "condition": "Object remains attached to tool without slip; not verified by contact sensing.",
+      "predicted_center_m": [
+        0.15853587491115823,
+        -0.3270243784892828,
+        0.43879549680317115
+      ],
+      "later_visual_center_m": [
+        0.15875112357520352,
+        -0.3270597812887754,
+        0.43866707072534394
+      ],
+      "visual_residual_m": [
+        0.0002152486640452922,
+        -3.5402799492600945e-05,
+        -0.00012842607782720394
+      ],
+      "visual_residual_norm_m": 0.0002531375180633551,
+      "visual_center_change_m": 5.370704324457815e-05,
+      "both_visual_positions_fully_observed": true,
+      "fresh_robot_poses": true,
+      "intervening_gripper_commands": false,
+      "trial": "basic/round_003/trials/seed_930004"
+    },
+    {
+      "object": "green",
+      "from_time": 9.9,
+      "to_time": 29.5,
+      "prediction_kind": "conditional_rigid_attachment",
+      "condition": "Object remains attached to tool without slip; not verified by contact sensing.",
+      "predicted_center_m": [
+        -0.03644892258377155,
+        -0.3386066206035026,
+        0.4242416968995676
+      ],
+      "later_visual_center_m": [
+        -0.03639,
+        -0.338416,
+        0.424217
+      ],
+      "visual_residual_m": [
+        5.892258377154791e-05,
+        0.00019062060350261145,
+        -2.4696899567577812e-05
+      ],
+      "visual_residual_norm_m": 0.0002010423393374289,
+      "visual_center_change_m": 0.09313177732117002,
+      "both_visual_positions_fully_observed": false,
+      "fresh_robot_poses": true,
+      "intervening_gripper_commands": false,
+      "trial": "symbolic/revision_000/trials/seed_930001"
+    },
+    {
+      "object": "green",
+      "from_time": 40.35,
+      "to_time": 59.95,
+      "prediction_kind": "conditional_rigid_attachment",
+      "condition": "Object remains attached to tool without slip; not verified by contact sensing.",
+      "predicted_center_m": [
+        -0.05732467938213548,
+        -0.3319301940701589,
+        0.42421416741671525
+      ],
+      "later_visual_center_m": [
+        -0.057197,
+        -0.331703,
+        0.424177
+      ],
+      "visual_residual_m": [
+        0.00012767938213548158,
+        0.00022719407015886484,
+        -3.71674167152225e-05
+      ],
+      "visual_residual_norm_m": 0.0002632500465396588,
+      "visual_center_change_m": 0.10153547917353815,
+      "both_visual_positions_fully_observed": false,
+      "fresh_robot_poses": true,
+      "intervening_gripper_commands": false,
+      "trial": "symbolic/round_003/trials/seed_930002"
+    },
+    {
+      "object": "red",
+      "from_time": 9.9,
+      "to_time": 29.5,
+      "prediction_kind": "conditional_rigid_attachment",
+      "condition": "Object remains attached to tool without slip; not verified by contact sensing.",
+      "predicted_center_m": [
+        0.10762181583018474,
+        -0.34163604722276303,
+        0.4387818896676961
+      ],
+      "later_visual_center_m": [
+        0.107499,
+        -0.342747,
+        0.438916
+      ],
+      "visual_residual_m": [
+        -0.00012281583018473874,
+        -0.0011109527772369954,
+        0.0001341103323038717
+      ],
+      "visual_residual_norm_m": 0.001125737705962279,
+      "visual_center_change_m": 0.04938262744123689,
+      "both_visual_positions_fully_observed": true,
+      "fresh_robot_poses": true,
+      "intervening_gripper_commands": false,
+      "trial": "symbolic/round_003/trials/seed_930004"
+    },
+    {
+      "object": "red",
+      "from_time": 29.5,
+      "to_time": 45.1,
+      "prediction_kind": "conditional_rigid_attachment",
+      "condition": "Object remains attached to tool without slip; not verified by contact sensing.",
+      "predicted_center_m": [
+        0.10690943948699633,
+        -0.34143485202905116,
+        0.4390348751090787
+      ],
+      "later_visual_center_m": [
+        0.107045,
+        -0.341462,
+        0.438938
+      ],
+      "visual_residual_m": [
+        0.0001355605130036741,
+        -2.7147970948826483e-05,
+        -9.68751090786868e-05
+      ],
+      "visual_residual_norm_m": 0.00016881484464188892,
+      "visual_center_change_m": 0.001363020542765255,
+      "both_visual_positions_fully_observed": true,
+      "fresh_robot_poses": true,
+      "intervening_gripper_commands": false,
+      "trial": "symbolic/round_003/trials/seed_930004"
+    },
+    {
+      "object": "red",
+      "from_time": 45.1,
+      "to_time": 60.7,
+      "prediction_kind": "conditional_rigid_attachment",
+      "condition": "Object remains attached to tool without slip; not verified by contact sensing.",
+      "predicted_center_m": [
+        0.10690826756315319,
+        -0.34143390824042796,
+        0.4390311101552887
+      ],
+      "later_visual_center_m": [
+        0.107007,
+        -0.341457,
+        0.438934
+      ],
+      "visual_residual_m": [
+        9.873243684681288e-05,
+        -2.309175957204701e-05,
+        -9.711015528868217e-05
+      ],
+      "visual_residual_norm_m": 0.00014039838213467803,
+      "visual_center_change_m": 3.853569773598927e-05,
+      "both_visual_positions_fully_observed": true,
+      "fresh_robot_poses": true,
+      "intervening_gripper_commands": false,
+      "trial": "symbolic/round_003/trials/seed_930004"
+    }
+  ]
+}

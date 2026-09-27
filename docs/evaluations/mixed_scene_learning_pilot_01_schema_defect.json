@@ -1,0 +1,328 @@
+{
+  "status": "withdrawn_observation_contract_defect",
+  "manifest_sha256": "a12b98683528d8baa95037fbf263bb3cee9e2324b81f8bf5774119a4f3b0432c",
+  "schema": "mixed_scene_learning_pilot_v1",
+  "source_audit": "passed",
+  "curves": {
+    "basic": {
+      "training": [
+        {
+          "revision": 0,
+          "successes": 2,
+          "slots_completed": 5,
+          "total_slots": 5
+        },
+        {
+          "revision": 1,
+          "successes": 0,
+          "slots_completed": 5,
+          "total_slots": 5
+        },
+        {
+          "revision": 2,
+          "successes": 2,
+          "slots_completed": 5,
+          "total_slots": 5
+        }
+      ]
+    },
+    "numeric": {
+      "training": [
+        {
+          "revision": 0,
+          "successes": 3,
+          "slots_completed": 5,
+          "total_slots": 5
+        },
+        {
+          "revision": 1,
+          "successes": 3,
+          "slots_completed": 5,
+          "total_slots": 5
+        },
+        {
+          "revision": 2,
+          "successes": 0,
+          "slots_completed": 5,
+          "total_slots": 5
+        }
+      ]
+    },
+    "symbolic": {
+      "training": [
+        {
+          "revision": 0,
+          "successes": 3,
+          "slots_completed": 5,
+          "total_slots": 5
+        },
+        {
+          "revision": 1,
+          "successes": 3,
+          "slots_completed": 5,
+          "total_slots": 5
+        },
+        {
+          "revision": 2,
+          "successes": 0,
+          "slots_completed": 5,
+          "total_slots": 5
+        }
+      ]
+    }
+  },
+  "actors": [
+    {
+      "arm": "basic",
+      "revision": 1,
+      "usage": {
+        "input_tokens": 22334,
+        "cached_input_tokens": 10624,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 8495,
+        "reasoning_output_tokens": 4649
+      },
+      "static_interface_call_counts": {
+        "snapshot": 1
+      },
+      "source_syntax_error": null,
+      "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+      "wall_seconds": 258.7023925270005,
+      "audit": "passed",
+      "planner_characters": 13855
+    },
+    {
+      "arm": "basic",
+      "revision": 2,
+      "usage": {
+        "input_tokens": 26075,
+        "cached_input_tokens": 10624,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 6373,
+        "reasoning_output_tokens": 3077
+      },
+      "static_interface_call_counts": {
+        "snapshot": 1
+      },
+      "source_syntax_error": null,
+      "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+      "wall_seconds": 194.5748799009998,
+      "audit": "passed",
+      "planner_characters": 12199
+    },
+    {
+      "arm": "basic",
+      "revision": 3,
+      "usage": {
+        "input_tokens": 26042,
+        "cached_input_tokens": 10624,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 6776,
+        "reasoning_output_tokens": 3031
+      },
+      "static_interface_call_counts": {
+        "snapshot": 1
+      },
+      "source_syntax_error": null,
+      "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+      "wall_seconds": 207.59016776700082,
+      "audit": "passed",
+      "planner_characters": 13472
+    },
+    {
+      "arm": "numeric",
+      "revision": 1,
+      "usage": {
+        "input_tokens": 25972,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 9390,
+        "reasoning_output_tokens": 5921
+      },
+      "static_interface_call_counts": {
+        "snapshot": 1
+      },
+      "source_syntax_error": null,
+      "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+      "wall_seconds": 285.3555412850001,
+      "audit": "passed",
+      "planner_characters": 12760
+    },
+    {
+      "arm": "numeric",
+      "revision": 2,
+      "usage": {
+        "input_tokens": 29911,
+        "cached_input_tokens": 10624,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 6917,
+        "reasoning_output_tokens": 2502
+      },
+      "static_interface_call_counts": {
+        "snapshot": 1
+      },
+      "source_syntax_error": null,
+      "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+      "wall_seconds": 211.04596917300296,
+      "audit": "passed",
+      "planner_characters": 15438
+    },
+    {
+      "arm": "numeric",
+      "revision": 3,
+      "usage": {
+        "input_tokens": 27570,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 6037,
+        "reasoning_output_tokens": 1552
+      },
+      "static_interface_call_counts": {
+        "snapshot": 1
+      },
+      "source_syntax_error": null,
+      "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+      "wall_seconds": 186.98542020099922,
+      "audit": "passed",
+      "planner_characters": 15644
+    },
+    {
+      "arm": "symbolic",
+      "revision": 1,
+      "usage": {
+        "input_tokens": 36237,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5216,
+        "reasoning_output_tokens": 2588
+      },
+      "static_interface_call_counts": {
+        "snapshot": 1,
+        "target": 1
+      },
+      "source_syntax_error": null,
+      "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+      "wall_seconds": 160.8755568589986,
+      "audit": "passed",
+      "planner_characters": 10207
+    },
+    {
+      "arm": "symbolic",
+      "revision": 2,
+      "usage": {
+        "input_tokens": 41163,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 9465,
+        "reasoning_output_tokens": 4660
+      },
+      "static_interface_call_counts": {
+        "snapshot": 1,
+        "target": 2
+      },
+      "source_syntax_error": null,
+      "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+      "wall_seconds": 287.90304123199894,
+      "audit": "passed",
+      "planner_characters": 17620
+    },
+    {
+      "arm": "symbolic",
+      "revision": 3,
+      "usage": {
+        "input_tokens": 34382,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 6545,
+        "reasoning_output_tokens": 1552
+      },
+      "static_interface_call_counts": {
+        "snapshot": 1,
+        "target": 2,
+        "state": 1
+      },
+      "source_syntax_error": null,
+      "static_usage_scope": "Syntactic call sites only; not runtime frequency or evidence of how feedback was used.",
+      "wall_seconds": 201.43606287000148,
+      "audit": "passed",
+      "planner_characters": 17933
+    }
+  ],
+  "valid_rollouts": 45,
+  "invalid_slots": 0,
+  "result_hashes": {
+    "basic/revision_000/trials/seed_76001/result.json": "fb1fbaf72fe7d822b013accd14415d229cb709225d7e6847193956af4925165d",
+    "basic/revision_000/trials/seed_76002/result.json": "2bff72db79e93b9c083043a0c357b4caa6dbec46af15288656acae15def8f6d5",
+    "basic/revision_000/trials/seed_76003/result.json": "41054e9bd01ea353d72295d4c604197fddf787b35a6aa399f822d5ff98f5f2fc",
+    "basic/revision_000/trials/seed_76004/result.json": "828ea942987d4d55d625bbb856ee4ba5011db089a2a43f0e5063562c2637dcbe",
+    "basic/revision_000/trials/seed_76005/result.json": "9588c1ce7ec9b364c5a7c7f1fcf312c1a2e49e4e91465f36f17242b4c2674139",
+    "basic/round_001/trials/seed_76001/result.json": "797a4c6725daf0178eea8a80713c229996a7d5ab6721ab5e51c0e8a939d16464",
+    "basic/round_001/trials/seed_76002/result.json": "1defdffbf96c692be212727078a0f0077a37dd30d77a6652ea3cee69c28e8bc0",
+    "basic/round_001/trials/seed_76003/result.json": "de2cecaa1a62ada0065266da3096ae645d2e70ad42d73a981526055724805363",
+    "basic/round_001/trials/seed_76004/result.json": "77d7b6c4917dbc9bcbb03c0984c4b1d593270e659daa28ce938306b832b85b12",
+    "basic/round_001/trials/seed_76005/result.json": "5a5b57466ff5d6b5a272c7030c44fe52be7bea8c8e4e142db3ace7131619a5e0",
+    "basic/round_002/trials/seed_76001/result.json": "ce9d3f0376a0f0788d72697e077b5ba5b08af6b85eb044faa9ca2b81b9876d9f",
+    "basic/round_002/trials/seed_76002/result.json": "34f53691a8573017240dbb62ca10192fd6f9bfdcf8b6aec350eecdb8f4f67bc8",
+    "basic/round_002/trials/seed_76003/result.json": "0ff5d34e24bfb0eff589989061745c4cb37b71cb123fde5a8dc971b760923915",
+    "basic/round_002/trials/seed_76004/result.json": "21407cca4996f3e8c0b69934102866dd19a67df7837775bf98ae08bc51bcb9cb",
+    "basic/round_002/trials/seed_76005/result.json": "3f458b6a83b07fb02d7abf8b463ca4e8bba6c781d55e1eefb4aab6050e1766e3",
+    "numeric/revision_000/trials/seed_76001/result.json": "5c0a9b99d6ac4dd693fa2f8cf1b84fca1415ac6e3fb3ba3d5abf2758b5ce8853",
+    "numeric/revision_000/trials/seed_76002/result.json": "09597754ae2aa427924e23377cf48c7be5f5e53c641a897ee2baf0383b6a3ff5",
+    "numeric/revision_000/trials/seed_76003/result.json": "5f87a12d634613216a0ad7342c90b1f91f03a060795a75fed23056355b7e0f28",
+    "numeric/revision_000/trials/seed_76004/result.json": "90affac616cd3c92fdbba1295e94e8cf4730e8ca8cfa6a0a645502139f48a1c8",
+    "numeric/revision_000/trials/seed_76005/result.json": "4e95ce42b7a9e5a263e5e6c3c157636f562d1a7de5846a1992bbf30429aeac74",
+    "numeric/round_001/trials/seed_76001/result.json": "e2a137e5b6f2874e1ef59809c4464255bbe589c0645ffdf0570cd5a928dc3569",
+    "numeric/round_001/trials/seed_76002/result.json": "c6151aa95815af0dbf31c09447e24e25919f4b5eb7089249d29c4bc2f0c23611",
+    "numeric/round_001/trials/seed_76003/result.json": "b7a2f384ff81ad6a365cf4b16ad81898fc4bee6b8aa9f94cf4c6edb75c26f108",
+    "numeric/round_001/trials/seed_76004/result.json": "876f724394739efb61dcffe792134d7935ec9cfa7a861943e65c3ae82baf386c",
+    "numeric/round_001/trials/seed_76005/result.json": "e15ff861661ded4c23f36795d6ec7f65375ebd0b7e205b77ce5f0bfbbc364a18",
+    "numeric/round_002/trials/seed_76001/result.json": "08edca130efd4323823a98e0a597bc6cb135791e585e1bf9b5f27116ddfb4490",
+    "numeric/round_002/trials/seed_76002/result.json": "cdf44b7ab29b34080896934efc6a56ddc5ca01926d4dd0d11c1fd4c926e44652",
+    "numeric/round_002/trials/seed_76003/result.json": "755223642b55a44f5cd12b37238b06c8fbbdf4f5e0f3738beeb8d1b9a0f485a4",
+    "numeric/round_002/trials/seed_76004/result.json": "3161a7615de7fd2590fb03281955c505ab0c50a42336618711a218c632f927d8",
+    "numeric/round_002/trials/seed_76005/result.json": "11937e8e040919573e578f29459d17ebe052935268f7e9b281ca1ca53f80c0e0",
+    "symbolic/revision_000/trials/seed_76001/result.json": "25596874fec4331a1b060cc1a34d8b1d9247c7ec012382935b1eabd3dc6356b3",
+    "symbolic/revision_000/trials/seed_76002/result.json": "a1c163275deffb6e7f79ca57a49520933cb1590c5214b0212678b7f0d2422e1b",
+    "symbolic/revision_000/trials/seed_76003/result.json": "212a0cb4f622d28e09bf3328d5ef24cce6a5e52bbb5b3ffa68bc2246c4d3c443",
+    "symbolic/revision_000/trials/seed_76004/result.json": "8f0864b1aba823bf678b7e8dd3d505de87db914d79b1d97e10a888c74ef521b8",
+    "symbolic/revision_000/trials/seed_76005/result.json": "c561900baf067111c5694069648f41fa9c8b87f9200727e837966d36e7a7e7fa",
+    "symbolic/round_001/trials/seed_76001/result.json": "76c70fa93146970738ad4aef4af51e7f2a976d8df037ed4733c731b6bf232689",
+    "symbolic/round_001/trials/seed_76002/result.json": "2bac4bd3e93f5cf1f55c3706d5d877d3eca58ac33b42d703b505ecbd78143903",
+    "symbolic/round_001/trials/seed_76003/result.json": "6fac8c6ed23335d490d003d376e7b5f9861a98d5f3ae70800d0d1801fda964b6",
+    "symbolic/round_001/trials/seed_76004/result.json": "18d9e0bf28960672b890fafc24a83d7ce7cabf63ff4364d2fc9ccf3da183456c",
+    "symbolic/round_001/trials/seed_76005/result.json": "285e3a1e649d56b4710c6ac0e1b7b9f6c07854a9d08a0f8bb429c84d190cf430",
+    "symbolic/round_002/trials/seed_76001/result.json": "d6534acbbcbe90ee63dff59dccedf312e57e14ab6b8c78ca7d3279942afb074e",
+    "symbolic/round_002/trials/seed_76002/result.json": "9654dad5d2c6ec4f9af813104a3111c9c2b8d27bbc1e06a7a346ad704eed0ab4",
+    "symbolic/round_002/trials/seed_76003/result.json": "4e8c0aa8724eefa3438adbfe43d453905a52ff37f2b3897e3ee0a6e11029687f",
+    "symbolic/round_002/trials/seed_76004/result.json": "abe9cd7a9cc1edacd97f1d13d15800607961afcf2b95e37fbd178eb4fd3c361e",
+    "symbolic/round_002/trials/seed_76005/result.json": "c8061e5c584319708dacc236281644ede4f551b37c45727db19cd186e0aaf7b0"
+  },
+  "limitations": [
+    "Pilot: one independent model-generation chain per arm, requiring replication.",
+    "Equal revisions and rollout slots; token usage recorded, not equalized.",
+    "Basic and numeric differ in observation implementation; only numeric versus symbolic isolates the added reasoning interface.",
+    "No development planner, inspected failure audit or reserved feedback is supplied to actors.",
+    "Earlier negative cube comparisons and development results remain separate evidence."
+  ],
+  "protocol_correction": {
+    "parent_directory": "/home/pcmachine/Documents/agentic_policy/aspire_so100/outputs/mixed_scene_learning_pilot_01",
+    "parent_manifest_sha256": "68ce6c15ea7b78104fc3cf19d1c1f15007469b61f66e78e8748997819c45a8a6",
+    "reason": "Repair host validator false positive on permitted scipy.ndimage import. No policy or runtime observer change.",
+    "changed_runtime_snapshot_files": [
+      "scripts/run_mixed_scene_experiment.py"
+    ],
+    "reused_model_calls": 3,
+    "remaining_authorized_model_calls": 6,
+    "reused_r0_trials": 15,
+    "reused_valid_r1_trials": 10,
+    "new_r1_trials_required": 5,
+    "not_an_independent_replication": true,
+    "original_invalid_slots_preserved_in_parent": 5,
+    "audit": "passed"
+  },
+  "initial_sensor_pairing": {
+    "status": "passed",
+    "unique_seeds_checked": 5,
+    "checked": "host pre-policy RGB render plus seed, color map and scene settings"
+  }
+}

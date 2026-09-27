@@ -1,0 +1,119 @@
+{
+  "scope": "Paired development only; no actor generation or learning SR claim. Placement feedback added after the completed frozen learning study.",
+  "root": "outputs/placement_feedback_development_01",
+  "parity": {
+    "status": "passed",
+    "scope": "Starter development/interface parity; no learning benefit inferred.",
+    "pairs": [
+      {
+        "seed": 75103,
+        "identical_physics": true,
+        "matching_focus_estimates": true,
+        "checkpoints": 12,
+        "source_sha256": {
+          "basic/revision_000/trials/seed_75103/result.json": "7b557414693a9e1dfc891733212b9f79ab1abac1a3356685806cfd8f5758642d",
+          "basic/revision_000/trials/seed_75103/rollout.npz": "d4f9718775adb0e5f1740494795d360c3a2d1a6f0a6fb7515f2094b3988c6e3b",
+          "basic/revision_000/trials/seed_75103/geometry_records.json": "b64559cd6cb04f26c89019b5af7f865a05c10b61721a3495cc0fcbb60e235f11",
+          "symbolic/revision_000/trials/seed_75103/result.json": "46d2986cb738adf312914c4d4ecc0e4c7615b499cbc646a1f19328c46b4d6222",
+          "symbolic/revision_000/trials/seed_75103/rollout.npz": "d4f9718775adb0e5f1740494795d360c3a2d1a6f0a6fb7515f2094b3988c6e3b",
+          "symbolic/revision_000/trials/seed_75103/geometry_records.json": "061c91988f1bc9d78c1c785bdcdd410ba6380c23ac3abb4435805f7c9ac340c6"
+        }
+      }
+    ]
+  },
+  "arms": {
+    "basic": {
+      "success": true,
+      "policy_error": null,
+      "camera_calls": 54,
+      "checkpoint_count": 12,
+      "max_record_characters": 681,
+      "placement_goal_records": 0,
+      "same_physics_as_unmatched_historical_example": false
+    },
+    "symbolic": {
+      "success": true,
+      "policy_error": null,
+      "camera_calls": 54,
+      "checkpoint_count": 12,
+      "max_record_characters": 608,
+      "placement_goal_records": 6,
+      "example": {
+        "object": "blue",
+        "step": "settled",
+        "time": 31.1,
+        "frame": "world",
+        "units": "meters",
+        "status": "current_estimate",
+        "geometry": {
+          "shape": "cube",
+          "center_m": [
+            0.061693,
+            -0.197972,
+            0.414947
+          ],
+          "position_fully_observed": true,
+          "orientation_inferred": false,
+          "dimensions_m": [
+            0.029897,
+            0.029897,
+            0.029897
+          ],
+          "normal": [
+            -6.5e-05,
+            -0.000141,
+            1.0
+          ]
+        },
+        "estimated_change": {
+          "since": 30.6,
+          "center_delta_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "both_positions_fully_observed": true
+        },
+        "placement_goal": {
+          "reference": "center_xy_min_z",
+          "point_m": [
+            0.06177,
+            -0.199556,
+            0.400002
+          ],
+          "remaining_translation_m": [
+            7.7e-05,
+            -0.001584,
+            7e-06
+          ]
+        }
+      },
+      "same_physics_as_unmatched_historical_example": false
+    }
+  },
+  "source_sha256": {
+    "policies/geometry_step_session.py": "5162d8a0149309d72f226228b6b63190800daf89f0454346a7717efd5b30f6a1",
+    "scripts/run_geometry_step_experiment.py": "f4055422399b54871ae9803b3bb122afbecdfc1b5fe2bc207dbbecfa41f08fc4",
+    "tests/test_geometry_step_session.py": "9708a61a594823906c101691cd629bbf8293c10fdedc0930154009cc69ab313e"
+  },
+  "historical_unmatched_comparison_note": "The earlier geometry_step_development_01 used a different color mapping. Its rollout bytes differ, so it is not a before/after control.",
+  "matched_prechange_control": {
+    "directory": "outputs/placement_feedback_development_01/prechange_control",
+    "library": "outputs/geometry_step_learning_pilot_01_corrected/symbolic_library.py",
+    "identical_physics": true,
+    "matching_result_fields": {
+      "scene": true,
+      "physics": true,
+      "sensor": true,
+      "camera_calls": true,
+      "success": true,
+      "policy_error": true,
+      "candidate_sha256": true
+    },
+    "source_sha256": {
+      "outputs/placement_feedback_development_01/prechange_control/result.json": "054f55ea64760e03cce528a32bfe90cf1c4071930e96ff2be93feec30799ca75",
+      "outputs/placement_feedback_development_01/prechange_control/rollout.npz": "d4f9718775adb0e5f1740494795d360c3a2d1a6f0a6fb7515f2094b3988c6e3b",
+      "outputs/placement_feedback_development_01/prechange_control_invocation.json": "11fcec4c2754a5102bd6e7a51373e538121265ab992bfc51049bc2694cbfd91a"
+    }
+  }
+}

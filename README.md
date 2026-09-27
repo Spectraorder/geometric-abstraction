@@ -158,6 +158,33 @@ scene geometry; the 4 cm results are not results for the current 3 cm scene.
 
 ## Visual cube and gripper geometry
 
+The current [symbolic/metric state research](docs/GEOMETRIC_STATE_RESEARCH.md)
+separates sensor-derived geometry from shared robot execution. The completed
+[feedback-only comparison](docs/SYMBOLIC_FEEDBACK_EXPERIMENT.md) did not establish
+an iteration-efficiency benefit. A new [online-state comparison](docs/ONLINE_GEOMETRY_EXPERIMENT.md)
+tests queryable object/face/vertex geometry during execution. Runtime perception
+and planning remain CPU-only; private simulator truth is restricted to evaluation.
+
+
+The [generic RGB-D PnP extraction](docs/GENERIC_RGBD_PNP.md) separates basic
+visual grasp/place control from the single-column task adapter and historical
+tower-specific compensation.
+
+The [generic PnP geometry experiment](docs/GENERIC_PNP_GEOMETRY_EXPERIMENT.md)
+compares policy improvement from the extracted PnP base with and without a
+supplied geometric abstraction.
+
+The [shared-base stacking comparison](docs/PNP_GEOMETRY_COMPARISON.md) starts both
+arms from the same historical RGB-D policy and compares supplied geometric
+abstraction against the original sensor interface with matched sensors.
+
+The new [rigid geometry state experiment](docs/RIGID_GEOMETRY_STATE.md) adds opt-in
+wrist depth, robot-model finger pads, and structured current/desired cube states.
+It includes actual three-cube rollout visualizations and a same-scene sensor control;
+the new wrist estimates are diagnostic and do not yet command corrections.
+The [four-color mixed-shape bridge example](docs/MIXED_RIGID_GEOMETRY.md) extends
+this to two cubes, a thin beam and a cylinder, including a recorded occlusion failure.
+
 `policies/stack_three_blocks_visual_geometry.py` passed **445/450 development**,
 **198/200 fresh reserved randomized layouts (99%)**, and **10/10 nominal** layouts
 in simulation. It uses side RGB-D and wrist RGB to measure visible gripper reach
