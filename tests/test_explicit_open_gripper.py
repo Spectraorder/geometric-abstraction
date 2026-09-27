@@ -5,7 +5,7 @@ import unittest
 
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'scripts'))
 from prototype_open_gripper_session import library
-from build_visual_input_session import library as base_library
+from build_geometry_session import library as base_library
 
 
 class OpenGripperTests(unittest.TestCase):

@@ -8,14 +8,14 @@ import shutil
 from unittest.mock import patch
 import numpy as np
 import run_shared_observer_experiment as shared
-from build_geometry_step_session import library
+from build_geometry_session import surface_library as library
 
 base = shared.base
 ROOT = shared.ROOT
 ARMS = shared.ARMS
 BASE_VALIDATE = base.validate_planner
 EXTRA = ('policies/geometry_step_state.py', 'policies/geometry_step_session.py',
-         'policies/support_graph_step_starter.py', 'scripts/build_geometry_step_session.py',
+         'policies/support_graph_step_starter.py', 'scripts/build_geometry_session.py',
          'scripts/run_geometry_step_experiment.py')
 COMMON = shared.COMMON
 start = COMMON.index('All conditions also have snapshot()')

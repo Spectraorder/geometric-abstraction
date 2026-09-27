@@ -54,7 +54,7 @@ this evaluation does not establish arbitrary graph construction.
 
 ## Policy and physical checks
 
-[`structure_policy.py`](../../src/aspire_so100/structure_policy.py) reuses the visual
+[`structure_policy.py`](https://github.com/Spectraorder/aspire_so100/blob/5129740bf82f9d55d2544a773648037cf26c1e53/src/aspire_so100/structure_policy.py) reuses the visual
 geometry and instance-tracking helpers from the frozen column policy. Its
 manipulation controller is a separate derivative so both historical policy
 sources and bundles remain reproducible. The new behavior is:

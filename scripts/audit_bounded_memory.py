@@ -71,9 +71,9 @@ if __name__=='__main__':
         import sys
         sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
         from view_scene import get_so100_spec
-        from robot_visual_mask_prototype import exclude_robot_spheres
+        from aspire_so100.robot_visual_geometry import exclude_robot_spheres
         radius=float(get_so100_spec().site('ee_site').size[0])
-        source=Path(__file__).with_name('robot_visual_mask_prototype.py')
+        source=Path(__file__).resolve().parents[1]/'src/aspire_so100/robot_visual_geometry.py'
         (args.output/source.name).write_bytes(source.read_bytes())
     for path in args.trials:
         callback=None;events=[]

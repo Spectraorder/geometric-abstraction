@@ -23,10 +23,10 @@ def main():
         parser.error('Distinct seeds, positive jobs and 0..100 NoSlip iterations required')
     args.output.mkdir(parents=True,exist_ok=False)
     candidates={}
-    names={'baseline':'stack_column_cpu.py','precision':'stack_cubes_aligned_cpu.py','refined':'stack_cubes_refine_experimental.py'}
+    from build_inventory_policy import build_policy
     for label in args.policies:
-        name=names[label]
-        data=(ROOT/'policies'/name).read_bytes()
+        controller = 'column_policy' if label == 'baseline' else 'cube_alignment_policy'
+        data = build_policy(controller, refine=label == 'refined').encode()
         path=args.output/(label+'.py');path.write_bytes(data)
         candidates[label]=dict(path=str(path.resolve()),sha256=hashlib.sha256(data).hexdigest())
     cases=[dict(policy=label,seed=seed,physics={'noslip_iterations':args.noslip_iterations}) for seed in args.seeds for label in candidates]

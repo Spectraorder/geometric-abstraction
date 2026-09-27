@@ -4,7 +4,7 @@ import sys
 import unittest
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 from run_held_geometry_probe import allow_initial_unknown
-from build_geometry_step_session import library
+from build_geometry_session import surface_library as library
 from test_shared_observer_experiment import API, OBJECTS
 
 

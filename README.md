@@ -16,6 +16,9 @@ cubes, a thin prism and a cylinder, with unique colors and varied layouts.
 - [Latest results](docs/PARTIAL_GEOMETRY_BUDGET_LIMITED_RESULTS.md): preliminary,
   budget-limited evidence, including failures and regressions.
 
+Historical source archives and generated policy copies are kept in Git history,
+not duplicated in the active tree.
+
 The latest campaign stopped at **103 reserved rollouts**, following 192 training
 rollouts. In the tested chain, first-revision SR is 20% for Base and 75% for Full,
 from a common 40% starter. This does not establish a stable advantage across
@@ -47,13 +50,12 @@ raw dataset. Do not assume a fresh clone includes experiment recordings.
 
 | Directory | Purpose |
 | --- | --- |
-| `policies/` | Shared sessions, compact state and policy starters |
+| `policies/` | Canonical controllers, shared sessions, compact state and starters |
 | `src/aspire_so100/` | CPU perception/control and simulation integration |
 | `scripts/` | Frozen experiment drivers, auditing and analysis |
 | `tests/` | Interface, geometry, provenance and recorded-fixture checks |
 | `docs/` | Current documentation, evaluation summaries and figures |
 | `docs/history/` | Earlier designs, experiments and the old project guide |
-| `archive/` | Pointing experiments and unused historical skill guidance |
 
 Current experiment actors do **not** load a task-skill library. They receive the
 registered interface, starter and their own bounded training feedback. Historical

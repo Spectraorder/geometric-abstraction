@@ -28,14 +28,17 @@ Earlier designs, task controllers, papers and experiments are in
 `evaluations/`, and figures remain in `media/`, preserving source paths and hashes.
 The archives retain failures as well as successes; they are not current instructions.
 
-There is no active task-skill library in this experiment. The single old stacking
-note is in [the legacy skill archive](../archive/legacy_skills/README.md).
-Historical skill promotion belongs to a different runner and is not actor input here.
+There is no active task-skill library in this experiment. Old task guidance and
+actor-loop code are retained in Git history rather than a mirrored source archive.
+Current actors receive the registered interface and their own training feedback.
 
-## Source cleanup and frozen audits
+## Development after cleanup
 
-The old actor/skill-promotion modules are [archived](../archive/legacy_training/README.md).
-The current builders produce the same frozen geometry libraries, but historical
-full-source audits also include those removed modules. Use the archive's pre-cleanup
-commit for full historical audits; register a new manifest for any future experiment
-on the cleaned source tree. Existing manifests and raw evidence are unchanged.
+Task controllers now have one canonical source under `policies/controllers/`.
+Standalone candidates are generated on demand; shared geometry, prediction and
+relation capabilities remain in `src/aspire_so100`. See the
+[policy build instructions](../policies/README.md).
+
+Historical manifests and raw results are unchanged. New experiments register
+current sources; the cleaned tree is not required to reproduce every historical
+source layout. Use Git history if an old implementation needs inspection.

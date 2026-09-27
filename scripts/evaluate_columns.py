@@ -174,7 +174,7 @@ def evaluate_case(candidate, directory, case, jobs, *, expected_sha256=None):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--candidate', type=Path, default=Path('policies/stack_column_cpu.py'))
+    parser.add_argument('--candidate', type=Path, help='Explicit candidate; otherwise build from the canonical controller')
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--recipes', nargs='+', choices=(*RECIPES, 'random'), default=['cube_pair', 'cube_triple', 'cube_quad', 'mixed_triple', 'slender_top', 'cylinder_base'])
     parser.add_argument('--seeds', nargs='+', type=int, required=True)
@@ -189,6 +189,9 @@ def main():
     parser.add_argument('--frozen-sha256', help='Required source hash for held-out evaluation')
     parser.add_argument('--plan-only', action='store_true', help='Freeze the matrix and source without running trials')
     args = parser.parse_args()
+    if args.candidate is None:
+        from build_inventory_policy import write_policy
+        args.candidate = write_policy(args.output/'generated_candidate.py', 'column_policy')
     if args.jobs < 1:
         parser.error('Jobs must be positive')
     try:

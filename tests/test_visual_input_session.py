@@ -5,7 +5,7 @@ import unittest
 import numpy as np
 from test_geometry_step_session import RecordingAPI, OBJECTS
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'scripts'))
-from build_visual_input_session import library
+from build_geometry_session import library
 from run_geometry_step_experiment import validate_planner
 
 ROOT = Path(__file__).resolve().parents[1]

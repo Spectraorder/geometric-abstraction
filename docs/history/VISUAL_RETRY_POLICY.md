@@ -3,7 +3,7 @@
 
 # Visual cube and gripper geometry for 3 cm cubes
 
-The [published policy](../../policies/stack_three_blocks_visual_geometry.py) passed
+The [published policy](https://github.com/Spectraorder/aspire_so100/blob/5129740bf82f9d55d2544a773648037cf26c1e53/policies/stack_three_blocks_visual_geometry.py) passed
 **198/200 fresh reserved randomized layouts (99%)**, **445/450 development
 layouts**, and **10/10 separately reserved nominal layouts** in simulation.
 This meets the experiment's target of at least 99% on 200 fresh layouts; it does

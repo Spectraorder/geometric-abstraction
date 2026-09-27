@@ -7,13 +7,13 @@ import shutil
 from unittest.mock import patch
 import numpy as np
 import run_geometry_step_experiment as step
-from build_visual_input_session import library
+from build_geometry_session import library
 
 base = step.base
 ROOT = step.ROOT
 ARMS = step.ARMS
 EXTRA = ('policies/visual_input_session.py', 'policies/support_graph_visual_starter.py',
-         'scripts/build_visual_input_session.py', 'scripts/run_visual_input_experiment.py')
+         'scripts/build_geometry_session.py', 'scripts/run_visual_input_experiment.py')
 validate_planner = step.validate_planner
 COMMON = step.COMMON[:step.COMMON.index('Instantiate exactly Session')]+'''Instantiate exactly Session(api, objects), with the complete public task inventory.
 Both conditions share a frozen hidden CPU RGB-D pick/place actuator. Its internal

@@ -47,13 +47,13 @@ class CubeAlignmentTests(unittest.TestCase):
         for corners in (np.zeros((3,3)),np.full((4,3),np.nan)):
             with self.assertRaises(ValueError):cube_edge_alignment(dict(cube(),top_vertices=corners),cube())
 
-    def test_bundle_is_numerical_and_frozen_column_source_is_unchanged(self):
+    def test_alignment_and_column_bundles_are_sensor_only(self):
         spec=importlib.util.spec_from_file_location('build_alignment',ROOT/'scripts/build_inventory_policy.py')
         builder=importlib.util.module_from_spec(spec);spec.loader.exec_module(builder)
-        self.assertEqual(builder.build_policy('column_policy'),(ROOT/'policies/stack_column_cpu.py').read_text())
         spec=importlib.util.spec_from_file_location('runner_alignment',ROOT/'scripts/run_vision_trial.py')
         runner=importlib.util.module_from_spec(spec);spec.loader.exec_module(runner)
-        runner.validate_source(builder.build_policy('cube_alignment_policy'))
+        for controller in ('column_policy', 'cube_alignment_policy'):
+            runner.validate_source(builder.build_policy(controller))
 
 
 if __name__=='__main__':unittest.main()

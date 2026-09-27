@@ -73,3 +73,16 @@ The latest single-chain reserved result is promising; earlier independent-chain
 results are mixed. [Results and limitations](PARTIAL_GEOMETRY_BUDGET_LIMITED_RESULTS.md)
 remain separate from design claims. [Research notes and primary papers](history/GEOMETRIC_STATE_RESEARCH.md)
 record the rationale and previous alternatives without expanding the active method.
+
+## Source organization after deduplication
+
+Shared geometry, prediction and relation implementations remain in
+`src/aspire_so100`. Task controllers have one source under `policies/controllers/`;
+`build_inventory_policy.py` generates standalone candidates on demand. The direct
+`build_geometry_session.py` replaces chained session-builder wrappers without
+changing the generated interfaces. Controller migration preserves all six build
+variants, including optional pointing and refinement.
+
+The removed generated policies are available in Git history. Their old success
+rates are historical evidence, not validation of a newly generated policy. New
+experiments must register their current sources. No rollout was added for cleanup.

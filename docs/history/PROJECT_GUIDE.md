@@ -13,7 +13,7 @@ and [completed independent comparison](../VISUAL_INPUT_LEARNING_RESULTS.md).
 The latest experiment is stopped at 103 reserved rollouts; do not resume it without
 a further user request. No stable cross-chain learning advantage is claimed.
 
-Recognition/pointing experiments are in [the historical archive](../../archive/pointing/README.md).
+Recognition/pointing experiments are in [the historical archive](https://github.com/Spectraorder/aspire_so100/blob/5129740bf82f9d55d2544a773648037cf26c1e53/archive/pointing/README.md).
 Earlier tower controllers and mixed/negative geometry studies below remain as
 context and reproduction dependencies, not additional current treatment arms.
 Raw rollout recordings stay in ignored local `outputs/`; Git contains code,

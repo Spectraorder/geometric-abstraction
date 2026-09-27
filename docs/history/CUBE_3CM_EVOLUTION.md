@@ -7,7 +7,7 @@ This is a historical experiment. See the [current cube-and-gripper policy](VISUA
 for the latest validated results.
 
 The new policy is
-[`stack_three_blocks_cubes_3cm.py`](../../policies/stack_three_blocks_cubes_3cm.py).
+[`stack_three_blocks_cubes_3cm.py`](https://github.com/Spectraorder/aspire_so100/blob/5129740bf82f9d55d2544a773648037cf26c1e53/policies/stack_three_blocks_cubes_3cm.py).
 Its SHA-256 is
 `acbbb2796542f1ad55106adf4d5f0a9ca368089adf54256491ec21c75416f43c`.
 

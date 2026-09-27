@@ -5,7 +5,7 @@ import unittest
 import numpy as np
 from test_shared_observer_experiment import API, OBJECTS
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'scripts'))
-from build_geometry_step_session import library
+from build_geometry_session import surface_library as library
 from run_mixed_scene_experiment import validate_planner
 
 

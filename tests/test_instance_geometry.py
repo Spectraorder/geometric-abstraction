@@ -10,10 +10,13 @@ from aspire_so100.instance_geometry import InstanceTracker, depth_components, in
 from test_vision_boundary import runner
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / 'policies/stack_inventory_cpu.py'
-spec = importlib.util.spec_from_file_location('inventory_candidate', SOURCE)
-policy = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(policy)
+spec = importlib.util.spec_from_file_location('inventory_builder', ROOT/'scripts/build_inventory_policy.py')
+builder = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(builder)
+SOURCE = builder.build_policy()
+from types import ModuleType
+policy = ModuleType('inventory_candidate')
+exec(compile(SOURCE, '<generated-inventory-policy>', 'exec'), policy.__dict__)
 
 
 def detection(x, shape='cube'):
@@ -133,5 +136,5 @@ class InstanceGeometryTests(unittest.TestCase):
         spec = importlib.util.spec_from_file_location('builder', ROOT / 'scripts/build_inventory_policy.py')
         builder = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(builder)
-        self.assertEqual(SOURCE.read_text(), builder.build_policy())
-        runner.validate_source(SOURCE.read_text())
+        self.assertEqual(SOURCE, builder.build_policy())
+        runner.validate_source(SOURCE)

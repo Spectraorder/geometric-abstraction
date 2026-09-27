@@ -8,7 +8,7 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT/'scripts'))
 from build_partial_geometry_session import library
-from build_visual_input_session import library as visual_library
+from build_geometry_session import library as visual_library
 
 
 class PartialGeometryTests(unittest.TestCase):

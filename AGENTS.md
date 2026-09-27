@@ -3,7 +3,10 @@
 Build varied towers from the five-shape, four-color block inventory. The historical first
 curriculum covers upright single columns. Current work prioritizes low-rise
 support graphs, multiple foundations, bridges and stepped structures rather
-than increasing height. Preserve the frozen column policy and its evidence.
+than increasing height. Preserve reusable geometry capabilities; keep historical
+results honest, but use Git history for old generated policies and compatibility.
+Do not keep duplicate build artifacts solely to reproduce an earlier experiment.
+Task controllers live in `policies/controllers`; shared geometry lives in `src`.
 
 Use English for maintained documentation, code comments and docstrings.
 Preserve recorded prompts, observations and experiment artifacts as evidence;

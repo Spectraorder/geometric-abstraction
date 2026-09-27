@@ -5,7 +5,12 @@ import unittest
 import numpy as np
 from scipy.spatial.transform import Rotation
 
-from aspire_so100.column_policy import run
+import importlib.util
+from pathlib import Path
+spec = importlib.util.spec_from_file_location('column_controller', Path(__file__).resolve().parents[1]/'policies/controllers/column_policy.py')
+controller = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(controller)
+run = controller.run
 from aspire_so100.column_geometry import ColumnGeometryConflict, estimate_column_geometry
 from aspire_so100.instance_geometry import inventory_points
 from test_column_tracking import primitive_scene

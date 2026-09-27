@@ -68,7 +68,7 @@ def validate_result(result, trial, digest):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--candidate', type=Path, default=Path('policies/assemble_structure_cpu.py'))
+    parser.add_argument('--candidate', type=Path, help='Explicit candidate; otherwise build from the canonical controller')
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--recipes', nargs='+', choices=tuple(STRUCTURE_RECIPES), default=list(STRUCTURE_RECIPES))
     parser.add_argument('--seeds', nargs='+', type=int, required=True)
@@ -79,6 +79,9 @@ def main():
     parser.add_argument('--frozen-sha256')
     parser.add_argument('--plan-only', action='store_true')
     args = parser.parse_args()
+    if args.candidate is None:
+        from build_inventory_policy import write_policy
+        args.candidate = write_policy(args.output/'generated_candidate.py', 'structure_policy')
     if args.jobs < 1:
         parser.error('Jobs must be positive')
     source = args.candidate.read_bytes()

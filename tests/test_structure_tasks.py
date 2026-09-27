@@ -129,8 +129,9 @@ class StructureTaskTests(unittest.TestCase):
         mapping = dict(red='blue', blue='green', green='yellow', yellow='red')
         with TemporaryDirectory() as directory:
             output = Path(directory)/'trial'
+            (Path(directory)/'candidate.py').write_text('def run(api): pass\n')
             with patch('aspire_so100.playback.subprocess.run') as run, patch('aspire_so100.playback.watch_vision_rollout') as watch:
-                watch_vision_policy(ROOT/'policies/assemble_structure_cpu.py', output=output, seed=1101,
+                watch_vision_policy(Path(directory)/'candidate.py', output=output, seed=1101,
                                     layout='sampled', task='inventory_structure', object_count=5,
                                     structure_recipe='staircase', structure_color_map=mapping)
                 command = run.call_args.args[0]
@@ -185,10 +186,3 @@ class StructureTaskTests(unittest.TestCase):
                         self.assertTrue(any('missing required support red_cube' in reason for reason in status['reasons']))
                 finally:
                     env.close()
-
-    def test_historical_policy_bundles_stay_frozen(self):
-        expected = {'assemble_structure_v1_cpu.py': '3e05c8f0c42647525b1c02962d60a82996448546a4ba68b011a11578078ad1f1',
-                    'stack_column_cpu.py': '621f19b8ed4ba08bac2fa2314f1cf2527b62ee60380e3c10bee9f05ada38f47f',
-                    'stack_inventory_cpu.py': '20613dbf213444f77aac9fdcbdf2b6245d249e0770ab362121e5663e4e53394b'}
-        for name, digest in expected.items():
-            self.assertEqual(hashlib.sha256((ROOT/'policies'/name).read_bytes()).hexdigest(), digest)
