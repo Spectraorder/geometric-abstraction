@@ -31,3 +31,11 @@ The archives retain failures as well as successes; they are not current instruct
 There is no active task-skill library in this experiment. The single old stacking
 note is in [the legacy skill archive](../archive/legacy_skills/README.md).
 Historical skill promotion belongs to a different runner and is not actor input here.
+
+## Source cleanup and frozen audits
+
+The old actor/skill-promotion modules are [archived](../archive/legacy_training/README.md).
+The current builders produce the same frozen geometry libraries, but historical
+full-source audits also include those removed modules. Use the archive's pre-cleanup
+commit for full historical audits; register a new manifest for any future experiment
+on the cleaned source tree. Existing manifests and raw evidence are unchanged.

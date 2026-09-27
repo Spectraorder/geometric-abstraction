@@ -1,0 +1,30 @@
+{
+  "source_commit": "97d7b98152b21a1612997c9e28873b9eba7d927d",
+  "files": [
+    {
+      "original": "src/aspire_so100/agent_loop.py",
+      "archived": "archive/legacy_training/src/aspire_so100/agent_loop.py",
+      "sha256": "a4634a2f463576e1fadab69aca2497bb3838465749929353bb8391b6409aa244"
+    },
+    {
+      "original": "src/aspire_so100/context.py",
+      "archived": "archive/legacy_training/src/aspire_so100/context.py",
+      "sha256": "9bc0a58a34ea139b218507c9bc3de0ecb345e554325f72c11400ba22190c8086"
+    },
+    {
+      "original": "src/aspire_so100/skill_report.py",
+      "archived": "archive/legacy_training/src/aspire_so100/skill_report.py",
+      "sha256": "314be5766ff3bcabc5c2b678ab316cd089c3096680f0eecc5bab17e4c4164174"
+    },
+    {
+      "original": "tests/test_context.py",
+      "archived": "archive/legacy_training/tests/test_context.py",
+      "sha256": "63ea97bb6b5f8f10dbf922948c5a36686a4a8f824bf16633461e1e35fb07b074"
+    },
+    {
+      "original": "tests/test_visual_observations.py",
+      "archived": "archive/legacy_training/tests/test_visual_observations.py",
+      "sha256": "6bf9c57021d6656dfafbf98c9a9faed015f16a3609f6141679f7cc44c414c33d"
+    }
+  ]
+}
