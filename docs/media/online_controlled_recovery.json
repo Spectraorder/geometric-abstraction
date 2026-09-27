@@ -1,0 +1,9 @@
+{
+  "source_root": "outputs/online_recovery_01",
+  "protocol_sha256": "c1d7fb37396175422b6fcd647c1bdb89261f8673d4ea5ba05a035cab5368448d",
+  "summary_sha256": "f1716da5c58aea05caf8196b157fb3ee483534dc5ec1d4886195b57f36cc6554",
+  "figure_sha256": {
+    "pdf": "21418d84be218d45682bf353986c2ec96617be6c6c5f923ceaf47b1a1471cc03",
+    "png": "ea5085b6430a58fe92fcf49fc11e18dd6ae5a44819fbca6591d061e8df17ca70"
+  }
+}

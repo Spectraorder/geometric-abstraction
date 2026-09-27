@@ -1,10 +1,14 @@
 # Geometric abstraction for agentic policy
 
 Sections 1–5 describe the geometric interface and its current use in single-policy
-training. Section 6 describes the planned extension to continuous online reasoning
+training. Section 6 describes the extension to continuous online reasoning
 and execution, with no scene reset within an episode. The appendices give
 implementation assumptions, examples, and evaluation details. Numerical examples
-are illustrative; coordinates use meters.
+are illustrative; coordinates use meters. The separate 20-episode online pilot
+is complete; its [results and limitations](ONLINE_BRIDGE_TOWER_RESULTS.md) should
+be consulted before making empirical latency or recovery claims. The later
+[explicit-target study](ONLINE_TARGET_BINDING_RESULTS.md) places metric target
+selection in the LLM's decision loop; its results are separate from that pilot.
 
 ## 1. A geometric interface for agentic policy
 
@@ -45,8 +49,8 @@ preflight scene, shown as side RGB. (b) Metric geometry represented by points,
 edges, and faces with evidence labels. (c) Compact text and symbolic references
 expose geometry to the LLM. (d) The current agent revises executable policies
 between training rollouts; local sensing and actuation run within each rollout.
-Purple dashed paths indicate planned online reasoning without scene reset and
-reuse of trained policy experience. Geometry and numeric values in (b–c) are
+Purple dashed paths indicate the online extension without scene reset and
+reuse of trained policy experience (labeled as planned in this earlier figure). Geometry and numeric values in (b–c) are
 illustrative and are not estimates from the displayed frame. Gray dashed edges
 represent inferred hidden geometry.
 
@@ -55,14 +59,13 @@ Paper assets: [vector PDF](media/agentic_geometry_method.pdf),
 [rendering source](../scripts/render_agentic_geometry_method.py), and
 [figure provenance](media/agentic_geometry_method.json).
 
-We currently study this interface through single-policy training: the LLM revises
+We study this interface in two settings. In single-policy training, the LLM revises
 one executable policy per training chain, and each rollout executes that policy
-without further LLM decisions. Our planned real-time setting will use the same
-abstraction inside a continuing reasoning-and-execution loop. The agent will
-observe the consequences of its actions, draw on previously trained policy
-experience, and continue in the same scene until success or timeout. This second
-setting is intended to test the latency benefit of reasoning over compact text
-and symbols during interaction.
+without further LLM decisions. In a separate online pilot, the agent observes the
+consequences of its actions, invokes adapted previously trained skills, and
+continues in the same scene until success or timeout. The second setting tests
+whether compact text and symbols improve decision efficiency during interaction;
+it does not assume that fewer image attachments imply faster task completion.
 
 ## 2. Geometric state and reference semantics
 
@@ -256,12 +259,12 @@ program; the geometric observers and operator definitions remain fixed.
 This evaluation measures how geometric abstraction affects policy acquisition
 and the success of the resulting policies. It does not measure an LLM's online
 response time while interacting continuously with a scene. The real-time
-advantage of the text interface is a separate hypothesis for the planned setting
+advantage of the text interface is a separate hypothesis for the online setting
 below.
 
-## 6. Planned use in continuous online reasoning and execution
+## 6. Continuous online reasoning and execution
 
-In the planned real-time experiment, an episode begins from one scene and
+In the online pilot, an episode begins from one scene and
 continues without resetting objects after an unsuccessful action. The agent
 repeatedly receives current geometric text, reasons about progress, and chooses
 what to execute next. The episode ends when the task succeeds or its wall-clock
@@ -276,17 +279,49 @@ $$
 u_t=\mathcal A_{\mathrm{LLM}}(g,x_t,\mathcal H_t,\mathcal E),
 $$
 
-where $u_t$ may invoke a policy routine with current parameters, compose a short
-executable procedure, or request additional evidence. Execution changes the
-existing scene; a fresh observation then supplies the next geometric state and
-text record. This equation describes the planned agent loop, rather than an
-already evaluated runtime API.
+where $u_t$ selects a shared skill or recovery operation, binds object identities,
+or requests additional evidence. The pilot accepts structured JSON decisions;
+it does not execute newly generated policy code. Execution changes the existing
+scene, and a fresh observation supplies the next geometric state and text record.
+Astra handles initial planning and replanning, while Luna handles routine decisions
+in the same persistent conversation. Simulation advances during model requests,
+and their latency consumes the episode's wall-clock budget.
 
 Prior policy experience can supply reusable procedures and examples of successful
 or failed decisions. The agent must bind that experience to current object
 references and observations: coordinates from a training episode do not describe
-the current scene. The exact mechanism for selecting and adapting experience
-remains part of the future experimental design.
+the current scene. The pilot uses two directly supplied, training-selected policies
+adapted into bridge and stacking skills, with a shared clearing primitive. Both
+arms receive the same implementations and skill descriptions. This fixed small
+library does not require learned retrieval.
+
+The subsequent explicit-target interface moves destination selection into the
+agent's online decision. Each placement decision specifies a skill, an object
+identity and a world-frame support-surface point. The common actuator executes
+that point without choosing a task destination on the agent's behalf. Both arms
+can query calibrated depth samples from displayed images. Full additionally
+receives current geometric references, while unavailable references remain
+explicitly unavailable. The agent uses one persistent Astra medium context and
+can request images or depth when the text does not supply sufficient evidence.
+This differs from the earlier pilot's node-only skill calls and Astra/Luna routing.
+
+For example, an agent may preserve an existing foundation, place a second
+foundation relative to its observed geometry, and target the beam between their
+current top faces. Choosing to preserve the first foundation can save an entire
+physical operation. Reasoning efficiency therefore includes action selection as
+well as model-request duration. This mechanism is consistent with the successful
+traces in the five-layout explicit-target study; it does not isolate the effect
+of text serialization from the geometric estimates or resulting decisions.
+
+An optional text encoder factors shared reference metadata within each message.
+References explicitly marked for inheritance share frame, units, source and
+other identical evidence fields; unavailable references inherit nothing. All
+numeric values and observation times are preserved, and the complete original
+record can be reconstructed. The encoding reuses no metadata implicitly across
+time. It changes the LLM input format without changing policy references or
+actuator calls. A separate development comparison measures its token cost; it
+should not be assumed to improve decision latency.
+
 
 **Example: continue after an incomplete placement.** Suppose an attempted
 placement leaves the red cube beside its intended support. The agent receives
@@ -301,10 +336,40 @@ This setting directly tests whether text and symbolic geometry allow the LLM to
 make useful decisions sooner. The hypothesis is that explicit references and
 residuals reduce repeated visual interpretation and numerical reconstruction,
 leaving more of a fixed time budget for execution and recovery. Local perception,
-model requests, and actions all contribute to the measured cost. We will compare
+model requests, and actions all contribute to the measured cost. We compare
 success within a common wall-clock budget, time to success, and decision latency,
-with matched access to prior policy experience. No online latency improvement is
-claimed from the current single-policy training experiments.
+with matched access to prior policy experience. In the five-layout pilot, both
+arms succeeded in 6/10 episodes. Full reduced image attachments from 168 to 72,
+but mean capped completion time changed only from 231.54 to 229.33 seconds.
+This establishes the working online interface and a reduction in image attachments;
+it does not establish improved final success or a substantial speedup. See the
+[complete results](ONLINE_BRIDGE_TOWER_RESULTS.md) for token-accounting limits and
+unsuccessful reserved-layout recovery attempts.
+
+In the later 180-second explicit-target study, Full succeeded on 3/5 new paired
+layouts and Base on 0/5. Full attached fewer images and used less completed
+model-request time, but recorded more total tokens. This is exploratory evidence
+for the interface package on five layouts, not a general success-rate or latency
+guarantee. The [complete paired results](ONLINE_TARGET_BINDING_RESULTS.md) retain
+the common failures, interrupted-request accounting and timing limitations. A
+separate [200-second comparison](ONLINE_COMPACT_TOWER_200_STUDY.md) uses fresh
+layouts and the development-validated compact text; its protocol must not be
+confused with a retrospective extension of the 180-second outcomes. That study
+completed with Full 4/5 versus Base 2/5, an 11.1% reduction in mean capped time
+and 39.4% fewer image attachments. Recorded tokens increased by 6.3%, and mean
+per-request latency did not improve. The [complete results](ONLINE_COMPACT_TOWER_200_RESULTS.md)
+support a task-level benefit on these five layouts, with explicit cost and
+sampling limitations.
+Conditioning on success gives mean completion times of 167.66 seconds for Full
+and 189.77 seconds for Base, with completed model-request subtotals averaging
+36.95 and 45.84 seconds per successful episode. These select different layouts
+(four successes versus two) and exclude three interrupted Full requests from the
+model-time subtotal. They are secondary descriptive measures, not a paired
+latency estimate; the [detailed timing analysis](ONLINE_COMPACT_TOWER_200_RESULTS.md#timing-conditioned-on-success)
+also reports the sole jointly successful layout and the opposite all-episode
+mean per-request timing direction.
+
+
 
 ## Appendix A. Observation model and implementation scope
 
@@ -585,8 +650,9 @@ constraint operators, and compact geometric feedback. The comparison evaluates
 this package, rather than isolating any single operator or serializer.
 
 The current three-cube study uses five paired training chains, three generated
-revisions after an observation-only R0, five training layouts per pair, and 100
-shared reserved layouts. Each rollout starts from its registered initial layout.
+revisions after an observation-only R0 and five training layouts per pair. Its
+original 100-layout evaluation was amended to 20 shared reserved layouts before
+reserved results, yielding 800 evaluations across all chains and revisions. Each rollout starts from its registered initial layout.
 Every saved revision is evaluated only after all training has frozen. Retention
 decisions use training outcomes, never reserved success rates. The updated bundle
 retains the existing cube observer, so this study does not establish novel-shape
@@ -601,14 +667,16 @@ turns before summation; cached input is already included in input tokens. Parall
 campaign wall time, per-rollout latency, and total worker time are separate
 quantities. These measurements do not establish real-time LLM decision latency.
 
-### Planned continuous online experiment
+### Continuous online pilot
 
-Each evaluation episode will permit repeated reasoning and execution in one scene
-until success or timeout. A failed action will not reset the scene. The wall-clock
-budget must include model requests, visual grounding, and execution. Both arms
-should use matched initial layouts, task goals, model settings, actuators, timing
-rules, and access to prior policy experience. Experience should come from training
-data and remain separate from the reserved evaluation episodes.
+Each evaluation episode permits repeated reasoning and execution in one scene
+until success or timeout. A failed action does not reset the scene. The pilot uses
+five shared new layouts, two repetitions per arm, and a 360-second wall-clock
+budget including model requests, visual grounding and execution. Both arms use
+matched initial layouts, goals, model settings, actuators, timing rules and
+training-selected skill experience. This experience remains fixed during reserved
+evaluation. Repetitions are grouped by layout rather than treated as distinct
+scene samples.
 
 For episode $j$, let $T_j$ be the elapsed time to first verified task success,
 with $T_j=\infty$ if success is not reached before timeout. At time budget $B$,
@@ -630,8 +698,38 @@ To attribute an effect specifically to geometric text, control the available
 policy experience as well as the action interface. If arms use different learned
 policy archives, the result measures their combined representation-and-experience
 systems; a separate controlled comparison is needed to isolate the text interface.
-The experience-selection mechanism, budgets, and timing rules require a new
-protocol before execution. This planned study is not part of the current campaign.
+The pilot controls the shared skill archive but changes the supplied geometry and
+its presentation together. It therefore evaluates the online interface package,
+not text serialization alone. Its [separate protocol](ONLINE_BRIDGE_TOWER_PILOT.md)
+and [audited results](ONLINE_BRIDGE_TOWER_RESULTS.md) are independent of the
+single-policy campaign. Missing final usage receipts for interrupted requests are
+reported explicitly; completed-request totals are not full episode token costs.
+
+### Explicit metric targets and compact text
+
+The explicit-target comparison keeps ordinary bridge-tower construction and no
+reset after failure, but requires the LLM to bind each placement's metric
+support-surface point. Both arms share a calibrated pixel-depth query API,
+initial/requested images and the same adapted actuator. Full receives geometric
+references in addition to these common capabilities. The 180-second study uses
+five fresh layouts and one episode per arm/layout. Its budget, source snapshots
+and outcomes remain fixed after completion.
+
+The subsequent 200-second study registers five further paired layouts and adopts
+compact reference serialization after separate development checks. Both arms use
+the same actor wrapper; it leaves Base prompts unchanged. Runtime/source, resource,
+submitted-target, depth-query and terminal-contact audits are supplemented by
+independent reconstruction of actual model-visible compact text. A 200-second
+raw/compact Full development pair succeeded in both conditions and used 6.7%
+fewer compact tokens, but completion time was slightly longer. That development
+result is not a held-out Base/Full comparison or a general latency claim.
+
+These studies use at most four workers in balanced paired batches. Parallelism
+reduces campaign duration; it does not increase either arm's per-episode time
+budget. Report raw/compact development, 180-second evaluation and 200-second
+evaluation separately because their layouts, budgets or representations differ.
+See the [compact text record](ONLINE_COMPACT_GEOMETRY_TEXT.md) and
+[200-second protocol](ONLINE_COMPACT_TOWER_200_STUDY.md) for exact settings.
 
 ## Appendix E. Implementation references
 

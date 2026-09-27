@@ -1,0 +1,14 @@
+{
+  "study": "outputs/online_bridge_tower_01",
+  "episodes": 20,
+  "distinct_layouts": 5,
+  "protocol_sha256": "013a7e4a38003c7e2080557830abe4f56e74b6f49d44c58a400b270b679635d6",
+  "summary_sha256": "b415e27b65294ccc1db1bfab74a84091f90f4e6c1bb2ebe4cd3c075ba2f11608",
+  "audit_sha256": "2b0ada5daedcaa1d74cb5e891467a13e924ed4e08b084a109327eb2a3be6a9c7",
+  "renderer": "scripts/summarize_online_bridge_pilot.py",
+  "renderer_sha256": "ad2c1ba83e21af6f5e16439e70087b16e8b143f671bec81a959280ef9cfa3abd",
+  "assets": {
+    "online_bridge_tower_pilot.png": "dc461d3e464400934ab19611e7f616dd32bc0abd678ebd2a1c94551dcaca95ec",
+    "online_bridge_tower_pilot.pdf": "0275415c9ee838c78aa12db5615c362734e12563bad3503d956264992d79ec7b"
+  }
+}

@@ -7,7 +7,41 @@ perception test. Both arms share the same RGB-D actuator, a 0.40 generic grasp
 fraction and the explicit libccd collision pipeline. The completed bridge study
 and its learning curves remain unchanged.
 
-## Design and budget
+## Current status: reduced evaluation completed
+
+Training completed all 200 slots and 30 model requests. The user subsequently
+requested lower evaluation cost. A separate amendment selected the first 20
+reserved layouts in the original order before any reserved results, preserving
+all five paired chains and every revision. It completed 800 evaluations in about
+336 seconds with at most 24 workers. The original 100-layout protocol remains
+unchanged as provenance and is superseded for dispatch; do not resume its remaining
+3200 slots.
+
+| Curve | R0 | R1 | R2 | R3 |
+| --- | ---: | ---: | ---: | ---: |
+| Base, raw revision | 0% | 49% | 70% | 76% |
+| Full, raw revision | 0% | 62% | 72% | 69% |
+| Base, training-retained | 0% | 48% | 70% | 74% |
+| Full, training-retained | 0% | 62% | 72% | 72% |
+
+Rates average five chains on 20 common layouts (100 outcomes per arm/revision,
+with layout and chain dependence). Full leads at R1, but these results do not
+show higher final success. Retention uses training evidence; it can reduce test
+success and must not be replaced by test-set selection. Mean cumulative generation
+tokens at R3 are 133621 for Base and 132580 for Full, including cached input.
+
+Evidence and plots are in
+[`compact_evaluation_20/summary.json`](../outputs/geometry_cube_stack_01/compact_evaluation_20/summary.json)
+and [`learning_curves.pdf`](../outputs/geometry_cube_stack_01/compact_evaluation_20/learning_curves.pdf).
+The amendment also corrected resource accounting for an unchanged cumulative
+usage broadcast carrying stale previous-turn usage. All new increments are
+verified against cumulative counters. Historical counters, policies, STOP receipts
+and result files remain intact. The first compact launch exited during imports
+because resolving the Python symlink bypassed the virtual environment; its log
+and launch receipt are preserved alongside the successful virtual-environment
+launch. No rollout was retried for that launch correction.
+
+## Original design and budget
 
 - Five independent persistent actor sessions per arm, paired by training layouts.
 - Three generated rounds, R1-R3, plus the common observation-only R0.
