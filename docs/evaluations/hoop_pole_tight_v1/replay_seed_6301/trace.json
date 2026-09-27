@@ -1,0 +1,2173 @@
+{
+  "task": "hoop_pole",
+  "seed": 6301,
+  "error": null,
+  "metrics": {
+    "success": true,
+    "score": 100,
+    "seated": true,
+    "released": true,
+    "tool_clear": true,
+    "stable_seconds": 11.670000000000567,
+    "center_error_m": 0.002700989345439706,
+    "bottom_error_m": -1.2925261660447218e-07,
+    "tilt_degrees": 1.6086328072527303e-05,
+    "milestones": {
+      "approach": 1,
+      "grasp": 1,
+      "lift": 1,
+      "align": 1,
+      "insert": 1,
+      "release": 1,
+      "stable": 1
+    },
+    "failure": null
+  },
+  "primitives": [
+    {
+      "primitive": "set_gripper",
+      "inputs": {
+        "position": 0.8,
+        "seconds": 0.6
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.5756511529907584,
+      "before": {
+        "time": 0.6500000000000005,
+        "tool_position": [
+          -0.01999999375868658,
+          -0.2389196693588282,
+          0.49164708075270264
+        ]
+      },
+      "after": {
+        "time": 1.2500000000000009,
+        "tool_position": [
+          -0.019999838508084674,
+          -0.23891959431788784,
+          0.491646914141718
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "move_to_joint_positions",
+      "inputs": {
+        "joint_positions": [
+          -0.14929682930955307,
+          -1.3225381673103793,
+          1.2534471711171316,
+          1.6398768007463687,
+          0.14930315610286524
+        ],
+        "seconds": 1.2
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 1.1538217579945922,
+      "before": {
+        "time": 1.2500000000000009,
+        "tool_position": [
+          -0.019999838508084674,
+          -0.23891959431788784,
+          0.491646914141718
+        ]
+      },
+      "after": {
+        "time": 2.4499999999999518,
+        "tool_position": [
+          -0.031860713800537545,
+          -0.2820666513633136,
+          0.49110118591927404
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.15
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.14267133502289653,
+      "before": {
+        "time": 2.4499999999999518,
+        "tool_position": [
+          -0.031860713800537545,
+          -0.2820666513633136,
+          0.49110118591927404
+        ]
+      },
+      "after": {
+        "time": 2.5999999999999353,
+        "tool_position": [
+          -0.03215031206858786,
+          -0.2824894161435078,
+          0.4908657295121666
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "move_to_joint_positions",
+      "inputs": {
+        "joint_positions": [
+          -0.16179735926985084,
+          -0.9908313719766499,
+          0.7825069688164461,
+          1.6599999999999997,
+          0.02332563402069489
+        ],
+        "seconds": 1.2
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 1.1540099940029904,
+      "before": {
+        "time": 2.5999999999999353,
+        "tool_position": [
+          -0.03215031206858786,
+          -0.2824894161435078,
+          0.4908657295121666
+        ]
+      },
+      "after": {
+        "time": 3.799999999999803,
+        "tool_position": [
+          -0.0443522877644262,
+          -0.32460152028846684,
+          0.4898275855715844
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.15
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.14351106097456068,
+      "before": {
+        "time": 3.799999999999803,
+        "tool_position": [
+          -0.0443522877644262,
+          -0.32460152028846684,
+          0.4898275855715844
+        ]
+      },
+      "after": {
+        "time": 3.9499999999997866,
+        "tool_position": [
+          -0.04463103890586265,
+          -0.3254158534507159,
+          0.4894749710045397
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "move_to_joint_positions",
+      "inputs": {
+        "joint_positions": [
+          -0.16181531362000748,
+          -0.7928172317593158,
+          0.7678386634611376,
+          1.5957643768926264,
+          0.02357735862300166
+        ],
+        "seconds": 0.8
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.7700252190115862,
+      "before": {
+        "time": 3.9499999999997866,
+        "tool_position": [
+          -0.04463103890586265,
+          -0.3254158534507159,
+          0.4894749710045397
+        ]
+      },
+      "after": {
+        "time": 4.749999999999699,
+        "tool_position": [
+          -0.04486672549100345,
+          -0.3258035234666378,
+          0.445966550048962
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.15
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.1437210600124672,
+      "before": {
+        "time": 4.749999999999699,
+        "tool_position": [
+          -0.04486672549100345,
+          -0.3258035234666378,
+          0.445966550048962
+        ]
+      },
+      "after": {
+        "time": 4.899999999999682,
+        "tool_position": [
+          -0.044850480639583905,
+          -0.32553964715546596,
+          0.44348817771268323
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "move_to_joint_positions",
+      "inputs": {
+        "joint_positions": [
+          -0.16181528775722254,
+          -0.7970867765080454,
+          0.8493506470351311,
+          1.518521942254523,
+          0.023577332775751504
+        ],
+        "seconds": 0.8
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.7721582159865648,
+      "before": {
+        "time": 4.899999999999682,
+        "tool_position": [
+          -0.044850480639583905,
+          -0.32553964715546596,
+          0.44348817771268323
+        ]
+      },
+      "after": {
+        "time": 5.699999999999594,
+        "tool_position": [
+          -0.045011158114242986,
+          -0.3258067024281144,
+          0.4333765736905199
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.15
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.14455625700065866,
+      "before": {
+        "time": 5.699999999999594,
+        "tool_position": [
+          -0.045011158114242986,
+          -0.3258067024281144,
+          0.4333765736905199
+        ]
+      },
+      "after": {
+        "time": 5.849999999999578,
+        "tool_position": [
+          -0.04501994331359377,
+          -0.3257487181597641,
+          0.4328746609602633
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "move_to_joint_positions",
+      "inputs": {
+        "joint_positions": [
+          -0.16181527482822103,
+          -0.7946326904026609,
+          0.8821572985416586,
+          1.4832612138377759,
+          0.023577319881881508
+        ],
+        "seconds": 0.8
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.7750089159817435,
+      "before": {
+        "time": 5.849999999999578,
+        "tool_position": [
+          -0.04501994331359377,
+          -0.3257487181597641,
+          0.4328746609602633
+        ]
+      },
+      "after": {
+        "time": 6.64999999999949,
+        "tool_position": [
+          -0.045135987040766,
+          -0.3259657728268814,
+          0.42870820705378165
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.15
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.1446978840394877,
+      "before": {
+        "time": 6.64999999999949,
+        "tool_position": [
+          -0.045135987040766,
+          -0.3259657728268814,
+          0.42870820705378165
+        ]
+      },
+      "after": {
+        "time": 6.799999999999473,
+        "tool_position": [
+          -0.04514644716199376,
+          -0.32595308992961747,
+          0.42848617794025434
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "move_to_joint_positions",
+      "inputs": {
+        "joint_positions": [
+          -0.16181526706614943,
+          -0.7919588097549605,
+          0.8997821509533181,
+          1.4629624716435425,
+          0.02357731208550581
+        ],
+        "seconds": 0.8
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.7780599039979279,
+      "before": {
+        "time": 6.799999999999473,
+        "tool_position": [
+          -0.04514644716199376,
+          -0.32595308992961747,
+          0.42848617794025434
+        ]
+      },
+      "after": {
+        "time": 7.599999999999385,
+        "tool_position": [
+          -0.04522186096201619,
+          -0.3260747070134676,
+          0.425940026271011
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.15
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.14526311599183828,
+      "before": {
+        "time": 7.599999999999385,
+        "tool_position": [
+          -0.04522186096201619,
+          -0.3260747070134676,
+          0.425940026271011
+        ]
+      },
+      "after": {
+        "time": 7.7499999999993685,
+        "tool_position": [
+          -0.04522828965538851,
+          -0.3260612257730453,
+          0.42578658708116407
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "set_gripper",
+      "inputs": {
+        "position": -0.174,
+        "seconds": 1.0
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.8103327660355717,
+      "before": {
+        "time": 7.7499999999993685,
+        "tool_position": [
+          -0.04522828965538851,
+          -0.3260612257730453,
+          0.42578658708116407
+        ]
+      },
+      "after": {
+        "time": 8.749999999999591,
+        "tool_position": [
+          -0.04544384919597961,
+          -0.32767274216884607,
+          0.4278194793815598
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.4
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.2729731250437908,
+      "before": {
+        "time": 8.749999999999591,
+        "tool_position": [
+          -0.04544384919597961,
+          -0.32767274216884607,
+          0.4278194793815598
+        ]
+      },
+      "after": {
+        "time": 9.149999999999725,
+        "tool_position": [
+          -0.0454589479811293,
+          -0.3276327212336716,
+          0.42784873476172774
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "move_to_joint_positions",
+      "inputs": {
+        "joint_positions": [
+          -0.16181532278351124,
+          -0.7874973651294285,
+          0.7322775731195182,
+          1.6260056047401523,
+          0.023577367801469924
+        ],
+        "seconds": 1.0
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.4510106170200743,
+      "before": {
+        "time": 9.149999999999725,
+        "tool_position": [
+          -0.0454589479811293,
+          -0.3276327212336716,
+          0.42784873476172774
+        ]
+      },
+      "after": {
+        "time": 10.150000000000059,
+        "tool_position": [
+          -0.04522431809804243,
+          -0.32588063705204384,
+          0.4457213386147346
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.15
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.05942416895413771,
+      "before": {
+        "time": 10.150000000000059,
+        "tool_position": [
+          -0.04522431809804243,
+          -0.32588063705204384,
+          0.4457213386147346
+        ]
+      },
+      "after": {
+        "time": 10.300000000000109,
+        "tool_position": [
+          -0.04522882733393363,
+          -0.32586761227190614,
+          0.4463961953940798
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "move_to_joint_positions",
+      "inputs": {
+        "joint_positions": [
+          -0.16180755907292338,
+          -0.8800391443574266,
+          0.7407051580981207,
+          1.6599999999999997,
+          0.023467093774830913
+        ],
+        "seconds": 1.0
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.40046319097746164,
+      "before": {
+        "time": 10.300000000000109,
+        "tool_position": [
+          -0.04522882733393363,
+          -0.32586761227190614,
+          0.4463961953940798
+        ]
+      },
+      "after": {
+        "time": 11.300000000000443,
+        "tool_position": [
+          -0.04526753873941422,
+          -0.3258864714221771,
+          0.46656518176396794
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.15
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.05937195097794756,
+      "before": {
+        "time": 11.300000000000443,
+        "tool_position": [
+          -0.04526753873941422,
+          -0.3258864714221771,
+          0.46656518176396794
+        ]
+      },
+      "after": {
+        "time": 11.450000000000493,
+        "tool_position": [
+          -0.04527006776762746,
+          -0.325875796009165,
+          0.46731925464426405
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "move_to_joint_positions",
+      "inputs": {
+        "joint_positions": [
+          -0.16179735917929575,
+          -0.9908313679683975,
+          0.782506964110255,
+          1.6599999999999997,
+          0.023325632486780656
+        ],
+        "seconds": 1.0
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.39978972100652754,
+      "before": {
+        "time": 11.450000000000493,
+        "tool_position": [
+          -0.04527006776762746,
+          -0.325875796009165,
+          0.46731925464426405
+        ]
+      },
+      "after": {
+        "time": 12.450000000000827,
+        "tool_position": [
+          -0.04523850604730428,
+          -0.3255417144383175,
+          0.48775902909073593
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.15
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.059113166003953665,
+      "before": {
+        "time": 12.450000000000827,
+        "tool_position": [
+          -0.04523850604730428,
+          -0.3255417144383175,
+          0.48775902909073593
+        ]
+      },
+      "after": {
+        "time": 12.600000000000877,
+        "tool_position": [
+          -0.04523493654459098,
+          -0.3255029738926225,
+          0.48852068986218167
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "move_to_joint_positions",
+      "inputs": {
+        "joint_positions": [
+          0.01802666112001427,
+          -1.4532019334559032,
+          1.4464045246902342,
+          1.577583166921502,
+          -0.15626461610164258
+        ],
+        "seconds": 1.3
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.5206494550220668,
+      "before": {
+        "time": 12.600000000000877,
+        "tool_position": [
+          -0.045234926795149594,
+          -0.32550269664439463,
+          0.48852372975840536
+        ]
+      },
+      "after": {
+        "time": 13.900000000001311,
+        "tool_position": [
+          -0.00042860518770101693,
+          -0.2726721829139109,
+          0.4880533007825608
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.15
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.05952338199131191,
+      "before": {
+        "time": 13.900000000001311,
+        "tool_position": [
+          -0.00042860518770101693,
+          -0.2726721829139109,
+          0.4880533007825608
+        ]
+      },
+      "after": {
+        "time": 14.050000000001361,
+        "tool_position": [
+          0.00041063597070810495,
+          -0.27140628544981044,
+          0.4880797901254205
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "move_to_joint_positions",
+      "inputs": {
+        "joint_positions": [
+          0.316579060961664,
+          -1.859729458094949,
+          1.9075716920170598,
+          1.522943734269536,
+          -0.4548170159384327
+        ],
+        "seconds": 1.3
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.5218276560190134,
+      "before": {
+        "time": 14.050000000001361,
+        "tool_position": [
+          0.00041063597070810495,
+          -0.27140628544981044,
+          0.4880797901254205
+        ]
+      },
+      "after": {
+        "time": 15.350000000001796,
+        "tool_position": [
+          0.04586098071612834,
+          -0.21865706779863597,
+          0.48830304893975823
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.15
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.05942601396236569,
+      "before": {
+        "time": 15.350000000001796,
+        "tool_position": [
+          0.04586098071612834,
+          -0.21865706779863597,
+          0.48830304893975823
+        ]
+      },
+      "after": {
+        "time": 15.500000000001846,
+        "tool_position": [
+          0.04665067855355885,
+          -0.2174799106109555,
+          0.48827347598497445
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "move_to_joint_positions",
+      "inputs": {
+        "joint_positions": [
+          0.27749485335641166,
+          -1.8006595598454918,
+          1.8492941277839239,
+          1.5221513517104697,
+          -0.41573280833113563
+        ],
+        "seconds": 0.9
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.3629139920230955,
+      "before": {
+        "time": 15.500000000001846,
+        "tool_position": [
+          0.04665455147461934,
+          -0.2174756712103749,
+          0.48827428769808834
+        ]
+      },
+      "after": {
+        "time": 16.40000000000179,
+        "tool_position": [
+          0.04345726713604556,
+          -0.22477067236500733,
+          0.48838513838328546
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.15
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.06004882697016001,
+      "before": {
+        "time": 16.40000000000179,
+        "tool_position": [
+          0.04345726713604556,
+          -0.22477067236500733,
+          0.48838513838328546
+        ]
+      },
+      "after": {
+        "time": 16.550000000001706,
+        "tool_position": [
+          0.04324785646996314,
+          -0.22511008786110542,
+          0.488338886377944
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "move_to_joint_positions",
+      "inputs": {
+        "joint_positions": [
+          0.28195251869296367,
+          -1.7988815525778625,
+          1.8774434933978645,
+          1.49222398706978,
+          -0.4201904738193167
+        ],
+        "seconds": 0.75
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.3046106459805742,
+      "before": {
+        "time": 16.550000000001706,
+        "tool_position": [
+          0.04324687356626977,
+          -0.22511149021725768,
+          0.4883384778081486
+        ]
+      },
+      "after": {
+        "time": 17.30000000000129,
+        "tool_position": [
+          0.043441771395947584,
+          -0.2257981808495039,
+          0.48512432118066046
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.15
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.06044726097024977,
+      "before": {
+        "time": 17.30000000000129,
+        "tool_position": [
+          0.043441771395947584,
+          -0.2257981808495039,
+          0.48512432118066046
+        ]
+      },
+      "after": {
+        "time": 17.450000000001207,
+        "tool_position": [
+          0.0434638786859785,
+          -0.22577976291576174,
+          0.4848998305121371
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "move_to_joint_positions",
+      "inputs": {
+        "joint_positions": [
+          0.28669030921445615,
+          -1.7967353093451524,
+          1.9038766906427915,
+          1.4636445985186113,
+          -0.4249282664298983
+        ],
+        "seconds": 0.75
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.30502197303576395,
+      "before": {
+        "time": 17.450000000001207,
+        "tool_position": [
+          0.04346408077911176,
+          -0.22577955522606102,
+          0.48489886442963215
+        ]
+      },
+      "after": {
+        "time": 18.20000000000079,
+        "tool_position": [
+          0.04418904275420899,
+          -0.22563660853428608,
+          0.48125709804890854
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.15
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.060204982990399,
+      "before": {
+        "time": 18.20000000000079,
+        "tool_position": [
+          0.04418904275420899,
+          -0.22563660853428608,
+          0.48125709804890854
+        ]
+      },
+      "after": {
+        "time": 18.35000000000071,
+        "tool_position": [
+          0.04423265125031854,
+          -0.22560956926950207,
+          0.48104352028089015
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "move_to_joint_positions",
+      "inputs": {
+        "joint_positions": [
+          0.2837895860351757,
+          -1.794100184944125,
+          1.9298647536791897,
+          1.4350214017773095,
+          -0.4220275429621067
+        ],
+        "seconds": 0.75
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.3067332509672269,
+      "before": {
+        "time": 18.35000000000071,
+        "tool_position": [
+          0.044232857139830245,
+          -0.22560935075862468,
+          0.4810425994441563
+        ]
+      },
+      "after": {
+        "time": 19.100000000000293,
+        "tool_position": [
+          0.04425853420317393,
+          -0.2256165482063755,
+          0.47740086616743366
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.15
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.06084919499699026,
+      "before": {
+        "time": 19.100000000000293,
+        "tool_position": [
+          0.04425853420317393,
+          -0.2256165482063755,
+          0.47740086616743366
+        ]
+      },
+      "after": {
+        "time": 19.25000000000021,
+        "tool_position": [
+          0.044245252850981236,
+          -0.22560309886490731,
+          0.47718817997161217
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "move_to_joint_positions",
+      "inputs": {
+        "joint_positions": [
+          0.2807938109821521,
+          -1.7850332178278685,
+          1.949348469767107,
+          1.406470672616764,
+          -0.41903176601107434
+        ],
+        "seconds": 0.75
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.30846969899721444,
+      "before": {
+        "time": 19.25000000000021,
+        "tool_position": [
+          0.044245097281957184,
+          -0.2256029812807503,
+          0.4771872728695648
+        ]
+      },
+      "after": {
+        "time": 19.999999999999794,
+        "tool_position": [
+          0.044142718024475475,
+          -0.2262748705557858,
+          0.4735538430295134
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.15
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.061425379011780024,
+      "before": {
+        "time": 19.999999999999794,
+        "tool_position": [
+          0.044142718024475475,
+          -0.2262748705557858,
+          0.4735538430295134
+        ]
+      },
+      "after": {
+        "time": 20.14999999999971,
+        "tool_position": [
+          0.044116164519043106,
+          -0.22629958142729947,
+          0.47333881152767776
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "move_to_joint_positions",
+      "inputs": {
+        "joint_positions": [
+          0.2822755895602182,
+          -1.7765046453801707,
+          1.9694205597653518,
+          1.3778700137091164,
+          -0.4205135446651501
+        ],
+        "seconds": 0.75
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.31671946099959314,
+      "before": {
+        "time": 20.14999999999971,
+        "tool_position": [
+          0.0441159181475992,
+          -0.22629964548675183,
+          0.4733380173971209
+        ]
+      },
+      "after": {
+        "time": 20.899999999999295,
+        "tool_position": [
+          0.044193211176426744,
+          -0.22675120501787446,
+          0.469696313634171
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.15
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.06301763403462246,
+      "before": {
+        "time": 20.899999999999295,
+        "tool_position": [
+          0.044193211176426744,
+          -0.22675120501787446,
+          0.469696313634171
+        ]
+      },
+      "after": {
+        "time": 21.049999999999212,
+        "tool_position": [
+          0.04419307477251792,
+          -0.22675857344383785,
+          0.46948185810692245
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "move_to_joint_positions",
+      "inputs": {
+        "joint_positions": [
+          0.28607330847058143,
+          -1.775001241671204,
+          1.9968466943299217,
+          1.34894047712275,
+          -0.4243112634474994
+        ],
+        "seconds": 0.75
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.3176711240084842,
+      "before": {
+        "time": 21.049999999999212,
+        "tool_position": [
+          0.04419303562440871,
+          -0.22675854010154448,
+          0.4694810694966142
+        ]
+      },
+      "after": {
+        "time": 21.799999999998796,
+        "tool_position": [
+          0.04428566142645129,
+          -0.22628695915233632,
+          0.46582829964220435
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.15
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.06240288499975577,
+      "before": {
+        "time": 21.799999999998796,
+        "tool_position": [
+          0.04428566142645129,
+          -0.22628695915233632,
+          0.46582829964220435
+        ]
+      },
+      "after": {
+        "time": 21.949999999998713,
+        "tool_position": [
+          0.04431048099873103,
+          -0.2262348555124614,
+          0.4656132198587235
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "move_to_joint_positions",
+      "inputs": {
+        "joint_positions": [
+          0.2819340547309848,
+          -1.7718020412872952,
+          2.022668614383768,
+          1.319919351764257,
+          -0.4201720097079224
+        ],
+        "seconds": 0.75
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.31613792397547513,
+      "before": {
+        "time": 21.949999999998713,
+        "tool_position": [
+          0.04431065048876424,
+          -0.22623452222541762,
+          0.4656122839855175
+        ]
+      },
+      "after": {
+        "time": 22.699999999998298,
+        "tool_position": [
+          0.04420902432687916,
+          -0.22590174582617836,
+          0.46197312658789125
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.15
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.06243596400599927,
+      "before": {
+        "time": 22.699999999998298,
+        "tool_position": [
+          0.04420902432687916,
+          -0.22590174582617836,
+          0.46197312658789125
+        ]
+      },
+      "after": {
+        "time": 22.849999999998214,
+        "tool_position": [
+          0.0441802545952688,
+          -0.22587106686174788,
+          0.46176132186880026
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "move_to_joint_positions",
+      "inputs": {
+        "joint_positions": [
+          0.2866957331814543,
+          -1.7636499975962505,
+          2.0434991514882754,
+          1.2909367892348615,
+          -0.4249336886636317
+        ],
+        "seconds": 0.75
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.315085508977063,
+      "before": {
+        "time": 22.849999999998214,
+        "tool_position": [
+          0.04417995188032485,
+          -0.22587090857752196,
+          0.4617604321541794
+        ]
+      },
+      "after": {
+        "time": 23.5999999999978,
+        "tool_position": [
+          0.044288987800271025,
+          -0.22593193063426964,
+          0.45812311109930903
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.15
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.06221889198059216,
+      "before": {
+        "time": 23.5999999999978,
+        "tool_position": [
+          0.044288987800271025,
+          -0.22593193063426964,
+          0.45812311109930903
+        ]
+      },
+      "after": {
+        "time": 23.749999999997716,
+        "tool_position": [
+          0.04432311346188845,
+          -0.2259073713869118,
+          0.45790929000699876
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "move_to_joint_positions",
+      "inputs": {
+        "joint_positions": [
+          0.28554798816054816,
+          -1.7511138306184637,
+          2.0598553092274035,
+          1.262044451427534,
+          -0.42378594317730034
+        ],
+        "seconds": 0.75
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.3157775810104795,
+      "before": {
+        "time": 23.749999999997716,
+        "tool_position": [
+          0.04432332529402845,
+          -0.2259071835638202,
+          0.45790850522397897
+        ]
+      },
+      "after": {
+        "time": 24.4999999999973,
+        "tool_position": [
+          0.04451207994457928,
+          -0.2263408045572798,
+          0.45427267661252124
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.15
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.06251810601679608,
+      "before": {
+        "time": 24.4999999999973,
+        "tool_position": [
+          0.04451207994457928,
+          -0.2263408045572798,
+          0.45427267661252124
+        ]
+      },
+      "after": {
+        "time": 24.649999999997217,
+        "tool_position": [
+          0.044518394781307626,
+          -0.22634470259598719,
+          0.4540546145313082
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "move_to_joint_positions",
+      "inputs": {
+        "joint_positions": [
+          0.2847346650940221,
+          -1.748223796896081,
+          2.0865666898490614,
+          1.2324430352294575,
+          -0.42297262007094494
+        ],
+        "seconds": 0.75
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.314989895967301,
+      "before": {
+        "time": 24.649999999997217,
+        "tool_position": [
+          0.04451843927109873,
+          -0.22634462574008749,
+          0.45405378607257996
+        ]
+      },
+      "after": {
+        "time": 25.3999999999968,
+        "tool_position": [
+          0.044321309615497115,
+          -0.22565879062786198,
+          0.4503998171146184
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.15
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.06241256697103381,
+      "before": {
+        "time": 25.3999999999968,
+        "tool_position": [
+          0.044321309615497115,
+          -0.22565879062786198,
+          0.4503998171146184
+        ]
+      },
+      "after": {
+        "time": 25.549999999996718,
+        "tool_position": [
+          0.04430180633546211,
+          -0.22560280439991143,
+          0.45018799285783917
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "move_to_joint_positions",
+      "inputs": {
+        "joint_positions": [
+          0.283481409559083,
+          -1.7311232758205675,
+          2.0983492721221704,
+          1.203559930556306,
+          -0.4217193645497125
+        ],
+        "seconds": 0.75
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.3151022429810837,
+      "before": {
+        "time": 25.549999999996718,
+        "tool_position": [
+          0.04430167733059811,
+          -0.2256025011849272,
+          0.45018709673764135
+        ]
+      },
+      "after": {
+        "time": 26.299999999996302,
+        "tool_position": [
+          0.04447819578215491,
+          -0.2263445411493048,
+          0.4465644385857146
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.15
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.06253372295759618,
+      "before": {
+        "time": 26.299999999996302,
+        "tool_position": [
+          0.04447819578215491,
+          -0.2263445411493048,
+          0.4465644385857146
+        ]
+      },
+      "after": {
+        "time": 26.44999999999622,
+        "tool_position": [
+          0.04447198256992096,
+          -0.22636675976883114,
+          0.44634193279938755
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "move_to_joint_positions",
+      "inputs": {
+        "joint_positions": [
+          0.2850731896585015,
+          -1.7221781366419286,
+          2.119028135125775,
+          1.1739359516957095,
+          -0.42331114536476416
+        ],
+        "seconds": 0.75
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.31689176202053204,
+      "before": {
+        "time": 26.44999999999622,
+        "tool_position": [
+          0.044471821679151195,
+          -0.22636677337348207,
+          0.44634105382963185
+        ]
+      },
+      "after": {
+        "time": 27.199999999995804,
+        "tool_position": [
+          0.04438129479006811,
+          -0.2261209708618898,
+          0.44269364935952965
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.15
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.06270866899285465,
+      "before": {
+        "time": 27.199999999995804,
+        "tool_position": [
+          0.04438129479006811,
+          -0.2261209708618898,
+          0.44269364935952965
+        ]
+      },
+      "after": {
+        "time": 27.34999999999572,
+        "tool_position": [
+          0.0443751822013532,
+          -0.22608574528780503,
+          0.44247937632786344
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "move_to_joint_positions",
+      "inputs": {
+        "joint_positions": [
+          0.2803613520516538,
+          -1.7106330587770708,
+          2.137118268984438,
+          1.144300723630652,
+          -0.418599307360217
+        ],
+        "seconds": 0.75
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.31697311002062634,
+      "before": {
+        "time": 27.34999999999572,
+        "tool_position": [
+          0.04437517688032856,
+          -0.22608554127400965,
+          0.4424785859524562
+        ]
+      },
+      "after": {
+        "time": 28.099999999995305,
+        "tool_position": [
+          0.04403551676235862,
+          -0.2260944232325247,
+          0.4388395480908702
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.15
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.06255627499194816,
+      "before": {
+        "time": 28.099999999995305,
+        "tool_position": [
+          0.04403551676235862,
+          -0.2260944232325247,
+          0.4388395480908702
+        ]
+      },
+      "after": {
+        "time": 28.24999999999522,
+        "tool_position": [
+          0.04398191470879618,
+          -0.22608177573002203,
+          0.43862281257841224
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "move_to_joint_positions",
+      "inputs": {
+        "joint_positions": [
+          0.2832975960514047,
+          -1.7023371712240118,
+          2.1588276345234707,
+          1.1142954631745638,
+          -0.42153555102830925
+        ],
+        "seconds": 0.75
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.3286505329888314,
+      "before": {
+        "time": 28.24999999999522,
+        "tool_position": [
+          0.043981618062468086,
+          -0.2260816821984427,
+          0.4386219957385239
+        ]
+      },
+      "after": {
+        "time": 28.999999999994806,
+        "tool_position": [
+          0.04392486616505936,
+          -0.2259722341668254,
+          0.4355558792278115
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.15
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.07533197494922206,
+      "before": {
+        "time": 28.999999999994806,
+        "tool_position": [
+          0.04392486616505936,
+          -0.2259722341668254,
+          0.4355558792278115
+        ]
+      },
+      "after": {
+        "time": 29.149999999994723,
+        "tool_position": [
+          0.0439992252084422,
+          -0.22620130938433153,
+          0.43555332417066583
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.2
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.10036182997282594,
+      "before": {
+        "time": 29.149999999994723,
+        "tool_position": [
+          0.0439992252084422,
+          -0.22620130938433153,
+          0.43555332417066583
+        ]
+      },
+      "after": {
+        "time": 29.349999999994612,
+        "tool_position": [
+          0.044043883142656975,
+          -0.22631734347708726,
+          0.43555890499187266
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "move_to_joint_positions",
+      "inputs": {
+        "joint_positions": [
+          0.2828589645739903,
+          -1.7060174451076737,
+          2.153295693350551,
+          1.1235076776764459,
+          -0.4210969195449241
+        ],
+        "seconds": 0.8
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.4043717330205254,
+      "before": {
+        "time": 29.349999999994612,
+        "tool_position": [
+          0.044044187530939395,
+          -0.22631801714713057,
+          0.43555898431921297
+        ]
+      },
+      "after": {
+        "time": 30.14999999999417,
+        "tool_position": [
+          0.04397057357764768,
+          -0.2259567550795954,
+          0.4356717645865312
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.15
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.07318655803101137,
+      "before": {
+        "time": 30.14999999999417,
+        "tool_position": [
+          0.04397057357764768,
+          -0.2259567550795954,
+          0.4356717645865312
+        ]
+      },
+      "after": {
+        "time": 30.299999999994085,
+        "tool_position": [
+          0.04395127200403689,
+          -0.2258795219477421,
+          0.4356893491953599
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.2
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.09739763004472479,
+      "before": {
+        "time": 30.299999999994085,
+        "tool_position": [
+          0.04395127200403689,
+          -0.2258795219477421,
+          0.4356893491953599
+        ]
+      },
+      "after": {
+        "time": 30.499999999993975,
+        "tool_position": [
+          0.04394650659358015,
+          -0.22585097963682035,
+          0.43571010665996485
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.4
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.1945411569904536,
+      "before": {
+        "time": 30.499999999993975,
+        "tool_position": [
+          0.04394651374175002,
+          -0.2258508906995937,
+          0.43571029457382066
+        ]
+      },
+      "after": {
+        "time": 30.899999999993753,
+        "tool_position": [
+          0.0439486992421449,
+          -0.2258373905200866,
+          0.4357456740983689
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "set_gripper",
+      "inputs": {
+        "position": 0.0,
+        "seconds": 0.65
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.3161335170152597,
+      "before": {
+        "time": 30.899999999993753,
+        "tool_position": [
+          0.0439486992421449,
+          -0.2258373905200866,
+          0.4357456740983689
+        ]
+      },
+      "after": {
+        "time": 31.549999999993393,
+        "tool_position": [
+          0.04395499596383297,
+          -0.22583063653328064,
+          0.43580174504366265
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.2
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.09709665598347783,
+      "before": {
+        "time": 31.549999999993393,
+        "tool_position": [
+          0.04395499596383297,
+          -0.22583063653328064,
+          0.43580174504366265
+        ]
+      },
+      "after": {
+        "time": 31.749999999993282,
+        "tool_position": [
+          0.04395749612923689,
+          -0.22583177681894245,
+          0.43581875168521195
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "set_gripper",
+      "inputs": {
+        "position": 0.25,
+        "seconds": 0.65
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.3162517999880947,
+      "before": {
+        "time": 31.749999999993282,
+        "tool_position": [
+          0.04395749612923689,
+          -0.22583177681894245,
+          0.43581875168521195
+        ]
+      },
+      "after": {
+        "time": 32.39999999999363,
+        "tool_position": [
+          0.04396697608460883,
+          -0.22584360199770626,
+          0.4358732673639668
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.2
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.09704413497820497,
+      "before": {
+        "time": 32.39999999999363,
+        "tool_position": [
+          0.04396697608460883,
+          -0.22584360199770626,
+          0.4358732673639668
+        ]
+      },
+      "after": {
+        "time": 32.59999999999388,
+        "tool_position": [
+          0.04396946144064779,
+          -0.22584662966022181,
+          0.4358870018699249
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "set_gripper",
+      "inputs": {
+        "position": 0.8,
+        "seconds": 0.65
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.7676105010323226,
+      "before": {
+        "time": 32.59999999999388,
+        "tool_position": [
+          0.04396946144064779,
+          -0.22584662966022181,
+          0.4358870018699249
+        ]
+      },
+      "after": {
+        "time": 33.24999999999467,
+        "tool_position": [
+          0.04394226280619756,
+          -0.22573233397902473,
+          0.4358088638660114
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.2
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.28393603599397466,
+      "before": {
+        "time": 33.24999999999467,
+        "tool_position": [
+          0.04394226280619756,
+          -0.22573233397902473,
+          0.4358088638660114
+        ]
+      },
+      "after": {
+        "time": 33.449999999994915,
+        "tool_position": [
+          0.04393535624482149,
+          -0.22570461953326582,
+          0.43578788962384546
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.5
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.7078614780330099,
+      "before": {
+        "time": 33.449999999994915,
+        "tool_position": [
+          0.04393535624482149,
+          -0.22570461953326582,
+          0.43578788962384546
+        ]
+      },
+      "after": {
+        "time": 33.949999999995526,
+        "tool_position": [
+          0.043920634900848333,
+          -0.22564501381132074,
+          0.4357424160828484
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "move_to_joint_positions",
+      "inputs": {
+        "joint_positions": [
+          0.28278803720914863,
+          -1.7995546757556744,
+          1.868782455989255,
+          1.5015581442747084,
+          -0.4210259920969339
+        ],
+        "seconds": 1.8
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 2.5343107760418206,
+      "before": {
+        "time": 33.949999999995526,
+        "tool_position": [
+          0.043920634900848333,
+          -0.22564501381132074,
+          0.4357424160828484
+        ]
+      },
+      "after": {
+        "time": 35.749999999997726,
+        "tool_position": [
+          0.0439162061305056,
+          -0.22562048054578562,
+          0.4845444820768748
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 0.15
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 0.20880342600867152,
+      "before": {
+        "time": 35.749999999997726,
+        "tool_position": [
+          0.0439162061305056,
+          -0.22562048054578562,
+          0.4845444820768748
+        ]
+      },
+      "after": {
+        "time": 35.89999999999791,
+        "tool_position": [
+          0.04390104556453712,
+          -0.2255688083610675,
+          0.4850989658515913
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 3.0
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 4.173690571973566,
+      "before": {
+        "time": 35.89999999999791,
+        "tool_position": [
+          0.04390104556453712,
+          -0.2255688083610675,
+          0.4850989658515913
+        ]
+      },
+      "after": {
+        "time": 38.900000000001576,
+        "tool_position": [
+          0.04391340898317186,
+          -0.22561720773055544,
+          0.4855765062067221
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 2.5
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 3.480036952008959,
+      "before": {
+        "time": 38.900000000001576,
+        "tool_position": [
+          0.04391341420125331,
+          -0.22561722785867927,
+          0.4855766511605385
+        ]
+      },
+      "after": {
+        "time": 41.40000000000463,
+        "tool_position": [
+          0.04391779903270776,
+          -0.22563409518290106,
+          0.48568665225427077
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    },
+    {
+      "primitive": "wait",
+      "inputs": {
+        "seconds": 5.0
+      },
+      "status": "success",
+      "error": null,
+      "duration_s": 6.961777870019432,
+      "before": {
+        "time": 41.40000000000463,
+        "tool_position": [
+          0.04391779903270776,
+          -0.22563409518290106,
+          0.48568665225427077
+        ]
+      },
+      "after": {
+        "time": 46.40000000001074,
+        "tool_position": [
+          0.04392025012186138,
+          -0.22564351424959156,
+          0.48573603072491567
+        ]
+      },
+      "before_frame": null,
+      "after_frame": null
+    }
+  ]
+}

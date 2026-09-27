@@ -1,0 +1,206 @@
+{
+  "campaign": "hoop_pole_tight_learn_01",
+  "model": "gpt-6-astra",
+  "best_round": 1,
+  "policy": "policies/insert_hoop_tight_v1.py",
+  "policy_sha256": "dca4d081a52fada9b93d03bc931be1a240f8318e3422254c4cfa1c17071e8445",
+  "baseline_policy": "policies/archive/insert_hoop_standard_v1.py",
+  "baseline_policy_sha256": "38940f1ac747eb5f7beb01a1b409c892237be0a92c6576596b695e08acde40c6",
+  "scene_version": "hoop_pole_learning_tight_v1",
+  "hoop_inner_diameter_mm": 20,
+  "pole_diameter_mm": 12,
+  "controller": "robot_gravity_ff_v1",
+  "evaluator": "hoop_seated_v1",
+  "development_seeds": [
+    6101,
+    6102,
+    6103,
+    6201,
+    6202,
+    6203
+  ],
+  "development_passed": 6,
+  "baseline_development_passed": 5,
+  "fresh_evaluation": {
+    "seeds": [
+      6301,
+      6302,
+      6303,
+      6304,
+      6305,
+      6306,
+      6307,
+      6308,
+      6309,
+      6310
+    ],
+    "baseline_passed": 5,
+    "learned_passed": 10,
+    "trials": 10
+  },
+  "reported_tokens": 27103,
+  "hypothesis": "The baseline's small alignment residuals followed by larger final center errors suggest that the hoop-to-tool offset changes during descent or release. Preserve pickup and transport, refresh that offset from the visible upper rim during descent, and make small clearance-limited corrections before release. Open slowly in stages without moving the tool, then withdraw and wait. This repair is untested.",
+  "replay": "docs/evaluations/hoop_pole_tight_v1/replay_seed_6301",
+  "evidence_files": [
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/development/seed_6101.json",
+      "sha256": "e9efff8780910cdd8c55627ad7c784d75ae83d1838291d91dde263439dcd4688"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/development/seed_6102.json",
+      "sha256": "d565e28fbbb3f0d10913825335ea6c3dded08f872e211cd95fdd7476dd593820"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/development/seed_6103.json",
+      "sha256": "e30949030d99896cd4b0787e29c771e462722f2e9784e90ee6ec0f9077aa396b"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/development/seed_6201.json",
+      "sha256": "f57dc6abc1e3e48b81a6e433e533fa078f006bed98a2bde8e75eaa873b5c3dd5"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/development/seed_6202.json",
+      "sha256": "5ea434a93646a24755df73d0ab46f449c549444557334723a05988f1342b17a5"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/development/seed_6203.json",
+      "sha256": "5320edf14e5c7d175636d7011a04587d846e4a09727a61a75ce72db40ae21f37"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/baseline_development/seed_6101.json",
+      "sha256": "1b91a470b11221f1f4c8d8967b12c3a7bde9f5766c09e9b6f9a5062ddda0da0a"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/baseline_development/seed_6102.json",
+      "sha256": "d7b417f683c04ec71c33033164dde7e3c54ceb2ea778330f1ca78edf4a66c5a9"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/baseline_development/seed_6103.json",
+      "sha256": "e8b3cc2f8144fc2b7708879405f0520a2db1924f736c8af3faf663022cafabcf"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/baseline_development/seed_6201.json",
+      "sha256": "7f59f9cf7495c5c586b28bf5dc22cb04aebf01e53ef85cdc78473cbcb6532f4f"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/baseline_development/seed_6202.json",
+      "sha256": "ce62a6d434cd1228b195307a788bd5f3323209b6b8eed5eb63d8a0ed9d09ef59"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/baseline_development/seed_6203.json",
+      "sha256": "5ebd49c81ed0592362970e062cc0eb647bcb9051af9735f5c6e11eaaa3ef393b"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/heldout/seed_6301.json",
+      "sha256": "11f23b24c84193a6b755f4c7b743d9a8bd00f6fb486fe9ae0812c46739bb4b8a"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/heldout/seed_6302.json",
+      "sha256": "ceb919c6489a7a698974200446ea1bb3d7c4cd8702c999445ed54af127831e46"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/heldout/seed_6303.json",
+      "sha256": "afc315e4f91f9db664066ca5f705775913baa1463b329e561d3699292e013574"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/heldout/seed_6304.json",
+      "sha256": "1ecbfeefab093089f256818bafca0ad486508a7aef37181173819459d29130bb"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/heldout/seed_6305.json",
+      "sha256": "264878397aaee0bbbd1141c149f0f527bae97321cada10852de0d22ff677d8e3"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/heldout/seed_6306.json",
+      "sha256": "4922b2a3c81b1822397331547618dbcc32e1605afcaddbe2cc6949f0b81e443a"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/heldout/seed_6307.json",
+      "sha256": "c0fc964dc86606d5b7904500496f862ddacaf92d9462e7fa8a71c66297c34fbc"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/heldout/seed_6308.json",
+      "sha256": "e976d2a8b15044989a54cefc21a9ca930d38072aa2435d263d65a1b087fc193f"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/heldout/seed_6309.json",
+      "sha256": "61227175f5bcfdaa418a5fa987aa76e387227049062f7b8f10aa7382f87161ab"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/heldout/seed_6310.json",
+      "sha256": "aa3ce33dbe7004d37888a01d437c01f8cba579a53ed9824814735d833ff896f0"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/baseline_heldout/seed_6301.json",
+      "sha256": "0da1a150e10cf233d1d2770131f4958e16a7dcda398b5f3f4fe6f036a9af95cb"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/baseline_heldout/seed_6302.json",
+      "sha256": "6d620aaffba7cf58d750f7e3fbca91b45aedce95993246cc1ae9c6a6f7dca12b"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/baseline_heldout/seed_6303.json",
+      "sha256": "a9aca57436a6d6625ad1c9424abf1a9d36e2af550151fd9d539908f5095114cf"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/baseline_heldout/seed_6304.json",
+      "sha256": "b433a43b3a404c2fff703de4e9459bcc7576e80cf09abfdc3e1234cf1a0789e5"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/baseline_heldout/seed_6305.json",
+      "sha256": "cb24e8fdf389fd0a1cea0a9ef31da2f05cfd3af3c9dbcb50c517bb48038e8947"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/baseline_heldout/seed_6306.json",
+      "sha256": "cf7e2a91a23c6f9aafe3cbb064e56bb8f55754f20f2a2b600df1fb5c61878677"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/baseline_heldout/seed_6307.json",
+      "sha256": "4b018555231c0579826d541425acbabe0d21f78233ce71fe40aaaf1400e9bbb8"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/baseline_heldout/seed_6308.json",
+      "sha256": "011f363de59505b0a2d7babe03d2d7aa608c6f25e29ec8bc28e88db4e5a7af7f"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/baseline_heldout/seed_6309.json",
+      "sha256": "adada1fa7f4cbe412c877ed9f2d430b7d80a461d2d10c9493b495ffe1dba6328"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/baseline_heldout/seed_6310.json",
+      "sha256": "8111563da3bf3d692e6b240a3bdbbe615f5797bac2690182b6f3364b0e69a888"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/generation/prompt.txt",
+      "sha256": "c90e9de98f856ac3b78ff2c499226ceef214f91f0eda47ef75def905b5542d74"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/generation/response.json",
+      "sha256": "56b3f569d377815cb84e0e59dd483b587c14cedf81b265080b1c19dd6fefb03d"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/replay_seed_6301/result.json",
+      "sha256": "11f23b24c84193a6b755f4c7b743d9a8bd00f6fb486fe9ae0812c46739bb4b8a"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/replay_seed_6301/rollout.npz",
+      "sha256": "2cfd75423bf57c27d90574cf0e3fd515816735c98f90e373e2502393c48fd600"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/replay_seed_6301/api_calls.json",
+      "sha256": "e100842218aa02842ce6c5645aaab5b9ca7e7759b6688e21ddb114d2285350cc"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/replay_seed_6301/trace.json",
+      "sha256": "f216d015e90e444842b26d41fbe503aa465373e090581ecaedf23656786bc2c6"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/replay_seed_6301/initial.png",
+      "sha256": "5f970e7f1b77a340673bff1e8742806029afa1321e21c0027b99272f27579d6b"
+    },
+    {
+      "path": "docs/evaluations/hoop_pole_tight_v1/replay_seed_6301/outcome.png",
+      "sha256": "a5e39cdee5f816c9ce2f0e7f6c626230597d7cae525cdb428107eebe049b8205"
+    }
+  ]
+}

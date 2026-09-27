@@ -1,5 +1,20 @@
 # ASPIRE SO-100 stacking
 
+A simpler [single-hoop insertion scene and learning campaign](docs/HOOP_POLE.md) is available:
+`uv run --no-sync python view_scene.py --scene-only --scene-task hoop_pole`.
+The [frozen tighter-hoop policy and replay](docs/evaluations/hoop_pole_tight_v1/README.md)
+passed 6/6 development and 10/10 fresh held-out layouts on the 20 mm opening.
+
+This repository also includes a [two-color screw/nut scene](docs/FASTEN_SCREWS.md)
+using original RoboDojo benchmark meshes converted from USDZ for MuJoCo.
+Inspect it with `uv run --no-sync python view_scene.py --scene-only --scene-task fasten_screws`.
+The [three-pair learning campaign](docs/FASTEN_SCREWS_LEARNING.md) adds simplified
+thread engagement, RoboDojo-inspired scoring and LLM policy revision.
+A [single-nut starting curriculum](docs/FASTEN_SCREWS_LEARNING.md#single-nut-starting-curriculum)
+is available with `--pairs 1`. Current learning uses the
+[V2 thread constraint](docs/FASTEN_THREAD_CONSTRAINT.md) to reduce nut deflection
+and rebound; old campaigns replay with their original physics.
+
 The Mac RGB-D/proprioception campaign started with an empty task-skill library, reached 3/3 in two rounds, then passed 2/2 after freezing. See the [experiment guide](docs/VISION_FROM_SCRATCH.md), [visualization/deployment guide](docs/VISION_DEPLOYMENT.md), and [historical observation audit](docs/OBSERVATION_AUDIT.md). Recordings and public evidence are in `web/vision/`; the recorded [static demo deployment](https://aspire-so100-vision.vercel.app/) is described in the deployment guide.
 
 This project adapts the three useful pieces of the ASPIRE workflow to the local

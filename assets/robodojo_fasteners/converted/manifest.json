@@ -1,0 +1,69 @@
+{
+  "repository": "RoboDojo-Benchmark/RoboDojo",
+  "revision": "43dacb13d3051a9ccd421f4e7e08e4e3eb29dfab",
+  "dataset_license": "Apache-2.0",
+  "transform": "USD world transform; meters; bottom-center origin",
+  "parts": {
+    "factory_nut": {
+      "source_path": "Assets/Object/RoboDojo/Rigid/factory_nut/00000/object.usdz",
+      "source_sha256": "081a57cdc19d11717cbdb7dcbd88697c0d9df7d7d0e95383289ef7f0a0e4d450",
+      "mesh_file": "factory_nut.npz",
+      "mesh_sha256": "966b1ec02f11033efced097a06d40cc4838eabd6edc09db423bef26f13417468",
+      "visual_prim": "/root/visual/visuals",
+      "origin_shift_m": [
+        0.0002940082922577858,
+        -0.0,
+        0.008641896833641095
+      ],
+      "bounds_m": [
+        [
+          -0.017640472389757633,
+          -0.020335542038083076,
+          0.0
+        ],
+        [
+          0.017640472389757633,
+          0.020335542038083076,
+          0.019110513385385275
+        ]
+      ],
+      "vertices": 13089,
+      "triangles": 15080,
+      "grasp_collision_proxies": [
+        "factory_nut_edge_cube_0.npz",
+        "factory_nut_edge_cube_1.npz",
+        "factory_nut_edge_cube_2.npz",
+        "factory_nut_edge_cube_3.npz",
+        "factory_nut_edge_cube_4.npz",
+        "factory_nut_edge_cube_5.npz"
+      ]
+    },
+    "factory_bolt": {
+      "source_path": "Assets/Object/RoboDojo/Geometry/factory_bolt/00000/object.usdz",
+      "source_sha256": "c58fafd54d9c583431fb0094f185d5d4f93f6aa3f05975d15d00a2e2fced757d",
+      "mesh_file": "factory_bolt.npz",
+      "mesh_sha256": "afc5f9b4d0f25ee197e29fc0d1ce1e3b5a9cc77aea148b9643630774c83b2ad4",
+      "visual_prim": "/root/visual/model",
+      "origin_shift_m": [
+        -0.0,
+        -0.0,
+        0.02625000011175871
+      ],
+      "bounds_m": [
+        [
+          -0.017999999225139618,
+          -0.020774999633431435,
+          0.0
+        ],
+        [
+          0.017999999225139618,
+          0.020774999633431435,
+          0.05250000208616257
+        ]
+      ],
+      "vertices": 78366,
+      "triangles": 26122,
+      "grasp_collision_proxies": []
+    }
+  }
+}

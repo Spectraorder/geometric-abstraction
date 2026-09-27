@@ -591,13 +591,42 @@ scene_cfg = SceneCfg(
 
 def build_scene(tower: bool = False, prism: bool = False, *, legacy: bool = False,
                 scene_task: str = 'random', object_count: int = 6, seed: int = 51,
+                fastener_version: str = 'fasten_robodojo_v2', fasten_pair_count: int = 3,
+                hoop_variant: str = 'standard',
                 required_objects: tuple[str, ...] | None = None) -> tuple[Scene, mujoco.MjModel, mujoco.MjData]:
     """Compile and reset the shared SO-100 tabletop scene."""
     if sum((tower, prism, legacy)) > 1:
         raise ValueError('Choose only one historical task scene')
+    if scene_task in ('fasten_screws', 'fasten_screws_learning', 'hoop_pole', 'hoop_pole_learning') and any((tower, prism, legacy)):
+        raise ValueError('Insertion/fastening scenes cannot be combined with a historical scene')
     from copy import deepcopy
     cfg = deepcopy(scene_cfg)
-    if tower or prism or legacy:
+    if scene_task in ('fasten_screws', 'fasten_screws_learning'):
+        from aspire_so100.fasteners import FASTENER_XY, PAIR_COLORS, get_screw_spec, get_nut_spec, check_version
+        check_version(fastener_version)
+        from aspire_so100.fasten_screws import learning_layout, COLORS
+        learning = scene_task == 'fasten_screws_learning'
+        positions = learning_layout(seed, fasten_pair_count) if learning else FASTENER_XY
+        colors = COLORS if learning else PAIR_COLORS
+        if fastener_version in ('fasten_robodojo_v1','fasten_robodojo_v2'):
+            from aspire_so100.robodojo_fasteners import COLORS as colors
+        cfg.entities = {name: cfg.entities[name] for name in ('robot', 'table')}
+        for name, (x, y) in positions.items():
+            color_name, kind = name.split('_')
+            factory = ((lambda n,c: get_screw_spec(n,c,fixed=learning,version=fastener_version)) if kind == 'screw'
+                       else (lambda n,c: get_nut_spec(n,c,version=fastener_version)))
+            cfg.entities[name] = make_shape_cfg(
+                lambda n=name, c=colors[color_name], f=factory: f(n, c),
+                (x, y, TABLE_HEIGHT+(0. if learning and kind=='screw' else .0005)))
+    elif scene_task in ('hoop_pole','hoop_pole_learning'):
+        from aspire_so100.hoop_pole import POSITIONS, get_hoop_spec, get_pole_spec, learning_layout
+        hoop_positions=learning_layout(seed) if scene_task=='hoop_pole_learning' else POSITIONS
+        cfg.entities = {name: cfg.entities[name] for name in ('robot', 'table')}
+        for name,factory in (('red_hoop',lambda: get_hoop_spec(variant=hoop_variant)),('red_pole',get_pole_spec)):
+            x,y=hoop_positions[name]
+            cfg.entities[name]=make_shape_cfg(factory,
+                (x,y,TABLE_HEIGHT+(.0005 if name=='red_hoop' else 0.)))
+    elif tower or prism or legacy:
         cfg.entities = deepcopy(legacy_entities)
     else:
         layout = generate_block_layout(seed, object_count, scene_task, required_objects=required_objects)
@@ -617,6 +646,9 @@ def build_scene(tower: bool = False, prism: bool = False, *, legacy: bool = Fals
             CUBE_HALF_SIZE, (0.1, 0.7, 0.2, 1.0),
         )
     scene = Scene(cfg, device="cpu")
+    if scene_task == 'fasten_screws_learning' and fastener_version == 'fasten_robodojo_v2':
+        from aspire_so100.thread_constraint import add_thread_constraints
+        add_thread_constraints(scene.spec, positions, TABLE_HEIGHT)
     model = scene.compile()
     data = mujoco.MjData(model)
     mujoco.mj_resetDataKeyframe(model, data, 0)
@@ -629,12 +661,14 @@ def main() -> None:
     from aspire_so100.tower_tasks import RECIPES, TowerRecipe, tower_recipe
     from aspire_so100.structure_tasks import STRUCTURE_RECIPES, structure_recipe
 
-    parser = argparse.ArgumentParser(description="Watch the SO-100 stacking task.")
+    parser = argparse.ArgumentParser(description="Inspect SO-100 scenes and replay policies.")
     parser.add_argument("--scene-only", action="store_true", help="Open the passive scene without a policy.")
     parser.add_argument("--vision-task", choices=("tower", "prism", "inventory_prism", "inventory_tower", "inventory_structure"),
                         help="Sensor-only task (default: tower); inventory tasks use sampled scene goals")
-    parser.add_argument('--scene-task', choices=('random', 'upright_thin_prism', 'catalog', 'single_column', 'support_graph'),
-                        help='New inventory scene: random subset, task-conditioned subset, or all 20 objects')
+    parser.add_argument('--scene-task', choices=('random', 'upright_thin_prism', 'catalog', 'single_column', 'support_graph', 'fasten_screws', 'fasten_screws_learning', 'hoop_pole', 'hoop_pole_learning'),
+                        help='Passive blocks, fasteners, or a single hoop and fixed pole')
+    parser.add_argument('--hoop-variant', choices=('standard','tight'), default='standard',
+                        help='Hoop bore: standard 24 mm or tight 20 mm')
     parser.add_argument('--object-count', type=int, help='Subset size (default: 6); sampled passive scenes or inventory policies')
     parser.add_argument('--structure-recipe', choices=tuple(STRUCTURE_RECIPES))
     parser.add_argument('--structure-color-map', type=json.loads, help='JSON color bijection for structure goals')
@@ -654,11 +688,15 @@ def main() -> None:
     parser.add_argument("--vision-layout", choices=("nominal", "random_xy", "sampled"),
                         help="Initial block positions when executing --vision-policy.")
     args = parser.parse_args()
+    if args.hoop_variant != 'standard' and args.scene_task not in ('hoop_pole','hoop_pole_learning'):
+        parser.error('--hoop-variant requires a passive hoop scene; saved trials restore their own geometry')
     if args.scene_task is not None:
         if not args.scene_only or args.vision_task is not None:
             parser.error('--scene-task requires --scene-only without --vision-task')
         if args.scene_task == 'catalog' and args.object_count is not None:
             parser.error('The catalog always contains all 20 objects; omit --object-count')
+        if args.scene_task in ('fasten_screws', 'fasten_screws_learning', 'hoop_pole', 'hoop_pole_learning') and args.object_count is not None:
+            parser.error('This scene uses a fixed pair count; omit --object-count')
     column_mode = args.vision_task == 'inventory_tower' or args.scene_task == 'single_column'
     if not column_mode and (args.tower_recipe is not None or args.tower_levels is not None or args.tower_order is not None):
         parser.error('Tower options require inventory_tower or --scene-task single_column')
@@ -695,7 +733,7 @@ def main() -> None:
             parser.error('--object-count requires a sampled passive scene or inventory policy')
         if inventory_policy and not 2 <= args.object_count <= 20:
             parser.error('Inventory tasks require 2..20 objects')
-    if args.scene_only and args.vision_task is None:
+    if args.scene_only and args.vision_task is None and args.scene_task not in ('fasten_screws','fasten_screws_learning','hoop_pole','hoop_pole_learning'):
         try:
             generate_block_layout(args.seed if args.seed is not None else 51,
                                   args.object_count if args.object_count is not None else 6,
@@ -729,7 +767,7 @@ def main() -> None:
         watch_stacking(args.seed if args.seed is not None else 51,
                        task=args.task, candidate_path=args.candidate)
         return
-    _, model, data = build_scene(tower=args.vision_task == 'tower', prism=args.vision_task == 'prism',
+    _, model, data = build_scene(hoop_variant=args.hoop_variant, tower=args.vision_task == 'tower', prism=args.vision_task == 'prism',
                                scene_task=args.scene_task or 'random',
                                object_count=args.object_count if args.object_count is not None else 6,
                                seed=args.seed if args.seed is not None else 51,

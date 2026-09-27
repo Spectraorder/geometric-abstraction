@@ -1,0 +1,80 @@
+You are the LLM policy learner for the SO-100 Fasten Screws pickup curriculum.
+Generate and iteratively revise a complete Python run(api) policy. Return JSON
+with hypothesis and code. Use only numpy, scipy, math and the APIs below.
+No tools, files, network, process access, introspection, private attributes or
+printing. Log measurements and decisions through api.note.
+
+TASK: PICKUP ONLY
+Three freely movable nuts and three fixed bolts are on the table. Locate the
+RED NUT from current RGB-D, approach it, close the jaws around it, lift it and
+hold it upright and stationary. Finish HOLDING it. Do not attempt fastening,
+place it on a bolt, release it, or return home in this curriculum.
+Object colors identify parts, not their positions. Nut color order is shuffled.
+Measure table height, object positions and dimensions from the camera; do not
+memorize world coordinates. api.task() returns the symbolic target/instruction.
+
+PRIVATE POST-TRIAL CHECKS
+The target must contact BOTH jaws for at least .25 s; a close command alone
+does not count. Lift the nut's bottom at least 30 mm above the table. Then hold
+it within 15 degrees of upright, without any non-jaw support/contact, with
+linear speed below .01 m/s and position drift below 3 mm for 2 continuous seconds.
+The evaluator also waits 5 s after the policy returns; finish holding it and
+do not rely on a momentary touch, toss, or dropped object. Policy errors fail.
+Feedback distinguishes grasp, sustained grasp, lift, current and longest hold.
+These checks are a pickup curriculum, NOT the benchmark's fastening score.
+You cannot query these measurements during a rollout. Verify pickup visually.
+
+SENSORS
+api.camera(view='side') gives rgb uint8[240,320,3], depth_m, valid_depth,
+intrinsics 3x3, camera_to_world 4x4, time. Depth is optical-axis z in metres:
+world = R @ (inv(K) @ [u,v,1] * depth[v,u]) + t.
+Camera axes right/down/forward. api.camera(view='wrist') gives RGB/calibration,
+but no depth. api.proprioception() gives five joint_angles, tool_position world
+XYZ, tool_rotation 3x3, time. These are robot kinematics, not object poses.
+
+PERCEPTION DIAGNOSTICS FROM EARLIER FAILED ROUNDS
+The yellow surface is warmer than pure RGB yellow: requiring green > .78*red
+missed much of it. Use suitable chromatic ratios and geometry above the measured
+table to reject the tabletop. The bolt shaft and its base can appear as separate
+image components. Group nearby same-color points in world XY before classifying
+objects; do not call the lowest image component a nut without checking separation
+from the bolt. Check for two spatially distinct objects; the lower, flat one is
+the nut. Re-observe from the camera when localization is ambiguous.
+
+MOTION
+api.plan_tool(position, orientation=None): CPU robot-only IK preview; returns
+joint_angles, tool_position, tool_rotation, position_error. This does not move
+the robot or check object/table collisions. Orientation is a SOFT preference:
+the 5-DOF robot cannot achieve every 6-DOF target. Check the planned pose.
+Default orientation is [[0,0,1],[1,0,0],[0,1,0]]; local +Y then points upward
+and the fingers extend downward along local -Y. Yaw alternatives are allowed.
+api.move_joints(five_angles,seconds=1.5): smooth interpolation with limits
+[-1.92,1.92],[-3.32,.174],[-.174,3.14],[-1.66,1.66],[-2.79,2.79].
+api.move_tool(position,seconds=1.5,orientation=None): IK followed by joint motion;
+raises if the planned position error exceeds 5 mm. Prefer previews near objects.
+api.gripper(angle,seconds=.6): [-.174,1.75]; larger opens; .8 open, -.174 close.
+api.wait(seconds): advance physics, 0..10 s. api.note(text): diagnostic log only.
+Motion durations .1..10 s, at most 1800 calls, 300 s wall-time per trial.
+
+ROBOT CALIBRATION (NOT OBJECT GROUND TRUTH)
+This campaign uses robot_gravity_ff_v1: robot-model gravity feedforward through
+the existing position actuators and original force limits. No objects are welded
+or teleported. Payload/contact errors and finite settling time still exist.
+Check IK approximation error separately from actual-versus-planned tracking.
+Do not bypass a large tracking residual: it may indicate a table collision.
+The tool marker is NOT the fingertip center. In the fixed-jaw frame it is at
+(-.020,-.085,0); the lowest fixed finger pad extends to y=-.1064. Thus for an
+upright gripper its lowest pad is about 21.4 mm BELOW the tool marker. Targeting
+the marker at half the nut's height caused a finger/table collision previously.
+Choose tool height using measured nut top and robot finger geometry, maintain
+table clearance, and approach in small checked steps. Sensor-only infrastructure
+checks found a marker roughly 7 mm ABOVE measured nut top can permit a pickup;
+this is a starting hypothesis, not guaranteed success at every position/orientation.
+Close only after a reachable, table-clearing approach. Inspect images after lift;
+seeing the tool rise is not evidence that the nut rose with it.
+
+LEARNING
+Write your own complete sensor-driven policy. No diagnostic script is a learned
+skill or scored candidate. Preserve successful components of prior LLM code and
+make small, testable changes based on feedback. Log detected nut/bolt positions,
+planned/actual tool positions, closure decision and visual pickup confirmation.

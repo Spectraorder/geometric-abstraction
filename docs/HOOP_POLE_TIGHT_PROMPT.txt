@@ -1,0 +1,69 @@
+You are the policy learner for a tighter SO-100 hoop insertion continuation. Return JSON
+with hypothesis and code: complete Python run(api). No tools, file/process/network
+access, introspection or private attributes. Only numpy, scipy and math imports.
+Use api.note for diagnostics; do not print. Learn from the supplied sensor images,
+previous candidate code and post-trial feedback only.
+
+TASK
+One red hoop lies flat on a table next to one matching red pole fixed to a round
+base. Both objects have the SAME color. Identify the low ring and the tall pole
+from geometry, not color alone. Grasp the hoop, lift its bottom above the rounded
+pole tip, center the hole over the pole, lower the hoop until seated around the
+pole on its base, open the gripper and withdraw by at least 4 cm. No screwing,
+thread engagement, rotational feeding or multiple wrist strokes are needed.
+Object positions vary slightly by seed. Measure geometry from RGB-D; never
+hard-code object coordinates or use constants keyed to seed/object identity.
+
+PHYSICS / SUCCESS
+Ordinary rigid-body collisions and gravity. The ring hole is open and the pole
+has a rounded tip and reduced clearance. No hidden attachments or thread forces.
+A private evaluator requires the hoop to surround the shaft, rest flat on its
+base (within 1 mm vertically, within 10 degrees upright), have no robot contact,
+and remain still with open gripper and tool withdrawn for at least 2 seconds.
+The pole must fit through the hole with a 1 mm radial margin. The evaluator waits
+another 5 seconds after execution. Full task success scores 100, otherwise 0;
+partial grasp/lift/alignment/insertion stages are post-trial diagnostics only.
+Returning home is optional. A motion abort or hovering above the pole is not success.
+
+SENSORS
+api.task(): symbolic identities and instructions, no object state or dimensions.
+api.camera(view='side'): rgb uint8[240,320,3], depth_m, valid_depth,
+intrinsics 3x3, camera_to_world 4x4, time. Depth is optical-axis z in metres.
+world=R@(inv(K)@[u,v,1]*depth[v,u])+t. Camera axes right/down/forward.
+api.camera(view='wrist'): RGB and calibration, no depth.
+api.proprioception(): five joint_angles, tool_position world XYZ,
+tool_rotation 3x3 and time. This is robot kinematics, never object ground truth.
+Use same-color spatial clustering, height and annular geometry to distinguish
+hoop from pole. Pole shaft and base can be disconnected in the image; do not
+mistake a base fragment for the hoop. Reobserve after grasping to verify transport.
+
+MOTION
+api.plan_tool(position,orientation=None): robot-only IK preview; returns
+joint_angles, tool_position, tool_rotation, position_error.
+api.move_tool(position,seconds=1.5,orientation=None): smooth interpolation to IK.
+Optional proper 3x3 orientation is a soft preference, not a hard guarantee. The
+arm has only 5 DOF. Check predicted and actual poses. The SDK rejects position
+errors greater than 5 mm. Default orientation is [[0,0,1],[1,0,0],[0,1,0]].
+api.move_joints(five_angles,seconds=1.5): joint limits radians
+[-1.92,1.92],[-3.32,.174],[-.174,3.14],[-1.66,1.66],[-2.79,2.79].
+api.gripper(angle,seconds=.6): [-.174,1.75]; larger opens; .8 is open.
+api.wait(seconds): 0..10 seconds. api.note(text): log visual estimates/decisions.
+Motions last .1..10 seconds. Maximum 900 RPC calls and 300 seconds wall time.
+There are no pick/place/attach/success-query APIs. Use only these sensor/motion calls.
+Robot-only gravity feedforward is enabled through existing actuator limits.
+Do not infer object pose or task progress from private simulator state.
+
+PICKUP / INSERTION GUIDANCE
+The tool site is only an approximate grasp center. Upright fingertips extend
+about 21.4 mm below it: targeting half the hoop height would hit the table.
+Use measured table/hoop heights and predicted jaw orientation to choose a
+collision-free grasp. Check the available exposed outer rim and actual grip
+with cameras; a thin ring may require a different jaw height than a thick nut.
+Transport above the measured pole tip, then align and lower slowly. Account
+for the visual hoop-to-tool offset and 5-DOF orientation limits. Once the hoop
+surrounds the pole, do not try to drag it sideways back to the original location.
+Release, withdraw upward, and inspect whether the hoop stayed seated.
+The supplied best hoop policy is evaluated on this scene before revision. Preserve
+its successful grasp and transport behavior; use post-trial development feedback
+to improve visual alignment and account for release drift. Fresh held-out layouts
+are evaluated only after freezing the selected policy, never supplied as feedback.

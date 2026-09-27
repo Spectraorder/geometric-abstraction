@@ -75,6 +75,8 @@ class StackingEnv:
 
     def __init__(self, output_dir: Path, render: bool = False, *, tower: bool = False, prism: bool = False,
                  scene_task: str | None = None, object_count: int = 6, scene_seed: int = 51,
+                 fastener_version: str = 'fasten_robodojo_v2', fasten_pair_count: int = 3,
+                 hoop_variant: str = 'standard',
                  required_objects: tuple[str, ...] | None = None):
         self.output_dir = output_dir
         self.output_dir.mkdir(parents=True, exist_ok=True)
@@ -83,7 +85,8 @@ class StackingEnv:
             raise ValueError('Inventory and historical tasks cannot be combined')
         self.scene, self.model, self.data = build_scene(tower=tower, prism=prism,
             legacy=scene_task is None and not (tower or prism), scene_task=scene_task or 'random',
-            object_count=object_count, seed=scene_seed, required_objects=required_objects)
+            object_count=object_count, seed=scene_seed, required_objects=required_objects,
+            fastener_version=fastener_version, fasten_pair_count=fasten_pair_count, hoop_variant=hoop_variant)
         self.site_id = self.model.site("robot/ee_site").id
         self.arm_joints = [self.model.joint(f"robot/{name}") for name in self.ARM_JOINTS]
         self.arm_qpos_addresses = np.array(

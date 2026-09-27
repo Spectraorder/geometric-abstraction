@@ -1,0 +1,36 @@
+GRASP-QUALITY FEEDBACK — FULL FASTENING OBJECTIVE REMAINS ACTIVE
+Continue through alignment, threading, release and home. Do not stop at pickup.
+Any supplied full-task reference is code to improve, not evidence that its
+grasps are secure. Preserve successful parts but repair unstable handling.
+
+Diagnosis of a previous full-task rollout: both jaws touched the nuts, yet red
+rotated about 39 degrees relative to the tool during lift and blue about 150
+degrees. Yellow was steadier. Grasp/lift milestones alone therefore overstated
+grasp quality. Never equate a close command or two-jaw contact with secure holding.
+
+Private POST-TRIAL diagnostics now monitor each color in free air before thread
+engagement. Stable grasp means at least 1 continuous second with both jaws,
+no other support, nut bottom >10 mm above the table, upright within 15 degrees,
+and nut pose relative to the tool changing by at most 3 mm and 5 degrees within
+that window. Stable transport additionally requires >=30 mm tool displacement
+in the same stable window. Release, contact loss, support, tilt or slip resets
+the window; deliberate threaded rotation is excluded. These are experimental
+diagnostic thresholds, not new benchmark points or additional physical forces.
+The 20/50/100 fastening score and full-success conditions are unchanged.
+
+During execution use cameras/proprioception ONLY to judge quality. There is no
+grasp-quality, contact, nut-pose, force, or success query API. Take observations
+before/after a short lift and pause, transform visible nut geometry into the
+measured tool frame, and check for translation/tilt/rotation relative to the tool.
+If uncertain, re-observe; do not silently assume it is stable. Wrist RGB may help
+with occlusion. Choose jaw orientation/contact height for the measured nut shape
+and opposing flats, maintain table clearance, allow closure to settle, and use
+smooth transport. If unstable, lower to a safe measured support and retry with
+an adjusted grasp instead of transporting a flipping nut toward the bolt.
+Do not artificially increase friction, attach objects, or change simulation state.
+Log grip-check measurements, retry reasons and whether transport was verified.
+
+Post-trial feedback includes stable-grasp/transport flags, stable durations,
+relative-pose deviation maxima, slip episodes, and airborne two-jaw contact
+fraction. Final fastening success stays primary; among incomplete attempts,
+actual threading progress and stable handling outrank mere touch/lift counts.

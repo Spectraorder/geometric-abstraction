@@ -1,0 +1,62 @@
+{
+  "seed": 6302,
+  "layout": "sampled",
+  "task": "hoop_pole",
+  "success": true,
+  "policy_error": null,
+  "policy_sim_seconds": 41.800000000005916,
+  "candidate_sha256": "dca4d081a52fada9b93d03bc931be1a240f8318e3422254c4cfa1c17071e8445",
+  "camera_calls": 22,
+  "sensor_blackout": false,
+  "cpu_profile": {
+    "policy_compute_cpu_seconds": 1.3498826340000014,
+    "rpc_cpu_seconds": 0.24861415099999873,
+    "compute_interval_count": 250,
+    "compute_interval_cpu_p50_ms": 0.08839899999990575,
+    "compute_interval_cpu_p95_ms": 26.87151880000006,
+    "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+  },
+  "robot_ik_cpu_seconds": 1.0015844700000187,
+  "metrics": {
+    "success": true,
+    "score": 100,
+    "seated": true,
+    "released": true,
+    "tool_clear": true,
+    "stable_seconds": 11.658000000000563,
+    "center_error_m": 0.0013612901534927494,
+    "bottom_error_m": -1.29142939337204e-07,
+    "tilt_degrees": 8.054484469784713e-06,
+    "milestones": {
+      "approach": 1,
+      "grasp": 1,
+      "lift": 1,
+      "align": 1,
+      "insert": 1,
+      "release": 1,
+      "stable": 1
+    },
+    "failure": null
+  },
+  "observation_contract": "Side RGB-D, wrist RGB, calibration + robot proprioception ONLY; evaluator results never returned to policy",
+  "scene": {
+    "generator": "hoop_pole_learning_tight_v1",
+    "seed": 6302,
+    "objects": [
+      "red_hoop",
+      "red_pole"
+    ],
+    "object_count": 2,
+    "controller": "robot_gravity_ff_v1",
+    "evaluator": "hoop_seated_v1",
+    "hoop_variant": "tight",
+    "hoop_inner_radius_m": 0.01
+  },
+  "goal": {
+    "kind": "hoop_pole",
+    "hoop": "red_hoop",
+    "pole": "red_pole",
+    "instruction": "Lift the red hoop over the matching fixed red pole; lower it around the pole, release it onto the base, open the gripper and withdraw. No twisting is needed."
+  },
+  "physics_model": "ordinary rigid-body contact and gravity; fixed pole; no attachments"
+}

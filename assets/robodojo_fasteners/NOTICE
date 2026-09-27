@@ -1,0 +1,15 @@
+RoboDojo fastener assets
+Source: https://huggingface.co/datasets/RoboDojo-Benchmark/RoboDojo
+Revision: 43dacb13d3051a9ccd421f4e7e08e4e3eb29dfab
+Dataset license declaration: Apache-2.0 (see upstream/README.md).
+
+This distribution contains unmodified factory_nut and factory_bolt USDZ assets
+and their metadata, plus derived NumPy mesh arrays for a MuJoCo adapter.
+Conversion modifications: USD transforms and meter units applied, origin moved
+to bottom-center, polygon faces triangulated, invalid shading normals repaired.
+Original geometry is not redesigned or decimated. Diffuse colors are applied
+by the adapter; the original PhysX SDF collision behavior is not implemented.
+
+RoboDojo benchmark contributors retain rights in the original assets. See the
+source repository for authorship and citation. No upstream NOTICE file was
+provided with these selected asset directories.

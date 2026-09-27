@@ -18,6 +18,8 @@ from aspire_so100.prism import PrismEnv
 from aspire_so100.inventory_prism import InventoryPrismEnv
 from aspire_so100.inventory_tower import InventoryTowerEnv
 from aspire_so100.inventory_structure import InventoryStructureEnv
+from aspire_so100.fasten_screws import FastenScrewsEnv
+from aspire_so100.hoop_insertion import HoopPoleEnv
 
 
 class RecordingMixin:
@@ -60,8 +62,34 @@ class RecordedInventoryStructureEnv(RecordingMixin, InventoryStructureEnv):
     pass
 
 
+class RecordedHoopPoleEnv(RecordingMixin, HoopPoleEnv):
+    pass
+
+
+class RecordedFastenScrewsEnv(RecordingMixin, FastenScrewsEnv):
+    pass
+
+
 def recorded_env_for_result(result, output_dir):
     """Reconstruct the exact sampled object identities before restoring states."""
+    if result.get('task') == 'hoop_pole':
+        env=RecordedHoopPoleEnv(output_dir,scene_seed=result['seed'],
+                               hoop_variant=result['scene'].get('hoop_variant','standard'))
+        if env.scene_metadata!=result['scene']:
+            env.close()
+            raise ValueError('Hoop scene differs from saved trial')
+        return env
+    if result.get('task') == 'fasten_screws':
+        env = RecordedFastenScrewsEnv(output_dir, scene_seed=result['seed'],
+                                     scene_version=result['scene']['generator'],
+                                     controller=result['scene'].get('controller', 'legacy'),
+                                     learning_stage=result['scene'].get('learning_stage', 'fasten'),
+                                     grasp_quality=result['scene'].get('grasp_quality','legacy'),
+                                     pair_count=result['scene'].get('pair_count',3))
+        if env.scene_metadata != result['scene']:
+            env.close()
+            raise ValueError('Fastening scene version differs from saved trial')
+        return env
     if result.get('task') in ('inventory_prism', 'inventory_tower', 'inventory_structure'):
         metadata = result['scene']
         if result['task'] == 'inventory_structure':

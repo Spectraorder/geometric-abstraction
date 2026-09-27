@@ -46,9 +46,9 @@ Develop a physically plausible policy and adjust it using subsequent rendered ou
 '''
 
 def main():
- p=argparse.ArgumentParser();p.add_argument('--round-dir',type=Path,required=True);p.add_argument('--image',type=Path,action='append',required=True);p.add_argument('--previous',type=Path);p.add_argument('--context-file',type=Path);p.add_argument('--model',default='gpt-6-astra');p.add_argument('--timeout',type=int,default=300);a=p.parse_args()
+ p=argparse.ArgumentParser();p.add_argument('--round-dir',type=Path,required=True);p.add_argument('--image',type=Path,action='append',required=True);p.add_argument('--previous',type=Path);p.add_argument('--context-file',type=Path);p.add_argument('--contract-file',type=Path);p.add_argument('--model',default='gpt-6-astra');p.add_argument('--timeout',type=int,default=300);a=p.parse_args()
  a.round_dir.mkdir(parents=True,exist_ok=False)
- prompt=CONTRACT
+ prompt=a.contract_file.read_text() if a.contract_file else CONTRACT
  if a.context_file:
   prompt=prompt.replace('No prior policy or skill library is supplied. Use only this task contract, attached sensor images,\nand previous attempts from THIS experiment when supplied below.',
       'An existing policy and randomized-layout trial feedback are supplied below. Improve that policy using this contract, the supplied code and feedback, and attached sensor images.')
@@ -62,7 +62,8 @@ def main():
     if response_path.exists():
      hypothesis=json.loads(response_path.read_text()).get('hypothesis','')
      attempts.append({'hypothesis':hypothesis[:300],
-                      'passed':entry['successes'],'trials':entry['trials']})
+                      'passed':entry.get('successes',sum(r['success'] for r in entry.get('results',[]))),
+                      'trials':entry.get('trials',len(entry.get('results',[])))})
    memory=('\nPrevious proposed repairs and measured outcomes (these hypotheses are not validated skills):\n'
            +json.dumps(attempts)+'\nPrefer a small testable repair to the best policy. Preserve its successful layouts; '
            'consider why previous changes regressed before replacing its perception or control logic.\n')

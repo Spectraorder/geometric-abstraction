@@ -1,0 +1,62 @@
+{
+  "seed": 6306,
+  "layout": "sampled",
+  "task": "hoop_pole",
+  "success": true,
+  "policy_error": null,
+  "policy_sim_seconds": 38.30000000000164,
+  "candidate_sha256": "38940f1ac747eb5f7beb01a1b409c892237be0a92c6576596b695e08acde40c6",
+  "camera_calls": 6,
+  "sensor_blackout": false,
+  "cpu_profile": {
+    "policy_compute_cpu_seconds": 0.9102681750000009,
+    "rpc_cpu_seconds": 0.08453828399999896,
+    "compute_interval_count": 205,
+    "compute_interval_cpu_p50_ms": 0.093238000000051,
+    "compute_interval_cpu_p95_ms": 0.3942362000000084,
+    "scope": "worker compile/import/run; excludes RPC serialization, simulator, rendering and host IK"
+  },
+  "robot_ik_cpu_seconds": 1.2450631019999996,
+  "metrics": {
+    "success": true,
+    "score": 100,
+    "seated": true,
+    "released": true,
+    "tool_clear": true,
+    "stable_seconds": 11.630000000000553,
+    "center_error_m": 0.0023502643697282137,
+    "bottom_error_m": -1.29208528426919e-07,
+    "tilt_degrees": 1.3390916398898968e-05,
+    "milestones": {
+      "approach": 1,
+      "grasp": 1,
+      "lift": 1,
+      "align": 1,
+      "insert": 1,
+      "release": 1,
+      "stable": 1
+    },
+    "failure": null
+  },
+  "observation_contract": "Side RGB-D, wrist RGB, calibration + robot proprioception ONLY; evaluator results never returned to policy",
+  "scene": {
+    "generator": "hoop_pole_learning_tight_v1",
+    "seed": 6306,
+    "objects": [
+      "red_hoop",
+      "red_pole"
+    ],
+    "object_count": 2,
+    "controller": "robot_gravity_ff_v1",
+    "evaluator": "hoop_seated_v1",
+    "hoop_variant": "tight",
+    "hoop_inner_radius_m": 0.01
+  },
+  "goal": {
+    "kind": "hoop_pole",
+    "hoop": "red_hoop",
+    "pole": "red_pole",
+    "instruction": "Lift the red hoop over the matching fixed red pole; lower it around the pole, release it onto the base, open the gripper and withdraw. No twisting is needed."
+  },
+  "physics_model": "ordinary rigid-body contact and gravity; fixed pole; no attachments"
+}

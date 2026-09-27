@@ -26,6 +26,7 @@ from aspire_so100.tower_tasks import RECIPES, TowerRecipe, tower_recipe
 from aspire_so100.structure_tasks import STRUCTURE_RECIPES, structure_recipe
 from aspire_so100.tower import ORDER
 from aspire_so100.rgbd import depth_preview
+from aspire_so100.playback import RecordedFastenScrewsEnv, RecordedHoopPoleEnv
 
 
 def pack(v):
@@ -122,15 +123,18 @@ def policy_worker_command(directory, candidate):
         if not shutil.which('bwrap'):
             raise RuntimeError('bwrap is required to run a vision policy on Linux')
         home = Path.home()
-        command = ['bwrap', '--die-with-parent', '--unshare-net', '--new-session',
-                   '--ro-bind', '/', '/', '--tmpfs', str(home)]
+        checkout = Path(__file__).resolve().parents[1]
+        hidden_roots = sorted({home,checkout},key=lambda p:(len(p.parts),str(p)))
+        command = ['bwrap', '--die-with-parent', '--unshare-net', '--new-session', '--ro-bind', '/', '/']
+        for root in hidden_roots:
+            command += ['--tmpfs',str(root)]
         # uv commonly installs both the venv and its base interpreter under
         # HOME. Restore only their runtime directories after masking HOME;
         # the surrounding checkout and other home files stay hidden.
         runtime_paths = {Path(prefix) for prefix in (sys.prefix, sys.base_prefix)}
         runtime_paths.update(path.resolve() for path in tuple(runtime_paths))
         for path in sorted(runtime_paths, key=lambda p: (len(p.parts), str(p))):
-            if path.is_relative_to(home):
+            if any(path.is_relative_to(root) for root in hidden_roots):
                 command += ['--ro-bind', str(path), str(path)]
         return command + ['--proc', '/proc', '--dev', '/dev',
                 '--bind', str(directory), str(directory), '--chdir', str(directory),
@@ -155,9 +159,10 @@ def validate_source(source):
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--candidate',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
+    p.add_argument('--hoop-variant',choices=('standard','tight'),default='standard')
     p.add_argument('--seed',type=int,default=81);p.add_argument('--timeout',type=float,default=120)
     p.add_argument('--layout', choices=('nominal','random_xy','sampled'), default='nominal')
-    p.add_argument('--task', choices=('tower','prism','inventory_prism','inventory_tower','inventory_structure'), default='tower')
+    p.add_argument('--task', choices=('tower','prism','inventory_prism','inventory_tower','inventory_structure','fasten_screws','hoop_pole'), default='tower')
     p.add_argument('--structure-recipe', choices=tuple(STRUCTURE_RECIPES))
     p.add_argument('--structure-color-map', type=json.loads, help='JSON color bijection for structure goals')
     p.add_argument('--tower-recipe', choices=(*RECIPES, 'random'))
@@ -165,8 +170,22 @@ def main():
     p.add_argument('--tower-levels', type=int, help='2..4 levels, for --tower-recipe random')
     p.add_argument('--object-count', type=int, help='Inventory sample size, default 6; inventory tasks only')
     p.add_argument('--sensor-blackout',action='store_true',help='Diagnostic: remove all policy RGB-D pixels; evaluation remains unchanged')
+    from aspire_so100.fasten_screws import CONTROLLERS
+    p.add_argument('--fasten-controller', choices=CONTROLLERS, default='legacy')
+    p.add_argument('--fasten-stage', choices=('pickup', 'fasten'), default='fasten')
+    p.add_argument('--grasp-quality',choices=('legacy','grasp_quality_v1'),default='legacy')
+    p.add_argument('--fasten-pairs',type=int,choices=(1,3),default=3)
     a=p.parse_args()
-    inventory = a.task in ('inventory_prism', 'inventory_tower', 'inventory_structure')
+    fasten = a.task == 'fasten_screws'
+    hoop = a.task == 'hoop_pole'
+    if a.hoop_variant != 'standard' and not hoop:
+        p.error('--hoop-variant requires --task hoop_pole')
+    insertion = fasten or hoop
+    if not fasten and (a.fasten_controller != 'legacy' or a.fasten_stage != 'fasten' or a.grasp_quality != 'legacy' or a.fasten_pairs != 3):
+        p.error('Fastening controller/stage options require --task fasten_screws')
+    inventory = a.task in ('inventory_prism', 'inventory_tower', 'inventory_structure') or insertion
+    if insertion and a.object_count is not None:
+        p.error('Insertion tasks use fixed pair counts; omit --object-count')
     if inventory != (a.layout == 'sampled'):
         p.error('Inventory tasks require --layout sampled; historical tasks use nominal/random_xy')
     if a.object_count is not None and (not inventory or not 2 <= a.object_count <= 20):
@@ -196,7 +215,10 @@ def main():
             p.error(str(error))
     a.output.mkdir(parents=True,exist_ok=False)
     validate_source(a.candidate.read_text())
-    env=(RecordedInventoryStructureEnv(a.output, scene_seed=a.seed, object_count=a.object_count or 6,
+    env=(RecordedHoopPoleEnv(a.output,scene_seed=a.seed,hoop_variant=a.hoop_variant) if hoop else
+         RecordedFastenScrewsEnv(a.output,scene_seed=a.seed,controller=a.fasten_controller,
+                               learning_stage=a.fasten_stage,grasp_quality=a.grasp_quality,pair_count=a.fasten_pairs) if fasten else
+         RecordedInventoryStructureEnv(a.output, scene_seed=a.seed, object_count=a.object_count or 6,
                                       recipe=recipe.name, color_map=a.structure_color_map) if a.task == 'inventory_structure' else
          RecordedInventoryTowerEnv(a.output, scene_seed=a.seed, object_count=a.object_count or 6,
                                   recipe=recipe.name, recipe_order=recipe.order) if a.task == 'inventory_tower' else
@@ -234,7 +256,7 @@ def main():
                             cpu_profile = params.get('cpu_profile')
                         if method=='done':break
                         if method=='failed':raise RuntimeError(params['error'])
-                        call_limit = 300*len(env.order) if a.task in ('inventory_tower', 'inventory_structure') else 600
+                        call_limit = 900 if hoop else 1800 if fasten else 300*len(env.order) if a.task in ('inventory_tower', 'inventory_structure') else 600
                         if len(calls)>call_limit:raise RuntimeError('API call limit exceeded')
                         try:
                             response=None
@@ -258,9 +280,9 @@ def main():
                                 response={'joint_angles':env.data.qpos[env.arm_qpos_addresses].copy(),'tool_position':env.data.site_xpos[env.site_id].copy(),'tool_rotation':env.data.site_xmat[env.site_id].reshape(3,3).copy(),'time':float(env.data.time)}
                                 calls[-1]['observation']={key: value.tolist() if isinstance(value,np.ndarray) else value for key,value in response.items()}
                             elif method=='task':
-                                if a.task not in ('inventory_tower', 'inventory_structure'):
+                                if a.task not in ('inventory_tower', 'inventory_structure') and not insertion:
                                     raise ValueError('Symbolic task descriptions require an inventory construction task')
-                                response=env.recipe.public_goal()
+                                response=env.public_goal() if insertion else env.recipe.public_goal()
                             elif method=='move_tool':move_tool(env,params['position'],max(.1,seconds),params.get('orientation'))
                             elif method=='plan_tool':response=plan_tool(env,params['position'],params.get('orientation'))
                             elif method=='move_joints':
@@ -276,8 +298,10 @@ def main():
                             elif method=='wait':env.wait(seconds)
                             elif method=='note':pass
                             else:raise ValueError('API method not permitted')
+                            calls[-1]['completed']=True
                             proc.stdin.write(json.dumps({'result':pack(response)})+'\n');proc.stdin.flush()
                         except Exception as exc:
+                            calls[-1]['error']=type(exc).__name__+': '+str(exc)
                             proc.stdin.write(json.dumps({'error':type(exc).__name__+': '+str(exc)})+'\n');proc.stdin.flush()
                 except Exception as exc:
                     if isinstance(exc, RuntimeError) and str(exc).startswith('Policy process exited without completion'):
@@ -290,7 +314,7 @@ def main():
                     except subprocess.TimeoutExpired:proc.kill();proc.wait()
                     selector.close()
         policy_seconds=float(env.data.time)-start
-        env.check_structure(list(env.order if a.task in ('prism','inventory_prism','inventory_tower','inventory_structure') else ORDER),duration=5.)
+        env.check_structure(list(env.order if inventory or a.task=='prism' else ORDER),duration=5.)
         metrics=env.evaluate()
         env.write_trace(metrics,error)
         frame=env.get_overhead_rgbd();Image.fromarray(frame['rgb']).save(a.output/'outcome.png')
@@ -304,6 +328,10 @@ def main():
                 'metrics':asdict(metrics),'observation_contract':'Side RGB-D, wrist RGB, calibration + robot proprioception ONLY; evaluator results never returned to policy'}
         if inventory:
             result['scene'] = env.scene_metadata
+        if insertion:
+            result['goal'] = env.public_goal()
+            result['physics_model'] = ('ordinary rigid-body contact and gravity; fixed pole; no attachments' if hoop else
+                                     'solver-resolved helical surrogate with entry stop; fixed bolts; not resolved thread-face contact')
         if a.task in ('inventory_tower', 'inventory_structure'):
             result['goal'] = env.recipe.public_goal()
             result['sensor'] = {'depth_sampling': 'pixel_center', 'offscreen_samples': 0}
@@ -311,7 +339,12 @@ def main():
             result['observation_contract'] += '; public symbolic construction goal via task()'
         (a.output/'result.json').write_text(json.dumps(result,indent=2)+'\n')
         # Only this reduced result and rendered sensor frames go back to the actor.
-        (a.output/'actor_feedback.json').write_text(json.dumps({'success':metrics.success,'policy_error':error,'policy_sim_seconds':policy_seconds,'notes':[c['params']['text'] for c in calls if c['method']=='note']},indent=2)+'\n')
+        feedback={'success':metrics.success,'policy_error':error,'policy_sim_seconds':policy_seconds,
+                  'notes':[c['params']['text'] for c in calls if c['method']=='note']}
+        if insertion:
+            feedback['post_trial_metrics']=asdict(metrics)
+            feedback['rpc_errors']=[c for c in calls if 'error' in c][-5:]
+        (a.output/'actor_feedback.json').write_text(json.dumps(feedback,indent=2)+'\n')
         print(json.dumps(result,indent=2))
     finally:env.close()
 
