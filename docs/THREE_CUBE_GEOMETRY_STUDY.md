@@ -41,6 +41,16 @@ because resolving the Python symlink bypassed the virtual environment; its log
 and launch receipt are preserved alongside the successful virtual-environment
 launch. No rollout was retried for that launch correction.
 
+## Source disclosure audit and follow-up
+
+All five Base initial prompts included the common executor source, including
+color segmentation, deprojection, table fitting and top-surface estimation.
+The Base runtime API withheld supplied object geometry, but the actor could use
+this source to implement its own estimator. Interpret the results as a comparison
+against a source-disclosed visual baseline. The [new contract-only study](THREE_CUBE_CONTRACT_ONLY_STUDY.md)
+removes executor source from both arms while preserving the runtime and public API.
+Historical prompts, policies and outcomes remain unchanged.
+
 ## Original design and budget
 
 - Five independent persistent actor sessions per arm, paired by training layouts.

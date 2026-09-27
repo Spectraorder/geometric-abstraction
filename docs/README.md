@@ -91,3 +91,7 @@ ran five new paired layouts with four workers. Its
 [results and paper figure](ONLINE_COMPACT_TOWER_200_RESULTS.md) report Full 4/5
 versus Base 2/5, 11.1% lower mean capped time and fewer images, but more recorded
 tokens and no mean per-request speedup. All ten outcomes and audits are retained.
+
+The [contract-only stacking follow-up](THREE_CUBE_CONTRACT_ONLY_STUDY.md) removes
+executor implementation from both actor prompts and registers all 800 evaluations
+before training. The source-disclosed study remains separate evidence.

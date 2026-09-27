@@ -376,3 +376,14 @@ universal latency, reliability or token advantage. See
 figures. The authorized fixed comparison is finished. Preserve all evidence and
 do not automatically dispatch further episodes or grow the sample for a preferred
 outcome. Follow-up experiments require a new user request and separate registration.
+
+The user authorized a new single-policy stacking comparison after auditing Base
+prompt disclosure. Use `run_three_cube_contract_study.py` and
+`outputs/geometry_cube_stack_contract_01`: five paired chains, R0–R3, five training
+layouts per pair and 20 fresh shared test layouts, all revisions evaluated after
+training freezes (30 model generations, 200 training slots, 800 test slots).
+Both arms omit executor source while keeping the same runtime and public API;
+Full retains geometric queries. Global limits remain four model requests and
+24 rollouts with resource fallback. See `THREE_CUBE_CONTRACT_ONLY_STUDY.md`.
+Preserve the old source-disclosed experiment. Stop on infrastructure errors and
+retain incomplete attempts; do not retry, replace layouts or expand the budget.
