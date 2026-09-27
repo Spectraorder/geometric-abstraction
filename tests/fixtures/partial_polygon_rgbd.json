@@ -1,0 +1,79 @@
+{
+  "purpose": "Portable held-object RGB-D regression fixtures; private truth only used in assertions",
+  "derivation": "Crop around the observed red mask with 40 pixel margin; shift the principal point, preserve pixel resolution",
+  "sha256": "4f8c04df586ba51e21ae41072d4fc852cc44ac2f7502f558b2efc5d125f291af",
+  "frames": [
+    {
+      "key": "a_initial",
+      "source": "outputs/point_geometry_physics_01/2026092701_symbolic/camera_001.npz",
+      "source_sha256": "a40729d18272a258feb17ddbc6fc63a9955c448da9e14846051e5da1ccd928b7",
+      "crop_xyxy": [
+        264,
+        154,
+        366,
+        265
+      ],
+      "truth_sample_time_offset_s": -0.008000000000000007
+    },
+    {
+      "key": "a_held",
+      "source": "outputs/point_geometry_physics_01/2026092701_symbolic/camera_003.npz",
+      "source_sha256": "44e3f6e4425fcba752deb83b2f68d8c773aa52639f8dd60369f80e107da54dae",
+      "crop_xyxy": [
+        267,
+        128,
+        371,
+        242
+      ],
+      "truth_sample_time_offset_s": 0.002000000000000668
+    },
+    {
+      "key": "b_initial",
+      "source": "outputs/point_geometry_physics_01/2026092703_symbolic/camera_001.npz",
+      "source_sha256": "9946968e16dae248d256bed70a5a7730a66f90f7c0fc9cf1fba42d7e317ecfc1",
+      "crop_xyxy": [
+        263,
+        155,
+        366,
+        264
+      ],
+      "truth_sample_time_offset_s": -0.008000000000000007
+    },
+    {
+      "key": "b_held",
+      "source": "outputs/point_geometry_physics_01/2026092703_symbolic/camera_003.npz",
+      "source_sha256": "f53286a6c3fc66782420046f38730b2cc328c9b5c302ed601648235046f447dd",
+      "crop_xyxy": [
+        265,
+        128,
+        369,
+        239
+      ],
+      "truth_sample_time_offset_s": 0.002000000000000668
+    },
+    {
+      "key": "b_ambiguous",
+      "source": "outputs/point_geometry_physics_02/2026092703_symbolic/camera_005.npz",
+      "source_sha256": "7d5c54084ad9f4d9ae50db515e365957f6703b659b1b70dcf2ef694512d99bf5",
+      "crop_xyxy": [
+        272,
+        184,
+        378,
+        296
+      ],
+      "truth_sample_time_offset_s": -0.008000000000002672
+    },
+    {
+      "key": "b_wrist",
+      "source": "outputs/point_geometry_physics_02/2026092703_symbolic/camera_006.npz",
+      "source_sha256": "fc04474a06fb3bd0106cee399c6e42e102c59e226810761467070346f405fe42",
+      "crop_xyxy": [
+        252,
+        96,
+        479,
+        332
+      ],
+      "truth_sample_time_offset_s": -0.008000000000002672
+    }
+  ]
+}
