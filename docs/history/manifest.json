@@ -1,0 +1,342 @@
+{
+  "source_commit": "10374d3b6ad77b27d056c0c4f13c842aa93ba8ee",
+  "transformation": "Historical notice and Markdown link relocation only. Original commands retained; source commit preserves original bytes.",
+  "files": [
+    {
+      "original": "docs/GENERIC_RGBD_PNP.md",
+      "archived": "docs/history/GENERIC_RGBD_PNP.md",
+      "original_sha256": "10bfccd59daf376f3dbfa91e00e4ffe1bbfb8d49240151f4ab8be2ec69fa3658",
+      "archived_sha256": "41293f20bdd9b805415c6847d5e01dc4e4913674dd8cfec1248a6c1862b754f7"
+    },
+    {
+      "original": "docs/INVENTORY_TRANSFER.md",
+      "archived": "docs/history/INVENTORY_TRANSFER.md",
+      "original_sha256": "5c77f8ca5f457d9e7069b7bd76f638b09a22a76ad3ccfe577734641f55b3c62c",
+      "archived_sha256": "c2048c5fe982472895afe153d3a52d474374ce2bd16b8bb8a018f7e7a27823f8"
+    },
+    {
+      "original": "docs/VISION_DEPLOYMENT.md",
+      "archived": "docs/history/VISION_DEPLOYMENT.md",
+      "original_sha256": "9746032f293d08a55b61ea21431660c9104e3d3f89377eb2db3dc3486b7aeee1",
+      "archived_sha256": "dd67e8e6c3430abf41133292dea76b30e97a46a5c2abc7c110f7dc2751d49227"
+    },
+    {
+      "original": "docs/SHARED_SURFACE_ABLATION.md",
+      "archived": "docs/history/SHARED_SURFACE_ABLATION.md",
+      "original_sha256": "a6b4d59b7088845b18bab7ab1da7385a43da433f3309a35ac34cfe22145eba91",
+      "archived_sha256": "646dd52312a6ce287b51310964e4ccc50f2be3b180c582672daed685d21e244e"
+    },
+    {
+      "original": "docs/GEOMETRIC_STATE_RESEARCH.md",
+      "archived": "docs/history/GEOMETRIC_STATE_RESEARCH.md",
+      "original_sha256": "00d58264d794ed26ed9498f42ab5aca105debd8908a62bbd382a7e369b1aede1",
+      "archived_sha256": "d5dc5e13bd006b31e87dc0811600b2c44b9fc21abe653b8addbe43bdced8a39e"
+    },
+    {
+      "original": "docs/INVENTORY_CPU_POLICY.md",
+      "archived": "docs/history/INVENTORY_CPU_POLICY.md",
+      "original_sha256": "496e176419513ade3f676340c964b5608dbe91e5872da293e546b7233644da84",
+      "archived_sha256": "52d65f7bd66e0c643b579f4f1d83c744bd260c50a829dcb7d65ac8226713db12"
+    },
+    {
+      "original": "docs/CUBE_3CM_EVALUATION.md",
+      "archived": "docs/history/CUBE_3CM_EVALUATION.md",
+      "original_sha256": "1f0203fe53f29dcd661bacf05cf71109d48cf9a2eadbb57d53a9f5d467e49a86",
+      "archived_sha256": "7cdad82841fe317d84834c45b84aa51cf2427f79af2557815137f9d8c005a995"
+    },
+    {
+      "original": "docs/VISION_FROM_SCRATCH.zh-CN.md",
+      "archived": "docs/history/VISION_FROM_SCRATCH.zh-CN.md",
+      "original_sha256": "3a6273efda2ea4cc8effd1af66675e6ee731ceae0103287716e938ba18dfa683",
+      "archived_sha256": "5405d579fe8f28af31c7c55c9fe40aad02200dcf1c1d4ec7e36e1dd02e893d53"
+    },
+    {
+      "original": "docs/SINGLE_COLUMNS.md",
+      "archived": "docs/history/SINGLE_COLUMNS.md",
+      "original_sha256": "f165204cb6a64aa7823f979d2614f0ca5715f03f74288c6983bd09d24ab469cd",
+      "archived_sha256": "516a61f043f3c81260747fe8165b4a10c2e58c9c84c890f5100496e103dcf302"
+    },
+    {
+      "original": "docs/CUBOID_CORRESPONDENCE.md",
+      "archived": "docs/history/CUBOID_CORRESPONDENCE.md",
+      "original_sha256": "bea4e664846e9318e7007edbf1143bb92e5c80719969f35fd82ca785ef1d5080",
+      "archived_sha256": "4122e773c486c377847796e06da11f80789ee8ef12623950d73bcd9048f831ca"
+    },
+    {
+      "original": "docs/INITIAL_OBSERVATION_CONTEXT.md",
+      "archived": "docs/history/INITIAL_OBSERVATION_CONTEXT.md",
+      "original_sha256": "b7fde21bc06c3f23f32447675712b739375b619fe955abb25d60c2fce541b9eb",
+      "archived_sha256": "5a59e81c85e937caa2cf682714d9795618627225027edf74b15ec575aa699f04"
+    },
+    {
+      "original": "docs/MIXED_SCENE_LEARNING_RESULTS.md",
+      "archived": "docs/history/MIXED_SCENE_LEARNING_RESULTS.md",
+      "original_sha256": "0fa1b4d4fd446fc5a616adf8d722bf4afa53d8314e578d0c6768fe3ca0635fa8",
+      "archived_sha256": "2c3d256791d61a3a1f35c12875e204c64341be864fe1839867a9874c8c199045"
+    },
+    {
+      "original": "docs/RIGID_GOAL_CONSTRAINTS.md",
+      "archived": "docs/history/RIGID_GOAL_CONSTRAINTS.md",
+      "original_sha256": "d7167bc68ce065abd1fa12e212465bbbbd91425ce69ff12d50e31099ced72a0f",
+      "archived_sha256": "7f8468980b75cfbfcfe326af798f4b199f839434bc35f181d77c5365a171392b"
+    },
+    {
+      "original": "docs/ONLINE_GEOMETRY_EXPERIMENT.md",
+      "archived": "docs/history/ONLINE_GEOMETRY_EXPERIMENT.md",
+      "original_sha256": "dc375994da80b69c62670ae32226b0e5b43630f73797078259ad07e827e7312d",
+      "archived_sha256": "97f6d5b06f2f61930a96c4b18af0cd4d15995d8b01ad8320c3ef6eeb8e14edbe"
+    },
+    {
+      "original": "docs/OBSERVATION_AUDIT.zh-CN.md",
+      "archived": "docs/history/OBSERVATION_AUDIT.zh-CN.md",
+      "original_sha256": "90138ca88fc2dc840b59bd3cca8db53fc5c22c04426dbfc9a45a37ba92873084",
+      "archived_sha256": "d14cbf687ab6fda3831accec05e9ea464585de9cb62576804bbfcb7f54a644ce"
+    },
+    {
+      "original": "docs/GEOMETRY_NEXT_EXPERIMENT.md",
+      "archived": "docs/history/GEOMETRY_NEXT_EXPERIMENT.md",
+      "original_sha256": "d6dafebe2a796152f7cefcf10d844b6e8b94902e162793ee6aaf25f7b4685d3b",
+      "archived_sha256": "e9e78cab44dd2e60ce172838269a0b01c526139d97ef13ca148f5627037e5a9d"
+    },
+    {
+      "original": "docs/THIN_BEAM_BRIDGE.md",
+      "archived": "docs/history/THIN_BEAM_BRIDGE.md",
+      "original_sha256": "a654b132f3500341bb8f71d189050e6acc6996dfd92048add73a31748b07b832",
+      "archived_sha256": "966a4d700e9fb7e3e21d3da5cfb1f556083ac6fd28dbf51db591df972e38fdf6"
+    },
+    {
+      "original": "docs/MIXED_SCENE_STARTUP_DIAGNOSTIC.md",
+      "archived": "docs/history/MIXED_SCENE_STARTUP_DIAGNOSTIC.md",
+      "original_sha256": "3fa70b1200c0ef85880d0bda44bd8e0a1f43d9e88183309b512a626e31e63e32",
+      "archived_sha256": "6c9b692f0cd5813f539b80750448c84dead350c94e4e48e6fc8982601592b3a8"
+    },
+    {
+      "original": "docs/LOW_STRUCTURES.md",
+      "archived": "docs/history/LOW_STRUCTURES.md",
+      "original_sha256": "6f940f4a8990c052971603d4c5189e383a5cc807c0ba40f0e517d9c7762ecc42",
+      "archived_sha256": "bf73a253158cff8bffc0383d942b1c2a846d2d28b6da3eab4e66d723ef30bb87"
+    },
+    {
+      "original": "docs/PNP_GEOMETRY_COMPARISON.md",
+      "archived": "docs/history/PNP_GEOMETRY_COMPARISON.md",
+      "original_sha256": "eca8ee5f77fa8273d1ca3fba066a9a2ea0bac2e4937a0b6f7ab42628714392c1",
+      "archived_sha256": "8fc86ecd58fb7eb9d6170af3fe1f5025d2766501fe377f95aa5330ade4b94c36"
+    },
+    {
+      "original": "docs/COLUMN_POLICY_V2.md",
+      "archived": "docs/history/COLUMN_POLICY_V2.md",
+      "original_sha256": "55e880080995cfa74584d895c708e721196f3f208960ac1fd9af8942c379ff13",
+      "archived_sha256": "a715f73a01875caf1349086c0153173e1c9060656541477f620dba2aa1851ea0"
+    },
+    {
+      "original": "docs/VISUAL_CUBE_GEOMETRY.md",
+      "archived": "docs/history/VISUAL_CUBE_GEOMETRY.md",
+      "original_sha256": "284e1f078f69a0e82e936808a66b951382fbc801af1c5b1d51f1019812768e04",
+      "archived_sha256": "1e95c93c2fb801a40f52e0ac4d3ca7d8030cb281c196d088d5f2369c64349438"
+    },
+    {
+      "original": "docs/MIXED_SCENE_STATE.md",
+      "archived": "docs/history/MIXED_SCENE_STATE.md",
+      "original_sha256": "dae669a50817c9a056f04034aa5665166ba31abcc4d0caea38a7f2a844c50d0d",
+      "archived_sha256": "7016ffc5f7a888705ca4cc0c479e845d82b0dee7bea656a0f3dc5b2c0eff6ea0"
+    },
+    {
+      "original": "docs/ROBOT_VISUAL_GEOMETRY_MASK.md",
+      "archived": "docs/history/ROBOT_VISUAL_GEOMETRY_MASK.md",
+      "original_sha256": "7c5ef6c7d1b9ad917526082ee2b332f577d484374fa249a04dc7874e2ef27d7f",
+      "archived_sha256": "b3056ec01558d2d9a7377c645b9a1bcab1f4895092713d20081ba24386a24112"
+    },
+    {
+      "original": "docs/BOUNDED_GEOMETRY_MEMORY.md",
+      "archived": "docs/history/BOUNDED_GEOMETRY_MEMORY.md",
+      "original_sha256": "101985d364039970ee661adbb232becbc74390f8131c90f9ef849ea91f9d65ed",
+      "archived_sha256": "ef81f33421980a2e4e7480c00efe1238aab023ef9eaad63c58601683f5f9092e"
+    },
+    {
+      "original": "docs/RIGID_CONTAINMENT_DIAGNOSTIC.md",
+      "archived": "docs/history/RIGID_CONTAINMENT_DIAGNOSTIC.md",
+      "original_sha256": "0fa2f7f4f005055cfc318871ff682152d544554fc997cd6e1c40e5bb48586591",
+      "archived_sha256": "c3ee27c7ea2b94bcf116ee04318be5b7a1b057f9c1b0c4c4fd1be7eb712a0922"
+    },
+    {
+      "original": "docs/SHARED_OBSERVER_LEARNING_RESULTS.md",
+      "archived": "docs/history/SHARED_OBSERVER_LEARNING_RESULTS.md",
+      "original_sha256": "68220aa22e4d745532bd9001857a459bc3fac355d53b35fade373dc678667b2f",
+      "archived_sha256": "905aa5377022b8807a6640fdf97e8f301d5dce087067bf7060345f38576490e6"
+    },
+    {
+      "original": "docs/GEOMETRY_CHECKPOINT_MEMORY.md",
+      "archived": "docs/history/GEOMETRY_CHECKPOINT_MEMORY.md",
+      "original_sha256": "a042f2bd21d1451682d863750a279dcc0adc3168350da126665f0b8db6217c43",
+      "archived_sha256": "4d439bf6b8e6e9a5f8c6684179140d3a7a5304c7b90e73a85087abd9b37a9ee7"
+    },
+    {
+      "original": "docs/COLUMN_GEOMETRY.md",
+      "archived": "docs/history/COLUMN_GEOMETRY.md",
+      "original_sha256": "1f134969952bb5b60eb71bfcb8c6469e32ecfd555ad1dfdf134346fc90ea9665",
+      "archived_sha256": "8bfad0635f97e561e93d72647352f6b7262a6425c7c56ccc199df777f7ce1d0b"
+    },
+    {
+      "original": "docs/CUBE_ALIGNMENT.md",
+      "archived": "docs/history/CUBE_ALIGNMENT.md",
+      "original_sha256": "2efd6f65daa5c8981fed6a1736932ddc4b01510e733f3fdf63ae754459389bde",
+      "archived_sha256": "3d1305caf8104d5bea24e1a61c08cc6c3fc4d2f1ad63fa30df9c826b60f9049f"
+    },
+    {
+      "original": "docs/SYMBOLIC_FEEDBACK_EXPERIMENT.md",
+      "archived": "docs/history/SYMBOLIC_FEEDBACK_EXPERIMENT.md",
+      "original_sha256": "7a344dba6ed7142e18b0f1622fd2d91b9ae41ed44203f47de57335c3179bd964",
+      "archived_sha256": "0466c3d8e02801daf9e7183590755d4426e27883dbd5daecc102542f11a0a756"
+    },
+    {
+      "original": "docs/SHARED_OBSERVER_LEARNING_PROTOCOL.md",
+      "archived": "docs/history/SHARED_OBSERVER_LEARNING_PROTOCOL.md",
+      "original_sha256": "4b9da43311c54e2790263b74bf48ab2e4a97ee9b0ac229e786e7116a2b359da1",
+      "archived_sha256": "069cf62b8cd5b13502021dcc034a04a848037baca0ba5172998edab862411cc6"
+    },
+    {
+      "original": "docs/GEOMETRY_ABLATION_PROTOCOL.md",
+      "archived": "docs/history/GEOMETRY_ABLATION_PROTOCOL.md",
+      "original_sha256": "b48f7ce045012b8373e8a6306909ea0863f7232de141e17e5eb5e2e61c03f644",
+      "archived_sha256": "90b5346cab037cee6cd002106e9782e2f7e16194e9183196e2f99ada01be0ddb"
+    },
+    {
+      "original": "docs/CUBE_3CM_EVOLUTION.md",
+      "archived": "docs/history/CUBE_3CM_EVOLUTION.md",
+      "original_sha256": "635a1f786fa49399a226328cbe88d3eadbbf66deef561e40cb2018ef8c1f09d0",
+      "archived_sha256": "390028fb09e8c2cc8d657376ffbf9b7915b232d666a4075fc5091cd12dd4dcab"
+    },
+    {
+      "original": "docs/GENERIC_PNP_GEOMETRY_EXPERIMENT.md",
+      "archived": "docs/history/GENERIC_PNP_GEOMETRY_EXPERIMENT.md",
+      "original_sha256": "5d58bef8d13676f865e84d6d5740db3ec3e3c23de782860badc41a09531cd534",
+      "archived_sha256": "0ac5c707c214b22633a86a22bc0be28e42a681c3618806f1239b822abb0816f8"
+    },
+    {
+      "original": "docs/CUBE_4CM_EVOLUTION.md",
+      "archived": "docs/history/CUBE_4CM_EVOLUTION.md",
+      "original_sha256": "cc2a2327f1453cebfeba6a688ed654bb957b27e8ecf9974e7c892e8aa9d6caa7",
+      "archived_sha256": "055e9f77d509fd5d2e0c8831da64a6bcd9befa4a8933a7eb67e3c5cb50972d0e"
+    },
+    {
+      "original": "docs/MIXED_RIGID_GEOMETRY.md",
+      "archived": "docs/history/MIXED_RIGID_GEOMETRY.md",
+      "original_sha256": "e0c52e7c872f5ff9370dea89a29bfd10171842454ff6dc35b6f978295f624d80",
+      "archived_sha256": "65f2bbaac36409ac9955ab77f1b51a1731c38db778ca0d8c9c0e4a1276bf34b8"
+    },
+    {
+      "original": "docs/VISION_DEPLOYMENT.zh-CN.md",
+      "archived": "docs/history/VISION_DEPLOYMENT.zh-CN.md",
+      "original_sha256": "bca9dfbcc55f9e983d68a62a5ce7c790fd1ce5b6767a771822c4d46f85edf036",
+      "archived_sha256": "37b8a39ebfd4c708e2662fc77b2be0e2ab80f3248b91d73706d500992fce0efb"
+    },
+    {
+      "original": "docs/LEGACY_EXPERIMENT_SAMPLES.md",
+      "archived": "docs/history/LEGACY_EXPERIMENT_SAMPLES.md",
+      "original_sha256": "df86d06d0cf7ac0a3dfa2af4bb036632208fe68bff7cea5771763ad25f32c948",
+      "archived_sha256": "b300d36c27d73ee8acd7f1cfb6e50def538b04207050b878ed4ec667258aed13"
+    },
+    {
+      "original": "docs/MIXED_SCENE_REPLICATIONS.md",
+      "archived": "docs/history/MIXED_SCENE_REPLICATIONS.md",
+      "original_sha256": "318a26b9ff358aeafdbb8fd2c38705718b6005e1a9e1328127d017afe2354288",
+      "archived_sha256": "654eb927526d417eb3afc5a6323ddd0dd05d16311689b3d828bce11363d0bcea"
+    },
+    {
+      "original": "docs/OBSERVATION_AUDIT.md",
+      "archived": "docs/history/OBSERVATION_AUDIT.md",
+      "original_sha256": "8d20f3529e91581800237db40a07373b01fd0f047a6479e8aacc978cce262033",
+      "archived_sha256": "27ad4d3d6bd55fa2eb6e35298372ebf7625317b6679a7ef6365daa60074818cf"
+    },
+    {
+      "original": "docs/COLUMN_EVALUATION_PROTOCOL.md",
+      "archived": "docs/history/COLUMN_EVALUATION_PROTOCOL.md",
+      "original_sha256": "9c94a3cf7ec62c99a169a1056aad3df990bd070b5d151248b7d81d7502dbf824",
+      "archived_sha256": "23b45ac59f31806939cb0cfc2dd6cde982f286723c137469435bbf84083be77b"
+    },
+    {
+      "original": "docs/SHARED_PNP_OBSERVATION.md",
+      "archived": "docs/history/SHARED_PNP_OBSERVATION.md",
+      "original_sha256": "2f8e08fa616bb0a2e721bfcc495d5f5b699ed4955729eeed9fe0a5dbb198bde1",
+      "archived_sha256": "6cb6bec2861ee000af28df723982ae1ea705dfcdf4629ad0fbfa58f892e14c21"
+    },
+    {
+      "original": "docs/VISION_FROM_SCRATCH.md",
+      "archived": "docs/history/VISION_FROM_SCRATCH.md",
+      "original_sha256": "060f4c1f90a1addba75a309bba7011f5db3c39978f2bc028352e71de7342b2b7",
+      "archived_sha256": "70d4f015587bb7bbbbcaa9db2b8d98eaa0a860ff85806cd1824890c572374021"
+    },
+    {
+      "original": "docs/RIGID_GEOMETRY_STATE.md",
+      "archived": "docs/history/RIGID_GEOMETRY_STATE.md",
+      "original_sha256": "f0cd7c4bd215dac56b6e974bcffe02d26578e686839f2b5f83a411ae6d6e5dc1",
+      "archived_sha256": "9329afd0395bb67325a3ff8e7a6135cbd58335d1eebcceb5e06f141adb1ce4c8"
+    },
+    {
+      "original": "docs/PRISM_CLUTTER_POLICY.md",
+      "archived": "docs/history/PRISM_CLUTTER_POLICY.md",
+      "original_sha256": "c07a2c097a06f052ba00696d42ecbb0eb9e3ce04694c687fc9f96d23c80912af",
+      "archived_sha256": "41a2f5a825a0bb1f602235092c4431183e837e75008933da96a5b1caee04bba5"
+    },
+    {
+      "original": "docs/GEOMETRY_STEP_LEARNING_PROTOCOL.md",
+      "archived": "docs/history/GEOMETRY_STEP_LEARNING_PROTOCOL.md",
+      "original_sha256": "a5cfef034a2ef367e3863f7c7a423dc73d586e9459c47926ee8e589af5a1d6c6",
+      "archived_sha256": "8d3df14c2ffad8c7a4200cad948b2a23fb6b75888a68fbf5400a27b7f25fa657"
+    },
+    {
+      "original": "docs/GEOMETRY_STEP_LEARNING_RESULTS.md",
+      "archived": "docs/history/GEOMETRY_STEP_LEARNING_RESULTS.md",
+      "original_sha256": "65f01064034cc529b615873f0074bedbd2e16565ea9a1aa402b892a2d96bd1eb",
+      "archived_sha256": "36a9ae3a9a64433b379b6001541f540172dfe6974016eae12eb6ea7c9216b39b"
+    },
+    {
+      "original": "docs/MIXED_PNP_RELEASE_DIAGNOSTIC.md",
+      "archived": "docs/history/MIXED_PNP_RELEASE_DIAGNOSTIC.md",
+      "original_sha256": "d0bbe71eae86188979818b1380b991c689c545eab36a8207d0334a65c4888d28",
+      "archived_sha256": "26b7267424c6ea8d83e7ed68c01ac64227bd7c59258ee04bea03692f53996b95"
+    },
+    {
+      "original": "docs/INVENTORY_CPU_POLICY.zh-CN.md",
+      "archived": "docs/history/INVENTORY_CPU_POLICY.zh-CN.md",
+      "original_sha256": "ad7e971e05387c499ef23593fbd9a390dd78759b1930be4196691e9093cdf07c",
+      "archived_sha256": "ee7f211a27f4c2863142d7688162b7733a146c00a460b1bf693e4dc0d8e15761"
+    },
+    {
+      "original": "docs/GEOMETRY_ABLATION_PILOT_03.md",
+      "archived": "docs/history/GEOMETRY_ABLATION_PILOT_03.md",
+      "original_sha256": "caeedbcd294ca42280eabae9c57be5560c4248a7456138e2aa488fb0fc0a72af",
+      "archived_sha256": "3a42f7d83fc9a6b313ce8bfcd5fde1ab3e63cb84fa337abcb31ca6997d542b7e"
+    },
+    {
+      "original": "docs/MIXED_TRAINING_FAILURE_DIAGNOSTIC.md",
+      "archived": "docs/history/MIXED_TRAINING_FAILURE_DIAGNOSTIC.md",
+      "original_sha256": "e7e45e819074017ab4fefa2fd3dd8a44d10e8746fd7808076cb0ceaca1932adc",
+      "archived_sha256": "31c35600f776183f1b7811bbcb09a42311ebef6f471b2c5f5e7a2f91a0540a9c"
+    },
+    {
+      "original": "docs/VISUAL_RETRY_POLICY.md",
+      "archived": "docs/history/VISUAL_RETRY_POLICY.md",
+      "original_sha256": "bf3100a5fba226bba495c98bfc75a6a8638ce98deeb31a58b12ea2610c7ca650",
+      "archived_sha256": "61a8ef12b4e5edd6ad2149b98f96a6ab0dcc34e1c3e091ffce106d417b9d4113"
+    },
+    {
+      "original": "docs/MIXED_SCENE_LEARNING_PROTOCOL.md",
+      "archived": "docs/history/MIXED_SCENE_LEARNING_PROTOCOL.md",
+      "original_sha256": "5250268236ff3af172289a571eef6e92375bfdcf7f0057fc40d278f3149ada02",
+      "archived_sha256": "be7a01d6cf2146e5ac7a11b5794a7240b0dade8a50857807e8cba17fc6aeb023"
+    },
+    {
+      "original": "README.md",
+      "archived": "docs/history/PROJECT_GUIDE.md",
+      "original_sha256": "0ee019ab177be03de6ceb234431336c5379665cd68b405649d6e321885c1f567",
+      "archived_sha256": "f87201d17770a8fba08798f67387f4963be58cb8fd3dc2cf929094ab84f0faad"
+    },
+    {
+      "original": "skills/stacking.md",
+      "archived": "archive/legacy_skills/stacking.md",
+      "original_sha256": "acee1ac18081a6060c8fdb512bebab886bdff8bd347949ef7085f57d5f85e287",
+      "archived_sha256": "acee1ac18081a6060c8fdb512bebab886bdff8bd347949ef7085f57d5f85e287"
+    }
+  ]
+}
