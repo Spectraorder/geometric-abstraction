@@ -181,13 +181,19 @@ def audit(root, allow_partial=False):
                 command = invocation['command']
                 require(command.count('--model') == 1 and command[command.index('--model')+1] == manifest['model'], 'Actor model mismatch')
                 require('model_reasoning_effort="high"' in command and manifest['reasoning_effort'] == 'high', 'Actor reasoning mismatch')
-                require('--ignore-user-config' in command and '--ephemeral' in command, 'Actor inherited configuration')
+                persistent = manifest.get('actor_context_mode', 'fresh') == 'persistent'
+                require('--ignore-user-config' in command, 'Actor inherited configuration')
+                if persistent:
+                    from geometry_actor_session import audit_session
+                    audit_session(directory, manifest, invocation, generation)
+                else:
+                    require('--ephemeral' in command and invocation['fresh_context'], 'Actor inherited configuration')
                 require(len((directory/'prompt.txt').read_text()) <= manifest['max_prompt_characters'], 'Actor prompt exceeds frozen budget')
                 response = read(directory/'response.json')
                 require(response['code'] == (directory/'candidate.py').read_text(), 'Candidate differs from returned source')
                 require(digest(directory/'candidate.py') == generation['candidate_sha256'], 'Actor source changed')
                 require(digest(directory/'prompt.txt') == invocation['prompt_sha256'], 'Actor context changed')
-                require(invocation['fresh_context'] and invocation['tools_disabled'] and not invocation['repository_context']
+                require(invocation['tools_disabled'] and not invocation['repository_context']
                         and not invocation['user_config_loaded'] and not invocation['skills_loaded'], 'Actor isolation metadata mismatch')
                 events = [json.loads(line) for line in (directory/'model.jsonl').read_text().splitlines() if line.startswith('{')]
                 usage = audit_events(events)
@@ -213,6 +219,10 @@ def audit(root, allow_partial=False):
                                          'static_interface_call_counts': interface_calls, 'source_syntax_error': syntax_error,
                                          'static_usage_scope': 'Syntactic call sites only; not runtime frequency or evidence of how feedback was used.',
                                          'wall_seconds': generation['wall_seconds'], 'audit': 'passed',
+                                         'image_count': len(invocation['images']),
+                                         'actor_context_mode': manifest.get('actor_context_mode', 'fresh'),
+                                         'session_id': generation.get('session_id'),
+                                         'compaction_records_total': generation.get('compaction_records_total'),
                                          'planner_characters': len((directory/'candidate.py').read_text())})
                 max_generation_mtime = max(max_generation_mtime, (directory/'generation.json').stat().st_mtime)
             if not candidate.exists():
@@ -242,7 +252,9 @@ def audit(root, allow_partial=False):
                         and declared['trials'] == actual['slots_completed'], 'Training summary differs from trials')
                 require([{k: r[k] for k in ('seed','success','policy_error','rollout_executed')} for r in declared['results']]
                         == training_rows[arm,i], 'Training outcomes differ from trials')
-            selected = max(training, key=lambda r: r['successes'])['revision']
+            from geometry_iteration import select_revision
+            verified_curve = [dict(row, results=training_rows[arm, row['revision']]) for row in training]
+            selected = select_revision(verified_curve, manifest)
             require(selected == summary['frozen'][arm]['revision'], 'Selection used non-training information')
             require(digest(root/arm/'frozen.py') == summary['frozen'][arm]['sha256'], 'Selected source changed')
             reserved = []

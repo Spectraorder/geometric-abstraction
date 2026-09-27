@@ -142,7 +142,7 @@ def sources():
     paths += [ROOT/'policies'/name for name in ('pick_place_rgbd_shared.py', 'pick_place_rgbd_observed.py',
               'mixed_scene_session.py', 'basic_scene_session.py', 'support_graph_starter.py')]
     paths += [ROOT/'scripts'/name for name in ('run_mixed_scene_experiment.py', 'build_mixed_scene.py',
-              'build_mixed_pnp_observer.py', 'run_geometry_ablation.py', 'run_vision_trial.py', 'vision_policy_worker.py')]
+              'build_mixed_pnp_observer.py', 'geometry_iteration.py', 'run_geometry_ablation.py', 'run_vision_trial.py', 'vision_policy_worker.py')]
     return {str(p.relative_to(ROOT)): digest(p) for p in sorted(paths)}
 
 
@@ -401,10 +401,16 @@ def campaign(root, manifest, phase='all'):
                 rows = execute(root, arm, target, directory/'trials', manifest['train_seeds'], manifest, error)
                 curves[arm].append({'revision': revision, 'successes': sum(r['success'] for r in rows),
                     'trials': len(rows), 'results': rows, 'generation': generation, 'validation_error': error})
+                if manifest.get('hypothesis_feedback'):
+                    from geometry_iteration import behavior_feedback
+                    write(directory/'hypothesis_review.json', {
+                        'revision': revision,
+                        'command_comparisons': behavior_feedback(root, arm, revision, manifest['train_seeds'])})
                 write(root/'progress.json', {'status': 'training', 'curves': curves})
         frozen = {}; revision_frozen = {}
         for arm in arms:
-            best = max(curves[arm], key=lambda row: row['successes']); revision = best['revision']
+            from geometry_iteration import select_revision
+            revision = select_revision(curves[arm], manifest)
             source = root/arm/('revision_000' if revision == 0 else f'round_{revision:03d}')/'bundled.py'
             target = root/arm/'frozen.py'; shutil.copyfile(source, target)
             frozen[arm] = {'revision': revision, 'sha256': digest(target)}
@@ -427,6 +433,15 @@ def campaign(root, manifest, phase='all'):
             raise RuntimeError('Training manifest changed')
     if json.loads((root/'all_candidates_frozen.json').read_text()) != {'selected': frozen, 'revisions': revision_frozen}:
         raise RuntimeError('Global freeze gate differs from training record')
+    def evaluate(candidate, directory, error=None):
+        workers = manifest.get('evaluation_workers', 1)
+        if workers == 1:
+            return execute(root, arm, candidate, directory, manifest['heldout_seeds'], manifest, error)
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            pending = [pool.submit(execute, root, arm, candidate, directory, [seed], manifest, error)
+                       for seed in manifest['heldout_seeds']]
+            return [row for future in pending for row in future.result()]
+
     heldout = {}; heldout_curves = {arm: [] for arm in arms}
     for arm in arms:
         for entry in revision_frozen[arm]:
@@ -436,7 +451,7 @@ def campaign(root, manifest, phase='all'):
             raise RuntimeError('Selected candidate changed')
     for arm in arms:
         write(root/'progress.json', {'status': 'heldout', 'arm': arm, 'curves': curves, 'frozen': frozen})
-        heldout[arm] = execute(root, arm, root/arm/'frozen.py', root/arm/'heldout', manifest['heldout_seeds'], manifest)
+        heldout[arm] = evaluate(root/arm/'frozen.py', root/arm/'heldout')
     for revision in range(manifest['rounds']+1):
         for arm in arms:
             entry = revision_frozen[arm][revision]
@@ -447,8 +462,8 @@ def campaign(root, manifest, phase='all'):
                 trial_path = str(directory.relative_to(root))
                 write(root/'progress.json', {'status': 'heldout_curves', 'arm': arm, 'revision': revision,
                                              'curves': curves, 'heldout_curves': heldout_curves, 'frozen': frozen})
-                rows = execute(root, arm, root/arm/'frozen_revisions'/f'revision_{revision:03d}.py',
-                               directory, manifest['heldout_seeds'], manifest, entry['validation_error'])
+                rows = evaluate(root/arm/'frozen_revisions'/f'revision_{revision:03d}.py',
+                                directory, entry['validation_error'])
             heldout_curves[arm].append({'revision': revision, 'successes': sum(r['success'] for r in rows),
                                        'trials': len(rows), 'trial_path': trial_path, 'results': rows})
     summary = {'status': 'completed', 'manifest_sha256': digest(root/'manifest.json'), 'curves': curves,

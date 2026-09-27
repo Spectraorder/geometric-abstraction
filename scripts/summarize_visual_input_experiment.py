@@ -39,7 +39,14 @@ def audit(root, allow_partial=False):
         result['selected_visual_vs_geometry']=paired(rows['basic'],rows['symbolic'])
         result['retained_budget_secondary']={}
         for arm,curve in result['curves'].items():
-            selected=retained_revisions(curve['training'])
+            if manifest.get('retention_rule') == 'preserve_successes_strict_improvement':
+                from geometry_iteration import retention
+                trained = read(root/'training_summary.json')['curves'][arm]
+                decisions = retention(trained)
+                result.setdefault('retention_decisions', {})[arm] = decisions
+                selected = [row['selected_revision'] for row in decisions]
+            else:
+                selected=retained_revisions(curve['training'])
             require(selected[-1]==curve['selected_revision'],'Training selection differs')
             result['retained_budget_secondary'][arm]=[{'budget':budget,'selected_revision':revision,'reserved_sr':curve['reserved'][revision]['sr']} for budget,revision in enumerate(selected)]
     return result

@@ -18,8 +18,11 @@ import summarize_mixed_scene_learning as audit
 
 
 class LearningAuditTests(unittest.TestCase):
-    def fixture(self, root, invalid_arm=None, arms=None, train=None):
-        manifest = campaign.prepare(root, 1, [91001] if train is None else train, [92001,92002], arms=arms)
+    def fixture(self, root, invalid_arm=None, arms=None, train=None, persistent=False, rounds=1):
+        manifest = campaign.prepare(root, rounds, [91001] if train is None else train, [92001,92002], arms=arms)
+        if persistent:
+            manifest['actor_context_mode'] = 'persistent'
+            campaign.write(root/'manifest.json', manifest)
         def propose(directory, prompt, images, manifest):
             directory.mkdir(parents=True)
             source = 'def run(api):\n    pass\n'
@@ -53,7 +56,11 @@ class LearningAuditTests(unittest.TestCase):
                 campaign.write(out/'result.json',value)
                 rows.append({'seed':seed,'success':success,'policy_error':error,'rollout_executed':not bool(error)})
             return rows
-        with patch.object(campaign,'propose',propose),patch.object(campaign,'execute',execute),patch.object(campaign,'context',return_value=('Synthetic test context',[])):
+        if persistent:
+            from geometry_actor_session import propose as proposer
+        else:
+            proposer = propose
+        with patch.object(campaign,'propose',proposer),patch.object(campaign,'execute',execute),patch.object(campaign,'context',return_value=('Synthetic test context',[])):
             campaign.campaign(root,manifest)
         return manifest
 
