@@ -15,3 +15,7 @@ MUJOCO_LOG.TXT
 
 #apikey
 .apikey
+
+# Rebuildable developer caches
+.ruff_cache/
+.pytest_cache/

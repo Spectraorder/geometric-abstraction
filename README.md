@@ -1,5 +1,23 @@
 # ASPIRE SO-100 stacking
 
+## Current research: lightweight geometric abstraction
+
+The active experiment compares **Visual Base versus Full geometry** on a low-rise
+bridge, with CPU perception/policy and RGB-D observations. Start with the
+[research status and evidence boundaries](docs/GEOMETRIC_STATE_RESEARCH.md),
+[latest budget-limited results](docs/PARTIAL_GEOMETRY_BUDGET_LIMITED_RESULTS.md),
+and [completed independent comparison](docs/VISUAL_INPUT_LEARNING_RESULTS.md).
+The latest experiment is stopped at 103 reserved rollouts; do not resume it without
+a further user request. No stable cross-chain learning advantage is claimed.
+
+Recognition/pointing experiments are in [the historical archive](archive/pointing/README.md).
+Earlier tower controllers and mixed/negative geometry studies below remain as
+context and reproduction dependencies, not additional current treatment arms.
+Raw rollout recordings stay in ignored local `outputs/`; Git contains code,
+fixtures, reports and selected visual evidence, not the complete raw dataset.
+
+## Earlier tower and execution work
+
 The Mac RGB-D/proprioception campaign started with an empty task-skill library, reached 3/3 in two rounds, then passed 2/2 after freezing. See the [experiment guide](docs/VISION_FROM_SCRATCH.md), [visualization/deployment guide](docs/VISION_DEPLOYMENT.md), and [historical observation audit](docs/OBSERVATION_AUDIT.md). Recordings and public evidence are in `web/vision/`; the recorded [static demo deployment](https://aspire-so100-vision.vercel.app/) is described in the deployment guide.
 
 This project adapts the three useful pieces of the ASPIRE workflow to the local
