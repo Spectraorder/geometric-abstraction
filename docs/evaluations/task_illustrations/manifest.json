@@ -1,0 +1,924 @@
+{
+  "kind": "constructed_task_schematics",
+  "records": [
+    {
+      "key": "single_bridge",
+      "mode": "single_policy",
+      "title": "Bridge + cylinder",
+      "labels": [
+        "Separate objects",
+        "Span two foundations",
+        "Place the cylinder"
+      ],
+      "description": "Build a bridge and place a cylinder on the beam.",
+      "frames": [
+        "single_bridge_00.png",
+        "single_bridge_01.png",
+        "single_bridge_02.png"
+      ],
+      "objects": [
+        "blue_cube",
+        "yellow_cube",
+        "green_thin_prism",
+        "red_cylinder"
+      ],
+      "qpos": [
+        [
+          0.0,
+          -1.57,
+          1.57,
+          1.57,
+          -1.57,
+          0.0,
+          -0.105,
+          -0.34,
+          0.41500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.105,
+          -0.34,
+          0.41500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.06,
+          -0.24,
+          0.40750000000000003,
+          0.7071067811865476,
+          0.0,
+          0.7071067811865476,
+          0.0,
+          0.09,
+          -0.24,
+          0.43000000000000005,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.57,
+          1.57,
+          1.57,
+          -1.57,
+          0.0,
+          -0.03,
+          -0.3,
+          0.41500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.03,
+          -0.3,
+          0.41500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.3,
+          0.43750000000000006,
+          0.7071067811865476,
+          0.0,
+          0.7071067811865476,
+          0.0,
+          0.09,
+          -0.24,
+          0.43000000000000005,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.57,
+          1.57,
+          1.57,
+          -1.57,
+          0.0,
+          -0.03,
+          -0.3,
+          0.41500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.03,
+          -0.3,
+          0.41500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.3,
+          0.43750000000000006,
+          0.7071067811865476,
+          0.0,
+          0.7071067811865476,
+          0.0,
+          0.0,
+          -0.3,
+          0.4750000000000001,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "cameras": [
+        {
+          "lookat": [
+            0.0,
+            -0.2858057222006822,
+            0.41833585097516407
+          ],
+          "distance": 0.37780279008956935,
+          "azimuth": 105.0,
+          "elevation": -48.0
+        },
+        {
+          "lookat": [
+            0.03378012877448184,
+            -0.27041414902483596,
+            0.4304442777993178
+          ],
+          "distance": 0.2778724880138873,
+          "azimuth": 105.0,
+          "elevation": -48.0
+        },
+        {
+          "lookat": [
+            0.0,
+            -0.3,
+            0.4487801287744819
+          ],
+          "distance": 0.2095815510452006,
+          "azimuth": 105.0,
+          "elevation": -48.0
+        }
+      ],
+      "frame_width": 1200,
+      "frame_height": 900,
+      "scene_seed_for_asset_identity": 1
+    },
+    {
+      "key": "single_stacking",
+      "mode": "single_policy",
+      "title": "Three-cube stacking",
+      "labels": [
+        "Separate cubes",
+        "Place the middle cube",
+        "Complete the ordered stack"
+      ],
+      "description": "Build an ordered three-cube tower.",
+      "frames": [
+        "single_stacking_00.png",
+        "single_stacking_01.png",
+        "single_stacking_02.png"
+      ],
+      "objects": [
+        "blue_cube",
+        "red_cube",
+        "green_cube"
+      ],
+      "qpos": [
+        [
+          0.0,
+          -1.57,
+          1.57,
+          1.57,
+          -1.57,
+          0.0,
+          -0.105,
+          -0.34,
+          0.41500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.105,
+          -0.34,
+          0.41500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.06,
+          -0.24,
+          0.41500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.57,
+          1.57,
+          1.57,
+          -1.57,
+          0.0,
+          0.0,
+          -0.3,
+          0.41500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.3,
+          0.44500000000000006,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.06,
+          -0.24,
+          0.41500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.57,
+          1.57,
+          1.57,
+          -1.57,
+          0.0,
+          0.0,
+          -0.3,
+          0.41500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.3,
+          0.44500000000000006,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.3,
+          0.4750000000000001,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "cameras": [
+        {
+          "lookat": [
+            0.0,
+            -0.29000000000000004,
+            0.41500000000000004
+          ],
+          "distance": 0.362581081038346,
+          "azimuth": 105.0,
+          "elevation": -48.0
+        },
+        {
+          "lookat": [
+            -0.03,
+            -0.27,
+            0.43000000000000005
+          ],
+          "distance": 0.21038594986388745,
+          "azimuth": 105.0,
+          "elevation": -48.0
+        },
+        {
+          "lookat": [
+            0.0,
+            -0.3,
+            0.44500000000000006
+          ],
+          "distance": 0.2,
+          "azimuth": 105.0,
+          "elevation": -48.0
+        }
+      ],
+      "frame_width": 1200,
+      "frame_height": 900,
+      "scene_seed_for_asset_identity": 1
+    },
+    {
+      "key": "single_ring",
+      "mode": "single_policy",
+      "title": "Ring over peg",
+      "labels": [
+        "Ring beside the peg",
+        "Align the opening",
+        "Lower and release"
+      ],
+      "description": "Grasp material around the opening, align with the fixed peg, and release.",
+      "frames": [
+        "single_ring_00.png",
+        "single_ring_01.png",
+        "single_ring_02.png"
+      ],
+      "objects": [
+        "ring",
+        "peg"
+      ],
+      "qpos": [
+        [
+          0.0,
+          -1.57,
+          1.57,
+          1.57,
+          -1.57,
+          0.0,
+          -0.11129011287937088,
+          -0.2819006195924682,
+          0.40750000000000003,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.57,
+          1.57,
+          1.57,
+          -1.57,
+          0.0,
+          0.06720798063598168,
+          -0.2641080442290205,
+          0.47500000000000003,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.57,
+          1.57,
+          1.57,
+          -1.57,
+          0.0,
+          0.06720798063598168,
+          -0.2641080442290205,
+          0.40750000000000003,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "cameras": [
+        {
+          "lookat": [
+            -0.03518269767387584,
+            -0.2819006195924682,
+            0.41748932026492075
+          ],
+          "distance": 0.3342333084841362,
+          "azimuth": 105.0,
+          "elevation": -48.0
+        },
+        {
+          "lookat": [
+            0.06720798063598168,
+            -0.2641080442290205,
+            0.4487606797350793
+          ],
+          "distance": 0.20614818621597367,
+          "azimuth": 105.0,
+          "elevation": -48.0
+        },
+        {
+          "lookat": [
+            0.06720798063598168,
+            -0.2641080442290205,
+            0.41748932026492075
+          ],
+          "distance": 0.2,
+          "azimuth": 105.0,
+          "elevation": -48.0
+        }
+      ],
+      "frame_width": 1200,
+      "frame_height": 900,
+      "scene_seed_for_asset_identity": 1
+    },
+    {
+      "key": "online_tower",
+      "mode": "online",
+      "title": "Bridge-tower construction",
+      "labels": [
+        "Separate objects",
+        "Construct the bridge",
+        "Stack above the beam"
+      ],
+      "description": "Compose bridge and stacking skills in one continuing scene.",
+      "frames": [
+        "online_tower_00.png",
+        "online_tower_01.png",
+        "online_tower_02.png"
+      ],
+      "objects": [
+        "magenta_cube",
+        "red_cube",
+        "yellow_thin_prism",
+        "blue_cube",
+        "green_cube"
+      ],
+      "qpos": [
+        [
+          0.0,
+          -1.57,
+          1.57,
+          1.57,
+          -1.57,
+          0.0,
+          -0.105,
+          -0.34,
+          0.41500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.105,
+          -0.34,
+          0.41500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.06,
+          -0.24,
+          0.40750000000000003,
+          0.7071067811865476,
+          0.0,
+          0.7071067811865476,
+          0.0,
+          0.09,
+          -0.24,
+          0.41500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.39,
+          0.41500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.57,
+          1.57,
+          1.57,
+          -1.57,
+          0.0,
+          -0.024,
+          -0.3,
+          0.41500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.024,
+          -0.3,
+          0.41500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.3,
+          0.43750000000000006,
+          0.7071067811865476,
+          0.0,
+          0.7071067811865476,
+          0.0,
+          0.09,
+          -0.24,
+          0.41500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.39,
+          0.41500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.57,
+          1.57,
+          1.57,
+          -1.57,
+          0.0,
+          -0.024,
+          -0.3,
+          0.41500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.024,
+          -0.3,
+          0.41500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.3,
+          0.43750000000000006,
+          0.7071067811865476,
+          0.0,
+          0.7071067811865476,
+          0.0,
+          0.0,
+          -0.3,
+          0.4600000000000001,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.3,
+          0.4900000000000001,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "cameras": [
+        {
+          "lookat": [
+            0.0,
+            -0.3108057222006822,
+            0.40750000000000003
+          ],
+          "distance": 0.4046488171114611,
+          "azimuth": 105.0,
+          "elevation": -48.0
+        },
+        {
+          "lookat": [
+            0.033,
+            -0.315,
+            0.4304442777993178
+          ],
+          "distance": 0.3235779048246004,
+          "azimuth": 105.0,
+          "elevation": -48.0
+        },
+        {
+          "lookat": [
+            0.0,
+            -0.3,
+            0.45250000000000007
+          ],
+          "distance": 0.2072119477204602,
+          "azimuth": 105.0,
+          "elevation": -48.0
+        }
+      ],
+      "frame_width": 1200,
+      "frame_height": 900,
+      "scene_seed_for_asset_identity": 1
+    },
+    {
+      "key": "online_ring",
+      "mode": "online",
+      "title": "Online ring placement",
+      "labels": [
+        "After shared grasp / lift",
+        "Observe and align",
+        "Release around the peg"
+      ],
+      "description": "Use the shared lift skill, then choose alignment, release, and recovery online.",
+      "frames": [
+        "online_ring_00.png",
+        "online_ring_01.png",
+        "online_ring_02.png"
+      ],
+      "objects": [
+        "ring",
+        "peg"
+      ],
+      "qpos": [
+        [
+          0.0,
+          -1.57,
+          1.57,
+          1.57,
+          -1.57,
+          0.0,
+          -0.11129011287937088,
+          -0.2819006195924682,
+          0.48500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.57,
+          1.57,
+          1.57,
+          -1.57,
+          0.0,
+          0.06720798063598168,
+          -0.2641080442290205,
+          0.47500000000000003,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.57,
+          1.57,
+          1.57,
+          -1.57,
+          0.0,
+          0.06720798063598168,
+          -0.2641080442290205,
+          0.40750000000000003,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "cameras": [
+        {
+          "lookat": [
+            -0.03518269767387584,
+            -0.2819006195924682,
+            0.4537606797350794
+          ],
+          "distance": 0.3495970082500058,
+          "azimuth": 105.0,
+          "elevation": -48.0
+        },
+        {
+          "lookat": [
+            0.06720798063598168,
+            -0.2641080442290205,
+            0.4487606797350793
+          ],
+          "distance": 0.20614818621597367,
+          "azimuth": 105.0,
+          "elevation": -48.0
+        },
+        {
+          "lookat": [
+            0.06720798063598168,
+            -0.2641080442290205,
+            0.41748932026492075
+          ],
+          "distance": 0.2,
+          "azimuth": 105.0,
+          "elevation": -48.0
+        }
+      ],
+      "frame_width": 1200,
+      "frame_height": 900,
+      "scene_seed_for_asset_identity": 1
+    },
+    {
+      "key": "online_relocation",
+      "mode": "online",
+      "title": "Tower relocation",
+      "labels": [
+        "Source stack + destination",
+        "Use a temporary placement",
+        "Rebuild on the destination"
+      ],
+      "description": "Transfer the upper two cubes in order; preserve or restore both foundations.",
+      "frames": [
+        "online_relocation_00.png",
+        "online_relocation_01.png",
+        "online_relocation_02.png"
+      ],
+      "objects": [
+        "red_cube",
+        "yellow_cube",
+        "blue_cube",
+        "green_cube"
+      ],
+      "qpos": [
+        [
+          0.0,
+          -1.57,
+          1.57,
+          1.57,
+          -1.57,
+          0.0,
+          -0.09,
+          -0.3,
+          0.41500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.09,
+          -0.3,
+          0.41500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.09,
+          -0.3,
+          0.445,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.09,
+          -0.3,
+          0.47500000000000003,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.57,
+          1.57,
+          1.57,
+          -1.57,
+          0.0,
+          -0.09,
+          -0.3,
+          0.41500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.09,
+          -0.3,
+          0.41500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.09,
+          -0.3,
+          0.445,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.39,
+          0.41500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.57,
+          1.57,
+          1.57,
+          -1.57,
+          0.0,
+          -0.09,
+          -0.3,
+          0.41500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.09,
+          -0.3,
+          0.41500000000000004,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.09,
+          -0.3,
+          0.445,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.09,
+          -0.3,
+          0.47500000000000003,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "cameras": [
+        {
+          "lookat": [
+            0.0,
+            -0.3,
+            0.445
+          ],
+          "distance": 0.3100539124736345,
+          "azimuth": 105.0,
+          "elevation": -48.0
+        },
+        {
+          "lookat": [
+            0.0,
+            -0.345,
+            0.43000000000000005
+          ],
+          "distance": 0.3351634463963221,
+          "azimuth": 105.0,
+          "elevation": -48.0
+        },
+        {
+          "lookat": [
+            0.0,
+            -0.3,
+            0.445
+          ],
+          "distance": 0.3100539124736345,
+          "azimuth": 105.0,
+          "elevation": -48.0
+        }
+      ],
+      "frame_width": 1200,
+      "frame_height": 900,
+      "scene_seed_for_asset_identity": 1
+    }
+  ],
+  "interpretation": "Illustrative poses, not measured experimental trajectories or evidence of success. No policies, model requests, or physics rollouts were executed.",
+  "changes": "Only temporary visualization models and object poses; robot render group hidden for closeups.",
+  "source_sha256": {
+    "scripts/render_paper_task_schematics.py": "2c46b973ec6c52a93eab5b2ae6d2663b46eccd10b125f63a205e26b806c817c3",
+    "src/aspire_so100/inventory_structure.py": "1411a8650fa2591910bf13bce4441f6c0378bdaae3d344d868e397ecef664a13",
+    "src/aspire_so100/structure_tasks.py": "5e7638f24be7b2c31259bf15d1402851eebf69fa0b536353b5a7087eeb7dcb02",
+    "scripts/run_three_cube_trial.py": "2ce24699833ab2f09ea8cb2b236090e9db260dbdbe5c43f214fa561cde46a927",
+    "scripts/online_bridge_scene.py": "5e56caa0af2f3fbe59a9ad8e8b9d4c81e9950330e1d720811159bf5e3653090a",
+    "scripts/online_relocation_scene.py": "fd4f617aa793efecf8b1b2130614d7dc1d6d6e419bb5111907fe672ef8969844",
+    "scripts/ring_peg_scene.py": "bdb1e23fae3083da1cece3a9c0ae7051452dfc9685f028cfa9efcd47b3cd6ee9"
+  },
+  "output_sha256": {
+    "single_bridge.pdf": "cb9dd8eb1e464cd28aad04339cf79f019808c236eb65198883e15bd0075340d6",
+    "single_stacking.pdf": "6b5239326d345c70ec7bcefbd46a27690674b23924f7660a1c492069b113d1da",
+    "single_stacking_01.png": "f205d16380d19d59343c6bf20f6c83be0ca3f4856a13060a84f978ed5bee545f",
+    "single_bridge_01.png": "c43b84afd597b61bc1bbcfedfcf301f608f2ac53aee6e6ce1d29c22d87d1ce8a",
+    "online_ring_02.png": "9f1cca4ebe1c035fcb1be2cd01ef53158519df15677f89c16ee9a72289f32785",
+    "single_bridge_02.png": "40b107b04c39d222ab480e373a56e80bc23cd49648beb7eeb16f4ed38554d7a6",
+    "online_tower_01.png": "e8590e7f7de61cf6420afe398ac9ab82166712bef0c5c4950387e51324e86350",
+    "online_relocation.pdf": "2d3f85ec46d63c99c083a27d37979165e0566b16b0db4debc34c8e5c573a483c",
+    "single_ring.png": "26ca393f2b5ec085fde8918b069e4a2d684f0d55f083a1b47338f98d171d89eb",
+    "online_tower_02.png": "cb01631bcf8c2183a88cb95e535dc34215b86348d0fdfb341dbde911a83ea398",
+    "online_ring.png": "f8c74c3bbc45b9c899ca3ee59266b2e58ead7d946f1da20e7ac62fc1fe3135e5",
+    "single_stacking_00.png": "157858ad835108097ba642dfc16705e53226389488d520df6c9a4056e2fd8698",
+    "online_tasks.pdf": "65d3bad122bc4a0e1b04f338218b78a9e5a1a12de64b5618cd9a1a55333453b0",
+    "online_ring_01.png": "f954200a90cd349b1937532532d8a767f0256eb8744df32522106acd39e040ef",
+    "online_ring_00.png": "fe105714bae5c2967f08229afe3efa81c6b1b2c0e54c9d9b6be80a129f7906f9",
+    "online_relocation_00.png": "dd0112c183191cbf16d8c72f040c4f974b95c378acd472ebca95b2edd8da09d8",
+    "online_relocation_02.png": "5ef2f0d9e834f08ee9630a224fec1b09f5f9ae928d70d3e82d8554bc9f4079af",
+    "single_policy_tasks.pdf": "a83b8cde60f878ff154a61f196e0cc3398d386a3522e835208cade28abb33c7d",
+    "single_ring_01.png": "7f0f6fb9e0b5c0ac714cb7b145ffe587b4cc0d51191433ab2b0a8b638cd05bca",
+    "single_ring.pdf": "71daac4b3cffa43c4933305d6e1eb209410d65c52b867ec0a995a8e081a372d9",
+    "online_tower_00.png": "663ad2daede45f6a0ea4ad02174d89bf9f4b5f359efcd91e740db2761276d8e5",
+    "single_stacking.png": "fe01b9f377337eb1bedcc56af433d418c70911baaf85b712ad367a791919fe30",
+    "online_tower.png": "b32d49ef060c69aa4355b08a23df61e5d29ee3c1153247d7af732a18f2391d3a",
+    "single_bridge_00.png": "4b40b15a85ba6ab824e8624c12db8b15fc7edf1dcdcb9ce96967fc6d297f8a8c",
+    "online_tower.pdf": "15a6a216f14df40d0dfa3c42cc9e81b4afe721c9389c03e54184c7382c10ffcc",
+    "single_ring_02.png": "9f1cca4ebe1c035fcb1be2cd01ef53158519df15677f89c16ee9a72289f32785",
+    "online_ring.pdf": "22b556b250d98b44d3fdf5f11d428c508a4a4a4c522ddaadbc15223ad1d05eeb",
+    "single_policy_tasks.png": "0582bc9800fe079895cda18c17e540edb19ac82ffb311c882500fa8cdb3b090d",
+    "online_tasks.png": "425c5f5733ced79014ac76f94a4b4967d44fd1b37e3f5dc6b906dff41fcf1e2f",
+    "single_ring_00.png": "49e50b639718ef8851285bfe4b0dc02aab37d1f06fc8f82b199929f87b1dc506",
+    "online_relocation_01.png": "d516b52000a342715c2c7a2af56810dc054c9d315144e70c380b3e56ca28bd05",
+    "online_relocation.png": "4b4c4de18f7989c0bd18461d7315fc264d588c80ac659edcaf5b27309b511de7",
+    "single_bridge.png": "a3e61577f10e982ffdb168b0f63ba1cad4015db1cce5afb66103fc3d7b0d5c54",
+    "single_stacking_02.png": "96c76a3340df73ce2f36478a2b5b3c0d797951492c917a92a5a15a46d66088ba"
+  }
+}

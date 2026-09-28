@@ -31,11 +31,11 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def render(frame_path, output):
+def render(frame_path, output, *, overwrite=False):
     output.parent.mkdir(parents=True, exist_ok=True)
     paths = [output.with_suffix(ext) for ext in ('.png', '.pdf', '.svg', '.json')]
-    if any(path.exists() for path in paths):
-        raise FileExistsError('Choose a new output stem to preserve existing figures')
+    if any(path.exists() for path in paths) and not overwrite:
+        raise FileExistsError('Choose a new output stem or pass --overwrite to update this figure')
     with np.load(frame_path) as archive:
         rgb = archive['rgb'].copy()
         stamp = float(archive['time'])
@@ -106,10 +106,18 @@ def render(frame_path, output):
     ax.scatter(vertices[:, 0], vertices[:, 1], s=6, color=ORANGE, zorder=4)
     center = vertices.mean(axis=0)
     ax.scatter(*center, s=12, color=GREEN, zorder=5)
-    ax.plot([center[0], 3.17], [center[1], 2.14], color=GREEN, lw=.7)
-    text(2.80, 2.18, 'center', 6.8, GREEN)
-    ax.plot([2.64, 2.89], [1.53, 1.31], color=ORANGE, lw=.65)
-    text(2.22, 1.29, 'bottom_face', 7.0, ORANGE, family='DejaVu Sans Mono')
+    # Anchor each leader to the label boundary and its geometric reference.
+    texts.append(ax.annotate(
+        'center', xy=center, xytext=(3.18, 2.17),
+        fontsize=6.8, color=GREEN, ha='left', va='center',
+        arrowprops=dict(arrowstyle='-', color=GREEN, lw=.7,
+                        relpos=(0., .5), shrinkA=2, shrinkB=3)))
+    bottom_center = vertices[[0, 1, 5, 4]].mean(axis=0)
+    texts.append(ax.annotate(
+        'bottom_face', xy=bottom_center, xytext=(2.89, 1.29),
+        fontsize=7.0, color=ORANGE, family='DejaVu Sans Mono', ha='center', va='top',
+        arrowprops=dict(arrowstyle='-', color=ORANGE, lw=.65,
+                        relpos=(.5, 1.), shrinkA=2, shrinkB=0)))
     box(1.87, .68, 1.48, .41, SAGE)
     text(1.95, 1.00, 'Geometry + evidence', 7.0, weight='bold')
     text(1.95, .83, 'Hidden surfaces are inferred', 6.2, MUTED)
@@ -129,15 +137,15 @@ def render(frame_path, output):
 
     box(5.74, 2.10, 1.72, .66, SAGE)
     text(5.86, 2.65, 'LLM reasoning', 8.2, weight='bold')
-    text(5.86, 2.42, 'Generate / revise a policy', 6.8)
-    text(5.86, 2.26, 'Between training rollouts', 6.1, MUTED)
+    text(5.86, 2.42, 'Revise policy / choose actions', 6.4)
+    text(5.86, 2.26, 'Between rollouts / online decisions', 6.1, MUTED)
     arrow((6.60, 2.07), (6.60, 1.87))
     box(5.74, 1.27, 1.72, .57, CREAM)
-    text(5.86, 1.73, 'Policy execution', 8.0, weight='bold')
-    text(5.86, 1.50, 'Local sensing + pick / place', 6.5)
+    text(5.86, 1.73, 'Policy / skill execution', 8.0, weight='bold')
+    text(5.86, 1.50, 'Local sensing + robot control', 6.5)
     box(5.74, .68, 1.72, .42, LAVENDER, dashed=True)
     text(5.86, 1.01, 'Prior policy experience', 7.0, weight='bold')
-    text(5.86, .83, 'Planned online reuse', 6.2, PURPLE)
+    text(5.86, .83, 'Online skill reuse', 6.2, PURPLE)
 
     ax.plot([5.74, 5.60, 5.60], [.89, .89, 2.19],
             color=PURPLE, lw=.75, linestyle=(0, (3, 2)))
@@ -147,14 +155,14 @@ def render(frame_path, output):
     arrow((3.40, 2.03), (3.59, 2.03))
     arrow((5.49, 2.43), (5.68, 2.43))
 
-    # The continuous loop is explicitly future work, distinct from training.
+    # Purple dashed paths denote online execution and reuse of prior policy experience.
     ax.plot([7.49, 7.53, 7.53, .82, .82],
             [1.53, 1.53, .39, .39, .64],
             color=PURPLE, lw=.8, linestyle=(0, (3, 2)))
     arrow((.82, .64), (.82, .70), dashed=True, color=PURPLE)
-    text(1.39, .32, 'Planned online loop: reason, execute, observe — no reset until success or timeout',
+    text(1.39, .32, 'Online execution: reason, act, observe — no reset until success or timeout',
          6.4, PURPLE)
-    text(3.80, .10, 'Gray dashed: hidden geometry     Purple dashed: planned online use', 6.0, MUTED,
+    text(3.80, .10, 'Gray dashed: hidden geometry     Purple dashed: online execution / skill reuse', 6.0, MUTED,
          ha='center')
 
     fig.canvas.draw()
@@ -166,6 +174,9 @@ def render(frame_path, output):
             raise ValueError('Text lies outside the figure: '+artist.get_text())
     for suffix in ('.pdf', '.svg'):
         fig.savefig(output.with_suffix(suffix), facecolor='white')
+        if suffix == '.svg':
+            svg_path = output.with_suffix(suffix)
+            svg_path.write_text('\n'.join(line.rstrip() for line in svg_path.read_text().splitlines())+'\n')
     fig.savefig(output.with_suffix('.png'), dpi=450, facecolor='white')
     plt.close(fig)
     evidence = {
@@ -177,8 +188,8 @@ def render(frame_path, output):
         'illustrative_object': 'green', 'illustrative_support': 'blue',
         'center_m': [.12, -.01, .10], 'desired_center_m': [.10, .02, .06],
         'remaining_translation_m': [-.02, .03, -.04],
-        'solid_paths': 'Implemented geometry interface and policy training',
-        'dashed_paths': 'Planned continuous online decisions and reuse of policy experience',
+        'solid_paths': 'Shared geometry interface, language-model reasoning, and local execution',
+        'dashed_paths': 'Continuous online execution and reuse of prior policy experience',
         'source_script_sha256': digest(Path(__file__)),
         'outputs': {path.name: digest(path) for path in paths[:3]},
     }
@@ -191,5 +202,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--frame', type=Path, default=DEFAULT_FRAME)
     parser.add_argument('--output', type=Path, default=ROOT/'docs/media/agentic_geometry_method')
+    parser.add_argument('--overwrite', action='store_true', help='Replace existing figure exports')
     args = parser.parse_args()
-    print(json.dumps(render(args.frame.resolve(), args.output.resolve()), indent=2))
+    print(json.dumps(render(args.frame.resolve(), args.output.resolve(), overwrite=args.overwrite), indent=2))

@@ -47,12 +47,14 @@ face, with the required translation computed from current observations.
 **Figure. Geometric abstraction for agentic policy.** (a) A recorded RGB-D
 preflight scene, shown as side RGB. (b) Metric geometry represented by points,
 edges, and faces with evidence labels. (c) Compact text and symbolic references
-expose geometry to the LLM. (d) The current agent revises executable policies
-between training rollouts; local sensing and actuation run within each rollout.
-Purple dashed paths indicate the online extension without scene reset and
-reuse of trained policy experience (labeled as planned in this earlier figure). Geometry and numeric values in (b–c) are
-illustrative and are not estimates from the displayed frame. Gray dashed edges
-represent inferred hidden geometry.
+expose geometry to the LLM. (d) Agentic policy reasoning and local execution.
+Geometry and numeric values in (b–c) are illustrative and are not estimates from
+the displayed frame. Gray dashed edges represent inferred hidden geometry;
+purple dashed paths indicate continuous online execution and reuse of prior
+policy experience. In policy synthesis, the language model revises executable
+policies between rollouts while perception and control run locally. In online
+execution, the same interface supplies updated geometric state for decisions
+within a continuing episode.
 
 Paper assets: [vector PDF](media/agentic_geometry_method.pdf),
 [editable SVG](media/agentic_geometry_method.svg),

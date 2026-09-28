@@ -1,0 +1,41 @@
+{
+  "kind": "workflow_and_constructed_task_schematics",
+  "source_sha256": {
+    "docs/evaluations/task_illustrations/manifest.json": "2b74993d4fe70251f75d7016328871a368ef30ca60eb0e06c59cf103e3430922",
+    "scripts/compose_experiment_task_figures.py": "f78866046b6f798fa3c85e7037b2fe95f214179fb4ea856ccfcbcaea61ba8aa5",
+    "docs/ONLINE_EXPERIMENTS.md": "7e9264672f3934bdbe553f34958797f619f57970b2d13a31170afa50fae44ce4",
+    "docs/SINGLE_POLICY_EXPERIMENTS.md": "82c251916db103adf0dffa73e0314b53f8814eeaecf3e3e828d06668bebfc0bb",
+    "docs/evaluations/task_illustrations/single_bridge_00.png": "4b40b15a85ba6ab824e8624c12db8b15fc7edf1dcdcb9ce96967fc6d297f8a8c",
+    "docs/evaluations/task_illustrations/single_bridge_02.png": "40b107b04c39d222ab480e373a56e80bc23cd49648beb7eeb16f4ed38554d7a6",
+    "docs/evaluations/task_illustrations/single_stacking_00.png": "157858ad835108097ba642dfc16705e53226389488d520df6c9a4056e2fd8698",
+    "docs/evaluations/task_illustrations/single_stacking_02.png": "96c76a3340df73ce2f36478a2b5b3c0d797951492c917a92a5a15a46d66088ba",
+    "docs/evaluations/task_illustrations/single_ring_00.png": "49e50b639718ef8851285bfe4b0dc02aab37d1f06fc8f82b199929f87b1dc506",
+    "docs/evaluations/task_illustrations/single_ring_02.png": "9f1cca4ebe1c035fcb1be2cd01ef53158519df15677f89c16ee9a72289f32785",
+    "docs/evaluations/task_illustrations/online_tower_00.png": "663ad2daede45f6a0ea4ad02174d89bf9f4b5f359efcd91e740db2761276d8e5",
+    "docs/evaluations/task_illustrations/online_tower_02.png": "cb01631bcf8c2183a88cb95e535dc34215b86348d0fdfb341dbde911a83ea398",
+    "docs/evaluations/task_illustrations/online_ring_00.png": "fe105714bae5c2967f08229afe3efa81c6b1b2c0e54c9d9b6be80a129f7906f9",
+    "docs/evaluations/task_illustrations/online_ring_02.png": "9f1cca4ebe1c035fcb1be2cd01ef53158519df15677f89c16ee9a72289f32785",
+    "docs/evaluations/task_illustrations/online_relocation_00.png": "dd0112c183191cbf16d8c72f040c4f974b95c378acd472ebca95b2edd8da09d8",
+    "docs/evaluations/task_illustrations/online_relocation_02.png": "5ef2f0d9e834f08ee9630a224fec1b09f5f9ae928d70d3e82d8554bc9f4079af",
+    "outputs/online_compact_tower_200_01/protocol.json": "f88702b008f1018abdb7b06c001933375928f1424a881acb40aa7574b3c052ee",
+    "outputs/online_ring_200_01/protocol.json": "4abc1f8a96984c9d5604e307831a596058b01d27148a33219577474901821032",
+    "outputs/online_relocation_200_01/protocol.json": "d591bbde3607dc49cb434e206850df9a7b6c609b30308973341c76dc980605bc"
+  },
+  "output_sha256": {
+    "single_policy_workflow_tasks.pdf": "5eaffbdd3b5bd16905f11e704eb315a4f47b7cf70d0e903eb92adb413a41374e",
+    "single_policy_workflow_tasks.png": "977570cec482e54d0cefa50bdf65cbe65a6ae2252b48f6abc3375604dbf806f5",
+    "single_policy_workflow_tasks.svg": "0241a9aea8ff44edff1339ffeed5e740b1a9c33bef3e0eebd2033c4fb44ce328",
+    "online_workflow_tasks.pdf": "8b722ea64355f3751e4605d6dcece370c5153d67eccc54d3c19040df7507f37e",
+    "online_workflow_tasks.png": "6cbddffdcc4f5273d847e45cfceea83c8ee7306a93954f7c1e494200570ab7c8",
+    "online_workflow_tasks.svg": "5a84fd876681c7136343f56409c7d121f18026ad7c8fcbe2ac4fc9b447408372"
+  },
+  "online_model": "gpt-6-astra",
+  "online_reasoning": "medium",
+  "single_policy_model": "gpt-6-astra",
+  "single_policy_reasoning": "high",
+  "frame_indices": [
+    0,
+    2
+  ],
+  "interpretation": "Task configurations are illustrative, not measured trajectories. No experiments were run."
+}

@@ -1,0 +1,26 @@
+% Compact workflows and task schematics; requires graphicx.
+% Paths assume compilation from docs/paper/.
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{../evaluations/task_illustrations/single_policy_workflow_tasks.pdf}
+  \caption{\textbf{Single-policy acquisition.} The LLM revises a policy between
+  reset rollouts; frozen policies are evaluated on held-out layouts without
+  test feedback. The Full policy additionally queries supplied geometric
+  abstraction during execution. Right: start (top) and goal (bottom) for Bridge + cylinder,
+  three-cube stacking, and hexagonal ring-on-peg placement. Task panels are
+  constructed simulator illustrations, not recorded trajectories.}
+  \label{fig:single-policy-task-illustrations}
+\end{figure*}
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{../evaluations/task_illustrations/online_workflow_tasks.pdf}
+  \caption{\textbf{Online execution.} The LLM observes and acts in the same scene
+  until success or a 200-second timeout, without resetting after failure.
+  The dashed Full-only path supplies geometric text for reasoning.
+  Right: start (top) and goal (bottom) for bridge-tower construction, ring-on-peg
+  placement, and tower relocation. Ring starts here after the shared grasp/lift,
+  which remains included in episode timing. Task panels are constructed
+  simulator illustrations, not recorded trajectories.}
+  \label{fig:online-task-illustrations}
+\end{figure*}

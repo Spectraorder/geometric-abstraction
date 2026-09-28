@@ -22,12 +22,12 @@
     0.03,
     -0.04
   ],
-  "solid_paths": "Implemented geometry interface and policy training",
-  "dashed_paths": "Planned continuous online decisions and reuse of policy experience",
-  "source_script_sha256": "31ecf3441975521618d9cdea1daed60c977784e20b105480621d5f72c10bc01a",
+  "solid_paths": "Shared geometry interface, language-model reasoning, and local execution",
+  "dashed_paths": "Continuous online execution and reuse of prior policy experience",
+  "source_script_sha256": "674f39c886093bc3a576ad6a278d578d4162ec960bb7769bd461a49d461500f6",
   "outputs": {
-    "agentic_geometry_method.png": "098590ca3458e97e453f773cb528390c71ef3ff5e6bff8efc7da24006a00d982",
-    "agentic_geometry_method.pdf": "e61f93971b17071d88217284dfb0009622cfaabb35b29ca6b2692f1e34691a2c",
-    "agentic_geometry_method.svg": "282bb023b14a4932a99a8f8f82acda340c7fbcb7131642c619732328ed25c3a8"
+    "agentic_geometry_method.png": "41fcf88f2c9c0a5e9e415796c9f0451d208e48d0e6a6362700ec164776e12e38",
+    "agentic_geometry_method.pdf": "4453aeff578327bd82362f9391567cd8602e6dea01a311a26c81629390f76941",
+    "agentic_geometry_method.svg": "62d5ccda75d8d5f9a0e9bb9560463b86133dc98abdef6d71f96296f16f973b25"
   }
 }
