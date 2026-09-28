@@ -1,0 +1,7 @@
+task,arm,episodes,mean_all_model_seconds,mean_recorded_tokens,episodes_with_unknown_tokens
+tower,Base,5,46.23050763480133,101396,1
+tower,Full,5,45.68292714740092,107811,3
+ring,Base,5,94.41558517421363,233830.6,1
+ring,Full,5,41.8435087418009,93022.8,0
+relocation,Base,5,80.03239601879613,181377,2
+relocation,Full,5,50.55004219639231,151163,2

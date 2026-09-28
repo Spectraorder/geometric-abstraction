@@ -234,6 +234,27 @@ The elapsed times are from complete 200-second episodes, not reruns at smaller
 budgets. Physics and the same scene continue during model reasoning and after
 unsuccessful actions. These five-layout empirical curves have no inferential bands.
 
+### Model time and token figure
+
+![Model time and recorded token consumption](evaluations/online/model_resources.png)
+
+**Figure caption.** Bars show mean model interaction cost across all five episodes
+per arm/task, including timeouts; points show each episode. Left: cumulative model
+request wall time including interrupted waits. Right: recorded input-plus-output
+tokens from completed requests (thousands), counting cached input once. Triangles
+identify episodes with unknown additional interrupted usage; the unknown amounts
+are excluded, not assigned zero. Horizontal point offsets separate observations
+and have no quantitative meaning. No confidence intervals are implied.
+
+[PDF](evaluations/online/model_resources.pdf) ·
+[Editable SVG](evaluations/online/model_resources.svg) ·
+[Plotted means](evaluations/online/model_resources.csv)
+
+This resource figure uses all-attempt model time, which corresponds to the
+all-attempt row in the table above. It separates model interaction cost from the
+success-versus-time figure's complete episode clock. Individual episode values
+remain available in `episodes.csv`.
+
 ### Every paired outcome
 
 Times below are capped at 200 seconds. A timeout is explicitly marked; it is not

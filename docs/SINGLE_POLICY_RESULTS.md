@@ -40,6 +40,21 @@ success rate.
 
 ## Acquisition curves
 
+![Retained SR with cumulative token bars](evaluations/single_policy/iteration_sr_tokens.png)
+
+**Joint figure caption.** Lines show mean training-retained test SR on the left
+axis. Two bars per iteration show Base/Full cumulative completed-request
+input-plus-output tokens through that iteration on the right axis (thousands),
+averaged over five chains. Blue is Base and orange Full. Bars include all earlier
+proposals, even those rejected by retention. R0 has no policy-generation tokens. Ring Base's
+two interrupted R2 requests have unknown usage and are excluded. SR and token axes
+use different units, with fixed scales across tasks. Individual chain variability
+and raw-candidate curves are shown separately below.
+
+[Paper PDF](evaluations/single_policy/iteration_sr_tokens.pdf) ·
+[Editable SVG](evaluations/single_policy/iteration_sr_tokens.svg) ·
+[Plotted values](evaluations/single_policy/iteration_sr_tokens.csv)
+
 ![Single-policy acquisition curves](evaluations/single_policy/learning_curves.png)
 
 **Figure caption.** Single-policy acquisition on Bridge, three-cube Stacking, and
@@ -58,13 +73,35 @@ is an observation-only scaffold. No test result is used for policy retention.
 | Ring | Base | 0.0% | 0.0% | 0.0% |
 | Ring | Full | 0.0% | 0.0% | 38.0% |
 
-Bridge and Stacking show earlier acquisition with Full: their retained R2 means
-(63.4% and 72.2%) already exceed Base's R3 means (56.0% and 70.8%). This compares
-observed revisions, not matched token budgets or a universal time-to-threshold
-claim. Ring behaves differently: both arms have zero mean test success through
-R2, and Full's gain appears at R3 in three chains. Its retained final chain rates
-are 64%, 58%, 0%, 0%, and 68%; the abstraction does not make learning uniformly
-reliable across chains.
+Full's advantage is largest at the first generated revision on the construction
+tasks: +24.0 percentage points for Bridge + cylinder (45.2% versus 21.2%) and
++40.0 points for Stacking (57.2% versus 17.2%). The corresponding final gaps
+narrow to +9.4 and +10.6 points as Base improves. Full leads in 4/5 Bridge pairs
+and 3/5 Stacking pairs at both R1 and R3, so the mean advantage is not uniform
+across training chains.
+
+Their retained R2 means (63.4% and 72.2%) already exceed Base's R3 means (56.0%
+and 70.8%). Through R2, Full has consumed 67,306.4 and 64,704.6 completed tokens
+per chain, respectively, compared with Base's 125,740.4 and 138,079.4 through R3.
+These observed Full policies exceed Base's final mean success at 46.5% and 53.1%
+lower cumulative completed-token cost. This is a retrospective comparison of
+observed revisions, not a matched-token-budget experiment, a predefined
+success-threshold analysis, or authorization to stop using test outcomes.
+At a fixed three-revision budget, Full's total cost is slightly higher on Bridge
+and lower on Stacking; earlier acquisition and total token savings are distinct.
+
+Ring behaves differently: both arms have zero mean test success through R2, and
+Full's gain appears at R3 in three chains. Its retained final chain rates are
+64%, 58%, 0%, 0%, and 68%. Ring supports successful acquisition in some chains
+within the same budget, not an earlier-success result like the construction
+tasks. The abstraction does not make acquisition uniformly reliable.
+
+The paper's primary finding is therefore earlier acquisition of effective
+policies on construction tasks, with Ring providing a separate within-budget
+success result. Because Full retains supplied geometry during test execution,
+these gains combine program synthesis with runtime assistance. The results are
+consistent with reducing spatial-reconstruction work in generated programs;
+they do not isolate that mechanism, text serialization, or model inference speed.
 
 Retention can reject a test-useful candidate. For example, Ring Full replica 3's
 R3 reaches 1/100 test success but does not improve its training success set, so

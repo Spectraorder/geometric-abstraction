@@ -20,8 +20,38 @@ three-cube Stacking, and paired Ring studies. Start with the
 | [model_requests.csv](model_requests.csv) | 90 completed requests and 2 interrupted requests with unknown usage |
 | [resources.csv](resources.csv) | Six task/arm totals, summed over five chains |
 | [provenance.json](provenance.json) | Source and export SHA-256 hashes, including all 12,000 original test result files |
+| [iteration_sr_tokens.pdf](iteration_sr_tokens.pdf) / [PNG](iteration_sr_tokens.png) / [SVG](iteration_sr_tokens.svg) | Main figure: retained SR lines and grouped cumulative token bars, with left/right arrow axes |
+| [iteration_sr_tokens.csv](iteration_sr_tokens.csv) | The 24 plotted task/arm/iteration values, including incomplete-request flags |
 | [learning_curves.pdf](learning_curves.pdf) / [PNG](learning_curves.png) | Raw and training-retained success against revision |
 | [learning_curves_tokens.pdf](learning_curves_tokens.pdf) / [PNG](learning_curves_tokens.png) | The same outcomes against cumulative completed-turn tokens |
+
+## Joint SR and token figure
+
+![Retained SR and cumulative tokens](iteration_sr_tokens.png)
+
+**Caption.** Single-policy acquisition on Bridge + cylinder, three-cube Stacking, and Ring
+over peg. Lines and markers show mean test success of training-retained policies
+(left axis); paired bars show mean input-plus-output tokens used by completed
+model requests through each iteration (right axis, thousands). Blue denotes Base and
+orange Full. Both quantities are averaged over five training chains; the same
+100 test layouts are shared across chains within each task. Iteration 0 is an
+observation-only scaffold with no policy-generation tokens. Bars are cumulative
+and include proposals rejected by training-only retention.
+Ring Base's two interrupted iteration-2 requests have unknown token usage and
+are excluded from R2 and R3 bars. The figure displays means, without uncertainty bands;
+individual chain variability remains available in the original learning curves.
+
+Both y-axis scales are fixed across the three panels. Equal visual heights of a
+bar and a line point have no cross-metric meaning; they use different axes.
+SVG labels remain text for editing in a vector editor.
+
+The plotted CSV column is `mean_cumulative_completed_tokens`: mean completed
+input plus output across all revisions up to the displayed iteration.
+`mean_iteration_completed_tokens` remains available for the cost of that iteration
+alone. `incomplete_requests` counts interruptions in that iteration;
+`cumulative_incomplete_requests` counts all interruptions through it. Reusing an
+incumbent policy does not remove the cost of rejected proposals. Tokens describe
+model usage, not monetary cost or local rollout time.
 
 ## Data conventions
 

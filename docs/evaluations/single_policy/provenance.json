@@ -1,10 +1,14 @@
 {
   "exported_files": {
     "chain_curves.csv": "265a805812f1599317e602fc9bc2d59b0ad12b9e0ce37b668a8e959b2d67eb7f",
-    "learning_curves.pdf": "12c3226a696c4bcaa822ee028b210bb31887ad0b9997074e987443f85f8fb8b1",
-    "learning_curves.png": "5d3d933b80033b037afc3e12a41c2c87260dda02a3cedbed75b7da4cea757d60",
-    "learning_curves_tokens.pdf": "f2b292c1665367dfcc00837b30e4cfc6bf63ac6c0e56effaa65c1e20776ab12d",
-    "learning_curves_tokens.png": "8af447a623a57e5c5e127055cef504fd43f6629f3739ca955843d0fd9ba4dd36",
+    "iteration_sr_tokens.csv": "81c86ee01b274986dcda71f444f1e710362d755db4d07a54d0b8638d17fd2835",
+    "iteration_sr_tokens.pdf": "0c5c6842e3d4cea2d83db355e72b5b997764d4d8b3f4e3144611e5cc8619165f",
+    "iteration_sr_tokens.png": "263fcc62a52d547fd68c3b7977233c79d2889339f83c8b3d20ba9f6d580a8997",
+    "iteration_sr_tokens.svg": "01c0d2bbd5769973b7a38670fddce1e1d3b714f6c7bade526ce54a221465365b",
+    "learning_curves.pdf": "12a0030d7d79c69a8541b2a9be1cf8fecd862bc8f723de0b092c2b5769cac0be",
+    "learning_curves.png": "351d93a6142a7aa42b8eb810594c04f7424980a14953bb9cd8bf7516cb7c1dcf",
+    "learning_curves_tokens.pdf": "daed09813464b2a76483e9445575280f7617430b0805e66609d367b1b5c7a3b2",
+    "learning_curves_tokens.png": "16950cfb2ea2fd57a9550e052d33ddc090979412bb1b1dd10c40a03683cfa9dd",
     "mean_curves.csv": "e806c3294d7368ecb5ebb158d0f0c681cc9a33e43441f3c75bfdd5d2a834100a",
     "model_requests.csv": "8a9cdf2bab2be0a9a129f61c2e05673443535b7a41ecd924e5a74f2d110d9c00",
     "resources.csv": "32ddbc3187695ff90f027cb633c19a861484c23bb0ec69e443ffba2feb6eba6f",
@@ -13,7 +17,7 @@
     "training_outcomes.csv": "2c307fc2b7843521babf505bcf43f1ffcd51aea01571fa592426bd03af814a39"
   },
   "exporter": "scripts/export_single_policy_results.py",
-  "exporter_sha256": "e1dfa906c0089be129bc07a89f8a55451f1553884a78a771add7cffc6fde98be",
+  "exporter_sha256": "979fbda00825e0e8afe62c11c7b47b0fc7f7cd533a9b67e1172a4a3b411c7724",
   "source_files": {
     "outputs/geometry_bridge_contract_01/learning_curves/registration.json": "48672cd3cd07ff588c775391ff52e53c11e678bd9773b72f056c36e68328571e",
     "outputs/geometry_bridge_contract_01/learning_curves/summary.json": "a3e69596501303f7091c0a1f91d3566d03ec204f56bb42ba09e6dc9db128a66e",

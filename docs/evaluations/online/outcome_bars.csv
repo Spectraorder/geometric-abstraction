@@ -1,0 +1,7 @@
+task,arm,episodes,successes,sr_percent,mean_capped_seconds,mean_recorded_tokens,episodes_with_unknown_tokens
+tower,Base,5,2,40.0,195.90729880739818,101396,1
+tower,Full,5,4,80.0,174.12742739479873,107811,3
+ring,Base,5,5,100,119.7932312341989,233830.6,1
+ring,Full,5,5,100,74.24842627380858,93022.8,0
+relocation,Base,5,2,40.0,190.60786455579802,181377,2
+relocation,Full,5,3,60.0,164.31941350419658,151163,2

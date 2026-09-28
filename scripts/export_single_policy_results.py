@@ -217,7 +217,7 @@ def figures(curves, means):
                 if not token_axis:
                     ax.set_xticks(range(4), ['R0', 'R1', 'R2', 'R3'])
                 if row_index == 0:
-                    ax.set_title({'bridge': 'Bridge', 'stacking': 'Three-cube stacking', 'ring': 'Ring over peg'}[task])
+                    ax.set_title({'bridge': 'Bridge + cylinder', 'stacking': 'Three-cube stacking', 'ring': 'Ring over peg'}[task])
                 if column == 0:
                     ax.set_ylabel(('Raw candidates' if row_index == 0 else 'Training-retained policies') + '\nTest success (%)')
                 if row_index == 1:
@@ -227,6 +227,95 @@ def figures(curves, means):
         fig.savefig(OUT / f'{name}.pdf', metadata={'CreationDate': None})
         fig.savefig(OUT / f'{name}.png', dpi=180)
         plt.close(fig)
+
+
+def iteration_cost_figure(means, requests):
+    """Pair retained test success with cumulative completed generation tokens."""
+    import matplotlib.pyplot as plt
+    from matplotlib.lines import Line2D
+    from matplotlib.patches import Patch
+
+    plt.rcParams['svg.fonttype'] = 'none'
+    rows = []
+    for row in means:
+        if row['subset'] != 'all_100':
+            continue
+        task, arm, revision = row['task'], row['arm'], row['revision']
+        turns = [r for r in requests if (r['task'], r['arm'], r['revision']) == (task, arm, revision)]
+        completed = [r for r in turns if r['usage_complete']]
+        check(len(completed) == (0 if revision == 0 else 5), 'Iteration token sample count')
+        tokens = sum(r['total_tokens'] for r in completed) / 5
+        previous = next((r['cumulative_completed_tokens_mean'] for r in means
+                         if (r['task'], r['arm'], r['subset'], r['revision'])
+                         == (task, arm, 'all_100', revision - 1)), 0)
+        equal(tokens, row['cumulative_completed_tokens_mean'] - previous, 'Iteration token delta')
+        history = [r for r in requests if r['task'] == task and r['arm'] == arm
+                   and r['revision'] <= revision]
+        cumulative_tokens = sum(r['total_tokens'] for r in history if r['usage_complete']) / 5
+        equal(cumulative_tokens, row['cumulative_completed_tokens_mean'], 'Cumulative bar tokens')
+        rows.append(dict(task=task, arm=arm, iteration=revision,
+                         retained_sr_percent=100 * row['retained_sr_mean'],
+                         mean_iteration_completed_tokens=tokens,
+                         mean_cumulative_completed_tokens=cumulative_tokens, chains=5,
+                         incomplete_requests=sum(not r['usage_complete'] for r in turns),
+                         cumulative_incomplete_requests=sum(not r['usage_complete'] for r in history)))
+    write_csv('iteration_sr_tokens.csv', rows)
+
+    colors = {'Base': '#416A9C', 'Full': '#BD6833'}
+    fills = {'Base': '#D7E2F0', 'Full': '#F0DBCC'}
+    titles = {'bridge': '(a) Bridge + cylinder', 'stacking': '(b) Three-cube stacking', 'ring': '(c) Ring over peg'}
+    fig, axes = plt.subplots(1, 3, figsize=(12.0, 3.95))
+    fig.subplots_adjust(left=.053, right=.947, bottom=.23, top=.77, wspace=.57)
+    for ax, task in zip(axes, STUDIES):
+        token_ax = ax.twinx()
+        token_ax.set_ylim(0, 200)
+        token_ax.set_yticks([0, 50, 100, 150, 200])
+        token_ax.set_ylabel('Cumulative tokens (k)', fontsize=10, labelpad=7)
+        token_ax.tick_params(axis='y', labelsize=9, length=3, color='.35')
+        for spine in token_ax.spines.values():
+            spine.set_visible(False)
+        ax.set_zorder(token_ax.get_zorder() + 1)
+        ax.patch.set_visible(False)
+        for arm, offset, marker in [('Base', -.15, 'o'), ('Full', .15, 's')]:
+            values = sorted([r for r in rows if r['task'] == task and r['arm'] == arm],
+                            key=lambda r: r['iteration'])
+            xs = [r['iteration'] for r in values]
+            token_ax.bar([x + offset for x in xs], [r['mean_cumulative_completed_tokens']/1000 for r in values],
+                         width=.27, color=fills[arm], edgecolor=colors[arm], linewidth=.6, zorder=1)
+            ax.plot(xs, [r['retained_sr_percent'] for r in values], color=colors[arm],
+                    marker=marker, markersize=6.5 if arm == 'Base' else 4.5,
+                    markerfacecolor='white', markeredgewidth=1.4, linewidth=2,
+                    zorder=4, clip_on=False)
+        ax.set(xlim=(-.43, 3.43), ylim=(0, 105), xticks=range(4), yticks=range(0, 101, 20))
+        ax.set_xlabel('Iteration', fontsize=10, labelpad=7)
+        ax.set_ylabel('SR (%)', fontsize=10, labelpad=6)
+        ax.set_title(titles[task], fontsize=11, pad=19)
+        ax.tick_params(labelsize=9, length=3, color='.35')
+        ax.grid(axis='y', color='#E4E7EB', linewidth=.65, zorder=0)
+        for spine in ax.spines.values():
+            spine.set_visible(False)
+        ax.spines['bottom'].set_visible(True)
+        ax.spines['bottom'].set_color('.35')
+        ax.spines['bottom'].set_linewidth(.7)
+        for x in (0, 1):
+            ax.annotate('', xy=(x, 1.065), xytext=(x, -.018), xycoords='axes fraction',
+                        arrowprops=dict(arrowstyle='-|>', color='#343A40', lw=.85, mutation_scale=9),
+                        annotation_clip=False, zorder=5)
+    handles = [Line2D([], [], color=colors[arm], marker='o' if arm == 'Base' else 's',
+                      markerfacecolor='white', lw=2, markersize=5, label=f'{arm} SR') for arm in colors]
+    handles += [Patch(facecolor=fills[arm], edgecolor=colors[arm], linewidth=.6,
+                      label=f'{arm} tokens') for arm in colors]
+    fig.legend(handles=handles, loc='upper center', bbox_to_anchor=(.5, 1.005),
+               ncol=4, frameon=False, fontsize=10, handlelength=2.1, columnspacing=2.1)
+    fig.text(.5, .045, 'Lines: Test SR (retained policy). Bars: cumulative tokens through each iteration, averaged over five chains.',
+             ha='center', fontsize=8.4, color='#4A4F55')
+    for suffix in ('pdf', 'svg', 'png'):
+        options = {'metadata': {'CreationDate': None}} if suffix == 'pdf' else {}
+        fig.savefig(OUT / f'iteration_sr_tokens.{suffix}', dpi=220, **options)
+        if suffix == 'svg':
+            path = OUT / f'iteration_sr_tokens.{suffix}'
+            path.write_text('\n'.join(line.rstrip() for line in path.read_text().splitlines()) + '\n')
+    plt.close(fig)
 
 
 def main():
@@ -246,11 +335,12 @@ def main():
                           'Interrupted token usage is null; completed tokens exclude unknown consumption.'])
     (OUT / 'summary.json').write_text(json.dumps(summary, indent=2) + '\n')
     figures(curves, means)
+    iteration_cost_figure(means, requests)
     provenance = dict(exporter='scripts/export_single_policy_results.py',
         exporter_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         source_files=SOURCES,
         exported_files={p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(OUT.iterdir())
-                        if p.suffix in {'.csv', '.json', '.pdf', '.png'} and p.name != 'provenance.json'})
+                        if p.suffix in {'.csv', '.json', '.pdf', '.svg', '.png'} and p.name != 'provenance.json'})
     (OUT / 'provenance.json').write_text(json.dumps(provenance, indent=2, sort_keys=True) + '\n')
     print(json.dumps({key: summary[key] for key in ('test_slots', 'training_slots', 'completed_model_requests', 'interrupted_model_requests')}, indent=2))
     for row in means:

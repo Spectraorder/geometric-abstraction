@@ -152,25 +152,161 @@ def collect():
     return episodes, requests, totals, pairs, curves, campaigns
 
 
+def arrow_axes(ax):
+    """Draw an upward SR/cost axis in the shared paper figure style."""
+    for spine in ax.spines.values():
+        spine.set_visible(False)
+    ax.spines['bottom'].set_visible(True)
+    ax.spines['bottom'].set_color('.35')
+    ax.spines['bottom'].set_linewidth(.7)
+    ax.tick_params(labelsize=9, length=3, color='.35')
+    ax.grid(axis='y', color='#E4E7EB', linewidth=.65, zorder=0)
+    ax.set_axisbelow(True)
+    ax.annotate('', xy=(0, 1.065), xytext=(0, -.018), xycoords='axes fraction',
+                arrowprops=dict(arrowstyle='-|>', color='#343A40', lw=.85, mutation_scale=9),
+                annotation_clip=False)
+
+
+def save_figure(fig, name):
+    for suffix in ('pdf', 'png', 'svg'):
+        options = {'metadata': {'CreationDate': None}} if suffix == 'pdf' else {}
+        fig.savefig(OUT / f'{name}.{suffix}', dpi=220, **options)
+        if suffix == 'svg':
+            path = OUT / f'{name}.{suffix}'
+            path.write_text('\n'.join(line.rstrip() for line in path.read_text().splitlines()) + '\n')
+
+
+def resource_figure(episodes):
+    import matplotlib.pyplot as plt
+    from matplotlib.lines import Line2D
+    from matplotlib.patches import Patch
+    colors = {'Base': '#416A9C', 'Full': '#BD6833'}
+    fills = {'Base': '#D7E2F0', 'Full': '#F0DBCC'}
+    rows = []
+    fig, axes = plt.subplots(1, 2, figsize=(10.8, 4.2))
+    fig.subplots_adjust(left=.075, right=.98, bottom=.25, top=.76, wspace=.29)
+    for index, task in enumerate(STUDIES):
+        for arm, offset in [('Base', -.18), ('Full', .18)]:
+            values = sorted([r for r in episodes if r['task'] == task and r['arm'] == arm],
+                            key=lambda r: r['seed'])
+            require(len(values) == 5, 'Resource figure requires five episodes per arm')
+            row = dict(task=task, arm=arm, episodes=5,
+                       mean_all_model_seconds=statistics.mean(r['all_model_seconds'] for r in values),
+                       mean_recorded_tokens=statistics.mean(r['total_tokens'] for r in values),
+                       episodes_with_unknown_tokens=sum(not r['usage_complete'] for r in values))
+            rows.append(row)
+            for panel, (key, scale) in enumerate([('all_model_seconds', 1), ('total_tokens', 1000)]):
+                ax = axes[panel]
+                y = [r[key] / scale for r in values]
+                ax.bar(index + offset, statistics.mean(y), width=.31,
+                       color=fills[arm], edgecolor=colors[arm], linewidth=.8, zorder=2)
+                for point, (record, value) in enumerate(zip(values, y)):
+                    unknown = panel == 1 and not record['usage_complete']
+                    ax.scatter(index + offset + (point - 2) * .043, value, s=30,
+                               marker='^' if unknown else 'o', facecolors='white',
+                               edgecolors=colors[arm], linewidths=1.2, zorder=3)
+    for ax, title, ylabel in zip(axes, ['(a) Model-request time', '(b) Recorded token consumption'],
+                                 ['Model time per episode (s)', 'Tokens per episode (k)']):
+        arrow_axes(ax)
+        ax.set_title(title, fontsize=11, pad=19)
+        ax.set_ylabel(ylabel, fontsize=10, labelpad=7)
+        ax.set_xticks(range(3), ['Bridge-tower', 'Ring', 'Relocation'])
+        ax.set_xlim(-.55, 2.55)
+        ax.set_ylim(bottom=0, top=ax.get_ylim()[1] * 1.03)
+    handles = [Patch(facecolor=fills[arm], edgecolor=colors[arm], label=arm) for arm in colors]
+    handles += [Line2D([], [], marker='o', linestyle='none', markerfacecolor='white', color='.3', label='Episode'),
+                Line2D([], [], marker='^', linestyle='none', markerfacecolor='white', color='.3', label='Unknown extra tokens')]
+    fig.legend(handles=handles, loc='upper center', bbox_to_anchor=(.5, 1.0),
+               ncol=4, frameon=False, fontsize=10, columnspacing=2)
+    fig.text(.5, .075, 'Bars: mean of five episodes, including timeouts. Points: individual episodes.',
+             ha='center', fontsize=8.4, color='#4A4F55')
+    fig.text(.5, .027, 'Model time includes interrupted waits. Token totals exclude unknown interrupted usage.',
+             ha='center', fontsize=8.4, color='#4A4F55')
+    csv_file('model_resources.csv', rows)
+    save_figure(fig, 'model_resources')
+    plt.close(fig)
+
+
+def outcome_bar_figure(episodes):
+    """Compare success and cumulative episode costs under the shared deadline."""
+    import matplotlib.pyplot as plt
+    from matplotlib.patches import Patch
+
+    colors = {'Base': '#416A9C', 'Full': '#BD6833'}
+    fills = {'Base': '#D7E2F0', 'Full': '#F0DBCC'}
+    fig, axes = plt.subplots(1, 3, figsize=(12, 3.95))
+    fig.subplots_adjust(left=.065, right=.982, bottom=.24, top=.77, wspace=.36)
+    rows = []
+    for index, task in enumerate(STUDIES):
+        for arm, offset in [('Base', -.18), ('Full', .18)]:
+            values = [r for r in episodes if r['task'] == task and r['arm'] == arm]
+            require(len(values) == 5, 'Outcome bars require five episodes per condition')
+            row = dict(task=task, arm=arm, episodes=len(values),
+                       successes=sum(r['success'] for r in values),
+                       sr_percent=100 * statistics.mean(r['success'] for r in values),
+                       mean_capped_seconds=statistics.mean(r['capped_seconds'] for r in values),
+                       mean_recorded_tokens=statistics.mean(r['total_tokens'] for r in values),
+                       episodes_with_unknown_tokens=sum(not r['usage_complete'] for r in values))
+            rows.append(row)
+            ys = [row['sr_percent'], row['mean_capped_seconds'], row['mean_recorded_tokens']/1000]
+            labels = [f"{row['successes']}/5", f"{ys[1]:.1f}", f"{ys[2]:.1f}"]
+            if row['episodes_with_unknown_tokens']:
+                labels[2] += '†'
+            for panel, (ax, y, label, pad) in enumerate(zip(axes, ys, labels, [2.5, 5.0, 6.0])):
+                ax.bar(index+offset, y, width=.31, color=fills[arm], edgecolor=colors[arm],
+                       linewidth=1.1, zorder=2)
+                label_x = index+offset + ((-.035 if arm == 'Base' else .035) if panel == 2 else 0)
+                ax.text(label_x, y+pad, label, fontsize=7.8 if panel == 2 else 8.2,
+                        ha='center', va='bottom', color=colors[arm])
+    for ax, title, ylabel, limit, ticks in zip(
+            axes, ['(a) Success within 200 s', '(b) Capped completion time', '(c) Recorded tokens'],
+            ['SR (%)', 'Time per episode (s)', 'Tokens per episode (k)'],
+            [115, 235, 280], [range(0, 101, 20), range(0, 201, 50), range(0, 251, 50)]):
+        arrow_axes(ax)
+        ax.set_title(title, fontsize=11, pad=19)
+        ax.set_ylabel(ylabel, fontsize=10, labelpad=7)
+        ax.set_xticks(range(3), ['Bridge-tower', 'Ring', 'Relocation'])
+        ax.set(xlim=(-.55, 2.55), ylim=(0, limit), yticks=list(ticks))
+    handles = [Patch(facecolor=fills[arm], edgecolor=colors[arm], label=arm) for arm in colors]
+    fig.legend(handles=handles, loc='upper center', bbox_to_anchor=(.5, 1.0),
+               ncol=2, frameon=False, fontsize=10, columnspacing=2.1)
+    fig.text(.5, .080, 'Five paired layouts per task. Time and tokens: means over all episodes; timeouts count as 200 s.',
+             ha='center', fontsize=8.4, color='#4A4F55')
+    fig.text(.5, .027, '† Unknown extra tokens from interrupted requests are excluded from recorded usage.',
+             ha='center', fontsize=8.4, color='#4A4F55')
+    csv_file('outcome_bars.csv', rows)
+    save_figure(fig, 'outcome_bars')
+    plt.close(fig)
+
+
 def plot(episodes, curves):
     import matplotlib
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
-    plt.rcParams.update({'font.family': 'DejaVu Serif', 'font.size': 9, 'pdf.fonttype': 42,
+    plt.rcParams.update({'font.family': 'DejaVu Serif', 'font.size': 9, 'pdf.fonttype': 42, 'svg.fonttype': 'none',
                          'axes.spines.top': False, 'axes.spines.right': False})
     colors = {'Base':'#416A9C', 'Full':'#BD6833'}
-    fig, axes = plt.subplots(1, 3, figsize=(10, 3.1), sharey=True, layout='constrained')
-    for ax, task in zip(axes, STUDIES):
+    from matplotlib.lines import Line2D
+    fig, axes = plt.subplots(1, 3, figsize=(12, 3.95))
+    fig.subplots_adjust(left=.065, right=.978, bottom=.23, top=.77, wspace=.30)
+    for index, (ax, task) in enumerate(zip(axes, STUDIES)):
         for arm in ARMS.values():
             rows = [r for r in curves if r['task'] == task and r['arm'] == arm]
             ax.step([r['budget_seconds'] for r in rows], [r['successes']*20 for r in rows],
                     where='post', color=colors[arm], linewidth=2, label=arm)
-        ax.set(title=LABELS[task], xlabel='Elapsed wall time (s)', xlim=(0, 203), ylim=(-3, 103))
-        ax.set_xticks([0,50,100,150,200]);ax.set_yticks(range(0,101,20));ax.grid(axis='y',alpha=.2)
-    axes[0].set_ylabel('Success within time budget (%)');axes[0].legend(frameon=False)
-    for ext in ('pdf','png'):
-        fig.savefig(OUT / f'success_vs_time.{ext}', dpi=180)
+        ax.set(xlabel='Elapsed wall time (s)', ylabel='SR (%)', xlim=(0, 203), ylim=(0, 105))
+        ax.set_title(f'({chr(97 + index)}) {LABELS[task]}', fontsize=11, pad=19)
+        ax.set_xticks([0,50,100,150,200]);ax.set_yticks(range(0,101,20))
+        arrow_axes(ax)
+    fig.legend(handles=[Line2D([], [], color=colors[a], lw=2, label=a) for a in colors],
+               loc='upper center', bbox_to_anchor=(.5, 1.0), ncol=2, frameon=False,
+               fontsize=10, handlelength=2.1, columnspacing=2.1)
+    fig.text(.5, .045, 'Five paired layouts per task. Each step is a verified success; timeouts remain failures.',
+             ha='center', fontsize=8.4, color='#4A4F55')
+    save_figure(fig, 'success_vs_time')
     plt.close(fig)
+    resource_figure(episodes)
+    outcome_bar_figure(episodes)
     fig, axes = plt.subplots(1,3,figsize=(10,3.2),sharey=True,layout='constrained')
     for ax, task in zip(axes, STUDIES):
         rows=[r for r in episodes if r['task']==task]
@@ -202,7 +338,7 @@ def main():
     provenance=dict(exporter='scripts/export_online_results.py',
         exporter_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),source_files=SOURCES,
         exported_files={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(OUT.iterdir())
-                        if p.suffix in {'.csv','.json','.pdf','.png'} and p.name!='provenance.json'})
+                        if p.suffix in {'.csv','.json','.pdf','.png','.svg'} and p.name!='provenance.json'})
     (OUT/'provenance.json').write_text(json.dumps(provenance,indent=2,sort_keys=True)+'\n')
     print(json.dumps(summary,indent=2))
 
