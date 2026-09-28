@@ -6,8 +6,21 @@ For background, use the documents below; historical material is optional.
 The new [three-cube stacking study](THREE_CUBE_GEOMETRY_STUDY.md) uses the updated
 geometry bundle and plans all iteration curves before training.
 
+All six completed primary studies are collected in the
+[combined paper experiment index](evaluations/README.md), with reports, data, and figures.
+
 For paper preparation, see [Geometric abstraction for agentic policy](GEOMETRIC_ABSTRACTION_METHODOLOGY.md),
 covering the text and symbolic interface, single-policy training, and continuous online evaluation.
+The [single-policy experiment setup](SINGLE_POLICY_EXPERIMENTS.md) collects the bridge,
+stacking, and ring protocols, with a [paper-ready LaTeX fragment](paper/single_policy_experiments.tex).
+The [consolidated single-policy results](SINGLE_POLICY_RESULTS.md) collect all three
+completed comparisons, with [CSV/JSON data and publication figures](evaluations/single_policy/README.md).
+The [online experiment report](ONLINE_EXPERIMENTS.md) brings together the completed
+200-second Tower, Ring, and Relocation comparisons, including all paired outcomes and resources,
+with a [paper-ready online LaTeX fragment](paper/online_experiments.tex).
+The completed [contract-only bridge study](BRIDGE_CONTRACT_ONLY_STUDY.md) evaluates
+all revisions on 100 shared layouts with executor source withheld; it is the primary
+Bridge result in the consolidated report.
 
 The [online bridge-tower pilot](ONLINE_BRIDGE_TOWER_PILOT.md) completed 20 episodes
 with shared skills, no resets within an episode and explicit latency metrics.
@@ -24,6 +37,9 @@ The current campaign is stopped at the user's test budget. The protocol retains
 its original bytes for hash verification, including historical progress statements
 and the original 480-slot plan. Those statements do not authorize restarting it;
 the latest results and `AGENTS.md` describe the current execution boundary.
+
+The [online Ring study](ONLINE_RING_STUDY.md) adds staged alignment and release
+with a shared trained grasp skill, continuous execution and a fixed five-pair budget.
 
 ## Supporting diagnostics
 
@@ -105,3 +121,8 @@ training pairs on 100 shared reserved layouts, evaluating every revision. Its
 registered recovery preserves interrupted requests and records the HTTP transport
 amendment. See the [timeout diagnosis](RING_PEG_TIMEOUT_DIAGNOSIS.md) for the
 evidence and limits of that repair.
+
+The separate [online tower-relocation study](ONLINE_TOWER_RELOCATION_STUDY.md)
+tests rearranging an existing column with shared skills, temporary placements,
+and recovery in one continuing scene. Its development checks precede a fixed
+five-pair, 200-second registration.

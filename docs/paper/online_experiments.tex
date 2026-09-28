@@ -1,0 +1,135 @@
+% Online setup and audited results for three separate five-pair studies.
+% Data and figures: ../evaluations/online/.
+% Detailed protocols, per-layout outcomes, and accounting: ../ONLINE_EXPERIMENTS.md.
+\subsection{Continuous online reasoning and execution}
+\label{sec:online-experiments}
+
+We next examine geometric abstraction when the language model makes decisions
+within a continuing episode. Unlike single-policy acquisition, this setting
+requires the agent to ground successive actions in the scene produced by its
+previous execution. We study three tasks: constructing a bridge with two cubes
+stacked above its center, placing a ring over a fixed peg, and relocating a
+preassembled cube column onto a separate foundation. These separately
+registered studies each use five fresh paired layouts, one episode per condition
+and layout, and a 200-second wall-clock budget. Episodes reset only at
+initialization; unsuccessful actions leave their consequences in the scene.
+There are no injected disturbances or replacement episodes.
+
+\paragraph{Agent and shared experience.}
+Base and Full use persistent \texttt{gpt-6-astra} contexts with medium reasoning
+effort and share task specifications, public robot information, and action
+interfaces within each task. Tower supplies adapted bridge and stacking skills;
+the agent chooses construction order and explicit support-surface targets. Ring
+supplies the same trained grasp-and-lift skill to both conditions, selected using
+training outcomes alone. This skill uses sensor geometry in both conditions and
+returns control before the trained placement routine executes. The agent then
+chooses finger-pad targets, wrist orientation, observations, and release. Thus,
+Ring evaluates online decisions with matched local grasp assistance, rather than
+an end-to-end geometry-free Base. Shared controllers execute submitted targets
+without substituting task-specific destinations. Skills make no language-model
+calls internally.
+Relocation supplies shared one-placement skills without a relocation plan. The
+agent selects temporary placements, explicit targets, and recovery actions to
+move the upper two cubes onto a new foundation. Shared local perception measures
+one table-supported cube and transfers its dimensions under the public equal-size
+assumption; every current pose still requires visual evidence. Both foundations
+must be restored to their initial positions within 5\,mm during the final
+five-second stable hold. This local assistance is shared by Base and Full.
+
+
+\paragraph{Observation and timing.}
+Both conditions can request images and calibrated pixel-depth samples. Base
+receives image and qualitative feedback; Full receives compact current geometric
+references with evidence and timestamps, retaining initial and requested images.
+Unavailable estimates remain explicit. Runtime inputs exclude simulator object
+truth and private evaluator state. The comparison evaluates supplied perception,
+geometric references, and feedback together, rather than text serialization alone.
+The episode clock includes initialization after reset, sensing, model waits,
+actions, and settling. Physics advances during model waits. Tower success requires
+the prescribed support structure and five seconds of stability; Ring requires
+released placement around the peg with two seconds of stability. Both conditions
+use the same private criterion within each task.
+
+\paragraph{Measures.}
+We report success within budget and mean capped completion time,
+$N^{-1}\sum_{j=1}^{N}\min(T_j,200)$, with $T_j=\infty$ for timeouts and $N=5$
+per condition. Model time measures end-to-end request wall time, including service
+waiting, rather than isolated inference compute. We also record request counts,
+tokens, image attachments, and local execution cost. Token totals include cached
+input once. Unknown usage from incomplete requests is reported separately.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{llrrrr}
+\hline
+Task & Arm & Success & Time (s) & Model (s) & Tokens (k) \\
+\hline
+Tower & Base & 2/5 & 195.91 & 46.19 & 506.98 \\
+      & Full & 4/5 & 174.13 & 45.22 & 539.06 \\
+Ring  & Base & 5/5 & 119.79 & 94.41 & 1169.15 \\
+      & Full & 5/5 & 74.25 & 41.84 & 465.11 \\
+Relocation & Base & 2/5 & 190.61 & 78.44 & 906.88 \\
+           & Full & 3/5 & 164.32 & 48.78 & 755.82 \\
+\hline
+\end{tabular}
+\caption{Online results on five paired layouts per task. Time is mean capped
+completion time; Model is mean cumulative completed-request time per episode.
+Tokens are totals over five episodes (k denotes thousands), including cached
+input. Unknown usage from incomplete requests is excluded: Tower has one Base
+and three Full interruptions; Ring has one Base interruption and none for Full;
+Relocation has two interruptions per arm.}
+\label{tab:online-results}
+\end{table}
+
+\paragraph{Results and interpretation.}
+Table~\ref{tab:online-results} shows task-dependent benefits. On Tower, Full
+completed four episodes versus Base's two and reduced mean capped time by 11.1\%.
+Full succeeded on three layouts where Base timed out, but timed out on one where
+Base succeeded. Full submitted fewer placements (22 versus 27) and attached fewer
+images (20 versus 33), while recorded tokens increased by 6.3\%. Mean completed
+request duration increased from 6.42 to 7.07 seconds. The completion advantage
+therefore does not imply uniformly faster or cheaper model reasoning.
+
+On Ring, both conditions succeeded on all five layouts, with Full completing
+every paired layout sooner. Mean completion time decreased by 38.0\%, cumulative
+completed model time by 55.7\%, and recorded tokens by 60.2\%. Completed requests
+fell from 63 to 33, while mean request duration fell from 7.49 to 6.34 seconds;
+image attachments fell from 62 to 10. Full used more local camera acquisitions
+(123 versus 87) and more accumulated action time. The result is consistent with
+additional local geometric processing reducing repeated model interaction, rather
+than reducing every component of execution cost. Ring's interrupted Base request
+ended when the scene satisfied the success criterion; its token usage remains
+unknown.
+
+On Relocation, Full completed three episodes versus Base's two, reducing mean
+capped time by 13.8\%, completed model time by 37.8\%, and recorded tokens by
+16.7\%. Completed requests fell from 57 to 41 and image attachments from 55 to 20.
+Physical action time was similar (537.26/551.51 seconds Base/Full across five
+episodes), while Full acquired more camera frames. Full gained two successes
+where Base timed out and lost one where Base succeeded. Each arm has two
+interrupted requests with unknown usage; including their durations yields mean
+cumulative model times of 80.03/50.55 seconds per episode.
+
+% Requires graphicx. Paths assume compilation from docs/paper/.
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{../evaluations/online/success_vs_time.pdf}
+\caption{Online success within elapsed wall time on five paired layouts per
+condition and task. Curves step at first verified successes from the original
+200-second episodes; timeouts do not count as successes. Each episode maintains
+one scene during reasoning and after unsuccessful actions. These empirical curves
+summarize separately registered exploratory studies, not repeated evaluations
+at smaller budgets.}
+\label{fig:online-success-time}
+\end{figure*}
+
+These small studies illustrate complementary uses of geometric abstraction: supporting
+physical decisions under a deadline and supplying actionable state with fewer
+model interactions. They evaluate task-specific skill reuse on new layouts,
+not learning from scratch or generalization to arbitrary objects. Five pairs
+without repeated trials do not separate model/service variability from layout
+variation or establish a general success-rate advantage. Earlier online pilots
+also produced equal-success and mixed-cost outcomes. We therefore interpret the
+results as exploratory evidence about when the interface helps, rather than a
+universal latency or token-efficiency claim.

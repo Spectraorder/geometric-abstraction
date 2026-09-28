@@ -1,0 +1,7 @@
+task,arm,chains,completed_requests,interrupted_requests,all_attempt_usage_complete,input_tokens,cached_input_tokens,cache_write_input_tokens,output_tokens,reasoning_output_tokens,total_tokens,completed_request_wall_seconds,interrupted_request_wall_seconds,completed_image_attachments,interrupted_image_attachments
+bridge,Base,5,15,0,True,471995,235776,0,156707,46132,628702,4638.806472833065,0,40,0
+bridge,Full,5,15,0,True,488519,255744,0,146709,44185,635228,4474.519028897048,0,38,0
+stacking,Base,5,15,0,True,515846,255104,0,174551,51467,690397,5295.9896863420145,0,38,0
+stacking,Full,5,15,0,True,497355,209664,0,119568,30678,616923,3652.6776269149414,0,32,0
+ring,Base,5,15,2,False,575210,317440,0,258849,73904,834059,8263.375608975999,1800.0247975050006,30,4
+ring,Full,5,15,0,True,635330,350208,0,180354,60555,815684,5303.551120526128,0,30,0

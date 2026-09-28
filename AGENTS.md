@@ -505,3 +505,83 @@ authentication; model, reasoning, prompts, completed R1 history, timeouts and
 runtime stay unchanged. Preserve both failed requests and their unknown usage.
 Maximum model attempts: 32 including the two interruptions; no automatic further
 retry. Disclose the transport amendment in resource/latency comparisons.
+
+The user authorized a fresh contract-only bridge study after the paired ring
+comparison completed. Use `run_bridge_contract_study.py` and
+`outputs/geometry_bridge_contract_01`: five paired chains, observation-only R0,
+R1–R3, five training layouts per pair, and 100 shared fresh reserved layouts with
+every revision evaluated (30 generations, 200 training slots, 4,000 test slots).
+Train on 2032100101–2032100125; test on 2032101001–2032101100. Both arms omit the
+executor source but retain the original bridge scene, runtime, geometry, actuator,
+feedback schedule and success evaluator. All actors use the same HTTP-only
+transport from the first turn. Cap concurrency at four model requests and
+24 rollouts with resource fallback. Freeze sources before dispatch, complete and
+audit all training before testing, and retain policies using training outcomes
+only. Preserve historical studies and incomplete attempts; no automatic retries,
+replacement seeds, extra rounds or budget expansion. See
+`docs/BRIDGE_CONTRACT_ONLY_STUDY.md`.
+
+The user authorized implementing one additional online task: ring over peg.
+Use the isolated `online_ring_*` modules and `run_online_ring_episode.py` for
+seeds 1 and 2 development only. Both arms share the same training-selected grasp
+and lift prefix; the agent chooses subsequent explicit pad targets, observations,
+release and recovery. Preserve current-evidence semantics and Base geometry
+exclusion. Do not expose truth or run the learned placement code inside the
+shared grasp skill. Validate both development seeds and paired live interfaces
+before registering `outputs/online_ring_200_01` with `run_online_ring_study.py`:
+five fresh paired seeds 2033101001–2033101005, ten episodes, 200 seconds, at most
+four workers, ordinary scenes and no reset after failures. Freeze sources before
+reserved dispatch; preserve all attempts; no automatic retries, replacement
+layouts, artificial stress fixtures or budget expansion. See
+`docs/ONLINE_RING_STUDY.md`. This is the one additional online experiment requested
+under the user's time constraint; do not add more tasks or training campaigns.
+
+Online Ring development finished: eight focused tests passed; final physical checks
+were 1/2 successful without infrastructure errors; four live paired episodes on
+seeds 1 and 2 all succeeded and passed independent interface/resource audits.
+The reserved `outputs/online_ring_200_01` study is frozen and launched for the
+original ten 200-second episodes. Use `run_online_ring_checked_study.py` as the
+coordinator entry point: it fixes repository-relative source lookup in the legacy
+resource auditor without changing validated episode code. Both arms receive the
+same grasp/lift prefix selected only from retained training success (Ring Full
+replica 5 R3). Preserve this assistance disclosure and all failed development
+attempts. Do not alter frozen sources or tune on reserved episodes. Stop after
+these ten fixed slots and report all outcomes, incomplete usage and timing lag.
+
+The user subsequently authorized an additional online tower-relocation task.
+This supersedes the earlier one-additional-task limit for this task only. Use
+isolated `online_relocation_*`, `run_online_relocation_episode.py`,
+`run_online_relocation_study.py`, and `audit_online_relocation.py`. Develop only
+on seeds 1 and 2, then freeze five new paired layouts 2034101001–2034101005 under
+`outputs/online_relocation_200_01`: ten episodes, 200 seconds, at most four workers.
+Both arms share one-placement skills, explicit targets, equal-cube dimension
+transfer measured from destination RGB-D, and grasp fraction 0.70. No relocation
+sequence or simulator object truth enters actor feedback. Preserve the initial
+column and resulting failures within each episode. Foundation displacement may
+be repaired; the final five-second hold requires both foundations within 5 mm of
+their initial positions. Validate physics and live interfaces before registration,
+retain all failed development attempts, and stop on infrastructure errors without
+automatic retries, new seeds, budget growth, or edits to frozen study sources.
+See `docs/ONLINE_TOWER_RELOCATION_STUDY.md`.
+
+Tower-relocation development completed: five focused tests and two sensor-driven
+physical checks passed. Live development was Base 2/2 and Full 1/2 (one timeout),
+with all four interface/resource/terminal audits passing. These mixed outcomes
+were retained without further tuning. `outputs/online_relocation_200_01` is now
+registered and running for ten fixed episodes; source and seed-overlap checks
+passed. A virtualenv launcher-path repair preceded all episodes and model calls;
+its receipt is retained. Use `run_online_relocation_study.py` for progress/audit
+phases. Do not change its frozen sources, repeat attempts, or grow the budget.
+
+
+The contract-only Bridge, online Ring, and online tower-relocation studies are
+complete. Together with the previously completed studies, the six primary paper
+comparisons are consolidated in `docs/evaluations/README.md`. Single-policy data
+include 12,000 test slots, 600 training slots, 90 completed generations, and two
+interrupted Ring requests. Online data include 30 episodes, 262 completed requests,
+and nine interrupted requests. Unknown interrupted tokens remain unavailable.
+Use the standalone `export_single_policy_results.py` and `export_online_results.py`
+for read-only evidence aggregation; keep frozen runtime sources and original
+artifacts unchanged. The user agreed to retain the 200-second online studies as
+the primary results. No 300-second rerun or extra layouts are authorized by this
+reporting and commit cleanup. New experiments require a separate user request.
