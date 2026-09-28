@@ -467,3 +467,41 @@ fresh Full actor, five existing training layouts, observation-only R0 and R1–R
 three model calls and twenty rollout slots, at most five rollout workers. This
 supersedes the preparation-only instruction for this campaign. Preserve failures;
 no automatic retries, extra rounds or reserved evaluation are authorized.
+
+The user explicitly authorized the complete paired ring study and confirmed its
+scale: Base/Full each five independent chains, R0–R3, five shared training layouts
+per pair and 100 shared new reserved layouts, every revision evaluated. Use
+`run_ring_peg_comparison_study.py` and `outputs/ring_peg_comparison_01` on the SSD.
+Budget: thirty model calls, 200 training slots, 4,000 reserved slots; up to four
+model requests and 24 rollout workers, with a 48-slot evaluation hardware pilot
+and fallback to eight workers. Train on seeds 2031101001–2031101025 and reserve
+2031109001–2031109100, checking overlap before registration. All training freezes
+and actor/resource audits precede testing. Both arms share raw calibrated RGB-D,
+qualitative guidance, starter source and robot-only actions; Full additionally
+gets supplied geometry. Base geometry queries are rejected and feedback must not
+contain supplied geometry or private evaluator state. No source disclosure or
+previous learned/capable policy enters actor prompts. Preserve all pilot evidence;
+no automatic retry, replacement seeds, extra rounds or test-based selection.
+See `docs/RING_PEG_COMPARISON_STUDY.md`.
+
+The paired ring campaign stopped at 140/200 training slots and 22/30 completed
+model generations after replica_03 Base R2 reached a 900-second WebSocket timeout.
+The user explicitly authorized repair and resume. Use
+`scripts/resume_ring_peg_comparison.py` with the separate `resume_01` registration.
+Preserve all completed results and the interrupted attempt/actor home. Restore
+only that actor's last complete R1 transcript before one authorized R2 retry;
+reuse other complete candidates and trials. Budget remains 200 training and
+4,000 reserved slots, with 30 completed generations and at most 31 model attempts
+including the interruption. No further automatic retries. Interrupted token usage
+is unknown despite unchanged counter broadcasts; disclose it alongside completed
+usage. Original frozen sources, manifests, settings and reserved gate are unchanged.
+
+The user authorized continuation after the second identical ring Base R2 timeout.
+Use `scripts/resume_ring_peg_http.py` and its separate `resume_02_http` registration.
+Reuse 28 completed generations and 185 training slots; finish two generations,
+fifteen training slots, then the original 4,000 reserved slots. Only the remaining
+model calls use the HTTP-only `openai-http` provider alias with existing OpenAI
+authentication; model, reasoning, prompts, completed R1 history, timeouts and
+runtime stay unchanged. Preserve both failed requests and their unknown usage.
+Maximum model attempts: 32 including the two interruptions; no automatic further
+retry. Disclose the transport amendment in resource/latency comparisons.

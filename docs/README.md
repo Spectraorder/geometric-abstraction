@@ -99,3 +99,9 @@ before training. The source-disclosed study remains separate evidence.
 The [ring-over-peg training pilot](RING_PEG_SINGLE_POLICY.md) adds sensor-derived
 inner/outer boundaries and robot-only pad targeting for one Full policy chain.
 Development successes are separate from training and reserved evaluation.
+
+The [paired ring study](RING_PEG_COMPARISON_STUDY.md) compares five Base/Full
+training pairs on 100 shared reserved layouts, evaluating every revision. Its
+registered recovery preserves interrupted requests and records the HTTP transport
+amendment. See the [timeout diagnosis](RING_PEG_TIMEOUT_DIAGNOSIS.md) for the
+evidence and limits of that repair.
