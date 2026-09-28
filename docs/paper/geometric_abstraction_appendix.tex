@@ -1,0 +1,64 @@
+% Shared implementation appendix; include after the paper's \appendix declaration.
+% Implementation sources are linked in README.md.
+\section{Geometric abstraction implementation}
+\label{app:geometric-abstraction}
+
+The abstraction converts calibrated RGB-D into metric entities, symbolic
+references, and compact text. It runs locally on the CPU, with fixed estimators
+throughout policy training and online evaluation.
+
+\paragraph{From pixels to metric geometry.}
+Color masks associate visible pixels with objects. For a valid pixel
+$\tilde{\mathbf u}=(u,v,1)^\top$, we compute its world position as
+\begin{equation}
+  \mathbf p_W=R_{WC}\bigl(D(u,v)K^{-1}\tilde{\mathbf u}\bigr)+\mathbf t_{WC},
+\end{equation}
+where $D$ is optical-axis depth, $K$ contains camera intrinsics, and
+$(R_{WC},\mathbf t_{WC})$ maps camera to world coordinates. Background depth
+estimates the table plane; public robot geometry supports robot masking.
+Cuboid and cylinder observers fit pose and supported surfaces using dimensions
+initialized from RGB-D under the declared shape and support assumptions.
+Simulator object poses and dimensions are not inputs.
+
+\paragraph{Points, boundaries, and openings.}
+For polygonal extrusions, we fit a cap plane, project contour pixels onto it,
+fit straight boundary segments, and intersect neighboring lines to obtain 3D
+vertices. Ordered vertices define edges and planar faces. The Ring observer
+retains separate outer and inner boundaries and requires deeper visible depth
+inside the opening. It derives the opening center from the inner polygon's area
+centroid, its axis from the cap normal, and a centered clearance radius from the
+nearest inner edge. Thus the opening center is a derived geometric point;
+sampling depth at that image location may instead return the background.
+No six-vertex template is supplied. Initial table support and constant extrusion
+determine thickness and the inferred bottom; the peg is fitted from its circular
+cap. This observer assumes resolved convex boundaries and one convex opening.
+
+\paragraph{References and current evidence.}
+Names such as \texttt{red.top\_face} resolve to typed values: points, axes, or
+faces with centers and normals. Records carry world coordinates, units,
+observation times, and observability or inference metadata. Initialized shape
+can persist, but a movable object's new pose requires current visual evidence.
+For an occluded ring, the initialized boundaries are registered to current
+visible edges; underconstrained or ambiguous fits return unavailable. Hidden
+surfaces retain their model-derived labels. The fixed peg may retain an earlier
+measurement with its original timestamp. Geometric support relations expose
+residuals and unavailable evidence; they do not certify physical contact or
+stability.
+
+\paragraph{From geometry to agent input.}
+Full receives selected object geometry, references, evidence status, and, where
+requested, goal residuals as text. Dense boundary arrays are omitted from online
+Ring feedback. Multiple queries can reuse one observation, while local sensing
+can refresh geometry without attaching another image to the LLM. Initial and
+requested images remain available. Generated policies use geometric queries
+during rollouts; online agents use the updated text to choose their next action.
+
+\paragraph{Illustrative decisions.}
+For an upright cube, suppose \texttt{red.bottom\_face} is centered at
+$(0.12,-0.01,0.08)$ and \texttt{blue.top\_face} at $(0.10,0.02,0.04)$ meters,
+with opposing normals. Aligning them gives translation
+$(-0.02,0.03,-0.04)$; the policy still chooses when and how to place the cube.
+For Ring, the agent can compare the current opening center and axis with the
+peg's top and axis before choosing a pad motion or another observation. An
+unavailable opening estimate calls for renewed evidence rather than treating
+the commanded gripper motion as a measured object pose.

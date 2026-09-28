@@ -24,14 +24,17 @@ Ring requests with unknown tokens. Bridge uses the new contract-only study.
 | Three-cube stacking | 70.8% | 81.4% | +10.6 pp |
 | Ring over peg | 0.0% | 38.0% | +38.0 pp |
 
-Figures: [raw and retained learning curves](single_policy/learning_curves.pdf),
+Figures: [SR lines and cumulative token bars](single_policy/iteration_sr_tokens.pdf),
+[editable SVG](single_policy/iteration_sr_tokens.svg),
+[raw and retained learning curves](single_policy/learning_curves.pdf),
 [cumulative-token curves](single_policy/learning_curves_tokens.pdf).
 
 ## Continuous online execution
 
 [Three-task report](../ONLINE_EXPERIMENTS.md) ·
 [CSV/JSON and figure index](online/README.md) ·
-[Paper LaTeX](../paper/online_experiments.tex)
+[Paper main text](../paper/online_experiments.tex) ·
+[Paper appendix](../paper/online_appendix.tex)
 
 Five fresh paired layouts per task; one episode per arm/layout; 200 seconds per
 episode with no reset after failure. The three separately registered studies
@@ -50,8 +53,24 @@ means from completed receipts and exclude unknown interrupted usage. Full's
 recorded token use increases on Tower; improvements are task-dependent. Five
 pairs are exploratory, not a precise population success-rate estimate.
 
-Figures: [success versus elapsed time](online/success_vs_time.pdf),
+Figures: [success, time, and token bars](online/outcome_bars.pdf),
+[success versus elapsed time](online/success_vs_time.pdf),
+[model time and token use](online/model_resources.pdf),
 [every paired completion time](online/paired_completion_times.pdf).
+
+## Task illustrations
+
+[Workflow diagrams, tasks, and captions](task_illustrations/README.md) ·
+[Single-policy workflow + tasks](task_illustrations/single_policy_workflow_tasks.pdf) ·
+[Online workflow + tasks](task_illustrations/online_workflow_tasks.pdf) ·
+[Paper LaTeX](../paper/task_illustrations.tex)
+
+Each primary figure pairs a workflow diagram with start/goal task panels;
+intermediate panels are omitted. Native task renders are 1200 × 900.
+PDF, PNG, and editable SVG versions are available.
+These are explicitly labeled constructed task schematics, not recorded policy
+trajectories or additional experimental evidence. Policy input resolution and
+all original study outputs are unchanged.
 
 ## Using the materials
 

@@ -1,135 +1,108 @@
-% Online setup and audited results for three separate five-pair studies.
-% Data and figures: ../evaluations/online/.
-% Detailed protocols, per-layout outcomes, and accounting: ../ONLINE_EXPERIMENTS.md.
+% Main-text fragment; requires graphicx. Compile from docs/paper/.
+% Include online_appendix.tex after the paper's appendix declaration.
+% Do not also include the online figure block from task_illustrations.tex.
 \subsection{Continuous online reasoning and execution}
 \label{sec:online-experiments}
 
-We next examine geometric abstraction when the language model makes decisions
-within a continuing episode. Unlike single-policy acquisition, this setting
-requires the agent to ground successive actions in the scene produced by its
-previous execution. We study three tasks: constructing a bridge with two cubes
-stacked above its center, placing a ring over a fixed peg, and relocating a
-preassembled cube column onto a separate foundation. These separately
-registered studies each use five fresh paired layouts, one episode per condition
-and layout, and a 200-second wall-clock budget. Episodes reset only at
-initialization; unsuccessful actions leave their consequences in the scene.
-There are no injected disturbances or replacement episodes.
+We next test whether geometric abstraction helps an LLM use prior skills and
+complete tasks under a real-time budget. The agent repeatedly observes, reasons,
+and acts in one continuing scene (Figure~\ref{fig:online-task-illustrations}).
+An unsuccessful action leaves its consequences in place; the agent must choose
+its next action from the resulting state. Model waiting time therefore consumes
+the same budget as physical execution and recovery.
 
-\paragraph{Agent and shared experience.}
-Base and Full use persistent \texttt{gpt-6-astra} contexts with medium reasoning
-effort and share task specifications, public robot information, and action
-interfaces within each task. Tower supplies adapted bridge and stacking skills;
-the agent chooses construction order and explicit support-surface targets. Ring
-supplies the same trained grasp-and-lift skill to both conditions, selected using
-training outcomes alone. This skill uses sensor geometry in both conditions and
-returns control before the trained placement routine executes. The agent then
-chooses finger-pad targets, wrist orientation, observations, and release. Thus,
-Ring evaluates online decisions with matched local grasp assistance, rather than
-an end-to-end geometry-free Base. Shared controllers execute submitted targets
-without substituting task-specific destinations. Skills make no language-model
-calls internally.
-Relocation supplies shared one-placement skills without a relocation plan. The
-agent selects temporary placements, explicit targets, and recovery actions to
-move the upper two cubes onto a new foundation. Shared local perception measures
-one table-supported cube and transfers its dimensions under the public equal-size
-assumption; every current pose still requires visual evidence. Both foundations
-must be restored to their initial positions within 5\,mm during the final
-five-second stable hold. This local assistance is shared by Base and Full.
+\paragraph{Tasks and shared skills.}
+We use three SO-100 tasks. \emph{Bridge-tower} composes bridge construction with
+stacking two cubes above the beam. \emph{Ring-on-peg} requires aligning a grasped
+ring with a peg and releasing it. \emph{Tower relocation} transfers the upper
+two cubes of an existing column onto another foundation, preserving their order
+and the foundation positions. Both conditions receive the same prior skills:
+adapted bridge/stacking routines, a trained ring grasp-and-lift prefix, and
+single-placement routines for relocation. The Ring prefix is selected using
+training outcomes and uses local geometry in both conditions; it stops before
+placement. The online agent chooses targets, action order, additional observations,
+and recovery. Skills execute locally without internal LLM calls.
 
+\paragraph{Comparison and episode protocol.}
+Base and Full use separate persistent \texttt{gpt-6-astra} contexts with medium
+reasoning effort. They share task goals, prior skills, and action interfaces.
+Both can request images and calibrated pixel-depth samples. Base receives images
+and qualitative feedback; Full additionally receives compact current geometric
+text and references, with initial and requested images available. Shared actions
+execute the submitted targets. Runtime inputs exclude simulator object truth and
+private evaluator state. Appendix~\ref{app:geometric-abstraction} details the
+visual grounding and text interface.
 
-\paragraph{Observation and timing.}
-Both conditions can request images and calibrated pixel-depth samples. Base
-receives image and qualitative feedback; Full receives compact current geometric
-references with evidence and timestamps, retaining initial and requested images.
-Unavailable estimates remain explicit. Runtime inputs exclude simulator object
-truth and private evaluator state. The comparison evaluates supplied perception,
-geometric references, and feedback together, rather than text serialization alone.
-The episode clock includes initialization after reset, sensing, model waits,
-actions, and settling. Physics advances during model waits. Tower success requires
-the prescribed support structure and five seconds of stability; Ring requires
-released placement around the peg with two seconds of stability. Both conditions
-use the same private criterion within each task.
+Each task uses five fresh paired layouts, one episode per condition/layout
+(30 episodes overall). The environment resets once at initialization. For the
+next 200 seconds, the agent alternates decisions and execution until verified
+success or timeout, without resetting after failures. Physics continues during
+model waits. The clock includes initialization after reset, local sensing,
+model requests, skill execution, and settling; the Ring grasp/lift is included.
+There are no injected disturbances. Success requires the target arrangement,
+release, and a stable hold. We report success counts and mean capped completion
+time, assigning 200 seconds to timeouts. Model time and recorded tokens are
+cumulative per-episode costs averaged over all five episodes, including failures.
 
-\paragraph{Measures.}
-We report success within budget and mean capped completion time,
-$N^{-1}\sum_{j=1}^{N}\min(T_j,200)$, with $T_j=\infty$ for timeouts and $N=5$
-per condition. Model time measures end-to-end request wall time, including service
-waiting, rather than isolated inference compute. We also record request counts,
-tokens, image attachments, and local execution cost. Token totals include cached
-input once. Unknown usage from incomplete requests is reported separately.
-
-\begin{table}[t]
-\centering
-\small
-\begin{tabular}{llrrrr}
-\hline
-Task & Arm & Success & Time (s) & Model (s) & Tokens (k) \\
-\hline
-Tower & Base & 2/5 & 195.91 & 46.19 & 506.98 \\
-      & Full & 4/5 & 174.13 & 45.22 & 539.06 \\
-Ring  & Base & 5/5 & 119.79 & 94.41 & 1169.15 \\
-      & Full & 5/5 & 74.25 & 41.84 & 465.11 \\
-Relocation & Base & 2/5 & 190.61 & 78.44 & 906.88 \\
-           & Full & 3/5 & 164.32 & 48.78 & 755.82 \\
-\hline
-\end{tabular}
-\caption{Online results on five paired layouts per task. Time is mean capped
-completion time; Model is mean cumulative completed-request time per episode.
-Tokens are totals over five episodes (k denotes thousands), including cached
-input. Unknown usage from incomplete requests is excluded: Tower has one Base
-and three Full interruptions; Ring has one Base interruption and none for Full;
-Relocation has two interruptions per arm.}
-\label{tab:online-results}
-\end{table}
-
-\paragraph{Results and interpretation.}
-Table~\ref{tab:online-results} shows task-dependent benefits. On Tower, Full
-completed four episodes versus Base's two and reduced mean capped time by 11.1\%.
-Full succeeded on three layouts where Base timed out, but timed out on one where
-Base succeeded. Full submitted fewer placements (22 versus 27) and attached fewer
-images (20 versus 33), while recorded tokens increased by 6.3\%. Mean completed
-request duration increased from 6.42 to 7.07 seconds. The completion advantage
-therefore does not imply uniformly faster or cheaper model reasoning.
-
-On Ring, both conditions succeeded on all five layouts, with Full completing
-every paired layout sooner. Mean completion time decreased by 38.0\%, cumulative
-completed model time by 55.7\%, and recorded tokens by 60.2\%. Completed requests
-fell from 63 to 33, while mean request duration fell from 7.49 to 6.34 seconds;
-image attachments fell from 62 to 10. Full used more local camera acquisitions
-(123 versus 87) and more accumulated action time. The result is consistent with
-additional local geometric processing reducing repeated model interaction, rather
-than reducing every component of execution cost. Ring's interrupted Base request
-ended when the scene satisfied the success criterion; its token usage remains
-unknown.
-
-On Relocation, Full completed three episodes versus Base's two, reducing mean
-capped time by 13.8\%, completed model time by 37.8\%, and recorded tokens by
-16.7\%. Completed requests fell from 57 to 41 and image attachments from 55 to 20.
-Physical action time was similar (537.26/551.51 seconds Base/Full across five
-episodes), while Full acquired more camera frames. Full gained two successes
-where Base timed out and lost one where Base succeeded. Each arm has two
-interrupted requests with unknown usage; including their durations yields mean
-cumulative model times of 80.03/50.55 seconds per episode.
-
-% Requires graphicx. Paths assume compilation from docs/paper/.
 \begin{figure*}[t]
-\centering
-\includegraphics[width=\textwidth]{../evaluations/online/success_vs_time.pdf}
-\caption{Online success within elapsed wall time on five paired layouts per
-condition and task. Curves step at first verified successes from the original
-200-second episodes; timeouts do not count as successes. Each episode maintains
-one scene during reasoning and after unsuccessful actions. These empirical curves
-summarize separately registered exploratory studies, not repeated evaluations
-at smaller budgets.}
-\label{fig:online-success-time}
+  \centering
+  \includegraphics[width=\textwidth]{figures/online_workflow_tasks.png}
+  \caption{\textbf{Online execution and tasks.} The agent observes and acts in one
+  scene until success or timeout. Full receives geometric abstraction for current
+  decisions. Right: illustrative starts and goals; Ring is shown after the shared
+  lift. Task panels are constructed renderings, not recorded trajectories.}
+  \label{fig:online-task-illustrations}
 \end{figure*}
 
-These small studies illustrate complementary uses of geometric abstraction: supporting
-physical decisions under a deadline and supplying actionable state with fewer
-model interactions. They evaluate task-specific skill reuse on new layouts,
-not learning from scratch or generalization to arbitrary objects. Five pairs
-without repeated trials do not separate model/service variability from layout
-variation or establish a general success-rate advantage. Earlier online pilots
-also produced equal-success and mixed-cost outcomes. We therefore interpret the
-results as exploratory evidence about when the interface helps, rather than a
-universal latency or token-efficiency claim.
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/outcome_bars.png}
+  \caption{\textbf{Online outcomes and cost.} Success within 200 seconds (left),
+  mean capped completion time (middle), and mean cumulative recorded tokens per
+  episode (right). Each condition uses five paired layouts. All episodes enter
+  the means; timeouts count as 200 seconds. Daggers mark unknown additional
+  interrupted token usage, excluded from recorded totals.}
+  \label{fig:online-outcomes}
+\end{figure*}
+
+\paragraph{More completions and earlier success.}
+Full completes more episodes on Bridge-tower (4/5 versus 2/5) and Relocation
+(3/5 versus 2/5), with lower mean capped time on both
+(Figure~\ref{fig:online-outcomes}). Ring provides the clearest paired timing
+comparison: both conditions succeed on all five layouts, and Full finishes
+sooner on every pair. Its mean completion time falls from 119.8 to 74.2 seconds,
+a 38.0\% reduction. Across these tasks, geometric feedback helps turn a fixed
+wall-clock budget into either more completed episodes or earlier completion.
+
+\paragraph{Less repeated model interaction.}
+Figure~\ref{fig:online-model-resources} shows cumulative model-request time
+and recorded tokens, together with variation across episodes. On Ring, Full
+reduces cumulative model time by 55.7\% and recorded tokens by
+60.2\%. Completed requests fall from 12.6 to 6.6 per episode, and image
+attachments from 12.4 to 2.0 per episode
+(Table~\ref{tab:online-results}, Appendix~\ref{app:online-details}).
+Relocation shows a similar pattern: model time
+falls by 36.8\% and tokens by 16.7\%, while accumulated physical-action time is
+similar. Tower's gain instead accompanies fewer submitted placements, despite
+6.3\% higher recorded tokens and little change in cumulative model time.
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/model_resources.png}
+  \caption{\textbf{Model interaction cost.} Bars are means over all five episodes,
+  including timeouts; points show individual episodes. Left: cumulative request
+  wall time, including interrupted waits. Right: recorded input-plus-output tokens,
+  counting cached input once. Triangles identify unknown additional interrupted
+  usage, excluded from the plotted values.}
+  \label{fig:online-model-resources}
+\end{figure*}
+
+Full acquires more local camera frames but attaches fewer images to the LLM on
+all three tasks. This is consistent with the intended role of geometric
+abstraction: local perception supplies actionable state, reducing repeated
+visual interpretation during interaction. The benefit concerns the complete
+reasoning-and-execution loop, including action choices and request frequency.
+These five-layout studies are exploratory; they compare the supplied geometry
+and feedback package with matched skills, rather than isolating text format or
+model inference speed. Appendix~\ref{app:online-details} gives the numerical
+results and success-versus-time curves.

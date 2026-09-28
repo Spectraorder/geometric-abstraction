@@ -1,0 +1,41 @@
+% Appendix fragment; include after the paper's \appendix declaration.
+% Table source: ../evaluations/single_policy/mean_curves.csv (all_100 subset).
+\section{Additional single-policy results}
+\label{app:single-policy-details}
+
+\begin{table*}[t]
+  \centering
+  \small
+  \setlength{\tabcolsep}{5pt}
+  \begin{tabular}{llrrrrrr}
+    \hline
+    & & \multicolumn{3}{c}{Retained test SR (\%)}
+      & \multicolumn{3}{c}{Cumulative tokens (k)} \\
+    Task & Condition & R1 & R2 & R3 & R1 & R1--R2 & R1--R3 \\
+    \hline
+    Bridge + cylinder & Base & $21.2 \pm 22.0$ & $53.0 \pm 11.7$ & $56.0 \pm 9.1$ & 24.6 & 66.2 & 125.7 \\
+     & Full & $45.2 \pm 25.4$ & $63.4 \pm 5.9$ & $65.4 \pm 3.5$ & 25.8 & 67.3 & 127.0 \\
+    \hline
+    Three-cube stacking & Base & $17.2 \pm 29.4$ & $53.6 \pm 26.2$ & $70.8 \pm 26.5$ & 28.0 & 74.1 & 138.1 \\
+     & Full & $57.2 \pm 32.6$ & $72.2 \pm 7.2$ & $81.4 \pm 12.3$ & 25.7 & 64.7 & 123.4 \\
+    \hline
+    Ring-on-peg & Base & $0.0 \pm 0.0$ & $0.0 \pm 0.0$ & $0.0 \pm 0.0$ & 37.8 & 93.5 & 166.8 \\
+     & Full & $0.0 \pm 0.0$ & $0.0 \pm 0.0$ & $38.0 \pm 34.9$ & 36.3 & 91.5 & 163.1 \\
+    \hline
+  \end{tabular}
+  \caption{Test SR (mean $\pm$ sample SD) over five training chains on 100
+  shared held-out layouts, using training-only policy retention. Tokens are
+  cumulative completed-request input plus output per chain (thousands), including
+  rejected proposals and counting cached input once. Ring Base excludes unknown
+  usage from two interrupted requests.}
+  \label{tab:single-policy-results}
+\end{table*}
+
+\paragraph{Evaluation notes.}
+Bridge and Stacking require the prescribed support structure and a five-second
+stable hold. Ring requires the peg through the opening, the ring center below
+the peg top, release from robot contact, and two seconds of stability. Invalid
+programs count as failures. Stacking expanded from 20 to 100 test layouts without
+retraining. Bridge/Stacking's contact checks can miss unnamed robot collision
+geometry; Ring uses body-ancestry checks. Ring's 12\,mm lateral clearance defines
+a placement task, not precision insertion.

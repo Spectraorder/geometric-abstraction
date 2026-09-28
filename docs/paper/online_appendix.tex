@@ -1,0 +1,58 @@
+% Appendix fragment; requires graphicx. Include after \appendix.
+% Data: ../evaluations/online/arm_summary.csv, episodes.csv, and model_requests.csv.
+\section{Additional online results}
+\label{app:online-details}
+
+Table~\ref{tab:online-results} and Figure~\ref{fig:online-success-time}
+expand the main results in Figures~\ref{fig:online-outcomes}
+and~\ref{fig:online-model-resources}. The shared geometric implementation and
+examples are in Appendix~\ref{app:geometric-abstraction}.
+
+\begin{table*}[t]
+  \centering
+  \small
+  \setlength{\tabcolsep}{5pt}
+  \begin{tabular}{llrrrrrr}
+    \hline
+    Task & Condition & Success & Time (s) & Model (s) & Tokens (k) & Requests & Images \\
+    \hline
+    Bridge-tower & Base & 2/5 & 195.9 & 46.2 & 101.4 & 7.2 & 6.6 \\
+     & Full & 4/5 & 174.1 & 45.7 & 107.8 & 6.4 & 4.0 \\
+    \hline
+    Ring-on-peg & Base & 5/5 & 119.8 & 94.4 & 233.8 & 12.6 & 12.4 \\
+     & Full & 5/5 & 74.2 & 41.8 & 93.0 & 6.6 & 2.0 \\
+    \hline
+    Tower relocation & Base & 2/5 & 190.6 & 80.0 & 181.4 & 11.4 & 11.0 \\
+     & Full & 3/5 & 164.3 & 50.6 & 151.2 & 8.2 & 4.0 \\
+    \hline
+  \end{tabular}
+  \caption{\textbf{Online outcomes and cost.} Success counts completed episodes
+  out of five. Time is mean capped completion time; Model is mean cumulative
+  request wall time, including interrupted waits. Tokens are mean recorded
+  input plus output per episode (thousands), counting cached input once and
+  excluding unknown interrupted usage. Requests counts completed model requests;
+  Images counts newly attached images across all request attempts, not local
+  camera frames. Both are per-episode means. All means include timeouts.}
+  \label{tab:online-results}
+\end{table*}
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/success_vs_time.png}
+  \caption{\textbf{Success within elapsed time.} Each curve summarizes five
+  original 200-second episodes, stepping at first verified success. Timeouts
+  never become successes at the deadline. Earlier time points are read from the
+  same episodes, not separate evaluations at smaller budgets.}
+  \label{fig:online-success-time}
+\end{figure*}
+
+\paragraph{Evaluation notes.}
+All online experiments use MuJoCo 3.11.0 with a simulated SO-100 robot.
+Bridge-tower and Relocation require a five-second stable hold; Ring requires two
+seconds. Relocation must preserve or restore both foundations within 5\,mm of
+their initial positions. Ring uses the same sensor-driven grasp/lift prefix in
+both conditions and returns control before alignment and release. Success and
+all costs include this prefix. Each layout is attempted once per condition;
+paired outcomes can differ, so the primary time means include timeouts rather
+than selecting only successful episodes. Model time includes service waiting
+and is not isolated inference compute time.
