@@ -95,3 +95,7 @@ tokens and no mean per-request speedup. All ten outcomes and audits are retained
 The [contract-only stacking follow-up](THREE_CUBE_CONTRACT_ONLY_STUDY.md) removes
 executor implementation from both actor prompts and registers all 800 evaluations
 before training. The source-disclosed study remains separate evidence.
+
+The [ring-over-peg training pilot](RING_PEG_SINGLE_POLICY.md) adds sensor-derived
+inner/outer boundaries and robot-only pad targeting for one Full policy chain.
+Development successes are separate from training and reserved evaluation.

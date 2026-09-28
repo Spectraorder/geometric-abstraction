@@ -388,6 +388,15 @@ Full retains geometric queries. Global limits remain four model requests and
 Preserve the old source-disclosed experiment. Stop on infrastructure errors and
 retain incomplete attempts; do not retry, replace layouts or expand the budget.
 
+The user authorized one Full single-policy ring-over-peg training chain: five
+training layouts, R1–R3. Use `run_ring_peg_training.py` and
+`outputs/ring_peg_full_train_01`, with an observation-only R0, three model calls
+and 20 rollout slots total. No Base arm or reserved evaluation is registered.
+The original oracle is development-only and must never enter policy inputs.
+Sensor-driven development achieved 2/3; preserve the failed grasp on seed 3 and
+all earlier attempts. Sources freeze before training; stop on infrastructure
+errors without automatic retries. See `docs/RING_PEG_SINGLE_POLICY.md`.
+
 The user subsequently authorized expanding the latest contract-only stacking
 study to 100 shared test layouts. Use `extend_three_cube_contract_evaluation.py`
 and `outputs/geometry_cube_stack_contract_01/evaluation_100`: reuse 800 existing
@@ -396,3 +405,65 @@ No retraining or model requests. Keep the original protocol/manifests/results
 unchanged; use extension-only seed mappings. This is a post-hoc extension after
 viewing 20-layout outcomes. Retention remains training-only. Up to 24 rollout
 workers with hardware fallback; preserve failures and stop on infrastructure errors.
+
+The user continued the ring-task objective after the completed stacking evaluation.
+An isolated development repair in `ring_peg_development.py` preserves the first
+ring training's frozen sources. It supports magenta, calibrated 640x480 RGB-D,
+perspective-correct background validation, and final fixed-pad orientation checks.
+Initialization passed all five reused training layouts; the original R1 policy
+visually verified lift on all three development seeds but achieved 0/3 insertions.
+The earlier sensor controller also achieved 0/3 with this adapter. Preserve both
+negative checks. The separately registered follow-up is `ring_peg_full_train_02`
+via `run_ring_peg_repaired_training.py`: one fresh Full actor, reused five training
+layouts, observation-only R0 and R1–R3, three model calls and twenty rollout slots.
+No supplied solution, Base comparison, reserved evaluation, automatic retries or
+budget expansion. Stop after this fixed pilot and retain all failures. See
+`docs/RING_PEG_SINGLE_POLICY.md`.
+
+The user requested a better initial ring policy for comparing subsequent training.
+This overrides observation-only R0 for the separate capable-start variant only.
+Use `policies/controllers/ring_peg_starter.py` and
+`run_ring_peg_seeded_training.py`; preserve both completed neutral-start pilots.
+The starter reuses pilot 02 R3 grasp search and hand-edited sensor-driven transport
+and release. Development outcomes: first version 1/3; final version 3/3 on seeds
+1–3 and 4/5 on all reused training layouts. Preserve the remaining unavailable-
+geometry failure and all prior attempts. This is task-specific prior experience,
+not neutral-start training or reserved evidence. Prepare
+`outputs/ring_peg_seeded_train_01` without launching model calls for the starter
+update. Its training phase is available with the usual five layouts, R1–R3,
+three model calls and twenty rollout slots, but must not auto-start during this
+baseline-development task. Future Base/Full comparisons need matched prior skills;
+the geometry-dependent Full starter cannot be compared to a zero-start Base as
+an isolated abstraction effect. See `docs/RING_PEG_SINGLE_POLICY.md`.
+
+The user then judged the capable 4/5 starter too strong and explicitly authorized
+simplifying the starter and launching training. Use
+`policies/controllers/ring_peg_api_starter.py`,
+`run_ring_peg_scaffold_training.py`, and `outputs/ring_peg_scaffold_train_01`.
+This new Full-only pilot provides task-independent API/error-handling wrappers
+and command-target bookkeeping. R0 only observes; the actor receives no grasp
+search, alignment/release procedure, capable starter or previous trained source.
+Keep five existing training layouts, R0–R3, three model calls, twenty rollout
+slots and at most five rollout workers. Preserve the strong starter as a skill
+and leave `ring_peg_seeded_train_01` unstarted. Freeze sources before dispatch;
+no automatic retries, replacements, budget expansion or reserved evaluation.
+Generic control assistance must be matched in a future Base/Full comparison.
+See `docs/RING_PEG_SINGLE_POLICY.md`.
+
+The scaffold pilot completed with R3 at 3/5 training successes. The user requested
+slightly more information in the initial policy. The separate guided variant
+uses `docs/RING_PEG_STARTER_GUIDANCE.md`,
+`policies/controllers/ring_peg_guided_api_starter.py`, and
+`run_ring_peg_guided_training.py`. It adds qualitative reference/robot semantics,
+height-aware clearance explanations and diagnostic advice, not grasp search or
+an action sequence. Executed R0 code is unchanged apart from its docstring.
+Prepare `outputs/ring_peg_guided_train_01` without dispatching new model calls for
+this information update. Preserve the completed scaffold pilot and strong skill.
+Disclose supplied qualitative task knowledge and match it in future comparisons.
+
+The user explicitly authorized launching the prepared guided ring training.
+Run `outputs/ring_peg_guided_train_01` with the frozen guided entry point: one
+fresh Full actor, five existing training layouts, observation-only R0 and R1–R3,
+three model calls and twenty rollout slots, at most five rollout workers. This
+supersedes the preparation-only instruction for this campaign. Preserve failures;
+no automatic retries, extra rounds or reserved evaluation are authorized.
