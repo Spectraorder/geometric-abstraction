@@ -387,3 +387,12 @@ Full retains geometric queries. Global limits remain four model requests and
 24 rollouts with resource fallback. See `THREE_CUBE_CONTRACT_ONLY_STUDY.md`.
 Preserve the old source-disclosed experiment. Stop on infrastructure errors and
 retain incomplete attempts; do not retry, replace layouts or expand the budget.
+
+The user subsequently authorized expanding the latest contract-only stacking
+study to 100 shared test layouts. Use `extend_three_cube_contract_evaluation.py`
+and `outputs/geometry_cube_stack_contract_01/evaluation_100`: reuse 800 existing
+results and add 3,200 trials for 80 new layouts, covering all five pairs and R0–R3.
+No retraining or model requests. Keep the original protocol/manifests/results
+unchanged; use extension-only seed mappings. This is a post-hoc extension after
+viewing 20-layout outcomes. Retention remains training-only. Up to 24 rollout
+workers with hardware fallback; preserve failures and stop on infrastructure errors.

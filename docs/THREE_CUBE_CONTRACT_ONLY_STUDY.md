@@ -66,3 +66,30 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MUJOCO_GL=egl .venv/bin/python -u \
 The `all` phase trains all chains, freezes candidates, materializes the registered
 800-test matrix, and runs evaluation automatically. Inspect `progress.json`,
 `lifecycle.json`, each replica's `training.log`, and `learning_curves/progress.json`.
+
+## Authorized 100-layout extension
+
+After inspecting the completed 20-layout results, the user requested 100 shared
+test layouts. The separate `evaluation_100/registration.json` preserves the old
+protocol, policies, training retention choices and all 800 existing results.
+It adds seeds 2029091021–2029091100 to the original 2029091001–2029091020 and
+registers all five pairs and all R0–R3 revisions: 4,000 results total, 3,200 new
+rollouts, no model calls or retraining. Up to 24 rollout workers are used, with
+the existing hardware pilot and fallback. Additional color maps are stored in
+extension-only manifests; the original manifests remain unchanged.
+
+This is a post-hoc sample-size extension, not a new preregistered confirmation.
+Report both the combined 100-layout curves and the additional 80-layout results.
+Do not select policies using either test split. All outcomes and incomplete attempts
+remain recorded; infrastructure errors stop dispatch without automatic retries.
+Use `scripts/extend_three_cube_contract_evaluation.py --root
+outputs/geometry_cube_stack_contract_01 --phase prepare` followed by `--phase run`.
+Progress and results live under `evaluation_100/`.
+
+The completed extension required a log-path recovery after 24 new trials had
+already produced valid results. `resume_three_cube_contract_extension.py` preserves
+those results and the original stop receipt while adding the expected path aliases.
+`run_repaired_cube_extension.py` additionally audits the failed log-only leases
+against the preserved result hashes. These are registered recovery adapters for
+the existing run; do not restart its original dispatcher or overwrite completed
+trials. Recovery receipts live in `evaluation_100/path_repair/`.
