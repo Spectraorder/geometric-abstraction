@@ -1,0 +1,1005 @@
+{
+  "kind": "archived_sparse_observation_replays",
+  "selection": "Full successful examples only: first successful seed of the first chain with a successful final training-retained policy; online most archived side observations, tie lowest seed.",
+  "timing": "Uniform snapshot holds, not wall-time playback. Timestamps are original simulation time.",
+  "terminal_rendering": "Online final frames render recorded models and states with mj_forward only; no mj_step, policy, model request, or new evaluator run.",
+  "source_sha256": {
+    "scripts/render_submission_replays.py": "72b32e38736cb17aa7b8fd7fcf408f90bfe97f2dcb1d18c2e613f0b0e001a7c1",
+    "docs/evaluations/single_policy/test_outcomes.csv": "dd8d654125f351831b43126a202d47a6b911161e6018d055d4d8ccc21462b837",
+    "docs/evaluations/single_policy/chain_curves.csv": "265a805812f1599317e602fc9bc2d59b0ad12b9e0ce37b668a8e959b2d67eb7f",
+    "docs/evaluations/online/episodes.csv": "9d0a128f1176368a7b2de5a72fe3b58bccb95adea2f403d8057fc76f8d30c6b1",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/result.json": "93d18f96f0fd77e5f7f851f7beb8944aa7886dc869e7f425fbf14d012393bce2",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_000.npz": "d717fa1bdc214bccf765ef4cdc01f38b1f3a089e6ed3b11078e4764483c451b6",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_013.npz": "361d042d10041d36765347e90240824c10592fd3a63c3c99d9b8b5271598bafe",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_015.npz": "3b9a5158b7bf025d34a4871647e8a733588d98c1ba6d8652e0496e50da01e39e",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_016.npz": "0bd27f8559a8fb8819777a2c9254b27171fd976f95a730cb78d0a02427b54c66",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_018.npz": "72431da246fbc0bdfb9b97496e97b43dfd2339dedd289c99c398b05b6d6df432",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_020.npz": "119d55efb5342854075c3185cb3639edaa8907a95399a8d73a675f0c9df43e98",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_021.npz": "f519983148434375db5cf139e50bfa771f4d76a228b71d0404021d9279c7843c",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_024.npz": "e87420425345a44d13fb50b63553c8642c6c0b4076051e5bee5cdd9a21816273",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_026.npz": "b36457ed6ef569a5c7d4257cd1f0863e65d3d54b53b31c3bae440a09d1c871ac",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_027.npz": "52d61f12b8cf1fbe683ce421d27953dceb23aaf1768de21f7286294744b2c549",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_029.npz": "fae72cc6be3ef90483ee2885284b5d99d8afe95e1faa92de2a67fd1faf1ae201",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_030.npz": "1110881700dc02027cffa6502621ed3a6e4ea67dee15bb4076326176c4095179",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_032.npz": "b837ff4c5f99fb49f13a722e8aabffe80587e764056efb11405581e9d93d629b",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_033.npz": "304a2c6d740a21ec22244715328ad53785d4bb4fd4a8e53f6c5b47c4dc25a375",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_040.npz": "dc620520cf20e6b37e2f83fdc4fc110f8ae384f295232049a367380066cf40c5",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_044.npz": "b06645d60cf588cfbc8e289668715f5731f76bec7e7cbc026c3fc32e78de9a84",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_046.npz": "95c196e411eb2c56282898f98810f3b809e494e5ff97bf2be114ac5b225b26cc",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_047.npz": "83ba25d01a345560c3f62b59c93e90c004fa55da20e27443ca289a1dc392d7e6",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_048.npz": "23007d83709c164fe0dafff3400e24a7248812d097256c6786723ff01a84c2f5",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_050.npz": "ec4abf37bfb4cde33e4680ab6066561fba454cf13fb3666854fc6d2c515b5224",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_051.npz": "d549614f29977f09fe011a4fc7a69c8048e0cd965df8b740345e89548a70e189",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_058.npz": "ad468cc1404ab61f17fbc27611347ab7a7189017f83903279bcb035c5749e26e",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_067.npz": "94dc0496626a5905e09e9f51d1ca9dae2784a357e54a7e29d8567ad3ba975bca",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_070.npz": "ac50ac4bd40b6a5eeecdd66bf36c41359df96230dd9cee5d4c1546b61cadebf1",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_071.npz": "8dfadcf2a7d35bee57c22fb9a75cc05db3b5904cb400b29ed3af12e7c3abff8a",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_072.npz": "c53a24517b1e7cf4a9288b2d9ce9f9f019760b3ed38a1fbc927d2698e3bd5b64",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_073.npz": "2e8451d9cecc3ddbfe36b591015e02118a37ba7400e4206647a1241632049af6",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_074.npz": "c92c55fc1768a6f9c424febaafce28dbfe2a5f9f9901519f9a450a86fe4cf4ef",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_076.npz": "c006b6aaddd3327a5682d91a35c99d9c5fc91660375dd0cf1b8ecbb70cc3ba10",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_078.npz": "654ecf215f59677d8de8c766ba551c55bf6abfbbfe3d44e521ef2b5d8d073c44",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_079.npz": "bbe69dc5c87b1706544119675f0751c07aeb69d6320d9f160413afa7a3ae2ade",
+    "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_081.npz": "dea44d066ed074fa6edcef6032415d89ce56666b42aea50801994889e1e91b68",
+    "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/result.json": "872970d735f2dd99a4ff09cf9a90911a3ab66ec620c789fbf182ec7bd6b9ce1f",
+    "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_000.npz": "7123f89e674e221dea79d81685aefad318c8ae78245e754a9745ebc9790f7b98",
+    "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_011.npz": "b735028c6a34db41ae49df5ed63ff13aac539bc84754b65748c0442ff83ed551",
+    "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_013.npz": "d1301ed876a77cdd528edddb809240d1ad63ac4cffddf825294fd558531b0dcd",
+    "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_014.npz": "95a16a748feb49737b4099031b954fa18ad3df6b4504150d3cd863b51d73254b",
+    "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_015.npz": "8d5391a164fe9bf7aa8002c2cbbed8c521448c3b05633c739ee34c8f58fbae7a",
+    "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_016.npz": "b23ac614d996745ec31c16fa9d4f265ab73b2f793acbbfc8221c89ece3b36497",
+    "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_017.npz": "dd076dc87cf65324679e0894f9a356638debddc37f382ba5bb288dc4b88460a6",
+    "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_018.npz": "ebd086fe8587444f7e36663e17a9c293af638b0f9eeaadc701402db036b4a894",
+    "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_019.npz": "3313af2229a6579a326a5c56ad1f6b0af47303acb0d054fa8a303bf4eff4b71f",
+    "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_021.npz": "d12d6bb8691460f3bbfda4c516b23701167aabaac76448725fdf0a20bc26b7d5",
+    "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_022.npz": "c184e82b4f7b036c3510f6ecc9770184327d26d76cc479e5e0e910332be6e984",
+    "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_027.npz": "22f19c839a85fb254f66065bde41f0b1d0290d3a6e79bccbb440fca80265c56f",
+    "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_029.npz": "e51cd89942123d43f0eb7fcba64cbaf481fa2eb2a68123c7dc2f0e8b682c34c3",
+    "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_030.npz": "74ae0f62b69b5cd403d87bae193bfa04c2dbae6bba1c4b08cb0a677d1a7fd242",
+    "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_031.npz": "f5351a1ef0b8431a3794597abd935e2c25cf0bd7973be3e242779ec9893176cd",
+    "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_032.npz": "aad8628b2a53b91bbadcc6909af78ea558e8982cd27b01e029d45dec8c406bf0",
+    "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_033.npz": "3ddd8b59b6985b3c6e47fe9127e18c6e0df77100cfeee8f311ce17e0e9f0e73d",
+    "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_034.npz": "2694834e66839b64e68492859ec95de6b494d7cf98b6f3128b81e5acbc3cdf6c",
+    "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_035.npz": "d0edb1182b139fdce8a6d24cc4066487b5d9647180cd3d97c50c72596c58acc4",
+    "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_037.npz": "b8003c657bf9713934957d7fd7912b271bfb132492b97f21bb0a065d8c92df99",
+    "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_038.npz": "b8e166c28b75748c338258e03be88163939fb87ac09a431dcc2bf123d51b8f64",
+    "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_040.npz": "18f8d443f951df53457ea25d8f035e7aa799b07ba4ddbca7fed03969fa7c6e8d",
+    "outputs/ring_peg_comparison_01/evaluation/replica_01/symbolic/revision_003/seed_2031109002/result.json": "6ebe5c131dfac4139b0499a15198762bfe73703d8faf7e5b5539b21a9f5d760b",
+    "outputs/ring_peg_comparison_01/evaluation/replica_01/symbolic/revision_003/seed_2031109002/camera_000_side.npz": "ef45e02046d8536f8583e85737d0f97c8881f8b0ec70c35de142590e96cba331",
+    "outputs/ring_peg_comparison_01/evaluation/replica_01/symbolic/revision_003/seed_2031109002/camera_004_side.npz": "20d37f51c611232ade0a772158e1290a20a03d252bae229c33c76d3089634b69",
+    "outputs/ring_peg_comparison_01/evaluation/replica_01/symbolic/revision_003/seed_2031109002/camera_005_side.npz": "c798cb0bf8a9e3ea06b71d72cef2877f23bdcc906445b4794b90f3baef0c9fe0",
+    "outputs/ring_peg_comparison_01/evaluation/replica_01/symbolic/revision_003/seed_2031109002/camera_006_side.npz": "350acbe2ea0be2e4170a699157a3ecfa3f3cc62eac81beffdfa3022fbaa7c8df",
+    "outputs/ring_peg_comparison_01/evaluation/replica_01/symbolic/revision_003/seed_2031109002/camera_007_side.npz": "f472fea45949e4097ab97a71147647ce2bace4b502ff49813d8459e86d1a25eb",
+    "outputs/ring_peg_comparison_01/evaluation/replica_01/symbolic/revision_003/seed_2031109002/camera_008_side.npz": "67ab7fbb48bb6f103e424164d97d4dee3c0e16adc5e9387d574636440a5eeb04",
+    "outputs/ring_peg_comparison_01/evaluation/replica_01/symbolic/revision_003/seed_2031109002/camera_010_side.npz": "0e7bb982433e58482f7b6e3f4a679e5c8e8234b8225656316198722f466d879c",
+    "outputs/ring_peg_comparison_01/evaluation/replica_01/symbolic/revision_003/seed_2031109002/camera_012_side.npz": "da872b7c841d7fd235707fba621dadf8b8698085a4119f567529fa01f90b18bf",
+    "outputs/ring_peg_comparison_01/evaluation/replica_01/symbolic/revision_003/seed_2031109002/camera_014_side.npz": "2b1722f7b3a84f3b71e86af25fb52b7fc520fe8cfc37bebbef96099d7dabd308",
+    "outputs/ring_peg_comparison_01/evaluation/replica_01/symbolic/revision_003/seed_2031109002/camera_016_side.npz": "a8950c6ad45a3a483bfb1fac0d80bc6ad875a3fb026b9f9bc4b5d66f47e36e60",
+    "outputs/ring_peg_comparison_01/evaluation/replica_01/symbolic/revision_003/seed_2031109002/camera_017_side.npz": "2503b909ae1f75e3297f8c752d316a5b7bbfcb3000280abcae3ec2bb5bc70d8d",
+    "outputs/ring_peg_comparison_01/evaluation/replica_01/symbolic/revision_003/seed_2031109002/camera_018_side.npz": "4f32507b96c87a8fff787d4cb829f00033cb969b12579dab3ad97b54755053ab",
+    "outputs/online_compact_tower_200_01/episodes/2028105002/symbolic/result.json": "45649dfea4e30b09b9f1c52aa111ef73792449fc66c03115c28e1681f0ed891e",
+    "outputs/online_compact_tower_200_01/episodes/2028105002/symbolic/feedback_000_side.npz": "2a5408936998f5770bd4b804617c5244af3fa7b84c40b6eb76df1c03b3c02879",
+    "outputs/online_compact_tower_200_01/episodes/2028105002/symbolic/feedback_003_side.npz": "ff8d0683292b7cab2ba24c86b6e3cc69870dea75ec6669412e53315875faa3b4",
+    "outputs/online_compact_tower_200_01/episodes/2028105002/symbolic/private_model.mjb": "643babdd33bd015334322da1e68edfd1d779cd155e6c8635735ecf61a9913b8c",
+    "outputs/online_compact_tower_200_01/episodes/2028105002/symbolic/private_terminal_state.npz": "77f22ce4cba97e7d94f85344fd59e0659604c9aecdeb3bd6fd5b8159ff4f3250",
+    "outputs/online_ring_200_01/episodes/2033101001/symbolic/result.json": "cdccbc2900deb215777ab61bc73a07341f1f59976a84be9a92d1e6ee4a287b1d",
+    "outputs/online_ring_200_01/episodes/2033101001/symbolic/camera_000_side.npz": "8fa0953dfb569310b960331f243cf3ffab3ff926674bc00dec97d774f42d73d6",
+    "outputs/online_ring_200_01/episodes/2033101001/symbolic/camera_004_side.npz": "deb7844733010b56be04bbb4148d029b69abe1a3eec30646ccc4fd746ebd4b65",
+    "outputs/online_ring_200_01/episodes/2033101001/symbolic/camera_005_side.npz": "9bfc1b2c55f2c20ed4e146b00978eb5e73ecaa1e83508ab97008725cd4159313",
+    "outputs/online_ring_200_01/episodes/2033101001/symbolic/camera_007_side.npz": "8600abbd2e5a57a0310d4487f215625ca061675ab7304afd0a1e695d19495ea1",
+    "outputs/online_ring_200_01/episodes/2033101001/symbolic/camera_008_side.npz": "668c94a3198550af8b767e3d10f7e885b70da174dabf199551355430f784edbe",
+    "outputs/online_ring_200_01/episodes/2033101001/symbolic/camera_009_side.npz": "51c3c1d76d82680bc7d40a38c6dd3877dc37b38ccb8ac0f1be9c91512d3f4462",
+    "outputs/online_ring_200_01/episodes/2033101001/symbolic/camera_011_side.npz": "930ca7a2f153154d5e29a9ceac40ef1ea47b6ccca7a258c57e81241267d9de33",
+    "outputs/online_ring_200_01/episodes/2033101001/symbolic/camera_014_side.npz": "f1609c3b0dce9bddcd3f81054003a44d3bfd161ec2757a15d5e53f77ea845c2f",
+    "outputs/online_ring_200_01/episodes/2033101001/symbolic/camera_018_side.npz": "e9e124d472db57913ce4de98f825877086124e7d8960a785ddb5d2b99ab86732",
+    "outputs/online_ring_200_01/episodes/2033101001/symbolic/camera_022_side.npz": "a8e9f1624e9e844017c239b54b8ca369be60f1b5a9f9d4cd7c36090de9cfff16",
+    "outputs/online_ring_200_01/episodes/2033101001/symbolic/camera_025_side.npz": "ac01f613ea630a0d07a576aae01b553f6be92be0eab2be6dfa4bbfa232549d20",
+    "outputs/online_ring_200_01/episodes/2033101001/symbolic/camera_028_side.npz": "e999466a4a88460b86e306b5f33886e1efd44ca0916a478df8d3d8a4b13730a4",
+    "outputs/online_ring_200_01/episodes/2033101001/symbolic/private_model.mjb": "1478493658e8d6d383ac001997c1de5592a47c3108ef8aa083f21c01e227d7e7",
+    "outputs/online_ring_200_01/episodes/2033101001/symbolic/private_terminal_state.npz": "68c7d7da3d1560b49affd0476fd68d18e560b0d676b3725c85673b5213b6edb0",
+    "outputs/online_relocation_200_01/episodes/2034101005/symbolic/result.json": "279602a0fcb0cbf703ceec22a03060753449bd387c23c20af0ba7eecc6896b15",
+    "outputs/online_relocation_200_01/episodes/2034101005/symbolic/feedback_000_side.npz": "81a9c6454703d7505814a3e43244fab329317f7b427b1961cef1edbaec70588a",
+    "outputs/online_relocation_200_01/episodes/2034101005/symbolic/feedback_002_side.npz": "7984617bcacb759c21581636606c45c7c8bcb168b3e316ac26571e29432f9d06",
+    "outputs/online_relocation_200_01/episodes/2034101005/symbolic/private_model.mjb": "de746dca5ad45a79a8fd5d6c48ee7f4180bb5eb121943157f7725f9e8828e8b1",
+    "outputs/online_relocation_200_01/episodes/2034101005/symbolic/private_terminal_state.npz": "6e20599e029c5abdb9d8b9887e95e33558e04aaf58e76a49a7ca810baa112b8b"
+  },
+  "videos": [
+    {
+      "key": "single_policy_bridge",
+      "file": "single_policy_bridge.mp4",
+      "task": "Bridge + cylinder",
+      "mode": "single_policy",
+      "arm": "Full",
+      "seed": 2032101001,
+      "replica": "1",
+      "revision": "2",
+      "success": true,
+      "result_source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/result.json",
+      "original_distinct_side_observations": 37,
+      "shown_side_observations": 32,
+      "terminal_state_rerender": false,
+      "first_simulation_time": 0.6500000000000005,
+      "last_simulation_time": 122.13999999989674,
+      "video_seconds": 37.0,
+      "fps": 12,
+      "video_sha256": "d9372db6df778c5d95551e2df0d477fbf321927ae3f0e36a66bcfbd14ff4aa05",
+      "frames": [
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_000.npz",
+          "simulation_time": 0.6500000000000005,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_013.npz",
+          "simulation_time": 9.899999999999975,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_015.npz",
+          "simulation_time": 15.150000000001729,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_016.npz",
+          "simulation_time": 15.300000000001779,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_018.npz",
+          "simulation_time": 16.900000000001512,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_020.npz",
+          "simulation_time": 27.699999999995526,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_021.npz",
+          "simulation_time": 28.049999999995332,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_024.npz",
+          "simulation_time": 37.29999999999962,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_026.npz",
+          "simulation_time": 42.55000000000604,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_027.npz",
+          "simulation_time": 42.70000000000622,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_029.npz",
+          "simulation_time": 45.600000000009764,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_030.npz",
+          "simulation_time": 47.050000000011536,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_032.npz",
+          "simulation_time": 57.850000000024735,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_033.npz",
+          "simulation_time": 58.20000000002516,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_040.npz",
+          "simulation_time": 67.4500000000242,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_044.npz",
+          "simulation_time": 72.70000000001197,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_046.npz",
+          "simulation_time": 74.30000000000824,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_047.npz",
+          "simulation_time": 74.45000000000789,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_048.npz",
+          "simulation_time": 75.90000000000451,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_050.npz",
+          "simulation_time": 86.69999999997934,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_051.npz",
+          "simulation_time": 87.04999999997852,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_058.npz",
+          "simulation_time": 96.29999999995697,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_067.npz",
+          "simulation_time": 96.53999999995641,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_070.npz",
+          "simulation_time": 101.78999999994417,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_071.npz",
+          "simulation_time": 103.23999999994079,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_072.npz",
+          "simulation_time": 104.68999999993741,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_073.npz",
+          "simulation_time": 106.13999999993403,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_074.npz",
+          "simulation_time": 107.58999999993065,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_076.npz",
+          "simulation_time": 110.4899999999239,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_078.npz",
+          "simulation_time": 121.28999999989873,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_079.npz",
+          "simulation_time": 121.63999999989791,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_bridge_contract_01/replica_01/curve_rollouts/symbolic/revision_002/seed_2032101001/camera_081.npz",
+          "simulation_time": 122.13999999989674,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        }
+      ]
+    },
+    {
+      "key": "single_policy_stacking",
+      "file": "single_policy_stacking.mp4",
+      "task": "Three-cube stacking",
+      "mode": "single_policy",
+      "arm": "Full",
+      "seed": 2029091001,
+      "replica": "1",
+      "revision": "3",
+      "success": true,
+      "result_source": "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/result.json",
+      "original_distinct_side_observations": 22,
+      "shown_side_observations": 22,
+      "terminal_state_rerender": false,
+      "first_simulation_time": 0.6500000000000005,
+      "last_simulation_time": 69.95000000001838,
+      "video_seconds": 27.0,
+      "fps": 12,
+      "video_sha256": "a842c1399fc6f6d87af4ec0c3c60417fde360a8efbcaa22a3e96c5f387507457",
+      "frames": [
+        {
+          "source": "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_000.npz",
+          "simulation_time": 0.6500000000000005,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_011.npz",
+          "simulation_time": 9.899999999999975,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_013.npz",
+          "simulation_time": 15.150000000001729,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_014.npz",
+          "simulation_time": 16.60000000000168,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_015.npz",
+          "simulation_time": 18.050000000000875,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_016.npz",
+          "simulation_time": 19.50000000000007,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_017.npz",
+          "simulation_time": 20.949999999999267,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_018.npz",
+          "simulation_time": 22.399999999998464,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_019.npz",
+          "simulation_time": 23.84999999999766,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_021.npz",
+          "simulation_time": 34.64999999999638,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_022.npz",
+          "simulation_time": 35.04999999999687,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_027.npz",
+          "simulation_time": 44.300000000008176,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_029.npz",
+          "simulation_time": 49.55000000001459,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_030.npz",
+          "simulation_time": 51.000000000016364,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_031.npz",
+          "simulation_time": 52.450000000018136,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_032.npz",
+          "simulation_time": 53.90000000001991,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_033.npz",
+          "simulation_time": 55.35000000002168,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_034.npz",
+          "simulation_time": 56.80000000002345,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_035.npz",
+          "simulation_time": 58.250000000025224,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_037.npz",
+          "simulation_time": 69.05000000002047,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_038.npz",
+          "simulation_time": 69.45000000001954,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/geometry_cube_stack_contract_01/replica_01/compact_rollouts/symbolic/revision_003/seed_2029091001/camera_040.npz",
+          "simulation_time": 69.95000000001838,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        }
+      ]
+    },
+    {
+      "key": "single_policy_ring",
+      "file": "single_policy_ring.mp4",
+      "task": "Ring-on-peg",
+      "mode": "single_policy",
+      "arm": "Full",
+      "seed": 2031109002,
+      "replica": "1",
+      "revision": "3",
+      "success": true,
+      "result_source": "outputs/ring_peg_comparison_01/evaluation/replica_01/symbolic/revision_003/seed_2031109002/result.json",
+      "original_distinct_side_observations": 12,
+      "shown_side_observations": 12,
+      "terminal_state_rerender": false,
+      "first_simulation_time": 0.5000000000000003,
+      "last_simulation_time": 28.48999999999509,
+      "video_seconds": 17.0,
+      "fps": 12,
+      "video_sha256": "c25ba99fbdedac8d8568fd1cce50b3e279e78dfe5cde5df5f8d644e3b5b65e80",
+      "frames": [
+        {
+          "source": "outputs/ring_peg_comparison_01/evaluation/replica_01/symbolic/revision_003/seed_2031109002/camera_000_side.npz",
+          "simulation_time": 0.5000000000000003,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            640,
+            480
+          ]
+        },
+        {
+          "source": "outputs/ring_peg_comparison_01/evaluation/replica_01/symbolic/revision_003/seed_2031109002/camera_004_side.npz",
+          "simulation_time": 4.499999999999726,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            640,
+            480
+          ]
+        },
+        {
+          "source": "outputs/ring_peg_comparison_01/evaluation/replica_01/symbolic/revision_003/seed_2031109002/camera_005_side.npz",
+          "simulation_time": 6.899999999999462,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            640,
+            480
+          ]
+        },
+        {
+          "source": "outputs/ring_peg_comparison_01/evaluation/replica_01/symbolic/revision_003/seed_2031109002/camera_006_side.npz",
+          "simulation_time": 7.999999999999341,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            640,
+            480
+          ]
+        },
+        {
+          "source": "outputs/ring_peg_comparison_01/evaluation/replica_01/symbolic/revision_003/seed_2031109002/camera_007_side.npz",
+          "simulation_time": 10.000000000000009,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            640,
+            480
+          ]
+        },
+        {
+          "source": "outputs/ring_peg_comparison_01/evaluation/replica_01/symbolic/revision_003/seed_2031109002/camera_008_side.npz",
+          "simulation_time": 11.600000000000543,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            640,
+            480
+          ]
+        },
+        {
+          "source": "outputs/ring_peg_comparison_01/evaluation/replica_01/symbolic/revision_003/seed_2031109002/camera_010_side.npz",
+          "simulation_time": 14.550000000001528,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            640,
+            480
+          ]
+        },
+        {
+          "source": "outputs/ring_peg_comparison_01/evaluation/replica_01/symbolic/revision_003/seed_2031109002/camera_012_side.npz",
+          "simulation_time": 16.170000000001917,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            640,
+            480
+          ]
+        },
+        {
+          "source": "outputs/ring_peg_comparison_01/evaluation/replica_01/symbolic/revision_003/seed_2031109002/camera_014_side.npz",
+          "simulation_time": 17.79000000000102,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            640,
+            480
+          ]
+        },
+        {
+          "source": "outputs/ring_peg_comparison_01/evaluation/replica_01/symbolic/revision_003/seed_2031109002/camera_016_side.npz",
+          "simulation_time": 22.289999999998525,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            640,
+            480
+          ]
+        },
+        {
+          "source": "outputs/ring_peg_comparison_01/evaluation/replica_01/symbolic/revision_003/seed_2031109002/camera_017_side.npz",
+          "simulation_time": 25.68999999999664,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            640,
+            480
+          ]
+        },
+        {
+          "source": "outputs/ring_peg_comparison_01/evaluation/replica_01/symbolic/revision_003/seed_2031109002/camera_018_side.npz",
+          "simulation_time": 28.48999999999509,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            640,
+            480
+          ]
+        }
+      ]
+    },
+    {
+      "key": "online_tower",
+      "file": "online_tower.mp4",
+      "task": "Bridge-tower",
+      "mode": "online",
+      "arm": "Full",
+      "seed": 2028105002,
+      "replica": null,
+      "revision": null,
+      "success": true,
+      "result_source": "outputs/online_compact_tower_200_01/episodes/2028105002/symbolic/result.json",
+      "original_distinct_side_observations": 2,
+      "shown_side_observations": 2,
+      "terminal_state_rerender": true,
+      "first_simulation_time": 1.412000000000001,
+      "last_simulation_time": 161.06400000004095,
+      "video_seconds": 15.0,
+      "fps": 12,
+      "video_sha256": "2a1f426f3e72167ed56e6778e4e0adc578c17e20d079b8edeab9004aceb6a5bf",
+      "frames": [
+        {
+          "source": "outputs/online_compact_tower_200_01/episodes/2028105002/symbolic/feedback_000_side.npz",
+          "simulation_time": 1.412000000000001,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/online_compact_tower_200_01/episodes/2028105002/symbolic/feedback_003_side.npz",
+          "simulation_time": 82.89199999998822,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/online_compact_tower_200_01/episodes/2028105002/symbolic/private_terminal_state.npz",
+          "simulation_time": 161.06400000004095,
+          "kind": "Terminal state re-render (archived)",
+          "native_resolution": [
+            640,
+            480
+          ]
+        }
+      ]
+    },
+    {
+      "key": "online_ring",
+      "file": "online_ring.mp4",
+      "task": "Ring-on-peg",
+      "mode": "online",
+      "arm": "Full",
+      "seed": 2033101001,
+      "replica": null,
+      "revision": null,
+      "success": true,
+      "result_source": "outputs/online_ring_200_01/episodes/2033101001/symbolic/result.json",
+      "original_distinct_side_observations": 12,
+      "shown_side_observations": 12,
+      "terminal_state_rerender": true,
+      "first_simulation_time": 0.5260000000000004,
+      "last_simulation_time": 84.02999999998556,
+      "video_seconds": 18.0,
+      "fps": 12,
+      "video_sha256": "bfe15ec8129d1c5a46b9673c35edbc27c02185965bbe87a696ff8ccd0d19df49",
+      "frames": [
+        {
+          "source": "outputs/online_ring_200_01/episodes/2033101001/symbolic/camera_000_side.npz",
+          "simulation_time": 0.5260000000000004,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            640,
+            480
+          ]
+        },
+        {
+          "source": "outputs/online_ring_200_01/episodes/2033101001/symbolic/camera_004_side.npz",
+          "simulation_time": 6.789999999999474,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            640,
+            480
+          ]
+        },
+        {
+          "source": "outputs/online_ring_200_01/episodes/2033101001/symbolic/camera_005_side.npz",
+          "simulation_time": 6.847999999999468,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            640,
+            480
+          ]
+        },
+        {
+          "source": "outputs/online_ring_200_01/episodes/2033101001/symbolic/camera_007_side.npz",
+          "simulation_time": 18.082000000000857,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            640,
+            480
+          ]
+        },
+        {
+          "source": "outputs/online_ring_200_01/episodes/2033101001/symbolic/camera_008_side.npz",
+          "simulation_time": 23.0559999999981,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            640,
+            480
+          ]
+        },
+        {
+          "source": "outputs/online_ring_200_01/episodes/2033101001/symbolic/camera_009_side.npz",
+          "simulation_time": 23.36399999999793,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            640,
+            480
+          ]
+        },
+        {
+          "source": "outputs/online_ring_200_01/episodes/2033101001/symbolic/camera_011_side.npz",
+          "simulation_time": 30.88399999999376,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            640,
+            480
+          ]
+        },
+        {
+          "source": "outputs/online_ring_200_01/episodes/2033101001/symbolic/camera_014_side.npz",
+          "simulation_time": 40.82000000000392,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            640,
+            480
+          ]
+        },
+        {
+          "source": "outputs/online_ring_200_01/episodes/2033101001/symbolic/camera_018_side.npz",
+          "simulation_time": 51.98600000001757,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            640,
+            480
+          ]
+        },
+        {
+          "source": "outputs/online_ring_200_01/episodes/2033101001/symbolic/camera_022_side.npz",
+          "simulation_time": 64.08200000003205,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            640,
+            480
+          ]
+        },
+        {
+          "source": "outputs/online_ring_200_01/episodes/2033101001/symbolic/camera_025_side.npz",
+          "simulation_time": 74.25200000000835,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            640,
+            480
+          ]
+        },
+        {
+          "source": "outputs/online_ring_200_01/episodes/2033101001/symbolic/camera_028_side.npz",
+          "simulation_time": 84.02999999998556,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            640,
+            480
+          ]
+        },
+        {
+          "source": "outputs/online_ring_200_01/episodes/2033101001/symbolic/private_terminal_state.npz",
+          "simulation_time": 84.02999999998556,
+          "kind": "Terminal state re-render (archived)",
+          "native_resolution": [
+            640,
+            480
+          ]
+        }
+      ]
+    },
+    {
+      "key": "online_relocation",
+      "file": "online_relocation.mp4",
+      "task": "Tower relocation",
+      "mode": "online",
+      "arm": "Full",
+      "seed": 2034101005,
+      "replica": null,
+      "revision": null,
+      "success": true,
+      "result_source": "outputs/online_relocation_200_01/episodes/2034101005/symbolic/result.json",
+      "original_distinct_side_observations": 2,
+      "shown_side_observations": 2,
+      "terminal_state_rerender": true,
+      "first_simulation_time": 1.364000000000001,
+      "last_simulation_time": 172.56400000009586,
+      "video_seconds": 15.0,
+      "fps": 12,
+      "video_sha256": "cf939d3a20a7f5d871015645df3b0fcf6958a6bb98f5ca9b8ac84b8e37619107",
+      "frames": [
+        {
+          "source": "outputs/online_relocation_200_01/episodes/2034101005/symbolic/feedback_000_side.npz",
+          "simulation_time": 1.364000000000001,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/online_relocation_200_01/episodes/2034101005/symbolic/feedback_002_side.npz",
+          "simulation_time": 45.69200000000988,
+          "kind": "Recorded side-camera observation",
+          "native_resolution": [
+            320,
+            240
+          ]
+        },
+        {
+          "source": "outputs/online_relocation_200_01/episodes/2034101005/symbolic/private_terminal_state.npz",
+          "simulation_time": 172.56400000009586,
+          "kind": "Terminal state re-render (archived)",
+          "native_resolution": [
+            640,
+            480
+          ]
+        }
+      ]
+    }
+  ]
+}

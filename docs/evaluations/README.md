@@ -72,6 +72,29 @@ These are explicitly labeled constructed task schematics, not recorded policy
 trajectories or additional experimental evidence. Policy input resolution and
 all original study outputs are unchanged.
 
+## Supplementary submission bundle
+
+[Submission guide](SUPPLEMENTARY_MATERIALS.md) ·
+[Sparse replay videos](videos/README.md) ·
+[Generated ZIP](../../dist/paper_supplement.zip)
+
+The ZIP contains self-contained `single_policy/`, `online/`, and `videos/`
+folders, a common README, and file hashes. Six selected successful Full examples
+use archived observations with explicit sparse-frame labels. Online terminal
+frames are separately labeled renders of archived states; no experiment is rerun.
+The video guide records selection, timing, and source coverage.
+
+Rebuild from the repository root:
+
+```bash
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MUJOCO_GL=egl \
+  .venv/bin/python scripts/render_submission_replays.py
+python scripts/package_paper_supplement.py
+```
+
+The ZIP and its checksum are generated under ignored `dist/`; video sources and
+metadata remain in this directory. The paper's PDF appendix is submitted separately.
+
 ## Using the materials
 
 The two subdirectories contain outcomes, resource tables, publication PDF/PNG
