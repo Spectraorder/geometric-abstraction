@@ -1,0 +1,7 @@
+task,arm,episodes,successes,usage_complete,episodes_with_unknown_tokens,incomplete_requests,recovered_interrupted_requests,recovered_interrupted_tokens,unknown_token_requests,timing_flagged,gpu_query_flagged,archive_recovered,mean_success,mean_capped_seconds,mean_total_tokens,mean_all_model_seconds,mean_completed_requests,mean_images,mean_camera_acquisitions,mean_action_seconds
+tower,Base,50,12,False,10,10,0,0,10,0,0,0,0.24,198.0324528867798,112502,55.549061296860046,7.88,7.5,112.24,139.0995110309003
+tower,Full,50,28,False,27,29,2,48785,27,0,0,0,0.56,185.26201904611966,129466.72,51.845338545459875,7.32,4.28,149.78,129.5889870646385
+ring,Base,50,49,False,4,4,0,0,4,0,0,1,0.98,115.84879016817983,214514.32,90.0410265465015,11.88,10.94,16.68,25.082021600279756
+ring,Full,50,50,False,1,1,0,0,1,0,0,1,1,77.22810300218107,101316.4,45.56316336614016,6.9,2.72,25.28,27.795290530138946
+relocation,Base,50,15,False,25,27,2,42011,25,0,0,0,0.3,186.42656833687965,185936.26,80.25443752571879,11.58,11.34,105.14,103.20816291003703
+relocation,Full,50,42,False,6,6,0,0,6,0,0,0,0.84,139.18193184629948,88337.54,31.69595141447907,5.36,3,113.32,104.50591054648898

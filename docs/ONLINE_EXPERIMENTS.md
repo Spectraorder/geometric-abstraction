@@ -1,5 +1,10 @@
 # Online geometric abstraction for agentic policy
 
+This is the historical **five-pair pilot report**. The completed 50-pair results,
+figures, and cohort sensitivities are in the
+[expanded report](evaluations/online_50/README.md); current paper fragments use
+that expansion. Pilot measurements below are preserved.
+
 ## Main finding
 
 We evaluate geometric abstraction during continuous language-model reasoning and
@@ -25,8 +30,8 @@ This report covers the completed `online_compact_tower_200_01`,
 Each was frozen before its reserved episodes. They were developed sequentially,
 not jointly registered as a three-task benchmark. Earlier online pilots,
 including null and unfavorable results, remain separate and are linked below.
-The [LaTeX fragment](paper/online_experiments.tex) condenses this report for the
-paper. [Data and figures](evaluations/online/README.md) sit beside the single-policy
+The [LaTeX fragment](paper/online_experiments.tex) now reports the expanded
+study. These original [data and figures](evaluations/online/README.md) sit beside the single-policy
 bundle in the [combined experiment index](evaluations/README.md).
 
 ## Experimental question and design

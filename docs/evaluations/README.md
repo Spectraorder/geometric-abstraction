@@ -31,32 +31,46 @@ Figures: [SR lines and cumulative token bars](single_policy/iteration_sr_tokens.
 
 ## Continuous online execution
 
-[Three-task report](../ONLINE_EXPERIMENTS.md) ·
-[CSV/JSON and figure index](online/README.md) ·
+[Expanded results and figure index](online_50/README.md) ·
+[Expansion protocol](../ONLINE_SAMPLE_EXTENSION_50.md) ·
+[Original five-pair report](../ONLINE_EXPERIMENTS.md) ·
 [Paper main text](../paper/online_experiments.tex) ·
 [Paper appendix](../paper/online_appendix.tex)
 
-Five fresh paired layouts per task; one episode per arm/layout; 200 seconds per
-episode with no reset after failure. The three separately registered studies
-total 30 episodes, 262 completed model requests, and nine interruptions with
-unknown token usage. Shared prior skills and action interfaces are matched within
-each task. All final source/resource and interface audits passed.
+Fifty paired layouts per task (original 5 + new 45), with one selected episode
+per arm/layout and 200 seconds without reset after failure. The revised analysis
+uses **282 original episodes + 18 audited repeats**, replacing both arms of all
+nine timing/GPU-flagged pairs. It contains 2,546 completed requests and 77
+interruptions; four usages are recovered and 73 remain unknown. Shared prior
+skills and action interfaces are matched within each task. Original outcomes,
+new-cohort summaries, runtime epochs, and paired sensitivities remain available.
 
 | Task | Success, Base / Full | Mean capped time, Base / Full | Mean recorded tokens per episode, Base / Full |
 | --- | ---: | ---: | ---: |
-| Bridge-tower construction | 2/5 / 4/5 | 195.91 / 174.13 s | 101,396 / 107,811 |
-| Ring over peg | 5/5 / 5/5 | 119.79 / 74.25 s | 233,831 / 93,023 |
-| Tower relocation | 2/5 / 3/5 | 190.61 / 164.32 s | 181,377 / 151,163 |
+| Bridge-tower | 12/50 / 28/50 | 198.03 / 185.26 s | 112,502 / 129,467 |
+| Ring-on-peg | 49/50 / 50/50 | 115.85 / 77.23 s | 214,514 / 101,316 |
+| Tower relocation | 15/50 / 42/50 | 186.43 / 139.18 s | 185,936 / 88,338 |
 
-Timeouts count as 200 seconds in the capped-time means. Token values are rounded
-means from completed receipts and exclude unknown interrupted usage. Full's
-recorded token use increases on Tower; improvements are task-dependent. Five
-pairs are exploratory, not a precise population success-rate estimate.
+Timeouts count as 200 seconds. Tokens include verified terminal usage and exclude
+unknown usage. Full's recorded token use increases on Tower; improvements are
+task-dependent. Two independently verified terminal-image archive recoveries
+remain included. The [replacement manifest](online_50/replacement_manifest.json)
+records the post-hoc reporting amendment and all original/repeat mappings.
+Superseded attempts and startup costs remain separate from selected-episode means.
+The original-attempt dataset and the sensitivity excluding all nine affected
+pairs are preserved; no best-of-two selection is used.
 
-Figures: [success, time, and token bars](online/outcome_bars.pdf),
-[success versus elapsed time](online/success_vs_time.pdf),
-[model time and token use](online/model_resources.pdf),
-[every paired completion time](online/paired_completion_times.pdf).
+Figures: [success, time, and token bars](online_50/outcome_bars.pdf),
+[success versus elapsed time](online_50/success_vs_time.pdf),
+[model time and token use](online_50/model_resources.pdf),
+[paired effects and sensitivity](online_50/paired_effects.pdf),
+[every paired completion time](online_50/paired_completion_times.pdf).
+All are available as PDF, PNG, and editable SVG.
+
+The [targeted repeat](../ONLINE_TARGETED_REPEAT.md) is complete and incorporated.
+The sample remains 50 pairs per task; it does not add independent layouts or
+isolate geometry/feedback components. The [original pilot exports](online/README.md)
+remain unchanged.
 
 ## Task illustrations
 
@@ -78,7 +92,8 @@ all original study outputs are unchanged.
 [Sparse replay videos](videos/README.md) ·
 [Generated ZIP](../../dist/paper_supplement.zip)
 
-The ZIP contains self-contained `single_policy/`, `online/`, and `videos/`
+The existing ZIP contains the **original five-pair online results**; it has not
+yet been rebuilt with `online_50/`. It contains self-contained `single_policy/`, `online/`, and `videos/`
 folders, a common README, and file hashes. Six selected successful Full examples
 use archived observations with explicit sparse-frame labels. Online terminal
 frames are separately labeled renders of archived states; no experiment is rerun.
@@ -97,7 +112,7 @@ metadata remain in this directory. The paper's PDF appendix is submitted separat
 
 ## Using the materials
 
-The two subdirectories contain outcomes, resource tables, publication PDF/PNG
+The result directories contain outcomes, resource tables, publication PDF/PNG
 figures, data dictionaries, and source hashes. The reports provide study
 attribution, protocol differences, all failures, and interpretation limits. The
 LaTeX fragments contain editable main-text prose, result tables, and captions.
@@ -110,6 +125,7 @@ Reproduce data and figures from the repository root:
 ```bash
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python scripts/export_single_policy_results.py
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python scripts/export_online_results.py
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python scripts/export_online_extension_results.py
 ```
 
 These commands read frozen evidence and run no simulations or model requests.

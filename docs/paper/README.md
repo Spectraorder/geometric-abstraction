@@ -2,8 +2,9 @@
 
 The main text uses the single-policy workflow and learning curve, followed by the
 online workflow, an outcomes/cost bar chart, and a model interaction cost plot.
-Detailed single-policy numbers and the online numerical table and success-versus-time
-plot are in appendix fragments.
+Detailed single-policy numbers and the online numerical table, success-versus-time
+plot, and paired-effects plot are in appendix fragments. Online figures and prose
+now use the completed 50-pair expansion; original five-pair exports remain intact.
 The shared [geometry appendix](geometric_abstraction_appendix.tex) explains
 RGB-D grounding, boundary and opening geometry, evidence, and text feedback,
 with short stacking and ring examples.
@@ -36,6 +37,7 @@ All image paths are relative to the paper root:
 - `figures/outcome_bars.png` (main text)
 - `figures/success_vs_time.png` (appendix)
 - `figures/model_resources.png` (main text)
+- `figures/paired_effects.png` (appendix)
 
 The local `figures/` entries link to canonical exports. When transferring the
 fragments to another paper project, copy the actual PNG files into its `figures/`
@@ -47,18 +49,27 @@ The single-policy table uses the `all_100` rows of
 plus/minus sample SD across five chains; tokens are cumulative per-chain means
 through R1, R2, and R3, matching the main figure.
 
-The online appendix table uses [arm_summary.csv](../evaluations/online/arm_summary.csv).
-All time/token entries are per-episode means across five episodes, including
+The online appendix table uses [arm_summary.csv](../evaluations/online_50/arm_summary.csv).
+All time/token entries are per-episode means across 50 episodes, including
 failures. Model time uses `mean_all_model_seconds`, including interrupted waits,
 matching the main-text resource plot; tokens use `mean_total_tokens` divided by
-1,000. Requests and Images divide `completed_requests` and `images` by five;
+1,000. Requests and Images use `mean_completed_requests` and `mean_images`;
 Images counts new attachments across all request attempts, not camera frames.
-Unknown interrupted usage remains excluded. These replace the earlier
-paper table's completed-request times and token sums across five episodes.
+Unknown interrupted usage remains excluded. The current report uses all 18
+audited repeats for nine historically flagged pairs; original outcomes and
+superseded costs remain available alongside paired sensitivities in the
+[expanded report](../evaluations/online_50/README.md). This reporting amendment
+was made after viewing the repeats, applies to both arms, and retains worse
+outcomes too. Intervals resample paired layouts, not individual model requests.
+Four terminal usages are verified from original CLI/session counters; 73 selected
+interrupted usages remain unknown. Completed requests still require a decision
+returned within the episode. Figures and the appendix table use the same
+selected 300-episode dataset.
 
 Detailed outcomes and protocols remain in the
 [single-policy report](../SINGLE_POLICY_RESULTS.md) and
-[online report](../ONLINE_EXPERIMENTS.md).
+[expanded online report](../evaluations/online_50/README.md). The
+[five-pair pilot report](../ONLINE_EXPERIMENTS.md) remains historical.
 
 The geometry appendix is based on the
 [methodology notes](../GEOMETRIC_ABSTRACTION_METHODOLOGY.md),

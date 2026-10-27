@@ -33,8 +33,10 @@ execute the submitted targets. Runtime inputs exclude simulator object truth and
 private evaluator state. Appendix~\ref{app:geometric-abstraction} details the
 visual grounding and text interface.
 
-Each task uses five fresh paired layouts, one episode per condition/layout
-(30 episodes overall). The environment resets once at initialization. For the
+Each task uses 50 paired layouts, with one selected episode per condition/layout
+(300 episodes in the analysis). This combines the original five-pair pilot with a
+separately registered extension of 45 new pairs per task. The environment resets
+once at initialization. For the
 next 200 seconds, the agent alternates decisions and execution until verified
 success or timeout, without resetting after failures. Physics continues during
 model waits. The clock includes initialization after reset, local sensing,
@@ -42,7 +44,11 @@ model requests, skill execution, and settling; the Ring grasp/lift is included.
 There are no injected disturbances. Success requires the target arrangement,
 release, and a stable hold. We report success counts and mean capped completion
 time, assigning 200 seconds to timeouts. Model time and recorded tokens are
-cumulative per-episode costs averaged over all five episodes, including failures.
+cumulative per-episode costs averaged over all 50 episodes, including failures.
+Both arms of nine layouts affected by timing/GPU faults were repeated once;
+all audited repeats replace those original attempts. The new cohort, original
+outcomes, and a sensitivity excluding these pairs are reported in
+Appendix~\ref{app:online-details}.
 
 \begin{figure*}[t]
   \centering
@@ -59,37 +65,42 @@ cumulative per-episode costs averaged over all five episodes, including failures
   \includegraphics[width=\textwidth]{figures/outcome_bars.png}
   \caption{\textbf{Online outcomes and cost.} Success within 200 seconds (left),
   mean capped completion time (middle), and mean cumulative recorded tokens per
-  episode (right). Each condition uses five paired layouts. All episodes enter
+  episode (right). Each task uses 50 paired layouts. All episodes enter
   the means; timeouts count as 200 seconds. Daggers mark unknown additional
-  interrupted token usage, excluded from recorded totals.}
+  interrupted token usage, excluded from recorded totals. Nine pairs use audited
+  repeats; paired intervals and sensitivity appear in the appendix.}
   \label{fig:online-outcomes}
 \end{figure*}
 
 \paragraph{More completions and earlier success.}
-Full completes more episodes on Bridge-tower (4/5 versus 2/5) and Relocation
-(3/5 versus 2/5), with lower mean capped time on both
-(Figure~\ref{fig:online-outcomes}). Ring provides the clearest paired timing
-comparison: both conditions succeed on all five layouts, and Full finishes
-sooner on every pair. Its mean completion time falls from 119.8 to 74.2 seconds,
-a 38.0\% reduction. Across these tasks, geometric feedback helps turn a fixed
-wall-clock budget into either more completed episodes or earlier completion.
+Full completes more episodes on Bridge-tower (28/50 versus 12/50) and Relocation
+(42/50 versus 15/50), with lower mean capped time on both
+(Figure~\ref{fig:online-outcomes}). The paired success differences are 32 and
+54 percentage points, with 95\% paired-bootstrap intervals of [16, 48] and
+[34, 72], respectively. Ring approaches ceiling success in both conditions
+(50/50 Full, 49/50 Base); its main benefit is earlier completion. Full has lower
+capped time on 45/50 pairs, and mean capped time falls from 115.8 to 77.2 seconds,
+a 33.3\% reduction. Relocation's mean capped time falls from 186.4 to 139.2
+seconds. The added layouts support the pilot's pattern of more construction
+completions and faster Ring placement under the same wall-clock budget.
 
 \paragraph{Less repeated model interaction.}
 Figure~\ref{fig:online-model-resources} shows cumulative model-request time
 and recorded tokens, together with variation across episodes. On Ring, Full
-reduces cumulative model time by 55.7\% and recorded tokens by
-60.2\%. Completed requests fall from 12.6 to 6.6 per episode, and image
-attachments from 12.4 to 2.0 per episode
+reduces cumulative model time by 49.4\% and recorded tokens by
+52.8\%. Completed requests fall from 11.88 to 6.90 per episode, and image
+attachments from 10.94 to 2.72 per episode
 (Table~\ref{tab:online-results}, Appendix~\ref{app:online-details}).
 Relocation shows a similar pattern: model time
-falls by 36.8\% and tokens by 16.7\%, while accumulated physical-action time is
-similar. Tower's gain instead accompanies fewer submitted placements, despite
-6.3\% higher recorded tokens and little change in cumulative model time.
+falls by 60.5\% and tokens by 52.5\%, while accumulated physical-action time is
+similar (103.2 versus 104.5 seconds). Bridge-tower's higher success instead comes
+with 15.1\% more recorded tokens and only 6.7\% lower cumulative model time.
+Reduced token consumption is therefore task-dependent.
 
 \begin{figure*}[t]
   \centering
   \includegraphics[width=\textwidth]{figures/model_resources.png}
-  \caption{\textbf{Model interaction cost.} Bars are means over all five episodes,
+  \caption{\textbf{Model interaction cost.} Bars are means over all 50 episodes,
   including timeouts; points show individual episodes. Left: cumulative request
   wall time, including interrupted waits. Right: recorded input-plus-output tokens,
   counting cached input once. Triangles identify unknown additional interrupted
@@ -102,7 +113,9 @@ all three tasks. This is consistent with the intended role of geometric
 abstraction: local perception supplies actionable state, reducing repeated
 visual interpretation during interaction. The benefit concerns the complete
 reasoning-and-execution loop, including action choices and request frequency.
-These five-layout studies are exploratory; they compare the supplied geometry
-and feedback package with matched skills, rather than isolating text format or
-model inference speed. Appendix~\ref{app:online-details} gives the numerical
-results and success-versus-time curves.
+The expansion measures variation across more layouts, with one selected episode
+per condition/layout. It still compares the supplied geometry and feedback package
+with matched skills; it does not isolate measurement quality, symbolic references,
+text format, or model inference speed. Appendix~\ref{app:online-details} gives
+cohort results, paired intervals, runtime sensitivities, and success-versus-time
+curves.
