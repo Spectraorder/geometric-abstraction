@@ -585,3 +585,111 @@ for read-only evidence aggregation; keep frozen runtime sources and original
 artifacts unchanged. The user agreed to retain the 200-second online studies as
 the primary results. No 300-second rerun or extra layouts are authorized by this
 reporting and commit cleanup. New experiments require a separate user request.
+
+The user subsequently authorized expanding each of the three primary online tasks
+to 50 paired layouts including the original five: exactly 270 new episodes and
+300 combined. Use `run_online_extension_study.py` and `online_extension_50_01`,
+with 45 new pairs per task, the original 200-second budgets, unchanged episode
+implementations/skills/prompts/evaluators and four global workers. Freeze the
+extension separately, preserve pilot artifacts and disclose the pinned client
+version change. Audit each complete-pair batch before further dispatch. Report
+new-45 and pooled-50 results separately; this does not authorize ablations,
+repeated runs per layout, automatic retries, replacement seeds or extra time.
+See `docs/ONLINE_SAMPLE_EXTENSION_50.md`.
+
+The online extension's first two startup batches failed before any submitted
+policy action because the copied newer client omitted its required host helper.
+Eight attempts and 98,036 recorded tokens are preserved as infrastructure overhead.
+The active registration is `online_extension_50_01/client_bundle_02`, prepared by
+`prepare_online_extension_bundle_repair.py`: full pinned client bundle, Code Mode
+tool disabled, unchanged strict actor audit and original 270 fixed episode slots.
+An offline actual-exec startup check passed. Follow the root `continuation.json`
+for progress; do not resume either earlier stopped registration. Further failures
+stop dispatch without automatic retries. Preserve all source and client hashes.
+
+The client-bundle extension stopped after 48 completed episodes when two Ring
+episodes exceeded the unchanged two-second lag threshold. An unattended NVIDIA
+userspace update mismatched the loaded module. The user explicitly requested
+repair: use `resume_online_extension_gpu.py` and the separate `gpu_resume_01`
+amendment to dispatch only 222 unstarted slots, preserving all 48 outcomes and
+original STOP receipts. A private 580.173.02 userspace runtime matches the loaded
+module without system installation or reboot; NVIDIA EGL and four-process scene
+pacing checks passed. GPU checks precede every new batch; four workers, 200-second
+budgets, frozen episode sources and strict audits remain unchanged. Historical
+timing/GPU flags must remain visible in all-slot results and separately labeled
+paired sensitivity summaries. No retries or replacements are authorized. Follow
+the top-level continuation pointer; do not restart the old coordinator.
+
+The GPU continuation stopped after 160 outcomes on a second Ring timing violation
+despite healthy NVIDIA rendering. Repeated unavailable sensor fits accumulated
+lag within the shared grasp prefix. The user authorized continuation: use
+`resume_online_extension_camera.py` and `camera_resume_01` for only the 110
+unstarted slots. A registered process-local Ring camera hook advances elapsed
+physics before sampling, symmetrically in both arms; frozen episode sources,
+geometry algorithms, skills, prompts, 200-second budgets and two-second lag gates
+remain intact. Four-process development grasp/sensing stress checks passed.
+Preserve all 160 earlier outcomes, four timing flags, sixteen GPU-query flags and
+both STOP receipts. Disclose the runtime amendment and separate runtime epochs
+in summaries. No replacements, automatic retries or additional slots are allowed.
+
+The user explicitly requested continuous monitoring and debugging until the
+registered online expansion finishes. Continue diagnosing stopped batches and
+registering repairs for unstarted slots without requesting authorization again;
+do not replay episodes, replace seeds, increase budgets or change policies.
+The camera continuation stopped at 168 outcomes because final Ring illustration
+capture re-entered physics after terminal success. The two affected outcomes
+were independently verified from already archived physical and actor evidence
+in a separate derived audit view; raw result errors and missing images remain
+recorded. `resume_online_extension_terminal.py` and `terminal_resume_01` continue
+only 102 unstarted slots. Live camera pacing is unchanged; terminal capture stops
+advancing physics once terminal-state archiving begins. Success and timeout
+development checks passed without model calls. Preserve four historical timing
+flags, sixteen GPU-query flags, two archive-recovery labels and every STOP receipt.
+Follow `continuation.json`, retain strict gates, and finish the registered 270
+new episodes before reporting the 300-episode combined study complete.
+
+The 50-pair online expansion is complete: 270 new episodes plus 30 original
+episodes, 300 total and exactly 50 paired layouts per task. The terminal
+continuation exited normally after its final 102-episode strict audit passed.
+`terminal_resume_01/completion_audit.json` verifies slot coverage, all result
+hashes, pairing, budgets, resets, CSV arithmetic and archival provenance.
+Keep four historical timing flags, sixteen GPU-query flags and two independently
+verified image-only archive recoveries visible; no prior error was erased or
+episode replaced. Final results and paired sensitivities are in its `summary.json`
+and `episodes.csv`, linked from `docs/ONLINE_SAMPLE_EXTENSION_50.md`. Do not resume
+any completed or stopped coordinator or add attempts without a new user request.
+The original-five paper exports remain historical and have not been overwritten.
+
+The user requested consolidated figures for the completed expansion. Use the
+read-only `export_online_extension_results.py` exporter and
+`docs/evaluations/online_50/` for current 50-pair reporting. The original
+`docs/evaluations/online/` exports remain untouched. Current online paper
+fragments and figure links use the expanded cohort, with paired intervals,
+new-45 and quality-sensitivity results and unknown-token markers. The existing
+supplement ZIP still packages the historical five-pair export; rebuilding that
+submission is separate from this figure update. Do not rerun any episode.
+
+The user subsequently requested recovery of verifiable interrupted usage and
+rerunning problematic episodes. The separate targeted repeat selects the nine
+timing/GPU-flagged layout pairs (18 episodes), both arms once, 200 seconds and
+four workers, under `outputs/online_targeted_repeat_01/`. Use
+`run_online_targeted_repeat.py`; preserve all original outcomes and report the
+selected repeats side by side, never as silent replacements or best-of-two.
+The current NVIDIA module/userspace 580.178.04 passes fresh four-worker preflight;
+do not reuse the obsolete private 580.173.02 runtime. Ring camera pacing v2,
+original prompts/skills/model, strict audit gates and stop-on-failure remain.
+Normal success/deadline request cancellations do not select repeats. The primary
+online export now recovers 90,796 terminal tokens from four agreeing original
+CLI/session counter pairs; 72 interrupted usages remain unknown. Frozen source
+results and completed decision counts are unchanged. See
+`docs/ONLINE_TARGETED_REPEAT.md` for selection and provenance.
+
+After all 18 targeted repeats passed audit, the user explicitly requested merging
+them into the primary results and updating figures/data. This supersedes the
+separate-only reporting rule: replace both arms of all nine selected pairs with
+their one audited repeat, regardless of outcome. Keep exactly 50 pairs per task,
+preserve raw originals and the previous export, record the post-hoc reporting
+amendment in `online_targeted_repeat_01/report_integration_01`, and retain original
+versus repeated outcomes and historical-flag sensitivity. Report superseded
+attempt costs separately from the selected 300-episode means. No new episodes,
+best-of-two selection, or changes to frozen experiment sources are authorized.
