@@ -189,8 +189,16 @@ bars. The jitter is deterministic and has no measured horizontal meaning.
 From the repository root:
 
 ```bash
+# Verify evidence and statistics without writing exports.
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python scripts/export_online_extension_results.py --check
+
+# Regenerate the canonical data and figures.
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python scripts/export_online_extension_results.py
 ```
+
+Use `--output /tmp/online-report` to rebuild into a separate directory for comparison.
+The [reporting modules](../../../scripts/README.md) separate evidence validation,
+statistics, and plotting; `provenance.json` records their hashes alongside the CLI.
 
 The exporter verifies the completion receipt's summary/CSV hashes, every original
 result hash, paired initial states, all completed/interrupted request totals,

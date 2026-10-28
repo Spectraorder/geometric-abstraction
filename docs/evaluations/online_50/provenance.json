@@ -35,7 +35,13 @@
     "superseded_attempts.csv": "fc719f57fdd1c4abc317dbbd40974b78f6e60482a2aff4d3394836ad8c62fac8"
   },
   "exporter": "scripts/export_online_extension_results.py",
-  "exporter_sha256": "3fdc0fea4f61e6222cca9d5e15863cbb64f80a6efb62ea84b922fa35e38029fa",
+  "exporter_sha256": "178959fabf0c98cd235e8178ec395bd59cc9a8f61d9b539c2761f0e9a2478451",
+  "report_module_sha256": {
+    "scripts/online_reporting/__init__.py": "915958f57336d03b36d23674290b345d56c6feff8e6aeb77062a583d4c3cb3f0",
+    "scripts/online_reporting/analysis.py": "9f4587a05977e8476a3eddfa992716f7364b5e90cf08b2a7c44e713807b97997",
+    "scripts/online_reporting/evidence.py": "e2e22039e52ba3e7a53135d70cc62bc78c42d09f0f781c6c917ca0b5222990c5",
+    "scripts/online_reporting/plotting.py": "8007e29f4047fb6ff0adbd78fd65493d81f81c484e001e6201a1141556ad2519"
+  },
   "source_files": {
     "outputs/online_compact_tower_200_01/episodes/2028105001/basic/context_000/decision_000/receipt.json": "6a41f0c50c5080d89402bbb5fa3ed56feeaf011bb0d24b31ccb9814b6428f5e9",
     "outputs/online_compact_tower_200_01/episodes/2028105001/basic/context_000/decision_001/receipt.json": "ac17646f7e89e68eaadbb15f5a9f60a84969c2c986fed0d7cc888e38d1d36f54",

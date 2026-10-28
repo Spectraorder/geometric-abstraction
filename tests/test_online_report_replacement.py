@@ -4,7 +4,7 @@ import sys
 import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from export_online_extension_results import substitute_pairs
+from online_reporting.analysis import substitute_pairs
 
 
 class ReportReplacementTests(unittest.TestCase):
