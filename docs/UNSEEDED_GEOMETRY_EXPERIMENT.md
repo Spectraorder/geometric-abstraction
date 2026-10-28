@@ -112,13 +112,13 @@ prior study, and its frozen source checks still pass. Evidence is in the new roo
 The user subsequently authorized training. All three turns per arm completed,
 selecting Base R3 at 2/5 and Full R2 at 3/5. The audit verified 35 executed training
 rollouts and five invalid candidate slots, with no reserved evaluation. See
-[the completed training report](UNSEEDED_GEOMETRY_TRAINING_RESULTS.md) for interface
+[the completed training report](history/early_geometry/UNSEEDED_GEOMETRY_TRAINING_RESULTS.md) for interface
 failures, corrected token accounting and the postprocessing repair.
 
 The later authorized reserved evaluation is now complete: Base R3 scored 6/20
 and Full R2 scored 12/20. All 160 reserved slots were accounted for (140 executed
 rollouts and 20 invalid-candidate slots), with final audit passed and no model
-calls. See [the completed test report](UNSEEDED_GEOMETRY_TEST_RESULTS.md) for full
+calls. See [the completed test report](history/early_geometry/UNSEEDED_GEOMETRY_TEST_RESULTS.md) for full
 curves, paired statistics, runtime metrics and interpretation limits.
 
 For subsequent runs, a separate [shared interface contract variant](INTERFACE_CONTRACT_EXPERIMENT.md)

@@ -1,5 +1,10 @@
 # Running a new geometry-abstraction experiment
 
+This guide describes the earlier capable-starter comparison. For the completed
+paper studies and current reporting commands, use the [documentation index](README.md)
+and [script guide](../scripts/README.md). Study-specific protocols supersede the
+defaults below.
+
 Run commands from the `aspire_so100/` repository root, using Bash. This guide is
 for a **new** Visual Base versus Full geometry comparison on the cleaned code.
 It does not resume the budget-stopped historical study. Writing or reading this
@@ -504,7 +509,7 @@ The user subsequently authorized the complete reserved evaluation. All 120
 reserved rollouts finished, and `audit_final.json` reports 150 total valid
 rollouts, zero invalid slots and completed provenance checks. Training-selected
 Base R0 scored 6/20 (30%); Full R2 scored 9/20 (45%). See
-[the completed result](GEOMETRY_DIAGNOSTIC_RESULTS.md) for full curves, paired
+[the completed result](history/early_geometry/GEOMETRY_DIAGNOSTIC_RESULTS.md) for full curves, paired
 regressions, resources and limits. The prior statements about an unused reserved
 set describe the earlier training-only phase.
 
@@ -544,7 +549,7 @@ The five-round continuation completed and passed audit: 30 additional valid
 training rollouts, zero invalid slots and six additional actor turns. Base R5
 reached 4/5, matching Full's retained R2; R3/R4 did not improve either arm and
 Full R5 also remained at 4/5. No new reserved evaluation was run. See
-[the five-round report](GEOMETRY_FIVE_ROUND_TRAINING.md) for complete curves,
+[the five-round report](history/early_geometry/GEOMETRY_FIVE_ROUND_TRAINING.md) for complete curves,
 remaining failure diagnostics and corrected token accounting. Persistent-session
 CLI usage is cumulative: use verified per-turn counter differences, not sums of
 `generation.json` usage fields. `extension_05/resource_accounting.json` provides
@@ -559,7 +564,7 @@ and Full R2 were evaluated: 40 rollouts, four workers, no actor calls or policy
 changes. All rollouts and provenance checks passed. Base scored 15/20 (75%);
 Full scored 14/20 (70%). The paired outcomes were 13 shared successes, two Base-only
 successes, one Full-only success and four shared failures (exact McNemar p=1.0).
-See [fresh test results](GEOMETRY_FRESH_TEST_RESULTS.md) for runtime metrics,
+See [fresh test results](history/early_geometry/GEOMETRY_FRESH_TEST_RESULTS.md) for runtime metrics,
 limitations and reproducible audit instructions. Earlier statements about no new
 reserved evaluation describe the training phase, before this authorization.
 
@@ -579,7 +584,7 @@ Updating this guide does not start another training campaign.
 selected Base R3 (2/5) and Full R2 (3/5), with 35 executed training rollouts and
 five invalid candidate slots. All six actor contexts and hypothesis reviews passed
 audit. Reserved evaluation remains unstarted. See the
-[neutral-start training results](UNSEEDED_GEOMETRY_TRAINING_RESULTS.md) for the
+[neutral-start training results](history/early_geometry/UNSEEDED_GEOMETRY_TRAINING_RESULTS.md) for the
 generated-code interface errors, resource totals and interpretation limits.
 
 The user subsequently authorized the registered neutral-start test evaluation.
@@ -588,7 +593,7 @@ slots. Final selected Base R3 scored 6/20 (30%); Full R2 scored 12/20 (60%). Ful
 scored 10/20 and remains rejected under the training-only guard. The paired selected
 comparison has five shared successes, seven Full-only successes, one Base-only
 success and seven shared failures (exact McNemar p=0.0703125). Final audit passed.
-See [the neutral-start test results](UNSEEDED_GEOMETRY_TEST_RESULTS.md). Earlier
+See [the neutral-start test results](history/early_geometry/UNSEEDED_GEOMETRY_TEST_RESULTS.md). Earlier
 statements about unstarted reserved evaluation refer to the training phase.
 
 ## Completed five-round shared-interface training
@@ -599,7 +604,7 @@ module-assignment and action-status-type errors did not recur. Both R5 candidate
 exceeded the source budget and remain invalid slots; the retained R4 policies are
 unchanged. The audit verifies 50 executed training rollouts, ten invalid slots and
 ten actor turns. Reserved evaluation remains unstarted. See
-[the training report](INTERFACE_CONTRACT_TRAINING_RESULTS.md) for resource totals
+[the training report](history/early_geometry/INTERFACE_CONTRACT_TRAINING_RESULTS.md) for resource totals
 and the cost of extending beyond three rounds.
 
 ## Expanded source limit for new interface-guided runs
@@ -620,7 +625,7 @@ completed 40 rollouts on 20 shared layouts with four workers: Base R4 scored
 12/20 (60%), Full R4 scored 8/20 (40%). Paired outcomes were eight shared successes,
 four Base-only successes and eight shared failures (exact McNemar p=0.125).
 Audit passed; evaluation took 84.08 seconds and made no model calls. See
-[the test report](INTERFACE_CONTRACT_TEST_RESULTS.md) for efficiency measurements,
+[the test report](history/early_geometry/INTERFACE_CONTRACT_TEST_RESULTS.md) for efficiency measurements,
 failure accounting and limitations. The original full-revision test protocol
 remains incomplete; the newer 50000-character configuration was not evaluated.
 

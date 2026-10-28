@@ -1,64 +1,77 @@
-# CPU geometric abstraction for agentic manipulation
+# Geometric abstraction for agentic manipulation
 
-This project converts calibrated RGB-D observations of simple rigid blocks into
-compact, target-focused geometric state for policy reasoning. Perception, geometry
-and policy execution run on CPU; simulation and rendering may use GPU.
+This project converts calibrated visual observations of simple rigid objects into
+metric geometry, symbolic references, and compact text for language-model policies.
+Perception, geometric estimation, and policy control run on CPU; simulation and
+rendering may use GPU. The experiments use a simulated SO-100 robot in MuJoCo.
 
-The current comparison is **Visual Base versus Full geometry** with the same
-hidden visual pick/place actuator. Neither policy receives simulator object poses,
-dimensions, contacts or evaluator state. The task is a low-rise bridge with two
-cubes, a thin prism and a cylinder, with unique colors and varied layouts.
+We study two settings:
 
-## Read first
+- **Single-policy acquisition:** an LLM revises a Python policy between reset
+  rollouts. The three tasks are Bridge + cylinder, three-cube stacking, and
+  ring-on-peg placement. Each task uses five paired training chains, R0–R3,
+  and 100 shared held-out layouts.
+- **Continuous online execution:** an LLM uses shared prior skills in one scene
+  until success or a 200-second timeout, without resetting after failures.
+  Bridge-tower, Ring-on-peg, and Tower relocation each have 50 paired layouts.
 
-- [Run experiments](docs/RUN_EXPERIMENTS.md): setup, registration, training, testing and audit.
-- [Documentation index](docs/README.md): method, interface, protocol and results.
-- [Method](docs/METHOD.md): what the abstraction contains and how it updates.
-- [Latest results](docs/PARTIAL_GEOMETRY_BUDGET_LIMITED_RESULTS.md): preliminary,
-  budget-limited evidence, including failures and regressions.
+Base and Full share the action interface within each task. Full additionally
+receives supplied geometry and feedback. Runtime policies do not receive simulator
+object poses, dimensions, contacts, or private evaluator state.
 
-Historical source archives and generated policy copies are kept in Git history,
-not duplicated in the active tree.
+## Start here
 
-The latest campaign stopped at **103 reserved rollouts**, following 192 training
-rollouts. In the tested chain, first-revision SR is 20% for Base and 75% for Full,
-from a common 40% starter. This does not establish a stable advantage across
-independent learning chains. Do not resume evaluation without a new user request.
+- [Results, data, and figures](docs/evaluations/README.md): the six paper comparisons.
+- [Single-policy results](docs/evaluations/single_policy/README.md) and
+  [50-pair online results](docs/evaluations/online_50/README.md): tables, plots, and provenance.
+- [Methodology](docs/GEOMETRIC_ABSTRACTION_METHODOLOGY.md): geometric grounding and the policy interface.
+- [Paper sources](docs/paper/README.md): editable LaTeX and figure links.
+- [Script guide](scripts/README.md): reporting commands and experiment entry points.
+- [Documentation index](docs/README.md): protocols, implementation, and historical studies.
 
-## Local environment and checks
+## Local setup and verification
 
 The project requires Python 3.14+ and uses `uv.lock`:
 
 ```bash
 uv sync --locked
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MUJOCO_GL=egl \
-  uv run python -m unittest discover -s tests -p 'test_partial_geometry.py' -v
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
+  uv run python -m unittest discover -s tests -p 'test_online_*.py'
 ```
 
-To regenerate paired outcome analysis from existing local records without new
-rollouts or model calls:
+With the original experiment archives available locally, verify the current online
+report without exporting files, or regenerate data and figures into a separate directory:
 
 ```bash
-uv run python scripts/analyze_budget_limited_pairs.py
+uv run python scripts/export_online_extension_results.py --check
+uv run python scripts/export_online_extension_results.py --output /tmp/online-report
 ```
 
-The analysis requires the retained `outputs/constraint_geometry_learning_replications_01`
-folder. Raw rollouts and local credentials are ignored by Git; this repository
-contains code, fixtures, reports and selected visual evidence, not the complete
-raw dataset. Do not assume a fresh clone includes experiment recordings.
+These commands make no model requests and run no experiments. The default export
+destination is `docs/evaluations/online_50`. The report uses 282 original episodes
+and 18 audited repeats replacing both arms of nine affected layout pairs;
+original outcomes, costs, and the reporting amendment remain available.
+
+Raw experiment archives under `outputs/` are ignored by Git and may reside on a
+separate disk. A fresh clone contains code, fixtures, reports, and selected visual
+evidence, but not every raw observation or model transcript. Regeneration needs
+those archives; the published CSV/JSON exports can be read without them.
 
 ## Repository layout
 
 | Directory | Purpose |
 | --- | --- |
-| `policies/` | Canonical controllers, shared sessions, compact state and starters |
 | `src/aspire_so100/` | CPU perception/control and simulation integration |
-| `scripts/` | Frozen experiment drivers, auditing and analysis |
-| `tests/` | Interface, geometry, provenance and recorded-fixture checks |
-| `docs/` | Current documentation, evaluation summaries and figures |
-| `docs/history/` | Earlier designs, experiments and the old project guide |
+| `policies/` | Controllers, shared sessions, geometric state, and policy scaffolds |
+| `prototypes/` | Opt-in geometry extensions and development components |
+| `scripts/` | Experiment drivers, audits, reporting, and rendering |
+| `scripts/online_reporting/` | Current online evidence validation, statistics, and plotting |
+| `tests/` | Geometry, interface, accounting, and provenance checks |
+| `docs/evaluations/` | Consolidated data and publication figures |
+| `docs/paper/` | Paper text and appendices |
+| `docs/history/` | Earlier designs and experiment guides |
 
-Current experiment actors do **not** load a task-skill library. They receive the
-registered interface, starter and their own bounded training feedback. Historical
-controllers and scripts remain when needed to reproduce earlier results or build
-shared components. Start from the documentation index rather than old launch commands.
+Registered runtime sources and recorded evidence are frozen. Use the matching
+study protocol when inspecting an experiment; older launch commands do not resume
+or extend completed studies. Reporting code reads existing evidence separately
+from simulation and actor execution.

@@ -83,4 +83,4 @@ The 20 reserved seeds 2027012701–2027012720 remain unused. The existing standa
 full-curve evaluation registers 240 test slots (R0–R5 for each arm); R5 would
 contribute 40 invalid slots. Testing just the two selected policies requires a
 separate 40-slot protocol. See the
-[experiment guide](INTERFACE_CONTRACT_EXPERIMENT.md) for configuration details.
+[experiment guide](../../INTERFACE_CONTRACT_EXPERIMENT.md) for configuration details.

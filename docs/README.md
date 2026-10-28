@@ -1,128 +1,88 @@
-# Current experiment documentation
+# Documentation index
 
-Start with [Running experiments](RUN_EXPERIMENTS.md) for commands and budget accounting.
-For background, use the documents below; historical material is optional.
+## Current paper results
 
-The new [three-cube stacking study](THREE_CUBE_GEOMETRY_STUDY.md) uses the updated
-geometry bundle and plans all iteration curves before training.
+The [combined experiment index](evaluations/README.md) collects the three
+single-policy and three online tasks, with data, figures, and source attribution.
 
-All six completed primary studies are collected in the
-[combined paper experiment index](evaluations/README.md), with reports, data, and figures.
+| Setting | Results and data | Paper text |
+| --- | --- | --- |
+| Single-policy acquisition | [Report](SINGLE_POLICY_RESULTS.md), [exports](evaluations/single_policy/README.md) | [Setup](SINGLE_POLICY_EXPERIMENTS.md), [main text](paper/single_policy_experiments.tex), [appendix](paper/single_policy_appendix.tex) |
+| Online, 50 paired layouts per task | [Results and figures](evaluations/online_50/README.md), [expansion](ONLINE_SAMPLE_EXTENSION_50.md), [paired repeats](ONLINE_TARGETED_REPEAT.md) | [Main text](paper/online_experiments.tex), [appendix](paper/online_appendix.tex) |
 
-For paper preparation, see [Geometric abstraction for agentic policy](GEOMETRIC_ABSTRACTION_METHODOLOGY.md),
-covering the text and symbolic interface, single-policy training, and continuous online evaluation.
-The [single-policy experiment setup](SINGLE_POLICY_EXPERIMENTS.md) collects the bridge,
-stacking, and ring protocols, with a [paper-ready LaTeX fragment](paper/single_policy_experiments.tex).
-The [consolidated single-policy results](SINGLE_POLICY_RESULTS.md) collect all three
-completed comparisons, with [CSV/JSON data and publication figures](evaluations/single_policy/README.md).
-The [online experiment report](ONLINE_EXPERIMENTS.md) brings together the completed
-200-second Tower, Ring, and Relocation comparisons, including all paired outcomes and resources,
-with a [paper-ready online LaTeX fragment](paper/online_experiments.tex).
-The completed [contract-only bridge study](BRIDGE_CONTRACT_ONLY_STUDY.md) evaluates
-all revisions on 100 shared layouts with executor source withheld; it is the primary
-Bridge result in the consolidated report.
+The online report incorporates all nine audited repeat pairs, including regressions.
+Original attempts, runtime epochs, unknown token usage, and paired sensitivities
+remain available. The [original five-pair report](ONLINE_EXPERIMENTS.md) and
+[exports](evaluations/online/README.md) are historical results.
 
-The [online bridge-tower pilot](ONLINE_BRIDGE_TOWER_PILOT.md) completed 20 episodes
-with shared skills, no resets within an episode and explicit latency metrics.
-The [results](ONLINE_BRIDGE_TOWER_RESULTS.md) report equal 60% success, fewer Full
-image attachments, and limited end-to-end time savings.
+For figure and submission work, see the [paper source guide](paper/README.md),
+[method and pitch figures](media/README.md),
+[task illustrations](evaluations/task_illustrations/README.md), and
+[supplementary materials](evaluations/SUPPLEMENTARY_MATERIALS.md). The existing
+supplement ZIP still contains the original five-pair online report.
 
-1. [Method](METHOD.md): compact geometry, state updates and limitations.
-2. [Base/Full interface](VISUAL_INPUT_COMPARISON.md): matched input and action boundary.
-3. [Latest results](PARTIAL_GEOMETRY_BUDGET_LIMITED_RESULTS.md): all retained reserved batches and paired outcomes.
-4. [Registered protocol](PARTIAL_GEOMETRY_LEARNING_PROTOCOL.md): original design and provenance.
-5. [Previous completed comparison](VISUAL_INPUT_LEARNING_RESULTS.md): independent chains and mixed/negative evidence.
+## Method and implementation
 
-The current campaign is stopped at the user's test budget. The protocol retains
-its original bytes for hash verification, including historical progress statements
-and the original 480-slot plan. Those statements do not authorize restarting it;
-the latest results and `AGENTS.md` describe the current execution boundary.
+- [Geometric abstraction for agentic policy](GEOMETRIC_ABSTRACTION_METHODOLOGY.md):
+  geometric grounding, typed references, textual state, and worked examples.
+- [Short method overview](METHOD.md) and [Base/Full interface](VISUAL_INPUT_COMPARISON.md).
+- [Implementation appendix](paper/geometric_abstraction_appendix.tex).
+- [Point-based geometry design](NOVEL_OBJECT_GEOMETRY_DESIGN.md) and
+  [validation](NOVEL_OBJECT_GEOMETRY_VALIDATION.md): observer scope and evidence labels.
+- [Policy build instructions](../policies/README.md): canonical controllers and sessions.
+- [Script guide](../scripts/README.md): reporting commands, module map, and frozen drivers.
 
-The [online Ring study](ONLINE_RING_STUDY.md) adds staged alignment and release
-with a shared trained grasp skill, continuous execution and a fixed five-pair budget.
+## Protocols for the paper studies
 
-## Supporting diagnostics
+| Task | Protocol |
+| --- | --- |
+| Single-policy Bridge + cylinder | [Contract-only bridge](BRIDGE_CONTRACT_ONLY_STUDY.md) |
+| Single-policy three-cube stacking | [Contract-only stacking](THREE_CUBE_CONTRACT_ONLY_STUDY.md) |
+| Single-policy Ring-on-peg | [Paired ring study](RING_PEG_COMPARISON_STUDY.md) |
+| Online Bridge-tower | [200-second study](ONLINE_COMPACT_TOWER_200_STUDY.md) |
+| Online Ring-on-peg | [Staged alignment and release](ONLINE_RING_STUDY.md) |
+| Online Tower relocation | [Relocation study](ONLINE_TOWER_RELOCATION_STUDY.md) |
+| Online expansion and repeats | [50-pair expansion](ONLINE_SAMPLE_EXTENSION_50.md), [targeted repeat](ONLINE_TARGETED_REPEAT.md) |
 
-- [Point-based novel-block geometry](NOVEL_OBJECT_GEOMETRY_DESIGN.md): current design, API and tests.
-- [Novel-block validation](NOVEL_OBJECT_GEOMETRY_VALIDATION.md): physical diagnostics, isolated variants, results and reproduction commands.
-- [Conditional motion memory](CONDITIONAL_ATTACHMENT_EVIDENCE.md): offline point/region transport, contradictions and uncertainty.
-- [Explicit release/reacquisition](EXPLICIT_OPEN_GRIPPER_PROTOTYPE.md): separate human-designed counterfactual, not agent-learning evidence.
+Single-policy actors revise one executable program between rollouts. Online
+agents instead use shared prior skills and make decisions within an episode.
+These settings have different resource budgets and experimental units.
 
-The motion-memory and release/reacquisition documents remain here because the registered protocol links them.
-Their prototypes are not additional treatment arms.
+## Development and diagnostics
 
-## Historical material
+- [Event-driven execution](ONLINE_EVENT_DRIVEN_DEVELOPMENT.md): segmented actions,
+  exception handling, and bounded interaction history.
+- [Reasoning-state development](ONLINE_REASONING_STATE_DEVELOPMENT.md): geometric
+  feedback, physical failures, and contact-evaluator diagnostics.
+- [Explicit target binding](ONLINE_TARGET_BINDING_DEVELOPMENT.md) and
+  [compact geometric text](ONLINE_COMPACT_GEOMETRY_TEXT.md).
+- [Ring training pilot](RING_PEG_SINGLE_POLICY.md) and
+  [timeout diagnosis](RING_PEG_TIMEOUT_DIAGNOSIS.md).
+- [Conditional motion memory](CONDITIONAL_ATTACHMENT_EVIDENCE.md) and
+  [release/reacquisition prototype](EXPLICIT_OPEN_GRIPPER_PROTOTYPE.md).
 
-Earlier designs, task controllers, papers and experiments are in
-[the history index](history/README.md). Machine-readable evidence remains in
-`evaluations/`, and figures remain in `media/`, preserving source paths and hashes.
-The archives retain failures as well as successes; they are not current instructions.
+Development checks and prototypes are separate from the paper comparisons.
+Their reports retain failed checks as well as successful ones.
 
-The historical single-policy comparison uses no task-skill library: its actors
-receive the registered interface and their own training feedback. The separate
-online bridge-tower pilot adapts two training-selected policies into shared skills.
-Old task guidance and actor-loop code remain in Git history.
+## Earlier studies
 
-## Development after cleanup
+These documents explain how the interfaces developed; their launch commands and
+progress statements describe the corresponding historical study.
 
-Task controllers now have one canonical source under `policies/controllers/`.
-Standalone candidates are generated on demand; shared geometry, prediction and
-relation capabilities remain in `src/aspire_so100`. See the
-[policy build instructions](../policies/README.md).
+- [Budget-limited geometry results](PARTIAL_GEOMETRY_BUDGET_LIMITED_RESULTS.md),
+  [registered protocol](PARTIAL_GEOMETRY_LEARNING_PROTOCOL.md), and
+  [earlier visual-input comparison](VISUAL_INPUT_LEARNING_RESULTS.md).
+- [Three-cube study with executor source disclosed](THREE_CUBE_GEOMETRY_STUDY.md).
+- [Online bridge-tower pilot](ONLINE_BRIDGE_TOWER_PILOT.md) and
+  [results](ONLINE_BRIDGE_TOWER_RESULTS.md).
+- [Controlled recovery](ONLINE_CONTROLLED_RECOVERY.md) and
+  [results](ONLINE_CONTROLLED_RECOVERY_RESULTS.md).
+- [Explicit-target comparison](ONLINE_TARGET_BINDING_STUDY.md) and
+  [results](ONLINE_TARGET_BINDING_RESULTS.md).
+- [Original five-pair Tower results](ONLINE_COMPACT_TOWER_200_RESULTS.md).
+- [Early geometry-training reports](history/early_geometry/README.md): diagnostic,
+  five-round, observation-only, and interface-contract studies.
+- [Earlier experiment guide](RUN_EXPERIMENTS.md) and [history index](history/README.md).
 
-Historical manifests and raw results are unchanged. New experiments register
-current sources; the cleaned tree is not required to reproduce every historical
-source layout. Use Git history if an old implementation needs inspection.
-
-For the separate optimization attempt, see
-[event-driven online development](ONLINE_EVENT_DRIVEN_DEVELOPMENT.md): cooperative
-motion boundaries, exception-triggered reasoning, retry suppression and bounded
-conversation history. These changes do not modify the completed pilot.
-
-The [controlled online recovery study](ONLINE_CONTROLLED_RECOVERY.md) completed
-five paired layouts with four concurrent workers. Its [results](ONLINE_CONTROLLED_RECOVERY_RESULTS.md)
-show equal 4/5 success, shorter average first requests and fewer Full image
-attachments, but higher Full total token use and no material completion-time gain.
-
-[Constraint-aware online development](ONLINE_REASONING_STATE_DEVELOPMENT.md) records
-compact support-chain evidence, relevant retry gates, remaining physical failures,
-and a correction for unnamed robot collision meshes in future private evaluation.
-Earlier online result reports include the resulting retrospective audit limitation.
-
-The [explicit-target online comparison](ONLINE_TARGET_BINDING_STUDY.md) completed
-five paired layouts with four workers and no resets within episodes. Its
-[results and editable figure](ONLINE_TARGET_BINDING_RESULTS.md) report Full 3/5
-versus Base 0/5 at 180 seconds, with fewer image attachments but higher recorded
-token use. Subsequent explicit-target budgets are 200 seconds; historical outcomes
-remain unchanged.
-
-[Compact geometric text](ONLINE_COMPACT_GEOMETRY_TEXT.md) is an opt-in development
-adapter with exact metadata reconstruction. Offline replay reduced Full's newly
-supplied prompt bytes by 21.1%. A subsequent live pair at 200 seconds succeeded in
-both conditions and used 6.7% fewer compact tokens, with no timing improvement;
-this remains development evidence on one reused scene.
-
-The completed [200-second geometric-text study](ONLINE_COMPACT_TOWER_200_STUDY.md)
-ran five new paired layouts with four workers. Its
-[results and paper figure](ONLINE_COMPACT_TOWER_200_RESULTS.md) report Full 4/5
-versus Base 2/5, 11.1% lower mean capped time and fewer images, but more recorded
-tokens and no mean per-request speedup. All ten outcomes and audits are retained.
-
-The [contract-only stacking follow-up](THREE_CUBE_CONTRACT_ONLY_STUDY.md) removes
-executor implementation from both actor prompts and registers all 800 evaluations
-before training. The source-disclosed study remains separate evidence.
-
-The [ring-over-peg training pilot](RING_PEG_SINGLE_POLICY.md) adds sensor-derived
-inner/outer boundaries and robot-only pad targeting for one Full policy chain.
-Development successes are separate from training and reserved evaluation.
-
-The [paired ring study](RING_PEG_COMPARISON_STUDY.md) compares five Base/Full
-training pairs on 100 shared reserved layouts, evaluating every revision. Its
-registered recovery preserves interrupted requests and records the HTTP transport
-amendment. See the [timeout diagnosis](RING_PEG_TIMEOUT_DIAGNOSIS.md) for the
-evidence and limits of that repair.
-
-The separate [online tower-relocation study](ONLINE_TOWER_RELOCATION_STUDY.md)
-tests rearranging an existing column with shared skills, temporary placements,
-and recovery in one continuing scene. Its development checks precede a fixed
-five-pair, 200-second registration.
+Frozen sources, protocols, and original results remain unchanged. See `AGENTS.md`
+for campaign-specific execution constraints; reporting does not restart a study.

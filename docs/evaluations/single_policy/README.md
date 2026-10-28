@@ -1,6 +1,6 @@
 # Single-policy results and data
 
-[Combined experiment index](../README.md) · [Online results and data](../online/README.md)
+[Combined experiment index](../README.md) · [Online results and data](../online_50/README.md)
 
 This is the consolidated export for the completed contract-only Bridge, contract-only
 three-cube Stacking, and paired Ring studies. Start with the

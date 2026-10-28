@@ -5,6 +5,9 @@ not current launch instructions. Start with [current documentation](../README.md
 Original document locations and hashes are recorded in `manifest.json`; its source
 commit provides the original layout. Historical commands retain their original paths.
 
+The [early geometry-training reports](early_geometry/README.md) collect seven later
+training and test reports, with a separate relocation manifest in that directory.
+
 - [BOUNDED_GEOMETRY_MEMORY](BOUNDED_GEOMETRY_MEMORY.md)
 - [COLUMN_EVALUATION_PROTOCOL](COLUMN_EVALUATION_PROTOCOL.md)
 - [COLUMN_GEOMETRY](COLUMN_GEOMETRY.md)

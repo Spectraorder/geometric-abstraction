@@ -95,7 +95,7 @@ Use this entry point for every phase, including `evaluate`. The standard full-cu
 evaluation still accounts for 160 reserved slots; training-selected-only testing
 requires its own 40-slot registration. No prior actor session may be resumed with
 the changed prompt or starter. Preserve the completed
-[neutral-start test results](UNSEEDED_GEOMETRY_TEST_RESULTS.md) as historical evidence.
+[neutral-start test results](history/early_geometry/UNSEEDED_GEOMETRY_TEST_RESULTS.md) as historical evidence.
 
 ## Authorized five-round run
 
@@ -119,7 +119,7 @@ The five-round run has completed and passed audit. Both arms selected R4: Base
 3/5 and Full 4/5. The previous assignment/status-type errors did not recur, but
 both R5 sources exceeded the 30000-character limit. Accounting retains 50 executed
 training rollouts and ten invalid candidate slots; no reserved evaluation was run.
-See [the completed five-round training report](INTERFACE_CONTRACT_TRAINING_RESULTS.md)
+See [the completed five-round training report](history/early_geometry/INTERFACE_CONTRACT_TRAINING_RESULTS.md)
 for complete curves, source-length failures and verified resource use. The earlier
 statement that no campaign had launched describes the configuration-development phase.
 
@@ -183,5 +183,5 @@ paired initial scenes/images and the unchanged training/actor history.
 
 The selected-policy evaluation completed and passed audit: Base R4 scored 12/20,
 Full R4 scored 8/20. All 40 rollouts executed in 84.08 seconds with no new model
-calls. See [the test report](INTERFACE_CONTRACT_TEST_RESULTS.md). Earlier statements
+calls. See [the test report](history/early_geometry/INTERFACE_CONTRACT_TEST_RESULTS.md). Earlier statements
 about unstarted reserved testing describe the training-only phase.

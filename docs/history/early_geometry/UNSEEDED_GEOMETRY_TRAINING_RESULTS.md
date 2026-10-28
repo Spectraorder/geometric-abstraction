@@ -89,5 +89,5 @@ Evidence lives in `outputs/geometry_unseeded_01/`:
 
 The 20 registered reserved layouts were subsequently evaluated; see the
 [test results](UNSEEDED_GEOMETRY_TEST_RESULTS.md). See the
-[experiment configuration](UNSEEDED_GEOMETRY_EXPERIMENT.md) for the task-goal
+[experiment configuration](../../UNSEEDED_GEOMETRY_EXPERIMENT.md) for the task-goal
 contract, retained capabilities and evaluation budget.
