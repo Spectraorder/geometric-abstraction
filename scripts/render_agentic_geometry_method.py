@@ -77,9 +77,11 @@ def render(frame_path, output, *, overwrite=False):
 
     # The source sensor pixels are displayed without a fitted overlay.
     image_ax = fig.add_axes([.14/width, 1.12/height, 1.45/width, 1.64/height])
-    image_ax.imshow(rgb, interpolation='nearest', aspect='auto')
-    image_ax.set_xlim(111, 252)
-    image_ax.set_ylim(178, 18)
+    # Crop bounds are defined on the 320x240 sensor grid and scale with frame size.
+    scale = rgb.shape[1] / 320
+    image_ax.imshow(rgb, interpolation='nearest' if scale == 1 else 'antialiased', aspect='auto')
+    image_ax.set_xlim(111*scale, 252*scale)
+    image_ax.set_ylim(178*scale, 18*scale)
     image_ax.axis('off')
     ax.add_patch(Rectangle((.14, 1.12), 1.45, 1.64, fill=False,
                            edgecolor=INK, linewidth=.55))
@@ -173,7 +175,8 @@ def render(frame_path, output, *, overwrite=False):
                 canvas.y0 <= extent.y0 and extent.y1 <= canvas.y1):
             raise ValueError('Text lies outside the figure: '+artist.get_text())
     for suffix in ('.pdf', '.svg'):
-        fig.savefig(output.with_suffix(suffix), facecolor='white')
+        # Vector exports resample embedded images at the save dpi; match the PNG.
+        fig.savefig(output.with_suffix(suffix), dpi=450, facecolor='white')
         if suffix == '.svg':
             svg_path = output.with_suffix(suffix)
             svg_path.write_text('\n'.join(line.rstrip() for line in svg_path.read_text().splitlines())+'\n')
@@ -183,7 +186,7 @@ def render(frame_path, output, *, overwrite=False):
         'purpose': 'Paper methodology illustration, not an experimental result',
         'source_sensor': str(frame_path.relative_to(ROOT)),
         'source_sha256': digest(frame_path), 'observation_time': stamp,
-        'panel_a': 'Recorded preflight RGB; crop x=111..252, y=18..178; calibrated depth is available but not pictured',
+        'panel_a': 'Side RGB at reset; crop x=111..252, y=18..178 on the 320x240 grid, scaled to frame size; calibrated depth is available but not pictured',
         'panels_b_c_d': 'Schematic geometry, illustrative metric values, and conceptual interfaces; not fitted to panel (a)',
         'illustrative_object': 'green', 'illustrative_support': 'blue',
         'center_m': [.12, -.01, .10], 'desired_center_m': [.10, .02, .06],

@@ -1,9 +1,9 @@
 {
   "purpose": "Paper methodology illustration, not an experimental result",
-  "source_sensor": "outputs/geometry_cube_stack_preflight_02/basic/geometry_preflight/trials/seed_2027100302/camera_000.npz",
-  "source_sha256": "5aefc6614b3b362f3fc2c56ad17e9c951d83286ef901b018052480928c71ebb0",
+  "source_sensor": "docs/media/method_panel_a_frame.npz",
+  "source_sha256": "b864f37293bad47705e6e941c7f6473dbeab7c72624266ad4d994d1c0cfbd049",
   "observation_time": 0.6500000000000005,
-  "panel_a": "Recorded preflight RGB; crop x=111..252, y=18..178; calibrated depth is available but not pictured",
+  "panel_a": "Side RGB at reset; crop x=111..252, y=18..178 on the 320x240 grid, scaled to frame size; calibrated depth is available but not pictured",
   "panels_b_c_d": "Schematic geometry, illustrative metric values, and conceptual interfaces; not fitted to panel (a)",
   "illustrative_object": "green",
   "illustrative_support": "blue",
@@ -24,10 +24,10 @@
   ],
   "solid_paths": "Shared geometry interface, language-model reasoning, and local execution",
   "dashed_paths": "Continuous online execution and reuse of prior policy experience",
-  "source_script_sha256": "674f39c886093bc3a576ad6a278d578d4162ec960bb7769bd461a49d461500f6",
+  "source_script_sha256": "0935762261d46c110d2cd5cd675ab520f2cbb34bdac7b39a477cf5eb16f34eb0",
   "outputs": {
-    "agentic_geometry_method.png": "41fcf88f2c9c0a5e9e415796c9f0451d208e48d0e6a6362700ec164776e12e38",
-    "agentic_geometry_method.pdf": "4453aeff578327bd82362f9391567cd8602e6dea01a311a26c81629390f76941",
-    "agentic_geometry_method.svg": "62d5ccda75d8d5f9a0e9bb9560463b86133dc98abdef6d71f96296f16f973b25"
+    "agentic_geometry_method.png": "c8d0176b5b6009681b8dab41c1e771b433fe01bf8f974d772d39a9b0b5c0e1cc",
+    "agentic_geometry_method.pdf": "443b1721c5f640799c234394102f150ccb5fa0c8fa72153ea13a0c836018bf41",
+    "agentic_geometry_method.svg": "b102644b72cc944b81e71b4195df775c3c2254f44cc8be684cc4608d03746163"
   }
 }
