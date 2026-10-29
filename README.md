@@ -4,18 +4,17 @@
 
 **CoRL 2026 Workshop on Agentic Robotics** (Poster)
 
-[Yihang Liu](mailto:yihang.liu.pc@gmail.com)<sup>1</sup> &nbsp;·&nbsp;
-[Yiming Chen](mailto:ychen3868@gatech.edu)<sup>2</sup> &nbsp;·&nbsp;
-[Mingzhe Zheng](mailto:mzhengar@connect.ust.hk)<sup>3</sup>
+[Yihang Liu](https://yukarifan.github.io/)<sup>1</sup> &nbsp;·&nbsp;
+[Yiming Chen](http://yimingchen.net/)<sup>2</sup> &nbsp;·&nbsp;
+[Mingzhe Zheng](https://mingzhezheng.homes/)<sup>3</sup>
 
 <sup>1</sup>Independent Researcher &nbsp;&nbsp;
 <sup>2</sup>Georgia Institute of Technology &nbsp;&nbsp;
 <sup>3</sup>The Hong Kong University of Science and Technology
 
-<!-- TODO: replace the placeholder links once they are public. -->
-[**Paper**](#) &nbsp;|&nbsp; [**arXiv**](#) &nbsp;|&nbsp; [**Project page**](#) &nbsp;|&nbsp; [**Videos**](docs/evaluations/videos/README.md) &nbsp;|&nbsp; [**BibTeX**](#citation)
+[**Project page**](https://geometric-abstraction.github.io) &nbsp;|&nbsp; [**Videos**](https://geometric-abstraction.github.io/#videos) &nbsp;|&nbsp; [**BibTeX**](#citation)
 
-<img src="docs/media/agentic_geometry_method.png" width="90%" alt="Geometric abstraction between perception and reasoning">
+<img src="docs/media/agentic_geometry_method.svg" width="90%" alt="Geometric abstraction between perception and reasoning">
 
 </div>
 
@@ -120,6 +119,10 @@ uv run python scripts/render_paper_task_schematics.py      # task and workflow i
 uv run python scripts/render_agentic_geometry_method.py    # method figure
 ```
 
+**Record HD demo rollouts** of all six tasks with the repository's controllers. The
+commands are in [`docs/media/demo_videos/`](docs/media/demo_videos/README.md), next to
+the videos shown on the project page.
+
 ## Results
 
 ### Single-policy acquisition (paper Table 2)
@@ -138,24 +141,24 @@ using training-only policy retention.
 
 ### Continuous online execution (paper Table 3)
 
-Five paired layouts per task, 200 s budget, no reset. Timeouts count as 200 s.
+50 paired layouts per task (300 episodes), 200 s budget, no reset. Timeouts count
+as 200 s. Both conditions use audited repeats for nine runtime-flagged pairs.
 
 | Task | Condition | Success | Time (s) | Model (s) | Tokens (k) | Requests | Images |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Bridge-tower | Base | 2/5 | 195.9 | 46.2 | 101.4 | 7.2 | 6.6 |
-|  | **Full** | **4/5** | **174.1** | 45.7 | 107.8 | 6.4 | **4.0** |
-| Ring-on-peg | Base | 5/5 | 119.8 | 94.4 | 233.8 | 12.6 | 12.4 |
-|  | **Full** | 5/5 | **74.2** | **41.8** | **93.0** | **6.6** | **2.0** |
-| Tower relocation | Base | 2/5 | 190.6 | 80.0 | 181.4 | 11.4 | 11.0 |
-|  | **Full** | **3/5** | **164.3** | **50.6** | **151.2** | **8.2** | **4.0** |
+| Bridge-tower | Base | 12/50 | 198.0 | 55.5 | 112.5 | 7.88 | 7.50 |
+|  | **Full** | **28/50** | **185.3** | **51.8** | 129.5 | **7.32** | **4.28** |
+| Ring-on-peg | Base | 49/50 | 115.8 | 90.0 | 214.5 | 11.88 | 10.94 |
+|  | **Full** | **50/50** | **77.2** | **45.6** | **101.3** | **6.90** | **2.72** |
+| Tower relocation | Base | 15/50 | 186.4 | 80.3 | 185.9 | 11.58 | 11.34 |
+|  | **Full** | **42/50** | **139.2** | **31.7** | **88.3** | **5.36** | **3.00** |
 
-On online ring-on-peg, Full reduces mean completion time by **38.0%**, model-request
-time by **55.7%**, and recorded tokens by **60.2%**.
+On online ring-on-peg, Full reduces mean completion time by **33.3%**, model-request
+time by **49.4%**, and recorded tokens by **52.8%**.
 
-**Extended evaluation.** After the paper experiments, each online task was extended
-to **50 paired layouts** (300 episodes). Those results, figures, and audit trail are
-in [`docs/evaluations/online_50/`](docs/evaluations/online_50/README.md). The paper's
-five-pair exports are unchanged in
+The 50-pair results, figures, replacement manifest, and audit trail are in
+[`docs/evaluations/online_50/`](docs/evaluations/online_50/README.md). The original
+five-pair pilot exports are unchanged in
 [`docs/evaluations/online/`](docs/evaluations/online/README.md).
 
 All tables are exported as CSV/JSON with publication figures (PDF, PNG, editable
@@ -170,8 +173,8 @@ make no model requests:
 
 ```bash
 uv run python scripts/export_single_policy_results.py          # -> docs/evaluations/single_policy/
-uv run python scripts/export_online_results.py                 # -> docs/evaluations/online/     (paper, 5 pairs)
-uv run python scripts/export_online_extension_results.py       # -> docs/evaluations/online_50/  (50 pairs)
+uv run python scripts/export_online_results.py                 # -> docs/evaluations/online/     (original 5-pair pilot)
+uv run python scripts/export_online_extension_results.py       # -> docs/evaluations/online_50/  (paper, 50 pairs)
 uv run python scripts/export_online_extension_results.py --check   # audit only, writes nothing
 ```
 
