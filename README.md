@@ -14,7 +14,7 @@
 
 [**Project page**](https://geometric-abstraction.github.io) &nbsp;|&nbsp; [**Videos**](https://geometric-abstraction.github.io/#videos) &nbsp;|&nbsp; [**BibTeX**](#citation)
 
-<img src="docs/media/agentic_geometry_method.svg" width="90%" alt="Geometric abstraction between perception and reasoning">
+<img src="docs/media/agentic_geometry_method.png" width="90%" alt="Geometric abstraction between perception and reasoning">
 
 </div>
 

@@ -24,10 +24,10 @@
   ],
   "solid_paths": "Shared geometry interface, language-model reasoning, and local execution",
   "dashed_paths": "Continuous online execution and reuse of prior policy experience",
-  "source_script_sha256": "0935762261d46c110d2cd5cd675ab520f2cbb34bdac7b39a477cf5eb16f34eb0",
+  "source_script_sha256": "e7d899763056de858edee0fca85001362387e38534f87801468589b056277a45",
   "outputs": {
-    "agentic_geometry_method.png": "c8d0176b5b6009681b8dab41c1e771b433fe01bf8f974d772d39a9b0b5c0e1cc",
-    "agentic_geometry_method.pdf": "443b1721c5f640799c234394102f150ccb5fa0c8fa72153ea13a0c836018bf41",
-    "agentic_geometry_method.svg": "b102644b72cc944b81e71b4195df775c3c2254f44cc8be684cc4608d03746163"
+    "agentic_geometry_method.png": "b54aff16bc3b35b64d7c4044be32a903b55b5c2973cc078adce9b934509517af",
+    "agentic_geometry_method.pdf": "64ebbdc715ece810a62502dd0ec59f26561b427f2e0f56ac2f25d29ba6ef6189",
+    "agentic_geometry_method.svg": "abd5701336711b937f67f0bc551d770bf023468dbc83ccf0f72aead53e9ab173"
   }
 }

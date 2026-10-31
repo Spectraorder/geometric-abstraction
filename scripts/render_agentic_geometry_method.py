@@ -95,7 +95,8 @@ def render(frame_path, output, *, overwrite=False):
         [2.07, 1.47], [2.83, 1.47], [2.83, 2.21], [2.07, 2.21],
         [2.34, 1.73], [3.10, 1.73], [3.10, 2.47], [2.34, 2.47],
     ])
-    ax.add_patch(Polygon(vertices[[0, 1, 2, 3]], facecolor=CREAM,
+    # Highlight the labeled bottom face; it is hidden in this view, so the cube reads as transparent.
+    ax.add_patch(Polygon(vertices[[0, 1, 5, 4]], facecolor=CREAM,
                          edgecolor='none'))
     ax.add_patch(Polygon(vertices[[3, 2, 6, 7]], facecolor='#f6f7f7',
                          edgecolor='none'))
