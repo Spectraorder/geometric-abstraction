@@ -44,8 +44,11 @@ We evaluate the interface on a simulated SO-100 arm in two settings:
 | **Single-policy acquisition** | Revises an executable Python policy between reset rollouts (R0–R3); no LLM calls during execution | Bridge + cylinder, three-cube stacking, ring-on-peg |
 | **Continuous online execution** | Observes, reasons, and acts in one scene until success or a 200 s timeout, with no reset after failures | Bridge-tower, ring-on-peg, tower relocation |
 
-**Base** and **Full** agents share the task specification, calibrated RGB-D access,
-skills, and action interface. Full additionally receives the geometric abstraction.
+**Pixel reasoning** and **geometric abstraction** agents share the task specification,
+calibrated RGB-D access, skills, and action interface. Pixel reasoning works from the
+camera images; geometric abstraction additionally receives grounded geometric
+references and textual checkpoints. The code, data exports, and study reports call
+these conditions **Base** and **Full**.
 Neither agent sees simulator object poses, dimensions, contacts, or evaluator state.
 
 ## Installation
@@ -132,12 +135,12 @@ using training-only policy retention.
 
 | Task | Condition | R1 | R2 | R3 | Tokens R1–R3 (k) |
 | --- | --- | ---: | ---: | ---: | ---: |
-| Bridge + cylinder | Base | 21.2 ± 22.0 | 53.0 ± 11.7 | 56.0 ± 9.1 | 125.7 |
-|  | **Full** | **45.2 ± 25.4** | **63.4 ± 5.9** | **65.4 ± 3.5** | 127.0 |
-| Three-cube stacking | Base | 17.2 ± 29.4 | 53.6 ± 26.2 | 70.8 ± 26.5 | 138.1 |
-|  | **Full** | **57.2 ± 32.6** | **72.2 ± 7.2** | **81.4 ± 12.3** | **123.4** |
-| Ring-on-peg | Base | 0.0 | 0.0 | 0.0 | 166.8 |
-|  | **Full** | 0.0 | 0.0 | **38.0 ± 34.9** | **163.1** |
+| Bridge + cylinder | Pixel reasoning | 21.2 ± 22.0 | 53.0 ± 11.7 | 56.0 ± 9.1 | 125.7 |
+|  | **Geometric abstraction** | **45.2 ± 25.4** | **63.4 ± 5.9** | **65.4 ± 3.5** | 127.0 |
+| Three-cube stacking | Pixel reasoning | 17.2 ± 29.4 | 53.6 ± 26.2 | 70.8 ± 26.5 | 138.1 |
+|  | **Geometric abstraction** | **57.2 ± 32.6** | **72.2 ± 7.2** | **81.4 ± 12.3** | **123.4** |
+| Ring-on-peg | Pixel reasoning | 0.0 | 0.0 | 0.0 | 166.8 |
+|  | **Geometric abstraction** | 0.0 | 0.0 | **38.0 ± 34.9** | **163.1** |
 
 ### Continuous online execution (paper Table 3)
 
@@ -146,14 +149,14 @@ as 200 s. Both conditions use audited repeats for nine runtime-flagged pairs.
 
 | Task | Condition | Success | Time (s) | Model (s) | Tokens (k) | Requests | Images |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Bridge-tower | Base | 12/50 | 198.0 | 55.5 | 112.5 | 7.88 | 7.50 |
-|  | **Full** | **28/50** | **185.3** | **51.8** | 129.5 | **7.32** | **4.28** |
-| Ring-on-peg | Base | 49/50 | 115.8 | 90.0 | 214.5 | 11.88 | 10.94 |
-|  | **Full** | **50/50** | **77.2** | **45.6** | **101.3** | **6.90** | **2.72** |
-| Tower relocation | Base | 15/50 | 186.4 | 80.3 | 185.9 | 11.58 | 11.34 |
-|  | **Full** | **42/50** | **139.2** | **31.7** | **88.3** | **5.36** | **3.00** |
+| Bridge-tower | Pixel reasoning | 12/50 | 198.0 | 55.5 | 112.5 | 7.88 | 7.50 |
+|  | **Geometric abstraction** | **28/50** | **185.3** | **51.8** | 129.5 | **7.32** | **4.28** |
+| Ring-on-peg | Pixel reasoning | 49/50 | 115.8 | 90.0 | 214.5 | 11.88 | 10.94 |
+|  | **Geometric abstraction** | **50/50** | **77.2** | **45.6** | **101.3** | **6.90** | **2.72** |
+| Tower relocation | Pixel reasoning | 15/50 | 186.4 | 80.3 | 185.9 | 11.58 | 11.34 |
+|  | **Geometric abstraction** | **42/50** | **139.2** | **31.7** | **88.3** | **5.36** | **3.00** |
 
-On online ring-on-peg, Full reduces mean completion time by **33.3%**, model-request
+On online ring-on-peg, geometric abstraction reduces mean completion time by **33.3%**, model-request
 time by **49.4%**, and recorded tokens by **52.8%**.
 
 The 50-pair results, figures, replacement manifest, and audit trail are in
@@ -216,7 +219,7 @@ See the [script guide](scripts/README.md) for all entry points.
 ```
 geometric-abstraction/
 ├── src/aspire_so100/   # RGB-D perception, geometric state, symbolic references, MuJoCo integration
-├── policies/           # Task controllers, starters, and policy sessions (Base / Full interfaces)
+├── policies/           # Task controllers, starters, and policy sessions (pixel reasoning / geometric abstraction interfaces)
 ├── scripts/            # Experiment drivers, online agent loops, audits, exporters, renderers
 │   └── online_reporting/   # Evidence validation, statistics, and plotting for the online report
 ├── prototypes/         # Opt-in geometry extensions
