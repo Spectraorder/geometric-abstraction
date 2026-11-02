@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-09-28T05:12:35.208522</dc:date>
+    <dc:date>2026-11-02T14:40:57.526491</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -402,29 +402,60 @@ z
    <g id="text-18">
     <text style="font-size: 10.1px; font-family: 'DejaVu Sans Mono'; text-anchor: start; fill: #24333d" x="742.32" y="150.223633" transform="rotate(-0 742.32 150.223633)">center = (x, y, z)</text>
    </g>
-   <g id="geometry-face-1">
-    <path d="M 898.56 95.616
-L 924.48 83.52
-L 950.4 95.616
-L 924.48 108.288
-z
-" clip-path="url(#p4901f87c75)" style="fill: #dcebe9; stroke: #286f73; stroke-linejoin: miter"/>
+   <g id="geometry-edge-1">
+    <path d="M 898.56 100.8
+L 936 100.8
+" clip-path="url(#p4901f87c75)" style="fill: none; stroke: #286f73; stroke-linecap: round"/>
    </g>
-   <g id="geometry-face-2">
-    <path d="M 898.56 95.616
-L 924.48 108.288
-L 924.48 141.12
-L 898.56 128.448
-z
-" clip-path="url(#p4901f87c75)" style="fill: #fafcfc; stroke: #286f73; stroke-linejoin: miter"/>
+   <g id="geometry-edge-2">
+    <path d="M 936 100.8
+L 936 138.24
+" clip-path="url(#p4901f87c75)" style="fill: none; stroke: #286f73; stroke-linecap: round"/>
    </g>
-   <g id="geometry-face-3">
-    <path d="M 924.48 108.288
-L 950.4 95.616
-L 950.4 128.448
-L 924.48 141.12
-z
-" clip-path="url(#p4901f87c75)" style="fill: #e9f2f1; stroke: #286f73; stroke-linejoin: miter"/>
+   <g id="geometry-edge-3">
+    <path d="M 936 138.24
+L 898.56 138.24
+" clip-path="url(#p4901f87c75)" style="fill: none; stroke: #286f73; stroke-linecap: round"/>
+   </g>
+   <g id="geometry-edge-4">
+    <path d="M 898.56 138.24
+L 898.56 100.8
+" clip-path="url(#p4901f87c75)" style="fill: none; stroke: #286f73; stroke-linecap: round"/>
+   </g>
+   <g id="geometry-edge-5">
+    <path d="M 898.56 100.8
+L 915.84 83.52
+" clip-path="url(#p4901f87c75)" style="fill: none; stroke: #286f73; stroke-linecap: round"/>
+   </g>
+   <g id="geometry-edge-6">
+    <path d="M 915.84 83.52
+L 953.28 83.52
+" clip-path="url(#p4901f87c75)" style="fill: none; stroke: #286f73; stroke-linecap: round"/>
+   </g>
+   <g id="geometry-edge-7">
+    <path d="M 953.28 83.52
+L 936 100.8
+" clip-path="url(#p4901f87c75)" style="fill: none; stroke: #286f73; stroke-linecap: round"/>
+   </g>
+   <g id="geometry-edge-8">
+    <path d="M 953.28 83.52
+L 953.28 120.96
+" clip-path="url(#p4901f87c75)" style="fill: none; stroke: #286f73; stroke-linecap: round"/>
+   </g>
+   <g id="hidden-edge-1">
+    <path d="M 915.84 120.96
+L 915.84 83.52
+" clip-path="url(#p4901f87c75)" style="fill: none; stroke-dasharray: 2.7,2.7; stroke-dashoffset: 0; stroke: #286f73; stroke-width: 0.9"/>
+   </g>
+   <g id="hidden-edge-2">
+    <path d="M 915.84 120.96
+L 953.28 120.96
+" clip-path="url(#p4901f87c75)" style="fill: none; stroke-dasharray: 2.7,2.7; stroke-dashoffset: 0; stroke: #286f73; stroke-width: 0.9"/>
+   </g>
+   <g id="hidden-edge-3">
+    <path d="M 915.84 120.96
+L 898.56 138.24
+" clip-path="url(#p4901f87c75)" style="fill: none; stroke-dasharray: 2.7,2.7; stroke-dashoffset: 0; stroke: #286f73; stroke-width: 0.9"/>
    </g>
    <g id="line-11">
     <path d="M 742.32 172.8
@@ -545,20 +576,20 @@ z
 " clip-path="url(#p4901f87c75)" style="fill: #ffffff; stroke: #24333d; stroke-width: 1.1; stroke-linejoin: miter"/>
    </g>
    <g id="highlighted-edge-1">
-    <path d="M 924.48 141.12
-L 950.4 128.448
+    <path d="M 953.28 120.96
+L 936 138.24
 " clip-path="url(#p4901f87c75)" style="fill: none; stroke: #286f73; stroke-width: 2.5; stroke-linecap: round"/>
    </g>
    <g id="point-9">
-    <path d="M 924.48 113.184
-C 925.014649 113.184 925.527473 113.396418 925.905527 113.774473
-C 926.283582 114.152527 926.496 114.665351 926.496 115.2
-C 926.496 115.734649 926.283582 116.247473 925.905527 116.625527
-C 925.527473 117.003582 925.014649 117.216 924.48 117.216
-C 923.945351 117.216 923.432527 117.003582 923.054473 116.625527
-C 922.676418 116.247473 922.464 115.734649 922.464 115.2
-C 922.464 114.665351 922.676418 114.152527 923.054473 113.774473
-C 923.432527 113.396418 923.945351 113.184 924.48 113.184
+    <path d="M 925.92 108.864
+C 926.454649 108.864 926.967473 109.076418 927.345527 109.454473
+C 927.723582 109.832527 927.936 110.345351 927.936 110.88
+C 927.936 111.414649 927.723582 111.927473 927.345527 112.305527
+C 926.967473 112.683582 926.454649 112.896 925.92 112.896
+C 925.385351 112.896 924.872527 112.683582 924.494473 112.305527
+C 924.116418 111.927473 923.904 111.414649 923.904 110.88
+C 923.904 110.345351 924.116418 109.832527 924.494473 109.454473
+C 924.872527 109.076418 925.385351 108.864 925.92 108.864
 z
 " clip-path="url(#p4901f87c75)" style="fill: #a47a73; stroke: #a47a73; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>

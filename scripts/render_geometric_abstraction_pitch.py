@@ -83,17 +83,23 @@ def render(output, dpi=280):
         line([(x+.43,y+.19),(x+.49,y+.255),(x+.47,y+.315)],color,1.1)
 
     def cube(x,y,s=.80):
-        points = [(x,y+.21*s),(x+.45*s,y),(x+.90*s,y+.21*s),
-                  (x+.45*s,y+.43*s),(x,y+.78*s),(x+.45*s,y+s),
-                  (x+.90*s,y+.78*s)]
-        for indices,fill in [((0,1,2,3),"#DCEBE9"),((0,3,5,4),"#FAFCFC"),
-                             ((3,2,6,5),"#E9F2F1")]:
-            artist = Polygon([points[i] for i in indices],edgecolor=ACCENT,
-                             facecolor=fill,lw=1.0,zorder=3)
-            ax.add_patch(artist)
-            identify(artist,"geometry-face")
-        line([points[5],points[6]],ACCENT,2.5,zorder=4,key="highlighted-edge")
-        circle(x+.45*s,y+.55*s,.028,BASE,BASE,lw=.8)
+        # Hollow oblique cube (screen y points down): square front face, back face
+        # offset up-right. Unlike an isometric view, the projected center stays clear
+        # of every edge.
+        f, d = .65*s, .30*s
+        front = {"tl":(x,y+d),"tr":(x+f,y+d),"bl":(x,y+d+f),"br":(x+f,y+d+f)}
+        back = {k:(px+d,py-d) for k,(px,py) in front.items()}
+        visible = [(front["tl"],front["tr"]),(front["tr"],front["br"]),(front["br"],front["bl"]),
+                   (front["bl"],front["tl"]),(front["tl"],back["tl"]),(back["tl"],back["tr"]),
+                   (back["tr"],front["tr"]),(back["tr"],back["br"])]
+        hidden = [(back["bl"],back["tl"]),(back["bl"],back["br"]),(back["bl"],front["bl"])]
+        for a,b in visible:
+            line([a,b],ACCENT,1.0,zorder=3,key="geometry-edge")
+        for a,b in hidden:
+            line([a,b],ACCENT,.9,dashed=True,zorder=3,key="hidden-edge")
+        line([back["br"],front["br"]],ACCENT,2.5,zorder=4,key="highlighted-edge")
+        corners = list(front.values())+list(back.values())
+        circle(sum(p[0] for p in corners)/8,sum(p[1] for p in corners)/8,.028,BASE,BASE,lw=.8)
 
     # Aligned lanes isolate the change from repeated images to geometric text.
     text(.45,.38,"Repeated visual reasoning",size=13.2,color=BASE,weight="bold")
