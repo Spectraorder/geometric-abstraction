@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-02T14:40:57.526491</dc:date>
+    <dc:date>2026-11-02T14:50:48.837586</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -442,6 +442,11 @@ L 936 100.8
 L 953.28 120.96
 " clip-path="url(#p4901f87c75)" style="fill: none; stroke: #286f73; stroke-linecap: round"/>
    </g>
+   <g id="geometry-edge-9">
+    <path d="M 953.28 120.96
+L 936 138.24
+" clip-path="url(#p4901f87c75)" style="fill: none; stroke: #286f73; stroke-linecap: round"/>
+   </g>
    <g id="hidden-edge-1">
     <path d="M 915.84 120.96
 L 915.84 83.52
@@ -574,11 +579,6 @@ C 621.576 217.188972 621.818764 216.602888 622.250826 216.170826
 C 622.682888 215.738764 623.268972 215.496 623.88 215.496
 z
 " clip-path="url(#p4901f87c75)" style="fill: #ffffff; stroke: #24333d; stroke-width: 1.1; stroke-linejoin: miter"/>
-   </g>
-   <g id="highlighted-edge-1">
-    <path d="M 953.28 120.96
-L 936 138.24
-" clip-path="url(#p4901f87c75)" style="fill: none; stroke: #286f73; stroke-width: 2.5; stroke-linecap: round"/>
    </g>
    <g id="point-9">
     <path d="M 925.92 108.864

@@ -91,13 +91,12 @@ def render(output, dpi=280):
         back = {k:(px+d,py-d) for k,(px,py) in front.items()}
         visible = [(front["tl"],front["tr"]),(front["tr"],front["br"]),(front["br"],front["bl"]),
                    (front["bl"],front["tl"]),(front["tl"],back["tl"]),(back["tl"],back["tr"]),
-                   (back["tr"],front["tr"]),(back["tr"],back["br"])]
+                   (back["tr"],front["tr"]),(back["tr"],back["br"]),(back["br"],front["br"])]
         hidden = [(back["bl"],back["tl"]),(back["bl"],back["br"]),(back["bl"],front["bl"])]
         for a,b in visible:
             line([a,b],ACCENT,1.0,zorder=3,key="geometry-edge")
         for a,b in hidden:
             line([a,b],ACCENT,.9,dashed=True,zorder=3,key="hidden-edge")
-        line([back["br"],front["br"]],ACCENT,2.5,zorder=4,key="highlighted-edge")
         corners = list(front.values())+list(back.values())
         circle(sum(p[0] for p in corners)/8,sum(p[1] for p in corners)/8,.028,BASE,BASE,lw=.8)
 
