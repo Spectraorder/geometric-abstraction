@@ -12,7 +12,7 @@
 <sup>2</sup>Georgia Institute of Technology &nbsp;&nbsp;
 <sup>3</sup>The Hong Kong University of Science and Technology
 
-[**Project page**](https://geometric-abstraction.github.io) &nbsp;|&nbsp; [**Videos**](https://geometric-abstraction.github.io/#videos) &nbsp;|&nbsp; [**BibTeX**](#citation)
+[**arXiv**](https://arxiv.org/abs/2611.05058) &nbsp;|&nbsp; [**Project page**](https://geometric-abstraction.github.io) &nbsp;|&nbsp; [**Videos**](https://geometric-abstraction.github.io/#videos) &nbsp;|&nbsp; [**BibTeX**](#citation)
 
 <img src="docs/media/agentic_geometry_method.png" width="90%" alt="Geometric abstraction between perception and reasoning">
 
@@ -249,7 +249,9 @@ If you find this work useful, please cite:
   title     = {Do Agentic Policies Need to Look at Every Step? Geometric Abstraction for Reasoning and Action},
   author    = {Liu, Yihang and Chen, Yiming and Zheng, Mingzhe},
   booktitle = {CoRL 2026 Workshop on Agentic Robotics},
-  year      = {2026}
+  year      = {2026},
+  eprint    = {2611.05058},
+  archivePrefix = {arXiv}
 }
 ```
 
